@@ -7,14 +7,18 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: system-ui, -apple-system, sans-serif; background-color: #f0f4f8; color: #333; padding: 20px 15px; direction: rtl; }
-        .container { max-width: 500px; margin: 0 auto; }
+        .container { max-width: 600px; margin: 0 auto; }
         .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
         .back-btn { text-decoration: none; color: #10b981; font-weight: bold; font-size: 14px; background: #fff; padding: 8px 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         h1 { font-size: 22px; color: #1e293b; }
-        .article-card { background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .article-title { font-size: 18px; color: #1e293b; margin-bottom: 8px; }
-        .article-date { font-size: 12px; color: #94a3b8; margin-bottom: 12px; }
-        .article-content { font-size: 14px; color: #475569; line-height: 1.7; }
+        .article-card { background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .article-title { font-size: 20px; color: #1e293b; margin-bottom: 8px; line-height: 1.4; }
+        .article-date { font-size: 12px; color: #94a3b8; margin-bottom: 15px; }
+        .article-img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 12px; margin: 10px 0 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .article-content { font-size: 15px; color: #334155; line-height: 1.8; text-align: justify; }
+        .article-content p { margin-bottom: 12px; }
+        .section-title { font-size: 17px; color: #10b981; margin: 20px 0 10px; font-weight: bold; border-right: 4px solid #10b981; padding-right: 8px; }
+        .note { font-size: 13px; color: #64748b; background: #f8fafc; padding: 12px; border-radius: 8px; margin-top: 15px; border: 1px solid #e2e8f0; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -24,13 +28,50 @@
             <a href="index.html" class="back-btn">← الرئيسية</a>
         </div>
 
-        <!-- مقالة أولى -->
+        <!-- المقالة الأولى -->
         <div class="article-card">
-            <h2 class="article-title">عنوان المقالة الأولى</h2>
+            <h2 class="article-title">هكذا روت لي أمي: قصة جدي عگاب ولقاؤها بالملك فيصل</h2>
             <div class="article-date">تاريخ النشر: سبتمبر 2026</div>
-            <p class="article-content">
-                هنا تكتب نص مقالتك... يمكنك كتابة أفكارك ومقالاتك التقنية والفكرية هنا بسهولة.
-            </p>
+            
+            <!-- صورة المقالة -->
+            <img src="mouloud.jpg" alt="مولود باشا مخلص" class="article-img">
+
+            <div class="article-content">
+                <p>هذه الصورة رجعتني لورى، وذكرتني بسوالف أمي (رحمها الله) وهي تقص لي حكاية جدي (عگاب العلي الحلبي).</p>
+                
+                <p>تقول أمي إن جدي كان يشتغل في منطقة الحمرة بصلاح الدين عند خاله مولود باشا، وظل عنده تقريباً كم شهر. وكان شغل جدي الأساسي ومسؤوليته هي عنابير الحب (مخازن الحبوب)؛ فكان الفلاليح يجيبون الحبوب والمحاصيل، وجدي هو المسؤول المباشر عن هذه الحبوب يتسلمها منهم ويدققها.</p>
+                
+                <p>وخلال هذا الشغل، صار اختلاف بالرأي بين جدي ومولود باشا على صيغة العمل وطريقة إدارة واستلام الحبوب؛ جدي كان يعترض على طريقة الشغل، وصار "زعل" بيناتهم بسبب هذا الخلاف، ومولود باشا غضب عليه. بعد هذا الزعل، جدي عگاب ترك الشغل وشال من منطقة الحمرة بكبرها، وتوجه إلى منطقة الزاب، وبعدها بفترة انتقل وسكن في قرية السفينة بالشرقاط.</p>
+
+                <p>وتكمل أمي حكايتها وتذكر ذاك اليوم التاريخي اللي ما نسته أبداً، وتقول:</p>
+                
+                <p style="background: #f1f5f9; padding: 10px 12px; border-radius: 8px; font-style: italic;">"في ذيج الأيام بالحمرة، كنت طفلة صغيرة بعمر أربع أو خمسة سنوات، وكنت ما شاء الله جميلة جداً. وفي يوم من الأيام، رحت مع أبي عند خاله مولود باشا، وكان ضيفه في ذلك اليوم الملك فيصل."</p>
+                
+                <p>وتكمل وعيناها تلمعان:</p>
+                
+                <p style="background: #f1f5f9; padding: 10px 12px; border-radius: 8px; font-style: italic;">"لما دخلنا، رآني الملك فيصل وأنا مع أبي، وناداني من بين الموجودين وقبّلني من جبيني، ومن كثر ما عجبته طفولتي وبراءتي وجمالي، أخذني وأجلسني بقربه في المجلس، وظليت قاعدة يمه مدة طويلة..."</p>
+
+                <div class="section-title">نبذة عن مولود باشا مخلص</div>
+                
+                <p>مولود باشا مخلص (المعروف بـ مولود مخلص باشا) هو ضابط عراقي بارز، وسياسي، ومن القادة العسكريين البارزين في تاريخ العراق المعاصر والثورة العربية الكبرى.</p>
+                
+                <p><strong>النشأة والتعليم:</strong><br>
+                • <strong>ولادته:</strong> ولد في مدينة الموصل عام 1885م، وينحدر نسبه من عائلة "الحاج شعبان" (من البو حاشي في تكريت).<br>
+                • <strong>لقبه:</strong> اسمه الأصلي "مولود بن أحمد"، أما لقب "مخلص" فقد منحه إياه الشريف حسين بن علي (قائد الثورة العربية الكبرى) تقديراً لإخلاصه وشجاعته الفائقة في المعارك.<br>
+                • <strong>دراسته:</strong> تلقى علومه الأولى في الموصل، ثم انتقل لدراسة العلوم العسكرية في بغداد وإسطنبول.</p>
+
+                <p><strong>الدور العسكري والسياسي:</strong><br>
+                • <strong>الثورة العربية الكبرى (1916):</strong> انضم إلى الثورة ضد الحكم العثماني، وكان أحد الأذرع العسكرية القوية والمقربة من الأمير (الملك لاحقاً) فيصل بن الحسين في الجيش الشمالي. خاض معارك عديدة وأُصيب بجروح مرات متعددة، ورُقي إلى رتبة (أمير لواء).<br>
+                • <strong>حاكم دير الزور:</strong> عُيّن حاكماً عسكرياً لمنطقة دير الزور في سوريا بعد انتهاء المعارك هناك.<br>
+                • <strong>المناصب في الدولة العراقية:</strong> بعد تأسيس المملكة العراقية، عاد إلى العراق وشغل مناصب إدارية وسياسية رفيعة، منها متصرفاً (محافظاً) لكربلاء، ونائباً لرئيس مجلس الأعيان العراقي ثم رئيساً له.</p>
+
+                <p><strong>صفاته ووفاته:</strong><br>
+                عُرف مولود باشا بجرأته الشديدة، وصراحته في إبداء الرأي، ووطنيته العالية. توفي في بيروت عام 1951م، ونُقل جثمانه ليُدفن في العاصمة بغداد.</p>
+
+                <div class="note">
+                    <strong>ملاحظة:</strong> هذه القصة مختصرة؛ جدي تحول سكناه أيضاً إلى الشرقاط ومات هناك، وأما مولود باشا فنُقل إلى تكريت ودُفن فيها. برز من عائلته أيضاً شخصيات سياسية وطبية لاحقة في العراق، مثل ولده الدكتور غائب مولود مخلص الذي شغل منصب وزير وسفير في ستينيات وسبعينيات القرن الماضي.
+                </div>
+            </div>
         </div>
     </div>
 </body>
