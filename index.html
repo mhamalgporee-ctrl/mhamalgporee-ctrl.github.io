@@ -33,12 +33,19 @@
         h1 { font-size: 24px; color: #1e293b; margin-bottom: 5px; }
         p.subtitle { color: #64748b; font-size: 15px; margin-bottom: 20px; }
         
-        /* تعديل ترتيب الأزرار لتكون بشكل عمودي متسلسل */
+        /* ترتيب الأزرار العمودي المتسلسل */
         .grid { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
         
         .btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 8px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: #1e293b; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s; width: 100%; }
         .btn:hover { background: #10b981; color: #fff; border-color: #10b981; }
         .btn-chat { background: #10b981; color: #ffffff; border: none; }
+
+        /* نوافذ العرض المنبثقة العامة */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
+        .modal-content { background: #fff; width: 100%; max-width: 400px; border-radius: 20px; padding: 20px; text-align: right; position: relative; line-height: 1.6; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: fadeIn 0.3s ease; }
+        .modal-content h3 { margin-bottom: 12px; color: #10b981; border-bottom: 2px solid #ecfdf5; padding-bottom: 8px; font-size: 18px; }
+        .modal-close { position: absolute; left: 15px; top: 15px; background: #f1f5f9; border: none; font-size: 16px; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; color: #64748b; }
+        .service-item { margin-bottom: 10px; font-size: 14px; color: #334155; }
 
         /* نافذة الدردشة المباشرة */
         .chat-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
@@ -51,6 +58,12 @@
         .chat-input { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-family: inherit; }
         textarea.chat-input { height: 90px; resize: none; }
         .send-btn { width: 100%; padding: 12px; background: #10b981; color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: bold; cursor: pointer; }
+        
+        /* تذييل الصفحة بزر لوحة التحكم */
+        .footer { margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0; display: flex; justify-content: center; }
+        .admin-btn { font-size: 13px; color: #94a3b8; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 20px; transition: 0.2s; }
+        .admin-btn:hover { color: #10b981; background: #f0fdf4; }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -61,19 +74,46 @@
             <img src="acon.jpg" alt="محمد علي الحطاب">
         </div>
         <h1>محمد علي الحطاب</h1>
-        <p class="subtitle">مصور احترافي & مطور تطبيقات</p>
+        <p class="subtitle">مصور احترافي & مطور تطبيقات & كاتب</p>
         
         <div class="grid">
+            <button onclick="openModal('aboutModal')" class="btn">👤 نبذة عني</button>
+            <button onclick="openModal('servicesModal')" class="btn">🛠️ خدماتي الاحترافية</button>
             <a href="articles.html" class="btn">📝 المقالات</a>
             <a href="poetry.html" class="btn">📜 شعر شعبى</a>
             <a href="book.html" class="btn">📖 كتاب العشرة بين الرجل والمرأة</a>
             <a href="apps.html" class="btn">🤖 التطبيقات</a>
-            <a href="articles.html" class="btn">📸 معرض الأعمال</a>
+            <a href="gallery.html" class="btn">📸 معرض الأعمال</a>
             <button onclick="openChat()" class="btn btn-chat">💬 تواصل معي (دردشة)</button>
+        </div>
+
+        <!-- أسفل الصفحة: رابط لوحة التحكم -->
+        <div class="footer">
+            <a href="admin/" class="admin-btn">⚙️ لوحة التحكم الإدارية</a>
         </div>
     </div>
 
-    <!-- نافذة الدردشة -->
+    <!-- نافذة نبذة عني -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <button onclick="closeModal('aboutModal')" class="modal-close">✕</button>
+            <h3>👤 نبذة عني</h3>
+            <p>أهلاً بك! أنا <strong>محمد علي الحطاب الجبوري</strong>، كاتب ومصور احترافي ومطور تطبيقات. أهتم بتوثيق تاريخ وتراث مدينة الشرقاط والأدب الشعبي، وتطوير التطبيقات الذكية التي تخدم المحتوى الثقافي والأدبي.</p>
+        </div>
+    </div>
+
+    <!-- نافذة خدماتي الاحترافية -->
+    <div id="servicesModal" class="modal">
+        <div class="modal-content">
+            <button onclick="closeModal('servicesModal')" class="modal-close">✕</button>
+            <h3>🛠️ خدماتي الاحترافية</h3>
+            <div class="service-item">📸 <strong>التصوير الاحترافي:</strong> تغطية الجلسات والتصوير التوثيقي والفعاليات بجودة عالية.</div>
+            <div class="service-item">📱 <strong>تطوير التطبيقات:</strong> تصميم وبناء تطبيقات أندرويد تفاعلية.</div>
+            <div class="service-item">✍️ <strong>الكتابة والتنسيق:</strong> صياغة وتنسيق الكتب والمقالات للأرشفة والتصميم الرقمي.</div>
+        </div>
+    </div>
+
+    <!-- نافذة الدردشة المباشرة -->
     <div id="chatModal" class="chat-modal">
         <div class="chat-box">
             <div class="chat-header">
@@ -90,6 +130,7 @@
     </div>
 
     <script>
+        // إدارة نافذة الدردشة المباشرة
         function openChat() {
             document.getElementById('chatModal').style.display = 'flex';
         }
@@ -111,6 +152,24 @@
             var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(fullMessage);
             window.open(url, '_blank');
             closeChat();
+        }
+
+        // إدارة النوافذ المنبثقة العامة (نبذة عني والخدمات)
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // إغلاق النافذة عند الضغط خارجها
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+            if (event.target.classList.contains('chat-modal')) {
+                event.target.style.display = 'none';
+            }
         }
     </script>
 
