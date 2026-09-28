@@ -71,8 +71,13 @@
         }
         .hero-text { flex: 1; }
         .hero-text h1 { font-size: 28px; color: #1e293b; margin-bottom: 10px; line-height: 1.4; }
-        .hero-text p.subtitle { color: #64748b; font-size: 16px; margin-bottom: 25px; }
+        .hero-text p.subtitle { color: #64748b; font-size: 16px; margin-bottom: 15px; }
         
+        /* روابط التواصل الاجتماعي */
+        .social-links { display: flex; gap: 15px; margin-bottom: 25px; font-size: 24px; }
+        .social-links a { transition: transform 0.2s; display: inline-block; }
+        .social-links a:hover { transform: scale(1.15); }
+
         .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
         .btn-primary, .btn-secondary {
             padding: 12px 24px;
@@ -147,6 +152,7 @@
         
         /* تذييل الصفحة */
         .footer { margin-top: 40px; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0; }
+        .copyright { color: #64748b; font-size: 14px; margin-bottom: 15px; font-weight: bold; }
         .admin-btn { font-size: 13px; color: #64748b; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; transition: 0.2s; background: #f8fafc; border: 1px solid #e2e8f0; }
         .admin-btn:hover { color: #10b981; border-color: #10b981; background: #f0fdf4; }
 
@@ -157,6 +163,7 @@
             .logo { font-size: 15px; }
             .hero { flex-direction: column; text-align: center; padding: 25px; }
             .hero-text h1 { font-size: 22px; }
+            .social-links { justify-content: center; }
             .hero-buttons { justify-content: center; }
             .nav-links { display: none; }
             .hero-image { flex: 0 0 auto; width: 85%; }
@@ -184,6 +191,14 @@
             <div class="hero-text">
                 <h1>محمد علي أحمد الحطاب الجبوري</h1>
                 <p class="subtitle">مصور احترافي & مطور تطبيقات & كاتب</p>
+                
+                <!-- روابط التواصل الاجتماعي -->
+                <div class="social-links">
+                    <a href="#" title="فيسبوك">📘</a>
+                    <a href="#" title="إنستغرام">📸</a>
+                    <a href="#" title="يوتيوب">🎥</a>
+                </div>
+
                 <div class="hero-buttons">
                     <button onclick="openModal('aboutModal')" class="btn-secondary">👤 نبذة عني</button>
                     <button onclick="openChat()" class="btn-primary">💬 تواصل معي</button>
@@ -194,8 +209,34 @@
             </div>
         </section>
 
+        <!-- قسم مؤلفاتي وإصداراتي (القسم الجديد) -->
+        <h2 class="section-title">📚 مؤلفاتي وإصداراتي</h2>
+        <section class="grid-container" style="margin-bottom: 40px;">
+            
+            <a href="book.html" class="action-card">
+                <h3>📖 كتاب العشرة بين الرجل والمرأة</h3>
+                <p>تصفح واقرأ كتابي الحصري حول العلاقات الاجتماعية.</p>
+            </a>
+
+            <div class="action-card">
+                <h3>🖋️ دجلة والرماد</h3>
+                <p>عمل أدبي ورواية قيد الكتابة والإنجاز.</p>
+            </div>
+
+            <div class="action-card">
+                <h3>🏛️ الشرقاط مدينتي</h3>
+                <p>أصالة التاريخ ونبض الإبداع.. توثيق لتاريخ وثقافة المدينة.</p>
+            </div>
+
+            <div class="action-card">
+                <h3>📜 قصة الشيخ شلاش الفرج</h3>
+                <p>رحمه الله - توثيق تاريخي لإحدى الشخصيات البارزة.</p>
+            </div>
+
+        </section>
+
         <!-- شبكة الأقسام الرئيسية -->
-        <h2 class="section-title">أقسام الموقع</h2>
+        <h2 class="section-title">🌐 أقسام الموقع</h2>
         <section class="grid-container">
             
             <div class="action-card" onclick="openModal('servicesModal')">
@@ -213,11 +254,6 @@
                 <p>مكتبة مخصصة لقصائد الشعر الشعبي والزهيري.</p>
             </a>
 
-            <a href="book.html" class="action-card">
-                <h3>📖 كتاب العشرة بين الرجل والمرأة</h3>
-                <p>تصفح واقرأ كتابي الحصري حول العلاقات الاجتماعية.</p>
-            </a>
-
             <a href="apps.html" class="action-card">
                 <h3>🤖 التطبيقات</h3>
                 <p>استكشف التطبيقات التي قمت بتطويرها لأجهزة الأندرويد.</p>
@@ -230,8 +266,9 @@
 
         </section>
 
-        <!-- التذييل -->
+        <!-- التذييل المحسن -->
         <div class="footer">
+            <p class="copyright">جميع الحقوق محفوظة © 2026 - محمد علي أحمد الحطاب الجبوري</p>
             <a href="https://github.com/mhamalgporee-ctrl/mhamalgporee-ctrl.github.io" class="admin-btn">⚙️ إدارة الموقع عبر GitHub</a>
         </div>
 
