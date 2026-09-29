@@ -223,12 +223,12 @@
                 <p>عمل أدبي ورواية قيد الكتابة والإنجاز.</p>
             </div>
 
-            <div class="action-card">
+            <!-- تم تعديل هذه البطاقة لتصبح رابطاً لصفحة الشرقاط مدينتي -->
+            <a href="shirqat.html" class="action-card">
                 <h3>🏛️ الشرقاط مدينتي</h3>
                 <p>أصالة التاريخ ونبض الإبداع.. توثيق لتاريخ وثقافة المدينة.</p>
-            </div>
+            </a>
 
-            <!-- تم تعديل هذه البطاقة لتصبح رابطاً لقصة الشيخ شلاش -->
             <a href="shelash.html" class="action-card">
                 <h3>📜 قصة الشيخ شلاش الفرج</h3>
                 <p>رحمه الله - توثيق تاريخي لإحدى الشخصيات البارزة.</p>
@@ -308,7 +308,7 @@
             document.getElementById('chatModal').style.display = 'none';
         }
         function sendMessage() {
-            var name = document.getElementById('userName').value;
+            var name = document.getElementById('userName.value');
             var msg = document.getElementById('userMsg').value;
             
             if (!msg.trim()) {
