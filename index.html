@@ -9,8 +9,8 @@
 
     <!-- عناوين وأوصاف تحسين محركات البحث (Google SEO) -->
     <title>محمد علي أحمد الحطاب الجبوري | الشرقاط، التاريخ، الشعر والتطبيقات</title>
-    <meta name="description" content="الموقع الرسمي للمصور والمطور محمد علي أحمد الحطاب الجبوري. يتناول تاريخ وثقافة مدينة الشرقاط وصلاح الدين، سير الأجداد، الشعر الشعبي والزهيري، وتطبيقات الموبايل.">
-    <meta name="keywords" content="الشرقاط, صلاح الدين, عگاب العلي, مولود باشا مخلص, شعر شعبى, بيت زهيري, تطبيقات, محمد علي أحمد الحطاب الجبوري, قرية السفينة, مصور الشرقاط">
+    <meta name="description" content="الموقع الرسمي للمطور محمد علي أحمد الحطاب الجبوري. يتناول تاريخ وثقافة مدينة الشرقاط وصلاح الدين، سير الأجداد، الشعر الشعبي والزهيري، وتطبيقات الموبايل.">
+    <meta name="keywords" content="الشرقاط, صلاح الدين, عگاب العلي, مولود باشا مخلص, شعر شعبى, بيت زهيري, تطبيقات, محمد علي أحمد الحطاب الجبوري, قرية السفينة">
     <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
     <meta name="robots" content="index, follow">
 
@@ -121,6 +121,7 @@
             cursor: pointer;
             text-align: right;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: block;
         }
         .action-card:hover {
             transform: translateY(-5px);
@@ -137,7 +138,6 @@
         .modal-content h3 { margin-bottom: 15px; color: #10b981; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px; font-size: 18px; }
         .modal-close { position: absolute; left: 20px; top: 20px; background: #f1f5f9; border: none; font-size: 16px; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; color: #64748b; transition: 0.2s;}
         .modal-close:hover { background: #e2e8f0; color: #ef4444; }
-        .service-item { margin-bottom: 12px; font-size: 14px; color: #334155; }
 
         /* نافذة الدردشة */
         .chat-header { background: #10b981; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
@@ -158,7 +158,7 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* التجاوب مع الهواتف الذكية (تصغير الخطوط لتناسب الشاشة) */
+        /* التجاوب مع الهواتف الذكية */
         @media (max-width: 768px) {
             .logo { font-size: 15px; }
             .hero { flex-direction: column; text-align: center; padding: 25px; }
@@ -190,7 +190,7 @@
         <section class="hero">
             <div class="hero-text">
                 <h1>محمد علي أحمد الحطاب الجبوري</h1>
-                <p class="subtitle">مصور احترافي & مطور تطبيقات & كاتب</p>
+                <p class="subtitle">مطور تطبيقات & كاتب</p>
                 
                 <!-- روابط التواصل الاجتماعي -->
                 <div class="social-links">
@@ -209,7 +209,7 @@
             </div>
         </section>
 
-        <!-- قسم مؤلفاتي وإصداراتي (القسم الجديد) -->
+        <!-- قسم مؤلفاتي وإصداراتي -->
         <h2 class="section-title">📚 مؤلفاتي وإصداراتي</h2>
         <section class="grid-container" style="margin-bottom: 40px;">
             
@@ -239,9 +239,9 @@
         <h2 class="section-title">🌐 أقسام الموقع</h2>
         <section class="grid-container">
             
-            <div class="action-card" onclick="openModal('servicesModal')">
+            <div class="action-card">
                 <h3>🛠️ خدماتي الاحترافية</h3>
-                <p>تعرف على خدماتي في التصوير، البرمجة، والكتابة.</p>
+                <p>التصوير الاحترافي، وتطوير وتصميم تطبيقات أندرويد، والكتابة والتنسيق الرقمي.</p>
             </div>
 
             <a href="articles.html" class="action-card">
@@ -274,25 +274,12 @@
 
     </div>
 
-    <!-- النوافذ المنبثقة (Modals & Chat) -->
-
     <!-- نافذة نبذة عني -->
     <div id="aboutModal" class="modal">
         <div class="modal-content">
             <button onclick="closeModal('aboutModal')" class="modal-close">✕</button>
             <h3>👤 نبذة عني</h3>
-            <p>أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومصور احترافي ومطور تطبيقات. أهتم بتوثيق تاريخ وتراث مدينة الشرقاط والأدب الشعبي، وتطوير التطبيقات الذكية التي تخدم المحتوى الثقافي والأدبي.</p>
-        </div>
-    </div>
-
-    <!-- نافذة خدماتي الاحترافية -->
-    <div id="servicesModal" class="modal">
-        <div class="modal-content">
-            <button onclick="closeModal('servicesModal')" class="modal-close">✕</button>
-            <h3>🛠️ خدماتي الاحترافية</h3>
-            <div class="service-item">📸 <strong>التصوير الاحترافي:</strong> تغطية الجلسات والتصوير التوثيقي والفعاليات بجودة عالية.</div>
-            <div class="service-item">📱 <strong>تطوير التطبيقات:</strong> تصميم وبناء تطبيقات أندرويد تفاعلية.</div>
-            <div class="service-item">✍️ <strong>الكتابة والتنسيق:</strong> صياغة وتنسيق الكتب والمقالات للأرشفة والتصميم الرقمي.</div>
+            <p>أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومطور تطبيقات. أهتم بتوثيق تاريخ وتراث مدينة الشرقاط والأدب الشعبي، وتطوير التطبيقات الذكية التي تخدم المحتوى الثقافي والأدبي.</p>
         </div>
     </div>
 
