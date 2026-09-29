@@ -10,13 +10,13 @@
     <!-- عناوين وأوصاف تحسين محركات البحث (Google SEO) -->
     <title>محمد علي أحمد الحطاب الجبوري | الشرقاط، التاريخ، الشعر والتطبيقات</title>
     <meta name="description" content="الموقع الرسمي للمطور محمد علي أحمد الحطاب الجبوري. يتناول تاريخ وثقافة مدينة الشرقاط وصلاح الدين، سير الأجداد، الشعر الشعبي والزهيري، وتطبيقات الموبايل.">
-    <meta name="keywords" content="الشرقاط, صلاح الدين, عگاب العلي, مولود باشا مخلص, شعر شعبى, بيت زهيري, تطبيقات, محمد علي أحمد الحطاب الجبوري, قرية السفينة">
+    <meta name="keywords" content="الشرقاط, صلاح الدين, عگاب العلي, مولود باشا مخلص, شعر شعبى, بيت زهيري, تطبيقات, محمد علي أحمد الحطاب الجبوري, قصة جدي عگاب, قرية السفينة">
     <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
     <meta name="robots" content="index, follow">
 
     <!-- وسوم المعاينة في الفيسبوك والواتساب (Open Graph) -->
     <meta property="og:title" content="موقع محمد علي أحمد الحطاب الجبوري | الشرقاط والتاريخ والتطبيقات">
-    <meta property="og:description" content="مقالات تاريخية عن الشرقاط، سير الأجداد، شعر شعبى وزهيري، وتطبيقات متخصصة.">
+    <meta property="og:description" content="قصة جدي عگاب، سير الأجداد، شعر شعبى وزهيري، وتطبيقات متخصصة.">
     <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
     <meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
     <meta property="og:type" content="website">
@@ -172,12 +172,12 @@
 </head>
 <body>
 
-    <!-- شريط التصفح العلوي -->
+    <!-- شريط التصفح العلوي (تم إلغاء المقالات ووضع قصة جدي عگاب مكانه) -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">محمد علي أحمد الحطاب الجبوري</div>
             <div class="nav-links">
-                <a href="articles.html">المقالات</a>
+                <a href="okab.html">قصة جدي عگاب</a>
                 <a href="poetry.html">الشعر</a>
                 <a href="gallery.html">معرض الأعمال</a>
             </div>
@@ -209,10 +209,16 @@
             </div>
         </section>
 
-        <!-- قسم مؤلفاتي وإصداراتي -->
+        <!-- قسم مؤلفاتي وإصداراتي (إبراز قصة جدي عگاب في الواجهة) -->
         <h2 class="section-title">📚 مؤلفاتي وإصداراتي</h2>
         <section class="grid-container" style="margin-bottom: 40px;">
             
+            <!-- قصة جدي عگاب في الواجهة الأمامية -->
+            <a href="okab.html" class="action-card" style="border: 2px solid #10b981; background: #f0fdf4;">
+                <h3 style="color: #065f46;">👑 هكذا روت لي أمي: قصة جدي عگاب</h3>
+                <p>ولقاؤها بالملك فيصل - توثيق تاريخي وراوي لأبرز الشخصيات والتاريخ الأصيل.</p>
+            </a>
+
             <a href="book.html" class="action-card">
                 <h3>📖 كتاب العشرة بين الرجل والمرأة</h3>
                 <p>تصفح واقرأ كتابي الحصري حول العلاقات الاجتماعية.</p>
@@ -223,7 +229,6 @@
                 <p>عمل أدبي ورواية قيد الكتابة والإنجاز.</p>
             </div>
 
-            <!-- تم تعديل هذه البطاقة لتصبح رابطاً لصفحة الشرقاط مدينتي -->
             <a href="shirqat.html" class="action-card">
                 <h3>🏛️ الشرقاط مدينتي</h3>
                 <p>أصالة التاريخ ونبض الإبداع.. توثيق لتاريخ وثقافة المدينة.</p>
@@ -245,9 +250,9 @@
                 <p>التصوير الاحترافي، وتطوير وتصميم تطبيقات أندرويد، والكتابة والتنسيق الرقمي.</p>
             </div>
 
-            <a href="articles.html" class="action-card">
-                <h3>📝 المقالات</h3>
-                <p>مقالات تاريخية، توثيق لتاريخ وتراث الشرقاط.</p>
+            <a href="okab.html" class="action-card">
+                <h3>📜 قصة جدي عگاب</h3>
+                <p>السيرة التاريخية واللقاء التاريخي بالملك فيصل.</p>
             </a>
 
             <a href="poetry.html" class="action-card">
@@ -308,7 +313,7 @@
             document.getElementById('chatModal').style.display = 'none';
         }
         function sendMessage() {
-            var name = document.getElementById('userName.value');
+            var name = document.getElementById('userName').value;
             var msg = document.getElementById('userMsg').value;
             
             if (!msg.trim()) {
