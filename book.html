@@ -4,17 +4,310 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>كتاب الرجل والمرأة وعشرة العمر | محمد علي الحطاب</title>
+
+    <!-- خطوط عربية فاخرة للقارئ الصوتي -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --accent-green: #10b981;
+            --accent-gold: #d97706;
+            --border-color: #e2e8f0;
+            --highlight-bg: #fef08a;
+            --highlight-border: #ca8a04;
+            --base-font-size: 20px;
+        }
+
+        /* ثيم الورقي الدافئ (Sepia) */
+        [data-theme="sepia"] {
+            --bg-primary: #f5efe6;
+            --bg-card: #ebdccb;
+            --text-primary: #433422;
+            --text-secondary: #634e36;
+            --border-color: #d7c4b0;
+            --highlight-bg: #fcd34d;
+            --highlight-border: #b45309;
+        }
+
+        /* الثيم الليلي (Dark) */
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #334155;
+            --highlight-bg: #854d0e;
+            --highlight-border: #f59e0b;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f0f4f8; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-        header { background: #10b981; color: white; padding: 12px 20px; text-align: center; font-size: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .back-btn { color: white; text-decoration: none; background: rgba(0,0,0,0.2); padding: 6px 14px; border-radius: 8px; font-size: 14px; transition: 0.2s; white-space: nowrap; }
+        
+        body { 
+            font-family: 'Tajawal', system-ui, -apple-system, sans-serif; 
+            background-color: var(--bg-primary); 
+            color: var(--text-primary);
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* الهيدر الأصلي للموقع */
+        header { 
+            background: #10b981; 
+            color: white; 
+            padding: 12px 20px; 
+            text-align: center; 
+            font-size: 18px; 
+            font-weight: bold; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            z-index: 100;
+        }
+
+        .back-btn { 
+            color: white; 
+            text-decoration: none; 
+            background: rgba(0,0,0,0.2); 
+            padding: 6px 14px; 
+            border-radius: 8px; 
+            font-size: 14px; 
+            transition: 0.2s; 
+            white-space: nowrap; 
+        }
+
         .back-btn:hover { background: rgba(0,0,0,0.35); }
         
-        /* شريط التنبيه المضاف */
-        .notice-bar { background: #ecfdf5; color: #065f46; border-bottom: 1px solid #a7f3d0; padding: 8px 15px; text-align: center; font-size: 13px; line-height: 1.4; }
-        
-        iframe { width: 100%; flex: 1; border: none; }
+        /* شريط التنبيه الأصلي المضاف */
+        .notice-bar { 
+            background: #ecfdf5; 
+            color: #065f46; 
+            border-bottom: 1px solid #a7f3d0; 
+            padding: 8px 15px; 
+            text-align: center; 
+            font-size: 13px; 
+            line-height: 1.4; 
+        }
+
+        /* شريط التبويب للانتقال بين القارئ الصوتي والفليب بوك */
+        .view-tabs {
+            background: #ffffff;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .tab-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #475569;
+            transition: all 0.2s;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .tab-btn.active {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        /* قسم الفليب بوك الأصلي */
+        .tab-content {
+            display: none;
+            width: 100%;
+            flex: 1;
+        }
+
+        .tab-content.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        iframe { width: 100%; flex: 1; min-height: 80vh; border: none; }
+
+        /* قسم القارئ الصوتي التفاعلي */
+        .audio-reader-wrapper {
+            max-width: 850px;
+            margin: 20px auto;
+            padding: 0 15px 140px 15px; /* مسافة للمشغل الصوتي السفلي */
+            width: 100%;
+        }
+
+        .audio-reader-controls-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-card);
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .btn-icon {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .book-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .book-title-main {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: #065f46;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .author-tag {
+            text-align: center;
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .section-subtitle {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin: 20px 0 10px 0;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+        }
+
+        .readable {
+            font-family: 'Amiri', serif;
+            font-size: var(--base-font-size);
+            color: var(--text-primary);
+            line-height: 2;
+            margin-bottom: 15px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            border-right: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .readable:hover {
+            background-color: rgba(16, 185, 129, 0.08);
+            border-right-color: #10b981;
+        }
+
+        .readable.reading-active {
+            background-color: var(--highlight-bg) !important;
+            border-right: 5px solid var(--highlight-border) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        /* مشغل الصوت السفلي الثابت */
+        .audio-player-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-card);
+            border-top: 2px solid var(--border-color);
+            box-shadow: 0 -10px 25px rgba(0,0,0,0.08);
+            padding: 12px 20px;
+            z-index: 1000;
+        }
+
+        .player-container {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .player-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .status-text {
+            font-weight: 700;
+            color: #10b981;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 70%;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-player {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .btn-player.btn-main {
+            width: 50px;
+            height: 50px;
+            background: #10b981;
+            color: white;
+            border: none;
+            font-size: 1.3rem;
+            box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .speed-select {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: 'Tajawal', sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -24,12 +317,348 @@
         <a href="index.html" class="back-btn">⬅ العودة للرئيسية</a>
     </header>
 
-    <!-- شريط التوجيه والملاحظة للقارئ -->
-    <div class="notice-bar">
-        💡 <strong>تنبيه للقارئ:</strong> انقر على السهم السفلِي أو اسحب طرف الصفحة للانتقال بين الصفحات (يتكون الكتاب من 261 صفحة).
+    <!-- شريط التبويب للانتقال بين خيارات العرض -->
+    <div class="view-tabs">
+        <button class="tab-btn active" onclick="switchTab('flipbookTab', this)">📖 الكتاب التفاعلي (Flipbook)</button>
+        <button class="tab-btn" onclick="switchTab('audioTab', this)">🎧 القارئ الصوتي التفاعلي</button>
     </div>
 
-    <iframe src="https://heyzine.com/flip-book/7d35d68ef2.html" allowfullscreen allow="autoplay; fullscreen; clipboard-write"></iframe>
+    <!-- التبويب الأول: الفليب بوك الأصلي كما هو بدون تغيير -->
+    <div id="flipbookTab" class="tab-content active">
+        <!-- شريط التوجيه والملاحظة الأصلي للقارئ -->
+        <div class="notice-bar">
+            💡 <strong>تنبيه للقارئ:</strong> انقر على السهم السفلِي أو اسحب طرف الصفحة للانتقال بين الصفحات (يتكون الكتاب من 261 صفحة).
+        </div>
 
+        <iframe src="https://heyzine.com/flip-book/7d35d68ef2.html" allowfullscreen allow="autoplay; fullscreen; clipboard-write"></iframe>
+    </div>
+
+    <!-- التبويب الثاني: القارئ الصوتي التفاعلي بالنص الكامل -->
+    <div id="audioTab" class="tab-content">
+        <div class="audio-reader-wrapper">
+            
+            <div class="audio-reader-controls-top">
+                <span>تخصيص العرض:</span>
+                <div>
+                    <button class="btn-icon" id="btnDecreaseFont">أ-</button>
+                    <button class="btn-icon" id="btnIncreaseFont">أ+</button>
+                    <button class="btn-icon" id="btnThemeToggle">🌙 الثيم</button>
+                </div>
+            </div>
+
+            <!-- المقدمة -->
+            <article class="book-card">
+                <h1 class="book-title-main">الرجل والمرأة وعِشرة العمر في بلاد الرافدين</h1>
+                <div class="author-tag">تأليف وكتابة: محمد علي احمد الحطاب الجبوري</div>
+
+                <div class="readable">بسم الله الرحمن الرحيم والصلاة والسلام على محمد الصادق الأمين وعلى من والاه إلى يوم الدين، أما بعد:</div>
+                <div class="readable">تعد العلاقة بين الرجل والمرأة في بلاد الرافدين شراكة إنسانية عميقة تقوم على المودة، والرحمة، والاحترام المتبادل، ولا تقتصر على كونها ارتباطًا عابرًا، بل هي رحلة حياة مشتركة تكبر مع الأيام بما يقدمه كل طرف من دعم واحتواء.</div>
+                <div class="readable">وفيما يلي مقالة مبسطة مستوحاة من التأملات الاجتماعية والفكرية في العلاقات الزوجية:</div>
+
+                <h2 class="section-subtitle readable">أساسات البيت السعيد: الشراكة والمسؤولية</h2>
+                <div class="readable"><strong>المرأة شريكة وسند:</strong> ليست المرأة مجرد شريكة في البيت فحسب، بل هي أم ومربية ورفيقة درب تمثل السند الحقيقي الذي يمنح الأسرة قوتها واستقرارها.</div>
+                <div class="readable"><strong>دور الرجل الحقيقي:</strong> لا يقتصر دور الرجل على اتخاذ القرار، بل يمتد ليكون سندًا حقيقيًا يحترم رأي زوجته، يقدر تعبها، ويقف بجانبها في أوقات الشدة قبل أوقات الفرح.</div>
+                <div class="readable"><strong>أهمية العشرة والتفاهم:</strong> تحتاج العشرة الطويلة إلى أكثر من مرور السنوات؛ فهي تتطلب فهمًا متبادلًا، وقدرة على تجاوز الخلافات بحكمة دون أن تتحول إلى جرح دائم، فنجاح أحدهما هو نجاح للبيت كله.</div>
+                <div class="readable"><strong>الصبر والحوار:</strong> إن الخلاف أمر طبيعي لاختلاف الطباع، لكن الحكمة تكمن في إدارة هذا الخلاف بالاحترام والحوار الهادئ وليس بالصراع أو إهانة الكرامة.</div>
+                <div class="readable">الزواج ليس يومًا للاحتفال فحسب، بل هو أيام وسنوات من المواقف، والمحبة الصادقة التي تنمو وتكبر مع حسن العشرة والوفاء.</div>
+
+                <h2 class="section-subtitle readable">مقدمة الكتاب التفصيلية</h2>
+                <div class="readable">منذ أن عرف الإنسان الحياة، كان الرجل والمرأة شريكين في بناء الأسرة والمجتمع، لكلٍّ منهما دوره ومكانته ومسؤوليته. ولم تكن العلاقة بينهما يومًا مجرد ارتباط يجمع شخصين، بل هي حياة مشتركة تقوم على المودة والرحمة والاحترام والتفاهم، وتكبر مع الأيام بما يقدمه كل طرف للآخر من دعم واحتواء.</div>
+                <div class="readable">فالمرأة ليست مجرد شريكة للرجل في البيت، وإنما هي أمٌّ ومربية، وصديقة ورفيقة درب، وفي كثير من الأحيان تكون السند الذي يمنح الأسرة قوتها واستقرارها. وهي تحمل من المسؤوليات ما يجعل دورها في الحياة عظيمًا، سواء داخل الأسرة أم في المجتمع.</div>
+                <div class="readable">والرجل، في المقابل، ليس دوره أن يكون صاحب القرار فقط، بل أن يكون سندًا للمرأة وشريكًا حقيقيًا لها. فالرجل الذي يعرف قيمة المرأة يحترم رأيها، ويقدّر تعبها، ويقف إلى جانبها في أوقات الشدة قبل أوقات الفرح. فالدعم الحقيقي لا يكون بالكلمات وحدها، وإنما بالمواقف التي تثبت للمرأة أنها ليست وحدها في مواجهة صعوبات الحياة.</div>
+                <div class="readable">وفي بلاد الرافدين، حيث تمتد جذور العائلة والعشيرة والمجتمع إلى تاريخ طويل، اكتسبت العلاقة بين الرجل والمرأة خصوصية كبيرة. فقد كانت العِشرة، بما تحمله من صبر وتحمّل ومواقف مشتركة، جزءًا أساسيًا من حياة الأزواج. إلا أن العِشرة الطويلة تحتاج إلى أكثر من مرور السنوات؛ تحتاج إلى فهم متبادل، واحترام، وقدرة على تجاوز الخلافات دون أن يتحول الاختلاف إلى جرح دائم.</div>
+                <div class="readable">وهذا الكتاب لا يريد أن يجعل الرجل خصمًا للمرأة، ولا المرأة خصمًا للرجل، وإنما يحاول أن ينظر إلى كليهما بوصفهما شريكين في رحلة واحدة. فنجاح أحدهما لا ينبغي أن يكون على حساب الآخر، وسعادة أحدهما تكتمل عندما يجد إلى جانبه شريكًا يشعر به ويقدّر وجوده.</div>
+                <div class="readable">وسنتحدث في صفحات هذا الكتاب عن الرجل والمرأة، وعن الحب والزواج، وعن العِشرة وطول السنوات، وعن الخلافات التي قد تنشأ بينهما، وعن معنى الاحترام والثقة، وعن دور الأسرة والبيئة الاجتماعية في تشكيل العلاقة، مع التوقف عند بعض العادات والتقاليد التي عرفها مجتمع بلاد الرافدين.</div>
+                <div class="readable">فالزواج ليس يومًا واحدًا يُحتفل به، وإنما هو أيام وسنوات ومواقف؛ فيه الفرح والحزن، والنجاح والتعب، والاختلاف والتصالح. ومن يفهم معنى العِشرة يعرف أن الإنسان لا يحتاج دائمًا إلى شريك كامل، بل يحتاج إلى شريك صادق، يعرف كيف يحافظ على ما بينهما عندما تعصف بهما ظروف الحياة.</div>
+                <div class="readable">ومن هنا تبدأ رحلتنا في هذا الكتاب، رحلة نحاول فيها أن نفهم الرجل والمرأة لا من خلال ما يقال عنهما فقط، بل من خلال ما يعيشانَه في تفاصيل الحياة اليومية.</div>
+            </article>
+
+            <!-- الفصل الأول -->
+            <article class="book-card">
+                <h2 class="section-subtitle readable">الفصل الأول: الرجل والمرأة... شريكان في طريق واحد</h2>
+                <div class="readable">لا تبدأ قصة الرجل والمرأة يوم الزواج، وإنما تبدأ قبل ذلك بكثير؛ تبدأ من الطريقة التي ينظر بها كل واحد منهما إلى الآخر، ومن الأفكار التي يحملها عن الزواج والأسرة والحياة المشتركة.</div>
+                <div class="readable">قد يلتقي الرجل بالمرأة فيجد فيها شيئًا يجذبه إليها، وقد تجد المرأة في الرجل صفات تجعلها ترى فيه شريكًا مناسبًا لحياتها. وفي بداية العلاقة تكون المشاعر قوية، والكلمات جميلة، والأحلام كثيرة. لكن الحياة الحقيقية تبدأ عندما تنتهي مرحلة البدايات، ويبدأ الاثنان في مواجهة تفاصيل الأيام.</div>
+                <div class="readable">فالحياة الزوجية ليست دائمًا كما يتخيلها الإنسان قبل الزواج. هناك مسؤوليات، ومصاريف، وأبناء، وأهل، وظروف صعبة، واختلاف في وجهات النظر، وأيام يشعر فيها أحد الطرفين بالتعب أكثر من الآخر. وهنا يظهر معدن الإنسان الحقيقي.</div>
+                <div class="readable">الرجل الذي يريد أن يحافظ على بيته يحتاج إلى أن يفهم أن المرأة ليست آلة تعمل بلا تعب، والمرأة التي تريد الحفاظ على بيتها تحتاج كذلك إلى أن تفهم أن الرجل قد يحمل همومًا لا يتحدث عنها.</div>
+                <div class="readable">ومن هنا تأتي أهمية التفاهم.</div>
+                <div class="readable">فليس المطلوب أن يتفق الرجل والمرأة في كل شيء، فهذا أمر غير واقعي، وإنما المطلوب أن يعرف كل واحد منهما كيف يختلف مع الآخر دون أن يهدم ما بينهما.</div>
+                <div class="readable">قد يختلفان في طريقة تربية الأبناء، أو في إدارة المال، أو في العلاقة مع الأهل، أو في أمور الحياة اليومية. لكن الاختلاف لا يعني بالضرورة أن أحدهما يكره الآخر. أحيانًا يكون الاختلاف مجرد نتيجة طبيعية لاختلاف التربية والتجارب والشخصية.</div>
+                <div class="readable">والحكمة ليست في أن ينتصر الرجل على المرأة، ولا في أن تنتصر المرأة على الرجل؛ لأن انتصار أحدهما على الآخر داخل البيت قد يكون في الحقيقة خسارة لكليهما.</div>
+                <div class="readable">إن البيت الناجح ليس المكان الذي لا توجد فيه خلافات، وإنما المكان الذي يعرف أهله كيف يعالجون الخلافات دون أن تتحول إلى عداوة.</div>
+                <div class="readable">وهنا تبدأ العِشرة الحقيقية: أن يبقى الإنسان إلى جانب شريكه، لا عندما تكون الحياة سهلة فقط، وإنما عندما تصبح صعبة أيضًا.</div>
+            </article>
+
+            <!-- الفصل الثاني -->
+            <article class="book-card">
+                <h2 class="section-subtitle readable">الفصل الثاني: الزواج قديمًا... عندما كانت العِشرة تصنع المحبة</h2>
+                <div class="readable">كان الزواج في المجتمعات القديمة مختلفًا عن الزواج في زماننا الحاضر. فقد تغيرت الحياة، وتغيرت معها نظرة الناس إلى الأسرة والاختيار والتعارف، وأصبحت أمام الرجل والمرأة وسائل كثيرة للتعرف إلى بعضهما قبل اتخاذ قرار الزواج. أما في بعض البيئات القديمة في بلاد الرافدين، فكانت الأسرة والعائلة تؤدي دورًا أكبر بكثير في اختيار الزوج أو الزوجة، وكان الزواج يرتبط بالعادات والتقاليد ومكانة الأسرة وعلاقاتها الاجتماعية.</div>
+                <div class="readable">وفي بعض تلك البيئات، لم يكن من المعتاد أن يرى الشاب الفتاة كما نعرف الأمر اليوم، ولم تكن الفتاة تجلس مع الشاب وتتحدث معه بحرية للتعرف إلى شخصيته وأفكاره. كان الأمر في كثير من الأحيان يمر عن طريق الأهل، ويكون للكبار رأي أساسي في اختيار الزوج والزوجة، وقد يُبنى الاختيار على معرفة العائلة بالأخرى، أو على السمعة، أو على القرابة، أو على قدرة الرجل ومسؤوليته، أو على ما تراه الأسرة مناسبًا لمستقبل ابنتها.</div>
+                <div class="readable">وهذا يعني أن بعض الرجال والنساء كانوا يدخلون الحياة الزوجية وهم لا يعرفون بعضهم معرفة حقيقية.</div>
+                <div class="readable">كانت المرأة قد تسمع عن الرجل من أهلها، وتعرف اسمه وأسرته ومكانته، لكنها لا تعرف كيف سيكون معها عندما تصبح زوجته. والرجل كذلك قد يعرف عن المرأة من خلال أهلها وسمعة أسرتها، لكنه لا يعرف شخصيتها بالتفصيل، ولا يعرف كيف ستتعامل معه، وكيف ستكون شريكة له في الحياة.</div>
+                <div class="readable">ومن هنا تبدأ حكاية مختلفة تمامًا عن مفهوم الزواج في زماننا.</div>
+                <div class="readable">فاليوم، يرى الإنسان أن التعارف وفهم الشخصية ومعرفة طريقة التفكير من الأمور المهمة قبل الزواج. أما في بعض البيئات القديمة، فكان التعارف الحقيقي يبدأ بعد الزواج.</div>
+                <div class="readable">كانت الأيام هي التي تكشف الإنسان. وكانت المواقف هي التي تُظهر الأخلاق. وكانت العِشرة هي التي تعرّف الرجل إلى زوجته، وتعرّف المرأة إلى زوجها.</div>
+
+                <h3 class="section-subtitle readable">من الغريب إلى الشريك</h3>
+                <div class="readable">عندما يجتمع رجل وامرأة في بيت واحد، وهما لم يعرف أحدهما الآخر معرفة كافية قبل الزواج، فإن الأيام تصبح مدرسة يتعلم فيها كل واحد منهما الآخر.</div>
+                <div class="readable">في البداية، قد يكون بينهما شيء من الحذر والخجل. كل واحد يراقب تصرفات الآخر، ويحاول أن يفهم طباعه. المرأة تكتشف كيف يتصرف زوجها عندما يغضب، وكيف يتعامل معها عندما تكون متعبة، وكيف ينظر إلى أهلها، وكيف يتصرف عندما يمر البيت بضيق.</div>
+                <div class="readable">والرجل يكتشف كذلك شخصية زوجته؛ هل هي صبورة؟ هل تحفظ أسرار البيت؟ هل تقف إلى جانبه عندما تضيق به الحياة؟ هل تحترم أهله؟ وهل يجد منها المودة عندما يحتاج إليها؟</div>
+                <div class="readable">وهكذا تبدأ المعرفة الحقيقية. قد لا يكون هناك حب كبير في الأيام الأولى، لكن يمكن أن يبدأ شيء آخر أكثر أهمية: الاحترام. والاحترام كان ولا يزال من أهم الأساسات التي يقوم عليها الزواج.</div>
+                <div class="readable">فإذا شعر الرجل أن زوجته تحترمه، وإذا شعرت المرأة أن زوجها يحترمها، بدأ كل واحد منهما يشعر بالأمان داخل البيت. ومع الأمان تأتي الثقة، ومع الثقة تأتي الألفة، ومع الألفة قد تولد المحبة.</div>
+                <div class="readable">ولهذا فإن بعض الزيجات التي لم تبدأ بقصة حب طويلة قبل الزواج استطاعت، مع مرور السنوات، أن تصبح علاقات قوية مليئة بالمودة.</div>
+
+                <h3 class="section-subtitle readable">العِشرة التي تصنع المعرفة</h3>
+                <div class="readable">العِشرة ليست مجرد مرور السنوات. قد يعيش شخصان عشرين سنة في بيت واحد ولا يعرف أحدهما الآخر معرفة حقيقية، وقد يعيش زوجان سنوات أقل ولكن تكون بينهما معرفة عميقة ومودة صادقة.</div>
+                <div class="readable">العِشرة الحقيقية هي أن يتعلم الإنسان شريكه من تفاصيل الحياة: يعرف متى يكون حزينًا حتى لو لم يتحدث، ويعرف متى يحتاج إلى كلمة طيبة، ويعرف الأشياء التي تفرحه، والأشياء التي تؤلمه، ويعرف عاداته الصغيرة، وطريقة تفكيره، ومخاوفه، وأحلامه.</div>
+                <div class="readable">وهذا النوع من المعرفة لا يأتي في جلسة تعارف واحدة، ولا في أيام قليلة، وإنما يحتاج إلى وقت طويل. وفي المجتمعات التي كان فيها التعارف قبل الزواج محدودًا، كانت الحياة الزوجية نفسها هي التي تكشف هذه التفاصيل.</div>
+                <div class="readable">فالمرأة كانت ترى زوجها في العمل، وفي البيت، وفي التعامل مع الناس، وفي مواجهة الأزمات. والرجل كان يرى زوجته في مسؤوليات البيت، وفي رعاية الأبناء، وفي تعاملها مع أهله، وفي الأيام الصعبة. ومع مرور الوقت، تتكون صورة حقيقية عن الإنسان.</div>
+
+                <h3 class="section-subtitle readable">عندما يصبح الاحترام أساسًا للحب</h3>
+                <div class="readable">من الأخطاء التي يقع فيها بعض الناس أنهم يعتقدون أن الحب وحده يكفي لبناء الزواج. الحب مهم، لكنه يحتاج إلى أساس يحميه، وقد يكون ذلك الأساس هو الاحترام.</div>
+                <div class="readable">فالرجل يستطيع أن يحب زوجته، لكن إذا كان يهينها باستمرار، فإن الحب سيتحول إلى ألم. والمرأة تستطيع أن تحب زوجها، لكن إذا كانت تقلل من شأنه أمام الناس، فإن المحبة ستتأذى مع مرور الأيام.</div>
+                <div class="readable">أما عندما يحترم كل طرف الآخر، فإن حتى الخلافات يمكن أن تمر دون أن تهدم العلاقة.</div>
+                <div class="readable">في بعض الزيجات القديمة، كان احترام الزوجة لزوجها واحترام الزوج لزوجته جزءًا من النظام الاجتماعي الذي تربوا عليه. وكان لكل طرف واجبات يعرفها منذ صغره. لكن احترام العادات لا يعني أن كل ما كان يحدث في الماضي كان صحيحًا أو عادلًا. فالماضي، مثل الحاضر، فيه جوانب جميلة وأخرى تحتاج إلى نقد. ومن الخطأ أن نجعل الماضي صورة مثالية لا يوجد فيها ظلم أو خلاف أو معاناة.</div>
+                <div class="readable">لكننا في هذا الكتاب نحاول أن نفهم كيف استطاعت بعض الزيجات، رغم محدودية التعارف في بدايتها، أن تتحول إلى عِشرة ومحبة واستقرار.</div>
+
+                <h3 class="section-subtitle readable">الأسرة كانت شريكًا في الزواج</h3>
+                <div class="readable">كان الزواج في كثير من البيئات القديمة لا يجمع رجلًا وامرأة فقط، وإنما يجمع عائلتين. فالعائلة كانت حاضرة في اختيار الزوجة، وفي الاتفاق على الزواج، وفي كثير من تفاصيل الحياة بعد الزواج.</div>
+                <div class="readable">وكانت مكانة الأسرة وسمعتها أمرًا مهمًا، وكان الرجل يُنظر إليه من خلال أسرته، كما كانت المرأة تُعرف من خلال أسرتها. ولهذا كان اختيار الزوج أو الزوجة يُبنى أحيانًا على معرفة قديمة بين العائلتين.</div>
+                <div class="readable">قد يقول الأب: "هذه الأسرة نعرفها، وأهلها معروفون." وقد تقول الأم: "هذه الفتاة تربت في بيت محترم." وكانت مثل هذه الأمور تدخل في قرار الزواج.</div>
+                <div class="readable">وفي المقابل، كان بعض الآباء والأمهات يرون أنهم أكثر خبرة بالحياة من أبنائهم، ولذلك كانوا يعتقدون أن اختيارهم للزوج أو الزوجة سيكون أكثر أمانًا. لكن هذه النظرة، رغم أنها كانت شائعة في بعض المجتمعات، كانت تحمل جانبًا آخر؛ فقد تؤدي أحيانًا إلى زواج لا يريده أحد الطرفين.</div>
+                <div class="readable">وهنا يجب أن نفرق بين الزواج الذي يبدأ بترتيب عائلي ويقبل به الطرفان، وبين الزواج الذي يُفرض على أحد الطرفين دون رضاه. فالنجاح لا يمكن أن يكون مبررًا لفرض الزواج، كما أن وجود زيجات ناجحة لا يعني أن كل حالات الزواج القديم كانت ناجحة.</div>
+
+                <h3 class="section-subtitle readable">الرجل عندما يتحمل مسؤولية البيت</h3>
+                <div class="readable">كان المجتمع القديم ينظر إلى الرجل بوصفه المسؤول عن حماية الأسرة وتوفير احتياجاتها، وكان يُنتظر منه أن يعمل ويكد من أجل زوجته وأبنائه. وكانت قيمة الرجل تظهر في مواقفه.</div>
+                <div class="readable">فليس الرجل الذي يملك المال فقط هو القوي، وإنما الرجل الذي يتحمل المسؤولية عندما تحتاج أسرته إليه. قد تمر سنة قاسية، أو يقل الرزق، أو يمرض أحد الأبناء، أو تواجه الأسرة مشكلة مع الأقارب، وهنا يظهر معدن الرجل. إذا وقف مع زوجته، ولم يتركها وحدها في مواجهة الظروف، فإن احترامها له يكبر.</div>
+                <div class="readable">ومن هنا يمكن أن تتحول المسؤولية إلى محبة. فالمرأة عندما ترى زوجها يتعب من أجل أسرته، وتشاهد صبره في الظروف الصعبة، قد تشعر بقيمته بطريقة لا تصنعها الكلمات.</div>
+
+                <h3 class="section-subtitle readable">والمرأة عندما تكون سندًا للرجل</h3>
+                <div class="readable">وكذلك الرجل يحتاج إلى من يسنده. فالمرأة في البيت لم تكن مجرد شخص يعيش إلى جانب الرجل، بل كانت شريكة في بناء الأسرة، وفي تربية الأبناء، وفي تحمل ظروف الحياة.</div>
+                <div class="readable">كانت تقوم بأعمال كثيرة، بعضها لا يظهر للناس: تستيقظ مبكرًا، وتعتني بالبيت، وتربي الأبناء، وتتحمل مسؤوليات الأسرة، وقد تعمل إلى جانب زوجها في الزراعة أو تربية المواشي أو غيرها من الأعمال بحسب البيئة التي تعيش فيها.</div>
+                <div class="readable">وكانت حياة المرأة في كثير من البيئات القديمة مليئة بالمسؤوليات. ولهذا فإن الرجل الذي يرى تعب زوجته ويقدره، ويعاملها باحترام، ويشكرها على ما تقدمه، يستطيع أن يحافظ على المودة بينهما. فالإنسان لا يريد فقط أن يُحب، بل يريد أن يشعر أن تعبه مرئي ومقدّر.</div>
+
+                <h3 class="section-subtitle readable">الحب الذي يأتي بعد العِشرة</h3>
+                <div class="readable">ربما تكون هذه من أهم الأفكار التي يناقشها هذا الفصل. هل يمكن أن يولد الحب بعد الزواج؟ نعم، يمكن. فالحب ليس دائمًا شعورًا يظهر كاملًا منذ اللحظة الأولى.</div>
+                <div class="readable">هناك حب يولد من الإعجاب، وحب يولد من الصداقة، وحب يولد من العِشرة، وحب يولد من المواقف. قد يعيش الرجل مع امرأة لم يعرفها قبل الزواج، ثم تمر السنوات، ويكتشف أنها أصبحت أقرب إنسانة إليه. وقد تعيش المرأة مع رجل لم تختاره بنفسها في البداية، ثم تراه في الشدائد واقفًا إلى جانبها، فتتغير مشاعرها تجاهه.</div>
+                <div class="readable">ليس لأن الزواج أجبرها على الحب، وإنما لأن المواقف صنعت معرفة جديدة. فقد يأتي يوم يكون فيه الرجل مريضًا، فتسهر زوجته إلى جانبه. وقد يأتي يوم تمرض فيه الزوجة، فيترك الرجل بعض أعماله ويهتم بها. وقد يمر البيت بضيق مالي، فيتعاونان بدل أن يلوم أحدهما الآخر. وقد يكبر الأبناء، وتبدأ الأسرة ترى نتائج سنوات التعب.</div>
+                <div class="readable">هذه المواقف تصنع شيئًا لا تستطيع الكلمات وحدها أن تصنعه: تصنع الذكريات، والذكريات تصبح جزءًا من الحب.</div>
+
+                <h3 class="section-subtitle readable">سنوات الزواج تتحول إلى تاريخ مشترك</h3>
+                <div class="readable">عندما يعيش الزوجان سنوات طويلة معًا، يصبح لهما تاريخ خاص: هناك أول بيت، وأول مولود، وأول مشكلة تجاوزاها، وأول فرح كبير، وأول عيد جمعهما، وأيام الفقر والغنى، وأيام المرض والصحة، وأيام السفر والعودة. وكل هذه الأحداث تصبح صفحات في ذاكرة الزوجين.</div>
+                <div class="readable">ولهذا فإن العِشرة الطويلة قد تجعل الانفصال أصعب؛ لأن الإنسان لا يفقد شريكًا فقط، بل يفقد جزءًا من تاريخه. فقد ينظر الرجل إلى زوجته بعد ثلاثين سنة من الزواج، فلا يراها فقط كما هي اليوم، وإنما يتذكر الفتاة التي عرفها في بداية حياتهما. وقد تنظر المرأة إلى زوجها فتتذكر السنوات التي كانا فيها شابين، وكيف بنيا بيتهما خطوة بعد خطوة. هذه الذكريات تجعل العلاقة أكثر عمقًا.</div>
+
+                <h3 class="section-subtitle readable">الأبناء ودورهم في تقوية الأسرة</h3>
+                <div class="readable">كان الأبناء في المجتمعات القديمة جزءًا أساسيًا من مفهوم الأسرة، وكان وجودهم يزيد مسؤولية الزوجين تجاه بعضهما. فالزوج والزوجة لم يعودا يفكران في نفسيهما فقط، وإنما في مستقبل الأبناء.</div>
+                <div class="readable">قد يختلفان، لكنهما يحاولان أحيانًا تجاوز الخلاف من أجل أطفالهم. وقد يتعبان، لكنهما يستمران من أجلهم. وقد يمران بضيق، لكنهما يحاولان توفير حياة أفضل لهم. ومع مرور السنوات، يصبح الأبناء أنفسهم شاهدين على تاريخ الأسرة.</div>
+                <div class="readable">يكبر الابن وهو يرى والده ووالدته يعملان ويتعاونان، ويتعلم منهما معنى المسؤولية. وهنا يتحول الزواج من علاقة بين شخصين إلى مدرسة يتعلم فيها جيل كامل معنى الحياة الأسرية.</div>
+
+                <h3 class="section-subtitle readable">هل كان الزواج القديم أفضل من زواج اليوم؟</h3>
+                <div class="readable">هذا سؤال مهم، ولا ينبغي أن تكون إجابته بسيطة. لا نستطيع أن نقول إن الزواج القديم كان أفضل دائمًا، كما لا نستطيع القول إن الزواج الحديث أفضل دائمًا. لكل زمن ظروفه.</div>
+                <div class="readable">في الماضي كانت العلاقات الاجتماعية أكثر قربًا في بعض البيئات، وكانت الأسرة الممتدة حاضرة بقوة، وكان الناس يعرفون بعضهم بعضًا، وكانت العِشرة الطويلة أمرًا شائعًا في كثير من الأسر. لكن في المقابل، كانت هناك قيود اجتماعية كبيرة، ولم يكن الرجل والمرأة يملكان دائمًا حرية الاختيار التي يملكها كثير من الناس اليوم.</div>
+                <div class="readable">أما في العصر الحديث، فقد أصبح للرجل والمرأة مجال أكبر للتعارف والاختيار، وأصبح الحديث عن الحقوق والاحترام والتفاهم أكثر وضوحًا. لكن هذا لا يعني أن الزواج الحديث ينجح تلقائيًا. فحرية الاختيار وحدها لا تكفي، ومعرفة الشخص قبل الزواج لا تكفي وحدها. والحب وحده لا يكفي، والمال لا يكفي، والجمال لا يكفي. كل هذه الأمور تحتاج إلى شيء يجمعها: المسؤولية والاحترام والتفاهم والصدق.</div>
+
+                <h3 class="section-subtitle readable">الدرس الذي يمكن أن نتعلمه من الماضي</h3>
+                <div class="readable">عندما ننظر إلى بعض الزيجات القديمة الناجحة، لا ينبغي أن نقول: "كانوا لا يعرفون بعضهم ومع ذلك نجحوا، إذن لا حاجة للتعارف والاختيار." هذه ليست الرسالة.</div>
+                <div class="readable">الدرس الأهم هو أن الزواج يحتاج إلى بناء مستمر. فبعض الأزواج في الماضي بدأوا حياتهم دون معرفة عميقة، لكنهم صنعوا المعرفة بعد الزواج. وبعضهم بنى الثقة خطوة خطوة، وبعضهم تعلم كيف يتعامل مع اختلاف الآخر، وبعضهم أدرك أن الزواج ليس منافسة بين رجل وامرأة، وإنما شراكة.</div>
+                <div class="readable">وهذا ما نحتاج إلى فهمه اليوم. فالزواج الناجح لا يعتمد فقط على كيفية بدايته، وإنما على كيفية استمرار الزوجين في التعامل مع بعضهما. قد يبدأ الزواج عن حب كبير، ثم يفشل بسبب سوء المعاملة. وقد يبدأ الزواج بترتيب عائلي، ثم يتحول إلى محبة عميقة بسبب حسن العِشرة. لكن الأفضل، في كل زمان، أن يجتمع الاختيار الواعي مع الاحترام والمحبة والمسؤولية.</div>
+
+                <h3 class="section-subtitle readable">خاتمة الفصل</h3>
+                <div class="readable">كانت بعض قصص الزواج القديمة في بلاد الرافدين تبدأ بطريقة مختلفة عن زماننا. لم يكن الرجل يرى المرأة دائمًا قبل الزواج، ولم تكن المرأة تعرف الرجل معرفة كافية، وكانت الأسرة تلعب دورًا كبيرًا في الاختيار. لكن الحياة كانت بعد الزواج تبدأ بتعليم الزوجين بعضهما بعضًا.</div>
+                <div class="readable">ومع مرور الأيام، كان الاحترام قد يسبق الحب، والثقة قد تسبق الألفة، والمواقف قد تكشف حقيقة الإنسان، ثم تأتي المحبة نتيجة طبيعية لعِشرة طويلة ناجحة. ومع ذلك، فإن الماضي ليس حكاية مثالية، ولا ينبغي أن ننسى أن هناك زيجات لم تنجح، ونساء ورجالًا عانوا من قرارات لم يختاروها بأنفسهم.</div>
+                <div class="readable">لذلك، فإننا لا نريد في هذا الكتاب أن نمجد الماضي أو نذم الحاضر، وإنما نريد أن نفهم ما الذي جعل بعض البيوت القديمة تصمد أمام السنين. والإجابة تبدأ من كلمات بسيطة لكنها عميقة: احترام، صبر، مسؤولية، وفاء، وتعاون.</div>
+                <div class="readable">فإذا اجتمعت هذه الأشياء، استطاع الزواج أن يتحول من مجرد ارتباط بين رجل وامرأة إلى عِشرة عمر، وبيت، وذكريات، وأسرة، وحكاية طويلة يعيشها اثنان معًا.</div>
+            </article>
+
+        </div>
+
+        <!-- مشغل الصوت السريع السفلي للقارئ الصوتي -->
+        <div class="audio-player-bar">
+            <div class="player-container">
+                <div class="player-status">
+                    <span class="status-text" id="statusText">جاهز للقراءة الصوتية النصية</span>
+                    <span id="progressText">0 / 0</span>
+                </div>
+                <div class="player-controls">
+                    <select class="speed-select" id="speedSelect">
+                        <option value="0.8">0.8x</option>
+                        <option value="1.0" selected>1.0x</option>
+                        <option value="1.2">1.2x</option>
+                        <option value="1.5">1.5x</option>
+                    </select>
+                    <button class="btn-player" id="btnPrev">⏮</button>
+                    <button class="btn-player btn-main" id="btnPlayPause">▶</button>
+                    <button class="btn-player" id="btnStop">⏹</button>
+                    <button class="btn-player" id="btnNext">⏭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- برمجة التبويب والقارئ الصوتي -->
+    <script>
+        // التبديل بين Flipbook والقارئ الصوتي
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+
+            if (tabId !== 'audioTab') {
+                window.speechSynthesis.cancel();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const readables = Array.from(document.querySelectorAll('.readable'));
+            const btnPlayPause = document.getElementById('btnPlayPause');
+            const btnStop = document.getElementById('btnStop');
+            const btnNext = document.getElementById('btnNext');
+            const btnPrev = document.getElementById('btnPrev');
+            const speedSelect = document.getElementById('speedSelect');
+            const statusText = document.getElementById('statusText');
+            const progressText = document.getElementById('progressText');
+            const btnThemeToggle = document.getElementById('btnThemeToggle');
+            const btnIncreaseFont = document.getElementById('btnIncreaseFont');
+            const btnDecreaseFont = document.getElementById('btnDecreaseFont');
+
+            let currentIndex = 0;
+            let isPlaying = false;
+            let isPaused = false;
+            let currentUtterance = null;
+            let currentFontSize = 20;
+
+            const synth = window.speechSynthesis;
+
+            function updateProgressUI() {
+                progressText.innerText = `${currentIndex + 1} / ${readables.length}`;
+            }
+            updateProgressUI();
+
+            function clearHighlights() {
+                readables.forEach(el => el.classList.remove('reading-active'));
+            }
+
+            function speakCurrentIndex() {
+                synth.cancel();
+
+                if (currentIndex < 0) currentIndex = 0;
+                if (currentIndex >= readables.length) {
+                    stopSpeech();
+                    statusText.innerText = "اكتملت القراءة بالكامل!";
+                    return;
+                }
+
+                clearHighlights();
+                const currentEl = readables[currentIndex];
+                currentEl.classList.add('reading-active');
+                currentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                updateProgressUI();
+
+                const textToRead = currentEl.innerText;
+                statusText.innerText = `جارٍ القراءة: ${textToRead.substring(0, 30)}...`;
+
+                currentUtterance = new SpeechSynthesisUtterance(textToRead);
+                currentUtterance.lang = 'ar-SA';
+                currentUtterance.rate = parseFloat(speedSelect.value);
+
+                const voices = synth.getVoices();
+                const arabicVoice = voices.find(voice => voice.lang.includes('ar'));
+                if (arabicVoice) currentUtterance.voice = arabicVoice;
+
+                currentUtterance.onend = () => {
+                    if (isPlaying && !isPaused) {
+                        currentIndex++;
+                        speakCurrentIndex();
+                    }
+                };
+
+                synth.speak(currentUtterance);
+            }
+
+            function togglePlayPause() {
+                if (!isPlaying) {
+                    isPlaying = true;
+                    isPaused = false;
+                    btnPlayPause.innerText = '⏸';
+                    speakCurrentIndex();
+                } else if (isPaused) {
+                    synth.resume();
+                    isPaused = false;
+                    btnPlayPause.innerText = '⏸';
+                    statusText.innerText = "مستمر بالنطق...";
+                } else {
+                    synth.pause();
+                    isPaused = true;
+                    btnPlayPause.innerText = '▶';
+                    statusText.innerText = "متوقف مؤقتاً";
+                }
+            }
+
+            function stopSpeech() {
+                synth.cancel();
+                isPlaying = false;
+                isPaused = false;
+                btnPlayPause.innerText = '▶';
+                clearHighlights();
+                statusText.innerText = "متوقف";
+            }
+
+            btnPlayPause.addEventListener('click', togglePlayPause);
+            btnStop.addEventListener('click', stopSpeech);
+
+            btnNext.addEventListener('click', () => {
+                if (currentIndex < readables.length - 1) {
+                    currentIndex++;
+                    isPlaying = true;
+                    isPaused = false;
+                    btnPlayPause.innerText = '⏸';
+                    speakCurrentIndex();
+                }
+            });
+
+            btnPrev.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    isPlaying = true;
+                    isPaused = false;
+                    btnPlayPause.innerText = '⏸';
+                    speakCurrentIndex();
+                }
+            });
+
+            readables.forEach((el, index) => {
+                el.addEventListener('click', () => {
+                    currentIndex = index;
+                    isPlaying = true;
+                    isPaused = false;
+                    btnPlayPause.innerText = '⏸';
+                    speakCurrentIndex();
+                });
+            });
+
+            // الثيمات وتكبير الخط
+            const themes = ['light', 'sepia', 'dark'];
+            let currentThemeIndex = 0;
+            btnThemeToggle.addEventListener('click', () => {
+                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
+            });
+
+            btnIncreaseFont.addEventListener('click', () => {
+                if (currentFontSize < 30) {
+                    currentFontSize += 2;
+                    document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
+                }
+            });
+
+            btnDecreaseFont.addEventListener('click', () => {
+                if (currentFontSize > 14) {
+                    currentFontSize -= 2;
+                    document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
