@@ -14,98 +14,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>التطبيقات والأدوات | محمد علي الحطاب</title>
-    <meta name="description" content="تطبيقات الموبايل والأدوات البرمجية المطورة بواسطة محمد علي الحطاب.">
+    <meta name="description" content="دليل لأهم تطبيقات الموبايل المجانية والضرورية: الذكاء الاصطناعي، تحسين الصور والكتابة عليها، والإنتاجية مع روابط التحميل الرسمية.">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: system-ui, -apple-system, sans-serif; background-color: #f0f4f8; color: #333; padding: 20px 15px; direction: rtl; }
-        .container { max-width: 480px; margin: 0 auto; }
+        .container { max-width: 520px; margin: 0 auto; }
         .header-card { background: #ffffff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 20px; }
-        h1 { font-size: 22px; color: #1e293b; }
+        h1 { font-size: 22px; color: #1e293b; margin-bottom: 5px; }
+        .header-card p { font-size: 13px; color: #64748b; }
         .apps-list { display: flex; flex-direction: column; gap: 15px; }
-        .app-card { background: #ffffff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: right; border-right: 5px solid #10b981; }
+        .app-card { background: #ffffff; border-radius: 16px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: right; border-right: 5px solid #10b981; }
+        .app-category { font-size: 11px; background: #e2e8f0; color: #0f172a; padding: 2px 8px; border-radius: 6px; display: inline-block; margin-bottom: 6px; font-weight: bold; }
         .app-title { font-size: 17px; font-weight: bold; color: #0f172a; margin-bottom: 6px; }
-        .app-desc { font-size: 14px; color: #64748b; margin-bottom: 12px; line-height: 1.5; }
-        .download-btn { display: inline-block; padding: 8px 16px; background: #10b981; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 13px; transition: 0.2s; }
+        .app-desc { font-size: 13px; color: #64748b; margin-bottom: 14px; line-height: 1.5; }
+        .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .download-btn { flex: 1; text-align: center; padding: 8px 12px; background: #10b981; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 12px; transition: 0.2s; min-width: 110px; }
         .download-btn:hover { background: #059669; }
+        .download-btn.apple { background: #334155; }
+        .download-btn.apple:hover { background: #1e293b; }
         .back-btn { display: block; text-align: center; color: #64748b; text-decoration: none; font-size: 14px; font-weight: bold; margin: 25px 0 10px; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header-card">
-            <h1>🤖 التطبيقات والأدوات</h1>
+            <h1>📱 دليل التطبيقات والبرامج المهمة</h1>
+            <p>أهم التطبيقات والبرامج المجانية للذكاء الاصطناعي، تعديل الصور، والإنتاجية بروابط رسمية آمنة.</p>
         </div>
 
         <div class="apps-list">
 
-            <!-- التطبيق 1 -->
+            <!-- قسم: الذكاء الاصطناعي -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق الأول: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">🤖 ذكاء اصطناعي</span>
+                <div class="app-title">ChatGPT</div>
+                <div class="app-desc">المساعد الذكي الأشهر لكتابة النصوص، التلخيص، البرمجة والإجابة عن الأسئلة اليومية.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/chatgpt/id6448311069" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 2 -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق الثاني: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">🤖 ذكاء اصطناعي</span>
+                <div class="app-title">Google Gemini</div>
+                <div class="app-desc">مساعد جوجل الذكي المرتبط بدمج مباشر مع خدمات Google للمساعدة في البحث والتنظيم.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/google/id284815942" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 3 -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق الثالث: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">🤖 ذكاء اصطناعي</span>
+                <div class="app-title">Microsoft Copilot</div>
+                <div class="app-desc">مساعد ذكي يعتمد على نموذج GPT-4 وتوليد الصور عبر DALL-E 3 مجاناً.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.microsoft.copilot" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/microsoft-copilot/id6472535080" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 4 -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق الرابع: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">🤖 ذكاء اصطناعي</span>
+                <div class="app-title">Perplexity AI</div>
+                <div class="app-desc">محرك بحث متطور يعمل بالذكاء الاصطناعي ويجيب عن الأسئلة مع ذكر المصادر بدقة.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=ai.perplexity.app" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/perplexity-ask-anything/id6447211539" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 5 -->
+            <!-- قسم: تحسين الصور والكتابة عليها -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق الخامس: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">🖼️ تحسين الصور</span>
+                <div class="app-title">Remini</div>
+                <div class="app-desc">تطبيق احترافي لتوضيح الصور المشوشة والقديمة وتحسين جودتها بالذكاء الاصطناعي.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.bigwinepot.nwdn.international" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/remini-ai-photo-enhancer/id1470373330" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 6 -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق السادس: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">🎨 تحرير الصور</span>
+                <div class="app-title">Snapseed</div>
+                <div class="app-desc">محرر صور شامل ومجاني من Google يحتوي على أدوات تعديل احترافية وإزالة العيوب.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.niksoftware.snapseed" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/snapseed/id439438619" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 7 -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق السابع: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">✍️ الكتابة على الصور</span>
+                <div class="app-title">المصمم العربي</div>
+                <div class="app-desc">أفضل تطبيق للكتابة على الصور بخطوط عربية مميزة، إضافة تشكيلات، وتصميم ملصقات.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.almusamim.arabicdesigner" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/id1112423180" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 8 -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق الثامن: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">📸 تعديل وإضاءة</span>
+                <div class="app-title">Adobe Lightroom</div>
+                <div class="app-desc">تطبيق احترافي لتعديل ألوان وإضاءة الصور وإضافة الفلاتر واللمسات الفنية.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.adobe.lrmobile" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/adobe-lightroom-photo-editor/id878783582" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 9 -->
+            <!-- قسم: التصميم والمونتاج -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق التاسع: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">🎬 مونتاج فيديو</span>
+                <div class="app-title">CapCut</div>
+                <div class="app-desc">أقوى تطبيق لتعديل ومونتاج الفيديو بسهولة واحترافية مع تأثيرات وقوالب جاهزة.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.lemon.lvoverseas" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/capcut-video-editor/id1500855883" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
-            <!-- التطبيق 10 -->
             <div class="app-card">
-                <div class="app-title">📱 التطبيق العاشر: [قريباً]</div>
-                <div class="app-desc">سيتم إضافة تفاصيل ورابط تحميل هذا التطبيق فور تجهيزه.</div>
-                <a href="#" class="download-btn">قريباً ⏳</a>
+                <span class="app-category">🎨 تصميم جرافيك</span>
+                <div class="app-title">Canva</div>
+                <div class="app-desc">منصة متكاملة لتصميم الصور، المنشورات، العروض التقديمية والشعارات بسهولة.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.canva.editor" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/canva-design-photo-video/id892323984" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
+            </div>
+
+            <!-- قسم: الإنتاجية والتنظيم -->
+            <div class="app-card">
+                <span class="app-category">📝 تنظيم وإنتاجية</span>
+                <div class="app-title">Notion</div>
+                <div class="app-desc">مساحة عمل متكاملة لتنظيم المهام، كتابة الملاحظات، وإدارة المشاريع الشخصية.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=notion.id" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/notion-notes-docs-tasks/id1232780281" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <span class="app-category">📌 ملاحظات سريعة</span>
+                <div class="app-title">Google Keep</div>
+                <div class="app-desc">تطبيق سريع وبسيط لتسجيل الملاحظات، القوائم اليومية، والتذكيرات الصوتية.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.google.android.keep" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/google-keep-notes-and-lists/id1061712013" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <span class="app-category">📅 إدارة الوقت</span>
+                <div class="app-title">Structured</div>
+                <div class="app-desc">تطبيق ينظم المهام والجدول اليومي على شريط زمني مرئي لزيادة التركيز والإنتاجية.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=app.structured.android" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/structured-daily-planner/id1499188910" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
+            </div>
+
+            <!-- قسم: الأدوات والأمان -->
+            <div class="app-card">
+                <span class="app-category">📁 إدارة ملفات</span>
+                <div class="app-title">Files by Google</div>
+                <div class="app-desc">تطبيق رسمي لتنظيف الهاتف، تفريغ المساحة، واستعراض واستعادة الملفات بسهولة.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user" target="_blank" class="download-btn">🤖 Android</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <span class="app-category">🔐 حماية وأمان</span>
+                <div class="app-title">Bitwarden</div>
+                <div class="app-desc">مدير كلمات مرور مفتوح المصدر لحفظ وتشفير الحسابات والكلمات السرية بأمان تام.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.x8bit.bitwarden" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/bitwarden-password-manager/id1137397351" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <span class="app-category">📄 ماسح مستندات</span>
+                <div class="app-title">CamScanner</div>
+                <div class="app-desc">تطبيق لمسح الأوراق والمستندات ضوئياً بكاميرا الموبايل وتحويلها لملفات PDF.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/camscanner-pdf-scanner-app/id388624839" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
+            </div>
+
+            <!-- قسم: التعلم والتواصل -->
+            <div class="app-card">
+                <span class="app-category">🎓 تعلم لغات</span>
+                <div class="app-title">Duolingo</div>
+                <div class="app-desc">التطبيق الأشهر عالمياً لتعلم اللغات الأجنبية بطريقة ممتعة وتفاعلية.</div>
+                <div class="btn-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.duolingo" target="_blank" class="download-btn">🤖 Android</a>
+                    <a href="https://apps.apple.com/app/duolingo-language-lessons/id570060128" target="_blank" class="download-btn apple">🍎 iPhone</a>
+                </div>
             </div>
 
         </div>
