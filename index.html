@@ -77,7 +77,7 @@
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         .hero-text { flex: 1; }
         .hero-text h1 { font-size: 28px; color: #1e293b; margin-bottom: 10px; line-height: 1.4; }
@@ -115,6 +115,49 @@
             border: 4px solid #10b981;
             box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
             object-fit: cover;
+        }
+
+        /* تصميم البطاقة المتحركة للقصيدة في الأعلى */
+        .animated-poem-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            border: 2px solid #10b981;
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: glowPulse 3s infinite alternate ease-in-out;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+                border-color: #10b981;
+            }
+            100% {
+                box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
+                border-color: #059669;
+            }
+        }
+
+        .poem-tag {
+            display: inline-block;
+            background: #10b981;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 5px 18px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .animated-poem-text {
+            font-size: 16px;
+            color: #1e293b;
+            line-height: 2.2;
+            white-space: pre-line;
+            font-weight: 600;
         }
 
         /* شبكة الأقسام والخدمات (Cards Grid) */
@@ -180,6 +223,7 @@
             .nav-links { display: none; }
             .hero-image { flex: 0 0 auto; width: 100%; }
             .hero-image img { max-width: 220px; margin: 0 auto; }
+            .animated-poem-text { font-size: 14px; }
         }
     </style>
 </head>
@@ -224,6 +268,19 @@
             </div>
         </section>
 
+        <!-- بطاقة قصيدة النجاة المتحركة والمثبتة بارزة في الأعلى -->
+        <div class="animated-poem-card">
+            <span class="poem-tag">✨ قصيدة اليوم: النجاة</span>
+            <div class="animated-poem-text">
+عجبت لمن تضيق به الحياة ... وفي انوار خالقه النجاة!
+اذا نزل البلاء بكل صوب ... واظلمت المسالك والجهات
+فلذ بالله، والهج فيه ذكرا ... فان الذكر للصدر الحياة
+هو الحصن القوي لكل خوف ... به تمضي النوائب والشقاة
+لسان غافل عن ذكر ربي ... لسان ميت، فيه الموات!
+فسبح، ثم هلل، وارج عفوا ... تنل ما لم تنله الامنيات
+            </div>
+        </div>
+
         <!-- قسم مؤلفاتي وإصداراتي -->
         <h2 class="section-title">📚 مؤلفاتي وإصداراتي</h2>
         <section class="grid-container" style="margin-bottom: 40px;">
@@ -233,18 +290,11 @@
                 <p>ولقاؤها بالملك فيصل - توثيق تاريخي وراوي لأبرز الشخصيات والتاريخ الأصيل.</p>
             </a>
 
-            <!-- بطاقة قصيدة النجاة -->
-            <div class="action-card" style="border: 1px solid #10b981; background: #fafdfb;">
-                <h3 style="color: #059669;">✨ قصيدة: النجاة</h3>
-                <div style="font-size: 14px; color: #334155; line-height: 1.9; margin-top: 10px; text-align: center; white-space: pre-line; font-weight: 500;">
-عجبت لمن تضيق به الحياة ... وفي انوار خالقه النجاة!
-اذا نزل البلاء بكل صوب ... واظلمت المسالك والجهات
-فلذ بالله، والهج فيه ذكرا ... فان الذكر للصدر الحياة
-هو الحصن القوي لكل خوف ... به تمضي النوائب والشقاة
-لسان غافل عن ذكر ربي ... لسان ميت، فيه الموات!
-فسبح، ثم هلل، وارج عفوا ... تنل ما لم تنله الامنيات
-                </div>
-            </div>
+            <!-- بطاقة ديوان الشعر المرتبطة بملف poetry.html -->
+            <a href="poetry.html" class="action-card">
+                <h3>✨ ديوان الشعر وقصيدة النجاة</h3>
+                <p>تصفح واقرأ القصائد الأدبية والشعرية الكاملة.</p>
+            </a>
 
             <a href="book.html" class="action-card">
                 <h3>📖 كتاب العشرة بين الرجل والمرأة</h3>
@@ -302,7 +352,7 @@
         <!-- التذييل المحسن -->
         <div class="footer">
             <p class="copyright">جميع الحقوق محفوظة © 2026 - محمد علي أحمد الحطاب الجبوري</p>
-            <a href="https://github.com/mhamalgporee-ctrl/mhamalgporee-ctrl.github.io" class="admin-btn">⚙️ إدارة الموقع عبر GitHub</a>
+            <a href="https://github.com/mhamalgporee-ctrl/mhamalgporee-ctrl.github.io" class="admin-btn">⚙️️ إدارة الموقع عبر GitHub</a>
         </div>
 
     </div>
