@@ -13,31 +13,168 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شعر شعبي وزهيريات | محمد علي الحطاب</title>
+    <title>ديوان الشعر والزهيريات | محمد علي أحمد الحطاب الجبوري</title>
+    <meta name="description" content="ديوان القصائد الأدبية والشعر الشعبي والزهيريات للكاتب والشاعر محمد علي أحمد الحطاب الجبوري.">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f0f4f8; color: #333; padding: 20px 15px; direction: rtl; }
-        .container { max-width: 500px; margin: 0 auto; }
-        .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-        .back-btn { text-decoration: none; color: #10b981; font-weight: bold; font-size: 14px; background: #fff; padding: 8px 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        h1 { font-size: 22px; color: #1e293b; }
-        .poem-card { background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
-        .poem-title { font-size: 18px; color: #10b981; margin-bottom: 12px; }
-        .poem-verses { font-size: 15px; color: #334155; line-height: 2; font-weight: 500; white-space: pre-line; }
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            background-color: #f8fafc; 
+            color: #333; 
+            padding: 20px 15px; 
+            direction: rtl; 
+            line-height: 1.8;
+        }
+        .container { max-width: 650px; margin: 0 auto; }
+        
+        .header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 25px; 
+            background: #ffffff;
+            padding: 15px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+        .header h1 { font-size: 20px; color: #1e293b; font-weight: bold; }
+        .back-btn { 
+            text-decoration: none; 
+            color: #ffffff; 
+            font-weight: bold; 
+            font-size: 14px; 
+            background: #10b981; 
+            padding: 8px 18px; 
+            border-radius: 10px; 
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: #059669; }
+
+        /* تصميم البطاقة البارزة والمتحركة للقصيدة */
+        .animated-poem-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            border: 2px solid #10b981;
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: glowPulse 3s infinite alternate ease-in-out;
+        }
+
+        /* حركة الوهج والنبض التفاعلي */
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+                border-color: #10b981;
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
+                border-color: #059669;
+                transform: scale(1.01);
+            }
+        }
+
+        .poem-badge {
+            display: inline-block;
+            background: #10b981;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .poem-title { font-size: 22px; color: #065f46; margin-bottom: 15px; font-weight: bold; }
+        
+        .poem-verses { 
+            font-size: 17px; 
+            color: #1e293b; 
+            line-height: 2.2; 
+            font-weight: 600; 
+            white-space: pre-line; 
+        }
+
+        /* باقي بطاقات القصائد */
+        .poem-card { 
+            background: #ffffff; 
+            border-radius: 18px; 
+            padding: 25px 20px; 
+            margin-bottom: 25px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04); 
+            text-align: center; 
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease;
+        }
+        .poem-card:hover { transform: translateY(-3px); border-color: #10b981; }
+
+        .sub-badge {
+            display: inline-block;
+            background: #ecfdf5;
+            color: #10b981;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .footer { text-align: center; margin-top: 40px; padding: 20px; color: #64748b; font-size: 14px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📜 شعر شعبي وزهيريات</h1>
+            <h1>📜 ديوان الشعر والزهيريات</h1>
             <a href="index.html" class="back-btn">← الرئيسية</a>
         </div>
 
-        <!-- قصيدة أو بيت زهيري -->
+        <!-- قصيدة النجاة (بارزة ومتحركة بأنيميشن الوهج) -->
+        <div class="animated-poem-card">
+            <span class="poem-badge">✨ القصيدة البارزة والمتحركة</span>
+            <h2 class="poem-title">قصيدة: النجاة</h2>
+            <div class="poem-verses">
+عجبت لمن تضيق به الحياة ... وفي انوار خالقه النجاة!
+اذا نزل البلاء بكل صوب ... واظلمت المسالك والجهات
+فلذ بالله، والهج فيه ذكرا ... فان الذكر للصدر الحياة
+هو الحصن القوي لكل خوف ... به تمضي النوائب والشقاة
+لسان غافل عن ذكر ربي ... لسان ميت، فيه الموات!
+فسبح، ثم هلل، وارج عفوا ... تنل ما لم تنله الامنيات
+            </div>
+        </div>
+
+        <!-- شعر شعبي وزهيريات -->
         <div class="poem-card">
-            <h2 class="poem-title">بيت زهيري / قصيدة</h2>
-            <div class="poem-verses">اكتب أبيات الشعر الشعبي أو الزهيريات هنا...
-كل سطر جديد يظهر مرتباً ومستقلاً تلقائياً.</div>
+            <span class="sub-badge">🌾 شعر شعبي عراقي</span>
+            <h2 class="poem-title" style="font-size: 18px;">شعر شعبي / ألم وتداوي</h2>
+            <div class="poem-verses" style="font-size: 15px; font-weight: 500;">
+چنت اِظنّك دوه وتداوي الجروح
+واثاري الجرح منك والوجع بيا
+يامن بيك چنت متأمل الروح
+ثاري شوكك أوهام و أذية
+يا وسفة العشگ ويا حسرة النوح
+ضيعت العمر بيدك بدية
+            </div>
+        </div>
+
+        <!-- قصيدة معلمي الأجيال -->
+        <div class="poem-card">
+            <span class="sub-badge">🎓 وفاء وتقدير</span>
+            <h2 class="poem-title" style="font-size: 18px;">تحية لمعلمي الأجيال</h2>
+            <div class="poem-verses" style="font-size: 15px; font-weight: 500;">
+يا صانع المجد في أجيال أمتنا
+لك التحية والتبجيل والتُقى
+أنرت بالعلم درباً كان مظلماً
+فصرت نميراً بالمعارف شرقاً
+            </div>
+        </div>
+
+        <div class="footer">
+            جميع الحقوق محفوظة © 2026 - محمد علي أحمد الحطاب الجبوري
         </div>
     </div>
 </body>
