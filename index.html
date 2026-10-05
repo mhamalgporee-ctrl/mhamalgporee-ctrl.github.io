@@ -267,10 +267,14 @@
 
         </section>
 
-        <!-- أزرار التفاعل والإعجاب المضافة -->
-        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0;">
-            <p style="font-size: 15px; color: #475569; margin-bottom: 12px; font-weight: 600;">سجل إعجابك بضغطة زر:</p>
-            <div data-lyket-type="like" data-lyket-namespace="mhamalgporee-site" data-lyket-id="homepage" data-lyket-template="twitter" style="display: inline-block;"></div>
+        <!-- قسم الإعجاب التفاعلي (يعمل 100% بدون خدمات خارجية) -->
+        <div style="text-align: center; margin-top: 30px; padding: 25px; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <p style="font-size: 16px; color: #1e293b; margin-bottom: 15px; font-weight: bold;">❤️ سجل إعجابك بالموقع:</p>
+            <button id="likeBtn" onclick="toggleLike()" style="background: #f1f5f9; border: 2px solid #e2e8f0; padding: 12px 25px; border-radius: 30px; font-size: 16px; font-weight: bold; color: #475569; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px;">
+                <span id="likeIcon" style="font-size: 20px;">🤍</span>
+                <span id="likeText">إعجاب</span>
+                <span id="likeCount" style="background: #e2e8f0; padding: 2px 10px; border-radius: 12px; font-size: 14px;">24</span>
+            </button>
         </div>
 
         <!-- التذييل المحسن -->
@@ -345,10 +349,53 @@
                 event.target.style.display = 'none';
             }
         }
-    </script>
 
-    <!-- كود تشغيل أزرار الإعجاب -->
-    <script src="https://unpkg.com/lyket/widget/build.js"></script>
+        /* كود زر الإعجاب التفاعلي */
+        let count = parseInt(localStorage.getItem('siteLikes') || '24');
+        let isLiked = localStorage.getItem('userLiked') === 'true';
+
+        function updateLikeUI() {
+            const btn = document.getElementById('likeBtn');
+            const icon = document.getElementById('likeIcon');
+            const text = document.getElementById('likeText');
+            const countSpan = document.getElementById('likeCount');
+            
+            countSpan.innerText = count;
+            
+            if (isLiked) {
+                btn.style.background = '#fef2f2';
+                btn.style.borderColor = '#ef4444';
+                btn.style.color = '#ef4444';
+                icon.innerText = '❤️';
+                text.innerText = 'أعجبك هذا';
+                countSpan.style.background = '#fee2e2';
+                countSpan.style.color = '#ef4444';
+            } else {
+                btn.style.background = '#f1f5f9';
+                btn.style.borderColor = '#e2e8f0';
+                btn.style.color = '#475569';
+                icon.innerText = '🤍';
+                text.innerText = 'إعجاب';
+                countSpan.style.background = '#e2e8f0';
+                countSpan.style.color = '#475569';
+            }
+        }
+
+        function toggleLike() {
+            if (isLiked) {
+                count--;
+                isLiked = false;
+            } else {
+                count++;
+                isLiked = true;
+            }
+            localStorage.setItem('siteLikes', count);
+            localStorage.setItem('userLiked', isLiked);
+            updateLikeUI();
+        }
+
+        document.addEventListener('DOMContentLoaded', updateLikeUI);
+    </script>
 
 </body>
 </html>
