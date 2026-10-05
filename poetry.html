@@ -79,32 +79,39 @@
             overflow: hidden;
             position: relative;
             border-radius: 14px;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.75);
             padding: 15px 10px;
             border: 1px dashed #a7f3d0;
         }
 
-        /* حركة تحريك النص من الأسفل للأعلى */
-        .moving-text {
+        /* الغلاف المتحرك الذي يضمن الحركة المستمرة بدون فراغ */
+        .moving-wrapper {
+            display: flex;
+            flex-direction: column;
+            animation: scrollUp 28s linear infinite; /* تم إبطاء السرعة إلى 28 ثانية */
+        }
+
+        /* إيقاف الحركة عند وضع الماوس أو اللمس للقراءة */
+        .scroll-container:hover .moving-wrapper {
+            animation-play-state: paused;
+        }
+
+        .poem-text {
             font-size: 17px; 
             color: #1e293b; 
             line-height: 2.6; 
             font-weight: 600; 
             white-space: pre-line;
-            animation: scrollUp 14s linear infinite;
+            padding-bottom: 30px; /* مسافة متناسقة بين نهاية القصيدة وبدايتها المكررة */
         }
 
-        /* إيقاف الحركة عند اللمس/الماوس للقراءة بسهولة */
-        .scroll-container:hover .moving-text {
-            animation-play-state: paused;
-        }
-
+        /* حركة مستمرة ودائرية بدون أي توقف أو فراغ كبير */
         @keyframes scrollUp {
             0% {
-                transform: translateY(100%);
+                transform: translateY(0);
             }
             100% {
-                transform: translateY(-100%);
+                transform: translateY(-50%);
             }
         }
 
@@ -123,7 +130,9 @@
             <span class="poem-badge">✨ قصيدة اليوم: النجاة</span>
             
             <div class="scroll-container">
-                <div class="moving-text">
+                <div class="moving-wrapper">
+                    <!-- النص الأصلي -->
+                    <div class="poem-text">
 عجبت لمن تضيق به الحياة ... وفي انوار خالقه النجاة!
 
 اذا نزل البلاء بكل صوب ... واظلمت المسالك والجهات
@@ -135,6 +144,22 @@
 لسان غافل عن ذكر ربي ... لسان ميت، فيه الموات!
 
 فسبح، ثم هلل، وارج عفوا ... تنل ما لم تنله الامنيات
+                    </div>
+
+                    <!-- النص المكرر لضمان التنسيق والتتابع الفوري بدون فراغ -->
+                    <div class="poem-text">
+عجبت لمن تضيق به الحياة ... وفي انوار خالقه النجاة!
+
+اذا نزل البلاء بكل صوب ... واظلمت المسالك والجهات
+
+فلذ بالله، والهج فيه ذكرا ... فان الذكر للصدر الحياة
+
+هو الحصن القوي لكل خوف ... به تمضي النوائب والشقاة
+
+لسان غافل عن ذكر ربي ... لسان ميت، فيه الموات!
+
+فسبح، ثم هلل، وارج عفوا ... تنل ما لم تنله الامنيات
+                    </div>
                 </div>
             </div>
         </div>
