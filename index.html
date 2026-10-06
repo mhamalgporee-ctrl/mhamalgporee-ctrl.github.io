@@ -42,6 +42,7 @@
             --primary-hover: #059669;
             --primary-light: #f0fdf4;
             --primary-border: #ecfdf5;
+            --gold-color: #d4af37;
             --bg-body: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
@@ -181,6 +182,14 @@
             transform: translateY(-2px);
         }
 
+        .hero-image-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 280px;
+        }
+
         .hero-image { flex: 0 0 300px; display: flex; justify-content: center; }
         .hero-image img {
             width: 100%;
@@ -194,6 +203,26 @@
         }
         .hero-image img:hover {
             transform: scale(1.02);
+        }
+
+        /* تصميم الشريط المتحرك الذهبي تحت الصورة */
+        .golden-ticker {
+            width: 100%;
+            margin-top: 14px;
+            background: linear-gradient(135deg, #fffdf0 0%, #fff7ed 100%);
+            border: 2px solid var(--gold-color);
+            border-radius: 12px;
+            padding: 8px 12px;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            color: #78350f;
+            font-size: 14px;
+            font-weight: 700;
+            overflow: hidden;
+        }
+
+        .golden-ticker marquee {
+            display: block;
+            vertical-align: middle;
         }
 
         /* تصميم البطاقة المتحركة للقصيدة في الأعلى */
@@ -408,7 +437,7 @@
             .hero-buttons { justify-content: center; }
             .nav-links { display: none; }
             .hero-image { flex: 0 0 auto; width: 100%; }
-            .hero-image img { max-width: 220px; margin: 0 auto; }
+            .hero-image-wrapper { max-width: 240px; margin: 0 auto; }
             .animated-poem-text { font-size: 15px; line-height: 2.1; }
             .section-title { font-size: 21px; }
             .action-card { padding: 22px; }
@@ -451,8 +480,19 @@
                     <button onclick="openChat()" class="btn-primary">💬 تواصل معي</button>
                 </div>
             </div>
+
+            <!-- صورة الغلاف + الشريط الذهبي المتحرك تحت الصورة -->
             <div class="hero-image">
-                <img src="acon.jpg" alt="محمد علي أحمد الحطاب الجبوري">
+                <div class="hero-image-wrapper">
+                    <img src="acon.jpg" alt="محمد علي أحمد الحطاب الجبوري">
+                    
+                    <!-- الشريط الذهبي المتحرك -->
+                    <div class="golden-ticker">
+                        <marquee behavior="scroll" direction="right" scrollamount="4">
+                            ✨ أهلاً بك زائرنا الكريم.. تصفح واقرأ وحمل التطبيقات ✨
+                        </marquee>
+                    </div>
+                </div>
             </div>
         </section>
 
