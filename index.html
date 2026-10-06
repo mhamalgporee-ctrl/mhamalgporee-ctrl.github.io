@@ -4,36 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- كود إحصاءات جوجل (Google Analytics GA4) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
     gtag('config', 'G-3VZQSDZNC7');
   </script>
 
-  <!-- كود إثبات ملكية الموقع في Google Search Console -->
-  <meta name="google-site-verification" content="6HjrABgTASI6TtgnCAzTiYd66cRmVpN5unzJNBG6vDg">
+  <!-- Google Search Console -->
+  <meta
+    name="google-site-verification"
+    content="6HjrABgTASI6TtgnCAzTiYd66cRmVpN5unzJNBG6vDg"
+  >
 
-  <!-- عناوين وأوصاف تحسين محركات البحث -->
-  <title>محمد علي أحمد الحطاب الجبوري | الشرقاط، التاريخ، الشعر والتطبيقات</title>
+  <!-- SEO -->
+  <title>
+    محمد علي أحمد الحطاب الجبوري | الشرقاط، التاريخ، الشعر والتطبيقات
+  </title>
 
-  <meta name="description" content="الموقع الرسمي للمطور محمد علي أحمد الحطاب الجبوري. يتناول تاريخ وثقافة مدينة الشرقاط وصلاح الدين، سير الأجداد، وتطبيقات الموبايل والمعرض.">
+  <meta
+    name="description"
+    content="الموقع الرسمي للمطور محمد علي أحمد الحطاب الجبوري. يتناول تاريخ وثقافة مدينة الشرقاط وصلاح الدين، سير الأجداد، وتطبيقات الموبايل والمعرض."
+  >
 
-  <meta name="keywords" content="الشرقاط, صلاح الدين, عگاب العلي, مولود باشا مخلص, تطبيقات, محمد علي أحمد الحطاب الجبوري, قصة جدي عگاب, قرية السفينة">
+  <meta
+    name="keywords"
+    content="الشرقاط, صلاح الدين, عگاب العلي, مولود باشا مخلص, تطبيقات, محمد علي أحمد الحطاب الجبوري, قصة جدي عگاب, قرية السفينة"
+  >
 
-  <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
-  <meta name="robots" content="index, follow">
+  <meta
+    name="author"
+    content="محمد علي أحمد الحطاب الجبوري"
+  >
 
-  <!-- وسوم المعاينة في الفيسبوك والواتساب -->
-  <meta property="og:title" content="موقع محمد علي أحمد الحطاب الجبوري | الشرقاط والتاريخ والتطبيقات">
-  <meta property="og:description" content="قصة جدي عگاب، سير الأجداد، وتطبيقات ومعرض أعمال متخصصة.">
-  <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
-  <meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
-  <meta property="og:type" content="website">
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <!-- Facebook / WhatsApp -->
+  <meta
+    property="og:title"
+    content="موقع محمد علي أحمد الحطاب الجبوري | الشرقاط والتاريخ والتطبيقات"
+  >
+
+  <meta
+    property="og:description"
+    content="قصة جدي عگاب، سير الأجداد، وتطبيقات ومعرض أعمال متخصصة."
+  >
+
+  <meta
+    property="og:image"
+    content="https://mhamalgporee-ctrl.github.io/acon.jpg"
+  >
+
+  <meta
+    property="og:url"
+    content="https://mhamalgporee-ctrl.github.io/"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
 
   <style>
+
     :root {
       --primary-color: #10b981;
       --primary-hover: #059669;
@@ -45,9 +85,16 @@
       --text-main: #1e293b;
       --text-muted: #64748b;
       --border-color: #e2e8f0;
-      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.03);
-      --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.05);
-      --shadow-lg: 0 15px 30px rgba(16, 185, 129, 0.15);
+
+      --shadow-sm:
+        0 4px 6px rgba(0, 0, 0, 0.03);
+
+      --shadow-md:
+        0 10px 25px rgba(0, 0, 0, 0.05);
+
+      --shadow-lg:
+        0 15px 30px rgba(16, 185, 129, 0.15);
+
       --radius-md: 12px;
       --radius-lg: 20px;
     }
@@ -63,7 +110,16 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Tahoma, Arial, sans-serif;
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Tahoma,
+        Arial,
+        sans-serif;
+
       background-color: var(--bg-body);
       color: var(--text-main);
       direction: rtl;
@@ -71,26 +127,44 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     a {
       text-decoration: none;
       color: inherit;
     }
 
-    /* شريط التصفح العلوي */
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+    /* ================================
+       شريط التصفح
+       ================================ */
+
     .navbar {
-      background-color: var(--card-bg);
       box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+
       position: sticky;
       top: 0;
       z-index: 100;
+
       backdrop-filter: blur(8px);
-      background-color: rgba(255, 255, 255, 0.95);
+
+      background-color:
+        rgba(255, 255, 255, 0.95);
     }
 
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
+
       padding: 16px 20px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -114,7 +188,10 @@
       font-size: 15px;
       font-weight: 700;
       color: #475569;
-      transition: color 0.2s ease, transform 0.2s ease;
+
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
     }
 
     .nav-links a:hover {
@@ -122,24 +199,36 @@
       transform: translateY(-1px);
     }
 
-    /* الحاوية الرئيسية للمحتوى */
+    /* ================================
+       الحاوية
+       ================================ */
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 40px 20px;
     }
 
-    /* القسم الترحيبي */
+    /* ================================
+       القسم الترحيبي
+       ================================ */
+
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 40px;
+
       background: var(--card-bg);
+
       padding: 45px;
+
       border-radius: var(--radius-lg);
+
       box-shadow: var(--shadow-md);
+
       margin-bottom: 35px;
+
       border: 1px solid var(--border-color);
     }
 
@@ -151,7 +240,9 @@
       font-size: 30px;
       font-weight: 800;
       color: var(--text-main);
+
       margin-bottom: 10px;
+
       line-height: 1.3;
     }
 
@@ -159,26 +250,46 @@
       color: var(--text-muted);
       font-size: 17px;
       font-weight: 600;
+
       margin-bottom: 20px;
     }
 
-    /* روابط التواصل الاجتماعي */
+    /* ================================
+       التواصل الاجتماعي
+       ================================ */
+
     .social-links {
       display: flex;
       gap: 18px;
+
       margin-bottom: 25px;
+
       font-size: 26px;
     }
 
     .social-links a {
-      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease;
+      transition:
+        transform 0.25s
+          cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        filter 0.2s ease;
+
       display: inline-block;
     }
 
     .social-links a:hover {
-      transform: translateY(-4px) scale(1.15);
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+      transform:
+        translateY(-4px)
+        scale(1.15);
+
+      filter:
+        drop-shadow(
+          0 4px 6px rgba(0,0,0,0.1)
+        );
     }
+
+    /* ================================
+       الأزرار
+       ================================ */
 
     .hero-buttons {
       display: flex;
@@ -189,51 +300,72 @@
     .btn-primary,
     .btn-secondary {
       padding: 13px 26px;
+
       border-radius: var(--radius-md);
+
       font-size: 15px;
       font-weight: 700;
+
       cursor: pointer;
+
       transition: all 0.25s ease;
-      border: none;
+
       display: inline-flex;
       align-items: center;
+
       gap: 8px;
-      font-family: inherit;
+
+      border: none;
     }
 
     .btn-primary {
       background: var(--primary-color);
       color: #fff;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+
+      box-shadow:
+        0 4px 12px
+        rgba(16, 185, 129, 0.3);
     }
 
     .btn-primary:hover {
       background: var(--primary-hover);
+
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+
+      box-shadow:
+        0 6px 18px
+        rgba(16, 185, 129, 0.4);
     }
 
     .btn-secondary {
       background: #f1f5f9;
       color: var(--text-main);
+
       border: 1px solid var(--border-color);
     }
 
     .btn-secondary:hover {
       background: #e2e8f0;
+
       transform: translateY(-2px);
     }
+
+    /* ================================
+       الصورة
+       ================================ */
 
     .hero-image-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       width: 100%;
       max-width: 280px;
     }
 
     .hero-image {
       flex: 0 0 300px;
+
       display: flex;
       justify-content: center;
     }
@@ -241,30 +373,56 @@
     .hero-image img {
       width: 100%;
       max-width: 280px;
+
       height: auto;
+
       border-radius: var(--radius-lg);
+
       border: 4px solid var(--primary-color);
+
       box-shadow: var(--shadow-lg);
+
       object-fit: cover;
-      transition: transform 0.3s ease;
+
+      transition:
+        transform 0.3s ease;
     }
 
     .hero-image img:hover {
       transform: scale(1.02);
     }
 
-    /* الشريط الذهبي */
+    /* ================================
+       الشريط الذهبي
+       ================================ */
+
     .golden-ticker {
       width: 100%;
+
       margin-top: 14px;
-      background: linear-gradient(135deg, #fffdf0 0%, #fff7ed 100%);
+
+      background:
+        linear-gradient(
+          135deg,
+          #fffdf0 0%,
+          #fff7ed 100%
+        );
+
       border: 2px solid var(--gold-color);
+
       border-radius: 12px;
+
       padding: 8px 12px;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+
+      box-shadow:
+        0 4px 12px
+        rgba(212, 175, 55, 0.3);
+
       color: #78350f;
+
       font-size: 14px;
       font-weight: 700;
+
       overflow: hidden;
     }
 
@@ -273,17 +431,33 @@
       vertical-align: middle;
     }
 
-    /* كارت الطقس */
+    /* ================================
+       الطقس
+       ================================ */
+
     .weather-card {
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      background:
+        linear-gradient(
+          135deg,
+          #0284c7 0%,
+          #0369a1 100%
+        );
+
       color: #ffffff;
+
       padding: 20px 25px;
+
       border-radius: var(--radius-lg);
+
       margin-bottom: 35px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 10px 20px rgba(3, 105, 161, 0.2);
+
+      box-shadow:
+        0 10px 20px
+        rgba(3, 105, 161, 0.2);
     }
 
     .weather-info {
@@ -299,6 +473,7 @@
     .weather-details h4 {
       font-size: 16px;
       font-weight: 700;
+
       margin-bottom: 2px;
     }
 
@@ -310,134 +485,245 @@
     .weather-temp {
       font-size: 28px;
       font-weight: 800;
-      background: rgba(255, 255, 255, 0.2);
+
+      background:
+        rgba(255, 255, 255, 0.2);
+
       padding: 6px 16px;
+
       border-radius: 12px;
+
       backdrop-filter: blur(4px);
     }
 
-    /* بطاقة القصيدة */
+    /* ================================
+       القصيدة
+       ================================ */
+
     .animated-poem-card {
-      background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff 0%,
+          var(--primary-light) 100%
+        );
+
       border: 2px solid var(--primary-color);
+
       border-radius: var(--radius-lg);
+
       padding: 35px 25px;
+
       margin-bottom: 40px;
+
       text-align: center;
+
       position: relative;
+
       overflow: hidden;
-      animation: glowPulse 3s infinite alternate ease-in-out;
+
+      animation:
+        glowPulse
+        3s infinite alternate ease-in-out;
     }
 
     @keyframes glowPulse {
+
       0% {
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+        box-shadow:
+          0 4px 15px
+          rgba(16, 185, 129, 0.15);
+
         border-color: #10b981;
       }
 
       100% {
-        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
+        box-shadow:
+          0 10px 30px
+          rgba(16, 185, 129, 0.35);
+
         border-color: #059669;
       }
+
     }
 
     .poem-tag {
       display: inline-block;
+
       background: var(--primary-color);
+
       color: #ffffff;
+
       font-size: 14px;
       font-weight: 700;
+
       padding: 6px 20px;
+
       border-radius: 20px;
+
       margin-bottom: 18px;
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+
+      box-shadow:
+        0 2px 8px
+        rgba(16, 185, 129, 0.3);
     }
 
     .animated-poem-text {
       font-size: 17px;
+
       color: var(--text-main);
+
       line-height: 2.3;
+
       white-space: pre-line;
+
       font-weight: 700;
     }
 
-    /* شبكة الأقسام */
+    /* ================================
+       العناوين
+       ================================ */
+
     .section-title {
       font-size: 25px;
+
       font-weight: 800;
+
       color: var(--text-main);
+
       margin-bottom: 22px;
+
       text-align: center;
     }
 
+    /* ================================
+       الشبكة
+       ================================ */
+
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(300px, 1fr)
+        );
+
       gap: 22px;
     }
 
     .action-card {
       background: var(--card-bg);
+
       padding: 28px;
+
       border-radius: 16px;
+
       border: 1px solid var(--border-color);
-      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+      transition:
+        all 0.3s
+        cubic-bezier(
+          0.165,
+          0.84,
+          0.44,
+          1
+        );
+
       cursor: pointer;
+
       text-align: right;
+
       box-shadow: var(--shadow-sm);
+
       display: block;
     }
 
     .action-card:hover {
       transform: translateY(-6px);
+
       border-color: var(--primary-color);
-      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.12);
+
+      box-shadow:
+        0 12px 24px
+        rgba(16, 185, 129, 0.12);
     }
 
     .action-card h3 {
       font-size: 18px;
+
       font-weight: 700;
+
       color: var(--text-main);
+
       margin-bottom: 10px;
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
     }
 
     .action-card p {
       font-size: 14.5px;
+
       color: var(--text-muted);
+
       line-height: 1.6;
     }
 
-    /* النوافذ المنبثقة */
+    /* ================================
+       النوافذ
+       ================================ */
+
     .modal,
     .chat-modal {
       display: none;
+
       position: fixed;
+
       top: 0;
       left: 0;
+
       width: 100%;
       height: 100%;
-      background: rgba(15, 23, 42, 0.6);
+
+      background:
+        rgba(15, 23, 42, 0.6);
+
       z-index: 1000;
+
       justify-content: center;
       align-items: center;
+
       padding: 15px;
+
       backdrop-filter: blur(4px);
     }
 
     .modal-content,
     .chat-box {
       background: #fff;
+
       width: 100%;
+
       max-width: 460px;
+
       border-radius: var(--radius-lg);
+
       padding: 28px;
+
       text-align: right;
+
       position: relative;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      animation: fadeIn 0.3s ease;
+
+      box-shadow:
+        0 20px 40px
+        rgba(0,0,0,0.2);
+
+      animation:
+        fadeIn 0.3s ease;
     }
 
     .chat-box {
@@ -447,27 +733,46 @@
 
     .modal-content h3 {
       margin-bottom: 15px;
+
       color: var(--primary-color);
-      border-bottom: 2px solid var(--primary-border);
+
+      border-bottom:
+        2px solid
+        var(--primary-border);
+
       padding-bottom: 12px;
+
       font-size: 19px;
+
       font-weight: 700;
     }
 
     .modal-close {
       position: absolute;
+
       left: 20px;
       top: 20px;
+
       background: #f1f5f9;
+
       border: none;
+
       font-size: 16px;
+
       width: 36px;
       height: 36px;
+
       border-radius: 50%;
+
       cursor: pointer;
+
       color: var(--text-muted);
-      transition: all 0.2s ease;
+
+      transition:
+        all 0.2s ease;
+
       display: flex;
+
       align-items: center;
       justify-content: center;
     }
@@ -477,32 +782,51 @@
       color: #ef4444;
     }
 
-    /* نافذة الدردشة */
+    /* ================================
+       الدردشة
+       ================================ */
+
     .chat-header {
       background: var(--primary-color);
+
       color: #fff;
+
       padding: 22px;
+
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
     }
 
     .chat-header h3 {
       font-size: 17px;
+
       margin: 0;
+
       color: #fff;
+
       border: none;
+
       padding: 0;
+
       font-weight: 700;
     }
 
     .close-btn {
       background: none;
+
       border: none;
+
       color: #fff;
+
       font-size: 24px;
+
       cursor: pointer;
-      transition: transform 0.2s ease;
+
+      transition:
+        transform 0.2s ease;
     }
 
     .close-btn:hover {
@@ -515,26 +839,41 @@
 
     .chat-body p {
       font-size: 14.5px;
+
       color: #475569;
+
       margin-bottom: 18px;
+
       font-weight: 600;
     }
 
     .chat-input {
       width: 100%;
+
       padding: 13px;
+
       margin-bottom: 16px;
+
       border: 1px solid #cbd5e1;
+
       border-radius: 12px;
+
       font-size: 14.5px;
-      font-family: inherit;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .chat-input:focus {
       outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+
+      border-color:
+        var(--primary-color);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(16, 185, 129, 0.15);
     }
 
     textarea.chat-input {
@@ -544,82 +883,141 @@
 
     .send-btn {
       width: 100%;
+
       padding: 14px;
-      background: var(--primary-color);
+
+      background:
+        var(--primary-color);
+
       color: white;
+
       border: none;
+
       border-radius: 12px;
+
       font-size: 16px;
+
       font-weight: 700;
+
       cursor: pointer;
-      transition: all 0.25s ease;
-      font-family: inherit;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+
+      transition:
+        all 0.25s ease;
+
+      box-shadow:
+        0 4px 12px
+        rgba(16, 185, 129, 0.25);
     }
 
     .send-btn:hover {
-      background: var(--primary-hover);
-      transform: translateY(-1px);
+      background:
+        var(--primary-hover);
+
+      transform:
+        translateY(-1px);
     }
 
-    /* تذييل الصفحة */
+    /* ================================
+       التذييل
+       ================================ */
+
     .footer {
       margin-top: 50px;
+
       padding: 25px 20px;
+
       text-align: center;
-      border-top: 1px solid var(--border-color);
+
+      border-top:
+        1px solid
+        var(--border-color);
     }
 
     .copyright {
       color: var(--text-muted);
+
       font-size: 14.5px;
+
       margin-bottom: 15px;
+
       font-weight: 700;
     }
 
     .admin-btn {
       font-size: 13.5px;
+
       color: var(--text-muted);
+
       text-decoration: none;
+
       display: inline-flex;
+
       align-items: center;
+
       gap: 8px;
+
       padding: 9px 18px;
+
       border-radius: 25px;
-      transition: all 0.25s ease;
-      background: var(--bg-body);
-      border: 1px solid var(--border-color);
+
+      transition:
+        all 0.25s ease;
+
+      background:
+        var(--bg-body);
+
+      border:
+        1px solid
+        var(--border-color);
+
       font-weight: 600;
     }
 
     .admin-btn:hover {
-      color: var(--primary-color);
-      border-color: var(--primary-color);
-      background: var(--primary-light);
-      transform: translateY(-2px);
+      color:
+        var(--primary-color);
+
+      border-color:
+        var(--primary-color);
+
+      background:
+        var(--primary-light);
+
+      transform:
+        translateY(-2px);
     }
 
     @keyframes fadeIn {
+
       from {
         opacity: 0;
-        transform: translateY(12px);
+        transform:
+          translateY(12px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+          translateY(0);
       }
+
     }
 
-    /* التجاوب مع الهواتف */
+    /* ================================
+       الهاتف
+       ================================ */
+
     @media (max-width: 768px) {
+
       .logo {
         font-size: 15px;
       }
 
       .hero {
         flex-direction: column;
+
         text-align: center;
+
         padding: 28px 20px;
       }
 
@@ -641,17 +1039,21 @@
 
       .hero-image {
         flex: 0 0 auto;
+
         width: 100%;
       }
 
       .hero-image-wrapper {
         max-width: 240px;
+
         margin: 0 auto;
       }
 
       .weather-card {
         flex-direction: column;
+
         text-align: center;
+
         gap: 12px;
       }
 
@@ -661,6 +1063,7 @@
 
       .animated-poem-text {
         font-size: 15px;
+
         line-height: 2.1;
       }
 
@@ -671,14 +1074,20 @@
       .action-card {
         padding: 22px;
       }
+
     }
+
   </style>
 </head>
 
 <body>
 
-  <!-- شريط التصفح العلوي -->
+  <!-- ================================
+       شريط التصفح
+       ================================ -->
+
   <nav class="navbar">
+
     <div class="nav-container">
 
       <div class="logo">
@@ -686,28 +1095,45 @@
       </div>
 
       <div class="nav-links">
-        <a href="okab.html">قصة جدي عگاب</a>
-        <a href="poetry.html">الشعر</a>
-        <a href="gallery.html">معرض الأعمال</a>
-        <a href="apps.html">التطبيقات</a>
+
+        <a href="okab.html">
+          قصة جدي عگاب
+        </a>
+
+        <a href="poetry.html">
+          الشعر
+        </a>
+
+        <a href="gallery.html">
+          معرض الأعمال
+        </a>
+
+        <a href="apps.html">
+          التطبيقات
+        </a>
 
         <a
           href="https://baramjak2.wordpress.com"
           target="_blank"
           rel="noopener noreferrer"
-          style="color: #10b981;"
+          style="color:#10b981;"
         >
           مدونة ووردبريس
         </a>
+
       </div>
 
     </div>
+
   </nav>
 
 
   <div class="container">
 
-    <!-- القسم الترحيبي -->
+    <!-- ================================
+         القسم الترحيبي
+         ================================ -->
+
     <section class="hero">
 
       <div class="hero-text">
@@ -720,7 +1146,6 @@
           مطور تطبيقات و كاتب
         </p>
 
-        <!-- روابط التواصل الاجتماعي -->
         <div class="social-links">
 
           <a href="#" title="فيسبوك">
@@ -760,7 +1185,6 @@
       </div>
 
 
-      <!-- صورة الغلاف -->
       <div class="hero-image">
 
         <div class="hero-image-wrapper">
@@ -768,9 +1192,9 @@
           <img
             src="acon.jpg"
             alt="محمد علي أحمد الحطاب الجبوري"
+            loading="eager"
           >
 
-          <!-- الشريط الذهبي المتحرك -->
           <div class="golden-ticker">
 
             <marquee
@@ -790,7 +1214,10 @@
     </section>
 
 
-    <!-- ويدجت طقس الشرقاط المباشر -->
+    <!-- ================================
+         الطقس
+         ================================ -->
+
     <div class="weather-card">
 
       <div class="weather-info">
@@ -798,6 +1225,7 @@
         <span
           class="weather-icon"
           id="weatherIcon"
+          aria-hidden="true"
         >
           🌤️
         </span>
@@ -826,7 +1254,10 @@
     </div>
 
 
-    <!-- بطاقة قصيدة النجاة -->
+    <!-- ================================
+         القصيدة
+         ================================ -->
+
     <div class="animated-poem-card">
 
       <span class="poem-tag">
@@ -845,23 +1276,29 @@
     </div>
 
 
-    <!-- قسم مؤلفاتي وإصداراتي -->
+    <!-- ================================
+         المؤلفات
+         ================================ -->
+
     <h2 class="section-title">
       📚 مؤلفاتي وإصداراتي
     </h2>
 
     <section
       class="grid-container"
-      style="margin-bottom: 40px;"
+      style="margin-bottom:40px;"
     >
 
       <a
         href="okab.html"
         class="action-card"
-        style="border: 2px solid #10b981; background: #f0fdf4;"
+        style="
+          border:2px solid #10b981;
+          background:#f0fdf4;
+        "
       >
 
-        <h3 style="color: #065f46;">
+        <h3 style="color:#065f46;">
           👑 هكذا روت لي أمي: قصة جدي عگاب
         </h3>
 
@@ -951,21 +1388,23 @@
     </section>
 
 
-    <!-- شبكة الأقسام الرئيسية -->
+    <!-- ================================
+         أقسام الموقع
+         ================================ -->
+
     <h2 class="section-title">
       🌐 أقسام الموقع والمدونة
     </h2>
 
     <section class="grid-container">
 
-      <!-- التطبيقات -->
       <a
         href="apps.html"
         class="action-card"
-        style="border: 2px solid #10b981;"
+        style="border:2px solid #10b981;"
       >
 
-        <h3 style="color: #10b981;">
+        <h3 style="color:#10b981;">
           📱 التطبيقات
         </h3>
 
@@ -975,14 +1414,14 @@
 
         <div
           style="
-            margin-top: 12px;
-            font-size: 13px;
-            font-weight: bold;
-            color: #10b981;
-            background: #ecfdf5;
-            padding: 6px 12px;
-            border-radius: 8px;
-            display: inline-block;
+            margin-top:12px;
+            font-size:13px;
+            font-weight:bold;
+            color:#10b981;
+            background:#ecfdf5;
+            padding:6px 12px;
+            border-radius:8px;
+            display:inline-block;
           "
         >
           اضغط هنا لمعاينة وتحميل التطبيقات 👈
@@ -991,13 +1430,12 @@
       </a>
 
 
-      <!-- رابط مدونة ووردبريس -->
       <a
         href="https://baramjak2.wordpress.com"
         target="_blank"
         rel="noopener noreferrer"
         class="action-card"
-        style="border: 2px dashed #10b981;"
+        style="border:2px dashed #10b981;"
       >
 
         <h3>
@@ -1014,34 +1452,32 @@
 
 
     <!-- ================================
-         قسم الإعجاب
+         الإعجاب
          ================================ -->
 
     <div
       style="
-        text-align: center;
-        margin-top: 30px;
-        padding: 25px;
-        background: #ffffff;
-        border-radius: 16px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        text-align:center;
+        margin-top:30px;
+        padding:25px;
+        background:#ffffff;
+        border-radius:16px;
+        border:1px solid #e2e8f0;
+        box-shadow:0 4px 6px rgba(0,0,0,0.02);
       "
     >
 
       <p
         style="
-          font-size: 16px;
-          color: #1e293b;
-          margin-bottom: 15px;
-          font-weight: bold;
+          font-size:16px;
+          color:#1e293b;
+          margin-bottom:15px;
+          font-weight:bold;
         "
       >
         ❤️ سجل إعجابك بالموقع:
       </p>
 
-
-      <!-- زر الإعجاب المصحح -->
       <button
         id="likeBtn"
         type="button"
@@ -1049,27 +1485,27 @@
         aria-pressed="false"
         aria-label="الإعجاب بالموقع"
         style="
-          background: #f1f5f9;
-          border: 2px solid #e2e8f0;
-          padding: 12px 25px;
-          border-radius: 30px;
-          font-size: 16px;
-          font-weight: bold;
-          color: #475569;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-family: inherit;
-          user-select: none;
-          -webkit-tap-highlight-color: transparent;
+          background:#f1f5f9;
+          border:2px solid #e2e8f0;
+          padding:12px 25px;
+          border-radius:30px;
+          font-size:16px;
+          font-weight:bold;
+          color:#475569;
+          cursor:pointer;
+          transition:all 0.3s ease;
+          display:inline-flex;
+          align-items:center;
+          gap:10px;
+          font-family:inherit;
+          user-select:none;
+          -webkit-tap-highlight-color:transparent;
         "
       >
 
         <span
           id="likeIcon"
-          style="font-size: 20px;"
+          style="font-size:20px;"
         >
           🤍
         </span>
@@ -1081,10 +1517,10 @@
         <span
           id="likeCount"
           style="
-            background: #e2e8f0;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 14px;
+            background:#e2e8f0;
+            padding:2px 10px;
+            border-radius:12px;
+            font-size:14px;
           "
         >
           24
@@ -1095,7 +1531,10 @@
     </div>
 
 
-    <!-- التذييل -->
+    <!-- ================================
+         التذييل
+         ================================ -->
+
     <div class="footer">
 
       <p class="copyright">
@@ -1116,10 +1555,16 @@
   </div>
 
 
-  <!-- نافذة نبذة عني -->
+  <!-- ================================
+       نافذة نبذة عني
+       ================================ -->
+
   <div
     id="aboutModal"
     class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="aboutTitle"
   >
 
     <div class="modal-content">
@@ -1133,7 +1578,7 @@
         ✕
       </button>
 
-      <h3>
+      <h3 id="aboutTitle">
         👤 نبذة عني
       </h3>
 
@@ -1150,17 +1595,23 @@
   </div>
 
 
-  <!-- نافذة الدردشة المباشرة -->
+  <!-- ================================
+       نافذة التواصل
+       ================================ -->
+
   <div
     id="chatModal"
     class="chat-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="chatTitle"
   >
 
     <div class="chat-box">
 
       <div class="chat-header">
 
-        <h3>
+        <h3 id="chatTitle">
           💬 دردشة مع محمد علي أحمد الحطاب الجبوري
         </h3>
 
@@ -1213,154 +1664,278 @@
 
   <script>
 
-    /* ==========================================
-       إدارة نافذة الدردشة
-       ========================================== */
+    /* =====================================================
+       أدوات عامة
+       ===================================================== */
 
-    function openChat() {
-      const chatModal = document.getElementById('chatModal');
+    function showModalElement(element) {
 
-      if (chatModal) {
-        chatModal.style.display = 'flex';
-      }
-    }
-
-
-    function closeChat() {
-      const chatModal = document.getElementById('chatModal');
-
-      if (chatModal) {
-        chatModal.style.display = 'none';
-      }
-    }
-
-
-    /* ==========================================
-       إرسال رسالة واتساب
-       ========================================== */
-
-    function sendMessage() {
-
-      const nameElement = document.getElementById('userName');
-      const messageElement = document.getElementById('userMsg');
-
-      if (!messageElement) return;
-
-      const name = nameElement ? nameElement.value.trim() : '';
-      const msg = messageElement.value.trim();
-
-      if (!msg) {
-        alert('يرجى كتابة الرسالة أولاً');
+      if (!element) {
         return;
       }
 
-      const fullMessage =
-        "مرحباً محمد، أنا " +
-        (name || "زائر") +
-        ": " +
-        msg;
+      element.style.display = 'flex';
 
-      const phone = "9647835025407";
-
-      const url =
-        "https://wa.me/" +
-        phone +
-        "?text=" +
-        encodeURIComponent(fullMessage);
-
-      window.open(url, '_blank', 'noopener,noreferrer');
-
-      closeChat();
+      document.body.classList.add('modal-open');
     }
 
 
-    /* ==========================================
-       النوافذ المنبثقة
-       ========================================== */
+    function hideModalElement(element) {
+
+      if (!element) {
+        return;
+      }
+
+      element.style.display = 'none';
+
+      const anyModalOpen =
+        document.querySelector(
+          '.modal[style*="display: flex"], .chat-modal[style*="display: flex"]'
+        );
+
+      if (!anyModalOpen) {
+        document.body.classList.remove('modal-open');
+      }
+
+    }
+
+
+    /* =====================================================
+       نافذة نبذة عني
+       ===================================================== */
 
     function openModal(id) {
 
-      const modal = document.getElementById(id);
+      const modal =
+        document.getElementById(id);
 
-      if (modal) {
-        modal.style.display = 'flex';
-      }
+      showModalElement(modal);
     }
 
 
     function closeModal(id) {
 
-      const modal = document.getElementById(id);
+      const modal =
+        document.getElementById(id);
 
-      if (modal) {
-        modal.style.display = 'none';
-      }
+      hideModalElement(modal);
     }
 
 
-    /* إغلاق النوافذ عند الضغط خارجها */
-    window.addEventListener('click', function(event) {
+    /* =====================================================
+       نافذة التواصل
+       ===================================================== */
 
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
+    function openChat() {
+
+      const chatModal =
+        document.getElementById('chatModal');
+
+      showModalElement(chatModal);
+
+    }
+
+
+    function closeChat() {
+
+      const chatModal =
+        document.getElementById('chatModal');
+
+      hideModalElement(chatModal);
+
+    }
+
+
+    /* =====================================================
+       إرسال الواتساب
+       ===================================================== */
+
+    function sendMessage() {
+
+      const nameElement =
+        document.getElementById('userName');
+
+      const messageElement =
+        document.getElementById('userMsg');
+
+      if (!messageElement) {
+        return;
       }
 
-      if (event.target.classList.contains('chat-modal')) {
-        event.target.style.display = 'none';
+      const name =
+        nameElement
+          ? nameElement.value.trim()
+          : '';
+
+      const msg =
+        messageElement.value.trim();
+
+      if (!msg) {
+
+        alert(
+          'يرجى كتابة الرسالة أولاً'
+        );
+
+        messageElement.focus();
+
+        return;
       }
 
-    });
+      const fullMessage =
+        'مرحباً محمد، أنا ' +
+        (name || 'زائر') +
+        ': ' +
+        msg;
+
+      const phone =
+        '9647835025407';
+
+      const url =
+        'https://wa.me/' +
+        phone +
+        '?text=' +
+        encodeURIComponent(fullMessage);
+
+      /*
+       * استخدام location.href أفضل على بعض
+       * متصفحات الهاتف من window.open.
+       */
+      window.location.href = url;
+
+    }
 
 
-    /* ==========================================
-       زر الإعجاب - مصحح بالكامل
-       ========================================== */
+    /* =====================================================
+       إغلاق النوافذ عند الضغط خارجها
+       ===================================================== */
+
+    window.addEventListener(
+      'click',
+      function(event) {
+
+        if (
+          event.target.classList.contains('modal')
+        ) {
+
+          hideModalElement(
+            event.target
+          );
+
+        }
+
+        if (
+          event.target.classList.contains('chat-modal')
+        ) {
+
+          hideModalElement(
+            event.target
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       إغلاق النوافذ بزر ESC
+       ===================================================== */
+
+    document.addEventListener(
+      'keydown',
+      function(event) {
+
+        if (event.key !== 'Escape') {
+          return;
+        }
+
+        const aboutModal =
+          document.getElementById(
+            'aboutModal'
+          );
+
+        const chatModal =
+          document.getElementById(
+            'chatModal'
+          );
+
+        hideModalElement(aboutModal);
+        hideModalElement(chatModal);
+
+      }
+    );
+
+
+    /* =====================================================
+       زر الإعجاب
+       ===================================================== */
 
     (function () {
 
-      const LIKE_COUNT_KEY = 'siteLikes';
-      const USER_LIKED_KEY = 'userLiked';
+      const LIKE_COUNT_KEY =
+        'siteLikes';
 
-      const DEFAULT_LIKES = 24;
+      const USER_LIKED_KEY =
+        'userLiked';
+
+      const DEFAULT_LIKES =
+        24;
 
       let count = parseInt(
-        localStorage.getItem(LIKE_COUNT_KEY),
+        localStorage.getItem(
+          LIKE_COUNT_KEY
+        ),
         10
       );
 
       /*
-       * إذا لم يوجد رقم محفوظ أو كان الرقم غير صحيح
-       * نبدأ من 24 إعجاباً.
+       * إذا كانت القيمة غير موجودة
+       * أو غير صحيحة نستخدم 24.
        */
       if (
         !Number.isFinite(count) ||
         count < 0
       ) {
-        count = DEFAULT_LIKES;
+
+        count =
+          DEFAULT_LIKES;
 
         localStorage.setItem(
           LIKE_COUNT_KEY,
           String(count)
         );
+
       }
 
 
-      /*
-       * معرفة هل الزائر ضغط إعجاب سابقاً
-       */
       let isLiked =
-        localStorage.getItem(USER_LIKED_KEY) === 'true';
+        localStorage.getItem(
+          USER_LIKED_KEY
+        ) === 'true';
 
 
-      /*
-       * تحديث شكل زر الإعجاب
-       */
       function updateLikeUI() {
 
-        const btn = document.getElementById('likeBtn');
-        const icon = document.getElementById('likeIcon');
-        const text = document.getElementById('likeText');
-        const countSpan = document.getElementById('likeCount');
+        const btn =
+          document.getElementById(
+            'likeBtn'
+          );
+
+        const icon =
+          document.getElementById(
+            'likeIcon'
+          );
+
+        const text =
+          document.getElementById(
+            'likeText'
+          );
+
+        const countSpan =
+          document.getElementById(
+            'likeCount'
+          );
+
 
         if (
           !btn ||
@@ -1372,30 +1947,42 @@
         }
 
 
-        /* التأكد دائماً من أن العدد صحيح */
         if (
           !Number.isFinite(count) ||
           count < 0
         ) {
+
           count = 0;
+
         }
 
 
-        countSpan.textContent = String(count);
+        countSpan.textContent =
+          String(count);
 
 
         if (isLiked) {
 
-          /* حالة الإعجاب */
-          btn.style.background = '#fef2f2';
-          btn.style.borderColor = '#ef4444';
-          btn.style.color = '#ef4444';
+          btn.style.background =
+            '#fef2f2';
 
-          icon.textContent = '❤️';
-          text.textContent = 'أعجبك هذا';
+          btn.style.borderColor =
+            '#ef4444';
 
-          countSpan.style.background = '#fee2e2';
-          countSpan.style.color = '#ef4444';
+          btn.style.color =
+            '#ef4444';
+
+          icon.textContent =
+            '❤️';
+
+          text.textContent =
+            'أعجبك هذا';
+
+          countSpan.style.background =
+            '#fee2e2';
+
+          countSpan.style.color =
+            '#ef4444';
 
           btn.setAttribute(
             'aria-pressed',
@@ -1409,16 +1996,26 @@
 
         } else {
 
-          /* الحالة الطبيعية */
-          btn.style.background = '#f1f5f9';
-          btn.style.borderColor = '#e2e8f0';
-          btn.style.color = '#475569';
+          btn.style.background =
+            '#f1f5f9';
 
-          icon.textContent = '🤍';
-          text.textContent = 'إعجاب';
+          btn.style.borderColor =
+            '#e2e8f0';
 
-          countSpan.style.background = '#e2e8f0';
-          countSpan.style.color = '#475569';
+          btn.style.color =
+            '#475569';
+
+          icon.textContent =
+            '🤍';
+
+          text.textContent =
+            'إعجاب';
+
+          countSpan.style.background =
+            '#e2e8f0';
+
+          countSpan.style.color =
+            '#475569';
 
           btn.setAttribute(
             'aria-pressed',
@@ -1435,192 +2032,366 @@
       }
 
 
-      /*
-       * وظيفة الضغط على زر الإعجاب
-       */
-      window.toggleLike = function () {
+      window.toggleLike =
+        function () {
 
-        /*
-         * إذا كان معجباً بالفعل:
-         * نلغي الإعجاب وننقص العدد.
-         */
-        if (isLiked) {
+          if (isLiked) {
 
-          if (count > 0) {
-            count--;
+            if (count > 0) {
+              count--;
+            }
+
+            isLiked = false;
+
+          } else {
+
+            count++;
+
+            isLiked = true;
+
           }
 
-          isLiked = false;
 
-        } else {
+          localStorage.setItem(
+            LIKE_COUNT_KEY,
+            String(count)
+          );
 
-          /*
-           * إذا لم يكن معجباً:
-           * نضيف إعجاباً واحداً فقط.
-           */
-          count++;
-          isLiked = true;
-
-        }
+          localStorage.setItem(
+            USER_LIKED_KEY,
+            String(isLiked)
+          );
 
 
-        /*
-         * حفظ العدد والحالة على جهاز الزائر
-         */
-        localStorage.setItem(
-          LIKE_COUNT_KEY,
-          String(count)
-        );
+          updateLikeUI();
 
-        localStorage.setItem(
-          USER_LIKED_KEY,
-          String(isLiked)
-        );
-
-
-        /*
-         * تحديث الزر مباشرة بدون إعادة تحميل الصفحة
-         */
-        updateLikeUI();
-
-      };
+        };
 
 
       /*
-       * تشغيل الزر بعد تحميل الصفحة
+       * تحديث الواجهة فوراً.
        */
-      document.addEventListener(
-        'DOMContentLoaded',
-        function () {
-          updateLikeUI();
-        }
-      );
+      if (
+        document.readyState ===
+        'loading'
+      ) {
+
+        document.addEventListener(
+          'DOMContentLoaded',
+          updateLikeUI,
+          { once: true }
+        );
+
+      } else {
+
+        updateLikeUI();
+
+      }
 
     })();
 
 
-    /* ==========================================
-       جلب طقس الشرقاط المباشر
-       ========================================== */
+    /* =====================================================
+       الطقس - الشرقاط
+       ===================================================== */
 
     async function getShirqatWeather() {
 
-      const lat = 35.4883;
-      const lon = 43.2458;
+      const lat =
+        35.4883;
 
+      const lon =
+        43.2458;
+
+
+      const weatherTemp =
+        document.getElementById(
+          'weatherTemp'
+        );
+
+      const weatherDesc =
+        document.getElementById(
+          'weatherDesc'
+        );
+
+      const weatherIcon =
+        document.getElementById(
+          'weatherIcon'
+        );
+
+
+      /*
+       * رسالة مؤقتة أثناء التحميل.
+       */
+      if (weatherDesc) {
+
+        weatherDesc.textContent =
+          'جاري تحديث حالة الطقس...';
+
+      }
+
+
+      /*
+       * واجهة Open-Meteo الحديثة.
+       */
       const url =
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+        'https://api.open-meteo.com/v1/forecast' +
+        '?latitude=' + lat +
+        '&longitude=' + lon +
+        '&current=temperature_2m,weather_code' +
+        '&timezone=auto';
 
 
       try {
 
-        const response = await fetch(url);
+        const response =
+          await fetch(
+            url,
+            {
+              method: 'GET',
+              cache: 'no-store'
+            }
+          );
+
 
         if (!response.ok) {
-          throw new Error('فشل جلب البيانات');
-        }
 
-        const data = await response.json();
+          throw new Error(
+            'فشل الاتصال بخدمة الطقس'
+          );
 
-        const weather = data.current_weather;
-
-        if (!weather) {
-          throw new Error('لا توجد بيانات طقس');
         }
 
 
-        const weatherTemp =
-          document.getElementById('weatherTemp');
-
-        const weatherDesc =
-          document.getElementById('weatherDesc');
-
-        const weatherIcon =
-          document.getElementById('weatherIcon');
-
-
-        if (weatherTemp) {
-          weatherTemp.innerText =
-            Math.round(weather.temperature) + ' °C';
-        }
-
-
-        let desc = 'سماء صافية وطقس مشمس';
-        let icon = '☀️';
-
-        const code = weather.weathercode;
+        const data =
+          await response.json();
 
 
         if (
-          code >= 1 &&
-          code <= 3
+          !data ||
+          !data.current
         ) {
 
-          desc = 'طقس غائم جزئياً';
-          icon = '🌤️';
+          throw new Error(
+            'بيانات الطقس غير متوفرة'
+          );
+
+        }
+
+
+        const temperature =
+          Number(
+            data.current.temperature_2m
+          );
+
+
+        const code =
+          Number(
+            data.current.weather_code
+          );
+
+
+        if (
+          !Number.isFinite(
+            temperature
+          )
+        ) {
+
+          throw new Error(
+            'درجة الحرارة غير صالحة'
+          );
+
+        }
+
+
+        /*
+         * عرض درجة الحرارة.
+         */
+        if (weatherTemp) {
+
+          weatherTemp.textContent =
+            Math.round(
+              temperature
+            ) +
+            ' °C';
+
+        }
+
+
+        /*
+         * وصف حالة الطقس.
+         */
+        let desc =
+          'سماء صافية وطقس مشمس';
+
+        let icon =
+          '☀️';
+
+
+        if (code === 0) {
+
+          desc =
+            'سماء صافية وطقس مشمس';
+
+          icon =
+            '☀️';
 
         } else if (
-          code >= 45 &&
-          code <= 48
+          code === 1 ||
+          code === 2
         ) {
 
-          desc = 'ضباب خفيف';
-          icon = '🌫️';
+          desc =
+            'غائم جزئياً';
+
+          icon =
+            '🌤️';
+
+        } else if (
+          code === 3
+        ) {
+
+          desc =
+            'غائم';
+
+          icon =
+            '☁️';
+
+        } else if (
+          code === 45 ||
+          code === 48
+        ) {
+
+          desc =
+            'ضباب';
+
+          icon =
+            '🌫️';
 
         } else if (
           code >= 51 &&
+          code <= 57
+        ) {
+
+          desc =
+            'رذاذ مطري';
+
+          icon =
+            '🌦️';
+
+        } else if (
+          code >= 61 &&
           code <= 67
         ) {
 
-          desc = 'أجواء ممطرة';
-          icon = '🌧️';
+          desc =
+            'أجواء ممطرة';
+
+          icon =
+            '🌧️';
+
+        } else if (
+          code >= 71 &&
+          code <= 77
+        ) {
+
+          desc =
+            'تساقط ثلوج';
+
+          icon =
+            '❄️';
 
         } else if (
           code >= 80 &&
           code <= 82
         ) {
 
-          desc = 'زخات مطرية';
-          icon = '🌦️';
+          desc =
+            'زخات مطرية';
+
+          icon =
+            '🌦️';
 
         } else if (
-          code >= 95
+          code === 85 ||
+          code === 86
         ) {
 
-          desc = 'عواصف رعدية';
-          icon = '⛈️';
+          desc =
+            'زخات ثلجية';
+
+          icon =
+            '🌨️';
+
+        } else if (
+          code === 95
+        ) {
+
+          desc =
+            'عواصف رعدية';
+
+          icon =
+            '⛈️';
+
+        } else if (
+          code === 96 ||
+          code === 99
+        ) {
+
+          desc =
+            'عواصف رعدية مع برد';
+
+          icon =
+            '⛈️';
 
         }
 
 
         if (weatherDesc) {
-          weatherDesc.innerText = desc;
+
+          weatherDesc.textContent =
+            desc;
+
         }
 
+
         if (weatherIcon) {
-          weatherIcon.innerText = icon;
+
+          weatherIcon.textContent =
+            icon;
+
         }
 
 
       } catch (error) {
 
-        /*
-         * في حالة عدم توفر الإنترنت أو تعذر جلب الطقس
-         */
-        const weatherDesc =
-          document.getElementById('weatherDesc');
+        console.error(
+          'Weather error:',
+          error
+        );
 
-        const weatherTemp =
-          document.getElementById('weatherTemp');
 
         if (weatherDesc) {
-          weatherDesc.innerText =
+
+          weatherDesc.textContent =
             'تعذر تحديث الطقس حالياً';
+
         }
 
+
         if (weatherTemp) {
-          weatherTemp.innerText =
+
+          weatherTemp.textContent =
             '-- °C';
+
+        }
+
+
+        if (weatherIcon) {
+
+          weatherIcon.textContent =
+            '🌤️';
+
         }
 
       }
@@ -1628,17 +2399,21 @@
     }
 
 
-    /* ==========================================
-       تشغيل وظائف الصفحة
-       ========================================== */
+    /* =====================================================
+       تشغيل الصفحة
+       ===================================================== */
 
     document.addEventListener(
       'DOMContentLoaded',
       function () {
 
+        /*
+         * جلب الطقس عند فتح الموقع.
+         */
         getShirqatWeather();
 
-      }
+      },
+      { once: true }
     );
 
   </script>
