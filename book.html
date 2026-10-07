@@ -39,16 +39,17 @@
     </header>
 
     <div class="notice-bar" id="noticeText">
-        💡 <strong>معاينة الـ PDF:</strong> يتم عرض ملف الـ PDF المرفوع مباشرة داخل الصفحة.
+        💡 <strong>قراءة مباشرة:</strong> يتوفر الملف للتقليب والقراءة الآن مباشرة داخل الصفحة.
     </div>
 
-    <!-- استخدام قارئ مستندات جوجل مع الملف الجديد book.pdf -->
-    <iframe id="bookFrame" src="https://docs.google.com/gview?url=https://e-ctrl.github.io/book.pdf&embedded=true" title="كتاب الرجل والمرأة وعشرة العمر"></iframe>
+    <!-- عرض الكتاب التفاعلي مباشرة فهو الأكثر استقراراً داخل تطبيق فيسبوك للموبايل -->
+    <iframe id="bookFrame" src="https://heyzine.com/flip-book/7d35d68ef2.html" allowfullscreen allow="autoplay; fullscreen; clipboard-write" title="كتاب الرجل والمرأة وعشرة العمر"></iframe>
 
     <script>
         function showPDF() {
-            document.getElementById('bookFrame').src = 'https://docs.google.com/gview?url=https://e-ctrl.github.io/book.pdf&embedded=true';
-            document.getElementById('noticeText').innerHTML = '💡 <strong>معاينة الـ PDF:</strong> يتم عرض ملف الـ PDF المرفوع مباشرة داخل الصفحة.';
+            // فتح ملف الـ PDF المرفوع مباشرة من الموقع
+            document.getElementById('bookFrame').src = 'book.pdf';
+            document.getElementById('noticeText').innerHTML = '💡 <strong>معاينة الـ PDF:</strong> يتم عرض الملف المرفوع مباشرة.';
             document.getElementById('pdfBtn').classList.add('btn-active');
             document.getElementById('flipBtn').classList.remove('btn-active');
         }
