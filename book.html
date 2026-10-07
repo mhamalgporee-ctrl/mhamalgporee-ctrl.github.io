@@ -17,9 +17,10 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: system-ui, -apple-system, sans-serif; background-color: #f0f4f8; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-        header { background: #10b981; color: white; padding: 12px 20px; text-align: center; font-size: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .back-btn { color: white; text-decoration: none; background: rgba(0,0,0,0.2); padding: 6px 14px; border-radius: 8px; font-size: 14px; transition: 0.2s; white-space: nowrap; }
-        .back-btn:hover { background: rgba(0,0,0,0.35); }
+        header { background: #10b981; color: white; padding: 12px 20px; text-align: center; font-size: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 8px; }
+        .nav-btns { display: flex; gap: 8px; }
+        .btn { color: white; text-decoration: none; background: rgba(0,0,0,0.2); padding: 6px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; border: none; }
+        .btn-active { background: white; color: #10b981; font-weight: bold; }
         
         .notice-bar { background: #ecfdf5; color: #065f46; border-bottom: 1px solid #a7f3d0; padding: 8px 15px; text-align: center; font-size: 13px; line-height: 1.4; }
         
@@ -30,15 +31,33 @@
 
     <header>
         <span>📖 كتاب: الرجل والمرأة وعشرة العمر</span>
-        <a href="index.html" class="back-btn">⬅ العودة للرئيسية</a>
+        <div class="nav-btns">
+            <button onclick="showPDF()" id="pdfBtn" class="btn btn-active">📄 ملف PDF</button>
+            <button onclick="showFlip()" id="flipBtn" class="btn">📖 الكتاب التفاعلي</button>
+            <a href="index.html" class="btn">⬅ الرئيسية</a>
+        </div>
     </header>
 
-    <div class="notice-bar">
-        💡 <strong>قراءة مباشرة:</strong> يمكنك تقليب الصفحات وقراءة الكتاب كاملاً مباشرة من هذه النافذة.
+    <div class="notice-bar" id="noticeText">
+        💡 <strong>معاينة الـ PDF:</strong> يتم عرض ملف الـ PDF المرفوع على موقعك.
     </div>
 
-    <!-- عرض الكتاب التفاعلي أونلاين فقط دون روابط تحميل -->
-    <iframe src="https://heyzine.com/flip-book/7d35d68ef2.html" allowfullscreen allow="autoplay; fullscreen; clipboard-write" title="كتاب الرجل والمرأة وعشرة العمر"></iframe>
+    <iframe id="bookFrame" src="الرجل والمرأة.pdf" title="كتاب الرجل والمرأة وعشرة العمر"></iframe>
+
+    <script>
+        function showPDF() {
+            document.getElementById('bookFrame').src = 'الرجل والمرأة.pdf';
+            document.getElementById('noticeText').innerHTML = '💡 <strong>معاينة الـ PDF:</strong> يتم عرض ملف الـ PDF المرفوع على موقعك.';
+            document.getElementById('pdfBtn').classList.add('btn-active');
+            document.getElementById('flipBtn').classList.remove('btn-active');
+        }
+        function showFlip() {
+            document.getElementById('bookFrame').src = 'https://heyzine.com/flip-book/7d35d68ef2.html';
+            document.getElementById('noticeText').innerHTML = '💡 <strong>الكتاب التفاعلي:</strong> يتم عرض النسخة التفاعلية لتقليب الصفحات.';
+            document.getElementById('flipBtn').classList.add('btn-active');
+            document.getElementById('pdfBtn').classList.remove('btn-active');
+        }
+    </script>
 
 </body>
 </html>
