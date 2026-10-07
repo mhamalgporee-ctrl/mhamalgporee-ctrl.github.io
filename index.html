@@ -11,72 +11,29 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-3VZQSDZNC7');
   </script>
 
   <!-- Google Search Console -->
-  <meta
-    name="google-site-verification"
-    content="6HjrABgTASI6TtgnCAzTiYd66cRmVpN5unzJNBG6vDg"
-  >
+  <meta name="google-site-verification" content="6HjrABgTASI6TtgnCAzTiYd66cRmVpN5unzJNBG6vDg">
 
-  <!-- SEO -->
-  <title>
-    موقع الشرقاط الثقافي | برامج، كتب، ومقالات، الطقس والبث المباشر
-  </title>
+  <!-- SEO Meta Tags -->
+  <title>موقع الشرقاط الثقافي | برامج، كتب، ومقالات، الطقس والبث المباشر</title>
+  <meta name="description" content="الموقع الرسمي للكاتب والمطور محمد علي أحمد الحطاب الجبوري. منصة شاملة تضم برامج الموبايل والكمبيوتر، المقالات والكتب، طقس الشرقاط المباشر وقنوات البث.">
+  <meta name="keywords" content="موقع الشرقاط الثقافي, الشرقاط, برامج, كتب, مقالات, طقس الشرقاط, بث مباشر, محمد علي أحمد الحطاب الجبوري">
+  <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
+  <meta name="robots" content="index, follow">
 
-  <meta
-    name="description"
-    content="الموقع الرسمي للكاتب والمطور محمد علي أحمد الحطاب الجبوري. منصة شاملة تضم برامج الموبايل والكمبيوتر، المقالات والكتب، طقس الشرقاط المباشر وقنوات البث."
-  >
-
-  <meta
-    name="keywords"
-    content="موقع الشرقاط الثقافي, الشرقاط, برامج, كتب, مقالات, طقس الشرقاط, بث مباشر, محمد علي أحمد الحطاب الجبوري"
-  >
-
-  <meta
-    name="author"
-    content="محمد علي أحمد الحطاب الجبوري"
-  >
-
-  <meta
-    name="robots"
-    content="index, follow"
-  >
-
-  <!-- Facebook / WhatsApp -->
-  <meta
-    property="og:title"
-    content="موقع الشرقاط الثقافي | برامج، كتب، ومقالات، الطقس والبث المباشر"
-  >
-
-  <meta
-    property="og:description"
-    content="منصة شاملة لبرامج الموبايل والكمبيوتر، الكتب والمقالات، متابعة حالة الطقس والبث المباشر والقنوات."
-  >
-
-  <meta
-    property="og:image"
-    content="https://mhamalgporee-ctrl.github.io/acon.jpg"
-  >
-
-  <meta
-    property="og:url"
-    content="https://mhamalgporee-ctrl.github.io/"
-  >
-
-  <meta
-    property="og:type"
-    content="website"
-  >
+  <!-- Facebook / WhatsApp / Open Graph -->
+  <meta property="og:title" content="موقع الشرقاط الثقافي | برامج، كتب، ومقالات، الطقس والبث المباشر">
+  <meta property="og:description" content="منصة شاملة لبرامج الموبايل والكمبيوتر، الكتب والمقالات، متابعة حالة الطقس والبث المباشر والقنوات.">
+  <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
+  <meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
+  <meta property="og:type" content="website">
 
   <style>
-
     :root {
       --primary-color: #10b981;
       --primary-hover: #059669;
@@ -108,16 +65,7 @@
     }
 
     body {
-      font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Tahoma,
-        Arial,
-        sans-serif;
-
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Tahoma, Arial, sans-serif;
       background-color: var(--bg-body);
       color: var(--text-main);
       direction: rtl;
@@ -134,18 +82,15 @@
       color: inherit;
     }
 
-    button,
-    input,
-    textarea {
+    button, input, textarea {
       font-family: inherit;
     }
 
     /* ================================
-       شريط التصفح
+       شريط التصفح (Navbar)
        ================================ */
-
     .navbar {
-      box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -189,9 +134,8 @@
     }
 
     /* ================================
-       الحاوية
+       الحاوية الرئيسية
        ================================ */
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -199,9 +143,8 @@
     }
 
     /* ================================
-       القسم الترحيبي
+       القسم الترحيبي (Hero Section)
        ================================ */
-
     .hero {
       display: flex;
       align-items: center;
@@ -234,10 +177,6 @@
       margin-bottom: 20px;
     }
 
-    /* ================================
-       التواصل الاجتماعي
-       ================================ */
-
     .social-links {
       display: flex;
       gap: 18px;
@@ -255,18 +194,13 @@
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
     }
 
-    /* ================================
-       الأزرار
-       ================================ */
-
     .hero-buttons {
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
     }
 
-    .btn-primary,
-    .btn-secondary {
+    .btn-primary, .btn-secondary {
       padding: 13px 26px;
       border-radius: var(--radius-md);
       font-size: 15px;
@@ -302,10 +236,6 @@
       transform: translateY(-2px);
     }
 
-    /* ================================
-       الصورة
-       ================================ */
-
     .hero-image-wrapper {
       display: flex;
       flex-direction: column;
@@ -336,32 +266,43 @@
     }
 
     /* ================================
-       الشريط الذهبي
+       الشريط الذهبي (Ticker)
        ================================ */
-
     .golden-ticker {
       width: 100%;
       margin-top: 14px;
       background: linear-gradient(135deg, #fffdf0 0%, #fff7ed 100%);
       border: 2px solid var(--gold-color);
       border-radius: 12px;
-      padding: 8px 12px;
+      padding: 8px 0;
       box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
       color: #78350f;
       font-size: 14px;
       font-weight: 700;
       overflow: hidden;
+      white-space: nowrap;
+      position: relative;
     }
 
-    .golden-ticker marquee {
-      display: block;
-      vertical-align: middle;
+    .ticker-content {
+      display: inline-block;
+      white-space: nowrap;
+      padding-right: 100%;
+      animation: smoothTicker 15s linear infinite;
+    }
+
+    @keyframes smoothTicker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(100%, 0, 0); }
+    }
+
+    .golden-ticker:hover .ticker-content {
+      animation-play-state: paused;
     }
 
     /* ================================
-       الطقس
+       بطاقة الطقس
        ================================ */
-
     .weather-card {
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       color: #ffffff;
@@ -405,9 +346,8 @@
     }
 
     /* ================================
-       القصيدة
+       بطاقة القصيدة
        ================================ */
-
     .animated-poem-card {
       background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
       border: 2px solid var(--primary-color);
@@ -452,9 +392,8 @@
     }
 
     /* ================================
-       العناوين
+       الشبكة والأقسام
        ================================ */
-
     .section-title {
       font-size: 25px;
       font-weight: 800;
@@ -462,10 +401,6 @@
       margin-bottom: 22px;
       text-align: center;
     }
-
-    /* ================================
-       الشبكة
-       ================================ */
 
     .grid-container {
       display: grid;
@@ -508,11 +443,9 @@
     }
 
     /* ================================
-       النوافذ
+       النوافذ المنبثقة والدردشة
        ================================ */
-
-    .modal,
-    .chat-modal {
+    .modal, .chat-modal {
       display: none;
       position: fixed;
       top: 0;
@@ -527,8 +460,7 @@
       backdrop-filter: blur(4px);
     }
 
-    .modal-content,
-    .chat-box {
+    .modal-content, .chat-box {
       background: #fff;
       width: 100%;
       max-width: 460px;
@@ -576,10 +508,6 @@
       background: #fee2e2;
       color: #ef4444;
     }
-
-    /* ================================
-       الدردشة
-       ================================ */
 
     .chat-header {
       background: var(--primary-color);
@@ -664,9 +592,8 @@
     }
 
     /* ================================
-       التذييل
+       التذييل (Footer)
        ================================ */
-
     .footer {
       margin-top: 50px;
       padding: 25px 20px;
@@ -704,263 +631,100 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ================================
-       الهاتف
+       تنسيقات الشاشات الصغيرة (الهواتف)
        ================================ */
-
     @media (max-width: 768px) {
-      .logo {
-        font-size: 15px;
-      }
-
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 28px 20px;
-      }
-
-      .hero-text h1 {
-        font-size: 22px;
-      }
-
-      .social-links {
-        justify-content: center;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero-image {
-        flex: 0 0 auto;
-        width: 100%;
-      }
-
-      .hero-image-wrapper {
-        max-width: 240px;
-        margin: 0 auto;
-      }
-
-      .weather-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-      }
-
-      .weather-info {
-        flex-direction: column;
-      }
-
-      .animated-poem-text {
-        font-size: 15px;
-        line-height: 2.1;
-      }
-
-      .section-title {
-        font-size: 21px;
-      }
-
-      .action-card {
-        padding: 22px;
-      }
+      .logo { font-size: 15px; }
+      .hero { flex-direction: column; text-align: center; padding: 28px 20px; }
+      .hero-text h1 { font-size: 22px; }
+      .social-links { justify-content: center; }
+      .hero-buttons { justify-content: center; }
+      .nav-links { display: none; }
+      .hero-image { flex: 0 0 auto; width: 100%; }
+      .hero-image-wrapper { max-width: 240px; margin: 0 auto; }
+      .weather-card { flex-direction: column; text-align: center; gap: 12px; }
+      .weather-info { flex-direction: column; }
+      .animated-poem-text { font-size: 15px; line-height: 2.1; }
+      .section-title { font-size: 21px; }
+      .action-card { padding: 22px; }
     }
-
   </style>
 </head>
 
 <body>
 
   <!-- ================================
-       شريط التصفح
+       شريط التصفح (Navbar)
        ================================ -->
-
   <nav class="navbar">
-
     <div class="nav-container">
-
-      <div class="logo">
-        موقع الشرقاط الثقافي
-      </div>
-
+      <div class="logo">موقع الشرقاط الثقافي</div>
       <div class="nav-links">
-
-        <a href="apps.html">
-          📱 البرامج والتطبيقات
-        </a>
-
-        <a href="articles.html">
-          📝 المقالات والدراسات
-        </a>
-
-        <a href="book.html">
-          📚 الكتب والمؤلفات
-        </a>
-
-        <a href="tv.html" style="color:#10b981;">
-          📺 البث المباشر
-        </a>
-
-        <a href="poetry.html">
-          الشعر
-        </a>
-
+        <a href="apps.html">📱 البرامج والتطبيقات</a>
+        <a href="articles.html">📝 المقالات والدراسات</a>
+        <a href="book.html">📚 الكتب والمؤلفات</a>
+        <a href="tv.html" style="color:#10b981;">📺 البث المباشر</a>
+        <a href="poetry.html">الشعر</a>
       </div>
-
     </div>
-
   </nav>
-
 
   <div class="container">
 
     <!-- ================================
-         القسم الترحيبي
+         القسم الترحيبي (Hero Section)
          ================================ -->
-
     <section class="hero">
-
       <div class="hero-text">
-
-        <h1>
-          موقع الشرقاط الثقافي
-        </h1>
-
-        <p class="subtitle">
-          إعداد وتطوير: محمد علي أحمد الحطاب الجبوري
-        </p>
-
+        <h1>موقع الشرقاط الثقافي</h1>
+        <p class="subtitle">إعداد وتطوير: محمد علي أحمد الحطاب الجبوري</p>
         <div class="social-links">
-
-          <a href="#" title="فيسبوك">
-            📘
-          </a>
-
-          <a href="#" title="إنستغرام">
-            📸
-          </a>
-
-          <a href="#" title="يوتيوب">
-            🎥
-          </a>
-
+          <a href="#" title="فيسبوك">📘</a>
+          <a href="#" title="إنستغرام">📸</a>
+          <a href="#" title="يوتيوب">🎥</a>
         </div>
-
         <div class="hero-buttons">
-
-          <button
-            onclick="openModal('aboutModal')"
-            class="btn-secondary"
-            type="button"
-          >
-            👤 نبذة عني
-          </button>
-
-          <button
-            onclick="openChat()"
-            class="btn-primary"
-            type="button"
-          >
-            💬 تواصل معي
-          </button>
-
+          <button onclick="openModal('aboutModal')" class="btn-secondary" type="button">👤 نبذة عني</button>
+          <button onclick="openChat()" class="btn-primary" type="button">💬 تواصل معي</button>
         </div>
-
       </div>
-
 
       <div class="hero-image">
-
         <div class="hero-image-wrapper">
-
-          <img
-            src="acon.jpg"
-            alt="محمد علي أحمد الحطاب الجبوري"
-            loading="eager"
-          >
-
+          <img src="acon.jpg" alt="محمد علي أحمد الحطاب الجبوري" loading="eager">
           <div class="golden-ticker">
-
-            <marquee
-              behavior="scroll"
-              direction="right"
-              scrollamount="4"
-            >
+            <div class="ticker-content">
               ✨ أهلاً بك في موقع الشرقاط الثقافي.. تصفح البرامج، الكتب، المقالات والبث المباشر ✨
-            </marquee>
-
+            </div>
           </div>
-
         </div>
-
       </div>
-
     </section>
 
-
     <!-- ================================
-         الطقس المباشر
+         قسم الطقس المباشر
          ================================ -->
-
     <div class="weather-card">
-
       <div class="weather-info">
-
-        <span
-          class="weather-icon"
-          id="weatherIcon"
-          aria-hidden="true"
-        >
-          🌤️
-        </span>
-
+        <span class="weather-icon" id="weatherIcon" aria-hidden="true">🌤️</span>
         <div class="weather-details">
-
-          <h4>
-            📍 طقس الشرقاط الآن
-          </h4>
-
-          <p id="weatherDesc">
-            جاري تحميل حالة الطقس المباشرة...
-          </p>
-
+          <h4>📍 طقس الشرقاط الآن</h4>
+          <p id="weatherDesc">جاري تحميل حالة الطقس المباشرة...</p>
         </div>
-
       </div>
-
-      <div
-        class="weather-temp"
-        id="weatherTemp"
-      >
-        -- °C
-      </div>
-
+      <div class="weather-temp" id="weatherTemp">-- °C</div>
     </div>
 
-
     <!-- ================================
-         القصيدة
+         قسم القصيدة
          ================================ -->
-
     <div class="animated-poem-card">
-
-      <span class="poem-tag">
-        ✨ قصيدة اليوم: النجاة
-      </span>
-
+      <span class="poem-tag">✨ قصيدة اليوم: النجاة</span>
       <div class="animated-poem-text">
 عجبت لمن تضيق به الحياة ... وفي انوار خالقه النجاة!
 اذا نزل البلاء بكل صوب ... واظلمت المسالك والجهات
@@ -969,403 +733,129 @@
 لسان غافل عن ذكر ربي ... لسان ميت، فيه الموات!
 فسبح، ثم هلل، وارج عفوا ... تنل ما لم تنله الامنيات
       </div>
-
     </div>
-
 
     <!-- ================================
          أقسام الموقع الرئيسية
          ================================ -->
-
-    <h2 class="section-title">
-      🌐 الأقسام والخدمات الرئيسية
-    </h2>
+    <h2 class="section-title">🌐 الأقسام والخدمات الرئيسية</h2>
 
     <section class="grid-container">
-
       <!-- البرامج والتطبيقات -->
-      <a
-        href="apps.html"
-        class="action-card"
-        style="border:2px solid #10b981;"
-      >
-
-        <h3 style="color:#10b981;">
-          📱 البرامج والتطبيقات
-        </h3>
-
-        <p>
-          دليل وتحميل أحدث البرامج والتطبيقات للكمبيوتر والموبايل وأدوات الذكاء الاصطناعي.
-        </p>
-
-        <div
-          style="
-            margin-top:12px;
-            font-size:13px;
-            font-weight:bold;
-            color:#10b981;
-            background:#ecfdf5;
-            padding:6px 12px;
-            border-radius:8px;
-            display:inline-block;
-          "
-        >
+      <a href="apps.html" class="action-card" style="border:2px solid #10b981;">
+        <h3 style="color:#10b981;">📱 البرامج والتطبيقات</h3>
+        <p>دليل وتحميل أحدث البرامج والتطبيقات للكمبيوتر والموبايل وأدوات الذكاء الاصطناعي.</p>
+        <div style="margin-top:12px; font-size:13px; font-weight:bold; color:#10b981; background:#ecfdf5; padding:6px 12px; border-radius:8px; display:inline-block;">
           تصفح البرامج والتطبيقات 👈
         </div>
-
       </a>
 
       <!-- الكتب والمؤلفات -->
-      <a
-        href="book.html"
-        class="action-card"
-        style="border:2px solid #10b981;"
-      >
-
-        <h3 style="color:#10b981;">
-          📚 الكتب والمؤلفات
-        </h3>
-
-        <p>
-          قراءة وتصفح الكتب الحصرية والمؤلفات الاجتماعية والأدبية الخاصة.
-        </p>
-
-        <div
-          style="
-            margin-top:12px;
-            font-size:13px;
-            font-weight:bold;
-            color:#10b981;
-            background:#ecfdf5;
-            padding:6px 12px;
-            border-radius:8px;
-            display:inline-block;
-          "
-        >
+      <a href="book.html" class="action-card" style="border:2px solid #10b981;">
+        <h3 style="color:#10b981;">📚 الكتب والمؤلفات</h3>
+        <p>قراءة وتصفح الكتب الحصرية والمؤلفات الاجتماعية والأدبية الخاصة.</p>
+        <div style="margin-top:12px; font-size:13px; font-weight:bold; color:#10b981; background:#ecfdf5; padding:6px 12px; border-radius:8px; display:inline-block;">
           تصفح مكتبة الكتب 👈
         </div>
-
       </a>
 
       <!-- المقالات والدراسات -->
-      <a
-        href="articles.html"
-        class="action-card"
-      >
-
-        <h3>
-          📝 المقالات والدراسات
-        </h3>
-
-        <p>
-          تصفح المقالات الثقافية، والدراسات التاريخية (بما فيها قصة جدي عگاب وتاريخ الشرقاط).
-        </p>
-
+      <a href="articles.html" class="action-card">
+        <h3>📝 المقالات والدراسات</h3>
+        <p>تصفح المقالات الثقافية، والدراسات التاريخية (بما فيها قصة جدي عگاب وتاريخ الشرقاط).</p>
       </a>
 
       <!-- البث المباشر والقنوات -->
-      <a
-        href="tv.html"
-        class="action-card"
-        style="border:2px solid #10b981; background:#f0fdf4;"
-      >
-
-        <h3 style="color:#065f46;">
-          📺 البث المباشر والقنوات
-        </h3>
-
-        <p>
-          متابعة القنوات الرياضية وقنوات روتانا عبر البث المباشر الرسمي.
-        </p>
-
-        <div
-          style="
-            margin-top:12px;
-            font-size:13px;
-            font-weight:bold;
-            color:#065f46;
-            background:#ffffff;
-            padding:6px 12px;
-            border-radius:8px;
-            display:inline-block;
-            border:1px solid #10b981;
-          "
-        >
+      <a href="tv.html" class="action-card" style="border:2px solid #10b981; background:#f0fdf4;">
+        <h3 style="color:#065f46;">📺 البث المباشر والقنوات</h3>
+        <p>متابعة القنوات الرياضية وقنوات روتانا عبر البث المباشر الرسمي.</p>
+        <div style="margin-top:12px; font-size:13px; font-weight:bold; color:#065f46; background:#ffffff; padding:6px 12px; border-radius:8px; display:inline-block; border:1px solid #10b981;">
           شاهد البث المباشر 🔴
         </div>
-
       </a>
 
       <!-- ديوان الشعر -->
-      <a
-        href="poetry.html"
-        class="action-card"
-      >
-
-        <h3>
-          ✨ ديوان الشعر الأدبي
-        </h3>
-
-        <p>
-          تصفح واقرأ القصائد الشعرية والأبيات الأدبية الكاملة.
-        </p>
-
+      <a href="poetry.html" class="action-card">
+        <h3>✨ ديوان الشعر الأدبي</h3>
+        <p>تصفح واقرأ القصائد الشعرية والأبيات الأدبية الكاملة.</p>
       </a>
 
       <!-- قصة الشيخ شلاش -->
-      <a
-        href="shelash.html"
-        class="action-card"
-      >
-
-        <h3>
-          📜 قصة الشيخ شلاش الفرج
-        </h3>
-
-        <p>
-          رحمه الله - توثيق تاريخي لإحدى الشخصيات البارزة.
-        </p>
-
+      <a href="shelash.html" class="action-card">
+        <h3>📜 قصة الشيخ شلاش الفرج</h3>
+        <p>رحمه الله - توثيق تاريخي لإحدى الشخصيات البارزة.</p>
       </a>
 
       <!-- مدونة ووردبريس -->
-      <a
-        href="https://baramjak2.wordpress.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="action-card"
-        style="border:2px dashed #10b981;"
-      >
-
-        <h3>
-          📝 مدونة ووردبريس الرسمية
-        </h3>
-
-        <p>
-          تفضل بزيارة مدونتي الشخصية على ووردبريس للاطلاع على أحدث المقالات اليومية.
-        </p>
-
+      <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer" class="action-card" style="border:2px dashed #10b981;">
+        <h3>📝 مدونة ووردبريس الرسمية</h3>
+        <p>تفضل بزيارة مدونتي الشخصية على ووردبريس للاطلاع على أحدث المقالات اليومية.</p>
       </a>
-
     </section>
 
-
     <!-- ================================
-         الإعجاب
+         قسم الإعجاب
          ================================ -->
-
-    <div
-      style="
-        text-align:center;
-        margin-top:30px;
-        padding:25px;
-        background:#ffffff;
-        border-radius:16px;
-        border:1px solid #e2e8f0;
-        box-shadow:0 4px 6px rgba(0,0,0,0.02);
-      "
-    >
-
-      <p
-        style="
-          font-size:16px;
-          color:#1e293b;
-          margin-bottom:15px;
-          font-weight:bold;
-        "
-      >
-        ❤️ سجل إعجابك بالموقع:
-      </p>
-
-      <button
-        id="likeBtn"
-        type="button"
-        onclick="toggleLike()"
-        aria-pressed="false"
-        aria-label="الإعجاب بالموقع"
-        style="
-          background:#f1f5f9;
-          border:2px solid #e2e8f0;
-          padding:12px 25px;
-          border-radius:30px;
-          font-size:16px;
-          font-weight:bold;
-          color:#475569;
-          cursor:pointer;
-          transition:all 0.3s ease;
-          display:inline-flex;
-          align-items:center;
-          gap:10px;
-          font-family:inherit;
-          user-select:none;
-          -webkit-tap-highlight-color:transparent;
-        "
-      >
-
-        <span
-          id="likeIcon"
-          style="font-size:20px;"
-        >
-          🤍
-        </span>
-
-        <span id="likeText">
-          إعجاب
-        </span>
-
-        <span
-          id="likeCount"
-          style="
-            background:#e2e8f0;
-            padding:2px 10px;
-            border-radius:12px;
-            font-size:14px;
-          "
-        >
-          24
-        </span>
-
+    <div style="text-align:center; margin-top:30px; padding:25px; background:#ffffff; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 4px 6px rgba(0,0,0,0.02);">
+      <p style="font-size:16px; color:#1e293b; margin-bottom:15px; font-weight:bold;">❤️ سجل إعجابك بالموقع:</p>
+      <button id="likeBtn" type="button" onclick="toggleLike()" aria-pressed="false" aria-label="الإعجاب بالموقع" style="background:#f1f5f9; border:2px solid #e2e8f0; padding:12px 25px; border-radius:30px; font-size:16px; font-weight:bold; color:#475569; cursor:pointer; transition:all 0.3s ease; display:inline-flex; align-items:center; gap:10px; font-family:inherit; user-select:none; -webkit-tap-highlight-color:transparent;">
+        <span id="likeIcon" style="font-size:20px;">🤍</span>
+        <span id="likeText">إعجاب</span>
+        <span id="likeCount" style="background:#e2e8f0; padding:2px 10px; border-radius:12px; font-size:14px;">24</span>
       </button>
-
     </div>
 
-
     <!-- ================================
-         التذييل
+         التذييل (Footer)
          ================================ -->
-
     <div class="footer">
-
-      <p class="copyright">
-        جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي | محمد علي أحمد الحطاب الجبوري
-      </p>
-
-      <a
-        href="https://github.com/mhamalgporee-ctrl/mhamalgporee-ctrl.github.io"
-        class="admin-btn"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <p class="copyright">جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي | محمد علي أحمد الحطاب الجبوري</p>
+      <a href="https://github.com/mhamalgporee-ctrl/mhamalgporee-ctrl.github.io" class="admin-btn" target="_blank" rel="noopener noreferrer">
         ⚙ إدارة الموقع عبر GitHub
       </a>
-
     </div>
 
   </div>
 
-
   <!-- ================================
-       نافذة نبذة عني
+       نافذة نبذة عني (Modal)
        ================================ -->
-
-  <div
-    id="aboutModal"
-    class="modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="aboutTitle"
-  >
-
+  <div id="aboutModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
     <div class="modal-content">
-
-      <button
-        onclick="closeModal('aboutModal')"
-        class="modal-close"
-        type="button"
-        aria-label="إغلاق"
-      >
-        ✕
-      </button>
-
-      <h3 id="aboutTitle">
-        👤 نبذة عني
-      </h3>
-
+      <button onclick="closeModal('aboutModal')" class="modal-close" type="button" aria-label="إغلاق">✕</button>
+      <h3 id="aboutTitle">👤 نبذة عني</h3>
       <p>
-        أهلاً بك! أنا
-        <strong>محمد علي أحمد الحطاب الجبوري</strong>،
-        كاتب ومطور تطبيقات ومؤسس موقع الشرقاط الثقافي.
+        أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومطور تطبيقات ومؤسس موقع الشرقاط الثقافي.
         يهدف موقعنا لتوفير البرامج والتطبيقات الذكية، ونشر الكتب والمقالات الثقافية وتوثيق تاريخ وتراث مدينة الشرقاط.
       </p>
-
     </div>
-
   </div>
-
 
   <!-- ================================
-       نافذة التواصل
+       نافذة التواصل (Chat Modal)
        ================================ -->
-
-  <div
-    id="chatModal"
-    class="chat-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="chatTitle"
-  >
-
+  <div id="chatModal" class="chat-modal" role="dialog" aria-modal="true" aria-labelledby="chatTitle">
     <div class="chat-box">
-
       <div class="chat-header">
-
-        <h3 id="chatTitle">
-          💬 دردشة مع محمد علي أحمد الحطاب الجبوري
-        </h3>
-
-        <button
-          onclick="closeChat()"
-          class="close-btn"
-          type="button"
-          aria-label="إغلاق"
-        >
-          ✕
-        </button>
-
+        <h3 id="chatTitle">💬 دردشة مع محمد علي أحمد الحطاب الجبوري</h3>
+        <button onclick="closeChat()" class="close-btn" type="button" aria-label="إغلاق">✕</button>
       </div>
-
-
       <div class="chat-body">
-
-        <p>
-          أهلاً بك! اكتب اسمك والرسالة وسأجيبك مباشرة على الواتساب:
-        </p>
-
-        <input
-          type="text"
-          id="userName"
-          class="chat-input"
-          placeholder="اسمك الكريم..."
-          autocomplete="name"
-        >
-
-        <textarea
-          id="userMsg"
-          class="chat-input"
-          placeholder="اكتب رسالتك هنا..."
-        ></textarea>
-
-        <button
-          onclick="sendMessage()"
-          class="send-btn"
-          type="button"
-        >
-          إرسال الرسالة 🚀
-        </button>
-
+        <p>أهلاً بك! اكتب اسمك والرسالة وسأجيبك مباشرة على الواتساب:</p>
+        <input type="text" id="userName" class="chat-input" placeholder="اسمك الكريم..." autocomplete="name">
+        <textarea id="userMsg" class="chat-input" placeholder="اكتب رسالتك هنا..."></textarea>
+        <button onclick="sendMessage()" class="send-btn" type="button">إرسال الرسالة 🚀</button>
       </div>
-
     </div>
-
   </div>
 
-
+  <!-- ================================
+       السكربت البرمجي (JavaScript)
+       ================================ -->
   <script>
-
-    /* =====================================================
-       أدوات عامة
-       ===================================================== */
-
+    /* ----------------------------------
+       أدوات عامة للتحكم بالنوافذ المنبثقة
+       ---------------------------------- */
     function showModalElement(element) {
       if (!element) return;
       element.style.display = 'flex';
@@ -1381,38 +871,14 @@
       }
     }
 
-    /* =====================================================
-       نافذة نبذة عني
-       ===================================================== */
+    function openModal(id) { showModalElement(document.getElementById(id)); }
+    function closeModal(id) { hideModalElement(document.getElementById(id)); }
+    function openChat() { showModalElement(document.getElementById('chatModal')); }
+    function closeChat() { hideModalElement(document.getElementById('chatModal')); }
 
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      showModalElement(modal);
-    }
-
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      hideModalElement(modal);
-    }
-
-    /* =====================================================
-       نافذة التواصل
-       ===================================================== */
-
-    function openChat() {
-      const chatModal = document.getElementById('chatModal');
-      showModalElement(chatModal);
-    }
-
-    function closeChat() {
-      const chatModal = document.getElementById('chatModal');
-      hideModalElement(chatModal);
-    }
-
-    /* =====================================================
-       إرسال الواتساب
-       ===================================================== */
-
+    /* ----------------------------------
+       إرسال الرسائل عبر الواتساب
+       ---------------------------------- */
     function sendMessage() {
       const nameElement = document.getElementById('userName');
       const messageElement = document.getElementById('userMsg');
@@ -1430,46 +896,34 @@
       const fullMessage = 'مرحباً محمد، أنا ' + (name || 'زائر') + ': ' + msg;
       const phone = '9647835025407';
       const url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(fullMessage);
-
       window.location.href = url;
     }
 
-    /* =====================================================
-       إغلاق النوافذ عند الضغط خارجها
-       ===================================================== */
-
+    /* ----------------------------------
+       إغلاق النوافذ بالضغط الخارجي أو زر ESC
+       ---------------------------------- */
     window.addEventListener('click', function(event) {
-      if (event.target.classList.contains('modal')) {
-        hideModalElement(event.target);
-      }
-      if (event.target.classList.contains('chat-modal')) {
+      if (event.target.classList.contains('modal') || event.target.classList.contains('chat-modal')) {
         hideModalElement(event.target);
       }
     });
-
-    /* =====================================================
-       إغلاق النوافذ بزر ESC
-       ===================================================== */
 
     document.addEventListener('keydown', function(event) {
-      if (event.key !== 'Escape') return;
-      const aboutModal = document.getElementById('aboutModal');
-      const chatModal = document.getElementById('chatModal');
-      hideModalElement(aboutModal);
-      hideModalElement(chatModal);
+      if (event.key === 'Escape') {
+        hideModalElement(document.getElementById('aboutModal'));
+        hideModalElement(document.getElementById('chatModal'));
+      }
     });
 
-    /* =====================================================
-       زر الإعجاب
-       ===================================================== */
-
+    /* ----------------------------------
+       إدارة زر الإعجاب والتخزين المحلي
+       ---------------------------------- */
     (function () {
       const LIKE_COUNT_KEY = 'siteLikes';
       const USER_LIKED_KEY = 'userLiked';
       const DEFAULT_LIKES = 24;
 
       let count = parseInt(localStorage.getItem(LIKE_COUNT_KEY), 10);
-
       if (!Number.isFinite(count) || count < 0) {
         count = DEFAULT_LIKES;
         localStorage.setItem(LIKE_COUNT_KEY, String(count));
@@ -1484,9 +938,6 @@
         const countSpan = document.getElementById('likeCount');
 
         if (!btn || !icon || !text || !countSpan) return;
-
-        if (!Number.isFinite(count) || count < 0) count = 0;
-
         countSpan.textContent = String(count);
 
         if (isLiked) {
@@ -1520,7 +971,6 @@
           count++;
           isLiked = true;
         }
-
         localStorage.setItem(LIKE_COUNT_KEY, String(count));
         localStorage.setItem(USER_LIKED_KEY, String(isLiked));
         updateLikeUI();
@@ -1533,10 +983,9 @@
       }
     })();
 
-    /* =====================================================
-       الطقس - الشرقاط
-       ===================================================== */
-
+    /* ----------------------------------
+       جلب حالة طقس الشرقاط المباشرة
+       ---------------------------------- */
     async function getShirqatWeather() {
       const lat = 35.4883;
       const lon = 43.2458;
@@ -1574,7 +1023,7 @@
         else if (code >= 61 && code <= 67) { desc = 'أجواء ممطرة'; icon = '🌧️'; }
         else if (code >= 71 && code <= 77) { desc = 'تساقط ثلوج'; icon = '❄️'; }
         else if (code >= 80 && code <= 82) { desc = 'زخات مطرية'; icon = '🌦️'; }
-        else if (code === 85 || code === 86) { desc = 'زخات ثلجية'; icon = '          icon = '🌨️'; }
+        else if (code === 85 || code === 86) { desc = 'زخات ثلجية'; icon = '🌨️'; }
         else if (code === 95) { desc = 'عواصف رعدية'; icon = '⛈️'; }
         else if (code === 96 || code === 99) { desc = 'عواصف رعدية مع برد'; icon = '⛈️'; }
 
@@ -1589,10 +1038,7 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      getShirqatWeather();
-    }, { once: true });
-
+    document.addEventListener('DOMContentLoaded', getShirqatWeather, { once: true });
   </script>
 
 </body>
