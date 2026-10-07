@@ -159,9 +159,6 @@
       background: #fee2e2;
     }
 
-    /* Like Section */
-    .like-section { text-align:center; padding:15px; background:#fff; border-radius:14px; border:1px solid var(--border); box-shadow: var(--shadow); }
-
     /* Footer */
     .footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; margin-top: 25px; }
 
@@ -311,13 +308,6 @@
 
     </div>
 
-    <!-- Like Section -->
-    <div class="like-section">
-      <button id="likeBtn" onclick="toggleLike()" style="padding:8px 20px; border-radius:20px; border:1px solid var(--border); background:#f1f5f9; cursor:pointer; font-weight:bold;">
-        <span id="likeIcon">🤍</span> <span id="likeText">إعجاب</span> (<span id="likeCount">24</span>)
-      </button>
-    </div>
-
     <!-- Footer -->
     <div class="footer">
       جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي | محمد علي أحمد الحطاب الجبوري
@@ -357,23 +347,6 @@
       if (!msg) return alert('اكتب الرسالة أولاً');
       window.location.href = 'https://wa.me/9647835025407?text=' + encodeURIComponent('مرحباً محمد، أنا ' + (name || 'زائر') + ': ' + msg);
     }
-
-    /* Like Button Logic */
-    let count = parseInt(localStorage.getItem('siteLikes')) || 24;
-    let liked = localStorage.getItem('userLiked') === 'true';
-    function updateLike() {
-      document.getElementById('likeCount').textContent = count;
-      document.getElementById('likeIcon').textContent = liked ? '❤️' : '🤍';
-      document.getElementById('likeText').textContent = liked ? 'أعجبك هذا' : 'إعجاب';
-    }
-    function toggleLike() {
-      liked = !liked;
-      count += liked ? 1 : -1;
-      localStorage.setItem('siteLikes', count);
-      localStorage.setItem('userLiked', liked);
-      updateLike();
-    }
-    updateLike();
 
     /* Weather API */
     async function getWeather() {
