@@ -39,15 +39,16 @@
     </header>
 
     <div class="notice-bar" id="noticeText">
-        💡 <strong>معاينة الـ PDF:</strong> يتم عرض ملف الـ PDF المرفوع على موقعك.
+        💡 <strong>معاينة الـ PDF:</strong> يتم عرض ملف الـ PDF المرفوع مباشرة داخل الصفحة.
     </div>
 
-    <iframe id="bookFrame" src="الرجل والمرأة.pdf" title="كتاب الرجل والمرأة وعشرة العمر"></iframe>
+    <!-- استخدام قارئ مستندات جوجل لعرض الـ PDF المرفوع بدون مغادرة التطبيق -->
+    <iframe id="bookFrame" src="https://docs.google.com/gview?url=https://e-ctrl.github.io/الرجل%20والمرأة.pdf&embedded=true" title="كتاب الرجل والمرأة وعشرة العمر"></iframe>
 
     <script>
         function showPDF() {
-            document.getElementById('bookFrame').src = 'الرجل والمرأة.pdf';
-            document.getElementById('noticeText').innerHTML = '💡 <strong>معاينة الـ PDF:</strong> يتم عرض ملف الـ PDF المرفوع على موقعك.';
+            document.getElementById('bookFrame').src = 'https://docs.google.com/gview?url=https://e-ctrl.github.io/الرجل%20والمرأة.pdf&embedded=true';
+            document.getElementById('noticeText').innerHTML = '💡 <strong>معاينة الـ PDF:</strong> يتم عرض ملف الـ PDF المرفوع مباشرة داخل الصفحة.';
             document.getElementById('pdfBtn').classList.add('btn-active');
             document.getElementById('flipBtn').classList.remove('btn-active');
         }
