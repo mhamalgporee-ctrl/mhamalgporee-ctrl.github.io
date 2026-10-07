@@ -74,6 +74,17 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
 
+    /* حركة النبض لأيقونة الطقس */
+    @keyframes pulseWeather {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .weather-icon-pulse {
+      display: inline-block;
+      animation: pulseWeather 2s infinite ease-in-out;
+    }
+
     /* Ticker */
     .ticker { background: #fffdf0; border: 1px solid #d4af37; border-radius: 12px; padding: 8px; color: #78350f; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 20px; }
     .ticker-content { display: inline-block; animation: smoothTicker 14s linear infinite; }
@@ -269,10 +280,22 @@
     <!-- Weather -->
     <div class="weather-box">
       <div>
-        <h4 style="font-size:14.5px;">📍 طقس الشرقاط الآن</h4>
+        <h4 style="font-size:14.5px;"><span class="weather-icon-pulse">🌤️</span> طقس الشرقاط الآن</h4>
         <p id="weatherDesc" style="font-size:12px; opacity:0.9;">جاري التحميل...</p>
       </div>
       <div id="weatherTemp" style="font-size:20px; font-weight:bold;">-- °C</div>
+    </div>
+
+    <!-- خارطة الطقس الحية (Windy) -->
+    <div style="border-radius: 14px; overflow: hidden; margin-bottom: 25px; border: 1px solid var(--border); box-shadow: var(--shadow);">
+      <iframe 
+        width="100%" 
+        height="350" 
+        src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=km/h&zoom=8&overlay=temp&product=ecmwf&level=surface&lat=35.4883&lon=43.2458" 
+        frameborder="0"
+        loading="lazy"
+        title="خارطة الطقس الحية للشرقاط">
+      </iframe>
     </div>
 
     <!-- Poem -->
