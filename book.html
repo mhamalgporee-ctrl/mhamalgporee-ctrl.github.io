@@ -32,32 +32,31 @@
     <header>
         <span>📖 كتاب: الرجل والمرأة وعشرة العمر</span>
         <div class="nav-btns">
-            <button onclick="showPDF()" id="pdfBtn" class="btn btn-active">📄 ملف PDF</button>
-            <button onclick="showFlip()" id="flipBtn" class="btn">📖 الكتاب التفاعلي</button>
+            <button onclick="showFlip()" id="flipBtn" class="btn btn-active">📖 الكتاب التفاعلي</button>
+            <button onclick="showPDF()" id="pdfBtn" class="btn">📄 ملف PDF</button>
             <a href="index.html" class="btn">⬅ الرئيسية</a>
         </div>
     </header>
 
     <div class="notice-bar" id="noticeText">
-        💡 <strong>قراءة مباشرة:</strong> يتوفر الملف للتقليب والقراءة الآن مباشرة داخل الصفحة.
+        💡 <strong>قراءة مباشرة:</strong> يمكنك تقليب الصفحات وقراءة الكتاب كاملاً مباشرة أدناه.
     </div>
 
-    <!-- عرض الكتاب التفاعلي مباشرة فهو الأكثر استقراراً داخل تطبيق فيسبوك للموبايل -->
+    <!-- عرض الكتاب التفاعلي افتراضياً لضمان الفتح المباشر دون مشاكل المعاينة -->
     <iframe id="bookFrame" src="https://heyzine.com/flip-book/7d35d68ef2.html" allowfullscreen allow="autoplay; fullscreen; clipboard-write" title="كتاب الرجل والمرأة وعشرة العمر"></iframe>
 
     <script>
-        function showPDF() {
-            // فتح ملف الـ PDF المرفوع مباشرة من الموقع
-            document.getElementById('bookFrame').src = 'book.pdf';
-            document.getElementById('noticeText').innerHTML = '💡 <strong>معاينة الـ PDF:</strong> يتم عرض الملف المرفوع مباشرة.';
-            document.getElementById('pdfBtn').classList.add('btn-active');
-            document.getElementById('flipBtn').classList.remove('btn-active');
-        }
         function showFlip() {
             document.getElementById('bookFrame').src = 'https://heyzine.com/flip-book/7d35d68ef2.html';
-            document.getElementById('noticeText').innerHTML = '💡 <strong>الكتاب التفاعلي:</strong> يتم عرض النسخة التفاعلية لتقليب الصفحات.';
+            document.getElementById('noticeText').innerHTML = '💡 <strong>الكتاب التفاعلي:</strong> يمكنك تقليب الصفحات وقراءة الكتاب كاملاً مباشرة أدناه.';
             document.getElementById('flipBtn').classList.add('btn-active');
             document.getElementById('pdfBtn').classList.remove('btn-active');
+        }
+        function showPDF() {
+            document.getElementById('bookFrame').src = 'book.pdf';
+            document.getElementById('noticeText').innerHTML = '💡 <strong>معاينة الـ PDF:</strong> يتم عرض الملف المرفوع مباشرة على موقعك.';
+            document.getElementById('pdfBtn').classList.add('btn-active');
+            document.getElementById('flipBtn').classList.remove('btn-active');
         }
     </script>
 
