@@ -86,9 +86,14 @@
     }
 
     /* Ticker */
-    .ticker { background: #fffdf0; border: 1px solid #d4af37; border-radius: 12px; padding: 8px; color: #78350f; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 25px; }
+    .ticker { background: #fffdf0; border: 1px solid #d4af37; border-radius: 12px; padding: 8px; color: #78350f; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 15px; }
     .ticker-content { display: inline-block; animation: smoothTicker 14s linear infinite; }
     @keyframes smoothTicker { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+    /* الشريط الأخضر الجديد للذكر والصلاة الإبراهيمية */
+    .ticker-green { background: #d1fae5; border: 1px solid #34d399; border-radius: 12px; padding: 8px; color: #064e3b; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 25px; }
+    .ticker-green-content { display: inline-block; animation: smoothTickerGreen 16s linear infinite; }
+    @keyframes smoothTickerGreen { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
     /* Navigation Grid العصري */
     .section-title { font-size: 19px; text-align: center; margin-bottom: 18px; font-weight: 800; color: var(--text); }
@@ -264,10 +269,17 @@
       </div>
     </section>
 
-    <!-- Ticker -->
+    <!-- Ticker 1 -->
     <div class="ticker">
       <div class="ticker-content">
         ✨ أهلاً بك في موقع الشرقاط الثقافي.. تصفح البرامج، الكتب، والبث المباشر ✨
+      </div>
+    </div>
+
+    <!-- Ticker 2 (شريط الحمد لله والصلاة الإبراهيمية) -->
+    <div class="ticker-green">
+      <div class="ticker-green-content">
+        🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ 🌿
       </div>
     </div>
 
