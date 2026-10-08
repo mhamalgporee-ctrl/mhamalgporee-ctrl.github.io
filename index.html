@@ -23,11 +23,11 @@
       --primary: #064e3b;
       --primary-hover: #022c22;
       --primary-light: #f0fdf4;
-      --bg: #fdfbf7;
+      --bg: #fdfbf7; /* خلفية تراثية دافئة تتناسب مع التصميم */
       --card-bg: #ffffff;
       --text: #1e293b;
       --muted: #64748b;
-      --border: #d4b572;
+      --border: #d4b572; /* حدود ذهبية تراثية */
       --shadow: 0 4px 20px rgba(6, 78, 59, 0.08);
     }
 
@@ -35,6 +35,7 @@
     body { 
       font-family: system-ui, -apple-system, sans-serif; 
       background-color: var(--bg); 
+      /* دمج التصميم التراثي كخلفية عامة للموقع */
       background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.92), rgba(240, 253, 244, 0.92)), url('1000051952.jpg');
       background-size: cover;
       background-attachment: fixed;
@@ -442,7 +443,7 @@
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
         <div>
           <h4 style="font-size:16px; display:flex; align-items:center; gap:6px;">
-            <span class="weather-icon-pulse" id="weatherMainIcon">🌥️</span> طقس الشرقاط الآن
+            <span class="weather-icon-pulse" id="weatherMainIcon">🌤️</span> طقس الشرقاط الآن
           </h4>
           <p id="weatherDesc" style="font-size:13px; opacity:0.9; margin-top:2px;">جاري تحديث حالة الطقس...</p>
         </div>
@@ -534,34 +535,13 @@
         let desc = 'طقس معتدل';
         let icon = '🌤️';
 
-        /* تحديث النصوص لتطابق وصف التطبيقات الرسمية للطقس */
-        if (code === 0) {
-          desc = 'سماء صافية (مشمس)';
-          icon = '☀️';
-        } else if (code >= 1 && code <= 2) {
-          desc = 'غائم جزئي';
-          icon = '⛅';
-        } else if (code === 3) {
-          desc = 'غائم في أغلب الأوقات';
-          icon = '☁️';
-        } else if (code >= 45 && code <= 48) {
-          desc = 'ضباب خفيف';
-          icon = '🌫️';
-        } else if (code >= 51 && code <= 67) {
-          desc = 'أمطار متفرقة';
-          icon = '🌧️';
-        } else if (code >= 71 && code <= 77) {
-          desc = 'تساقط ثلوج';
-          icon = '❄️';
-        } else if (code >= 80 && code <= 99) {
-          desc = 'زخات مطر ورعدية';
-          icon = '⛈️';
-        } else {
-          desc = 'غائم في أغلب الأوقات';
-          icon = '☁️';
-        }
+        if (code === 0) { desc = 'سماء صافية (مشمس)'; icon = '☀️'; }
+        else if (code >= 1 && code <= 3) { desc = 'غائم جزئي مع أجواء لطيفة'; icon = '⛅'; }
+        else if (code >= 45 && code <= 48) { desc = 'ضباب خفيف'; icon = '🌫️'; }
+        else if (code >= 51 && code <= 67) { desc = 'فرصة لهطول أمطار خفيفة'; icon = '🌧️'; }
+        else { desc = 'أجواء غائمة ومستقرة'; icon = '☁️'; }
 
-        document.getElementById('weatherDesc').textContent = desc;
+        document.getElementById('weatherDesc').textContent, document.getElementById('weatherDesc').textContent = desc;
         document.getElementById('weatherMainIcon').textContent = icon;
 
         if (data.daily && data.daily.time) {
@@ -573,10 +553,8 @@
             const maxT = Math.round(data.daily.temperature_2m_max[i]);
             const minT = Math.round(data.daily.temperature_2m_min[i]);
             const dCode = data.daily.weather_code[i];
-            
             let dIcon = '⛅';
             if (dCode === 0) dIcon = '☀️';
-            else if (dCode === 3) dIcon = '☁️';
             else if (dCode >= 51) dIcon = '🌧️';
 
             forecastHtml += `
