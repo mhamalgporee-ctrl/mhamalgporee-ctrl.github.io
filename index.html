@@ -23,11 +23,11 @@
       --primary: #064e3b;
       --primary-hover: #022c22;
       --primary-light: #f0fdf4;
-      --bg: #fdfbf7; /* خلفية تراثية دافئة تتناسب مع التصميم */
+      --bg: #fdfbf7;
       --card-bg: #ffffff;
       --text: #1e293b;
       --muted: #64748b;
-      --border: #d4b572; /* حدود ذهبية تراثية */
+      --border: #d4b572;
       --shadow: 0 4px 20px rgba(6, 78, 59, 0.08);
     }
 
@@ -35,7 +35,6 @@
     body { 
       font-family: system-ui, -apple-system, sans-serif; 
       background-color: var(--bg); 
-      /* دمج التصميم التراثي كخلفية عامة للموقع */
       background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.92), rgba(240, 253, 244, 0.92)), url('1000051952.jpg');
       background-size: cover;
       background-attachment: fixed;
@@ -63,7 +62,6 @@
     .hero-text h1 { font-size: 22px; color: var(--primary); margin-bottom: 6px; font-weight: 800; }
     .hero-text p { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
     
-    /* صندوق سيد الاستغفار */
     .master-istighfar {
       background: linear-gradient(135deg, #f0fdf4 0%, #e6f4ea 100%);
       border: 1.5px dashed #064e3b;
@@ -108,7 +106,6 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
 
-    /* حركة أشجار اليوكالبتوس */
     @keyframes swayTree {
       0% { transform: rotate(0deg); }
       50% { transform: rotate(3deg) translateY(-2px); }
@@ -139,7 +136,6 @@
       transform-origin: bottom center;
     }
 
-    /* حركة النبض لأيقونة الطقس */
     @keyframes pulseWeather {
       0% { transform: scale(1); }
       50% { transform: scale(1.2); }
@@ -150,17 +146,14 @@
       animation: pulseWeather 2s infinite ease-in-out;
     }
 
-    /* Ticker */
     .ticker { background: #fffdf0; border: 1px solid #d4af37; border-radius: 12px; padding: 8px; color: #78350f; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 15px; }
     .ticker-content { display: inline-block; animation: smoothTicker 14s linear infinite; }
     @keyframes smoothTicker { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
-    /* الشريط الأخضر للذكر */
     .ticker-green { background: #d1fae5; border: 1px solid #34d399; border-radius: 12px; padding: 8px; color: #064e3b; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 25px; }
     .ticker-green-content { display: inline-block; animation: smoothTickerGreen 16s linear infinite; }
     @keyframes smoothTickerGreen { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
-    /* Navigation Grid */
     .section-title { font-size: 19px; text-align: center; margin-bottom: 18px; font-weight: 800; color: var(--primary); }
     
     .grid { 
@@ -234,7 +227,6 @@
       background: #fee2e2;
     }
 
-    /* قسم عرض الكتاب البارز */
     .book-banner {
       background: linear-gradient(135deg, #ffffff, #f0fdf4);
       border: 1.5px solid var(--border);
@@ -285,10 +277,8 @@
       background: #022c22;
     }
 
-    /* Footer */
     .footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; margin-top: 25px; background: rgba(255,255,255,0.7); border-radius: 12px; }
 
-    /* Modals & Chat */
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
     .modal-box { background: #fff; padding: 22px; border-radius: 16px; width: 100%; max-width: 380px; position: relative; border: 2px solid var(--border); }
     .modal-close { position: absolute; left: 15px; top: 15px; border: none; background: #f1f5f9; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
@@ -535,13 +525,34 @@
         let desc = 'طقس معتدل';
         let icon = '🌤️';
 
-        if (code === 0) { desc = 'سماء صافية (مشمس)'; icon = '☀️'; }
-        else if (code >= 1 && code <= 3) { desc = 'غائم جزئي مع أجواء لطيفة'; icon = '⛅'; }
-        else if (code >= 45 && code <= 48) { desc = 'ضباب خفيف'; icon = '🌫️'; }
-        else if (code >= 51 && code <= 67) { desc = 'فرصة لهطول أمطار خفيفة'; icon = '🌧️'; }
-        else { desc = 'أجواء غائمة ومستقرة'; icon = '☁️'; }
+        /* دالة شاملة لرموز الطقس الحقيقية (أمطار، غيوم متفرقة، ضباب، صحو) */
+        if (code === 0) {
+          desc = 'سماء صافية (مشمس)';
+          icon = '☀️';
+        } else if (code >= 1 && code <= 2) {
+          desc = 'غائم جزئي مع أجواء لطيفة';
+          icon = '⛅';
+        } else if (code === 3) {
+          desc = 'غائم في أغلب الأوقات';
+          icon = '☁️';
+        } else if (code >= 45 && code <= 48) {
+          desc = 'ضباب خفيف';
+          icon = '🌫️';
+        } else if (code >= 51 && code <= 67) {
+          desc = 'أمطار متفرقة';
+          icon = '🌧️';
+        } else if (code >= 71 && code <= 77) {
+          desc = 'تساقط ثلوج';
+          icon = '❄️';
+        } else if (code >= 80 && code <= 99) {
+          desc = 'زخات مطر ورعدية';
+          icon = '⛈️';
+        } else {
+          desc = 'أجواء غائمة ومستقرة';
+          icon = '☁️';
+        }
 
-        document.getElementById('weatherDesc').textContent, document.getElementById('weatherDesc').textContent = desc;
+        document.getElementById('weatherDesc').textContent = desc;
         document.getElementById('weatherMainIcon').textContent = icon;
 
         if (data.daily && data.daily.time) {
@@ -553,8 +564,10 @@
             const maxT = Math.round(data.daily.temperature_2m_max[i]);
             const minT = Math.round(data.daily.temperature_2m_min[i]);
             const dCode = data.daily.weather_code[i];
+            
             let dIcon = '⛅';
             if (dCode === 0) dIcon = '☀️';
+            else if (dCode === 3) dIcon = '☁️';
             else if (dCode >= 51) dIcon = '🌧️';
 
             forecastHtml += `
