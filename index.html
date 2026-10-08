@@ -86,14 +86,9 @@
     }
 
     /* Ticker */
-    .ticker { background: #fffdf0; border: 1px solid #d4af37; border-radius: 12px; padding: 8px; color: #78350f; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 20px; }
+    .ticker { background: #fffdf0; border: 1px solid #d4af37; border-radius: 12px; padding: 8px; color: #78350f; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 25px; }
     .ticker-content { display: inline-block; animation: smoothTicker 14s linear infinite; }
     @keyframes smoothTicker { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-
-    /* Poem */
-    .poem-box { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 14px; text-align: center; margin-bottom: 25px; }
-    .poem-tag { display: inline-block; background: var(--primary); color: #fff; padding: 3px 14px; border-radius: 12px; font-size: 12px; font-weight: bold; margin-bottom: 10px; }
-    .poem-body { font-weight: bold; line-height: 2; font-size: 14.5px; white-space: pre-line; }
 
     /* Navigation Grid العصري */
     .section-title { font-size: 19px; text-align: center; margin-bottom: 18px; font-weight: 800; color: var(--text); }
@@ -276,19 +271,6 @@
       </div>
     </div>
 
-    <!-- Poem -->
-    <div class="poem-box">
-      <span class="poem-tag">✨ قصيدة: النجاة</span>
-      <div class="poem-body">
-عجبت لمن تضيق به الحياة ... وفي انوار خالقه النجاة!
-اذا نزل البلاء بكل صوب ... واظلمت المسالك والجهات
-فلذ بالله، والهج فيه ذكرا ... فان الذكر للصدر الحياة
-هو الحصن القوي لكل خوف ... به تمضي النوائب والشقاة
-لسان غافل عن ذكر ربي ... لسان ميت، فيه الموات!
-فسبح، ثم هلل، وارج عفوا ... تنل ما لم تنله الامنيات
-      </div>
-    </div>
-
     <!-- Navigation Grid -->
     <h2 class="section-title">🌐 الأقسام الرئيسية</h2>
     
@@ -370,7 +352,7 @@
       <a href="book.pdf" target="_blank" class="book-btn">اضغط هنا لقراءة الكتاب PDF 📄</a>
     </div>
 
-    <!-- Weather Section (Moved to Footer Area) -->
+    <!-- Weather Section -->
     <div style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; padding: 20px; border-radius: 16px; margin-bottom: 25px; box-shadow: var(--shadow);">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
         <div>
@@ -381,7 +363,6 @@
         </div>
         <div style="text-align: left;">
           <div id="weatherTemp" style="font-size:24px; font-weight:bold;">-- °C</div>
-          <!-- تم تكبير الخط وجعله واضحاً هنا -->
           <div id="localClock" style="font-size:16px; font-weight:bold; opacity:0.95; margin-top:4px; background: rgba(0,0,0,0.15); padding: 4px 10px; border-radius: 8px; display: inline-block;">--:-- --</div>
         </div>
       </div>
@@ -396,7 +377,7 @@
         </div>
       </div>
 
-      <!-- خريطة الطقس الوضحية (توضيح حركة الغيوم والرياح) -->
+      <!-- خريطة الطقس -->
       <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); background: #026591;">
         <iframe 
           width="100%" 
@@ -449,7 +430,7 @@
       window.location.href = 'https://wa.me/9647835025407?text=' + encodeURIComponent('مرحباً محمد، أنا ' + (name || 'زائر') + ': ' + msg);
     }
 
-    /* ساعة الشرقاط (نظام 12 ساعة بخط واضح) */
+    /* ساعة الشرقاط */
     function updateClock() {
       const now = new Date();
       const options = { timeZone: 'Asia/Baghdad', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
@@ -459,7 +440,7 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    /* Weather API محدثة مع توقعات الأيام وتحويل الكود لحالة الجو الحقيقية (صحو / غائم جزئي) */
+    /* Weather API */
     async function getWeather() {
       try {
         const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.4883&longitude=43.2458&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBaghdad');
