@@ -381,7 +381,8 @@
         </div>
         <div style="text-align: left;">
           <div id="weatherTemp" style="font-size:24px; font-weight:bold;">-- °C</div>
-          <div id="localClock" style="font-size:12px; opacity:0.9; margin-top:2px;">--:-- --</div>
+          <!-- تم تكبير الخط وجعله واضحاً هنا -->
+          <div id="localClock" style="font-size:16px; font-weight:bold; opacity:0.95; margin-top:4px; background: rgba(0,0,0,0.15); padding: 4px 10px; border-radius: 8px; display: inline-block;">--:-- --</div>
         </div>
       </div>
 
@@ -448,7 +449,7 @@
       window.location.href = 'https://wa.me/9647835025407?text=' + encodeURIComponent('مرحباً محمد، أنا ' + (name || 'زائر') + ': ' + msg);
     }
 
-    /* ساعة الشرقاط (نظام 12 ساعة) */
+    /* ساعة الشرقاط (نظام 12 ساعة بخط واضح) */
     function updateClock() {
       const now = new Date();
       const options = { timeZone: 'Asia/Baghdad', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
