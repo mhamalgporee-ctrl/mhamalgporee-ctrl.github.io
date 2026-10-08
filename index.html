@@ -90,8 +90,7 @@
     .ticker-content { display: inline-block; animation: smoothTicker 14s linear infinite; }
     @keyframes smoothTicker { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
-    /* Weather & Poem */
-    .weather-box { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; padding: 15px 20px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2); }
+    /* Poem */
     .poem-box { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 14px; text-align: center; margin-bottom: 25px; }
     .poem-tag { display: inline-block; background: var(--primary); color: #fff; padding: 3px 14px; border-radius: 12px; font-size: 12px; font-weight: bold; margin-bottom: 10px; }
     .poem-body { font-weight: bold; line-height: 2; font-size: 14.5px; white-space: pre-line; }
@@ -277,27 +276,6 @@
       </div>
     </div>
 
-    <!-- Weather -->
-    <div class="weather-box">
-      <div>
-        <h4 style="font-size:14.5px;"><span class="weather-icon-pulse">🌤️</span> طقس الشرقاط الآن</h4>
-        <p id="weatherDesc" style="font-size:12px; opacity:0.9;">جاري التحميل...</p>
-      </div>
-      <div id="weatherTemp" style="font-size:20px; font-weight:bold;">-- °C</div>
-    </div>
-
-    <!-- خارطة الطقس الحية (Windy) -->
-    <div style="border-radius: 14px; overflow: hidden; margin-bottom: 25px; border: 1px solid var(--border); box-shadow: var(--shadow);">
-      <iframe 
-        width="100%" 
-        height="350" 
-        src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=km/h&zoom=8&overlay=temp&product=ecmwf&level=surface&lat=35.4883&lon=43.2458" 
-        frameborder="0"
-        loading="lazy"
-        title="خارطة الطقس الحية للشرقاط">
-      </iframe>
-    </div>
-
     <!-- Poem -->
     <div class="poem-box">
       <span class="poem-tag">✨ قصيدة: النجاة</span>
@@ -392,6 +370,44 @@
       <a href="book.pdf" target="_blank" class="book-btn">اضغط هنا لقراءة الكتاب PDF 📄</a>
     </div>
 
+    <!-- Weather Section (Moved to Footer Area) -->
+    <div style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; padding: 20px; border-radius: 16px; margin-bottom: 25px; box-shadow: var(--shadow);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <h4 style="font-size:16px; display:flex; align-items:center; gap:6px;">
+            <span class="weather-icon-pulse" id="weatherMainIcon">🌤️</span> طقس الشرقاط الآن
+          </h4>
+          <p id="weatherDesc" style="font-size:13px; opacity:0.9; margin-top:2px;">جاري تحديث حالة الطقس...</p>
+        </div>
+        <div style="text-align: left;">
+          <div id="weatherTemp" style="font-size:24px; font-weight:bold;">-- °C</div>
+          <div id="localClock" style="font-size:12px; opacity:0.9; margin-top:2px;">--:-- --</div>
+        </div>
+      </div>
+
+      <!-- توقعات الأيام القادمة -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px; margin-bottom: 15px;">
+        <div style="font-size:13px; font-weight:bold; margin-bottom:8px;">📅 توقعات الأيام القادمة:</div>
+        <div id="forecastContainer" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 12px; text-align: center;">
+          <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px;">جاري التحميل...</div>
+          <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px;">جاري التحميل...</div>
+          <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px;">جاري التحميل...</div>
+        </div>
+      </div>
+
+      <!-- خريطة الطقس الوضحية (توضيح حركة الغيوم والرياح) -->
+      <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); background: #026591;">
+        <iframe 
+          width="100%" 
+          height="320" 
+          src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=km/h&zoom=7&overlay=clouds&product=ecmwf&level=surface&lat=35.4883&lon=43.2458" 
+          frameborder="0"
+          loading="lazy"
+          title="خارطة الطقس الحية للغيوم والرياح">
+        </iframe>
+      </div>
+    </div>
+
     <!-- Footer -->
     <div class="footer">
       جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي | محمد علي أحمد الحطاب الجبوري
@@ -432,13 +448,74 @@
       window.location.href = 'https://wa.me/9647835025407?text=' + encodeURIComponent('مرحباً محمد، أنا ' + (name || 'زائر') + ': ' + msg);
     }
 
-    /* Weather API */
+    /* ساعة الشرقاط (نظام 12 ساعة) */
+    function updateClock() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Baghdad', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
+      const timeString = new Intl.DateTimeFormat('ar-IQ', options).format(now);
+      document.getElementById('localClock').textContent = '🕒 ' + timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    /* Weather API محدثة مع توقعات الأيام وتحويل الكود لحالة الجو الحقيقية (صحو / غائم جزئي) */
     async function getWeather() {
       try {
-        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.4883&longitude=43.2458&current=temperature_2m,weather_code');
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.4883&longitude=43.2458&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBaghdad');
         const data = await res.json();
-        document.getElementById('weatherTemp').textContent = Math.round(data.current.temperature_2m) + ' °C';
-        document.getElementById('weatherDesc').textContent = data.current.weather_code === 0 ? 'سماء صافية وطقس مشمس' : 'أجواء معتدلة';
+        
+        const temp = Math.round(data.current.temperature_2m);
+        document.getElementById('weatherTemp').textContent = temp + ' °C';
+
+        const code = data.current.weather_code;
+        let desc = 'طقس معتدل';
+        let icon = '🌤️';
+
+        if (code === 0) {
+          desc = 'سماء صافية (مشمس)';
+          icon = '☀️';
+        } else if (code >= 1 && code <= 3) {
+          desc = 'غائم جزئي مع أجواء لطيفة';
+          icon = '⛅';
+        } else if (code >= 45 && code <= 48) {
+          desc = 'ضباب خفيف';
+          icon = '🌫️';
+        } else if (code >= 51 && code <= 67) {
+          desc = 'فرصة لهطول أمطار خفيفة';
+          icon = '🌧️';
+        } else {
+          desc = 'أجواء غائمة ومستقرة';
+          icon = '☁️';
+        }
+
+        document.getElementById('weatherDesc').textContent = desc;
+        document.getElementById('weatherMainIcon').textContent = icon;
+
+        if (data.daily && data.daily.time) {
+          const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+          let forecastHtml = '';
+          
+          for (let i = 1; i <= 3; i++) {
+            const dateObj = new Date(data.daily.time[i]);
+            const dayName = days[dateObj.getDay()];
+            const maxT = Math.round(data.daily.temperature_2m_max[i]);
+            const minT = Math.round(data.daily.temperature_2m_min[i]);
+            const dCode = data.daily.weather_code[i];
+            let dIcon = '⛅';
+            if (dCode === 0) dIcon = '☀️';
+            else if (dCode >= 51) dIcon = '🌧️';
+
+            forecastHtml += `
+              <div style="background: rgba(255,255,255,0.12); padding: 8px 4px; border-radius: 8px;">
+                <div style="font-weight:bold;">${dayName}</div>
+                <div style="font-size:16px; margin:2px 0;">${dIcon}</div>
+                <div>${maxT}° / ${minT}°</div>
+              </div>
+            `;
+          }
+          document.getElementById('forecastContainer').innerHTML = forecastHtml;
+        }
+
       } catch (e) {
         document.getElementById('weatherDesc').textContent = 'طقس الشرقاط المباشر';
       }
