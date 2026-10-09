@@ -92,15 +92,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 12px;
       position: relative;
       z-index: 2;
     }
 
     .hero-img { 
       width: 100%; 
-      max-width: 200px; 
+      max-width: 160px; 
       height: auto; 
-      max-height: 290px;
+      max-height: 250px;
       border-radius: 12px; 
       border: 2px solid #064e3b; 
       object-fit: contain; 
@@ -297,7 +298,8 @@
     @media (max-width: 480px) {
       .hero { flex-direction: column-reverse; text-align: center; }
       .nav-links { display: none; }
-      .hero-img { max-width: 180px; }
+      .hero-img-wrapper { flex-direction: row; justify-content: center; }
+      .hero-img { max-width: 140px; }
       .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     }
   </style>
@@ -340,6 +342,7 @@
       </div>
       <div class="hero-img-wrapper">
         <img src="acon.jpg" alt="بطاقة موقع الشرقاط الثقافي" class="hero-img">
+        <img src="acon.jpg2" alt="الشعار الإيماني" class="hero-img">
       </div>
     </section>
 
@@ -541,7 +544,7 @@
         else if (code >= 51 && code <= 67) { desc = 'فرصة لهطول أمطار خفيفة'; icon = '🌧️'; }
         else { desc = 'أجواء غائمة ومستقرة'; icon = '☁️'; }
 
-        document.getElementById('weatherDesc').textContent, document.getElementById('weatherDesc').textContent = desc;
+        document.getElementById('weatherDesc').textContent = desc;
         document.getElementById('weatherMainIcon').textContent = icon;
 
         if (data.daily && data.daily.time) {
