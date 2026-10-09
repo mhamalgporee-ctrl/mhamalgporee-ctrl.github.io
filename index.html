@@ -380,6 +380,16 @@
       </div>
     </div>
 
+    <!-- 🎙️ مربع كل يوم قصة -->
+    <div style="background: linear-gradient(135deg, #ffffff, #f0fdf4); border: 2px solid #064e3b; border-radius: 18px; padding: 20px; text-align: center; margin-bottom: 25px; box-shadow: var(--shadow);">
+      <div style="font-size: 32px; margin-bottom: 6px;">🎙️</div>
+      <h3 style="font-size: 18px; color: #064e3b; font-weight: 800; margin-bottom: 6px;">كل يوم قصة</h3>
+      <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 14px;">استمع إلى التسجيلات القصصية والصوتية الحصرية بصوتي</p>
+      <button onclick="openAudioModal()" class="btn btn-primary" style="font-size: 14.5px; padding: 10px 24px; border-radius: 12px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(6,78,59,0.2);">
+        ▶️ اضغط هنا للاستماع
+      </button>
+    </div>
+
     <!-- Navigation Grid -->
     <h2 class="section-title">🌐 الأقسام الرئيسية</h2>
     
@@ -461,7 +471,7 @@
       <a href="book.pdf" target="_blank" class="book-btn">اضغط هنا لقراءة الكتاب PDF 📄</a>
     </div>
 
-    <!-- 🖼️ قسم معرض الصور التلقائي (مغلق افتراضياً لضغط المساحة) -->
+    <!-- 🖼️ قسم معرض الصور التلقائي -->
     <details style="background: #ffffff; border: 1.5px solid #d4b572; border-radius: 18px; padding: 15px 20px; margin-bottom: 25px; box-shadow: var(--shadow); cursor: pointer;">
       <summary style="color: #064e3b; font-size: 16.5px; font-weight: 800; text-align: center; user-select: none; outline: none; display: flex; justify-content: center; align-items: center; gap: 8px;">
         🖼️ معرض الصور <span style="font-size: 13px; color: #64748b; font-weight: normal;">(اضغط للاستعراض 🔻)</span>
@@ -537,6 +547,25 @@
     </div>
   </div>
 
+  <!-- 🎙️ نافذة الاستماع للقصة الصوتية -->
+  <div id="audioModal" class="modal">
+    <div class="modal-box" style="text-align: center;">
+      <button onclick="closeAudioM()" class="modal-close">✕</button>
+      <div style="font-size: 42px; margin-bottom: 8px;">🎙️</div>
+      <h3 style="color:#064e3b; margin-bottom:4px; font-size:19px;">كل يوم قصة</h3>
+      <p id="audioTitle" style="font-size:13.5px; color:var(--muted); margin-bottom:15px;">جاري تحميل التسجيل الصوتي...</p>
+      
+      <!-- مشغل صوت افتراضي ومجاني 100% -->
+      <audio id="mainAudioPlayer" controls style="width: 100%; margin-bottom: 20px; border-radius: 10px;" controlsList="nodownload">
+        متصفحك لا يدعم تشغيل الصوت.
+      </audio>
+
+      <button onclick="closeAudioM()" class="btn btn-secondary" style="width: 100%; padding: 11px; font-size: 14px; border: 1.5px solid #064e3b; color: #064e3b; background: #f8fafc; font-weight: bold; cursor: pointer; border-radius: 12px;">
+        ↩️ عودة
+      </button>
+    </div>
+  </div>
+
   <script>
     function openM(id) { document.getElementById(id).style.display = 'flex'; }
     function closeM(id) { document.getElementById(id).style.display = 'none'; }
@@ -607,18 +636,17 @@
     }
     getWeather();
 
-    // دالة التحميل التلقائي للصور من مجلد photos
+    // إعدادات GitHub للتحميل التلقائي
     const githubUser = "mhamalgporee-ctrl"; 
     const githubRepo = "mhamalgporee-ctrl.github.io";
-    const folderPath = "photos";
 
+    // 1. التحميل التلقائي للصور
     async function loadAutoPhotos() {
       const container = document.getElementById('galleryContainer');
       if (!container) return;
       try {
-        const response = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${folderPath}`);
+        const response = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/photos`);
         const files = await response.json();
-        
         let hasImages = false;
         container.innerHTML = '';
 
@@ -628,7 +656,6 @@
               hasImages = true;
               const imgCard = document.createElement('div');
               imgCard.style.cssText = 'background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; padding: 4px;';
-              
               imgCard.innerHTML = `
                 <a href="${file.download_url}" target="_blank">
                   <img src="${file.download_url}" alt="صورة" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; display: block;">
@@ -638,7 +665,6 @@
             }
           });
         }
-
         if (!hasImages) {
           container.innerHTML = '<p style="text-align:center; color:#64748b; grid-column: 1/-1; font-size: 13px;">لا توجد صور في الحافظة حالياً.</p>';
         }
@@ -647,6 +673,53 @@
       }
     }
     loadAutoPhotos();
+
+    // 2. التحميل والتشغيل التلقائي للتسجيل الصوتي
+    async function openAudioModal() {
+      openM('audioModal');
+      const player = document.getElementById('mainAudioPlayer');
+      const titleElem = document.getElementById('audioTitle');
+      
+      try {
+        const response = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/audio`);
+        const files = await response.json();
+        let audioFileUrl = null;
+        let audioFileName = "";
+
+        if (Array.isArray(files)) {
+          const audioFiles = files.filter(f => f.name && f.name.match(/\.(mp3|wav|m4a|ogg)$/i));
+          if (audioFiles.length > 0) {
+            const latestAudio = audioFiles[audioFiles.length - 1]; // جلب أحدث ملف تمت إضافته
+            audioFileUrl = latestAudio.download_url;
+            audioFileName = latestAudio.name.replace(/\.[^/.]+$/, "");
+          }
+        }
+
+        if (audioFileUrl) {
+          player.src = audioFileUrl;
+          titleElem.textContent = "🎧 القصة الصوتية: " + audioFileName;
+        } else {
+          player.src = "audio/story.mp3";
+          titleElem.textContent = "🎧 التسجيل الصوتي اليومي";
+        }
+        
+        player.play().catch(e => {
+          console.log("تنبيه: يتطلب تشغيل الصوت التفاعل المباشر من الزائر.");
+        });
+      } catch (e) {
+        player.src = "audio/story.mp3";
+        titleElem.textContent = "🎧 التسجيل الصوتي اليومي";
+        player.play().catch(e => {});
+      }
+    }
+
+    function closeAudioM() {
+      const player = document.getElementById('mainAudioPlayer');
+      if (player) {
+        player.pause();
+      }
+      closeM('audioModal');
+    }
   </script>
 
 </body>
