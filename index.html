@@ -155,7 +155,7 @@
       100% { transform: translateX(100%); } 
     }
 
-    /* Ticker 2 (الشريط الأخضر للذكر - حركة صحيحة ومتصلة وبطيئة) */
+    /* Ticker 2 (الشريط الأخضر للذكر - محتفظ به تماماً) */
     .ticker-green { 
       background: #d1fae5; 
       border: 1px solid #34d399; 
@@ -302,6 +302,44 @@
       background: #022c22;
     }
 
+    /* صندوق العرض المتتابع للقصيدة (بين الكتاب والطقس) */
+    .poem-box {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      text-align: center;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      min-height: 95px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .poem-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .poem-text {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #1e293b;
+      opacity: 0;
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+      transform: translateY(6px);
+      line-height: 1.7;
+    }
+    .poem-text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Footer */
     .footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; margin-top: 25px; background: rgba(255,255,255,0.7); border-radius: 12px; }
 
@@ -369,7 +407,7 @@
       </div>
     </div>
 
-    <!-- Ticker 2 (الشريط الأخضر للذكر معدل بالحركة السليمة) -->
+    <!-- Ticker 2 (الشريط الأخضر للذكر) -->
     <div class="ticker-green">
       <div class="ticker-green-content">
         🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ 🌿
@@ -457,6 +495,12 @@
       <a href="book.pdf" target="_blank" class="book-btn">اضغط هنا لقراءة الكتاب PDF 📄</a>
     </div>
 
+    <!-- قسم عرض قصيدة "رُؤْيَا" بيتًا بعد بيت بالتلاشي (بين الكتاب والطقس) -->
+    <div class="poem-box">
+      <div class="poem-title">✍️ قصيدة: رُؤْيَا ✍️</div>
+      <div id="poemLine" class="poem-text">طَالَ الْغِيَابُ وَغَابَ طَيْفُكِ فِي الْمَدَى *** حَتَّى أَتَتْنِي صُورَةٌ مِثْلُ الصَّدَى</div>
+    </div>
+
     <!-- Weather Section -->
     <div style="background: linear-gradient(135deg, #064e3b, #022c22); color: #fff; padding: 20px; border-radius: 16px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1.5px solid #d4b572;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
@@ -514,7 +558,7 @@
   <!-- Chat Modal -->
   <div id="chatModal" class="modal">
     <div class="modal-box">
-      <button onclick="closeM('chatModal')" class="modal-close">✕</button>
+      <button onclick="closeM('closeModal')" class="modal-close" onclick="closeM('chatModal')">✕</button>
       <h3 style="color:#064e3b; margin-bottom:10px;">💬 تواصل معي</h3>
       <input type="text" id="userName" class="chat-input" placeholder="اسمك الكريم...">
       <textarea id="userMsg" class="chat-input" style="height:80px; resize:none;" placeholder="اكتب رسالتك..."></textarea>
@@ -541,6 +585,35 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
+
+    /* سكريبت التتابع الشعري لقصيدة "رُؤْيَا" */
+    const poemVerses = [
+      "طَالَ الْغِيَابُ وَغَابَ طَيْفُكِ فِي الْمَدَى *** حَتَّى أَتَتْنِي صُورَةٌ مِثْلُ الصَّدَى",
+      "أَهْلًا بِطَيْفٍ كَانَ يَوْمًا كَالْمَنَى *** لَكِنْ بُهِتُّ لِمَا رَأَيْتُ مِنَ الرَّدَى",
+      "يَا مَنْ عَهِدْتُكِ فِي الصِّبَا وَرْدَ النَّدَى *** مَا بَالُ وَجْهِكِ قَدْ ذَوَى وَتَبَدَّدَا؟",
+      "جَارَتْ عَلَيْكِ صُرُوفُ دَهْرٍ غَادِرٍ *** وَسَقَاكِ كَأْسَ الْحُزْنِ حَتَّى أُنْهِكَا",
+      "تَرْوِي عُيُونُكِ أَلْفَ جُرْحٍ صَامِتٍ *** وَالْحُسْنُ غَابَ وَلَمْ يَعُدْ كَمَا ابْتَدَى",
+      "لَمْ أَلْقَ إِلَّا طَيْفَ مَنْ أَحْبَبْتُهَا *** فَكَأَنَّنِي أَنْكَرْتُهُ لَمَّا بَدَا",
+      "يَا وَيْحَ قَلْبِي! كَيْفَ غَيَّرَكِ الأَسَى *** حَتَّى تَوَارَى النُّورُ عَنْكِ وَأُخْمِدَا",
+      "رُدِّي عَلَيَّ مَلَامِحَ الأَمْسِ الَّذِي *** قَدْ كَانَ فِي عَيْنَيْكِ عُمْرًا أَرْغَدَا"
+    ];
+    let poemIndex = 0;
+    const poemElem = document.getElementById('poemLine');
+
+    function cyclePoem() {
+      if (!poemElem) return;
+      poemElem.classList.remove('show');
+      setTimeout(() => {
+        poemIndex = (poemIndex + 1) % poemVerses.length;
+        poemElem.textContent = poemVerses[poemIndex];
+        poemElem.classList.add('show');
+      }, 1000);
+    }
+
+    if (poemElem) {
+      poemElem.classList.add('show');
+      setInterval(cyclePoem, 5000);
+    }
 
     async function getWeather() {
       try {
