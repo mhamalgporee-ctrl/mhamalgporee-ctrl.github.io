@@ -155,7 +155,7 @@
       100% { transform: translateX(100%); } 
     }
 
-    /* Ticker 2 (الشريط الأخضر للذكر - حركة صحيحة ومتصلة وبطيئة) */
+    /* Ticker 2 (الشريط الأخضر للذكر) */
     .ticker-green { 
       background: #d1fae5; 
       border: 1px solid #34d399; 
@@ -369,10 +369,19 @@
       </div>
     </div>
 
-    <!-- Ticker 2 (الشريط الأخضر للذكر معدل بالحركة السليمة) -->
+    <!-- Ticker 2 (الشريط الأخضر للذكر) -->
     <div class="ticker-green">
       <div class="ticker-green-content">
         🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ 🌿
+      </div>
+    </div>
+
+    <!-- 🖼️ قسم معرض الصور التلقائي (حافظة الصور) -->
+    <div style="background: #ffffff; border: 1.5px solid #d4b572; border-radius: 18px; padding: 20px; margin-bottom: 25px; box-shadow: var(--shadow);">
+      <h3 style="color: #064e3b; font-size: 17px; font-weight: 800; text-align: center; margin-bottom: 15px;">🖼️ معرض الصور</h3>
+      
+      <div id="galleryContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
+        <p id="loadingText" style="text-align: center; color: #64748b; grid-column: 1/-1; font-size: 13.5px;">جاري تحميل الصور...</p>
       </div>
     </div>
 
@@ -591,6 +600,47 @@
       }
     }
     getWeather();
+
+    // دالة التحميل التلقائي للصور من مجلد photos
+    const githubUser = "mhamalgporee-ctrl"; 
+    const githubRepo = "mhamalgporee-ctrl.github.io";
+    const folderPath = "photos";
+
+    async function loadAutoPhotos() {
+      const container = document.getElementById('galleryContainer');
+      if (!container) return;
+      try {
+        const response = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${folderPath}`);
+        const files = await response.json();
+        
+        let hasImages = false;
+        container.innerHTML = '';
+
+        if (Array.isArray(files)) {
+          files.forEach(file => {
+            if (file.name && file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)) {
+              hasImages = true;
+              const imgCard = document.createElement('div');
+              imgCard.style.cssText = 'background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; padding: 4px;';
+              
+              imgCard.innerHTML = `
+                <a href="${file.download_url}" target="_blank">
+                  <img src="${file.download_url}" alt="صورة" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; display: block;">
+                </a>
+              `;
+              container.appendChild(imgCard);
+            }
+          });
+        }
+
+        if (!hasImages) {
+          container.innerHTML = '<p style="text-align:center; color:#64748b; grid-column: 1/-1; font-size: 13px;">لا توجد صور في الحافظة حالياً.</p>';
+        }
+      } catch (error) {
+        container.innerHTML = '<p style="text-align:center; color:#dc2626; grid-column: 1/-1; font-size: 13px;">جاري تجهيز معرض الصور...</p>';
+      }
+    }
+    loadAutoPhotos();
   </script>
 
 </body>
