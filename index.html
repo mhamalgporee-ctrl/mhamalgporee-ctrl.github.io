@@ -497,31 +497,6 @@
       </div>
     </div>
 
-    <!-- 👍💬 قسم التفاعل العربي والتعليقات المباشرة داخل الموقع -->
-    <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 18px; padding: 22px; margin-bottom: 25px; box-shadow: var(--shadow);">
-      <h3 style="color: var(--primary); font-size: 18px; font-weight: 800; text-align: center; margin-bottom: 15px;">💬 تفاعل الزوار والتعليقات</h3>
-      
-      <!-- زر الإعجاب التفاعلي -->
-      <div style="text-align: center; margin-bottom: 20px;">
-        <button id="likeBtn" onclick="toggleLike()" style="background: #f0fdf4; border: 1.5px solid #064e3b; color: #064e3b; padding: 10px 22px; border-radius: 12px; font-size: 14.5px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
-          👍 أعجبني الموقع <span id="likeCount" style="background: #064e3b; color: #fff; padding: 2px 8px; border-radius: 8px; font-size: 13px;">15</span>
-        </button>
-      </div>
-
-      <!-- صندوق التعليق العربي المباشر -->
-      <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 15px; margin-bottom: 20px;">
-        <h4 style="font-size: 14.5px; color: #064e3b; margin-bottom: 10px;">✍️ أضف تعليقك أو انطباعك:</h4>
-        <input type="text" id="commenterName" class="chat-input" placeholder="اسمك الكريم..." style="background: #fff;">
-        <textarea id="commenterText" class="chat-input" style="height: 75px; resize: none; background: #fff;" placeholder="اكتب تعليقك هنا..."></textarea>
-        <button onclick="addComment()" class="btn btn-primary" style="width: 100%; padding: 10px; font-size: 14px;">إرسال التعليق 🚀</button>
-      </div>
-
-      <!-- قائمة عرض التعليقات -->
-      <div id="commentsList" style="display: flex; flex-direction: column; gap: 10px;">
-        <!-- التعليقات تظهر هنا تلقائياً -->
-      </div>
-    </div>
-
     <!-- Footer -->
     <div class="footer">
       جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي | محمد علي أحمد الحطاب الجبوري
@@ -580,80 +555,6 @@
       if (!msg) return alert('اكتب الرسالة أولاً');
       window.location.href = 'https://wa.me/9647835025407?text=' + encodeURIComponent('مرحباً محمد، أنا ' + (name || 'زائر') + ': ' + msg);
     }
-
-    // زر الإعجاب التفاعلي
-    function toggleLike() {
-      let liked = localStorage.getItem('site_liked');
-      let count = parseInt(localStorage.getItem('site_likes_count') || '15');
-      if (!liked) {
-        count += 1;
-        localStorage.setItem('site_liked', 'true');
-        localStorage.setItem('site_likes_count', count);
-        document.getElementById('likeBtn').style.background = '#064e3b';
-        document.getElementById('likeBtn').style.color = '#fff';
-      } else {
-        count -= 1;
-        localStorage.removeItem('site_liked');
-        localStorage.setItem('site_likes_count', count);
-        document.getElementById('likeBtn').style.background = '#f0fdf4';
-        document.getElementById('likeBtn').style.color = '#064e3b';
-      }
-      document.getElementById('likeCount').textContent = count;
-    }
-
-    // نظام التعليقات المحلي العربي
-    function getStoredComments() {
-      return JSON.parse(localStorage.getItem('site_local_comments') || '[]');
-    }
-
-    function renderComments() {
-      const list = document.getElementById('commentsList');
-      const comments = getStoredComments();
-      if (comments.length === 0) {
-        list.innerHTML = '<p style="text-align: center; color: #64748b; font-size: 13px;">لا توجد تعليقات حتى الآن.. كن أول المعلقين! ✨</p>';
-        return;
-      }
-      list.innerHTML = '';
-      comments.forEach(c => {
-        const item = document.createElement('div');
-        item.style.cssText = 'background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);';
-        item.innerHTML = `
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <strong style="font-size: 13.5px; color: #064e3b;">👤 ${c.name}</strong>
-            <span style="font-size: 11px; color: #94a3b8;">${c.date}</span>
-          </div>
-          <p style="font-size: 13px; color: #334155; line-height: 1.5;">${c.text}</p>
-        `;
-        list.appendChild(item);
-      });
-    }
-
-    function addComment() {
-      const name = document.getElementById('commenterName').value.trim() || 'زائر كريم';
-      const text = document.getElementById('commenterText').value.trim();
-      if (!text) return alert('الرجاء كتابة نص التعليق أولاً');
-
-      const comments = getStoredComments();
-      const now = new Date();
-      const dateStr = now.toLocaleDateString('ar-IQ');
-      
-      comments.unshift({ name, text, date: dateStr });
-      localStorage.setItem('site_local_comments', JSON.stringify(comments));
-
-      document.getElementById('commenterText').value = '';
-      renderComments();
-      alert('تم إضافة تعليقك بنجاح! ✨');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      let count = localStorage.getItem('site_likes_count') || '15';
-      document.getElementById('likeCount').textContent = count;
-      if (localStorage.getItem('site_liked')) {
-        document.getElementById('likeBtn').style.background = '#064e3b';
-        document.getElementById('likeBtn').style.color = '#fff';
-      }
-      renderComments();
-    });
 
     function updateClock() {
       const now = new Date();
