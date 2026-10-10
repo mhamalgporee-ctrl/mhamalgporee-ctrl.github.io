@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="acon.jpg" type="image/jpeg">
 
+  <!-- Open Graph Meta Tags لتثبيت صورة المعاينة (acon.jpg) عند المشاركة -->
+  <meta property="og:title" content="موقع الشرقاط الثقافي">
+  <meta property="og:description" content="الموقع الرسمي لمحمد علي أحمد الحطاب الجبوري - برامج، كتب، مقالات، وبث مباشر.">
+  <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
+  <meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
+  <meta property="og:type" content="website">
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
   <script>
@@ -369,7 +376,7 @@
     <!-- Ticker 1 -->
     <div class="ticker">
       <div class="ticker-content">
-        ✨ أهلاً بك .. تصفح البرامج، الكتب،والقصص الدينية الصوتية والبث المباشر ✨
+        ✨ أهلاً بك .. تصفح البرامج، الكتب، والقصص الدينية الصوتية والبث المباشر ✨
       </div>
     </div>
 
@@ -666,10 +673,10 @@
           });
         }
         if (!hasImages) {
-          container.innerHTML = '<p style="text-align:center; color:#64748b; grid-column: 1/-1; font-size: 13px;">لا توجد صور في الحافظة حالياً.</p>';
+          container.innerHTML = '<p style="text-align:center; color:#64748b; grid-column: 1/-1; font-size: 13.5px;">لا توجد صور في الحافظة حالياً.</p>';
         }
       } catch (error) {
-        container.innerHTML = '<p style="text-align:center; color:#dc2626; grid-column: 1/-1; font-size: 13px;">جاري تجهيز معرض الصور...</p>';
+        container.innerHTML = '<p style="text-align:center; color:#dc2626; grid-column: 1/-1; font-size: 13.5px;">جاري تجهيز معرض الصور...</p>';
       }
     }
     loadAutoPhotos();
