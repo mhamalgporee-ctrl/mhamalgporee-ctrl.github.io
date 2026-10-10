@@ -47,7 +47,7 @@
     body { 
       font-family: system-ui, -apple-system, sans-serif; 
       background-color: var(--bg); 
-      background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.92), rgba(240, 253, 244, 0.92)), url('1000051952.jpg');
+      background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.92), rgba(240, 253, 244, 0.92));
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
@@ -117,36 +117,6 @@
       object-fit: contain; 
       background-color: #f8fafc;
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    }
-
-    @keyframes swayTree {
-      0% { transform: rotate(0deg); }
-      50% { transform: rotate(3deg) translateY(-2px); }
-      100% { transform: rotate(0deg); }
-    }
-    @keyframes swayTreeLeft {
-      0% { transform: rotate(0deg); }
-      50% { transform: rotate(-3deg) translateY(-2px); }
-      100% { transform: rotate(0deg); }
-    }
-
-    .eucalyptus-tree {
-      position: absolute;
-      bottom: 15px;
-      font-size: 28px;
-      opacity: 0.85;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .tree-left {
-      left: 15px;
-      animation: swayTreeLeft 4s infinite ease-in-out;
-      transform-origin: bottom center;
-    }
-    .tree-right {
-      right: 15px;
-      animation: swayTree 4.5s infinite ease-in-out;
-      transform-origin: bottom center;
     }
 
     @keyframes pulseWeather {
@@ -355,9 +325,6 @@
 
     <!-- Hero -->
     <section class="hero">
-      <div class="eucalyptus-tree tree-left">🌳</div>
-      <div class="eucalyptus-tree tree-right">🌿</div>
-
       <div class="hero-text">
         <h1>موقع الشرقاط الثقافي</h1>
         <p>إعداد وتطوير: محمد علي أحمد الحطاب الجبوري</p>
@@ -381,7 +348,7 @@
     <!-- Ticker 1 -->
     <div class="ticker">
       <div class="ticker-content">
-        ✨ أهلاً بك زائرنا الكريم .. تصفح البرامج، الكتب، والقصص  والبث المباشر ✨
+        ✨ أهلاً بك زائرنا الكريم .. تصفح البرامج، الكتب، والقصص والبث المباشر ✨
       </div>
     </div>
 
@@ -415,10 +382,10 @@
         <span class="card-link" style="color:#dc2626;">شاهد الآن 🔴</span>
       </a>
 
-      <!-- 2.   قصة  الشيخ شلاش رحمه الله -->
+      <!-- 2. قصة الشيخ شلاش رحمه الله -->
       <a href="shelash.html" class="card">
         <div class="card-icon">📜</div>
-        <h3>قصة احدرموز شيوخ الجبور الشيخ المرحوم شلاش الفرج</h3>
+        <h3>قصة احد رموز شيوخ الجبور الشيخ المرحوم شلاش الفرج</h3>
         <p>قصة الشيخ شلاش الفرج رحمه الله أحد رموز عشائر الجبور</p>
         <span class="card-link">قراءة القصة ◄</span>
       </a>
@@ -431,7 +398,7 @@
         <span class="card-link">قراءة المقال ◄</span>
       </a>
 
-      <!-- 4.  قصة المرحوم جدي عگاب رحمه الله -->
+      <!-- 4. قصة المرحوم جدي عگاب رحمه الله -->
       <a href="okab.html" class="card">
         <div class="card-icon">👑</div>
         <h3>قصة جدي عگاب رحمه الله</h3>
