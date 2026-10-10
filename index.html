@@ -497,6 +497,30 @@
       </div>
     </div>
 
+    <!-- 👍💬 قسم التفاعل (الإعجابات والتعليقات الحقيقية) -->
+    <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 18px; padding: 22px; margin-bottom: 25px; box-shadow: var(--shadow);">
+      <h3 style="color: var(--primary); font-size: 18px; font-weight: 800; text-align: center; margin-bottom: 15px;">💬 تفاعل الزوار والتعليقات</h3>
+      
+      <!-- زر الإعجاب التفاعلي -->
+      <div style="text-align: center; margin-bottom: 20px;">
+        <button id="likeBtn" onclick="toggleLike()" style="background: #f0fdf4; border: 1.5px solid #064e3b; color: #064e3b; padding: 10px 22px; border-radius: 12px; font-size: 14.5px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+          👍 أعجبني الموقع <span id="likeCount" style="background: #064e3b; color: #fff; padding: 2px 8px; border-radius: 8px; font-size: 13px;">14</span>
+        </button>
+      </div>
+
+      <!-- صندوق التعليقات الرسمي المربوط بـ GitHub Issues -->
+      <div id="commentsSection">
+        <script src="https://utteranc.es/client.js"
+                repo="mhamalgporee-ctrl/mhamalgporee-ctrl.github.io"
+                issue-term="pathname"
+                label="💬 تعليق زائر"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+      </div>
+    </div>
+
     <!-- Footer -->
     <div class="footer">
       جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي | محمد علي أحمد الحطاب الجبوري
@@ -555,6 +579,35 @@
       if (!msg) return alert('اكتب الرسالة أولاً');
       window.location.href = 'https://wa.me/9647835025407?text=' + encodeURIComponent('مرحباً محمد، أنا ' + (name || 'زائر') + ': ' + msg);
     }
+
+    // زر الإعجاب التفاعلي
+    function toggleLike() {
+      let liked = localStorage.getItem('site_liked');
+      let count = parseInt(localStorage.getItem('site_likes_count') || '14');
+      if (!liked) {
+        count += 1;
+        localStorage.setItem('site_liked', 'true');
+        localStorage.setItem('site_likes_count', count);
+        document.getElementById('likeBtn').style.background = '#064e3b';
+        document.getElementById('likeBtn').style.color = '#fff';
+      } else {
+        count -= 1;
+        localStorage.removeItem('site_liked');
+        localStorage.setItem('site_likes_count', count);
+        document.getElementById('likeBtn').style.background = '#f0fdf4';
+        document.getElementById('likeBtn').style.color = '#064e3b';
+      }
+      document.getElementById('likeCount').textContent = count;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      let count = localStorage.getItem('site_likes_count') || '14';
+      document.getElementById('likeCount').textContent = count;
+      if (localStorage.getItem('site_liked')) {
+        document.getElementById('likeBtn').style.background = '#064e3b';
+        document.getElementById('likeBtn').style.color = '#fff';
+      }
+    });
 
     function updateClock() {
       const now = new Date();
