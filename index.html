@@ -180,6 +180,7 @@
       justify-content: space-between;
       position: relative;
       box-shadow: var(--shadow);
+      cursor: pointer;
     }
 
     .card:active, .card:hover { 
@@ -292,10 +293,6 @@
     .modal-box { background: #fff; padding: 22px; border-radius: 16px; width: 100%; max-width: 380px; position: relative; border: 2px solid var(--border); }
     .modal-close { position: absolute; left: 15px; top: 15px; border: none; background: #f1f5f9; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
     .chat-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13.5px; }
-
-    /* خيارات التنسيق لمعرض الصور القابل للطي */
-    summary::-webkit-details-marker { display: none; }
-    summary { list-style: none; }
 
     @media (max-width: 480px) {
       .hero { flex-direction: column-reverse; text-align: center; }
@@ -430,7 +427,15 @@
         <span class="card-link">تصفح القصائد ◄</span>
       </a>
 
-      <!-- 8. مدونة ووردبريس -->
+      <!-- 8. معرض الصور (حافظة مستقلة) -->
+      <div onclick="openM('galleryModal')" class="card">
+        <div class="card-icon">🖼️</div>
+        <h3>معرض الصور</h3>
+        <p>استعراض الصور والذكريات داخل حافظة مستقلة ومنظمة.</p>
+        <span class="card-link">فتح الحافظة ◄</span>
+      </div>
+
+      <!-- 9. مدونة ووردبريس -->
       <a href="https://baramjak2.wordpress.com" target="_blank" class="card">
         <div class="card-icon">🌐</div>
         <h3>مدونة ووردبريس</h3>
@@ -449,17 +454,6 @@
       <p>رحلة في الحب والحياة والأسرة من بداية اللقاء... إلى ذكريات العمر.</p>
       <a href="book.pdf" target="_blank" class="book-btn">اضغط هنا لقراءة الكتاب PDF 📄</a>
     </div>
-
-    <!-- 🖼️ قسم معرض الصور التلقائي -->
-    <details style="background: #ffffff; border: 1.5px solid #d4b572; border-radius: 18px; padding: 15px 20px; margin-bottom: 25px; box-shadow: var(--shadow); cursor: pointer;">
-      <summary style="color: #064e3b; font-size: 16.5px; font-weight: 800; text-align: center; user-select: none; outline: none; display: flex; justify-content: center; align-items: center; gap: 8px;">
-        🖼️ معرض الصور <span style="font-size: 13px; color: #64748b; font-weight: normal;">(اضغط للاستعراض 🔻)</span>
-      </summary>
-      
-      <div id="galleryContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #cbd5e1;">
-        <p id="loadingText" style="text-align: center; color: #64748b; grid-column: 1/-1; font-size: 13.5px;">جاري تحميل الصور...</p>
-      </div>
-    </details>
 
     <!-- Weather Section -->
     <div style="background: linear-gradient(135deg, #064e3b, #022c22); color: #fff; padding: 20px; border-radius: 16px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1.5px solid #d4b572;">
@@ -523,6 +517,20 @@
       <input type="text" id="userName" class="chat-input" placeholder="اسمك الكريم...">
       <textarea id="userMsg" class="chat-input" style="height:80px; resize:none;" placeholder="اكتب رسالتك..."></textarea>
       <button onclick="sendWA()" class="btn btn-primary" style="width:100%;">إرسال عبر الواتساب 🚀</button>
+    </div>
+  </div>
+
+  <!-- 🖼️ حافظة الصور المستقلة (Modal) -->
+  <div id="galleryModal" class="modal">
+    <div class="modal-box" style="max-width: 550px; max-height: 85vh; overflow-y: auto;">
+      <button onclick="closeM('galleryModal')" class="modal-close">✕</button>
+      <h3 style="color:#064e3b; margin-bottom:15px; text-align:center; font-size:18px;">🖼️ حافظة الصور</h3>
+      <div id="galleryModalContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+        <p style="text-align: center; color: #64748b; grid-column: 1/-1; font-size: 13.5px;">جاري تحميل الصور...</p>
+      </div>
+      <button onclick="closeM('galleryModal')" class="btn btn-secondary" style="width: 100%; margin-top: 20px; padding: 10px; font-weight: bold; border: 1.5px solid #064e3b; color: #064e3b; background: #f8fafc; border-radius: 10px; cursor: pointer;">
+        ↩️ عودة للموقع
+      </button>
     </div>
   </div>
 
@@ -619,9 +627,9 @@
     const githubUser = "mhamalgporee-ctrl"; 
     const githubRepo = "mhamalgporee-ctrl.github.io";
 
-    // 1. التحميل التلقائي للصور
+    // 1. التحميل التلقائي للصور داخل الحافظة المستقلة
     async function loadAutoPhotos() {
-      const container = document.getElementById('galleryContainer');
+      const container = document.getElementById('galleryModalContainer');
       if (!container) return;
       try {
         const response = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/photos`);
@@ -637,7 +645,7 @@
               imgCard.style.cssText = 'background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; padding: 4px;';
               imgCard.innerHTML = `
                 <a href="${file.download_url}" target="_blank">
-                  <img src="${file.download_url}" alt="صورة" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; display: block;">
+                  <img src="${file.download_url}" alt="صورة" style="width: 100%; height: 130px; object-fit: cover; border-radius: 8px; display: block;">
                 </a>
               `;
               container.appendChild(imgCard);
@@ -648,7 +656,7 @@
           container.innerHTML = '<p style="text-align:center; color:#64748b; grid-column: 1/-1; font-size: 13.5px;">لا توجد صور في الحافظة حالياً.</p>';
         }
       } catch (error) {
-        container.innerHTML = '<p style="text-align:center; color:#dc2626; grid-column: 1/-1; font-size: 13.5px;">جاري تجهيز معرض الصور...</p>';
+        container.innerHTML = '<p style="text-align:center; color:#dc2626; grid-column: 1/-1; font-size: 13.5px;">جاري تجهيز حافظة الصور...</p>';
       }
     }
     loadAutoPhotos();
@@ -668,7 +676,7 @@
         if (Array.isArray(files)) {
           const audioFiles = files.filter(f => f.name && f.name.match(/\.(mp3|wav|m4a|ogg)$/i));
           if (audioFiles.length > 0) {
-            const latestAudio = audioFiles[audioFiles.length - 1]; // جلب أحدث ملف تمت إضافته
+            const latestAudio = audioFiles[audioFiles.length - 1]; 
             audioFileUrl = latestAudio.download_url;
             audioFileName = latestAudio.name.replace(/\.[^/.]+$/, "");
           }
