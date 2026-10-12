@@ -441,7 +441,7 @@
         <h3>معرض الصور</h3>
         <p>استعراض الصور والذكريات داخل حافظة مستقلة ومنظمة.</p>
         <span class="card-link">فتح الحافظة ◄</span>
-      </div>
+      </a>
 
       <!-- 8. مدونة ووردبريس -->
       <a href="https://baramjak2.wordpress.com" target="_blank" class="card">
@@ -582,7 +582,7 @@
       <div style="text-align: center; margin-bottom: 15px;">
         <div style="font-size: 36px; margin-bottom: 4px;">🎥</div>
         <h3 style="color:#be123c; font-size:18px; font-weight: 800;">أحدث فيديوهات القناة</h3>
-        <p style="font-size: 12.5px; color:var(--muted);">تحديث تلقائي من اليوتيوب دون تعديل الموقع</p>
+        <p style="font-size: 12.5px; color:var(--muted);">تحديث تلقائي شامل (فيديوهات، Shorts، وبثوث)</p>
       </div>
       
       <div id="videoModalContainer" style="display: flex; flex-direction: column; gap: 15px;">
@@ -757,7 +757,7 @@
       closeM('audioModal');
     }
 
-    // 3. جلب وعرض أحدث فيديوهات اليوتيوب تلقائياً عبر قناة يوتيوب المحددة
+    // 3. جلب وعرض أحدث الفيديوهات بجميع صيغ اليوتيوب (عادي، Shorts، وبثوث)
     async function openVideoModal() {
       openM('videoModal');
       const container = document.getElementById('videoModalContainer');
@@ -771,8 +771,26 @@
           if (data && data.items && data.items.length > 0) {
             container.innerHTML = '';
             data.items.forEach(item => {
-              const urlParams = new URL(item.link);
-              const videoId = urlParams.searchParams.get('v');
+              let videoId = null;
+              
+              // دالة ذكية لاستخراج معرف الفيديو من أي رابط يوتيوب مهما كانت صيغته
+              const extractId = (urlOrGuid) => {
+                if (!urlOrGuid) return null;
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|shorts\/|watch\?v=|&v=)([^#&?]*).*/;
+                const match = urlOrGuid.match(regExp);
+                return (match && match[2].length === 11) ? match[2] : null;
+              };
+
+              videoId = extractId(item.link);
+              if (!videoId) {
+                videoId = extractId(item.guid);
+              }
+              if (!videoId && item.guid) {
+                const parts = item.guid.split(':');
+                if (parts.length > 0 && parts[parts.length - 1].length === 11) {
+                  videoId = parts[parts.length - 1];
+                }
+              }
               
               if (videoId) {
                 const card = document.createElement('div');
