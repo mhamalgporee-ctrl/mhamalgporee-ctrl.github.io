@@ -355,14 +355,29 @@
       </div>
     </div>
 
-    <!-- 🎙️ مربع القصص -->
-    <div style="background: linear-gradient(135deg, #ffffff, #f0fdf4); border: 2px solid #064e3b; border-radius: 18px; padding: 20px; text-align: center; margin-bottom: 25px; box-shadow: var(--shadow);">
+    <!-- 🎙️ مربع القصص الصوتية -->
+    <div style="background: linear-gradient(135deg, #ffffff, #f0fdf4); border: 2px solid #064e3b; border-radius: 18px; padding: 20px; text-align: center; margin-bottom: 20px; box-shadow: var(--shadow);">
       <div style="font-size: 32px; margin-bottom: 6px;">🎙️</div>
       <h3 style="font-size: 18px; color: #064e3b; font-weight: 800; margin-bottom: 6px;">كل يوم قصة</h3>
       <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 14px;">استمع إلى التسجيلات القصصية والصوتية الحصرية بصوتي</p>
       <button onclick="openAudioModal()" class="btn btn-primary" style="font-size: 14.5px; padding: 10px 24px; border-radius: 12px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(6,78,59,0.2);">
         ▶️ اضغط هنا للاستماع
       </button>
+    </div>
+
+    <!-- 🎥 مربع فيديوهات اليوتيوب المرئية -->
+    <div style="background: linear-gradient(135deg, #ffffff, #fff1f2); border: 2px solid #be123c; border-radius: 18px; padding: 20px; text-align: center; margin-bottom: 25px; box-shadow: var(--shadow);">
+      <div style="font-size: 32px; margin-bottom: 6px;">🎥</div>
+      <h3 style="font-size: 18px; color: #be123c; font-weight: 800; margin-bottom: 6px;">مكتبة الفيديوهات المرئية</h3>
+      <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 14px;">شاهد أحدث الحلقات والمقاطع المرئية من قناتي على اليوتيوب مباشرة</p>
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="openVideoModal()" class="btn" style="background: #be123c; color: #fff; font-size: 14.5px; padding: 10px 22px; border-radius: 12px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(190,18,60,0.2);">
+          ▶️ استعرض الفيديوهات
+        </button>
+        <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" class="btn btn-secondary" style="font-size: 14.5px; padding: 10px 18px; border-radius: 12px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #be123c; color: #be123c;">
+          🔴 قناة اليوتيوب
+        </a>
+      </div>
     </div>
 
     <!-- Navigation Grid -->
@@ -424,7 +439,7 @@
         <h3>معرض الصور</h3>
         <p>استعراض الصور والذكريات داخل حافظة مستقلة ومنظمة.</p>
         <span class="card-link">فتح الحافظة ◄</span>
-      </div>
+      </a>
 
       <!-- 8. مدونة ووردبريس -->
       <a href="https://baramjak2.wordpress.com" target="_blank" class="card">
@@ -554,6 +569,26 @@
 
       <button onclick="closeAudioM()" class="btn btn-secondary" style="width: 100%; padding: 11px; font-size: 14px; border: 1.5px solid #064e3b; color: #064e3b; background: #f8fafc; font-weight: bold; cursor: pointer; border-radius: 12px;">
         ↩️ عودة
+      </button>
+    </div>
+  </div>
+
+  <!-- 🎥 نافذة عرض فيديوهات اليوتيوب التلقائية -->
+  <div id="videoModal" class="modal">
+    <div class="modal-box" style="max-width: 600px; max-height: 85vh; overflow-y: auto;">
+      <button onclick="closeM('videoModal')" class="modal-close">✕</button>
+      <div style="text-align: center; margin-bottom: 15px;">
+        <div style="font-size: 36px; margin-bottom: 4px;">🎥</div>
+        <h3 style="color:#be123c; font-size:18px; font-weight: 800;">أحدث فيديوهات القناة</h3>
+        <p style="font-size: 12.5px; color:var(--muted);">تحديث تلقائي من اليوتيوب دون تعديل الموقع</p>
+      </div>
+      
+      <div id="videoModalContainer" style="display: flex; flex-direction: column; gap: 15px;">
+        <p style="text-align: center; color: #64748b; font-size: 13.5px;">جاري تحميل أحدث الفيديوهات من اليوتيوب...</p>
+      </div>
+
+      <button onclick="closeM('videoModal')" class="btn btn-secondary" style="width: 100%; margin-top: 20px; padding: 10px; font-weight: bold; border: 1.5px solid #be123c; color: #be123c; background: #f8fafc; border-radius: 10px; cursor: pointer;">
+        ↩️ عودة للموقع
       </button>
     </div>
   </div>
@@ -718,6 +753,51 @@
         player.pause();
       }
       closeM('audioModal');
+    }
+
+    // 3. جلب وعرض أحدث فيديوهات اليوتيوب تلقائياً عبر قناة يوتيوب المحددة
+    async function openVideoModal() {
+      openM('videoModal');
+      const container = document.getElementById('videoModalContainer');
+      if (!container.dataset.loaded) {
+        try {
+          const channelId = 'UCaCmR_yzL9lKNm7B22ZV-3A';
+          const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+          const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
+          const data = await res.json();
+          
+          if (data && data.items && data.items.length > 0) {
+            container.innerHTML = '';
+            data.items.forEach(item => {
+              const urlParams = new URL(item.link);
+              const videoId = urlParams.searchParams.get('v');
+              
+              if (videoId) {
+                const card = document.createElement('div');
+                card.style.cssText = 'background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; overflow: hidden; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);';
+                card.innerHTML = `
+                  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin-bottom: 8px; background: #000;">
+                    <iframe src="https://www.youtube.com/embed/${videoId}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="${item.title}"></iframe>
+                  </div>
+                  <h4 style="font-size: 13.5px; font-weight: 700; color: #1e293b; margin-bottom: 6px; line-height: 1.4;">${item.title}</h4>
+                  <a href="${item.link}" target="_blank" style="font-size: 12px; color: #be123c; font-weight: bold; display: inline-block;">مشاهدة على اليوتيوب ◄</a>
+                `;
+                container.appendChild(card);
+              }
+            });
+            container.dataset.loaded = "true";
+          } else {
+            container.innerHTML = '<p style="text-align:center; color:#64748b; font-size: 13.5px;">لا توجد فيديوهات متاحة حالياً.</p>';
+          }
+        } catch (err) {
+          container.innerHTML = `
+            <div style="text-align:center; padding: 15px;">
+              <p style="color:#64748b; font-size: 13.5px; margin-bottom: 10px;">تعذر التحميل المباشر. يمكنك زيارة القناة مباشرة:</p>
+              <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" class="btn" style="background: #be123c; color: #fff; padding: 10px 20px; border-radius: 8px; display: inline-block; font-weight: bold;">فتح قناة اليوتيوب 🔴</a>
+            </div>
+          `;
+        }
+      }
     }
   </script>
 
