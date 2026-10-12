@@ -1,219 +1,243 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الشرقاط مدينتي تاريخ وإبداع - موقع الشرقاط الثقافي</title>
+  <meta name="description" content="الشرقاط مدينتي تاريخ وإبداع - بقلم: محمد علي أحمد الحطاب الجبوري">
 
-      gtag('config', 'G-3VZQSDZNC7');
-    </script>
+  <link rel="icon" href="acon.jpg" type="image/jpeg">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- عناوين وأوصاف تحسين محركات البحث -->
-    <title>الشرقاط مدينتي تاريخ ونبض وابداع | محمد علي أحمد الحطاب الجبوري</title>
-    <meta name="description" content="وثيقة أدبية وتاريخية احتفاء بأصالة مدينة الشرقاط وتراثها الخالد، جغرافيتها، عمقها الحضاري ومضايفها، ومشهدها الثقافي والأدبي.">
-    <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
-    <meta name="robots" content="index, follow">
+  <style>
+    :root {
+      --primary: #064e3b;
+      --primary-hover: #022c22;
+      --primary-light: #f0fdf4;
+      --bg: #fdfbf7;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #d4b572;
+      --shadow: 0 4px 20px rgba(6, 78, 59, 0.08);
+    }
 
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: system-ui, -apple-system, sans-serif; 
-            background-color: #f8fafc; 
-            color: #333; 
-            direction: rtl; 
-            line-height: 1.8;
-        }
-        
-        a { text-decoration: none; color: inherit; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: system-ui, -apple-system, sans-serif; 
+      background-color: var(--bg); 
+      background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.92), rgba(240, 253, 244, 0.92));
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: var(--text); 
+      direction: rtl; 
+      line-height: 1.8; 
+    }
+    a { text-decoration: none; color: inherit; }
 
-        /* شريط التصفح العلوي */
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo { font-size: 16px; font-weight: bold; color: #10b981; }
-        .back-home { font-size: 14px; color: #475569; font-weight: 600; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
-        .back-home:hover { color: #10b981; }
+    /* Navbar */
+    .navbar { background: rgba(6, 78, 59, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); border-bottom: 2px solid #d4b572; }
+    .nav-container { max-width: 1100px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 18px; font-weight: 800; color: #fef08a; }
+    .nav-links { display: flex; gap: 15px; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: #ffffff; }
+    .nav-links a:hover { color: #fef08a; }
 
-        /* حاوية المقال أو القصة */
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        
-        .article-card {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-            border: 1px solid #e2e8f0;
-        }
+    /* Container */
+    .container { max-width: 900px; margin: 0 auto; padding: 30px 15px; }
 
-        .article-header {
-            margin-bottom: 30px;
-            border-bottom: 2px solid #ecfdf5;
-            padding-bottom: 20px;
-            text-align: center;
-        }
+    /* Article Card */
+    .article-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: var(--shadow);
+      margin-bottom: 25px;
+    }
 
-        .article-header h1 {
-            font-size: 26px;
-            color: #1e293b;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
+    .article-header {
+      text-align: center;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
 
-        .article-meta {
-            font-size: 14px;
-            color: #64748b;
-            font-weight: bold;
-        }
+    .article-header h1 {
+      font-size: 24px;
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
 
-        .article-body {
-            font-size: 17px;
-            color: #334155;
-            text-align: justify;
-        }
+    .article-author {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-        .article-body h2 {
-            font-size: 20px;
-            color: #065f46;
-            margin: 35px 0 15px 0;
-            border-right: 4px solid #10b981;
-            padding-right: 10px;
-        }
+    .article-subtitle {
+      font-size: 13.5px;
+      color: var(--primary);
+      font-style: italic;
+      font-weight: 600;
+    }
 
-        .article-body h3 {
-            font-size: 18px;
-            color: #1e293b;
-            margin: 25px 0 10px 0;
-        }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 18px;
+      text-align: justify;
+    }
 
-        .article-body p {
-            margin-bottom: 20px;
-        }
+    .article-body blockquote {
+      background: var(--primary-light);
+      border-right: 4px solid var(--primary);
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-weight: bold;
+      color: var(--primary);
+    }
 
-        .quote-box {
-            background: #f0fdf4;
-            border-right: 4px solid #10b981;
-            padding: 20px;
-            border-radius: 0 12px 12px 0;
-            margin: 25px 0;
-            font-style: italic;
-            color: #065f46;
-            font-weight: 500;
-        }
+    .article-body h3 {
+      font-size: 18px;
+      color: var(--primary);
+      font-weight: 800;
+      margin: 25px 0 12px 0;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 6px;
+    }
 
-        ul {
-            margin: 15px 20px 20px 0;
-        }
+    .notables-list {
+      background: #fafaf9;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 15px 0;
+    }
 
-        li {
-            margin-bottom: 10px;
-        }
+    .notables-list li {
+      margin-bottom: 12px;
+      font-size: 14.5px;
+    }
 
-        /* تذييل الصفحة */
-        .footer { margin-top: 40px; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0; }
-        .copyright { color: #64748b; font-size: 14px; font-weight: bold; }
+    .notables-list li strong {
+      color: var(--primary);
+    }
 
-        @media (max-width: 768px) {
-            .article-card { padding: 20px; }
-            .article-header h1 { font-size: 20px; }
-            .article-body { font-size: 15px; }
-        }
-    </style>
+    .article-footer-note {
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.2s ease;
+      box-shadow: 0 4px 12px rgba(6,78,59,0.2);
+    }
+    .back-btn:hover { background: var(--primary-hover); }
+
+    /* Footer */
+    .footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; margin-top: 25px; background: rgba(255,255,255,0.7); border-radius: 12px; }
+
+    @media (max-width: 480px) {
+      .article-card { padding: 20px 15px; }
+      .article-header h1 { font-size: 20px; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- شريط التصفح العلوي -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">محمد علي أحمد الحطاب الجبوري</div>
-            <a href="index.html" class="back-home">← الرئيسية</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="article-card">
-            
-            <div class="article-header">
-                <h1>الشرقاط مدينتي تاريخ ونبض وابداع</h1>
-                <div class="article-meta">بقلم: محمد علي أحمد الحطاب الجبوري</div>
-                <p style="font-size: 14px; color: #64748b; margin-top: 8px;">وثيقة أدبية وتاريخية احتفاء بأصالة المدينة وتراثها الخالد</p>
-            </div>
-
-            <div class="article-body">
-                <p>تعد مدينة الشرقاط قضاءً كان تابعاً سابقاً لمحافظة نينوى، قبل أن يلحق بمحافظة صلاح الدين في أوائل ثمانينيات القرن الماضي. وتتميز الشرقاط بمكانتها التاريخية، وطيبة أهلها، وكرمهم الأصيل.</p>
-                
-                <p>تقع المدينة في موقع جغرافي متميز بين محافظتي نينوى وصلاح الدين، حيث تتمدد على ضفاف نهر دجلة وتحيط بها التلال. ويعتمد أهلها منذ القدم وحتى اليوم على الزراعة، ولا سيما زراعة الحنطة، والشعير، والسمسم، والقطن، بالإضافة إلى المحاصيل الزراعية كافة.</p>
-
-                <h2>أولاً: جغرافية المدينة وأصالة إنسانها</h2>
-                <p>تقع مدينة الشرقاط كدرة وضاءة تشخص بين أحضان نهر دجلة الخالد والبرية الممتدة، حيث تتعانق الطبيعة مع تاريخ عريق يضرب بجذوره في أعماق الزمان.</p>
-                <p>ليست الشرقاط مجرد رقعة جغرافية، بل هي واحة للإبداع وملاذ للقيم الإنسانية النبيلة، يعيش بين جنباتها أهل الشرف والكرم الذين اتخذوا من النخوة والشهامة منهج حياة.</p>
-                <p>لقد أورثت هذه الأرض أبناءها فصاحة اللسان ورهافة الحس، فخرج من رحمها الشعراء والأدباء والمثقفون الذين صاغوا بكلماتهم ذاكرة المنطقة وحفظوا تراثها من الضياع.</p>
-                <p>فالمجلس في الشرقاط لا يخلو من سجلات الشعر العمودي الأصيل، ومن الحديث عن تاريخ الرجال الذين أثنوا المعاني الكريمة في نفوس الأجيال.</p>
-
-                <div class="quote-box">
-                    "إن الشرقاط ليست حجارة وتاريخاً يروى فحسب، بل هي روح تنبض بالكرم وأصالة تتوارثها الأجيال جيلاً بعد جيل على ضفاف دجلة الخير."
-                </div>
-
-                <h2>ثانياً: العمق الحضاري والمضايف الخالدة</h2>
-                <p>تستند الشرقاط إلى عمق حضاري فريد، إذ تحتضن أرضها "آشور" التاريخية، أولى عواصم الإمبراطورية الآشورية العظيمة.</p>
-                <p>هذا البعد الحضاري لم يكن مجرد آثار شاخصة، بل تجلى في أسلوب حياة أهالي المدينة وشخصيتهم الوطنية، حيث التماسك الاجتماعي والترابط الأسري والعشائري الذي يشكل درعاً حصيناً.</p>
-                <p>تعتبر مضايف الشرقاط مدارس حقيقية للقيم؛ ففيها يستقبل الضيف بالحفاوة والرحب، وفيها تحل النزاعات بالحكمة والمودة، وتصان فيها العهود.</p>
-                <p>إن المضايف ليست مجرد أماكن لجمع الشمل، بل هي مؤسسات اجتماعية وثقافية غرس فيها الآباء والأجداد قيم المروءة وحسن الجوار، وظلت حاضرة بشموخها لتلهم الأحفاد معنى الوفاء للأرض والناس.</p>
-
-                <h2>ثالثاً: المشهد الثقافي والأدبي (نبض الحرف وذاكرة الإبداع)</h2>
-                <p>حين يتنفس الفجر على ضفاف دجلة، لا يحمل الماء مجرد حياة للزرع والأرض، بل يحمل ذاكرة أمة وصدى قصائد.</p>
-                <p>لم تكن الشرقاط يوماً مجرد محطة جغرافية على خارطة شمال العراق، بل كانت ولا تزال حاضرة للوعي ومجالس الأنس والحرف السامي، وملتقى للفرسان والعلماء الذين حفروا أسمائهم بمداد العزة على جدارية الثقافة والعلم.</p>
-
-                <h3>• شواطئ بعاجة وأفق السرد والثقافة (مهد الشعراء وقبس الفكر):</h3>
-                <p>تنساب مياه دجلة برفق وهي تحاذي شواطئ بعاجة الساحرة والقرى المجاورة، حيث تلتقي عذوبة النهر بسخاء الأرض لتشكل بيئة إبداعية فريدة كانت وما زالت منبراً للكلمة الملتزمة. وقد أنجبت هذه الأرض قمماً وفحولاً شاركوا في بناء الصرح الثقافي:</p>
-                <ul>
-                    <li><strong>الدكتور حمد الدوخي:</strong> قامة الفكر والموسوعية الأكاديمية البارزة في كافة المجالات، الذي تجاوز حدود التخصص ليكون شخصية ثقافية ومجتمعية موسوعية يشار إليها بالبنان، ويتناغم حضوره العلمي مع النتاج الأدبي الرفيع للروائي المتميز الأستاذ فهد عنتر الدوخي؛ ذلك المبدع الذي أثرى المشهد السردي، وتزامن عطاؤه بأن أهديتُ منه روايته القيّمة (جزءاً من أعماله الإبداعية الوفيرة التي قدمها لي هدية عزيزة تعتز بها الذاكرة)، لتجسد بحق عمق الروابط الإنسانية وجمال وفاء الكلمة وروح المكان.</li>
-                    <li><strong>الشاعر رمضان علي سليمان:</strong> المبدع الكبير بالشعر وخاصة "الأزهيري المسبع"، الذي أتقن هذا اللون التراثي الأصيل وصاغ منه أروع الأبيات والمواويل.</li>
-                    <li><strong>كوكبة المثقفين والرواد:</strong> نخبة مباركة من الأساتذة والأكاديميين والمعلمين الأفاضل الذين جعلوا من ضفاف الشرقاط رافداً أساسياً لا ينضب للثقافة والعلم.</li>
-                </ul>
-
-                <h2>رابعاً: الصرح العلمي والطبي في الساحلين الأيمن والأيسر</h2>
-                <p>إن الإبداع الشرقاطي لم يقف عند حدود الأدب والشعر، بل امتد ليكون نهراً يتدفق بالعلوم والمعارف الطبية والأكاديمية، متوزعاً على طرفي النهر الخالد بين الساحل الأيمن والساحل الأيسر.</p>
-                
-                <p><strong>• الجرف والقصبة (قلب المدينة ونبضها الفكري):</strong> شريان التمدن والعطاء، حيث خرجت منهما أجيال من الأطباء الاستشاريين والدكاترة وحملة الشهادات العليا الذين ساهموا في بناء المؤسسات الصحية والتعليمية، فكانوا سياجاً يداوي الجراح ويضيء درب المعرفة.</p>
-                
-                <p><strong>• التل والجميلة والخصم (ركائز الثقافة والعلم):</strong> قلاع العلم والوفاء التي رفدت العراق بنخبة من حملة الدكتوراه في مختلف التخصصات العلمية والإنسانية، جنباً إلى جنب مع أطباء مشهود لهم بالكفاءة والإنسانية.</p>
-                
-                <p><strong>• قرى وأرياف الضفتين (خزان العقول والنخب):</strong> من كل قرية وريف على امتداد الساحلين الأيمن والأيسر، خرج أبناء الكدح والأصالة ليصلوا إلى أعلى المراتب الأكاديمية والطبية في جامعات داخل العراق وخارجه.</p>
-
-                <h2>خامساً: أمانة الحاضر ورؤية المستقبل</h2>
-                <p>إن هذا التناغم والنسيج المتكامل بين بعاجة، والجرف، والقصبة، والتل، والجميلة، والخصم، وكافة القرى والأرياف على الساحل الأيمن والأيسر، هو الذي صنع للشرقاط هويتها الشاملة: مدينة العلم، وقلعة للأدب، وموئل الطب والمعرفة.</p>
-                <p>تخطو الشرقاط اليوم خطوات واثقة نحو المستقبل متسلحة برصيدها الثقافي الزاخر، حيث يقع على عاتق الجيل الراهن وأصحاب الأقلام والفرسان المخلصين أمانة التوثيق والحفاظ على هذا الموروث بالجمع بين أصالة الماضي ووسائل العصر الحديث.</p>
-                
-                <p style="text-align: center; font-weight: bold; color: #10b981; margin-top: 30px;">
-                    لتظل الشرقاط كما كانت دائماً مدينة لا تموت بل تجدد شبابها بعقول أبنائها وأقلام كتابها على ضفاف دجلة الحبيبة.
-                </p>
-            </div>
-
-        </div>
-
-        <!-- التذييل -->
-        <div class="footer">
-            <p class="copyright">جميع الحقوق محفوظة © 2026 - محمد علي أحمد الحطاب الجبوري</p>
-        </div>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">موقع الشرقاط الثقافي</div>
+      <div class="nav-links">
+        <a href="index.html">🏠 الرئيسية</a>
+        <a href="tv.html">📺 البث المباشر</a>
+        <a href="book.html">📚 مؤلفاتي</a>
+      </div>
     </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="article-card">
+      
+      <div class="article-header">
+        <h1>الشرقاط مدينتي تاريخ وإبداع</h1>
+        <div class="article-author">بقلم: محمد علي أحمد الحطاب الجبوري</div>
+        <div class="article-subtitle">وثيقة أدبية وتاريخية احتفاء بأصالة المدينة وتراثها الخالد</div>
+      </div>
+
+      <div class="article-body">
+        <p>تعد مدينة الشرقاط قضاءً كان تابعاً سابقاً لمحافظة نينوى، قبل أن يلحق بمحافظة صلاح الدين في أوائل ثمانينيات القرن الماضي. وتتميز الشرقاط بمكانتها التاريخية، وطيبة أهلها، وكرمهم الأصيل. تقع المدينة في موقع جغرافي متميز بين محافظتي نينوى وصلاح الدين، حيث تتمدد على ضفاف نهر دجلة وتحيط بها التلال. ويعتمد أهلها منذ القدم وحتى اليوم على الزراعة، ولا سيما زراعة الحنطة، والشعير، والسمسم، والقطن، بالإضافة إلى المحاصيل الزراعية كافة.</p>
+
+        <p>وتقع مدينة الشرقاط كدرة وضاءة تشخص بين أحضان نهر دجلة الخالد والبرية الممتدة، حيث تتعانق الطبيعة مع تاريخ عريق يضرب بجذوره في أعماق الزمان. ليست الشرقاط مجرد رقعة جغرافية، بل هي واحة للإبداع وملاذ للقيم الإنسانية النبيلة، يعيش بين جنباتها أهل الشرف والكرم الذين اتخذوا من النخوة والشهامة منهج حياة.</p>
+
+        <p>لقد أورثت هذه الأرض أبناءها فصاحة اللسان ورهافة الحس، فخرج من رحمها الشعراء والأدباء والمثقفون الذين صاغوا بكلماتهم ذاكرة المنطقة وحفظوا تراثها من الضياع. فالمجلس في الشرقاط لا يخلو من سجلات الشعر العمودي الأصيل، ومن الحديث عن تاريخ الرجال الذين أثنوا المعاني الكريمة في نفوس الأجيال.</p>
+
+        <blockquote>
+          "إن الشرقاط ليست حجارة وتاريخاً يروى فحسب، بل هي روح تنبض بالكرم وأصالة تتوارثها الأجيال جيلاً بعد جيل على ضفاف دجلة الخير."
+        </blockquote>
+
+        <p>تستند الشرقاط إلى عمق حضاري فريد، إذ تحتضن أرضها "آشور" التاريخية، أولى عواصم الإمبراطورية الآشورية العظيمة. هذا البعد الحضاري لم يكن مجرد آثار شاخصة، بل تجلى في أسلوب حياة أهالي المدينة وشخصيتهم الوطنية، حيث التماسك الاجتماعي والترابط الأسري والعشائري الذي يشكل درعاً حصيناً.</p>
+
+        <p>تعتبر مضايف الشرقاط مدارس حقيقية للقيم؛ ففيها يستقبل الضيف بالحفاوة والرحب، وفيها تحل النزاعات بالحكمة والمودة، وتصان فيها العهود. إن المضايف ليست مجرد أماكن لجمع الشمل، بل هي مؤسسات اجتماعية وثقافية غرس فيها الآباء والأجداد قيم المروءة وحسن الجوار، وظلت حاضرة بشموخها لتلهم الأحفاد معنى الوفاء للأرض والناس.</p>
+
+        <p>لم تكن الشرقاط يوماً مجرد محطة جغرافية على خارطة شمال العراق، بل كانت ولا تزال حاضرة للوعي ومجالس الأنس والحرف السامي، وملتقى للفرسان والعلماء الذين حفروا أسمائهم بمداد العزة على جدارية الثقافة والعلم.</p>
+
+        <h3>بعاجة: منارة الإبداع والأصالة</h3>
+        <p>تقع هذه القرية على نهر دجلة وهي تحاذي شواطئها الساحرة وتقابل القرى المجاورة، حيث تلتقي عذوبة النهر بسخاء الأرض لتشكل بيئة إبداعية فريدة كانت وما زالت منبراً للكلمة الملتزمة. وقد أنجبت هذه الأرض قمماً وفحولاً شاركوا في بناء الصرح الثقافي:</p>
+        
+        <ul class="notables-list" style="list-style-position: inside;">
+          <li><strong>الدكتور حمد الدوخي:</strong> قامة الفكر والموسوعية الأكاديمية البارزة في كافة المجالات، الذي تجاوز حدود التخصص ليكون شخصية ثقافية ومجتمعية موسوعية يشار إليها بالبنان.</li>
+          <li><strong>الأستاذ فهد عنتر الدوخي:</strong> الروائي المتميز الذي أثرى المشهد السردي، وتزامن عطاؤه بأن أهديتُ منه روايته القيّمة (جزءاً من أعماله الإبداعية الوفيرة التي قدمها لي هدية عزيزة تعتز بها الذاكرة)، لتجسد بحق عمق الروابط الإنسانية وجمال وفاء الكلمة وروح المكان.</li>
+          <li><strong>الشاعر رمضان علي سليمان:</strong> المبدع الكبير بالشعر وخاصة "الأزهيري المسبع"، الذي أتقن هذا اللون التراثي الأصيل وصاغ منه أروع الأبيات والمواويل.</li>
+          <li><strong>وكوكبة المثقفين والرواد:</strong> نخبة مباركة من الأساتذة والأكاديميين والمعلمين الأفاضل الذين جعلوا من ضفاف الشرقاط رافداً أساسياً لا ينضب للثقافة والعلم.</li>
+        </ul>
+
+        <h3>نهر العلم والمعرفة بين الساحلين</h3>
+        <p>إن الإبداع الشرقاطي لم يقف عند حدود الأدب والشعر، بل امتد ليكون نهراً يتدفق بالعلوم والمعارف الطبية والأكاديمية، متوزعاً على طرفي النهر الخالد بين الساحل الأيمن والساحل الأيسر؛ فالجرف والقصبة (قلب المدينة) شريان التمدن والعطاء، حيث خرجت منهما أجيال من الأطباء الاستشاريين والدكاترة وحملة الشهادات العليا الذين ساهموا في بناء المؤسسات الصحية والتعليمية، فكانوا سياجاً يداوي الجراح ويضيء درب المعرفة.</p>
+
+        <p>والتل والجميلة والخصم والجرناف والخانوكة والامسيحلي وتلول الباج قلاع العلم والوفاء التي رفدت العراق بنخبة من حملة الدكتوراه في مختلف التخصصات العلمية والإنسانية، جنباً إلى جنب مع أطباء مشهود لهم بالكفاءة والإنسانية.</p>
+
+        <p>وقرى وأرياف الضفتين (خزان العقول والنخب) من كل قرية وريف على امتداد الساحلين الأيمن والأيسر، خرج أبناء الكدح والأصالة ليصلوا إلى أعلى المراتب الأكاديمية والطبية في جامعات داخل العراق وخارجه.</p>
+
+        <p>إن هذا التناغم والنسيج المتكامل بين بعاجة، والجرف، والقصبة، والتل، والجميلة، والخصم، وكافة القرى والأرياف على الساحل الأيمن والأيسر، هو الذي صنع للشرقاط هويتها الشاملة: مدينة العلم، وقلعة للأدب، وموئل الطب والمعرفة.</p>
+
+        <p>تخطو الشرقاط اليوم خطوات واثقة نحو المستقبل متسلحة برصيدها الثقافي الزاخر، حيث يقع على عاتق الجيل الراهن وأصحاب الأقلام والفرسان المخلصين أمانة التوثيق والحفاظ على هذا الموروث بالجمع بين أصالة الماضي ووسائل العصر الحديث، لتظل الشرقاط كما كانت دائماً مدينة لا تموت بل تجدد شبابها بعقول أبنائها وأقلام كتابها على ضفاف دجلة الحبيبة.</p>
+      </div>
+
+      <div class="article-footer-note">
+        <div>تحياتي لكم 🌹 (المقالة قابلة للتعديل والإضافات المستمرة)</div>
+        <a href="index.html" class="back-btn">↩️ العودة للرئيسية</a>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي | محمد علي أحمد الحطاب الجبوري
+    </div>
+
+  </div>
 
 </body>
 </html>
