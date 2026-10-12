@@ -130,12 +130,87 @@
             text-align: center;
         }
 
+        /* تنسيق صندوق الزهيري والشرح في نهاية المقال */
+        .zuheiri-container {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e6f4ea 100%);
+            border: 2px solid #065f46;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 35px;
+            box-shadow: inset 0 0 10px rgba(6,95,70,0.05);
+        }
+
+        .zuheiri-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #065f46;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .zuheiri-poem {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: #022c22;
+            text-align: center;
+            line-height: 2.2;
+            margin-bottom: 25px;
+        }
+
+        .explanation-box {
+            background: #ffffff;
+            border: 1px solid #a7f3d0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: right;
+        }
+
+        .explanation-title {
+            font-size: 15.5px;
+            font-weight: 800;
+            color: #065f46;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 6px;
+        }
+
+        .explanation-section {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .explanation-section h4 {
+            color: #047857;
+            font-size: 14.5px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .explanation-section p {
+            margin-bottom: 6px;
+            color: #334155;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .author-signature {
+            text-align: center;
+            font-weight: 800;
+            color: #065f46;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #a7f3d0;
+            font-size: 14.5px;
+        }
+
         /* تذييل الصفحة */
         .footer { margin-top: 40px; text-align: center; color: #64748b; font-size: 14px; }
 
         @media (max-width: 768px) {
             .article-card { padding: 20px; }
             .article-header h1 { font-size: 22px; }
+            .zuheiri-container { padding: 15px; }
+            .zuheiri-poem { font-size: 15px; }
         }
     </style>
 </head>
@@ -194,6 +269,51 @@
                 <p>فهل بقيت فينا بقيةٌ من مروءة "شلاش"؟ أم أن الكراسي أعمَت القلوب وغيّبت الضمائر؟</p>
                 
                 <p>رحم الله الشيخ شلاش الخلف الفرج وأسكنه فسيح جناته؛ فقد كان يمثل "حالة عربية" أصيلة، نترحم عليها اليوم ونحن نرى الفارق المرير بين عزة الأجداد وواقعنا، فما أحوجنا اليوم إلى أمثاله (هذوله اللي عليهم دايم تهمل العين).</p>
+
+                <!-- 🌸 قسم الزهيري والشرح في نهاية المقال 🌸 -->
+                <div class="zuheiri-container">
+                    <div class="zuheiri-title">✨ زهيري في رثاء والثناء على الشيخ شلاش الفرج ✨</div>
+                    
+                    <div class="zuheiri-poem">
+                        مثل السحاب شلاش چف السخاء منهله<br>
+                        وباب المضيف بفرح للقاصدين منهله<br>
+                        الجبور ساس الكرم معروف هذا منهله<br>
+                        تلفي لـ ابو مرحبا وتلقى السعد عدهم<br>
+                        سيل العطايا بوكت ضيج العسر عدهم<br>
+                        ايتلكه ضيفه بـ هلا ومية الهلا عدهم<br>
+                        والمجد تاريخ ثابت ما يزيله من هله
+                    </div>
+
+                    <div class="explanation-box">
+                        <div class="explanation-title">🔍 تدقيق الشرح وتفكيك الأجناس (الجناس اللفظي):</div>
+                        <p style="font-size: 13.5px; color: #64748b; margin-bottom: 12px;">يعتمد هذا الزهيري (السباعي) على نظام القافيتين والجناس التام، حيث تتكرر الكلمة بنفس اللفظ وتختلف في المعنى:</p>
+
+                        <div class="explanation-section">
+                            <h4>1. القافية الأولى (الرباع الأول: الأبيات 1 - 3):</h4>
+                            <p>• <strong>مَنْهَلُهْ (البيت الأول):</strong> من المَنْهَل؛ وهو المورد ونبع الماء الشديد الصب، والمقصود أن كف سخائه كالسحاب الماطر بالخير.</p>
+                            <p>• <strong>مَنْهَلُهْ (البيت الثاني):</strong> من (مَنْ هَلَّ / الإهلال)؛ والمقصود أن صاحب المضيف يَهِلّ ويستبشر فرحاً بقدوم الضيوف والقاصدين.</p>
+                            <p>• <strong>مَنْهَلُهْ (البيت الثالث):</strong> من المَنْهَل والأصل؛ أي النبع والمصدر الحقيقي للكرم المعروف عن عشيرة الحوري قبيلة الجبور.</p>
+                        </div>
+
+                        <div class="explanation-section">
+                            <h4>2. القافية الثانية (الرباع الثاني: الأبيات 4 - 6):</h4>
+                            <p>• <strong>عِدْهُمْ (البيت الرابع):</strong> ظرف مكان بمعنى (عِنْدَهُم)؛ أي تجد الفرح والسرور والسعادة في ديارهم ومجالسهم.</p>
+                            <p>• <strong>عِدْهُمْ (البيت الخامس):</strong> من (العَدّ والإحصاء)؛ أي أن سيل عطاياهم وفضلهم لا يُحصى ولا يُعدّ، خصوصاً في أوقات العسر والشدة.</p>
+                            <p>• <strong>عِدْهُمْ (البيت السادس):</strong> من (العَادَة والسنّة)؛ أي أن الترحيب بالضيف وبشاشة الوجه هي من عوائدهم وطباعهم المتوارثة.</p>
+                        </div>
+
+                        <div class="explanation-section">
+                            <h4>3. الرباط (البيت السابع - القفل):</h4>
+                            <p>• <strong>مَنْ هَلُهْ (البيت السابع):</strong> تركيب من (مَنْ + أَهْلُه)؛ أي من أصحابه وأهله الأصليين. والمعنى الإجمالي: أن هذا المجد والتاريخ العريق ثابت وراسخ، ولا يستطيع أحد أن ينزعه أو يزيله عن أهله ورجاله الحقيقيين.</p>
+                        </div>
+
+                        <div class="author-signature">
+                            مع خالص تحياتي: محمد علي الحطاب الجبوري - الشرقاط<br>
+                            <span style="font-size: 13px; color: #047857; font-weight: normal;">رحم الله الشيخ شلاش بواسع رحمته وشامل مغفرته</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
