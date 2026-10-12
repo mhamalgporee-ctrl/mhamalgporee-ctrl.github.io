@@ -534,6 +534,14 @@
     </div>
   </div>
 
+  <!-- 🔍 نافذة عرض الصورة مكبرة (Lightbox Modal) مع علامة ✕ -->
+  <div id="lightboxModal" class="modal" style="background: rgba(0,0,0,0.85); z-index: 2000;">
+    <div style="position: relative; max-width: 90%; max-height: 90vh; display: flex; justify-content: center; align-items: center;">
+      <button onclick="closeLightbox()" style="position: absolute; top: -45px; left: 0; background: #ffffff; color: #064e3b; border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">✕</button>
+      <img id="lightboxImg" src="" alt="صورة مكبرة" style="max-width: 100%; max-height: 85vh; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+    </div>
+  </div>
+
   <!-- 🎙️ نافذة الاستماع للقصة الصوتية -->
   <div id="audioModal" class="modal">
     <div class="modal-box" style="text-align: center;">
@@ -556,6 +564,15 @@
   <script>
     function openM(id) { document.getElementById(id).style.display = 'flex'; }
     function closeM(id) { document.getElementById(id).style.display = 'none'; }
+
+    // دوال نافذة تكبير الصور
+    function openLightbox(url) {
+      document.getElementById('lightboxImg').src = url;
+      document.getElementById('lightboxModal').style.display = 'flex';
+    }
+    function closeLightbox() {
+      document.getElementById('lightboxModal').style.display = 'none';
+    }
 
     function sendWA() {
       const name = document.getElementById('userName').value.trim();
@@ -627,7 +644,7 @@
     const githubUser = "mhamalgporee-ctrl"; 
     const githubRepo = "mhamalgporee-ctrl.github.io";
 
-    // 1. التحميل التلقائي للصور داخل الحافظة المستقلة
+    // 1. التحميل التلقائي للصور داخل الحافظة المستقلة مع تفعيل العرض المكبر
     async function loadAutoPhotos() {
       const container = document.getElementById('galleryModalContainer');
       if (!container) return;
@@ -644,9 +661,7 @@
               const imgCard = document.createElement('div');
               imgCard.style.cssText = 'background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; padding: 4px;';
               imgCard.innerHTML = `
-                <a href="${file.download_url}" target="_blank">
-                  <img src="${file.download_url}" alt="صورة" style="width: 100%; height: 130px; object-fit: cover; border-radius: 8px; display: block;">
-                </a>
+                <img src="${file.download_url}" alt="صورة" style="width: 100%; height: 130px; object-fit: cover; border-radius: 8px; display: block; cursor: pointer;" onclick="openLightbox('${file.download_url}')">
               `;
               container.appendChild(imgCard);
             }
