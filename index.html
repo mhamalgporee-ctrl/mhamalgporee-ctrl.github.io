@@ -127,11 +127,11 @@
     .lightbox-close{position:absolute;top:-45px;left:0;background:#fff;color:var(--primary);border:none;width:36px;height:36px;border-radius:50%;font-size:20px;font-weight:bold;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.3);}
     #lightboxImg{max-width:100%;max-height:85vh;border-radius:12px;object-fit:contain;box-shadow:0 8px 30px rgba(0,0,0,.5);}
     #audioTitle{font-size:13px;color:var(--muted);margin-bottom:12px;}
-    #main Audio Player{width:100%;margin-bottom:15px;}
+    #mainAudioPlayer{width:100%;margin-bottom:15px;}
     .video-box{background:#f8fafc;padding:8px;border-radius:12px;border:1px solid #ddd;text-align:center;}
     .video-box iframe{width:100%;height:260px;border:0;border-radius:8px;}
     .video-box p{font-size:12.5px;font-weight:bold;margin-top:8px;color:var(--red);}
-    #video Model Container,#bookModalContainer{display:flex;flex-direction:column;gap:10px;}
+    #videoModalContainer,#bookModalContainer{display:flex;flex-direction:column;gap:10px;}
 
     @media(max-width:550px){.hero{flex-direction:column-reverse;text-align:center;padding:15px;}.nav-links{display:none;}.grid{grid-template-columns:1fr;}.hero-img{max-width:80px;}}
     @media(prefers-reduced-motion:reduce){.ticker-content,.ticker-green-content,.weather-icon-pulse{animation:none;}.ticker,.ticker-green{white-space:normal;}.card{transition:none;}}
@@ -143,7 +143,7 @@
       <div class="logo">الشرقاط الثقافي الأول</div>
       <div class="nav-links">
         <a href="tv.html" class="live">📺 البث المباشر</a>
-        <a href="#" onclick="openBook Modal()">📚 اقرأ مؤلفاتي</a>
+        <a href="#" onclick="openBookModal()">📚 اقرأ مؤلفاتي</a>
         <a href="apps.html">📱 التطبيقات</a>
       </div>
     </div>
@@ -155,19 +155,18 @@
         <h1>الشرقاط الثقافي الأول</h1>
         <p>إعداد وتطوير: محمد علي أحمد الحطاب الجبوري</p>
         <div class="master-istighfar">
-          <span>✨اذكر الله واستغفره لا إله إلا الله)
- (سيد الاستغفار):</span>
+          <span>✨ سيد الاستغفار:</span>
           اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك عليَّ، وأبوء لك بذنبي، فاغفر لي؛ فإنه لا يغفر الذنوب إلا أنت.
         </div>
         <div class="hero-btns">
-          <button type="button" onclick="open('about Modal')" class="btn btn-secondary">👤 نبذة عني</button>
-          <button type="button" onclick="openM('chat Modal')" class="btn btn-primary">💬 تواصل معي</button>
+          <button type="button" onclick="openM('aboutModal')" class="btn btn-secondary">👤 نبذة عني</button>
+          <button type="button" onclick="openM('chatModal')" class="btn btn-primary">💬 تواصل معي</button>
         </div>
       </div>
       <div class="hero-img-wrapper">
-        <img src="acon.jpg" alt="شعار الشرقاط الثقافي الأول" class="hero-img" onclick="open Lightbox('acon.jpg')">
-        <img src="acon1.jpg" alt="صورة 1" class="hero-img" loading="lazy" onclick="open Lightbox('acon1.jpg')">
-        <img src="acon2.jpg" alt="صورة 2" class="hero-img" loading="lazy" onclick="open Lightbox('acon2.jpg')">
+        <img src="acon.jpg" alt="شعار الشرقاط الثقافي الأول" class="hero-img" onclick="openLightbox('acon.jpg')">
+        <img src="acon1.jpg" alt="صورة 1" class="hero-img" loading="lazy" onclick="openLightbox('acon1.jpg')">
+        <img src="acon2.jpg" alt="صورة 2" class="hero-img" loading="lazy" onclick="openLightbox('acon2.jpg')">
       </div>
     </section>
 
@@ -203,7 +202,7 @@
         <div class="card-icon">📺</div>
         <h3>البث المباشر</h3>
         <p>متابعة القنوات الرياضية وقنوات مباشر.</p>
-        <span class="card-link">شاهد الأن 🔴</span>
+        <span class="card-link">شاهد الآن 🔴</span>
       </a>
 
       <a href="shelash.html" class="card">
@@ -257,8 +256,8 @@
     </div>
 
     <section class="book-banner">
-      <img src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين" class="book-banner-img" loading="lazy" onclick="openBook Modal()" title="اضغط لتصفح الكتاب">
-      <h3>📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين تأليف محمد علي احمد الحطاب</h3>
+      <img src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين" class="book-banner-img" loading="lazy" onclick="openBookModal()" title="اضغط لتصفح الكتاب">
+      <h3>📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين</h3>
       <p>رحلة في الحب والحياة والأسرة، من بداية اللقاء إلى ذكريات العمر.</p>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px;">
         <button type="button" onclick="openBookModal()" class="btn btn-primary">📖 تصفح الكتاب التفاعلي للقراءة فقط</button>
@@ -273,12 +272,12 @@
       <div class="weather-now">
         <div>
           <h4><span class="weather-icon-pulse" id="weatherMainIcon">🌤️</span> طقس الشرقاط الآن</h4>
-          <p id="weather Desc">جاري تحديث حالة الطقس...</p>
+          <p id="weatherDesc">جاري تحديث حالة الطقس...</p>
         </div>
         <div id="weatherTemp">-- °C</div>
       </div>
       <div class="forecast-wrap">
-        <div class="forecast-title">📅 توقعات الايام القادمة:</div>
+        <div class="forecast-title">📅 توقعات الأيام القادمة:</div>
         <div id="forecastContainer">
           <div class="forecast-day">جاري التحميل...</div>
           <div class="forecast-day">جاري التحميل...</div>
@@ -303,22 +302,22 @@
 
   <div id="chatModal" class="modal" role="dialog" aria-modal="true" aria-label="تواصل معي">
     <div class="modal-box">
-      <button type="button" onclick="closeM('chat Module')" class="modal-close" aria-label="إغلاق">✕</button>
+      <button type="button" onclick="closeM('chatModal')" class="modal-close" aria-label="إغلاق">✕</button>
       <h3>💬 تواصل معي</h3>
       <input type="text" id="userName" class="field" placeholder="اسمك الكريم..." aria-label="الاسم">
       <textarea id="userMsg" class="field" placeholder="اكتب رسالتك..." aria-label="الرسالة"></textarea>
-      <button type="button" onclick="sendWA()" class="btn btn-primary btn-block">ارسال عبر الواتساب 🚀</button>
+      <button type="button" onclick="sendWA()" class="btn btn-primary btn-block">إرسال عبر الواتساب 🚀</button>
     </div>
   </div>
 
   <div id="galleryModal" class="modal" role="dialog" aria-modal="true" aria-label="حافظة الصور">
     <div class="modal-box wide">
-      <button type="button" onclick="closeM('gallery Modal')" class="modal-close" aria-label="إغلاق">✕</button>
+      <button type="button" onclick="closeM('galleryModal')" class="modal-close" aria-label="إغلاق">✕</button>
       <h3 class="center" style="font-size:18px;margin-bottom:15px;">🖼️ حافظة الصور</h3>
-      <div id="gallery Model Container">
+      <div id="galleryModalContainer">
         <p class="gallery-msg">جاري تحميل الصور...</p>
       </div>
-      <button type="button" onclick="closeM('gallery Modal')" class="back-btn">↩️ عودة للموقع</button>
+      <button type="button" onclick="closeM('galleryModal')" class="back-btn">↩️ عودة للموقع</button>
     </div>
   </div>
 
@@ -334,7 +333,7 @@
       <button type="button" onclick="closeM('audioModal')" class="modal-close" aria-label="إغلاق">✕</button>
       <h3>🎙️ كل يوم قصة</h3>
       <p id="audioTitle">جاري تحميل الصوت...</p>
-      <audio id="main Audio Player" controls></audio>
+      <audio id="mainAudioPlayer" controls></audio>
     </div>
   </div>
 
@@ -342,7 +341,7 @@
     <div class="modal-box mid">
       <button type="button" onclick="closeM('videoModal')" class="modal-close" aria-label="إغلاق">✕</button>
       <h3 class="center" style="color:var(--red);">🎥 أحدث الفيديوهات</h3>
-      <div id="video Model Container"></div>
+      <div id="videoModalContainer"></div>
     </div>
   </div>
 
@@ -369,8 +368,8 @@
     /* ---------- النوافذ المنبثقة ---------- */
     function openM(id) { $(id).style.display = 'flex'; }
     function closeM(id) {
-      if (id === 'audioModal') $('main Audio Player').pause();
-      if (id === 'videoModal') $('video Model Container').innerHTML = '';$(id).style.display = 'none';
+      if (id === 'audioModal') $('mainAudioPlayer').pause();
+      if (id === 'videoModal') $('videoModalContainer').innerHTML = '';$(id).style.display = 'none';
     }
     function openLightbox(url) { $('lightboxImg').src = url; openM('lightboxModal'); }
     function openBookModal() { openM('bookModal'); }
@@ -383,7 +382,7 @@
     });
 
     /* ---------- واتساب ---------- */
-    function sendWAY() {
+    function sendWA() {
       const name = $('userName').value.trim();
       const msg = $('userMsg').value.trim();
       if (!msg) { alert('اكتب الرسالة أولاً'); return; }
@@ -427,7 +426,7 @@
             const dIcon = weatherInfo(data.daily.weather_code[i])[1];
             html += `<div class="forecast-day"><div style="font-weight:bold;">${dayName}</div><div class="ico">${dIcon}</div><div>${maxT}° / ${minT}°</div></div>`;
           }
-          $('forecast Container').innerHTML = html;
+          $('forecastContainer').innerHTML = html;
         }
       } catch (e) {
         $('weatherDesc').textContent = 'طقس الشرقاط المباشر';
@@ -479,7 +478,7 @@
     /* ---------- الصوت ---------- */
     async function openAudioModal() {
       openM('audioModal');
-      const player = $('mini Audio Player');
+      const player = $('mainAudioPlayer');
       if (player.getAttribute('src')) { player.play().catch(() => {}); return; }
       let src = 'audio/story.mp3', title = 'اضغط تشغيل للاستماع';
       try {
@@ -497,15 +496,15 @@
 
     /* ---------- الفيديو ---------- */
     function openVideoModal() {
-      open('video Modal');
+      openM('videoModal');
       const uploads = 'UU' + channelId.substring(2);
-      $('video Model Container').innerHTML = `
+      $('videoModalContainer').innerHTML = `
         <div class="video-box">
           <iframe title="أحدث فيديوهات القناة" src="https://www.youtube.com/embed/videoseries?list=${uploads}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p>📺 أحدث فيديوهات ومقاطع القناة المباشرة</p>
         </div>
         <a href="https://youtube.com/channel/${channelId}" target="_blank" rel="noopener" class="btn btn-outline-red btn-block">🔴 الانتقال مباشرة إلى القناة على يوتيوب</a>
-        <button type="button" onclick="closeM('video Modal')" class="back-btn red">↩️ عودة للموقع</button>`;
+        <button type="button" onclick="closeM('videoModal')" class="back-btn red">↩️ عودة للموقع</button>`;
     }
   </script>
 </body>
