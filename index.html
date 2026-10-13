@@ -653,7 +653,7 @@
       closeM('audioModal');
     }
 
-    // 🔴 دالة الفيديوهات المحدثة بقائمة التشغيل المباشرة (تشمل الفيديوهات والـ Shorts مباشرة)
+    // 🔴 دالة الفيديوهات مع زر عودة واضح تحت المشغل
     function openVideoModal() {
       openM('videoModal');
       const container = document.getElementById('videoModalContainer');
@@ -674,6 +674,9 @@
         <a href="https://youtube.com/channel/${channelId}" target="_blank" class="btn btn-secondary" style="border: 1px solid #be123c; color: #be123c; text-align:center; font-weight:bold; display:block; margin-top:10px;">
           🔴 الانتقال مباشرة إلى القناة على يوتيوب
         </a>
+        <button onclick="closeM('videoModal')" class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 10px; font-weight: bold; border: 1.5px solid #be123c; color: #be123c; background: #fff1f2; border-radius: 10px; cursor: pointer;">
+          ↩️ عودة للموقع
+        </button>
       `;
     }
   </script>
