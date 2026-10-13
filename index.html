@@ -1,59 +1,140 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الشرقاط الثقافي الأول</title>
   <meta name="description" content="الموقع الرسمي لمحمد علي أحمد الحطاب الجبوري - برامج، كتب، مقالات، وبث مباشر.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
-  <meta property="og:type" content="website"><meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
-  <meta property="og:title" content="الشرقاط الثقافي الأول"><meta property="og:description" content="الموقع الرسمي لمحمد علي أحمد الحطاب الجبوري - برامج، كتب، مقالات، وبث مباشر.">
-  <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg"><meta property="og:image:secure_url" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
-  <meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
+  <meta property="og:title" content="الشرقاط الثقافي الأول">
+  <meta property="og:description" content="الموقع الرسمي لمحمد علي أحمد الحطاب الجبوري - برامج، كتب، مقالات، وبث مباشر.">
+  <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
+  <meta property="og:image:secure_url" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="icon" href="acon.jpg" type="image/jpeg">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3VZQSDZNC7');</script>
   <meta name="google-site-verification" content="6HjrABgTASI6TtgnCAzTiYd66cRmVpN5unzJNBG6vDg">
   <style>
-    :root{--primary:#064e3b;--primary-hover:#022c22;--primary-light:#f0fdf4;--bg:#fdfbf7;--card-bg:#ffffff;--text:#1e293b;--muted:#64748b;--border:#d4b572;--shadow:0 4px 20px rgba(6,78,59,0.08);}
-    *{box-sizing:border-box;margin:0;padding:0;}html,body{width:100%;max-width:100%;overflow-x:hidden;}
-    body{font-family:system-ui,-apple-system,sans-serif;background-color:var(--bg);background-image:linear-gradient(to bottom,rgba(253,251,247,0.92),rgba(240,253,244,0.92));background-size:cover;background-attachment:fixed;background-position:center;color:var(--text);direction:rtl;line-height:1.6;}
+    :root{--primary:#064e3b;--primary-light:#f0fdf4;--bg:#fdfbf7;--card-bg:#fff;--text:#1e293b;--muted:#64748b;--border:#d4b572;--red:#be123c;--shadow:0 4px 20px rgba(6,78,59,.08);}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{width:100%;max-width:100%;overflow-x:hidden;}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background-color:var(--bg);background-image:linear-gradient(to bottom,rgba(253,251,247,.92),rgba(240,253,244,.92));background-attachment:fixed;color:var(--text);line-height:1.6;}
     a{text-decoration:none;color:inherit;}
-    .navbar{background:rgba(6,78,59,0.95);box-shadow:0 2px 10px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);border-bottom:2px solid #d4b572;width:100%;}
+    :focus-visible{outline:3px solid #d4af37;outline-offset:2px;}
+
+    .navbar{background:rgba(6,78,59,.95);box-shadow:0 2px 10px rgba(0,0,0,.1);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);border-bottom:2px solid var(--border);}
     .nav-container{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
-    .logo{font-size:18px;font-weight:800;color:#fef08a;}.nav-links{display:flex;gap:15px;}.nav-links a{font-size:14px;font-weight:700;color:#fff;}.nav-links a:hover{color:#fef08a;}
-    .container{max-width:1100px;margin:0 auto;padding:15px;width:100%;}
-    .hero{background:var(--card-bg);padding:20px;border-radius:18px;border:2px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px;box-shadow:var(--shadow);position:relative;overflow:hidden;width:100%;}
-    .hero-text{flex:1;z-index:2;width:100%;}.hero-text h1{font-size:22px;color:var(--primary);margin-bottom:6px;font-weight:800;}.hero-text p{color:var(--muted);font-size:14px;margin-bottom:12px;}
-    .master-istighfar{background:linear-gradient(135deg,#f0fdf4 0%,#e6f4ea 100%);border:1.5px dashed #064e3b;border-radius:12px;padding:12px 14px;margin-bottom:15px;font-size:13.5px;color:#064e3b;font-weight:600;line-height:1.7;}
+    .logo{font-size:18px;font-weight:800;color:#fef08a;}
+    .nav-links{display:flex;gap:15px;}
+    .nav-links a{font-size:14px;font-weight:700;color:#fff;}
+    .nav-links a:hover,.nav-links a.live{color:#fef08a;}
+
+    .container{max-width:1100px;margin:0 auto;padding:15px;}
+    .hero{background:var(--card-bg);padding:20px;border-radius:18px;border:2px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px;box-shadow:var(--shadow);overflow:hidden;}
+    .hero-text{flex:1;}
+    .hero-text h1{font-size:22px;color:var(--primary);margin-bottom:6px;font-weight:800;}
+    .hero-text p{color:var(--muted);font-size:14px;margin-bottom:12px;}
+    .master-istighfar{background:linear-gradient(135deg,#f0fdf4,#e6f4ea);border:1.5px dashed var(--primary);border-radius:12px;padding:12px 14px;margin-bottom:15px;font-size:13.5px;color:var(--primary);font-weight:600;line-height:1.7;}
     .master-istighfar span{display:block;color:#047857;font-weight:800;margin-bottom:4px;font-size:14px;}
-    .hero-btns{display:flex;gap:10px;flex-wrap:wrap;}.btn{padding:9px 16px;border-radius:10px;font-weight:bold;font-size:13.5px;cursor:pointer;border:none;}
-    .btn-primary{background:#064e3b;color:#fff;}.btn-secondary{background:#f1f5f9;color:var(--text);border:1px solid var(--border);}
-    .hero-img-wrapper{display:flex;justify-content:center;align-items:center;gap:8px;position:relative;z-index:2;}
-    .hero-img{width:100%;max-width:100px;height:auto;max-height:150px;border-radius:12px;border:2px solid #064e3b;object-fit:contain;background-color:#f8fafc;box-shadow:0 6px 18px rgba(0,0,0,0.1);}
-    @keyframes pulseWeather{0%{transform:scale(1);}50%{transform:scale(1.2);}100%{transform:scale(1);}}
+    .hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
+    .hero-img-wrapper{display:flex;justify-content:center;align-items:center;gap:8px;}
+    .hero-img{width:100%;max-width:100px;height:auto;max-height:150px;border-radius:12px;border:2px solid var(--primary);object-fit:contain;background:#f8fafc;box-shadow:0 6px 18px rgba(0,0,0,.1);}
+
+    .btn{display:inline-block;padding:9px 16px;border-radius:10px;font-weight:bold;font-size:13.5px;font-family:inherit;cursor:pointer;border:none;text-align:center;}
+    .btn-primary{background:var(--primary);color:#fff;}
+    .btn-secondary{background:#f1f5f9;color:var(--text);border:1px solid var(--border);}
+    .btn-red{background:var(--red);color:#fff;}
+    .btn-outline-red{background:#f1f5f9;border:1px solid var(--red);color:var(--red);}
+    .btn-block{display:block;width:100%;}
+
+    .ticker,.ticker-green{overflow:hidden;white-space:nowrap;font-size:13px;font-weight:bold;border-radius:12px;padding:8px;}
+    .ticker{background:#fffdf0;border:1px solid #d4af37;color:#78350f;margin-bottom:15px;}
+    .ticker-green{background:#d1fae5;border:1px solid #34d399;color:var(--primary);margin-bottom:25px;}
+    .ticker-content,.ticker-green-content{display:inline-block;animation:slide 22s linear infinite;}
+    .ticker-green-content{animation-duration:45s;}
+    @keyframes slide{from{transform:translateX(-100%);}to{transform:translateX(100%);}}
+    @keyframes pulseWeather{50%{transform:scale(1.2);}}
     .weather-icon-pulse{display:inline-block;animation:pulseWeather 2s infinite ease-in-out;}
-    .ticker{background:#fffdf0;border:1px solid #d4af37;border-radius:12px;padding:8px;color:#78350f;font-size:13px;font-weight:bold;overflow:hidden;white-space:nowrap;margin-bottom:15px;width:100%;}
-    .ticker-content{display:inline-block;animation:smoothTicker 22s linear infinite;}
-    @keyframes smoothTicker{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
-    .ticker-green{background:#d1fae5;border:1px solid #34d399;border-radius:12px;padding:9px 8px;color:#064e3b;font-size:13px;font-weight:bold;overflow:hidden;white-space:nowrap;margin-bottom:25px;width:100%;}
-    .ticker-green-content{display:inline-block;animation:smoothTickerGreen 45s linear infinite;}
-    @keyframes smoothTickerGreen{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+
+    .promo{border-radius:18px;padding:18px;text-align:center;margin-bottom:18px;border:2px solid var(--primary);background:linear-gradient(135deg,#fff,#f0fdf4);}
+    .promo-video{border-color:var(--red);background:linear-gradient(135deg,#fff,#fff1f2);margin-bottom:22px;}
+    .promo .emoji{font-size:30px;margin-bottom:4px;}
+    .promo h3{font-size:17px;color:var(--primary);font-weight:800;margin-bottom:4px;}
+    .promo-video h3{color:var(--red);}
+    .promo p{font-size:13px;color:var(--muted);margin-bottom:12px;}
+    .promo-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+
     .section-title{font-size:19px;text-align:center;margin-bottom:18px;font-weight:800;color:var(--primary);}
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:25px;width:100%;}
-    .card{background:var(--card-bg);padding:14px;border-radius:16px;border:1.5px solid var(--border);transition:all .25s ease;display:flex;flex-direction:column;justify-content:space-between;position:relative;box-shadow:var(--shadow);cursor:pointer;width:100%;}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:25px;}
+    .card{background:var(--card-bg);padding:14px;border-radius:16px;border:1.5px solid var(--border);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow);cursor:pointer;}
+    .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,78,59,.14);}
     .card-icon{width:36px;height:36px;background:var(--primary-light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:8px;}
     .card h3{font-size:13.5px;color:var(--text);margin-bottom:5px;font-weight:800;line-height:1.3;}
     .card p{font-size:11.5px;color:var(--muted);line-height:1.4;margin-bottom:8px;}
-    .card-link{font-size:11px;font-weight:bold;color:#064e3b;margin-top:auto;}
-    .card-live{background:#fff0f0;border-color:#fca5a5;}.card-live .card-icon{background:#fee2e2;}
-    .book-banner{background:linear-gradient(135deg,#ffffff,#f0fdf4);border:1.5px solid var(--border);border-radius:18px;padding:20px;text-align:center;margin-bottom:25px;box-shadow:var(--shadow);width:100%;}
-    .book-banner-img{width:120px;height:auto;border-radius:10px;box-shadow:0 6px 15px rgba(0,0,0,0.12);margin-bottom:12px;border:2px solid #064e3b;}
-    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;justify-content:center;align-items:center;padding:15px;}
+    .card-link{font-size:11px;font-weight:bold;color:var(--primary);margin-top:auto;}
+    .card-live{background:#fff0f0;border-color:#fca5a5;}
+    .card-live .card-icon{background:#fee2e2;}
+    .card-live h3,.card-live .card-link{color:#dc2626;}
+
+    .book-banner{background:linear-gradient(135deg,#fff,#f0fdf4);border:1.5px solid var(--border);border-radius:18px;padding:20px;text-align:center;margin-bottom:25px;box-shadow:var(--shadow);}
+    .book-banner-img{width:120px;height:auto;border-radius:10px;box-shadow:0 6px 15px rgba(0,0,0,.12);margin-bottom:12px;border:2px solid var(--primary);}
+    .book-banner h3{font-size:15px;font-weight:800;margin-bottom:6px;}
+    .book-banner p{font-size:12px;color:var(--muted);margin-bottom:12px;}
+
+    .weather-box{background:linear-gradient(135deg,#064e3b,#022c22);color:#fff;padding:22px;border-radius:18px;margin-bottom:25px;border:1.5px solid var(--border);text-align:center;}
+    .clock-wrap{margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.2);}
+    .clock-label{font-size:13px;opacity:.9;margin-bottom:5px;}
+    #localClock{font-size:28px;font-weight:800;color:#fef08a;background:rgba(0,0,0,.3);padding:10px 20px;border-radius:14px;display:inline-block;white-space:nowrap;box-shadow:0 4px 15px rgba(0,0,0,.2);}
+    .weather-now{display:flex;justify-content:space-around;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:15px;}
+    .weather-now h4{font-size:16px;display:flex;align-items:center;gap:6px;}
+    #weatherDesc{font-size:13px;opacity:.9;margin-top:2px;}
+    #weatherTemp{font-size:26px;font-weight:bold;}
+    .forecast-wrap{border-top:1px solid rgba(255,255,255,.2);padding-top:12px;margin-bottom:15px;}
+    .forecast-title{font-size:13px;font-weight:bold;margin-bottom:8px;}
+    #forecastContainer{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:12px;text-align:center;}
+    .forecast-day{background:rgba(255,255,255,.15);padding:8px 4px;border-radius:8px;}
+    .forecast-day .ico{font-size:15px;margin:2px 0;}
+    .map-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.3);background:#022c22;}
+    .map-wrap iframe{display:block;width:100%;height:280px;border:0;}
+
+    .footer{text-align:center;padding:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;margin-top:25px;background:rgba(255,255,255,.8);border-radius:12px;}
+
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;justify-content:center;align-items:center;padding:15px;}
     .modal-box{background:#fff;padding:20px;border-radius:16px;width:100%;max-width:420px;position:relative;border:2px solid var(--border);max-height:85vh;overflow-y:auto;}
+    .modal-box.wide{max-width:550px;}
+    .modal-box.mid{max-width:500px;}
     .modal-close{position:absolute;left:12px;top:12px;border:none;background:#f1f5f9;width:32px;height:32px;border-radius:50%;font-size:16px;font-weight:bold;cursor:pointer;}
-    .footer{text-align:center;padding:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;margin-top:25px;background:rgba(255,255,255,0.8);border-radius:12px;width:100%;}
+    .modal h3{color:var(--primary);margin-bottom:10px;}
+    .modal .center{text-align:center;}
+    .modal-note{font-size:13.5px;color:var(--muted);}
+    .field{width:100%;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px;font-family:inherit;font-size:14px;}
+    textarea.field{height:70px;resize:vertical;}
+    #galleryModalContainer{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;}
+    .gallery-msg{text-align:center;color:var(--muted);grid-column:1/-1;font-size:13.5px;}
+    .gallery-msg.error{color:#dc2626;}
+    .gallery-item{background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;overflow:hidden;padding:4px;}
+    .gallery-item img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block;cursor:pointer;}
+    .back-btn{width:100%;margin-top:20px;padding:10px;font-weight:bold;border:1.5px solid var(--primary);color:var(--primary);background:#f8fafc;border-radius:10px;cursor:pointer;font-family:inherit;}
+    .back-btn.red{border-color:var(--red);color:var(--red);background:#fff1f2;margin-top:10px;}
+    #lightboxModal{background:rgba(0,0,0,.88);z-index:2000;}
+    .lightbox-inner{position:relative;max-width:90%;max-height:90vh;display:flex;justify-content:center;align-items:center;}
+    .lightbox-close{position:absolute;top:-45px;left:0;background:#fff;color:var(--primary);border:none;width:36px;height:36px;border-radius:50%;font-size:20px;font-weight:bold;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.3);}
+    #lightboxImg{max-width:100%;max-height:85vh;border-radius:12px;object-fit:contain;box-shadow:0 8px 30px rgba(0,0,0,.5);}
+    #audioTitle{font-size:13px;color:var(--muted);margin-bottom:12px;}
+    #mainAudioPlayer{width:100%;margin-bottom:15px;}
+    .video-box{background:#f8fafc;padding:8px;border-radius:12px;border:1px solid #ddd;text-align:center;}
+    .video-box iframe{width:100%;height:260px;border:0;border-radius:8px;}
+    .video-box p{font-size:12.5px;font-weight:bold;margin-top:8px;color:var(--red);}
+    #videoModalContainer{display:flex;flex-direction:column;gap:10px;}
+
     @media(max-width:550px){.hero{flex-direction:column-reverse;text-align:center;padding:15px;}.nav-links{display:none;}.grid{grid-template-columns:1fr;}.hero-img{max-width:80px;}}
+    @media(prefers-reduced-motion:reduce){.ticker-content,.ticker-green-content,.weather-icon-pulse{animation:none;}.ticker,.ticker-green{white-space:normal;}.card{transition:none;}}
   </style>
 </head>
 <body>
@@ -61,67 +142,67 @@
     <div class="nav-container">
       <div class="logo">الشرقاط الثقافي الأول</div>
       <div class="nav-links">
-        <a href="tv.html" style="color:#fef08a;">📺 البث المباشر</a>
+        <a href="tv.html" class="live">📺 البث المباشر</a>
         <a href="book.html">📚 اقرأ مؤلفاتي</a>
         <a href="apps.html">📱 التطبيقات</a>
       </div>
     </div>
   </nav>
 
-  <div class="container">
+  <main class="container">
     <section class="hero">
       <div class="hero-text">
         <h1>الشرقاط الثقافي الأول</h1>
         <p>إعداد وتطوير: محمد علي أحمد الحطاب الجبوري</p>
         <div class="master-istighfar">
           <span>✨ سيد الاستغفار:</span>
-          اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك عليَّ، وأبوء لك بذنبي، فاغفر لي؛ فإنه لا يغفر الذنوب إلا أنت.
+          اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك عليَّ، وأبوء لك بذنبي، فاغفر لي؛ فإنه لا يغفر الذنوب إلا أنت.
         </div>
         <div class="hero-btns">
-          <button onclick="openM('aboutModal')" class="btn btn-secondary">👤 نبذة عني</button>
-          <button onclick="openM('chatModal')" class="btn btn-primary">💬 تواصل معي</button>
+          <button type="button" onclick="openM('aboutModal')" class="btn btn-secondary">👤 نبذة عني</button>
+          <button type="button" onclick="openM('chatModal')" class="btn btn-primary">💬 تواصل معي</button>
         </div>
       </div>
       <div class="hero-img-wrapper">
-        <img src="acon.jpg" alt="شعار" class="hero-img">
-        <img src="acon1.jpg" alt="صورة 1" class="hero-img">
-        <img src="acon2.jpg" alt="صورة 2" class="hero-img">
+        <img src="acon.jpg" alt="شعار الشرقاط الثقافي الأول" class="hero-img">
+        <img src="acon1.jpg" alt="صورة 1" class="hero-img" loading="lazy">
+        <img src="acon2.jpg" alt="صورة 2" class="hero-img" loading="lazy">
       </div>
     </section>
 
     <div class="ticker">
-      <div class="ticker-content">✨ أهلاً بك زائرنا الكريم .. تصفح البرامج، الكتب، والقصص والبث المباشر للقنوات الرياضية والفديوهات ✨</div>
+      <div class="ticker-content">✨ أهلاً بك زائرنا الكريم .. تصفح البرامج والكتب والقصص، والبث المباشر للقنوات الرياضية والفيديوهات ✨</div>
     </div>
 
     <div class="ticker-green">
-      <div class="ticker-green-content">🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مجيد استغفر الله والحمد لله على كل حال واعوذ بالله من حال اهل النار 🌿</div>
+      <div class="ticker-green-content">🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ. أستغفر الله، والحمد لله على كل حال، وأعوذ بالله من حال أهل النار 🌿</div>
     </div>
 
-    <div style="background:linear-gradient(135deg,#ffffff,#f0fdf4);border:2px solid #064e3b;border-radius:18px;padding:18px;text-align:center;margin-bottom:18px;">
-      <div style="font-size:30px;margin-bottom:4px;">🎙️</div>
-      <h3 style="font-size:17px;color:#064e3b;font-weight:800;margin-bottom:4px;">كل يوم قصة</h3>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">استمع إلى التسجيلات القصصية والصوتية الحصرية</p>
-      <button onclick="openAudioModal()" class="btn btn-primary" style="padding:9px 20px;border-radius:10px;">▶️ اضغط هنا للاستماع</button>
-    </div>
+    <section class="promo">
+      <div class="emoji">🎙️</div>
+      <h3>كل يوم قصة</h3>
+      <p>استمع إلى التسجيلات القصصية والصوتية الحصرية</p>
+      <button type="button" onclick="openAudioModal()" class="btn btn-primary">▶️ اضغط هنا للاستماع</button>
+    </section>
 
-    <div style="background:linear-gradient(135deg,#ffffff,#fff1f2);border:2px solid #be123c;border-radius:18px;padding:18px;text-align:center;margin-bottom:22px;">
-      <div style="font-size:30px;margin-bottom:4px;">🎥</div>
-      <h3 style="font-size:17px;color:#be123c;font-weight:800;margin-bottom:4px;">مكتبة الفيديوهات المرئية</h3>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">شاهد أحدث الحلقات والمقاطع المرئية من قناتي مباشرة</p>
-      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-        <button onclick="openVideoModal()" class="btn" style="background:#be123c;color:#fff;">▶️ استعرض الفيديوهات</button>
-        <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" class="btn btn-secondary" style="border:1px solid #be123c;color:#be123c;">🔴 قناة اليوتيوب</a>
+    <section class="promo promo-video">
+      <div class="emoji">🎥</div>
+      <h3>مكتبة الفيديوهات المرئية</h3>
+      <p>شاهد أحدث الحلقات والمقاطع المرئية من قناتي مباشرة</p>
+      <div class="promo-actions">
+        <button type="button" onclick="openVideoModal()" class="btn btn-red">▶️ استعرض الفيديوهات</button>
+        <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener" class="btn btn-outline-red">🔴 قناة اليوتيوب</a>
       </div>
-    </div>
+    </section>
 
     <h2 class="section-title">🌐 الأقسام الرئيسية</h2>
-    
+
     <div class="grid">
       <a href="tv.html" class="card card-live">
         <div class="card-icon">📺</div>
-        <h3 style="color:#dc2626;">البث المباشر</h3>
+        <h3>البث المباشر</h3>
         <p>متابعة القنوات الرياضية وقنوات مباشر.</p>
-        <span class="card-link" style="color:#dc2626;">شاهد الآن 🔴</span>
+        <span class="card-link">شاهد الآن 🔴</span>
       </a>
       <a href="shelash.html" class="card">
         <div class="card-icon">📜</div>
@@ -153,13 +234,13 @@
         <p>تطبيقات الكمبيوتر والموبايل.</p>
         <span class="card-link">دخول القسم ◄</span>
       </a>
-      <div onclick="openM('galleryModal')" class="card">
+      <div role="button" tabindex="0" onclick="openM('galleryModal')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openM('galleryModal');}" class="card">
         <div class="card-icon">🖼️</div>
         <h3>معرض الصور</h3>
         <p>استعراض الصور والذكريات داخل حافظة مستقلة.</p>
         <span class="card-link">فتح الحافظة ◄</span>
       </div>
-      <a href="https://baramjak2.wordpress.com" target="_blank" class="card">
+      <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener" class="card">
         <div class="card-icon">🌐</div>
         <h3>مدونة ووردبريس</h3>
         <p>المدونة الشخصية للاطلاع على المنشورات.</p>
@@ -167,195 +248,243 @@
       </a>
     </div>
 
-    <div class="book-banner">
-      <a href="book.pdf" target="_blank"><img src="cover.jpg" alt="غلاف كتاب" class="book-banner-img"></a>
-      <h3 style="font-size:15px;font-weight:800;margin-bottom:6px;">📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين</h3>
-      <p style="font-size:12px;color:var(--muted);margin-bottom:12px;">رحلة في الحب والحياة والأسرة من بداية اللقاء إلى ذكريات العمر.</p>
-      <a href="book.pdf" target="_blank" class="btn btn-primary" style="display:inline-block;">اضغط هنا لقراءة الكتاب PDF 📄</a>
-    </div>
+    <section class="book-banner">
+      <a href="book.pdf" target="_blank" rel="noopener"><img src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين" class="book-banner-img" loading="lazy"></a>
+      <h3>📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين</h3>
+      <p>رحلة في الحب والحياة والأسرة، من بداية اللقاء إلى ذكريات العمر.</p>
+      <a href="book.pdf" target="_blank" rel="noopener" class="btn btn-primary">اضغط هنا لقراءة الكتاب PDF 📄</a>
+    </section>
 
-    <div style="background:linear-gradient(135deg,#064e3b,#022c22);color:#fff;padding:22px;border-radius:18px;margin-bottom:25px;border:1.5px solid #d4b572;text-align:center;width:100%;">
-      <div style="margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,0.2);">
-        <div style="font-size:13px;opacity:0.9;margin-bottom:5px;">🕒 الوقت الحالي في الشرقاط</div>
-        <div id="localClock" style="font-size:28px;font-weight:800;color:#fef08a;background:rgba(0,0,0,0.3);padding:10px 20px;border-radius:14px;display:inline-block;white-space:nowrap;box-shadow:0 4px 15px rgba(0,0,0,0.2);">--:-- --</div>
+    <section class="weather-box">
+      <div class="clock-wrap">
+        <div class="clock-label">🕒 الوقت الحالي في الشرقاط</div>
+        <div id="localClock">--:-- --</div>
       </div>
-      <div style="display:flex;justify-content:space-around;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:15px;">
-        <div style="text-align:right;">
-          <h4 style="font-size:16px;display:flex;align-items:center;gap:6px;"><span class="weather-icon-pulse" id="weatherMainIcon">🌤️</span> طقس الشرقاط الآن</h4>
-          <p id="weatherDesc" style="font-size:13px;opacity:0.9;margin-top:2px;">جاري تحديث حالة الطقس...</p>
+      <div class="weather-now">
+        <div>
+          <h4><span class="weather-icon-pulse" id="weatherMainIcon">🌤️</span> طقس الشرقاط الآن</h4>
+          <p id="weatherDesc">جاري تحديث حالة الطقس...</p>
         </div>
-        <div style="text-align:left;"><div id="weatherTemp" style="font-size:26px;font-weight:bold;">-- °C</div></div>
+        <div id="weatherTemp">-- °C</div>
       </div>
-      <div style="border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;margin-bottom:15px;">
-        <div style="font-size:13px;font-weight:bold;margin-bottom:8px;">📅 توقعات الأيام القادمة:</div>
-        <div id="forecastContainer" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:12px;text-align:center;">
-          <div style="background:rgba(255,255,255,0.1);padding:8px;border-radius:8px;">جاري التحميل...</div>
-          <div style="background:rgba(255,255,255,0.1);padding:8px;border-radius:8px;">جاري التحميل...</div>
-          <div style="background:rgba(255,255,255,0.1);padding:8px;border-radius:8px;">جاري التحميل...</div>
+      <div class="forecast-wrap">
+        <div class="forecast-title">📅 توقعات الأيام القادمة:</div>
+        <div id="forecastContainer">
+          <div class="forecast-day">جاري التحميل...</div>
+          <div class="forecast-day">جاري التحميل...</div>
+          <div class="forecast-day">جاري التحميل...</div>
         </div>
       </div>
-      <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.3);background:#022c22;">
-        <iframe width="100%" height="280" src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=km/h&zoom=9&overlay=clouds&product=ecmwf&level=surface&lat=35.5292&lon=43.2199" frameborder="0" loading="lazy"></iframe>
+      <div class="map-wrap">
+        <iframe title="خريطة الطقس في الشرقاط" src="https://embed.windy.com/embed.html?type=map&amp;location=coordinates&amp;metricRain=mm&amp;metricTemp=%C2%B0C&amp;metricWind=km/h&amp;zoom=9&amp;overlay=clouds&amp;product=ecmwf&amp;level=surface&amp;lat=35.5292&amp;lon=43.2199" loading="lazy"></iframe>
       </div>
-    </div>
+    </section>
 
-    <div class="footer">جميع الحقوق محفوظة © 2026 - الشرقاط الثقافي الأول | محمد علي أحمد الحطاب الجبوري</div>
-  </div>
+    <footer class="footer">جميع الحقوق محفوظة © 2026 - الشرقاط الثقافي الأول | محمد علي أحمد الحطاب الجبوري</footer>
+  </main>
 
-  <div id="aboutModal" class="modal">
+  <div id="aboutModal" class="modal" role="dialog" aria-modal="true" aria-label="نبذة عني">
     <div class="modal-box">
-      <button onclick="closeM('aboutModal')" class="modal-close">✕</button>
-      <h3 style="color:#064e3b;margin-bottom:10px;">👤 نبذة عني</h3>
-      <p style="font-size:13.5px;color:var(--muted);">أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومطور تطبيقات ومؤسس موقع الشرقاط الثقافي.</p>
+      <button type="button" onclick="closeM('aboutModal')" class="modal-close" aria-label="إغلاق">✕</button>
+      <h3>👤 نبذة عني</h3>
+      <p class="modal-note">أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومطور تطبيقات ومؤسس موقع الشرقاط الثقافي.</p>
     </div>
   </div>
 
-  <div id="chatModal" class="modal">
+  <div id="chatModal" class="modal" role="dialog" aria-modal="true" aria-label="تواصل معي">
     <div class="modal-box">
-      <button onclick="closeM('chatModal')" class="modal-close">✕</button>
-      <h3 style="color:#064e3b;margin-bottom:10px;">💬 تواصل معي</h3>
-      <input type="text" id="userName" style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px;" placeholder="اسمك الكريم...">
-      <textarea id="userMsg" style="width:100%;height:70px;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px;" placeholder="اكتب رسالتك..."></textarea>
-      <button onclick="sendWA()" class="btn btn-primary" style="width:100%;">إرسال عبر الواتساب 🚀</button>
+      <button type="button" onclick="closeM('chatModal')" class="modal-close" aria-label="إغلاق">✕</button>
+      <h3>💬 تواصل معي</h3>
+      <input type="text" id="userName" class="field" placeholder="اسمك الكريم..." aria-label="الاسم">
+      <textarea id="userMsg" class="field" placeholder="اكتب رسالتك..." aria-label="الرسالة"></textarea>
+      <button type="button" onclick="sendWA()" class="btn btn-primary btn-block">إرسال عبر الواتساب 🚀</button>
     </div>
   </div>
 
-  <div id="galleryModal" class="modal">
-    <div class="modal-box" style="max-width:550px;max-height:85vh;overflow-y:auto;">
-      <button onclick="closeM('galleryModal')" class="modal-close">✕</button>
-      <h3 style="color:#064e3b;margin-bottom:15px;text-align:center;font-size:18px;">🖼️ حافظة الصور</h3>
-      <div id="galleryModalContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;">
-        <p style="text-align:center;color:#64748b;grid-column:1/-1;font-size:13.5px;">جاري تحميل الصور...</p>
+  <div id="galleryModal" class="modal" role="dialog" aria-modal="true" aria-label="حافظة الصور">
+    <div class="modal-box wide">
+      <button type="button" onclick="closeM('galleryModal')" class="modal-close" aria-label="إغلاق">✕</button>
+      <h3 class="center" style="font-size:18px;margin-bottom:15px;">🖼️ حافظة الصور</h3>
+      <div id="galleryModalContainer">
+        <p class="gallery-msg">جاري تحميل الصور...</p>
       </div>
-      <button onclick="closeM('galleryModal')" class="btn btn-secondary" style="width:100%;margin-top:20px;padding:10px;font-weight:bold;border:1.5px solid #064e3b;color:#064e3b;background:#f8fafc;border-radius:10px;cursor:pointer;">↩️ عودة للموقع</button>
+      <button type="button" onclick="closeM('galleryModal')" class="back-btn">↩️ عودة للموقع</button>
     </div>
   </div>
 
-  <div id="lightboxModal" class="modal" style="background:rgba(0,0,0,0.88);z-index:2000;">
-    <div style="position:relative;max-width:90%;max-height:90vh;display:flex;justify-content:center;align-items:center;">
-      <button onclick="closeLightbox()" style="position:absolute;top:-45px;left:0;background:#fff;color:#064e3b;border:none;width:36px;height:36px;border-radius:50%;font-size:20px;font-weight:bold;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;">✕</button>
-      <img id="lightboxImg" src="" alt="صورة مكبرة" style="max-width:100%;max-height:85vh;border-radius:12px;object-fit:contain;box-shadow:0 8px 30px rgba(0,0,0,0.5);">
+  <div id="lightboxModal" class="modal" role="dialog" aria-modal="true" aria-label="صورة مكبرة">
+    <div class="lightbox-inner">
+      <button type="button" onclick="closeM('lightboxModal')" class="lightbox-close" aria-label="إغلاق">✕</button>
+      <img id="lightboxImg" src="" alt="صورة مكبرة">
     </div>
   </div>
 
-  <div id="audioModal" class="modal">
-    <div class="modal-box" style="text-align:center;">
-      <button onclick="closeAudioM()" class="modal-close">✕</button>
-      <h3 style="color:#064e3b;margin-bottom:8px;">🎙️ كل يوم قصة</h3>
-      <p id="audioTitle" style="font-size:13px;color:var(--muted);margin-bottom:12px;">جاري تحميل الصوت...</p>
-      <audio id="mainAudioPlayer" controls style="width:100%;margin-bottom:15px;"></audio>
+  <div id="audioModal" class="modal" role="dialog" aria-modal="true" aria-label="كل يوم قصة">
+    <div class="modal-box center">
+      <button type="button" onclick="closeM('audioModal')" class="modal-close" aria-label="إغلاق">✕</button>
+      <h3>🎙️ كل يوم قصة</h3>
+      <p id="audioTitle">جاري تحميل الصوت...</p>
+      <audio id="mainAudioPlayer" controls></audio>
     </div>
   </div>
 
-  <div id="videoModal" class="modal">
-    <div class="modal-box" style="max-width:500px;">
-      <button onclick="closeM('videoModal')" class="modal-close">✕</button>
-      <h3 style="color:#be123c;text-align:center;margin-bottom:10px;">🎥 أحدث الفيديوهات</h3>
-      <div id="videoModalContainer" style="display:flex;flex-direction:column;gap:12px;"></div>
+  <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-label="أحدث الفيديوهات">
+    <div class="modal-box mid">
+      <button type="button" onclick="closeM('videoModal')" class="modal-close" aria-label="إغلاق">✕</button>
+      <h3 class="center" style="color:var(--red);">🎥 أحدث الفيديوهات</h3>
+      <div id="videoModalContainer"></div>
     </div>
   </div>
 
   <script>
-    function openM(id){document.getElementById(id).style.display='flex';}
-    function closeM(id){document.getElementById(id).style.display='none';}
-    function openLightbox(url){document.getElementById('lightboxImg').src=url;document.getElementById('lightboxModal').style.display='flex';}
-    function closeLightbox(){document.getElementById('lightboxModal').style.display='none';}
-    function sendWA(){
-      const name=document.getElementById('userName').value.trim();
-      const msg=document.getElementById('userMsg').value.trim();
-      if(!msg)return alert('اكتب الرسالة أولاً');
-      window.location.href='https://wa.me/9647835025407?text='+encodeURIComponent('مرحباً محمد، أنا '+(name||'زائر')+': '+msg);
+    const $ = id => document.getElementById(id);
+    const githubUser = "mhamalgporee-ctrl", githubRepo = "mhamalgporee-ctrl.github.io";
+    const channelId = "UCaCmR_yzL9lKNm7B22ZV-3A";
+
+    /* ---------- النوافذ المنبثقة ---------- */
+    function openM(id) { $(id).style.display = 'flex'; }
+    function closeM(id) {
+      if (id === 'audioModal') $('mainAudioPlayer').pause();
+      if (id === 'videoModal') $('videoModalContainer').innerHTML = '';
+      $(id).style.display = 'none';
     }
-    function updateClock(){
-      const now=new Date();
-      const options={timeZone:'Asia/Baghdad',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true};
-      document.getElementById('localClock').textContent=new Intl.DateTimeFormat('ar-IQ',options).format(now);
+    function openLightbox(url) { $('lightboxImg').src = url; openM('lightboxModal'); }
+    document.querySelectorAll('.modal').forEach(m => {
+      m.addEventListener('click', e => { if (e.target === m) closeM(m.id); });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.modal').forEach(m => { if (m.style.display === 'flex') closeM(m.id); });
+    });
+
+    /* ---------- واتساب ---------- */
+    function sendWA() {
+      const name = $('userName').value.trim();
+      const msg = $('userMsg').value.trim();
+      if (!msg) { alert('اكتب الرسالة أولاً'); return; }
+      window.location.href = 'https://wa.me/9647835025407?text=' +
+        encodeURIComponent('مرحباً محمد، أنا ' + (name || 'زائر') + ': ' + msg);
     }
-    setInterval(updateClock,1000);updateClock();
-    async function getWeather(){
-      try{
-        const res=await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.5292&longitude=43.2199&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBaghdad');
-        const data=await res.json();
-        const temp=Math.round(data.current.temperature_2m);
-        document.getElementById('weatherTemp').textContent=temp+' °C';
-        const code=data.current.weather_code;
-        let desc='طقس معتدل',icon='🌤️';
-        if(code===0){desc='سماء صافية (مشمس)';icon='☀️';}
-        else if(code>=1&&code<=3){desc='غائم جزئي مع أجواء لطيفة';icon='⛅';}
-        else if(code>=45&&code<=48){desc='ضباب خفيف';icon='🌫️';}
-        else if(code>=51&&code<=67){desc='فرصة لهطول أمطار خفيفة';icon='🌧️';}
-        else{desc='أجواء غائمة ومستقرة';icon='☁️';}
-        document.getElementById('weatherDesc').textContent=desc;
-        document.getElementById('weatherMainIcon').textContent=icon;
-        if(data.daily&&data.daily.time){
-          const days=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
-          let forecastHtml='';
-          for(let i=1;i<=3;i++){
-            const dateObj=new Date(data.daily.time[i]);
-            const dayName=days[dateObj.getDay()];
-            const maxT=Math.round(data.daily.temperature_2m_max[i]);
-            const minT=Math.round(data.daily.temperature_2m_min[i]);
-            const dCode=data.daily.weather_code[i];
-            let dIcon='⛅';if(dCode===0)dIcon='☀️';else if(dCode>=51)dIcon='🌧️';
-            forecastHtml+=`<div style="background:rgba(255,255,255,0.15);padding:8px 4px;border-radius:8px;"><div style="font-weight:bold;">${dayName}</div><div style="font-size:15px;margin:2px 0;">${dIcon}</div><div>${maxT}° / ${minT}°</div></div>`;
+
+    /* ---------- الساعة ---------- */
+    const clockFmt = new Intl.DateTimeFormat('ar-IQ', { timeZone: 'Asia/Baghdad', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+    function updateClock() { $('localClock').textContent = clockFmt.format(new Date()); }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    /* ---------- الطقس ---------- */
+    function weatherInfo(code) {
+      if (code === 0) return ['سماء صافية (مشمس)', '☀️'];
+      if (code >= 1 && code <= 2) return ['غائم جزئي مع أجواء لطيفة', '⛅'];
+      if (code === 3) return ['أجواء غائمة ومستقرة', '☁️'];
+      if (code === 45 || code === 48) return ['ضباب خفيف', '🌫️'];
+      if (code >= 51 && code <= 57) return ['رذاذ خفيف', '🌦️'];
+      if ((code >= 61 && code <= 67) || (code >= 80 && code <= 82)) return ['فرصة لهطول أمطار', '🌧️'];
+      if ((code >= 71 && code <= 77) || code === 85 || code === 86) return ['تساقط ثلوج', '❄️'];
+      if (code >= 95) return ['عواصف رعدية', '⛈️'];
+      return ['أجواء غائمة ومستقرة', '☁️'];
+    }
+    async function getWeather() {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.5292&longitude=43.2199&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBaghdad');
+        if (!res.ok) throw new Error('weather');
+        const data = await res.json();
+        const [desc, icon] = weatherInfo(data.current.weather_code);
+        $('weatherTemp').textContent = Math.round(data.current.temperature_2m) + ' °C';
+        $('weatherDesc').textContent = desc;
+        $('weatherMainIcon').textContent = icon;
+        if (data.daily && data.daily.time) {
+          const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+          let html = '';
+          for (let i = 1; i <= 3; i++) {
+            const dayName = days[new Date(data.daily.time[i] + 'T12:00:00').getDay()];
+            const maxT = Math.round(data.daily.temperature_2m_max[i]);
+            const minT = Math.round(data.daily.temperature_2m_min[i]);
+            const dIcon = weatherInfo(data.daily.weather_code[i])[1];
+            html += `<div class="forecast-day"><div style="font-weight:bold;">${dayName}</div><div class="ico">${dIcon}</div><div>${maxT}° / ${minT}°</div></div>`;
           }
-          document.getElementById('forecastContainer').innerHTML=forecastHtml;
+          $('forecastContainer').innerHTML = html;
         }
-      }catch(e){document.getElementById('weatherDesc').textContent='طقس الشرقاط المباشر';}
+      } catch (e) {
+        $('weatherDesc').textContent = 'طقس الشرقاط المباشر';
+      }
     }
     getWeather();
-    const githubUser="mhamalgporee-ctrl",githubRepo="mhamalgporee-ctrl.github.io";
-    async function loadAutoPhotos(){
-      const container=document.getElementById('galleryModalContainer');if(!container)return;
-      try{
-        const response=await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/photos`);
-        const files=await response.json();
-        let hasImages=false;container.innerHTML='';
-        if(Array.isArray(files)){
-          files.forEach(file=>{
-            if(file.name&&file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)){
-              hasImages=true;
-              const imgCard=document.createElement('div');
-              imgCard.style.cssText='background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;overflow:hidden;padding:4px;';
-              imgCard.innerHTML=`<img src="${file.download_url}" alt="صورة" style="width:100%;height:110px;object-fit:cover;border-radius:8px;display:block;cursor:pointer;" onclick="openLightbox('${file.download_url}')">`;
-              container.appendChild(imgCard);
-            }
-          });
+
+    /* ---------- قراءة قوائم الملفات ----------
+       الأولوية لملف list.json داخل المجلد (مثال: photos/list.json = ["a.jpg","b.jpg"])
+       وإن لم يوجد يُستخدم GitHub API كبديل. */
+    async function listFiles(folder) {
+      try {
+        const r = await fetch(folder + '/list.json');
+        if (r.ok) {
+          const names = await r.json();
+          if (Array.isArray(names)) return names.map(n => ({ name: n, url: folder + '/' + encodeURIComponent(n) }));
         }
-        if(!hasImages)container.innerHTML='<p style="text-align:center;color:#64748b;grid-column:1/-1;font-size:13.5px;">لا توجد صور في الحافظة حالياً.</p>';
-      }catch(error){container.innerHTML='<p style="text-align:center;color:#dc2626;grid-column:1/-1;font-size:13.5px;">جاري تجهيز حافظة الصور...</p>';}
+      } catch (e) {}
+      const r = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${folder}`);
+      const files = await r.json();
+      return Array.isArray(files) ? files.map(f => ({ name: f.name, url: f.download_url })) : [];
+    }
+
+    /* ---------- معرض الصور ---------- */
+    async function loadAutoPhotos() {
+      const container = $('galleryModalContainer');
+      try {
+        const images = (await listFiles('photos')).filter(f => /\.(jpe?g|png|webp|gif)$/i.test(f.name));
+        container.innerHTML = '';
+        if (!images.length) {
+          container.innerHTML = '<p class="gallery-msg">لا توجد صور في الحافظة حالياً.</p>';
+          return;
+        }
+        images.forEach(f => {
+          const card = document.createElement('div');
+          card.className = 'gallery-item';
+          const img = document.createElement('img');
+          img.src = f.url;
+          img.alt = 'صورة';
+          img.loading = 'lazy';
+          img.addEventListener('click', () => openLightbox(f.url));
+          card.appendChild(img);
+          container.appendChild(card);
+        });
+      } catch (e) {
+        container.innerHTML = '<p class="gallery-msg error">جاري تجهيز حافظة الصور...</p>';
+      }
     }
     loadAutoPhotos();
-    async function openAudioModal(){
+
+    /* ---------- الصوت ---------- */
+    async function openAudioModal() {
       openM('audioModal');
-      const player=document.getElementById('mainAudioPlayer');
-      try{
-        const res=await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/audio`);
-        const files=await res.json();
-        if(Array.isArray(files)&&files.length>0)player.src=files[files.length-1].download_url;
-        else player.src="audio/story.mp3";
-        player.play().catch(e=>{});
-      }catch(e){player.src="audio/story.mp3";}
+      const player = $('mainAudioPlayer');
+      if (player.getAttribute('src')) { player.play().catch(() => {}); return; }
+      let src = 'audio/story.mp3', title = 'اضغط تشغيل للاستماع';
+      try {
+        const files = (await listFiles('audio')).filter(f => /\.(mp3|m4a|wav|ogg)$/i.test(f.name));
+        if (files.length) {
+          const last = files[files.length - 1];
+          src = last.url;
+          title = last.name.replace(/\.[^.]+$/, '');
+        }
+      } catch (e) {}
+      player.src = src;
+      $('audioTitle').textContent = title;
+      player.play().catch(() => {});
     }
-    function closeAudioM(){
-      document.getElementById('mainAudioPlayer').pause();
-      closeM('audioModal');
-    }
-    function openVideoModal(){
+
+    /* ---------- الفيديو ---------- */
+    function openVideoModal() {
       openM('videoModal');
-      const container=document.getElementById('videoModalContainer');
-      const channelId='UCaCmR_yzL9lKNm7B22ZV-3A';
-      const uploadsPlaylistId='UU'+channelId.substring(2);
-      container.innerHTML=`
-        <div style="background:#f8fafc;padding:8px;border-radius:12px;border:1px solid #ddd;text-align:center;">
-          <iframe src="https://www.youtube.com/embed/videoseries?list=${uploadsPlaylistId}" style="width:100%;height:260px;border:0;border-radius:8px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p style="font-size:12.5px;font-weight:bold;margin-top:8px;color:#be123c;">📺 أحدث فيديوهات ومقاطع القناة المباشرة</p>
+      const uploads = 'UU' + channelId.substring(2);
+      $('videoModalContainer').innerHTML = `
+        <div class="video-box">
+          <iframe title="أحدث فيديوهات القناة" src="https://www.youtube.com/embed/videoseries?list=${uploads}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p>📺 أحدث فيديوهات ومقاطع القناة المباشرة</p>
         </div>
-        <a href="https://youtube.com/channel/${channelId}" target="_blank" class="btn btn-secondary" style="border:1px solid #be123c;color:#be123c;text-align:center;font-weight:bold;display:block;margin-top:10px;">🔴 الانتقال مباشرة إلى القناة على يوتيوب</a>
-        <button onclick="closeM('videoModal')" class="btn btn-secondary" style="width:100%;margin-top:10px;padding:10px;font-weight:bold;border:1.5px solid #be123c;color:#be123c;background:#fff1f2;border-radius:10px;cursor:pointer;">↩️ عودة للموقع</button>
-      `;
+        <a href="https://youtube.com/channel/${channelId}" target="_blank" rel="noopener" class="btn btn-outline-red btn-block">🔴 الانتقال مباشرة إلى القناة على يوتيوب</a>
+        <button type="button" onclick="closeM('videoModal')" class="back-btn red">↩️ عودة للموقع</button>`;
     }
   </script>
 </body>
 </html>
-
