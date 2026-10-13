@@ -4,144 +4,649 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>الشرقاط الثقافي الأول</title>
-<meta name="description" content="الموقع الرسمي لمحمد علي أحمد الحطاب الجبوري - برامج وكتب ومقالات وبث مباشر.">
+<meta name="theme-color" content="#064e3b">
+<meta name="color-scheme" content="light">
+<title>الشرقاط الثقافي الأول | محمد علي أحمد الحطاب الجبوري</title>
+<meta name="description" content="الموقع الرسمي لمحمد علي أحمد الحطاب الجبوري. كتب ومؤلفات وقصص تراثية ومقالات ثقافية وتطبيقات ومكتبة صوتية ومرئية وطقس الشرقاط.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="googlebot" content="index,follow">
 <link rel="canonical" href="https://mhamalgporee-ctrl.github.io/">
 <link rel="icon" href="acon.jpg" type="image/jpeg">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="ar_IQ">
 <meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
 <meta property="og:title" content="الشرقاط الثقافي الأول">
-<meta property="og:description" content="الموقع الرسمي لمحمد علي أحمد الحطاب الجبوري - برامج وكتب ومقالات وبث مباشر.">
+<meta property="og:description" content="كتب وقصص وتراث الشرقاط ومؤلفات وبرامج محمد علي أحمد الحطاب الجبوري.">
 <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
 <meta property="og:image:secure_url" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta name="google-site-verification" content="6HjrABgTASI6TtgnCAzTiYd66cRmVpN5unzJNBG6vDg">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
 <script>
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments)}
-gtag('js',new Date());
-gtag('config','G-3VZQSDZNC7');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3VZQSDZNC7');
 </script>
 
 <style>
-:root{--p:#064e3b;--dark:#022c22;--light:#f0fdf4;--bg:#fdfbf7;--text:#1e293b;--muted:#64748b;--border:#d4b572;--shadow:0 4px 20px #064e3b14}
+:root{
+ --p:#064e3b;
+ --dark:#022c22;
+ --light:#f0fdf4;
+ --bg:#fdfbf7;
+ --text:#1e293b;
+ --muted:#64748b;
+ --border:#d4b572;
+ --shadow:0 4px 20px #064e3b14;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;max-width:100%;overflow-x:hidden}
-body{font-family:system-ui,-apple-system,sans-serif;background:linear-gradient(#fdfbf7eb,#f0fdf4eb);background-color:var(--bg);background-attachment:fixed;color:var(--text);line-height:1.6}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+ font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+ background:linear-gradient(135deg,#fdfbf7,#f0fdf4);
+ background-color:var(--bg);
+ color:var(--text);
+ line-height:1.7;
+ min-height:100vh;
+}
+body.modal-open{overflow:hidden}
 a{text-decoration:none;color:inherit}
 button,input,textarea{font:inherit}
 button{cursor:pointer}
-.navbar{position:sticky;top:0;z-index:100;background:#064e3bf2;backdrop-filter:blur(8px);border-bottom:2px solid var(--border);box-shadow:0 2px 10px #0002}
-.nav-container{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.logo{font-size:18px;font-weight:800;color:#fef08a}
-.nav-links{display:flex;gap:15px;color:white;font-size:14px;font-weight:700}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
+ outline:3px solid #f59e0b;
+ outline-offset:3px;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+/* شريط التنقل */
+.navbar{
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:#064e3bf5;
+ border-bottom:2px solid var(--border);
+ box-shadow:0 2px 10px #0002;
+ backdrop-filter:blur(10px);
+}
+.nav-container{
+ max-width:1100px;
+ margin:auto;
+ padding:12px 16px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+}
+.logo{
+ font-size:17px;
+ font-weight:900;
+ color:#fef08a;
+}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-links{
+ display:flex;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:14px;
+ color:white;
+ font-size:13px;
+ font-weight:700;
+}
 .nav-links a:hover{color:#fef08a}
-.container{max-width:1100px;margin:auto;padding:15px;width:100%}
-.hero,.book-banner,.card{background:white;border:1.5px solid var(--border);box-shadow:var(--shadow)}
-.hero{padding:20px;border-radius:18px;border-width:2px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px;overflow:hidden}
+.menu-toggle{
+ display:none;
+ color:white;
+ background:#ffffff18;
+ border:1px solid #ffffff50;
+ border-radius:9px;
+ padding:7px 11px;
+}
+.container{max-width:1100px;width:100%;margin:auto;padding:16px}
+
+/* الواجهة */
+.hero,.book-banner,.card{
+ background:white;
+ border:1.5px solid var(--border);
+ box-shadow:var(--shadow);
+}
+.hero{
+ padding:20px;
+ border-radius:18px;
+ border-width:2px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+ margin-bottom:20px;
+}
 .hero-text{flex:1;min-width:0}
-.hero-text h1{font-size:22px;color:var(--p);margin-bottom:6px;font-weight:800}
+.hero-text h1{
+ font-size:clamp(21px,3vw,29px);
+ color:var(--p);
+ margin-bottom:6px;
+ font-weight:900;
+}
 .hero-text>p{color:var(--muted);font-size:14px;margin-bottom:12px}
-.master-istighfar{background:linear-gradient(135deg,#f0fdf4,#e6f4ea);border:1.5px dashed var(--p);border-radius:12px;padding:12px 14px;margin-bottom:15px;font-size:13.5px;color:var(--p);font-weight:600;line-height:1.8}
-.master-istighfar span{display:block;color:#047857;font-weight:800;margin-bottom:4px;font-size:14px}
+.master-istighfar{
+ background:linear-gradient(135deg,#f0fdf4,#e6f4ea);
+ border:1.5px dashed var(--p);
+ border-radius:12px;
+ padding:12px 14px;
+ margin-bottom:15px;
+ font-size:13.5px;
+ color:var(--p);
+ font-weight:600;
+ line-height:1.9;
+}
+.master-istighfar span{
+ display:block;
+ color:#047857;
+ font-weight:800;
+ margin-bottom:4px;
+ font-size:14px;
+}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-block;padding:9px 16px;border-radius:10px;font-weight:bold;font-size:13.5px;border:0;text-align:center}
+.btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:5px;
+ padding:9px 16px;
+ border-radius:10px;
+ font-weight:800;
+ font-size:13px;
+ border:1px solid transparent;
+ text-align:center;
+}
 .btn-primary{background:var(--p);color:white}
-.btn-secondary{background:#f1f5f9;color:var(--text);border:1px solid var(--border)}
-.hero-img-wrapper{display:flex;justify-content:center;align-items:center;gap:8px;flex-shrink:0}
-.hero-img{width:100px;max-width:100%;height:auto;max-height:150px;border-radius:12px;border:2px solid var(--p);object-fit:contain;background:#f8fafc;box-shadow:0 6px 18px #0002}
-@keyframes pulseWeather{50%{transform:scale(1.2)}}
-.weather-icon-pulse{display:inline-block;animation:pulseWeather 2s infinite ease-in-out}
-.ticker,.ticker-green{overflow:hidden;white-space:nowrap;width:100%;font-size:13px;font-weight:bold;border-radius:12px;margin-bottom:15px}
-.ticker{background:#fffdf0;border:1px solid #d4af37;padding:8px;color:#78350f}
-.ticker-green{background:#d1fae5;border:1px solid #34d399;padding:9px 8px;color:var(--p);margin-bottom:25px}
-.ticker-content,.ticker-green-content{display:inline-block;animation:scrollText 22s linear infinite}
-.ticker-green-content{animation-duration:45s}
-@keyframes scrollText{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
-.audio-banner,.video-banner{padding:18px;border-radius:18px;text-align:center;margin-bottom:20px}
-.audio-banner{background:linear-gradient(135deg,#fff,#f0fdf4);border:2px solid var(--p)}
-.video-banner{background:linear-gradient(135deg,#fff,#fff1f2);border:2px solid #be123c;margin-bottom:22px}
+.btn-primary:hover{background:#047857}
+.btn-secondary{background:#f1f5f9;color:var(--text);border-color:var(--border)}
+.btn-secondary:hover{background:#e2e8f0}
+.hero-img-wrapper{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:8px;
+ flex-shrink:0;
+}
+.hero-img{
+ width:95px;
+ max-width:30%;
+ height:125px;
+ border-radius:12px;
+ border:2px solid var(--p);
+ object-fit:contain;
+ background:#f8fafc;
+ box-shadow:0 6px 18px #0002;
+}
+
+/* الرسائل المتحركة */
+.ticker,.ticker-green{
+ overflow:hidden;
+ white-space:nowrap;
+ width:100%;
+ font-size:13px;
+ font-weight:bold;
+ border-radius:12px;
+ margin-bottom:15px;
+}
+.ticker{
+ background:#fffdf0;
+ border:1px solid #d4af37;
+ padding:8px;
+ color:#78350f;
+}
+.ticker-green{
+ background:#d1fae5;
+ border:1px solid #34d399;
+ padding:9px 8px;
+ color:var(--p);
+ margin-bottom:25px;
+}
+.ticker-content,.ticker-green-content{
+ display:inline-block;
+ width:max-content;
+ animation:scrollText 28s linear infinite;
+}
+.ticker-green-content{animation-duration:48s}
+.ticker:hover .ticker-content,
+.ticker-green:hover .ticker-green-content{animation-play-state:paused}
+@keyframes scrollText{
+ from{transform:translateX(-100%)}
+ to{transform:translateX(100%)}
+}
+
+/* الصوت والفيديو */
+.audio-banner,.video-banner{
+ padding:18px;
+ border-radius:18px;
+ text-align:center;
+ margin-bottom:20px;
+}
+.audio-banner{
+ background:linear-gradient(135deg,#fff,#f0fdf4);
+ border:2px solid var(--p);
+}
+.video-banner{
+ background:linear-gradient(135deg,#fff,#fff1f2);
+ border:2px solid #be123c;
+ margin-bottom:22px;
+}
 .banner-icon{font-size:30px;margin-bottom:4px}
-.audio-banner h3,.video-banner h3{font-size:17px;font-weight:800;margin-bottom:4px}
-.audio-banner h3{color:var(--p)}
-.video-banner h3{color:#be123c}
+.audio-banner h2,.video-banner h2{font-size:17px;font-weight:900;margin-bottom:4px}
+.audio-banner h2{color:var(--p)}
+.video-banner h2{color:#be123c}
 .banner-desc{font-size:13px;color:var(--muted);margin-bottom:12px}
 .video-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.section-title{text-align:center;font-size:19px;margin-bottom:18px;font-weight:800;color:var(--p)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:25px;width:100%}
-.card{padding:14px;border-radius:16px;transition:transform .2s;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
-.card:hover{transform:translateY(-2px)}
-.card-icon{width:36px;height:36px;background:var(--light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:8px}
-.card h3{font-size:13.5px;color:var(--text);margin-bottom:5px;font-weight:800;line-height:1.5}
-.card p{font-size:11.5px;color:var(--muted);line-height:1.5;margin-bottom:8px}
-.card-link{font-size:11px;font-weight:bold;color:var(--p);margin-top:auto}
+
+/* البحث */
+.search-panel{
+ background:white;
+ border:1.5px solid var(--border);
+ box-shadow:var(--shadow);
+ padding:15px;
+ border-radius:15px;
+ margin-bottom:25px;
+}
+.search-panel label{
+ display:block;
+ font-weight:800;
+ color:var(--p);
+ margin-bottom:7px;
+}
+.search-row{display:flex;gap:8px}
+.search-input{
+ width:100%;
+ min-width:0;
+ padding:11px 13px;
+ border:1px solid #cbd5e1;
+ border-radius:10px;
+ background:#fff;
+ color:var(--text);
+}
+.search-status{font-size:12px;color:var(--muted);margin-top:7px}
+
+/* الأقسام */
+.section-title{
+ text-align:center;
+ font-size:20px;
+ margin-bottom:18px;
+ font-weight:900;
+ color:var(--p);
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px;
+ margin-bottom:25px;
+ width:100%;
+}
+.card{
+ padding:15px;
+ border-radius:16px;
+ transition:transform .2s,box-shadow .2s;
+ display:flex;
+ flex-direction:column;
+ align-items:stretch;
+ text-align:right;
+ min-width:0;
+}
+.card:hover{
+ transform:translateY(-2px);
+ box-shadow:0 8px 24px #064e3b20;
+}
+.card-icon{
+ width:38px;
+ height:38px;
+ background:var(--light);
+ border-radius:10px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:19px;
+ margin-bottom:8px;
+}
+.card h3{
+ font-size:14px;
+ color:var(--text);
+ margin-bottom:5px;
+ font-weight:900;
+ line-height:1.6;
+}
+.card p{
+ font-size:12px;
+ color:var(--muted);
+ line-height:1.7;
+ margin-bottom:9px;
+}
+.card-link{
+ font-size:12px;
+ font-weight:900;
+ color:var(--p);
+ margin-top:auto;
+}
 .card-live{background:#fff0f0;border-color:#fca5a5}
 .card-live .card-icon{background:#fee2e2}
-.book-banner{border-radius:18px;padding:20px;text-align:center;margin-bottom:25px}
-.book-banner-img{width:120px;height:auto;border-radius:10px;box-shadow:0 6px 15px #0002;margin-bottom:12px;border:2px solid var(--p)}
-.weather-panel{background:linear-gradient(135deg,var(--p),var(--dark));color:white;padding:22px;border-radius:18px;margin-bottom:25px;border:1.5px solid var(--border);text-align:center;width:100%}
-.clock-area{margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid #ffffff33}
+.card-live h3,.card-live .card-link{color:#dc2626}
+.card-button{
+ width:100%;
+ font:inherit;
+ background:white;
+ border:1.5px solid var(--border);
+ box-shadow:var(--shadow);
+}
+.no-results{
+ text-align:center;
+ padding:20px;
+ color:var(--muted);
+ background:#fff;
+ border:1px dashed var(--border);
+ border-radius:12px;
+ margin-bottom:20px;
+}
+
+/* الكتاب */
+.book-banner{
+ border-radius:18px;
+ padding:20px;
+ text-align:center;
+ margin-bottom:25px;
+}
+.book-banner-img{
+ width:130px;
+ max-height:190px;
+ object-fit:contain;
+ border-radius:10px;
+ box-shadow:0 6px 15px #0002;
+ margin-bottom:12px;
+ border:2px solid var(--p);
+}
+.book-banner h2{font-size:16px;font-weight:900;margin-bottom:6px}
+.book-banner p{font-size:12px;color:var(--muted);margin-bottom:12px}
+
+/* الطقس والساعة */
+.weather-panel{
+ background:linear-gradient(135deg,var(--p),var(--dark));
+ color:white;
+ padding:22px;
+ border-radius:18px;
+ margin-bottom:25px;
+ border:1.5px solid var(--border);
+ text-align:center;
+ width:100%;
+}
+.clock-area{
+ margin-bottom:18px;
+ padding-bottom:15px;
+ border-bottom:1px solid #ffffff33;
+}
 .clock-label{font-size:13px;opacity:.9;margin-bottom:5px}
-#localClock{font-size:28px;font-weight:800;color:#fef08a;background:#0004;padding:10px 20px;border-radius:14px;display:inline-block;white-space:nowrap;box-shadow:0 4px 15px #0003}
-.weather-current{display:flex;justify-content:space-around;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:15px}
-.weather-current h4{font-size:16px}
-.weather-current p{font-size:13px;opacity:.9;margin-top:2px}
-#weatherTemp{font-size:26px;font-weight:bold}
-.forecast-area{border-top:1px solid #ffffff33;padding-top:12px;margin-bottom:15px}
-.forecast-heading{font-size:13px;font-weight:bold;margin-bottom:8px}
-#forecastContainer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;font-size:12px;text-align:center}
-.forecast-day{background:#ffffff1a;padding:8px 4px;border-radius:8px}
-.map-frame{border-radius:12px;overflow:hidden;border:1px solid #ffffff4d;background:var(--dark)}
+#localClock{
+ font-size:27px;
+ font-weight:900;
+ color:#fef08a;
+ background:#0004;
+ padding:8px 16px;
+ border-radius:14px;
+ display:inline-block;
+ white-space:nowrap;
+ box-shadow:0 4px 15px #0003;
+}
+.weather-current{
+ display:flex;
+ justify-content:space-around;
+ align-items:center;
+ gap:15px;
+ flex-wrap:wrap;
+ margin-bottom:15px;
+}
+.weather-current h3{font-size:16px}
+.weather-current p{font-size:13px;opacity:.95;margin-top:3px}
+#weatherTemp{font-size:27px;font-weight:900}
+.weather-icon-pulse{display:inline-block}
+.forecast-area{
+ border-top:1px solid #ffffff33;
+ padding-top:12px;
+ margin-bottom:15px;
+}
+.forecast-heading{font-size:13px;font-weight:900;margin-bottom:8px}
+#forecastContainer{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:8px;
+ font-size:12px;
+ text-align:center;
+}
+.forecast-day{background:#ffffff1a;padding:9px 4px;border-radius:8px}
+.weather-updated{font-size:11px;opacity:.85;margin:10px 0}
+.map-frame{
+ border-radius:12px;
+ overflow:hidden;
+ border:1px solid #ffffff4d;
+ background:var(--dark);
+}
 .map-frame iframe{display:block;width:100%;height:280px;border:0}
-.footer{text-align:center;padding:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;margin-top:25px;background:#ffffffcc;border-radius:12px}
-.modal{display:none;position:fixed;inset:0;width:100%;height:100%;height:100dvh;background:#0009;z-index:1000;justify-content:center;align-items:center;padding:15px}
-.modal-box{background:white;padding:20px;border-radius:16px;width:100%;max-width:420px;position:relative;border:2px solid var(--border);max-height:85vh;max-height:85dvh;overflow-y:auto}
-.modal-box h3{margin-bottom:10px}
-.modal-close{position:absolute;left:12px;top:12px;border:0;background:#f1f5f9;width:32px;height:32px;border-radius:50%;font-size:16px;font-weight:bold;z-index:2}
-.form-field{display:block;width:100%;padding:9px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
-.gallery-card{background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;overflow:hidden;padding:4px}
-.gallery-card img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block;cursor:pointer}
+.retry-btn{
+ margin-top:10px;
+ background:#fff;
+ color:var(--p);
+ border:1px solid var(--border);
+ border-radius:8px;
+ padding:7px 12px;
+ font-weight:800;
+}
+
+/* النوافذ */
+.modal{
+ display:none;
+ position:fixed;
+ inset:0;
+ width:100%;
+ height:100%;
+ height:100dvh;
+ background:#0009;
+ z-index:1000;
+ justify-content:center;
+ align-items:center;
+ padding:15px;
+}
+.modal-box{
+ background:white;
+ padding:22px 18px 18px;
+ border-radius:16px;
+ width:100%;
+ max-width:440px;
+ position:relative;
+ border:2px solid var(--border);
+ max-height:88vh;
+ max-height:88dvh;
+ overflow-y:auto;
+ overscroll-behavior:contain;
+}
+.modal-box h2,.modal-box h3{margin-bottom:12px;padding-left:32px}
+.modal-close{
+ position:absolute;
+ left:12px;
+ top:12px;
+ border:0;
+ background:#f1f5f9;
+ width:34px;
+ height:34px;
+ border-radius:50%;
+ font-size:16px;
+ font-weight:900;
+ color:var(--text);
+}
+.form-field{
+ display:block;
+ width:100%;
+ padding:10px;
+ margin-bottom:10px;
+ border:1px solid #cbd5e1;
+ border-radius:8px;
+ background:#fff;
+ color:var(--text);
+}
+.gallery-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(105px,1fr));
+ gap:10px;
+}
+.gallery-card{
+ background:#f8fafc;
+ border:1px solid #cbd5e1;
+ border-radius:12px;
+ overflow:hidden;
+ padding:4px;
+}
+.gallery-card img{
+ width:100%;
+ height:110px;
+ object-fit:cover;
+ border-radius:8px;
+ display:block;
+ cursor:zoom-in;
+}
+.gallery-card img:focus-visible{outline:3px solid #047857}
+.gallery-message{
+ text-align:center;
+ color:var(--muted);
+ grid-column:1/-1;
+ padding:14px 4px;
+}
 .lightbox{background:#000e;z-index:2000}
-.lightbox-content{position:relative;max-width:90%;max-height:90vh;display:flex;justify-content:center;align-items:center}
-.lightbox-content img{max-width:100%;max-height:85vh;border-radius:12px;object-fit:contain;box-shadow:0 8px 30px #0008}
-.lightbox-close{position:absolute;top:-45px;left:0;background:white;color:var(--p);border:0;width:36px;height:36px;border-radius:50%;font-size:20px;font-weight:bold}
+.lightbox-content{
+ position:relative;
+ max-width:95%;
+ max-height:90vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+}
+.lightbox-content img{
+ max-width:100%;
+ max-height:80vh;
+ border-radius:12px;
+ object-fit:contain;
+ box-shadow:0 8px 30px #0008;
+}
+.lightbox-close{
+ position:absolute;
+ top:-43px;
+ left:0;
+ background:white;
+ color:var(--p);
+ border:0;
+ width:36px;
+ height:36px;
+ border-radius:50%;
+ font-size:20px;
+ font-weight:900;
+}
 .video-list{display:flex;flex-direction:column;gap:12px}
 .video-frame{width:100%;height:260px;border:0;border-radius:8px}
-@media(max-width:550px){
- .hero{flex-direction:column-reverse;text-align:center;padding:15px}
- .nav-links{display:none}
- .grid{grid-template-columns:1fr}
- .hero-img{max-width:80px}
- .hero-img-wrapper{gap:5px;width:100%}
- .hero-img{max-width:28%;max-height:125px}
+.audio-player{width:100%;margin:10px 0 15px}
+.footer{
+ text-align:center;
+ padding:18px;
+ border-top:1px solid var(--border);
+ color:var(--muted);
+ font-size:12px;
+ margin-top:25px;
+ background:#ffffffcc;
+ border-radius:12px;
+}
+.footer a{color:var(--p);font-weight:800}
+.back-top{
+ position:fixed;
+ bottom:16px;
+ left:15px;
+ z-index:90;
+ border:1px solid var(--border);
+ border-radius:50%;
+ width:43px;
+ height:43px;
+ background:var(--p);
+ color:white;
+ box-shadow:0 4px 12px #0003;
+ font-size:19px;
+}
+@media(min-width:800px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:650px){
+ .nav-container{flex-wrap:wrap;padding:10px 12px}
+ .logo{font-size:15px}
+ .menu-toggle{display:inline-flex}
+ .nav-actions{margin-right:auto}
+ .nav-links{
+  display:none;
+  width:100%;
+  flex-direction:column;
+  align-items:stretch;
+  gap:0;
+  padding-top:8px;
+  border-top:1px solid #ffffff35;
+ }
+ .nav-links.is-open{display:flex}
+ .nav-links a{padding:9px 5px;border-radius:7px}
+ .nav-links a:hover{background:#ffffff15}
+ .container{padding:11px}
+ .hero{flex-direction:column-reverse;text-align:center;padding:15px;gap:13px}
+ .hero-btns{justify-content:center}
+ .hero-img-wrapper{width:100%;gap:6px}
+ .hero-img{width:29%;max-width:100%;height:100px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .card{padding:12px}
+ .card h3{font-size:13px}
+ .card p{font-size:11.5px}
+ .search-row{flex-direction:column}
  #localClock{font-size:23px}
+ .weather-panel{padding:15px}
+ .map-frame iframe{height:230px}
+}
+@media(max-width:360px){
+ .grid{grid-template-columns:1fr}
+ .hero-img{height:85px}
+ #forecastContainer{gap:5px;font-size:11px}
+ .forecast-day{padding:7px 2px}
 }
 @media(prefers-reduced-motion:reduce){
- *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}
+ *,*::before,*::after{
+  animation-duration:.01ms!important;
+  animation-iteration-count:1!important;
+  scroll-behavior:auto!important;
+  transition:none!important;
+ }
 }
 </style>
 </head>
 
-<body>
+<body id="top">
+
 <nav class="navbar">
  <div class="nav-container">
-  <div class="logo">الشرقاط الثقافي الأول</div>
-  <div class="nav-links">
-   <a href="tv.html" style="color:#fef08a">📺 البث المباشر</a>
-   <a href="book.html">📚 اقرأ مؤلفاتي</a>
+  <a class="logo" href="#top">الشرقاط الثقافي الأول</a>
+  <div class="nav-actions">
+   <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ القائمة</button>
+  </div>
+  <div class="nav-links" id="mainNav">
+   <a href="#sections">🌐 الأقسام</a>
+   <a href="tv.html">📺 البث المباشر</a>
+   <a href="book.html">📚 مؤلفاتي</a>
    <a href="apps.html">📱 التطبيقات</a>
+   <a href="#weather">🌤️ الطقس</a>
+   <a href="#" id="contactNav">💬 تواصل معي</a>
   </div>
  </div>
 </nav>
 
 <main class="container">
+
 <section class="hero">
  <div class="hero-text">
   <h1>الشرقاط الثقافي الأول</h1>
@@ -151,159 +656,237 @@ button{cursor:pointer}
    اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك عليَّ، وأبوء بذنبي، فاغفر لي؛ فإنه لا يغفر الذنوب إلا أنت.
   </div>
   <div class="hero-btns">
-   <button type="button" onclick="openM('aboutModal')" class="btn btn-secondary">👤 نبذة عني</button>
-   <button type="button" onclick="openM('chatModal')" class="btn btn-primary">💬 تواصل معي</button>
+   <button type="button" data-open="aboutModal" class="btn btn-secondary">👤 نبذة عني</button>
+   <button type="button" data-open="chatModal" class="btn btn-primary">💬 تواصل معي</button>
   </div>
  </div>
  <div class="hero-img-wrapper">
-  <img src="acon.jpg" alt="شعار الموقع" class="hero-img">
-  <img src="acon1.jpg" alt="صورة الموقع الأولى" class="hero-img">
-  <img src="acon2.jpg" alt="صورة الموقع الثانية" class="hero-img">
+  <img src="acon.jpg" alt="شعار موقع الشرقاط الثقافي" class="hero-img" width="95" height="125">
+  <img src="acon1.jpg" alt="صورة الموقع الأولى" class="hero-img" width="95" height="125" loading="lazy">
+  <img src="acon2.jpg" alt="صورة الموقع الثانية" class="hero-img" width="95" height="125" loading="lazy">
  </div>
 </section>
 
-<div class="ticker"><div class="ticker-content">✨ أهلاً بك زائرنا الكريم .. تصفح البرامج والكتب والقصص والبث المباشر للقنوات الرياضية والفيديوهات ✨</div></div>
-<div class="ticker-green"><div class="ticker-green-content">🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ. أستغفر الله والحمد لله على كل حال وأعوذ بالله من حال أهل النار 🌿</div></div>
+<div class="ticker" aria-label="ترحيب بالزوار">
+ <div class="ticker-content">✨ أهلاً بك زائرنا الكريم .. تصفح البرامج والكتب والقصص والبث المباشر والفيديوهات ✨</div>
+</div>
+<div class="ticker-green">
+ <div class="ticker-green-content">🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ. أستغفر الله والحمد لله على كل حال وأعوذ بالله من حال أهل النار 🌿</div>
+</div>
 
 <section class="audio-banner">
  <div class="banner-icon">🎙️</div>
- <h3>كل يوم قصة</h3>
+ <h2>كل يوم قصة</h2>
  <p class="banner-desc">استمع إلى التسجيلات القصصية والصوتية الحصرية</p>
- <button type="button" onclick="openAudioModal()" class="btn btn-primary">▶️ اضغط هنا للاستماع</button>
+ <button type="button" id="openAudioBtn" class="btn btn-primary">▶️ اضغط هنا للاستماع</button>
 </section>
 
 <section class="video-banner">
  <div class="banner-icon">🎥</div>
- <h3>مكتبة الفيديوهات المرئية</h3>
- <p class="banner-desc">شاهد أحدث الحلقات والمقاطع المرئية من قناتي مباشرة</p>
+ <h2>مكتبة الفيديوهات المرئية</h2>
+ <p class="banner-desc">شاهد الحلقات والمقاطع المرئية من قناتي مباشرة</p>
  <div class="video-actions">
-  <button type="button" onclick="openVideoModal()" class="btn" style="background:#be123c;color:white">▶️ استعرض الفيديوهات</button>
+  <button type="button" id="openVideoBtn" class="btn" style="background:#be123c;color:white">▶️ استعرض الفيديوهات</button>
   <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border-color:#be123c;color:#be123c">🔴 قناة اليوتيوب</a>
  </div>
 </section>
 
-<h2 class="section-title">🌐 الأقسام الرئيسية</h2>
-<div class="grid">
- <a href="tv.html" class="card card-live">
-  <div class="card-icon">📺</div><h3 style="color:#dc2626">البث المباشر</h3>
-  <p>متابعة القنوات الرياضية وقنوات مباشر.</p><span class="card-link" style="color:#dc2626">شاهد الآن 🔴</span>
- </a>
- <a href="shelash.html" class="card">
-  <div class="card-icon">📜</div><h3>قصة الشيخ المرحوم شلاش الفرج رحمه الله</h3>
-  <p>قصة الشيخ شلاش الفرج أحد رموز عشائر الجبور.</p><span class="card-link">قراءة القصة ◄</span>
- </a>
- <a href="shirqat.html" class="card">
-  <div class="card-icon">🏛️</div><h3>الشرقاط مدينتي</h3>
-  <p>تاريخ وإبداع، وثيقة أدبية حول المدينة.</p><span class="card-link">قراءة المقال ◄</span>
- </a>
- <a href="okab.html" class="card">
-  <div class="card-icon">👑</div><h3>قصة جدي عگاب رحمه الله</h3>
-  <p>لقاؤه بالملك فيصل كما روتها أمي.</p><span class="card-link">قراءة القصة ◄</span>
- </a>
- <a href="book.html" class="card">
-  <div class="card-icon">📚</div><h3>اقرأ مؤلفاتي</h3>
-  <p>تصفح الكتب الحصرية والمؤلفات الأدبية.</p><span class="card-link">دخول القسم ◄</span>
- </a>
- <a href="apps.html" class="card">
-  <div class="card-icon">📱</div><h3>البرامج والتطبيقات</h3>
-  <p>تطبيقات الكمبيوتر والموبايل.</p><span class="card-link">دخول القسم ◄</span>
- </a>
- <button type="button" onclick="openM('galleryModal')" class="card" style="text-align:right;font:inherit;cursor:pointer">
-  <div class="card-icon">🖼️</div><h3>معرض الصور</h3>
-  <p>استعراض الصور والذكريات داخل حافظة مستقلة.</p><span class="card-link">فتح الحافظة ◄</span>
- </button>
- <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer" class="card">
-  <div class="card-icon">🌐</div><h3>مدونة ووردبريس</h3>
-  <p>المدونة الشخصية للاطلاع على المنشورات.</p><span class="card-link">زيارة المدونة ◄</span>
- </a>
-</div>
+<section class="search-panel" aria-label="البحث في الموقع">
+ <label for="siteSearch">🔎 ابحث داخل أقسام الموقع</label>
+ <div class="search-row">
+  <input id="siteSearch" class="search-input" type="search" placeholder="اكتب اسم كتاب أو قصة أو تطبيق..." autocomplete="off">
+  <button type="button" id="clearSearch" class="btn btn-secondary">مسح البحث</button>
+ </div>
+ <p id="searchStatus" class="search-status">اكتب كلمة للعثور على القسم المطلوب.</p>
+</section>
+
+<section id="sections">
+ <h2 class="section-title">🌐 الأقسام الرئيسية</h2>
+ <div class="grid" id="sectionGrid">
+
+  <a href="tv.html" class="card card-live" data-search="البث المباشر التلفزيون القنوات الرياضية">
+   <div class="card-icon">📺</div>
+   <h3>البث المباشر</h3>
+   <p>متابعة القنوات الرياضية وقنوات البث المباشر.</p>
+   <span class="card-link">شاهد الآن 🔴</span>
+  </a>
+
+  <a href="shelash.html" class="card" data-search="قصة الشيخ شلاش الفرج عشائر الجبور">
+   <div class="card-icon">📜</div>
+   <h3>قصة الشيخ المرحوم شلاش الفرج رحمه الله</h3>
+   <p>قصة الشيخ شلاش الفرج أحد رموز عشائر الجبور.</p>
+   <span class="card-link">قراءة القصة ◄</span>
+  </a>
+
+  <a href="shirqat.html" class="card" data-search="الشرقاط مدينتي تاريخ المدينة مقال ثقافي">
+   <div class="card-icon">🏛️</div>
+   <h3>الشرقاط مدينتي</h3>
+   <p>تاريخ وإبداع، ووثيقة أدبية حول المدينة.</p>
+   <span class="card-link">قراءة المقال ◄</span>
+  </a>
+
+  <a href="okab.html" class="card" data-search="قصة جدي عگاب الملك فيصل ذكريات العائلة">
+   <div class="card-icon">👑</div>
+   <h3>قصة جدي عگاب رحمه الله</h3>
+   <p>لقاؤه بالملك فيصل كما روتها أمي.</p>
+   <span class="card-link">قراءة القصة ◄</span>
+  </a>
+
+  <a href="book.html" class="card" data-search="الكتب المؤلفات القراءة الكتب الأدبية">
+   <div class="card-icon">📚</div>
+   <h3>اقرأ مؤلفاتي</h3>
+   <p>تصفح الكتب الحصرية والمؤلفات الأدبية.</p>
+   <span class="card-link">دخول القسم ◄</span>
+  </a>
+
+  <a href="apps.html" class="card" data-search="البرامج التطبيقات الموبايل الهاتف الكمبيوتر">
+   <div class="card-icon">📱</div>
+   <h3>البرامج والتطبيقات</h3>
+   <p>تطبيقات الكمبيوتر والموبايل.</p>
+   <span class="card-link">دخول القسم ◄</span>
+  </a>
+
+  <button type="button" class="card card-button" data-open="galleryModal" data-search="معرض الصور الصور القديمة الذكريات">
+   <div class="card-icon">🖼️</div>
+   <h3>معرض الصور</h3>
+   <p>استعراض الصور والذكريات داخل حافظة مستقلة.</p>
+   <span class="card-link">فتح الحافظة ◄</span>
+  </button>
+
+  <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer" class="card" data-search="مدونة ووردبريس المقالات المنشورات">
+   <div class="card-icon">🌐</div>
+   <h3>مدونة ووردبريس</h3>
+   <p>المدونة الشخصية للاطلاع على المنشورات.</p>
+   <span class="card-link">زيارة المدونة ◄</span>
+  </a>
+
+ </div>
+ <p id="noResults" class="no-results" hidden>لم نعثر على قسم يطابق بحثك. جرّب كلمة أخرى.</p>
+</section>
 
 <section class="book-banner">
- <a href="book.pdf" target="_blank" rel="noopener noreferrer"><img src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر" class="book-banner-img" loading="lazy"></a>
- <h3 style="font-size:15px;font-weight:800;margin-bottom:6px">📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين تأليف محمد علي احمد الحطاب</h3>
- <p style="font-size:12px;color:var(--muted);margin-bottom:12px">رحلة في الحب والحياة والأسرة من بداية اللقاء إلى ذكريات العمر.</p>
+ <a href="book.pdf" target="_blank" rel="noopener noreferrer" aria-label="فتح كتاب الرجل والمرأة وعشرة العمر">
+  <img src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين" class="book-banner-img" width="130" height="180" loading="lazy">
+ </a>
+ <h2>📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين</h2>
+ <p>رحلة في الحب والحياة والأسرة من بداية اللقاء إلى ذكريات العمر.</p>
  <a href="book.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">اضغط هنا لقراءة الكتاب PDF 📄</a>
 </section>
 
-<section class="weather-panel">
+<section class="weather-panel" id="weather">
  <div class="clock-area">
   <div class="clock-label">🕒 الوقت الحالي في الشرقاط</div>
-  <div id="localClock">--:-- --</div>
+  <time id="localClock">--:--</time>
  </div>
+
  <div class="weather-current">
   <div style="text-align:right">
-   <h4><span class="weather-icon-pulse" id="weatherMainIcon">🌤️</span> طقس الشرقاط الآن</h4>
-   <p id="weatherDesc">جاري تحديث حالة الطقس...</p>
+   <h3><span id="weatherMainIcon">🌤️</span> طقس الشرقاط الآن</h3>
+   <p id="weatherDesc" aria-live="polite">جاري تحديث حالة الطقس...</p>
   </div>
   <div id="weatherTemp">-- °C</div>
  </div>
+
  <div class="forecast-area">
-  <div class="forecast-heading">📅 توقعات الأيام القادمة:</div>
+  <div class="forecast-heading">📅 توقعات الأيام القادمة</div>
   <div id="forecastContainer">
    <div class="forecast-day">جاري التحميل...</div>
    <div class="forecast-day">جاري التحميل...</div>
    <div class="forecast-day">جاري التحميل...</div>
   </div>
  </div>
- <div class="map-frame">
-  <iframe title="خريطة الطقس في الشرقاط" src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=km%2Fh&zoom=9&overlay=clouds&product=ecmwf&level=surface&lat=35.5292&lon=43.2199" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+
+ <p class="weather-updated" id="weatherUpdated">سيظهر وقت التحديث بعد تحميل البيانات.</p>
+ <button type="button" class="retry-btn" id="retryWeather">🔄 تحديث الطقس</button>
+
+ <div class="map-frame" style="margin-top:15px">
+  <iframe
+   title="خريطة الطقس في الشرقاط"
+   src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=km%2Fh&zoom=9&overlay=clouds&product=ecmwf&level=surface&lat=35.5292&lon=43.2199"
+   loading="lazy"
+   referrerpolicy="no-referrer-when-downgrade"
+   allowfullscreen>
+  </iframe>
  </div>
 </section>
 
-<footer class="footer">جميع الحقوق محفوظة © 2026 - الشرقاط الثقافي الأول | محمد علي أحمد الحطاب الجبوري</footer>
+<footer class="footer">
+ <p>جميع الحقوق محفوظة © <span id="currentYear">2026</span></p>
+ <p>الشرقاط الثقافي الأول | محمد علي أحمد الحطاب الجبوري</p>
+ <p style="margin-top:7px">
+  <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer">قناة يوتيوب</a>
+  ·
+  <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة</a>
+ </p>
+</footer>
+
 </main>
 
-<div id="aboutModal" class="modal" role="dialog" aria-modal="true" aria-label="نبذة عني" onclick="if(event.target===this)closeM('aboutModal')">
+<button type="button" class="back-top" id="backTop" aria-label="العودة إلى أعلى الصفحة" title="أعلى الصفحة">↑</button>
+
+<!-- نافذة نبذة عني -->
+<div id="aboutModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
  <div class="modal-box">
-  <button type="button" onclick="closeM('aboutModal')" class="modal-close" aria-label="إغلاق">✕</button>
-  <h3 style="color:#064e3b">👤 نبذة عني</h3>
-  <p style="font-size:13.5px;color:var(--muted)">أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومطور تطبيقات ومؤسس موقع الشرقاط الثقافي.</p>
+  <button type="button" class="modal-close" data-close aria-label="إغلاق">✕</button>
+  <h2 id="aboutTitle" style="color:#064e3b">👤 نبذة عني</h2>
+  <p style="font-size:13.5px;color:#64748b">
+   أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومطور تطبيقات ومؤسس موقع الشرقاط الثقافي. أرحب بك في موقعي الذي يجمع الكتب والقصص والمقالات والبرامج والمواد الثقافية.
+  </p>
  </div>
 </div>
 
-<div id="chatModal" class="modal" role="dialog" aria-modal="true" aria-label="تواصل معي" onclick="if(event.target===this)closeM('chatModal')">
+<!-- نافذة التواصل -->
+<div id="chatModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="chatTitle">
  <div class="modal-box">
-  <button type="button" onclick="closeM('chatModal')" class="modal-close" aria-label="إغلاق">✕</button>
-  <h3 style="color:#064e3b">💬 تواصل معي</h3>
-  <form onsubmit="sendWA(event)">
-   <input class="form-field" type="text" id="userName" placeholder="اسمك الكريم..." autocomplete="name">
-   <textarea class="form-field" id="userMsg" rows="3" placeholder="اكتب رسالتك..." required></textarea>
+  <button type="button" class="modal-close" data-close aria-label="إغلاق">✕</button>
+  <h2 id="chatTitle" style="color:#064e3b">💬 تواصل معي</h2>
+  <form id="contactForm">
+   <label for="userName">اسمك الكريم (اختياري)</label>
+   <input class="form-field" type="text" id="userName" placeholder="اسمك الكريم..." autocomplete="name" maxlength="80">
+   <label for="userMsg">رسالتك</label>
+   <textarea class="form-field" id="userMsg" rows="4" placeholder="اكتب رسالتك..." required maxlength="2000"></textarea>
    <button type="submit" class="btn btn-primary" style="width:100%">إرسال عبر الواتساب 🚀</button>
   </form>
  </div>
 </div>
 
-<div id="galleryModal" class="modal" role="dialog" aria-modal="true" aria-label="حافظة الصور" onclick="if(event.target===this)closeM('galleryModal')">
- <div class="modal-box" style="max-width:550px">
-  <button type="button" onclick="closeM('galleryModal')" class="modal-close" aria-label="إغلاق">✕</button>
-  <h3 style="color:#064e3b;text-align:center;margin-bottom:15px;font-size:18px">🖼️ حافظة الصور</h3>
+<!-- معرض الصور -->
+<div id="galleryModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+ <div class="modal-box" style="max-width:600px">
+  <button type="button" class="modal-close" data-close aria-label="إغلاق">✕</button>
+  <h2 id="galleryTitle" style="color:#064e3b;text-align:center;font-size:18px">🖼️ حافظة الصور</h2>
   <div id="galleryModalContainer" class="gallery-grid">
-   <p style="text-align:center;color:#64748b;grid-column:1/-1">جاري تحميل الصور...</p>
+   <p class="gallery-message">جاري تحميل الصور...</p>
   </div>
-  <button type="button" onclick="closeM('galleryModal')" class="btn btn-secondary" style="width:100%;margin-top:20px">↩️ عودة للموقع</button>
+  <button type="button" id="retryGallery" class="btn btn-secondary" style="width:100%;margin-top:14px">🔄 إعادة تحميل الصور</button>
+  <button type="button" data-close class="btn btn-secondary" style="width:100%;margin-top:8px">↩️ عودة للموقع</button>
  </div>
 </div>
 
-<div id="lightboxModal" class="modal lightbox" role="dialog" aria-modal="true" aria-label="صورة مكبرة" onclick="if(event.target===this)closeLightbox()">
+<!-- تكبير الصور -->
+<div id="lightboxModal" class="modal lightbox" role="dialog" aria-modal="true" aria-label="صورة مكبرة">
  <div class="lightbox-content">
-  <button type="button" onclick="closeLightbox()" class="lightbox-close" aria-label="إغلاق الصورة">✕</button>
+  <button type="button" class="lightbox-close" data-close-lightbox aria-label="إغلاق الصورة">✕</button>
   <img id="lightboxImg" src="" alt="صورة مكبرة">
  </div>
 </div>
 
-<div id="audioModal" class="modal" role="dialog" aria-modal="true" aria-label="كل يوم قصة" onclick="if(event.target===this)closeAudioM()">
+<!-- مشغل الصوت -->
+<div id="audioModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="audioTitleHeading">
  <div class="modal-box" style="text-align:center">
-  <button type="button" onclick="closeAudioM()" class="modal-close" aria-label="إغلاق">✕</button>
-  <h3 style="color:#064e3b">🎙️ كل يوم قصة</h3>
-  <p id="audioTitle" style="font-size:13px;color:var(--muted);margin-bottom:12px">جاري تحميل الصوت...</p>
-  <audio id="mainAudioPlayer" controls preload="none" style="width:100%;margin-bottom:15px"></audio>
+  <button type="button" class="modal-close" data-close-audio aria-label="إغلاق">✕</button>
+  <h2 id="audioTitleHeading" style="color:#064e3b">🎙️ كل يوم قصة</h2>
+  <p id="audioTitle" style="font-size:13px;color:#64748b;margin-bottom:12px">جاري تحميل الصوت...</p>
+  <audio id="mainAudioPlayer" class="audio-player" controls preload="none"></audio>
+  <p id="audioStatus" class="search-status" aria-live="polite">يمكنك تشغيل التسجيل من المشغل.</p>
  </div>
 </div>
 
-<div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-label="أحدث الفيديوهات" onclick="if(event.target===this)closeM('videoModal')">
- <div class="modal-box" style="max-width:500px">
-  <button type="button" onclick="closeM('videoModal')" class="modal-close" aria-label="إغلاق">✕</button>
-  <h3 style="color:#be123c;text-align:center;margin-bottom:10px">🎥 أحدث الفيديوهات</h3>
+<!-- الفيديوهات -->
+<div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+ <div class="modal-box" style="max-width:520px">
+  <button type="button" class="modal-close" data-close aria-label="إغلاق">✕</button>
+  <h2 id="videoTitle" style="color:#be123c;text-align:center">🎥 أحدث الفيديوهات</h2>
   <div id="videoModalContainer" class="video-list"></div>
  </div>
 </div>
@@ -311,229 +894,534 @@ button{cursor:pointer}
 <script>
 'use strict';
 
-const $=id=>document.getElementById(id);
-const githubUser='mhamalgporee-ctrl';
-const githubRepo='mhamalgporee-ctrl.github.io';
-const channelId='UCaCmR_yzL9lKNm7B22ZV-3A';
+const $ = id => document.getElementById(id);
 
-function openM(id){
- const el=$(id);
- if(el)el.style.display='flex';
-}
-function closeM(id){
- const el=$(id);
- if(el)el.style.display='none';
-}
-function openLightbox(url){
- $('lightboxImg').src=url;
- openM('lightboxModal');
-}
-function closeLightbox(){
- closeM('lightboxModal');
- $('lightboxImg').removeAttribute('src');
-}
-function sendWA(event){
- if(event)event.preventDefault();
- const name=$('userName').value.trim();
- const msg=$('userMsg').value.trim();
- if(!msg){alert('اكتب الرسالة أولاً');return}
- const text='مرحباً محمد، أنا '+(name||'زائر')+': '+msg;
- location.href='https://wa.me/9647835025407?text='+encodeURIComponent(text);
-}
+const githubUser = 'mhamalgporee-ctrl';
+const githubRepo = 'mhamalgporee-ctrl.github.io';
+const channelId = 'UCaCmR_yzL9lKNm7B22ZV-3A';
+const siteUrl = 'https://mhamalgporee-ctrl.github.io/';
 
-function updateClock(){
- $('localClock').textContent=new Intl.DateTimeFormat('ar-IQ',{
-  timeZone:'Asia/Baghdad',hour:'numeric',minute:'2-digit',
-  second:'2-digit',hour12:true
- }).format(new Date());
-}
-updateClock();
-setInterval(updateClock,1000);
+let lastFocusedElement = null;
+let galleryLoaded = false;
 
-function weatherInfo(code){
- if(code===0)return ['سماء صافية (مشمس)','☀️'];
- if(code<=3)return ['غائم جزئياً مع أجواء لطيفة','⛅'];
- if(code<=48)return ['ضباب','🌫️'];
- if(code<=57)return ['رذاذ مطري','🌦️'];
- if(code<=67)return ['فرصة لهطول الأمطار','🌧️'];
- if(code<=77)return ['ثلوج أو هطول متجمد','🌨️'];
- if(code<=82)return ['زخات مطرية','🌧️'];
- if(code<=86)return ['زخات ثلجية','🌨️'];
- if(code<=99)return ['عواصف رعدية','⛈️'];
- return ['أجواء متغيرة','🌤️'];
+/* القائمة للموبايل */
+const menuToggle = $('menuToggle');
+const mainNav = $('mainNav');
+
+menuToggle.addEventListener('click', () => {
+ const isOpen = mainNav.classList.toggle('is-open');
+ menuToggle.setAttribute('aria-expanded', String(isOpen));
+ menuToggle.textContent = isOpen ? '✕ إغلاق القائمة' : '☰ القائمة';
+});
+
+mainNav.querySelectorAll('a').forEach(link => {
+ link.addEventListener('click', () => {
+  mainNav.classList.remove('is-open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.textContent = '☰ القائمة';
+ });
+});
+
+/* النوافذ المنبثقة */
+function openM(id) {
+ const el = $(id);
+ if (!el) return;
+
+ lastFocusedElement = document.activeElement;
+ el.style.display = 'flex';
+ document.body.classList.add('modal-open');
+
+ const focusTarget = el.querySelector('button,input,textarea,a');
+ if (focusTarget) focusTarget.focus();
+
+ if (id === 'galleryModal' && !galleryLoaded) loadAutoPhotos();
 }
 
-async function getWeather(){
- const url='https://api.open-meteo.com/v1/forecast?latitude=35.5292&longitude=43.2199&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBaghdad&forecast_days=4';
- try{
-  const response=await fetch(url);
-  if(!response.ok)throw new Error('Weather request failed');
-  const data=await response.json();
-  if(!data.current)throw new Error('Weather data unavailable');
+function closeM(id) {
+ const el = $(id);
+ if (!el) return;
 
-  $('weatherTemp').textContent=Math.round(data.current.temperature_2m)+' °C';
-  const current=weatherInfo(data.current.weather_code);
-  $('weatherDesc').textContent=current[0];
-  $('weatherMainIcon').textContent=current[1];
+ el.style.display = 'none';
 
-  const daily=data.daily;
-  const days=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
-  const forecast=$('forecastContainer');
-  forecast.replaceChildren();
+ if (id === 'audioModal') {
+  const player = $('mainAudioPlayer');
+  player.pause();
+ }
 
-  for(let i=1;i<Math.min(4,daily.time.length);i++){
-   const date=new Date(daily.time[i]+'T12:00:00');
-   const info=weatherInfo(daily.weather_code[i]);
-   const card=document.createElement('div');
-   card.className='forecast-day';
+ const anyOpen = Array.from(document.querySelectorAll('.modal'))
+  .some(modal => modal.style.display === 'flex');
 
-   const day=document.createElement('div');
-   day.style.fontWeight='bold';
-   day.textContent=days[date.getDay()];
-
-   const icon=document.createElement('div');
-   icon.style.fontSize='15px';
-   icon.textContent=info[1];
-
-   const temp=document.createElement('div');
-   temp.textContent=Math.round(daily.temperature_2m_max[i])+'° / '+Math.round(daily.temperature_2m_min[i])+'°';
-
-   card.append(day,icon,temp);
-   forecast.appendChild(card);
+ if (!anyOpen) {
+  document.body.classList.remove('modal-open');
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+   lastFocusedElement.focus();
   }
- }catch(error){
-  $('weatherDesc').textContent='تعذر تحديث الطقس. تحقق من اتصال الإنترنت.';
-  $('weatherTemp').textContent='-- °C';
  }
 }
+
+document.querySelectorAll('[data-open]').forEach(button => {
+ button.addEventListener('click', () => openM(button.dataset.open));
+});
+
+document.querySelectorAll('[data-close]').forEach(button => {
+ button.addEventListener('click', () => {
+  const modal = button.closest('.modal');
+  if (modal) closeM(modal.id);
+ });
+});
+
+document.querySelectorAll('.modal').forEach(modal => {
+ modal.addEventListener('click', event => {
+  if (event.target === modal) closeM(modal.id);
+ });
+});
+
+document.addEventListener('keydown', event => {
+ if (event.key !== 'Escape') return;
+
+ const lightbox = $('lightboxModal');
+ if (lightbox.style.display === 'flex') {
+  closeLightbox();
+  return;
+ }
+
+ document.querySelectorAll('.modal').forEach(modal => {
+  if (modal.style.display === 'flex') closeM(modal.id);
+ });
+});
+
+/* التواصل عبر واتساب */
+$('contactNav').addEventListener('click', event => {
+ event.preventDefault();
+ openM('chatModal');
+});
+
+$('contactForm').addEventListener('submit', event => {
+ event.preventDefault();
+
+ const name = $('userName').value.trim();
+ const message = $('userMsg').value.trim();
+
+ if (!message) {
+  alert('يرجى كتابة الرسالة أولاً.');
+  return;
+ }
+
+ const text = 'مرحباً محمد، أنا ' + (name || 'زائر') + ':\n' + message;
+ const url = 'https://wa.me/9647835025407?text=' + encodeURIComponent(text);
+
+ window.open(url, '_blank', 'noopener,noreferrer');
+});
+
+/* البحث داخل الأقسام */
+const searchInput = $('siteSearch');
+const searchStatus = $('searchStatus');
+const noResults = $('noResults');
+const sectionCards = Array.from(document.querySelectorAll('#sectionGrid [data-search]'));
+
+function normalizeArabic(value) {
+ return value.toLocaleLowerCase('ar')
+  .replace(/[أإآ]/g, 'ا')
+  .replace(/ى/g, 'ي')
+  .replace(/ة/g, 'ه')
+  .trim();
+}
+
+function runSearch() {
+ const query = normalizeArabic(searchInput.value);
+ let visibleCount = 0;
+
+ sectionCards.forEach(card => {
+  const content = normalizeArabic(
+   card.innerText + ' ' + (card.dataset.search || '')
+  );
+  const match = !query || content.includes(query);
+
+  card.hidden = !match;
+  if (match) visibleCount++;
+ });
+
+ noResults.hidden = visibleCount !== 0;
+ searchStatus.textContent = query
+  ? 'عدد الأقسام المطابقة: ' + visibleCount
+  : 'اكتب كلمة للعثور على القسم المطلوب.';
+}
+
+searchInput.addEventListener('input', runSearch);
+$('clearSearch').addEventListener('click', () => {
+ searchInput.value = '';
+ runSearch();
+ searchInput.focus();
+});
+
+/* ساعة الشرقاط */
+function updateClock() {
+ try {
+  $('localClock').textContent = new Intl.DateTimeFormat('ar-IQ', {
+   timeZone: 'Asia/Baghdad',
+   hour: 'numeric',
+   minute: '2-digit',
+   second: '2-digit',
+   hour12: true
+  }).format(new Date());
+ } catch (error) {
+  $('localClock').textContent = new Date().toLocaleTimeString();
+ }
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+$('currentYear').textContent = new Date().getFullYear();
+
+/* حالة الطقس */
+function weatherInfo(code) {
+ if (code === 0) return ['سماء صافية', '☀️'];
+ if (code <= 3) return ['غائم جزئياً إلى غائم', '⛅'];
+ if (code <= 48) return ['ضباب أو ضباب جليدي', '🌫️'];
+ if (code <= 57) return ['رذاذ مطري', '🌦️'];
+ if (code <= 67) return ['أمطار', '🌧️'];
+ if (code <= 77) return ['هطول ثلجي', '🌨️'];
+ if (code <= 82) return ['زخات مطرية', '🌧️'];
+ if (code <= 86) return ['زخات ثلجية', '🌨️'];
+ if (code <= 99) return ['عواصف رعدية', '⛈️'];
+ return ['أجواء متغيرة', '🌤️'];
+}
+
+async function getWeather() {
+ const description = $('weatherDesc');
+ const temperature = $('weatherTemp');
+ const forecast = $('forecastContainer');
+ const updated = $('weatherUpdated');
+ const retry = $('retryWeather');
+
+ retry.disabled = true;
+ retry.textContent = '⏳ جارٍ تحديث الطقس...';
+ description.textContent = 'جاري تحديث حالة الطقس...';
+ updated.textContent = 'جارٍ جلب أحدث البيانات...';
+
+ const url = 'https://api.open-meteo.com/v1/forecast' +
+  '?latitude=35.5292&longitude=43.2199' +
+  '&current=temperature_2m,weather_code' +
+  '&daily=weather_code,temperature_2m_max,temperature_2m_min' +
+  '&timezone=Asia%2FBaghdad&forecast_days=4';
+
+ try {
+  const response = await fetch(url);
+
+  if (!response.ok) throw new Error('Weather request failed');
+
+  const data = await response.json();
+
+  if (
+   !data.current ||
+   !Number.isFinite(data.current.temperature_2m) ||
+   !Number.isFinite(data.current.weather_code) ||
+   !data.daily ||
+   !Array.isArray(data.daily.time)
+  ) {
+   throw new Error('Invalid weather data');
+  }
+
+  temperature.textContent = Math.round(data.current.temperature_2m) + ' °C';
+
+  const current = weatherInfo(data.current.weather_code);
+  description.textContent = current[0];
+  $('weatherMainIcon').textContent = current[1];
+
+  forecast.replaceChildren();
+
+  const days = ['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+  const count = Math.min(3, data.daily.time.length - 1);
+
+  for (let i = 1; i <= count; i++) {
+   const date = new Date(data.daily.time[i] + 'T12:00:00');
+   const code = data.daily.weather_code[i];
+   const max = data.daily.temperature_2m_max[i];
+   const min = data.daily.temperature_2m_min[i];
+
+   if (!Number.isFinite(code) || !Number.isFinite(max) || !Number.isFinite(min)) {
+    continue;
+   }
+
+   const info = weatherInfo(code);
+   const card = document.createElement('div');
+   card.className = 'forecast-day';
+
+   const day = document.createElement('div');
+   day.style.fontWeight = '900';
+   day.textContent = days[date.getDay()];
+
+   const icon = document.createElement('div');
+   icon.style.fontSize = '19px';
+   icon.textContent = info[1];
+
+   const temp = document.createElement('div');
+   temp.textContent = Math.round(max) + '° / ' + Math.round(min) + '°';
+
+   card.append(day, icon, temp);
+   forecast.appendChild(card);
+  }
+
+  if (!forecast.children.length) {
+   forecast.textContent = 'لا تتوفر توقعات حالياً.';
+  }
+
+  updated.textContent = 'آخر تحديث للبيانات: ' +
+   new Intl.DateTimeFormat('ar-IQ', {
+    timeZone: 'Asia/Baghdad',
+    hour: 'numeric',
+    minute: '2-digit',
+    day: 'numeric',
+    month: 'numeric'
+   }).format(new Date());
+
+ } catch (error) {
+  description.textContent = 'تعذر تحديث الطقس. تحقق من اتصال الإنترنت وحاول مجدداً.';
+  temperature.textContent = '-- °C';
+  forecast.replaceChildren();
+
+  const message = document.createElement('div');
+  message.className = 'forecast-day';
+  message.style.gridColumn = '1 / -1';
+  message.textContent = 'التوقعات غير متاحة حالياً.';
+  forecast.appendChild(message);
+
+  updated.textContent = 'لم يتم تحديث البيانات.';
+ } finally {
+  retry.disabled = false;
+  retry.textContent = '🔄 تحديث الطقس';
+ }
+}
+
+$('retryWeather').addEventListener('click', getWeather);
 getWeather();
 
-async function githubContents(folder){
- const url='https://api.github.com/repos/'+githubUser+'/'+githubRepo+'/contents/'+folder;
- const response=await fetch(url);
- if(!response.ok)throw new Error('GitHub API error: '+response.status);
- const files=await response.json();
- if(!Array.isArray(files))throw new Error('Invalid file list');
+/* الوصول إلى ملفات GitHub */
+async function githubContents(folder) {
+ const url = 'https://api.github.com/repos/' +
+  githubUser + '/' + githubRepo + '/contents/' + folder;
+
+ const response = await fetch(url);
+
+ if (!response.ok) {
+  throw new Error('GitHub API error: ' + response.status);
+ }
+
+ const files = await response.json();
+
+ if (!Array.isArray(files)) {
+  throw new Error('Invalid file list');
+ }
+
  return files;
 }
 
-async function loadAutoPhotos(){
- const container=$('galleryModalContainer');
- try{
-  const files=await githubContents('photos');
-  const images=files.filter(file=>
-   file.name&&/\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)&&file.download_url
+/* معرض الصور */
+function galleryMessage(message) {
+ const container = $('galleryModalContainer');
+ container.replaceChildren();
+
+ const p = document.createElement('p');
+ p.className = 'gallery-message';
+ p.textContent = message;
+ container.appendChild(p);
+}
+
+async function loadAutoPhotos() {
+ const container = $('galleryModalContainer');
+ galleryLoaded = false;
+ galleryMessage('جاري تحميل الصور...');
+
+ try {
+  const files = await githubContents('photos');
+
+  const images = files.filter(file =>
+   file.type === 'file' &&
+   file.name &&
+   /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name) &&
+   typeof file.download_url === 'string' &&
+   file.download_url.startsWith('https://')
   );
+
   container.replaceChildren();
 
-  if(!images.length){
-   container.textContent='لا توجد صور في الحافظة حالياً.';
+  if (!images.length) {
+   galleryMessage('لا توجد صور في الحافظة حالياً.');
+   galleryLoaded = true;
    return;
   }
 
-  images.forEach(file=>{
-   const card=document.createElement('div');
-   card.className='gallery-card';
-   const img=document.createElement('img');
-   img.src=file.download_url;
-   img.alt=file.name||'صورة';
-   img.loading='lazy';
-   img.addEventListener('click',()=>openLightbox(file.download_url));
+  images.forEach(file => {
+   const card = document.createElement('div');
+   card.className = 'gallery-card';
+
+   const img = document.createElement('img');
+   img.src = file.download_url;
+   img.alt = file.name || 'صورة من الأرشيف';
+   img.loading = 'lazy';
+   img.decoding = 'async';
+   img.tabIndex = 0;
+
+   img.addEventListener('click', () => openLightbox(file.download_url));
+   img.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+     event.preventDefault();
+     openLightbox(file.download_url);
+    }
+   });
+
+   img.addEventListener('error', () => {
+    card.remove();
+    if (!container.querySelector('.gallery-card')) {
+     galleryMessage('تعذر عرض الصور. يمكنك إعادة المحاولة.');
+     galleryLoaded = false;
+    }
+   });
+
    card.appendChild(img);
    container.appendChild(card);
   });
- }catch(error){
-  container.textContent='تعذر تحميل الصور. حاول مرة أخرى لاحقاً.';
+
+  galleryLoaded = true;
+
+ } catch (error) {
+  galleryMessage('تعذر تحميل الصور. تحقق من الاتصال ثم اضغط إعادة تحميل الصور.');
+  galleryLoaded = false;
  }
 }
-loadAutoPhotos();
 
-async function openAudioModal(){
+$('retryGallery').addEventListener('click', loadAutoPhotos);
+
+function openLightbox(url) {
+ if (typeof url !== 'string' || !url.startsWith('https://')) return;
+ $('lightboxImg').src = url;
+ openM('lightboxModal');
+}
+
+function closeLightbox() {
+ $('lightboxModal').style.display = 'none';
+ $('lightboxImg').removeAttribute('src');
+
+ const anyOpen = Array.from(document.querySelectorAll('.modal'))
+  .some(modal => modal.style.display === 'flex');
+
+ if (!anyOpen) document.body.classList.remove('modal-open');
+}
+
+/* إغلاق الصورة المكبرة */
+document.querySelectorAll('[data-close-lightbox]').forEach(button => {
+ button.addEventListener('click', closeLightbox);
+});
+$('lightboxModal').addEventListener('click', event => {
+ if (event.target === $('lightboxModal')) closeLightbox();
+});
+
+/* مشغل الصوت */
+$('openAudioBtn').addEventListener('click', openAudioModal);
+
+async function openAudioModal() {
  openM('audioModal');
- const player=$('mainAudioPlayer');
- const title=$('audioTitle');
- title.textContent='جاري تحميل الصوت...';
+
+ const player = $('mainAudioPlayer');
+ const title = $('audioTitle');
+ const status = $('audioStatus');
+
  player.pause();
  player.removeAttribute('src');
  player.load();
 
- try{
-  const files=await githubContents('audio');
-  const audios=files.filter(file=>
-   file.name&&/\.(mp3|m4a|ogg|wav|aac|mp4)$/i.test(file.name)&&file.download_url
-  );
-  if(audios.length){
-   const audio=audios[audios.length-1];
-   player.src=audio.download_url;
-   title.textContent=audio.name;
-  }else{
-   player.src='audio/story.mp3';
-   title.textContent='كل يوم قصة';
+ title.textContent = 'جاري البحث عن التسجيلات الصوتية...';
+ status.textContent = 'انتظر قليلاً حتى يتم تحميل قائمة الصوتيات.';
+
+ try {
+  const files = await githubContents('audio');
+
+  const audios = files
+   .filter(file =>
+    file.type === 'file' &&
+    file.name &&
+    /\.(mp3|m4a|ogg|wav|aac)$/i.test(file.name) &&
+    typeof file.download_url === 'string' &&
+    file.download_url.startsWith('https://')
+   )
+   .sort((a, b) => a.name.localeCompare(b.name, 'ar'));
+
+  if (audios.length) {
+   const audio = audios[audios.length - 1];
+   player.src = audio.download_url;
+   title.textContent = audio.name;
+   status.textContent = 'اضغط تشغيل للاستماع إلى التسجيل.';
+  } else {
+   player.src = 'audio/story.mp3';
+   title.textContent = 'كل يوم قصة';
+   status.textContent = 'يتم تجربة ملف الصوت الافتراضي.';
   }
- }catch(error){
-  player.src='audio/story.mp3';
-  title.textContent='كل يوم قصة';
+
+  player.load();
+
+ } catch (error) {
+  player.src = 'audio/story.mp3';
+  player.load();
+  title.textContent = 'كل يوم قصة';
+  status.textContent = 'تعذر تحميل قائمة الصوتيات. يتم تجربة الملف الافتراضي.';
  }
- player.load();
- const attempt=player.play();
- if(attempt&&typeof attempt.catch==='function'){
-  attempt.catch(()=>{title.textContent+=' — اضغط تشغيل للاستماع';});
- }
+
+ player.onerror = () => {
+  status.textContent = 'تعذر تشغيل هذا الملف. تحقق من وجود الملف وصيغة الصوت.';
+ };
 }
 
-function closeAudioM(){
- const player=$('mainAudioPlayer');
- player.pause();
+document.querySelector('[data-close-audio]').addEventListener('click', () => {
  closeM('audioModal');
-}
+});
 
-function openVideoModal(){
+/* مكتبة الفيديوهات */
+$('openVideoBtn').addEventListener('click', openVideoModal);
+
+function openVideoModal() {
  openM('videoModal');
- const container=$('videoModalContainer');
+
+ const container = $('videoModalContainer');
  container.replaceChildren();
 
- const playlistId='UU'+channelId.substring(2);
- const wrapper=document.createElement('div');
- wrapper.style.cssText='background:#f8fafc;padding:8px;border-radius:12px;border:1px solid #ddd;text-align:center';
+ const playlistId = 'UU' + channelId.substring(2);
 
- const frame=document.createElement('iframe');
- frame.className='video-frame';
- frame.src='https://www.youtube.com/embed/videoseries?list='+playlistId;
- frame.title='أحدث فيديوهات قناة يوتيوب';
- frame.loading='lazy';
- frame.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share';
- frame.allowFullscreen=true;
+ const wrapper = document.createElement('div');
+ wrapper.style.cssText =
+  'background:#f8fafc;padding:8px;border-radius:12px;border:1px solid #ddd;text-align:center';
 
- const caption=document.createElement('p');
- caption.style.cssText='font-size:12.5px;font-weight:bold;margin-top:8px;color:#be123c';
- caption.textContent='📺 أحدث فيديوهات ومقاطع القناة';
+ const frame = document.createElement('iframe');
+ frame.className = 'video-frame';
+ frame.src = 'https://www.youtube-nocookie.com/embed/videoseries?list=' +
+  encodeURIComponent(playlistId);
+ frame.title = 'فيديوهات قناة الشرقاط الثقافي';
+ frame.loading = 'lazy';
+ frame.allow =
+  'accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share';
+ frame.allowFullscreen = true;
 
- wrapper.append(frame,caption);
+ const caption = document.createElement('p');
+ caption.style.cssText =
+  'font-size:12.5px;font-weight:bold;margin-top:8px;color:#be123c';
+ caption.textContent = '📺 فيديوهات ومقاطع القناة';
 
- const link=document.createElement('a');
- link.href='https://youtube.com/channel/'+channelId;
- link.target='_blank';
- link.rel='noopener noreferrer';
- link.className='btn btn-secondary';
- link.style.cssText='border:1px solid #be123c;color:#be123c;text-align:center;display:block;margin-top:10px';
- link.textContent='🔴 الانتقال مباشرة إلى القناة على يوتيوب';
+ wrapper.append(frame, caption);
 
- const back=document.createElement('button');
- back.type='button';
- back.className='btn btn-secondary';
- back.style.cssText='width:100%;margin-top:10px;background:#fff1f2;border:1px solid #be123c;color:#be123c';
- back.textContent='↩️ عودة للموقع';
- back.addEventListener('click',()=>closeM('videoModal'));
+ const link = document.createElement('a');
+ link.href = 'https://youtube.com/channel/' + channelId;
+ link.target = '_blank';
+ link.rel = 'noopener noreferrer';
+ link.className = 'btn btn-secondary';
+ link.style.cssText =
+  'border:1px solid #be123c;color:#be123c;text-align:center;display:block;margin-top:10px';
+ link.textContent = '🔴 الانتقال إلى القناة على يوتيوب';
 
- container.append(wrapper,link,back);
+ container.append(wrapper, link);
 }
 
-document.addEventListener('keydown',event=>{
- if(event.key==='Escape'){
-  closeLightbox();
-  ['aboutModal','chatModal','galleryModal','audioModal','videoModal'].forEach(closeM);
-  closeAudioM();
- }
+/* العودة إلى أعلى الصفحة */
+$('backTop').addEventListener('click', () => {
+ window.scrollTo({top: 0, behavior: 'smooth'});
 });
 </script>
 </body>
