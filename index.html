@@ -33,12 +33,17 @@
     .hero-img{width:100%;max-width:100px;height:auto;max-height:150px;border-radius:12px;border:2px solid #064e3b;object-fit:contain;background-color:#f8fafc;box-shadow:0 6px 18px rgba(0,0,0,0.1);}
     @keyframes pulseWeather{0%{transform:scale(1);}50%{transform:scale(1.2);}100%{transform:scale(1);}}
     .weather-icon-pulse{display:inline-block;animation:pulseWeather 2s infinite ease-in-out;}
+    
+    /* تعديل حركة الشريط الأول لتكون متصلة وبدون فراغات طويلة */
     .ticker{background:#fffdf0;border:1px solid #d4af37;border-radius:12px;padding:8px;color:#78350f;font-size:13px;font-weight:bold;overflow:hidden;white-space:nowrap;margin-bottom:15px;width:100%;}
     .ticker-content{display:inline-block;animation:smoothTicker 22s linear infinite;}
-    @keyframes smoothTicker{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+    @keyframes smoothTicker{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
+    
+    /* تعديل حركة الشريط الأخضر لتكون متصلة وبدون فراغات طويلة وبسرعة بطيئة */
     .ticker-green{background:#d1fae5;border:1px solid #34d399;border-radius:12px;padding:9px 8px;color:#064e3b;font-size:13px;font-weight:bold;overflow:hidden;white-space:nowrap;margin-bottom:25px;width:100%;}
     .ticker-green-content{display:inline-block;animation:smoothTickerGreen 45s linear infinite;}
-    @keyframes smoothTickerGreen{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+    @keyframes smoothTickerGreen{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
+
     .section-title{font-size:19px;text-align:center;margin-bottom:18px;font-weight:800;color:var(--primary);}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:25px;width:100%;}
     .card{background:var(--card-bg);padding:14px;border-radius:16px;border:1.5px solid var(--border);transition:all .25s ease;display:flex;flex-direction:column;justify-content:space-between;position:relative;box-shadow:var(--shadow);cursor:pointer;width:100%;}
