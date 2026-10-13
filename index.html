@@ -83,9 +83,10 @@
     .card-live h3,.card-live .card-link{color:#dc2626;}
 
     .book-banner{background:linear-gradient(135deg,#fff,#f0fdf4);border:1.5px solid var(--border);border-radius:18px;padding:20px;text-align:center;margin-bottom:25px;box-shadow:var(--shadow);}
-    .book-banner-img{width:120px;height:auto;border-radius:10px;box-shadow:0 6px 15px rgba(0,0,0,.12);margin-bottom:12px;border:2px solid var(--primary);cursor:pointer;}
-    .book-banner h3{font-size:15px;font-weight:800;margin-bottom:6px;}
-    .book-banner p{font-size:12px;color:var(--muted);margin-bottom:12px;}
+    .book-banner h3{font-size:17px;font-weight:800;color:var(--primary);margin-bottom:6px;}
+    .book-banner p{font-size:14px;font-weight:bold;color:var(--muted);margin-bottom:15px;}
+    .pdf-viewer-wrap{width:100%;height:650px;border-radius:12px;overflow:hidden;border:2px solid var(--primary);background:#fff;box-shadow:var(--shadow);}
+    .pdf-viewer-wrap iframe{width:100%;height:100%;border:0;}
 
     .weather-box{background:linear-gradient(135deg,#064e3b,#022c22);color:#fff;padding:22px;border-radius:18px;margin-bottom:25px;border:1.5px solid var(--border);text-align:center;}
     .clock-wrap{margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.2);}
@@ -131,7 +132,7 @@
     .video-box{background:#f8fafc;padding:8px;border-radius:12px;border:1px solid #ddd;text-align:center;}
     .video-box iframe{width:100%;height:260px;border:0;border-radius:8px;}
     .video-box p{font-size:12.5px;font-weight:bold;margin-top:8px;color:var(--red);}
-    #videoModalContainer,#bookModalContainer{display:flex;flex-direction:column;gap:10px;}
+    #videoModalContainer{display:flex;flex-direction:column;gap:10px;}
 
     @media(max-width:550px){.hero{flex-direction:column-reverse;text-align:center;padding:15px;}.nav-links{display:none;}.grid{grid-template-columns:1fr;}.hero-img{max-width:80px;}}
     @media(prefers-reduced-motion:reduce){.ticker-content,.ticker-green-content,.weather-icon-pulse{animation:none;}.ticker,.ticker-green{white-space:normal;}.card{transition:none;}}
@@ -143,7 +144,7 @@
       <div class="logo">الشرقاط الثقافي الأول</div>
       <div class="nav-links">
         <a href="tv.html" class="live">📺 البث المباشر</a>
-        <a href="#" onclick="openBookModal()">📚 اقرأ مؤلفاتي</a>
+        <a href="#bookSection" onclick="document.getElementById('bookSection').scrollIntoView({behavior: 'smooth'}); return false;">📚 اقرأ مؤلفاتي</a>
         <a href="apps.html">📱 التطبيقات</a>
       </div>
     </div>
@@ -226,12 +227,12 @@
         <span class="card-link">قراءة القصة ◄</span>
       </a>
 
-      <div role="button" tabindex="0" onclick="openBookModal()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBookModal();}" class="card">
+      <a href="#bookSection" onclick="document.getElementById('bookSection').scrollIntoView({behavior: 'smooth'}); return false;" class="card">
         <div class="card-icon">📚</div>
         <h3>اقرأ مؤلفاتي</h3>
         <p>تصفح الكتب الحصرية والمؤلفات الأدبية.</p>
         <span class="card-link">تصفح الكتاب ◄</span>
-      </div>
+      </a>
 
       <a href="apps.html" class="card">
         <div class="card-icon">📱</div>
@@ -255,12 +256,12 @@
       </a>
     </div>
 
-    <section class="book-banner">
-      <img src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين" class="book-banner-img" loading="lazy" onclick="openBookModal()" title="اضغط لتصفح الكتاب">
-      <h3>📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين</h3>
-      <p>رحلة في الحب والحياة والأسرة، من بداية اللقاء إلى ذكريات العمر.</p>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px;">
-        <button type="button" onclick="openBookModal()" class="btn btn-primary">📖 تصفح الكتاب التفاعلي للقراءة فقط</button>
+    <!-- قسم الكتاب المباشر بصيغة PDF -->
+    <section id="bookSection" class="book-banner">
+      <h3>📖 كتاب الرجل والمرأة والعشرة في بلاد الرافدين</h3>
+      <p>تأليف: محمد علي احمد الحطاب</p>
+      <div class="pdf-viewer-wrap">
+        <iframe src="book.pdf" title="كتاب الرجل والمرأة والعشرة في بلاد الرافدين"></iframe>
       </div>
     </section>
 
@@ -345,21 +346,6 @@
     </div>
   </div>
 
-  <div id="bookModal" class="modal" role="dialog" aria-modal="true" aria-label="الكتاب التفاعلي">
-    <div class="modal-box mid">
-      <button type="button" onclick="closeM('bookModal')" class="modal-close" aria-label="إغلاق">✕</button>
-      <h3 class="center" style="color:var(--primary);">📖 تصفح الكتاب التفاعلي (للقراءة فقط)</h3>
-      <div id="bookModalContainer">
-        <div class="video-box" style="height:320px;">
-          <iframe title="الكتاب التفاعلي" src="book.html" style="width:100%;height:280px;border:0;border-radius:8px;" allowfullscreen></iframe>
-          <p>📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين تأليف محمد علي احمد الحطاب</p>
-        </div>
-        <a href="book.html" target="_blank" rel="noopener" class="btn btn-primary btn-block">🔍 فتح الكتاب في صفحة كاملة للقراءة</a>
-        <button type="button" onclick="closeM('bookModal')" class="back-btn">↩️ عودة للموقع</button>
-      </div>
-    </div>
-  </div>
-
   <script>
     const $ = id => document.getElementById(id);
     const githubUser = "mhamalgporee-ctrl", githubRepo = "mhamalgporee-ctrl.github.io";
@@ -372,7 +358,7 @@
       if (id === 'videoModal') $('videoModalContainer').innerHTML = '';$(id).style.display = 'none';
     }
     function openLightbox(url) { $('lightboxImg').src = url; openM('lightboxModal'); }
-    function openBookModal() { openM('bookModal'); }
+
     document.querySelectorAll('.modal').forEach(m => {
       m.addEventListener('click', e => { if (e.target === m) closeM(m.id); });
     });
