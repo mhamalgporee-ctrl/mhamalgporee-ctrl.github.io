@@ -300,7 +300,7 @@ $('currentYear').textContent = String(new Date().getFullYear());
 
 function weatherInfo(code) {
   if (code === 0) return ['سماء صافية','☀️'];
-  if ([1,2,3].includes(code)) return ['غائم جزئياً أو غائم','⛅'];
+  if ([1,2,3].includes(code)) return ['غائم جزئياً','⛅'];
   if ([45,48].includes(code)) return ['ضباب','🌫️'];
   if ([51,53,55,56,57].includes(code)) return ['رذاذ','🌦️'];
   if ([61,63,65,66,67,80,81,82].includes(code)) return ['أمطار أو زخات مطرية','🌧️'];
