@@ -33,17 +33,12 @@
     .hero-img{width:100%;max-width:100px;height:auto;max-height:150px;border-radius:12px;border:2px solid #064e3b;object-fit:contain;background-color:#f8fafc;box-shadow:0 6px 18px rgba(0,0,0,0.1);}
     @keyframes pulseWeather{0%{transform:scale(1);}50%{transform:scale(1.2);}100%{transform:scale(1);}}
     .weather-icon-pulse{display:inline-block;animation:pulseWeather 2s infinite ease-in-out;}
-    
-    /* الشريط الأول (الحركة من اليسار إلى اليمين وبدون فراغات) */
     .ticker{background:#fffdf0;border:1px solid #d4af37;border-radius:12px;padding:8px;color:#78350f;font-size:13px;font-weight:bold;overflow:hidden;white-space:nowrap;margin-bottom:15px;width:100%;}
-    .ticker-content{display:inline-block;white-space:nowrap;animation:smoothTicker 25s linear infinite;}
-    @keyframes smoothTicker{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
-    
-    /* الشريط الأخضر (الحركة من اليسار إلى اليمين وبطء وسلاسة تامة بدون فراغات) */
+    .ticker-content{display:inline-block;animation:smoothTicker 22s linear infinite;}
+    @keyframes smoothTicker{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
     .ticker-green{background:#d1fae5;border:1px solid #34d399;border-radius:12px;padding:9px 8px;color:#064e3b;font-size:13px;font-weight:bold;overflow:hidden;white-space:nowrap;margin-bottom:25px;width:100%;}
-    .ticker-green-content{display:inline-block;white-space:nowrap;animation:smoothTickerGreen 45s linear infinite;}
-    @keyframes smoothTickerGreen{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
-
+    .ticker-green-content{display:inline-block;animation:smoothTickerGreen 45s linear infinite;}
+    @keyframes smoothTickerGreen{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
     .section-title{font-size:19px;text-align:center;margin-bottom:18px;font-weight:800;color:var(--primary);}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:25px;width:100%;}
     .card{background:var(--card-bg);padding:14px;border-radius:16px;border:1.5px solid var(--border);transition:all .25s ease;display:flex;flex-direction:column;justify-content:space-between;position:relative;box-shadow:var(--shadow);cursor:pointer;width:100%;}
@@ -94,18 +89,12 @@
       </div>
     </section>
 
-    <!-- الشريط الأول (حركة من اليسار إلى اليمين وبدون فراغات) -->
     <div class="ticker">
-      <div class="ticker-content">
-        ✨ أهلاً بك زائرنا الكريم .. تصفح البرامج، الكتب، والقصص والبث المباشر للقنوات الرياضية والفديوهات ✨ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✨ أهلاً بك زائرنا الكريم .. تصفح البرامج، الكتب، والقصص والبث المباشر للقنوات الرياضية والفديوهات ✨
-      </div>
+      <div class="ticker-content">✨ أهلاً بك زائرنا الكريم .. تصفح البرامج، الكتب، والقصص والبث المباشر للقنوات الرياضية والفديوهات ✨</div>
     </div>
 
-    <!-- الشريط الأخضر (حركة من اليسار إلى اليمين وبطء وسلاسة تامة بدون فراغ) -->
     <div class="ticker-green">
-      <div class="ticker-green-content">
-        🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مجيد استغفر الله والحمد لله على كل حال واعوذ بالله من حال اهل النار 🌿 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مجيد استغفر الله والحمد لله على كل حال واعوذ بالله من حال اهل النار 🌿
-      </div>
+      <div class="ticker-green-content">🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مجيد استغفر الله والحمد لله على كل حال واعوذ بالله من حال اهل النار 🌿</div>
     </div>
 
     <div style="background:linear-gradient(135deg,#ffffff,#f0fdf4);border:2px solid #064e3b;border-radius:18px;padding:18px;text-align:center;margin-bottom:18px;">
@@ -293,7 +282,7 @@
         let desc='طقس معتدل',icon='🌤️';
         if(code===0){desc='سماء صافية (مشمس)';icon='☀️';}
         else if(code>=1&&code<=3){desc='غائم جزئي مع أجواء لطيفة';icon='⛅';}
-        else if(code>=45&&code>=48){desc='ضباب خفيف';icon='🌫️';}
+        else if(code>=45&&code<=48){desc='ضباب خفيف';icon='🌫️';}
         else if(code>=51&&code<=67){desc='فرصة لهطول أمطار خفيفة';icon='🌧️';}
         else{desc='أجواء غائمة ومستقرة';icon='☁️';}
         document.getElementById('weatherDesc').textContent=desc;
@@ -369,3 +358,4 @@
   </script>
 </body>
 </html>
+
