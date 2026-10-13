@@ -2,11 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>موقع الشرقاط الثقافي</title>
   <meta name="description" content="الموقع الرسمي لمحمد علي أحمد الحطاب الجبوري - برامج، كتب، مقالات، وبث مباشر.">
 
-  <!-- Open Graph Meta Tags الرسمية والمحدثة لإجبار فيسبوك وواتساب على اعتماد صورة الشعار acon.jpg -->
+  <!-- Open Graph Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
   <meta property="og:title" content="موقع الشرقاط الثقافي">
@@ -44,6 +44,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body { 
       font-family: system-ui, -apple-system, sans-serif; 
       background-color: var(--bg); 
@@ -58,7 +63,7 @@
     a { text-decoration: none; color: inherit; }
 
     /* Navbar */
-    .navbar { background: rgba(6, 78, 59, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); border-bottom: 2px solid #d4b572; }
+    .navbar { background: rgba(6, 78, 59, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); border-bottom: 2px solid #d4b572; width: 100%; }
     .nav-container { max-width: 1100px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-size: 18px; font-weight: 800; color: #fef08a; }
     .nav-links { display: flex; gap: 15px; }
@@ -66,11 +71,11 @@
     .nav-links a:hover { color: #fef08a; }
 
     /* Container */
-    .container { max-width: 1100px; margin: 0 auto; padding: 25px 15px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 15px; width: 100%; }
 
     /* Hero Area */
-    .hero { background: var(--card-bg); padding: 25px; border-radius: 18px; border: 2px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 20px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
-    .hero-text { flex: 1; z-index: 2; }
+    .hero { background: var(--card-bg); padding: 20px; border-radius: 18px; border: 2px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 20px; box-shadow: var(--shadow); position: relative; overflow: hidden; width: 100%; }
+    .hero-text { flex: 1; z-index: 2; width: 100%; }
     .hero-text h1 { font-size: 22px; color: var(--primary); margin-bottom: 6px; font-weight: 800; }
     .hero-text p { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
     
@@ -93,7 +98,7 @@
       font-size: 14px;
     }
 
-    .hero-btns { display: flex; gap: 10px; }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn { padding: 9px 16px; border-radius: 10px; font-weight: bold; font-size: 13.5px; cursor: pointer; border: none; }
     .btn-primary { background: #064e3b; color: #fff; }
     .btn-secondary { background: #f1f5f9; color: var(--text); border: 1px solid var(--border); }
@@ -102,16 +107,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       position: relative;
       z-index: 2;
     }
 
     .hero-img { 
       width: 100%; 
-      max-width: 130px; 
+      max-width: 100px; 
       height: auto; 
-      max-height: 200px;
+      max-height: 150px;
       border-radius: 12px; 
       border: 2px solid #064e3b; 
       object-fit: contain; 
@@ -119,25 +124,15 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
 
-    @keyframes pulseWeather {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-    .weather-icon-pulse {
-      display: inline-block;
-      animation: pulseWeather 2s infinite ease-in-out;
-    }
-
     /* Ticker 1 */
-    .ticker { background: #fffdf0; border: 1px solid #d4af37; border-radius: 12px; padding: 8px; color: #78350f; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 15px; }
+    .ticker { background: #fffdf0; border: 1px solid #d4af37; border-radius: 12px; padding: 8px; color: #78350f; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 15px; width: 100%; }
     .ticker-content { display: inline-block; animation: smoothTicker 22s linear infinite; }
     @keyframes smoothTicker { 
       0% { transform: translateX(-100%); } 
       100% { transform: translateX(100%); } 
     }
 
-    /* Ticker 2 (الشريط الأخضر للذكر) */
+    /* Ticker 2 */
     .ticker-green { 
       background: #d1fae5; 
       border: 1px solid #34d399; 
@@ -149,6 +144,7 @@
       overflow: hidden; 
       white-space: nowrap; 
       margin-bottom: 25px; 
+      width: 100%;
     }
     .ticker-green-content { 
       display: inline-block; 
@@ -159,7 +155,7 @@
       100% { transform: translateX(100%); } 
     }
 
-    /* Navigation Grid */
+    /* Grid layout */
     .section-title { font-size: 19px; text-align: center; margin-bottom: 18px; font-weight: 800; color: var(--primary); }
     
     .grid { 
@@ -167,12 +163,12 @@
       grid-template-columns: repeat(2, 1fr); 
       gap: 12px; 
       margin-bottom: 25px; 
-      align-items: stretch;
+      width: 100%;
     }
 
     .card { 
       background: var(--card-bg); 
-      padding: 16px 14px; 
+      padding: 14px; 
       border-radius: 16px; 
       border: 1.5px solid var(--border); 
       transition: all 0.25s ease; 
@@ -182,29 +178,23 @@
       position: relative;
       box-shadow: var(--shadow);
       cursor: pointer;
-      height: 100%;
-    }
-
-    .card:active, .card:hover { 
-      border-color: #064e3b; 
-      transform: translateY(-3px); 
-      box-shadow: 0 8px 20px rgba(6, 78, 59, 0.15);
+      width: 100%;
     }
 
     .card-icon {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       background: var(--primary-light);
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
-      margin-bottom: 10px;
+      font-size: 18px;
+      margin-bottom: 8px;
     }
 
     .card h3 { 
-      font-size: 14.5px; 
+      font-size: 13.5px; 
       color: var(--text); 
       margin-bottom: 5px; 
       font-weight: 800;
@@ -212,95 +202,54 @@
     }
 
     .card p { 
-      font-size: 12px; 
+      font-size: 11.5px; 
       color: var(--muted); 
       line-height: 1.4;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .card-link {
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: bold;
       color: #064e3b;
-      display: flex;
-      align-items: center;
-      gap: 4px;
       margin-top: auto;
     }
 
-    .card-live {
-      background: #fff0f0;
-      border-color: #fca5a5;
-    }
-    .card-live .card-icon {
-      background: #fee2e2;
-    }
+    .card-live { background: #fff0f0; border-color: #fca5a5; }
+    .card-live .card-icon { background: #fee2e2; }
 
-    /* كتاب بارز */
+    /* Book banner */
     .book-banner {
       background: linear-gradient(135deg, #ffffff, #f0fdf4);
       border: 1.5px solid var(--border);
       border-radius: 18px;
-      padding: 22px 18px;
+      padding: 20px;
       text-align: center;
       margin-bottom: 25px;
       box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      width: 100%;
     }
     .book-banner-img {
-      width: 140px;
+      width: 120px;
       height: auto;
       border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      margin-bottom: 14px;
-      cursor: pointer;
-      transition: transform 0.25s ease;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+      margin-bottom: 12px;
       border: 2px solid #064e3b;
     }
-    .book-banner-img:hover {
-      transform: scale(1.04);
-    }
-    .book-banner h3 {
-      font-size: 16px;
-      color: var(--text);
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-    .book-banner p {
-      font-size: 12.5px;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-    .book-btn {
-      display: inline-block;
-      background: #064e3b;
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 12px;
-      font-size: 13.5px;
-      font-weight: bold;
-      transition: background 0.2s ease;
-    }
-    .book-btn:hover {
-      background: #022c22;
-    }
 
-    /* Footer */
-    .footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; margin-top: 25px; background: rgba(255,255,255,0.7); border-radius: 12px; }
+    /* Modals */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
+    .modal-box { background: #fff; padding: 20px; border-radius: 16px; width: 100%; max-width: 420px; position: relative; border: 2px solid var(--border); max-height: 85vh; overflow-y: auto; }
+    .modal-close { position: absolute; left: 12px; top: 12px; border: none; background: #f1f5f9; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; }
 
-    /* Modals & Chat */
-    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
-    .modal-box { background: #fff; padding: 22px; border-radius: 16px; width: 100%; max-width: 380px; position: relative; border: 2px solid var(--border); }
-    .modal-close { position: absolute; left: 15px; top: 15px; border: none; background: #f1f5f9; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
-    .chat-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13.5px; }
+    .footer { text-align: center; padding: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; margin-top: 25px; background: rgba(255,255,255,0.8); border-radius: 12px; width: 100%; }
 
-    @media (max-width: 480px) {
-      .hero { flex-direction: column-reverse; text-align: center; }
+    @media (max-width: 550px) {
+      .hero { flex-direction: column-reverse; text-align: center; padding: 15px; }
       .nav-links { display: none; }
-      .hero-img-wrapper { flex-direction: row; justify-content: center; gap: 5px; }
-      .hero-img { max-width: 95px; }
+      .grid { grid-template-columns: 1fr; }
+      .hero-img { max-width: 80px; }
     }
   </style>
 </head>
@@ -337,46 +286,45 @@
         </div>
       </div>
       <div class="hero-img-wrapper">
-        <img src="acon.jpg" alt="بطاقة موقع الشرقاط الثقافي" class="hero-img">
-        <img src="acon1.jpg" alt="الصورة التوضيحية الأولى" class="hero-img">
-        <img src="acon2.jpg" alt="الصورة التوضيحية الثانية" class="hero-img">
+        <img src="acon.jpg" alt="شعار" class="hero-img">
+        <img src="acon1.jpg" alt="صورة 1" class="hero-img">
+        <img src="acon2.jpg" alt="صورة 2" class="hero-img">
       </div>
     </section>
 
-    <!-- Ticker 1 -->
+    <!-- Tickers -->
     <div class="ticker">
       <div class="ticker-content">
         ✨ أهلاً بك زائرنا الكريم .. تصفح البرامج، الكتب، والقصص والبث المباشر ✨
       </div>
     </div>
 
-    <!-- Ticker 2 (الشريط الأخضر للذكر) -->
     <div class="ticker-green">
       <div class="ticker-green-content">
         🌿 الحَمْدُ للّهِ رَبِّ العَالَمِينَ.. اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ 🌿
       </div>
     </div>
 
-    <!-- 🎙️ مربع القصص الصوتية -->
-    <div style="background: linear-gradient(135deg, #ffffff, #f0fdf4); border: 2px solid #064e3b; border-radius: 18px; padding: 20px; text-align: center; margin-bottom: 20px; box-shadow: var(--shadow);">
-      <div style="font-size: 32px; margin-bottom: 6px;">🎙️</div>
-      <h3 style="font-size: 18px; color: #064e3b; font-weight: 800; margin-bottom: 6px;">كل يوم قصة</h3>
-      <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 14px;">استمع إلى التسجيلات القصصية والصوتية الحصرية بصوتي</p>
-      <button onclick="openAudioModal()" class="btn btn-primary" style="font-size: 14.5px; padding: 10px 24px; border-radius: 12px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(6,78,59,0.2);">
+    <!-- 🎙️ القصص الصوتية -->
+    <div style="background: linear-gradient(135deg, #ffffff, #f0fdf4); border: 2px solid #064e3b; border-radius: 18px; padding: 18px; text-align: center; margin-bottom: 18px;">
+      <div style="font-size: 30px; margin-bottom: 4px;">🎙️</div>
+      <h3 style="font-size: 17px; color: #064e3b; font-weight: 800; margin-bottom: 4px;">كل يوم قصة</h3>
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">استمع إلى التسجيلات القصصية والصوتية الحصرية بصوتي</p>
+      <button onclick="openAudioModal()" class="btn btn-primary" style="padding: 9px 20px; border-radius: 10px;">
         ▶️ اضغط هنا للاستماع
       </button>
     </div>
 
-    <!-- 🎥 مربع فيديوهات اليوتيوب المرئية -->
-    <div style="background: linear-gradient(135deg, #ffffff, #fff1f2); border: 2px solid #be123c; border-radius: 18px; padding: 20px; text-align: center; margin-bottom: 25px; box-shadow: var(--shadow);">
-      <div style="font-size: 32px; margin-bottom: 6px;">🎥</div>
-      <h3 style="font-size: 18px; color: #be123c; font-weight: 800; margin-bottom: 6px;">مكتبة الفيديوهات المرئية</h3>
-      <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 14px;">شاهد أحدث الحلقات والمقاطع المرئية من قناتي على اليوتيوب مباشرة</p>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <button onclick="openVideoModal()" class="btn" style="background: #be123c; color: #fff; font-size: 14.5px; padding: 10px 22px; border-radius: 12px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(190,18,60,0.2);">
+    <!-- 🎥 مكتبة الفيديوهات -->
+    <div style="background: linear-gradient(135deg, #ffffff, #fff1f2); border: 2px solid #be123c; border-radius: 18px; padding: 18px; text-align: center; margin-bottom: 22px;">
+      <div style="font-size: 30px; margin-bottom: 4px;">🎥</div>
+      <h3 style="font-size: 17px; color: #be123c; font-weight: 800; margin-bottom: 4px;">مكتبة الفيديوهات المرئية</h3>
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">شاهد أحدث الحلقات والمقاطع المرئية من قناتي مباشرة</p>
+      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="openVideoModal()" class="btn" style="background: #be123c; color: #fff;">
           ▶️ استعرض الفيديوهات
         </button>
-        <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" class="btn btn-secondary" style="font-size: 14.5px; padding: 10px 18px; border-radius: 12px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #be123c; color: #be123c;">
+        <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" class="btn btn-secondary" style="border: 1px solid #be123c; color: #be123c;">
           🔴 قناة اليوتيوب
         </a>
       </div>
@@ -387,7 +335,6 @@
     
     <div class="grid">
 
-      <!-- 1. البث المباشر -->
       <a href="tv.html" class="card card-live">
         <div class="card-icon">📺</div>
         <h3 style="color:#dc2626;">البث المباشر</h3>
@@ -395,55 +342,48 @@
         <span class="card-link" style="color:#dc2626;">شاهد الآن 🔴</span>
       </a>
 
-      <!-- 2. قصة الشيخ شلاش رحمه الله -->
       <a href="shelash.html" class="card">
         <div class="card-icon">📜</div>
-        <h3>قصة احد رموز شيوخ الجبور الشيخ المرحوم شلاش الفرج</h3>
-        <p>قصة الشيخ شلاش الفرج رحمه الله أحد رموز عشائر الجبور</p>
+        <h3>قصة الشيخ المرحوم شلاش الفرج</h3>
+        <p>قصة الشيخ شلاش الفرج أحد رموز عشائر الجبور.</p>
         <span class="card-link">قراءة القصة ◄</span>
       </a>
 
-      <!-- 3. الشرقاط مدينتي -->
       <a href="shirqat.html" class="card">
         <div class="card-icon">🏛️</div>
         <h3>الشرقاط مدينتي</h3>
-        <p>تاريخ ونبض وإبداع، وثيقة أدبية وتاريخية حول المدينة.</p>
+        <p>تاريخ ونبض وإبداع، وثيقة أدبية حول المدينة.</p>
         <span class="card-link">قراءة المقال ◄</span>
       </a>
 
-      <!-- 4. قصة المرحوم جدي عگاب رحمه الله -->
       <a href="okab.html" class="card">
         <div class="card-icon">👑</div>
         <h3>قصة جدي عگاب رحمه الله</h3>
-        <p>قصة جدي عگاب رحمه الله ولقاؤه بالملك فيصل كما روتها أمي.</p>
+        <p>لقاؤه بالملك فيصل كما روتها أمي.</p>
         <span class="card-link">قراءة القصة ◄</span>
       </a>
 
-      <!-- 5. اقرأ مؤلفاتي -->
       <a href="book.html" class="card">
         <div class="card-icon">📚</div>
         <h3>اقرأ مؤلفاتي</h3>
-        <p>تصفح الكتب الحصرية والمؤلفات الأسرية والأدبية.</p>
+        <p>تصفح الكتب الحصرية والمؤلفات الأدبية.</p>
         <span class="card-link">دخول القسم ◄</span>
       </a>
 
-      <!-- 6. البرامج والتطبيقات -->
       <a href="apps.html" class="card">
         <div class="card-icon">📱</div>
         <h3>البرامج والتطبيقات</h3>
-        <p>تطبيقات الكمبيوتر والموبايل والذكاء الاصطناعي.</p>
+        <p>تطبيقات الكمبيوتر والموبايل.</p>
         <span class="card-link">دخول القسم ◄</span>
       </a>
 
-      <!-- 7. معرض الصور (حافظة مستقلة) -->
       <div onclick="openM('galleryModal')" class="card">
         <div class="card-icon">🖼️</div>
         <h3>معرض الصور</h3>
-        <p>استعراض الصور والذكريات داخل حافظة مستقلة ومنظمة.</p>
+        <p>استعراض الصور والذكريات داخل حافظة مستقلة.</p>
         <span class="card-link">فتح الحافظة ◄</span>
-      </a>
+      </div>
 
-      <!-- 8. مدونة ووردبريس -->
       <a href="https://baramjak2.wordpress.com" target="_blank" class="card">
         <div class="card-icon">🌐</div>
         <h3>مدونة ووردبريس</h3>
@@ -456,157 +396,87 @@
     <!-- كتاب بارز -->
     <div class="book-banner">
       <a href="book.pdf" target="_blank">
-        <img src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين" class="book-banner-img">
+        <img src="cover.jpg" alt="غلاف كتاب" class="book-banner-img">
       </a>
-      <h3>📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين</h3>
-      <p>رحلة في الحب والحياة والأسرة من بداية اللقاء... إلى ذكريات العمر.</p>
-      <a href="book.pdf" target="_blank" class="book-btn">اضغط هنا لقراءة الكتاب PDF 📄</a>
+      <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 6px;">📖 كتاب: الرجل والمرأة وعشرة العمر في بلاد الرافدين</h3>
+      <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">رحلة في الحب والحياة والأسرة من بداية اللقاء إلى ذكريات العمر.</p>
+      <a href="book.pdf" target="_blank" class="btn btn-primary" style="display:inline-block;">اضغط هنا لقراءة الكتاب PDF 📄</a>
     </div>
 
-    <!-- Weather & Clock Section -->
-    <div style="background: linear-gradient(135deg, #064e3b, #022c22); color: #fff; padding: 22px; border-radius: 18px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1.5px solid #d4b572; text-align: center;">
-      
-      <!-- Clock in the Center and Large -->
-      <div style="margin-bottom: 18px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.2);">
-        <div style="font-size: 13px; opacity: 0.9; margin-bottom: 5px;">🕒 الوقت الحالي في الشرقاط</div>
-        <div id="localClock" style="font-size: 28px; font-weight: 800; color: #fef08a; letter-spacing: 1px; background: rgba(0,0,0,0.3); padding: 10px 20px; border-radius: 14px; display: inline-block; white-space: nowrap; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">--:-- --</div>
+    <!-- Weather & Clock -->
+    <div style="background: linear-gradient(135deg, #064e3b, #022c22); color: #fff; padding: 20px; border-radius: 18px; margin-bottom: 25px; border: 1.5px solid #d4b572; text-align: center; width: 100%;">
+      <div style="margin-bottom: 15px;">
+        <div style="font-size: 12px; opacity: 0.9; margin-bottom: 4px;">🕒 الوقت الحالي في الشرقاط</div>
+        <div id="localClock" style="font-size: 24px; font-weight: 800; color: #fef08a; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 12px; display: inline-block;">--:-- --</div>
       </div>
 
-      <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 15px;">
-        <div style="text-align: right;">
-          <h4 style="font-size:16px; display:flex; align-items:center; gap:6px;">
-            <span class="weather-icon-pulse" id="weatherMainIcon">🌤️</span> طقس الشرقاط الآن
-          </h4>
-          <p id="weatherDesc" style="font-size:13px; opacity:0.9; margin-top:2px;">جاري تحديث حالة الطقس...</p>
+      <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <h4 style="font-size:15px;" id="weatherDesc">طقس الشرقاط الآن</h4>
         </div>
-        <div style="text-align: left;">
-          <div id="weatherTemp" style="font-size:26px; font-weight:bold;">-- °C</div>
+        <div>
+          <div id="weatherTemp" style="font-size:24px; font-weight:bold;">-- °C</div>
         </div>
       </div>
 
-      <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px; margin-bottom: 15px;">
-        <div style="font-size:13px; font-weight:bold; margin-bottom:8px;">📅 توقعات الأيام القادمة:</div>
-        <div id="forecastContainer" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 12px; text-align: center;">
-          <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px;">جاري التحميل...</div>
-          <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px;">جاري التحميل...</div>
-          <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px;">جاري التحميل...</div>
-        </div>
-      </div>
-
-      <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); background: #022c22;">
-        <iframe 
-          width="100%" 
-          height="320" 
-          src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=km/h&zoom=9&overlay=clouds&product=ecmwf&level=surface&lat=35.5292&lon=43.2199" 
-          frameborder="0"
-          loading="lazy"
-          title="خارطة الطقس الحية للغيوم والرياح">
-        </iframe>
+      <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3);">
+        <iframe width="100%" height="280" src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=km/h&zoom=9&overlay=clouds&product=ecmwf&level=surface&lat=35.5292&lon=43.2199" frameborder="0" loading="lazy"></iframe>
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
       جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي | محمد علي أحمد الحطاب الجبوري
     </div>
 
   </div>
 
-  <!-- About Modal -->
+  <!-- Modals -->
   <div id="aboutModal" class="modal">
     <div class="modal-box">
       <button onclick="closeM('aboutModal')" class="modal-close">✕</button>
       <h3 style="color:#064e3b; margin-bottom:10px;">👤 نبذة عني</h3>
-      <p style="font-size:13.5px; color:var(--muted);">
-        أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومطور تطبيقات ومؤسس موقع الشرقاط الثقافي.
-      </p>
+      <p style="font-size:13.5px; color:var(--muted);">أهلاً بك! أنا <strong>محمد علي أحمد الحطاب الجبوري</strong>، كاتب ومطور تطبيقات ومؤسس موقع الشرقاط الثقافي.</p>
     </div>
   </div>
 
-  <!-- Chat Modal -->
   <div id="chatModal" class="modal">
     <div class="modal-box">
       <button onclick="closeM('chatModal')" class="modal-close">✕</button>
       <h3 style="color:#064e3b; margin-bottom:10px;">💬 تواصل معي</h3>
-      <input type="text" id="userName" class="chat-input" placeholder="اسمك الكريم...">
-      <textarea id="userMsg" class="chat-input" style="height:80px; resize:none;" placeholder="اكتب رسالتك..."></textarea>
+      <input type="text" id="userName" style="width:100%; padding:8px; margin-bottom:8px; border:1px solid #ccc; border-radius:6px;" placeholder="اسمك الكريم...">
+      <textarea id="userMsg" style="width:100%; height:70px; padding:8px; margin-bottom:8px; border:1px solid #ccc; border-radius:6px;" placeholder="اكتب رسالتك..."></textarea>
       <button onclick="sendWA()" class="btn btn-primary" style="width:100%;">إرسال عبر الواتساب 🚀</button>
     </div>
   </div>
 
-  <!-- 🖼️ حافظة الصور المستقلة (Modal) -->
   <div id="galleryModal" class="modal">
-    <div class="modal-box" style="max-width: 550px; max-height: 85vh; overflow-y: auto;">
+    <div class="modal-box">
       <button onclick="closeM('galleryModal')" class="modal-close">✕</button>
-      <h3 style="color:#064e3b; margin-bottom:15px; text-align:center; font-size:18px;">🖼️ حافظة الصور</h3>
-      <div id="galleryModalContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
-        <p style="text-align: center; color: #64748b; grid-column: 1/-1; font-size: 13.5px;">جاري تحميل الصور...</p>
-      </div>
-      <button onclick="closeM('galleryModal')" class="btn btn-secondary" style="width: 100%; margin-top: 20px; padding: 10px; font-weight: bold; border: 1.5px solid #064e3b; color: #064e3b; background: #f8fafc; border-radius: 10px; cursor: pointer;">
-        ↩️ عودة للموقع
-      </button>
+      <h3 style="color:#064e3b; margin-bottom:15px; text-align:center;">🖼️ حافظة الصور</h3>
+      <div id="galleryModalContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px;"></div>
     </div>
   </div>
 
-  <!-- 🔍 نافذة عرض الصورة مكبرة (Lightbox Modal) مع علامة ✕ -->
-  <div id="lightboxModal" class="modal" style="background: rgba(0,0,0,0.85); z-index: 2000;">
-    <div style="position: relative; max-width: 90%; max-height: 90vh; display: flex; justify-content: center; align-items: center;">
-      <button onclick="closeLightbox()" style="position: absolute; top: -45px; left: 0; background: #ffffff; color: #064e3b; border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">✕</button>
-      <img id="lightboxImg" src="" alt="صورة مكبرة" style="max-width: 100%; max-height: 85vh; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
-    </div>
-  </div>
-
-  <!-- 🎙️ نافذة الاستماع للقصة الصوتية -->
   <div id="audioModal" class="modal">
     <div class="modal-box" style="text-align: center;">
       <button onclick="closeAudioM()" class="modal-close">✕</button>
-      <div style="font-size: 42px; margin-bottom: 8px;">🎙️</div>
-      <h3 style="color:#064e3b; margin-bottom:4px; font-size:19px;">كل يوم قصة</h3>
-      <p id="audioTitle" style="font-size:13.5px; color:var(--muted); margin-bottom:15px;">جاري تحميل التسجيل الصوتي...</p>
-      
-      <!-- مشغل صوت افتراضي ومجاني 100% -->
-      <audio id="mainAudioPlayer" controls style="width: 100%; margin-bottom: 20px; border-radius: 10px;" controlsList="nodownload">
-        متصفحك لا يدعم تشغيل الصوت.
-      </audio>
-
-      <button onclick="closeAudioM()" class="btn btn-secondary" style="width: 100%; padding: 11px; font-size: 14px; border: 1.5px solid #064e3b; color: #064e3b; background: #f8fafc; font-weight: bold; cursor: pointer; border-radius: 12px;">
-        ↩️ عودة
-      </button>
+      <h3 style="color:#064e3b; margin-bottom:8px;">🎙️ كل يوم قصة</h3>
+      <p id="audioTitle" style="font-size:13px; color:var(--muted); margin-bottom:12px;">جاري تحميل الصوت...</p>
+      <audio id="mainAudioPlayer" controls style="width: 100%; margin-bottom: 15px;"></audio>
     </div>
   </div>
 
-  <!-- 🎥 نافذة عرض فيديوهات اليوتيوب التلقائية -->
   <div id="videoModal" class="modal">
-    <div class="modal-box" style="max-width: 600px; max-height: 85vh; overflow-y: auto;">
+    <div class="modal-box" style="max-width: 500px;">
       <button onclick="closeM('videoModal')" class="modal-close">✕</button>
-      <div style="text-align: center; margin-bottom: 15px;">
-        <div style="font-size: 36px; margin-bottom: 4px;">🎥</div>
-        <h3 style="color:#be123c; font-size:18px; font-weight: 800;">أحدث فيديوهات القناة</h3>
-        <p style="font-size: 12.5px; color:var(--muted);">تحديث تلقائي شامل (فيديوهات، Shorts، وبثوث)</p>
-      </div>
-      
-      <div id="videoModalContainer" style="display: flex; flex-direction: column; gap: 15px;">
-        <p style="text-align: center; color: #64748b; font-size: 13.5px;">جاري تحميل أحدث الفيديوهات من اليوتيوب...</p>
-      </div>
-
-      <button onclick="closeM('videoModal')" class="btn btn-secondary" style="width: 100%; margin-top: 20px; padding: 10px; font-weight: bold; border: 1.5px solid #be123c; color: #be123c; background: #f8fafc; border-radius: 10px; cursor: pointer;">
-        ↩️ عودة للموقع
-      </button>
+      <h3 style="color:#be123c; text-align:center; margin-bottom:10px;">🎥 أحدث الفيديوهات</h3>
+      <div id="videoModalContainer" style="display: flex; flex-direction: column; gap: 12px;"></div>
     </div>
   </div>
 
   <script>
     function openM(id) { document.getElementById(id).style.display = 'flex'; }
     function closeM(id) { document.getElementById(id).style.display = 'none'; }
-
-    // دوال نافذة تكبير الصور
-    function openLightbox(url) {
-      document.getElementById('lightboxImg').src = url;
-      document.getElementById('lightboxModal').style.display = 'flex';
-    }
-    function closeLightbox() {
-      document.getElementById('lightboxModal').style.display = 'none';
-    }
 
     function sendWA() {
       const name = document.getElementById('userName').value.trim();
@@ -618,205 +488,86 @@
     function updateClock() {
       const now = new Date();
       const options = { timeZone: 'Asia/Baghdad', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
-      const timeString = new Intl.DateTimeFormat('ar-IQ', options).format(now);
-      document.getElementById('localClock').textContent = timeString;
+      document.getElementById('localClock').textContent = new Intl.DateTimeFormat('ar-IQ', options).format(now);
     }
     setInterval(updateClock, 1000);
     updateClock();
 
     async function getWeather() {
       try {
-        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.5292&longitude=43.2199&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBaghdad');
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.5292&longitude=43.2199&current=temperature_2m,weather_code&timezone=Asia%2FBaghdad');
         const data = await res.json();
-        
-        const temp = Math.round(data.current.temperature_2m);
-        document.getElementById('weatherTemp').textContent = temp + ' °C';
-
-        const code = data.current.weather_code;
-        let desc = 'طقس معتدل';
-        let icon = '🌤️';
-
-        if (code === 0) { desc = 'سماء صافية (مشمس)'; icon = '☀️'; }
-        else if (code >= 1 && code <= 3) { desc = 'غائم جزئي مع أجواء لطيفة'; icon = '⛅'; }
-        else if (code >= 45 && code <= 48) { desc = 'ضباب خفيف'; icon = '🌫️'; }
-        else if (code >= 51 && code <= 67) { desc = 'فرصة لهطول أمطار خفيفة'; icon = '🌧️'; }
-        else { desc = 'أجواء غائمة ومستقرة'; icon = '☁️'; }
-
-        document.getElementById('weatherDesc').textContent = desc;
-        document.getElementById('weatherMainIcon').textContent = icon;
-
-        if (data.daily && data.daily.time) {
-          const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
-          let forecastHtml = '';
-          for (let i = 1; i <= 3; i++) {
-            const dateObj = new Date(data.daily.time[i]);
-            const dayName = days[dateObj.getDay()];
-            const maxT = Math.round(data.daily.temperature_2m_max[i]);
-            const minT = Math.round(data.daily.temperature_2m_min[i]);
-            const dCode = data.daily.weather_code[i];
-            let dIcon = '⛅';
-            if (dCode === 0) dIcon = '☀️';
-            else if (dCode >= 51) dIcon = '🌧️';
-
-            forecastHtml += `
-              <div style="background: rgba(255,255,255,0.15); padding: 8px 4px; border-radius: 8px;">
-                <div style="font-weight:bold;">${dayName}</div>
-                <div style="font-size:16px; margin:2px 0;">${dIcon}</div>
-                <div>${maxT}° / ${minT}°</div>
-              </div>
-            `;
-          }
-          document.getElementById('forecastContainer').innerHTML = forecastHtml;
-        }
-      } catch (e) {
-        document.getElementById('weatherDesc').textContent = 'طقس الشرقاط المباشر';
-      }
+        document.getElementById('weatherTemp').textContent = Math.round(data.current.temperature_2m) + ' °C';
+      } catch (e) {}
     }
     getWeather();
 
-    // إعدادات GitHub للتحميل التلقائي
     const githubUser = "mhamalgporee-ctrl"; 
     const githubRepo = "mhamalgporee-ctrl.github.io";
 
-    // 1. التحميل التلقائي للصور داخل الحافظة المستقلة مع تفعيل العرض المكبر
     async function loadAutoPhotos() {
       const container = document.getElementById('galleryModalContainer');
-      if (!container) return;
       try {
-        const response = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/photos`);
-        const files = await response.json();
-        let hasImages = false;
-        container.innerHTML = '';
-
+        const res = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/photos`);
+        const files = await res.json();
         if (Array.isArray(files)) {
+          container.innerHTML = '';
           files.forEach(file => {
-            if (file.name && file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)) {
-              hasImages = true;
-              const imgCard = document.createElement('div');
-              imgCard.style.cssText = 'background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; padding: 4px;';
-              imgCard.innerHTML = `
-                <img src="${file.download_url}" alt="صورة" style="width: 100%; height: 130px; object-fit: cover; border-radius: 8px; display: block; cursor: pointer;" onclick="openLightbox('${file.download_url}')">
-              `;
-              container.appendChild(imgCard);
+            if (file.name.match(/\.(jpg|jpeg|png|webp)$/i)) {
+              container.innerHTML += `<img src="${file.download_url}" style="width:100%; height:90px; object-fit:cover; border-radius:8px;">`;
             }
           });
         }
-        if (!hasImages) {
-          container.innerHTML = '<p style="text-align:center; color:#64748b; grid-column: 1/-1; font-size: 13.5px;">لا توجد صور في الحافظة حالياً.</p>';
-        }
-      } catch (error) {
-        container.innerHTML = '<p style="text-align:center; color:#dc2626; grid-column: 1/-1; font-size: 13.5px;">جاري تجهيز حافظة الصور...</p>';
-      }
+      } catch (e) {}
     }
     loadAutoPhotos();
 
-    // 2. التحميل والتشغيل التلقائي للتسجيل الصوتي
     async function openAudioModal() {
       openM('audioModal');
       const player = document.getElementById('mainAudioPlayer');
-      const titleElem = document.getElementById('audioTitle');
-      
       try {
-        const response = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/audio`);
-        const files = await response.json();
-        let audioFileUrl = null;
-        let audioFileName = "";
-
-        if (Array.isArray(files)) {
-          const audioFiles = files.filter(f => f.name && f.name.match(/\.(mp3|wav|m4a|ogg)$/i));
-          if (audioFiles.length > 0) {
-            const latestAudio = audioFiles[audioFiles.length - 1]; 
-            audioFileUrl = latestAudio.download_url;
-            audioFileName = latestAudio.name.replace(/\.[^/.]+$/, "");
-          }
-        }
-
-        if (audioFileUrl) {
-          player.src = audioFileUrl;
-          titleElem.textContent = "🎧 القصة الصوتية: " + audioFileName;
+        const res = await fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}/contents/audio`);
+        const files = await res.json();
+        if (Array.isArray(files) && files.length > 0) {
+          player.src = files[files.length - 1].download_url;
         } else {
           player.src = "audio/story.mp3";
-          titleElem.textContent = "🎧 التسجيل الصوتي اليومي";
         }
-        
-        player.play().catch(e => {
-          console.log("تنبيه: يتطلب تشغيل الصوت التفاعل المباشر من الزائر.");
-        });
-      } catch (e) {
-        player.src = "audio/story.mp3";
-        titleElem.textContent = "🎧 التسجيل الصوتي اليومي";
         player.play().catch(e => {});
-      }
+      } catch (e) { player.src = "audio/story.mp3"; }
     }
 
     function closeAudioM() {
-      const player = document.getElementById('mainAudioPlayer');
-      if (player) {
-        player.pause();
-      }
+      document.getElementById('mainAudioPlayer').pause();
       closeM('audioModal');
     }
 
-    // 3. جلب وعرض أحدث الفيديوهات بجميع صيغ اليوتيوب (عادي، Shorts، وبثوث)
     async function openVideoModal() {
       openM('videoModal');
       const container = document.getElementById('videoModalContainer');
-      if (!container.dataset.loaded) {
-        try {
-          const channelId = 'UCaCmR_yzL9lKNm7B22ZV-3A';
-          const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-          const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
-          const data = await res.json();
-          
-          if (data && data.items && data.items.length > 0) {
-            container.innerHTML = '';
-            data.items.forEach(item => {
-              let videoId = null;
-              
-              // دالة ذكية لاستخراج معرف الفيديو من أي رابط يوتيوب مهما كانت صيغته
-              const extractId = (urlOrGuid) => {
-                if (!urlOrGuid) return null;
-                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|shorts\/|watch\?v=|&v=)([^#&?]*).*/;
-                const match = urlOrGuid.match(regExp);
-                return (match && match[2].length === 11) ? match[2] : null;
-              };
-
-              videoId = extractId(item.link);
-              if (!videoId) {
-                videoId = extractId(item.guid);
-              }
-              if (!videoId && item.guid) {
-                const parts = item.guid.split(':');
-                if (parts.length > 0 && parts[parts.length - 1].length === 11) {
-                  videoId = parts[parts.length - 1];
-                }
-              }
-              
-              if (videoId) {
-                const card = document.createElement('div');
-                card.style.cssText = 'background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; overflow: hidden; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);';
-                card.innerHTML = `
-                  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin-bottom: 8px; background: #000;">
-                    <iframe src="https://www.youtube.com/embed/${videoId}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="${item.title}"></iframe>
-                  </div>
-                  <h4 style="font-size: 13.5px; font-weight: 700; color: #1e293b; margin-bottom: 6px; line-height: 1.4;">${item.title}</h4>
-                  <a href="${item.link}" target="_blank" style="font-size: 12px; color: #be123c; font-weight: bold; display: inline-block;">مشاهدة على اليوتيوب ◄</a>
-                `;
-                container.appendChild(card);
-              }
-            });
-            container.dataset.loaded = "true";
-          } else {
-            container.innerHTML = '<p style="text-align:center; color:#64748b; font-size: 13.5px;">لا توجد فيديوهات متاحة حالياً.</p>';
-          }
-        } catch (err) {
-          container.innerHTML = `
-            <div style="text-align:center; padding: 15px;">
-              <p style="color:#64748b; font-size: 13.5px; margin-bottom: 10px;">تعذر التحميل المباشر. يمكنك زيارة القناة مباشرة:</p>
-              <a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" class="btn" style="background: #be123c; color: #fff; padding: 10px 20px; border-radius: 8px; display: inline-block; font-weight: bold;">فتح قناة اليوتيوب 🔴</a>
-            </div>
-          `;
+      container.innerHTML = '<p style="text-align:center;">جاري جلب آخر المقاطع...</p>';
+      try {
+        const channelId = 'UCaCmR_yzL9lKNm7B22ZV-3A';
+        const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+        const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
+        const data = await res.json();
+        if (data && data.items && data.items.length > 0) {
+          container.innerHTML = '';
+          data.items.slice(0, 5).forEach(item => {
+            let videoId = item.link.split('v=')[1] || item.link.split('/shorts/')[1] || item.guid.split(':')[2];
+            if (videoId) {
+              container.innerHTML += `
+                <div style="background:#f8fafc; padding:8px; border-radius:10px; border:1px solid #ddd;">
+                  <iframe src="https://www.youtube.com/embed/${videoId.split('&')[0]}" style="width:100%; height:180px; border:0; border-radius:6px;" allowfullscreen></iframe>
+                  <p style="font-size:12px; font-weight:bold; margin-top:5px;">${item.title}</p>
+                </div>`;
+            }
+          });
+        } else {
+          container.innerHTML = '<p style="text-align:center;">لا توجد مقاطع حالياً.</p>';
         }
+      } catch (e) {
+        container.innerHTML = '<p style="text-align:center;"><a href="https://youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" style="color:#be123c; font-weight:bold;">اضغط هنا للانتقال مباشرة للقناة 🔴</a></p>';
       }
     }
   </script>
