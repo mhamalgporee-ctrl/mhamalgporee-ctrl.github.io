@@ -124,6 +124,12 @@
       margin-bottom: 20px;
     }
 
+    .book-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .btn {
       display: inline-block;
       padding: 10px 20px;
@@ -137,6 +143,16 @@
 
     .btn:hover {
       background: var(--dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--p);
+      border: 1px solid var(--p);
+    }
+
+    .btn-secondary:hover {
+      background: var(--light);
     }
 
     .footer {
@@ -156,6 +172,9 @@
       .book-cover {
         max-width: 150px;
         margin: 0 auto;
+      }
+      .book-actions {
+        justify-content: center;
       }
       .nav-links {
         font-size: 12px;
@@ -184,7 +203,7 @@
     </div>
 
     <article class="book-card">
-      <a href="book.pdf" target="_blank" rel="noopener">
+      <a href="flip-book/7d35d68ef2.html">
         <img class="book-cover" src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر" onerror="this.src='acon.jpg'">
       </a>
       <div class="book-info">
@@ -192,7 +211,10 @@
         <p>
           كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة.
         </p>
-        <a class="btn" href="book.pdf" target="_blank" rel="noopener">قراءة الكتاب بصيغة PDF 📄</a>
+        <div class="book-actions">
+          <a class="btn" href="flip-book/7d35d68ef2.html">تصفح الكتاب التفاعلي 📖</a>
+          <a class="btn btn-secondary" href="book.pdf" target="_blank" rel="noopener">تحميل نسخة PDF 📄</a>
+        </div>
       </div>
     </article>
   </main>
