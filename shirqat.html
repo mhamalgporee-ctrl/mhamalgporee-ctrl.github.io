@@ -54,6 +54,18 @@
       padding: 30px 25px;
       box-shadow: var(--shadow);
       margin-bottom: 35px;
+      overflow: hidden;
+    }
+
+    /* Article Banner Image */
+    .article-banner {
+      width: 100%;
+      max-height: 380px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 22px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     .article-header {
@@ -160,6 +172,7 @@
     @media (max-width: 480px) {
       .article-card { padding: 20px 15px; }
       .article-header h1 { font-size: 20px; }
+      .article-banner { max-height: 220px; }
       .nav-links { display: none; }
     }
   </style>
@@ -182,6 +195,9 @@
     <!-- المقالة الأولى: الشرقاط مدينتي تاريخ وإبداع -->
     <div class="article-card">
       
+      <!-- صورة المقالة الأولى: 1.jpg -->
+      <img src="1.jpg" alt="الشرقاط مدينتي تاريخ وإبداع" class="article-banner" onerror="this.style.display='none'">
+
       <div class="article-header">
         <h1>الشرقاط مدينتي تاريخ وإبداع</h1>
         <div class="article-author">بقلم: محمد علي أحمد الحطاب الجبوري</div>
@@ -227,6 +243,9 @@
     <!-- المقالة الثانية: صدى الذاكرة: الشرقاط.. أيام مكاين الشيوخ والبستان -->
     <div class="article-card">
       
+      <!-- صورة المقالة الثانية: 2.jpg -->
+      <img src="2.jpg" alt="ذكريات بستان الشيوخ ومكاين الشرقاط" class="article-banner" onerror="this.style.display='none'">
+
       <div class="article-header">
         <h1>صدى الذاكرة: الشرقاط.. أيام مكاين الشيوخ والبستان</h1>
         <div class="article-author">بقلم: محمد علي أحمد الحطاب الجبوري</div>
