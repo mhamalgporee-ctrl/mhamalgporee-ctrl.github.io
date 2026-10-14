@@ -13,42 +13,180 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هكذا روت لي أمي: قصة جدي عگاب ولقاؤها بالملك فيصل</title>
+    <title>هكذا روت لي أمي: قصة جدي عگاب ولقاؤها بالملك فيصل - موقع الشرقاط الثقافي الأول</title>
     <meta name="description" content="قصة تاريخية تروي سيرة جدي عگاب العلي الحلبي وعلاقته بمولود باشا مخلص ولقاء طفولة والدته بالملك فيصل.">
     <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
+
+    <link rel="icon" href="acon.jpg" type="image/jpeg">
+
     <style>
+        :root {
+          --primary: #064e3b;
+          --primary-hover: #022c22;
+          --primary-light: #f0fdf4;
+          --bg: #fdfbf7;
+          --card-bg: #ffffff;
+          --text: #1e293b;
+          --muted: #64748b;
+          --border: #d4b572;
+          --shadow: 0 4px 20px rgba(6, 78, 59, 0.08);
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #333; direction: rtl; line-height: 1.8; }
+        body { 
+          font-family: system-ui, -apple-system, sans-serif; 
+          background-color: var(--bg); 
+          background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.92), rgba(240, 253, 244, 0.92));
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
+          color: var(--text); 
+          direction: rtl; 
+          line-height: 1.8; 
+        }
         a { text-decoration: none; color: inherit; }
-        .navbar { background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 900px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 16px; font-weight: bold; color: #10b981; }
-        .back-home { font-size: 14px; font-weight: 600; color: #64748b; background: #f1f5f9; padding: 6px 14px; border-radius: 20px; transition: 0.2s; }
-        .back-home:hover { background: #e2e8f0; color: #10b981; }
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .article-card { background: #ffffff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
-        h1 { font-size: 26px; color: #1e293b; margin-bottom: 10px; line-height: 1.4; }
-        .pub-date { color: #64748b; font-size: 14px; margin-bottom: 30px; display: block; }
-        .article-body p { margin-bottom: 20px; font-size: 16px; color: #334155; text-align: justify; }
-        .article-body h2 { font-size: 20px; color: #065f46; margin: 30px 0 15px 0; border-right: 4px solid #10b981; padding-right: 10px; }
-        .quote-box { background: #f0fdf4; border-right: 4px solid #10b981; padding: 20px; border-radius: 0 12px 12px 0; margin: 25px 0; font-style: italic; color: #065f46; }
-        .footer { margin-top: 40px; text-align: center; color: #64748b; font-size: 14px; padding: 20px 0; border-top: 1px solid #e2e8f0; }
-        @media (max-width: 768px) { .article-card { padding: 20px; } h1 { font-size: 22px; } }
+
+        /* Navbar */
+        .navbar { background: rgba(6, 78, 59, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); border-bottom: 2px solid #d4b572; }
+        .nav-container { max-width: 1100px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 18px; font-weight: 800; color: #fef08a; }
+        .nav-links { display: flex; gap: 15px; }
+        .nav-links a { font-size: 14px; font-weight: 700; color: #ffffff; }
+        .nav-links a:hover { color: #fef08a; }
+
+        /* Container */
+        .container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
+
+        /* Article Card */
+        .article-card {
+          background: var(--card-bg);
+          border: 2px solid var(--border);
+          border-radius: 20px;
+          padding: 30px 25px;
+          box-shadow: var(--shadow);
+          margin-bottom: 35px;
+          overflow: hidden;
+        }
+
+        /* Banner Image */
+        .article-banner {
+          width: 100%;
+          max-height: 450px;
+          object-fit: cover;
+          border-radius: 12px;
+          margin-bottom: 22px;
+          border: 1px solid #e2e8f0;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .article-header {
+          text-align: center;
+          border-bottom: 2px solid var(--primary-light);
+          padding-bottom: 20px;
+          margin-bottom: 25px;
+        }
+
+        .article-header h1 {
+          font-size: 24px;
+          color: var(--primary);
+          font-weight: 800;
+          margin-bottom: 10px;
+          line-height: 1.4;
+        }
+
+        .pub-date {
+          color: var(--muted);
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .article-body p {
+          font-size: 15.5px;
+          color: var(--text);
+          margin-bottom: 18px;
+          text-align: justify;
+        }
+
+        .article-body h2 {
+          font-size: 19px;
+          color: var(--primary);
+          font-weight: 800;
+          margin: 30px 0 15px 0;
+          border-right: 4px solid var(--border);
+          padding-right: 12px;
+        }
+
+        .quote-box {
+          background: var(--primary-light);
+          border-right: 4px solid var(--primary);
+          padding: 16px 20px;
+          border-radius: 8px;
+          margin: 22px 0;
+          font-style: italic;
+          font-weight: 600;
+          color: var(--primary);
+        }
+
+        .article-footer-note {
+          margin-top: 30px;
+          padding-top: 15px;
+          border-top: 1px solid #e2e8f0;
+          font-size: 13px;
+          color: var(--muted);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .back-btn {
+          display: inline-block;
+          background: var(--primary);
+          color: #fff;
+          padding: 10px 22px;
+          border-radius: 12px;
+          font-size: 14px;
+          font-weight: bold;
+          transition: background 0.2s ease;
+          box-shadow: 0 4px 12px rgba(6,78,59,0.2);
+        }
+        .back-btn:hover { background: var(--primary-hover); }
+
+        /* Footer */
+        .footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; margin-top: 25px; background: rgba(255,255,255,0.7); border-radius: 12px; }
+
+        @media (max-width: 480px) {
+          .article-card { padding: 20px 15px; }
+          .article-header h1 { font-size: 20px; }
+          .article-banner { max-height: 280px; }
+          .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">محمد علي أحمد الحطاب الجبوري</div>
-            <a href="index.html" class="back-home">← الرئيسية</a>
+            <div class="logo">موقع الشرقاط الثقافي</div>
+            <div class="nav-links">
+                <a href="index.html">🏠 الرئيسية</a>
+                <a href="tv.html">📺 التلفزيون</a>
+                <a href="book.html">📚 مؤلفاتي</a>
+            </div>
         </div>
     </nav>
 
     <div class="container">
         <article class="article-card">
-            <h1>هكذا روت لي أمي: قصة جدي عگاب ولقاؤها بالملك فيصل</h1>
-            <span class="pub-date">تاريخ النشر: سبتمبر 2026</span>
+            
+            <!-- صورة مولود باشا -->
+            <img src="okab.jpg" alt="مولود باشا مخلص" class="article-banner" onerror="this.style.display='none'">
+
+            <div class="article-header">
+                <h1>هكذا روت لي أمي: قصة جدي عگاب ولقاؤها بالملك فيصل</h1>
+                <div class="pub-date">بقلم: محمد علي أحمد الحطاب الجبوري</div>
+            </div>
 
             <div class="article-body">
                 <p>رأيت صورة لمولود باشا رحمه الله وذكرتني، الصورة رجعتني ليورى، وذكرتني بسوالف أمي (رحمها الله) وهي تقص لي حكاية جدي (عگاب العلي الحلبي).</p>
@@ -73,24 +211,33 @@
                 <p>مولود باشا مخلص (المعروف بـ مولود مخلص باشا) هو ضابط عراقي بارز، وسياسي، ومن القادة العسكريين البارزين في تاريخ العراق المعاصر والثورة العربية الكبرى.</p>
                 
                 <p><strong>النشأة والتعليم:</strong><br>
-                - ولادته: ولد في مدينة الموصل عام 1885م، وينحدر نسبه من عائلة "الحاج شعبان" (من البو حاشي في تكريت).<br>
-                - لقبه: اسمه الأصلي "مولود بن أحمد"، أما لقب "مخلص" فقد منحه إياه الشريف حسين بن علي (قائد الثورة العربية الكبرى) تقديراً لإخلاصه وشجاعته الفائقة في المعارك.<br>
-                - دراسته: تلقى علومه الأولى في الموصل، ثم انتقل لدراسة العلوم العسكرية في بغداد وإسطنبول.</p>
+                • <strong>ولادته:</strong> ولد في مدينة الموصل عام 1885م، وينحدر نسبه من عائلة "الحاج شعبان" (من البو حاشي في تكريت).<br>
+                • <strong>لقبه:</strong> اسمه الأصلي "مولود بن أحمد"، أما لقب "مخلص" فقد منحه إياه الشريف حسين بن علي (قائد الثورة العربية الكبرى) تقديراً لإخلاصه وشجاعته الفائقة في المعارك.<br>
+                • <strong>دراسته:</strong> تلقى علومه الأولى في الموصل، ثم انتقل لدراسة العلوم العسكرية في بغداد وإسطنبول.</p>
 
                 <p><strong>الدور العسكري والسياسي:</strong><br>
-                - الثورة العربية الكبرى (1916): انضم إلى الثورة ضد الحكم العثماني، وكان أحد الأذرع العسكرية القوية والمقربة من الأمير (الملك لاحقاً) فيصل بن الحسين في الجيش الشمالي. خاض معارك عديدة وأُصيب بجروح مرات متعددة، ورُقي إلى رتبة (أمير لواء).<br>
-                - حاكم دير الزور: عُيّن حاكماً عسكرياً لمنطقة دير الزور في سوريا بعد انتهاء المعارك هناك.<br>
-                - المناصب في الدولة العراقية: بعد تأسيس المملكة العراقية، عاد إلى العراق وشغل مناصب إدارية وسياسية رفيعة، منها متصرفاً (محافظاً) لكربلاء، ونائباً لرئيس مجلس الأعيان العراقي ثم رقيساً له.</p>
+                • <strong>الثورة العربية الكبرى (1916):</strong> انضم إلى الثورة ضد الحكم العثماني، وكان أحد الأذرع العسكرية القوية والمقربة من الأمير (الملك لاحقاً) فيصل بن الحسين في الجيش الشمالي. خاض معارك عديدة وأُصيب بجروح مرات متعددة، ورُقي إلى رتبة (أمير لواء).<br>
+                • <strong>حاكم دير الزور:</strong> عُيّن حاكماً عسكرياً لمنطقة دير الزور في سوريا بعد انتهاء المعارك هناك.<br>
+                • <strong>المناصب في الدولة العراقية:</strong> بعد تأسيس المملكة العراقية، عاد إلى العراق وشغل مناصب إدارية وسياسية رفيعة، منها متصرفاً (محافظاً) لكربلاء، ونائباً لرئيس مجلس الأعيان العراقي ثم رئيساً له.</p>
 
                 <p><strong>صفاته ووفاته:</strong><br>
                 عُرف مولود باشا بجرأته الشديدة، وصراحته في إبداء الرأي، ووطنيته العالية. توفي في بيروت عام 1951م، ونُقل جثمانه ليُدفن في العاصمة بغداد.</p>
 
-                <p><em>ملاحظة: هذه القصة مختصرة؛ لذا لبعض التعليقات عن الدفن أو ما شابه، فجدي تحول سكناه أيضاً إلى الشرقاط ومات هناك، وأما مولود باشا نُقل إلى تكريت ودفن فيها. وبرز من عائلته أيضاً شخصيات سياسية وطبية لاحقة في العراق، مثل ولده الدكتور غائب مولود مخلص الذي شغل منصب وزير وسفير في ستينيات وسبعينيات القرن الماضي.</em></p>
+                <p style="background: #fafaf9; padding: 14px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 14px; color: var(--muted);">
+                  <em>ملاحظة: هذه القصة مختصرة؛ لذا لبعض التعليقات عن الدفن أو ما شابه، فجدي تحول سكناه أيضاً إلى الشرقاط ومات هناك، وأما مولود باشا نُقل إلى تكريت ودفن فيها. وبرز من عائلته أيضاً شخصيات سياسية وطبية لاحقة في العراق، مثل ولده الدكتور غائب مولود مخلص الذي شغل منصب وزير وسفير في ستينيات وسبعينيات القرن الماضي.</em>
+                </p>
             </div>
+
+            <div class="article-footer-note">
+                <div>جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي الأول</div>
+                <a href="index.html" class="back-btn">↩️ العودة للرئيسية</a>
+            </div>
+
         </article>
 
+        <!-- Footer -->
         <div class="footer">
-            <p>جميع الحقوق محفوظة © 2026 - محمد علي أحمد الحطاب الجبوري</p>
+            جميع الحقوق محفوظة © 2026 - موقع الشرقاط الثقافي الأول | محمد علي أحمد الحطاب الجبوري
         </div>
     </div>
 
