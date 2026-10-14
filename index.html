@@ -390,7 +390,7 @@
 const CONFIG={githubUser:"mhamalgporee-ctrl",githubRepo:"mhamalgporee-ctrl.github.io",audioFolder:"audio",photosFolder:"photos",whatsappNumber:"9647835025407",youtubeChannelId:"UCaCmR_yzL9lKNm7B22ZV-3A",latitude:35.5292,longitude:43.2199,timezone:"Asia/Baghdad"};
 const $=spec=>document.querySelector(spec);
 const $$=spec=>[...document.querySelectorAll(spec)];
-const escapeHTML=value=>String(value).replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[char]);
+const escapeHTML=value=>String(value||"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[char]);
 let toastTimer=null;
 function showToast(message){const toast=$("#toast");toast.textContent=message;toast.classList.add("visible");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove("visible"),3200)}
 const menuToggle=$("#menuToggle");const navLinks=$("#navLinks");
@@ -398,7 +398,7 @@ function closeMenu(){navLinks.classList.remove("open");menuToggle.setAttribute("
 menuToggle.addEventListener("click",()=>{const isOpen=navLinks.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(isOpen));menuToggle.setAttribute("aria-label",isOpen?"إغلاق قائمة التنقل":"فتح قائمة التنقل")});
 $$("#navLinks a").forEach(link=>link.addEventListener("click",closeMenu));
 $$("[data-hero-image]").forEach(button=>{button.addEventListener("click",()=>{const image=button.dataset.heroImage;const mainImage=$("#heroMainImage");mainImage.src=image;mainImage.onerror=()=>{mainImage.onerror=null;mainImage.src="acon.jpg"};$$("[data-hero-image]").forEach(item=>{item.setAttribute("aria-pressed",String(item===button))})})});
-function normalizeText(value){return String(value||[]).normalize("NFD").replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").toLowerCase().trim()}
+function normalizeText(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").toLowerCase().trim()}
 const searchInput=$("#siteSearch");const contentCards=$$(".content-card");
 function runSearch(){const query=normalizeText(searchInput.value);let visible=0;contentCards.forEach(card=>{const haystack=normalizeText(card.innerText+" "+card.dataset.search);const matches=!query||haystack.includes(query);card.hidden=!matches;if(matches)visible++});$("#noResults").style.display=visible?"none":"block";$("#searchStatus").textContent=query?`عدد النتائج: ${visible} من ${contentCards.length}`:`تصفح جميع الأقسام الثقافية (${contentCards.length} أقسام)`}
 searchInput.addEventListener("input",runSearch);runSearch();
