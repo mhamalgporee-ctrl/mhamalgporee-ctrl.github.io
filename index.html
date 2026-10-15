@@ -131,107 +131,130 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .book-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
 
 /* =========================================
-   تحسين ألوان الطقس - الشرقاط الثقافي الأول
+   طقس الشرقاط — صور واقعية وتصميم أنيق
    ========================================= */
 .weather-section {
-  background: radial-gradient(ellipse at 0 100%,rgba(198,164,92,.09),transparent 35%), var(--ivory);
+  background: radial-gradient(ellipse at 0 100%, rgba(198,164,92,.10), transparent 36%), var(--ivory);
 }
 
 .weather-shell {
-  border: 1px solid #cbd9e8;
-  border-radius: 26px;
-  background: #ffffff;
-  box-shadow: 0 12px 35px rgba(24, 55, 85, 0.12);
   overflow: hidden;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 28px;
+  background: #f8f7f2;
+  box-shadow: 0 18px 55px rgba(18,59,48,.13);
 }
 
-/* رأس بطاقة الطقس */
+/* رأس الطقس */
 .weather-top {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 24px;
-  padding: 32px;
-  background: linear-gradient(135deg, #123b30, #176b58);
-  border-bottom: 4px solid #e7bd55;
+  padding: 30px;
+  overflow: hidden;
   color: white;
+  background: linear-gradient(115deg, rgba(7,29,24,.96), rgba(18,59,48,.88)), url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1400&q=85") center 45%/cover;
+  border-bottom: 3px solid var(--gold);
 }
 
 .weather-location {
-  margin: 0 0 4px;
-  color: #ffe08a;
+  margin: 0 0 5px;
+  color: #e5d2a0;
   font-size: .82rem;
   font-weight: 800;
 }
 
 .weather-top h3 {
   margin: 0;
-  color: #ffffff;
-  font-size: 1.8rem;
+  color: #fff;
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
-/* الساعة */
 .clock {
-  color: #ffe08a;
+  color: #f0dfb2;
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 900;
   font-variant-numeric: tabular-nums;
   direction: ltr;
   text-align: left;
-  text-shadow: 0 2px 12px rgba(255, 224, 138, 0.15);
 }
 
 .clock-label {
-  color: #f0f7f2;
+  color: rgba(255,255,255,.82);
   font-size: .76rem;
   text-align: left;
 }
 
-/* حالة الطقس الحالية */
+/* الحالة الجوية الحالية — الصورة تتغير حسب الطقس */
 .weather-current {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 22px;
+  min-height: 260px;
   padding: 32px;
-  background: linear-gradient(120deg, #ffffff, #f0f7ff);
-  border-bottom: 1px solid #d7e5f2;
+  overflow: hidden;
+  color: white;
+  background-color: #263c3a;
+  background-position: center;
+  background-size: cover;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+.weather-current::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgba(7,20,19,.78) 0%,
+    rgba(7,20,19,.58) 48%,
+    rgba(7,20,19,.32) 100%
+  );
 }
 
 .weather-symbol {
   display: grid;
   place-items: center;
-  width: 86px;
-  height: 86px;
+  width: 82px;
+  height: 82px;
+  border: 1px solid rgba(255,255,255,.32);
   border-radius: 24px;
-  background: #fff1bd;
-  border: 2px solid #f0d36e;
-  font-size: 3.2rem;
+  background: rgba(255,255,255,.14);
+  color: white;
+  font-size: 3rem;
   line-height: 1;
-  box-shadow: 0 5px 15px rgba(170, 128, 22, 0.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,.13);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .temperature {
-  color: #123b70;
-  font-size: clamp(3rem, 6vw, 4.4rem);
+  color: #fff;
+  font-size: clamp(3.2rem, 6vw, 4.8rem);
   font-weight: 900;
-  line-height: 1.2;
-  text-shadow: 0 2px 0 rgba(18, 59, 112, 0.05);
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  text-shadow: 0 3px 20px rgba(0,0,0,.22);
 }
 
 .weather-description {
-  margin-top: 5px;
-  color: #243e58;
+  margin-top: 7px;
+  color: #fff;
   font-size: 1.05rem;
   font-weight: 800;
 }
 
-/* شرائح معلومات الطقس */
 .weather-details {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .weather-chip {
@@ -239,157 +262,153 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
   align-items: center;
   justify-content: center;
   padding: 7px 12px;
-  border: 1px solid #c9dbea;
-  border-radius: 12px;
-  background: #eaf4ff;
-  color: #174d7b;
-  font-size: 0.82rem;
-  font-weight: 800;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  background: rgba(9,31,27,.48);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
 }
 
-#feelsLike {
-  border-color: #f0d58b;
-  background: #fff4cf;
-  color: #805000;
+#feelsLike, #humidity, #windSpeed {
+  border-color: rgba(255,255,255,.28);
+  background: rgba(9,31,27,.48);
+  color: #fff;
 }
 
-#humidity {
-  border-color: #a8d8f5;
-  background: #e4f5ff;
-  color: #075985;
-}
-
-#windSpeed {
-  border-color: #b9dfc9;
-  background: #e6f7ec;
-  color: #17603a;
-}
-
-/* معلومات التحديث والعظمى والصغرى */
 .weather-extra {
-  color: #334b61;
-  font-size: .84rem;
+  align-self: end;
+  color: rgba(255,255,255,.94);
+  font-size: .8rem;
   font-weight: 700;
   line-height: 2;
   text-align: left;
+  text-shadow: 0 1px 5px rgba(0,0,0,.3);
 }
 
-/* بطاقات توقعات الأيام */
+/* توقعات الأيام بصور فوتوغرافية */
 .weather-forecast {
   display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
+  grid-template-columns: repeat(4, minmax(0,1fr));
   gap: 14px;
   padding: 24px;
-  background: #f5f8fc;
+  background: #f1f0e9;
 }
 
 .forecast-day {
   position: relative;
-  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 190px;
   padding: 20px 12px;
-  border: 1px solid #d4e0ec;
-  border-bottom: 4px solid #4b91c7;
-  border-radius: 18px;
-  background: #ffffff;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 19px;
+  background-color: #334944;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(28, 65, 100, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 18px rgba(18,35,30,.10);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.forecast-day::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(
+    180deg,
+    rgba(5,20,18,.48),
+    rgba(5,20,18,.78)
+  );
 }
 
 .forecast-day:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(28, 65, 100, 0.13);
-}
-
-/* تمييز الأيام بألوان متناسقة */
-.forecast-day:nth-child(1) {
-  border-bottom-color: #e5a323;
-  background: linear-gradient(180deg, #fff9e8, #ffffff 75%);
-}
-
-.forecast-day:nth-child(2) {
-  border-bottom-color: #3988d0;
-  background: linear-gradient(180deg, #edf7ff, #ffffff 75%);
-}
-
-.forecast-day:nth-child(3) {
-  border-bottom-color: #299c88;
-  background: linear-gradient(180deg, #eafaf5, #ffffff 75%);
-}
-
-.forecast-day:nth-child(4) {
-  border-bottom-color: #8b75c9;
-  background: linear-gradient(180deg, #f4efff, #ffffff 75%);
+  box-shadow: 0 12px 28px rgba(18,35,30,.18);
 }
 
 .forecast-day .day-name {
-  color: #243c52;
-  font-size: 0.9rem;
+  color: #fff;
+  font-size: .9rem;
   font-weight: 900;
+  text-shadow: 0 1px 5px rgba(0,0,0,.35);
 }
 
 .forecast-day .day-icon {
   display: grid;
   place-items: center;
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   margin: 12px auto;
-  border-radius: 18px;
-  background: rgba(255, 213, 92, 0.24);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  background: rgba(255,255,255,.14);
   font-size: 2rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .forecast-day .day-temps {
-  margin-top: 8px;
-  color: #123b70;
+  margin-top: 5px;
+  color: #fff;
   font-size: 1rem;
   font-weight: 900;
   direction: rtl;
+  text-shadow: 0 1px 5px rgba(0,0,0,.35);
 }
 
 .forecast-day .day-desc {
   margin-top: 5px;
-  color: #40566a;
-  font-size: 0.78rem;
+  color: rgba(255,255,255,.9);
+  font-size: .76rem;
   font-weight: 700;
   line-height: 1.8;
 }
 
-/* شريط التحديث */
+/* حالة الاتصال والتحديث */
 .weather-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding: 0 24px 24px;
-  background: #f5f8fc;
+  background: #f1f0e9;
 }
 
 .weather-status {
-  color: #294b63;
-  font-size: .78rem;
+  color: #53645b;
+  font-size: .8rem;
   font-weight: 700;
 }
 
 #refreshWeather {
-  border: 1px solid #b8cfe1;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #174d70;
-  font-weight: 900;
-  box-shadow: 0 3px 10px rgba(24, 55, 85, 0.07);
   padding: 10px 20px;
+  border: 1px solid #d6d0c1;
+  border-radius: 999px;
+  background: #fffdf7;
+  color: var(--green);
+  font-weight: 900;
+  box-shadow: 0 4px 12px rgba(18,59,48,.06);
   cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
 }
 
 #refreshWeather:hover {
-  border-color: #2875a9;
-  background: #eaf5ff;
+  transform: translateY(-2px);
+  background: #e9eee7;
 }
 
 #refreshWeather:disabled {
   cursor: wait;
-  opacity: 0.65;
+  opacity: .65;
 }
 
 .map-frame{width:100%;height:390px;border:0;display:block;background:#e5e8de}
@@ -448,9 +467,9 @@ audio{width:100%;margin-top:16px}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
 
 @media (max-width:1050px){.nav-links{gap:14px}.nav-links a{font-size:.8rem}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{gap:40px}.hero-thumbs{right:-12px}.hero-note{left:-12px}}
-@media (max-width:780px){.container{width:min(100% - 32px,var(--container))}.section{padding-block:62px}.nav-wrap{min-height:72px}.menu-toggle{display:grid;place-items:center}.nav-links{position:absolute;top:calc(100% + 1px);right:0;left:0;display:none;align-items:stretch;gap:4px;padding:13px 16px 18px;border-bottom:1px solid var(--line);background:var(--ivory);box-shadow:0 18px 25px rgba(18,59,48,.09)}.nav-links.open{display:flex;flex-direction:column}.nav-links a{padding:10px 14px;font-size:.92rem}.nav-links .nav-cta{text-align:center}.hero{padding-block:53px 50px}.hero-grid{grid-template-columns:1fr;gap:37px}.hero-copy{max-width:none}.hero h1{font-size:clamp(2.6rem,10vw,4.2rem)}.hero-visual{width:min(460px,100%);margin-inline:auto}.hero-main-image{height:370px}.hero-thumbs{right:-8px;bottom:70px}.hero-note{left:-5px;top:45px}.section-heading{align-items:flex-start;flex-direction:column}.section-heading p{max-width:none}.search-box{width:100%}.media-grid{grid-template-columns:1fr}.book-panel{grid-template-columns:1fr}.book-art{min-height:290px}.book-art img{max-height:300px}.weather-top{padding:24px}.weather-current{grid-template-columns:auto 1fr;padding:25px}.weather-extra{grid-column:1 / -1;text-align:right}.contact-panel{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{gap:13px}}
+@media (max-width:780px){.container{width:min(100% - 32px,var(--container))}.section{padding-block:62px}.nav-wrap{min-height:72px}.menu-toggle{display:grid;place-items:center}.nav-links{position:absolute;top:calc(100% + 1px);right:0;left:0;display:none;align-items:stretch;gap:4px;padding:13px 16px 18px;border-bottom:1px solid var(--line);background:var(--ivory);box-shadow:0 18px 25px rgba(18,59,48,.09)}.nav-links.open{display:flex;flex-direction:column}.nav-links a{padding:10px 14px;font-size:.92rem}.nav-links .nav-cta{text-align:center}.hero{padding-block:53px 50px}.hero-grid{grid-template-columns:1fr;gap:37px}.hero-copy{max-width:none}.hero h1{font-size:clamp(2.6rem,10vw,4.2rem)}.hero-visual{width:min(460px,100%);margin-inline:auto}.hero-main-image{height:370px}.hero-thumbs{right:-8px;bottom:70px}.hero-note{left:-5px;top:45px}.section-heading{align-items:flex-start;flex-direction:column}.section-heading p{max-width:none}.search-box{width:100%}.media-grid{grid-template-columns:1fr}.book-panel{grid-template-columns:1fr}.book-art{min-height:290px}.book-art img{max-height:300px}.weather-top{padding:24px}.weather-current{grid-template-columns:auto 1fr;min-height:250px;padding:25px}.weather-extra{grid-column:1 / -1;text-align:right}.contact-panel{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{gap:13px}}
 
-/* تحسين العرض على الهواتف للطقس */
+/* تجاوب الطقس مع الشاشات المختلفة */
 @media (max-width: 480px) {
   body{font-size:15px}
   .container{width:calc(100% - 28px)}
@@ -466,18 +485,18 @@ audio{width:100%;margin-top:16px}
   .ticker-inner{font-size:.77rem}
   .content-grid{grid-template-columns:1fr;gap:14px}
   .content-card{min-height:220px}
-  .weather-top{grid-template-columns:1fr;gap:12px}
-  .clock,.clock-label{text-align:right}
-  .weather-current{gap:12px;padding:22px 14px}
-  .weather-symbol{width:65px;height:65px;border-radius:18px;font-size:2.5rem}
-  .temperature{font-size:2.8rem}
-  .weather-chip{padding:6px 9px;font-size:0.75rem}
-  .weather-extra{grid-column:1 / -1;text-align:right}
-  .weather-forecast{gap:10px;padding:14px}
-  .forecast-day{padding:16px 8px}
-  .forecast-day .day-icon{width:50px;height:50px;font-size:1.8rem}
-  .forecast-day .day-temps{font-size:0.95rem}
-  .weather-bottom{align-items:flex-start;flex-direction:column;padding:0 14px 18px}
+  .weather-top {grid-template-columns: 1fr; gap: 12px; padding: 22px;}
+  .clock, .clock-label { text-align: right; }
+  .weather-current { gap: 13px; min-height: 280px; padding: 22px 15px; }
+  .weather-symbol { width: 62px; height: 62px; border-radius: 18px; font-size: 2.3rem; }
+  .temperature { font-size: 2.9rem; }
+  .weather-description { font-size: .95rem; }
+  .weather-chip { padding: 6px 9px; font-size: .73rem; }
+  .weather-forecast { gap: 10px; padding: 14px; }
+  .forecast-day { min-height: 175px; padding: 15px 8px; }
+  .forecast-day .day-icon { width: 48px; height: 48px; font-size: 1.7rem; }
+  .forecast-day .day-temps { font-size: .93rem; }
+  .weather-bottom { align-items: flex-start; flex-direction: column; padding: 0 14px 18px; }
   .map-frame{height:300px}
   .book-panel{padding:20px}
   .modal{padding:8px}
