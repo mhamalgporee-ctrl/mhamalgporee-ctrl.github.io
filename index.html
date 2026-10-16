@@ -89,8 +89,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .ticker{overflow:hidden;background:var(--gold);color:var(--green-deep)}
 .ticker-inner{display:flex;align-items:center;gap:17px;min-height:42px;font-size:.84rem;font-weight:800}
 .ticker-label{flex:0 0 auto;padding:3px 10px;border-radius:5px;background:var(--green);color:var(--gold-light);font-size:.7rem}
-.ticker-prayer{border-bottom:1px solid rgba(198,164,92,.3);background:#eae4d3}
-.ticker-prayer .ticker-inner{min-height:38px;justify-content:center;text-align:center;color:var(--green)}
+
 .library-section{background:var(--ivory)}
 .search-box{display:flex;align-items:center;gap:12px;width:min(420px,100%);padding:9px 14px;border:1px solid #e1dccf;border-radius:999px;background:var(--paper);box-shadow:0 5px 20px rgba(18,59,48,.035)}
 .search-box span{color:var(--gold);font-size:1.1rem}
@@ -549,17 +548,15 @@ audio{width:100%;margin-top:14px}
       </div>
     </div>
   </section>
-  <div class="ticker" role="region" aria-label="رسالة الموقع">
+
+  <!-- شريط موحد يجمع الترحيب والدعاء بدل شريطين متداخلين -->
+  <div class="ticker" role="region" aria-label="رسالة الموقع وذكر الله">
     <div class="container ticker-inner">
       <span class="ticker-label">أهلاً بكم</span>
-      <span>مرحباً بكم في موقع الشرقاط الثقافي الأول — نافذتكم إلى التاريخ والتراث والثقافة والأدب.</span>
+      <span>مرحباً بكم في موقع الشرقاط الثقافي الأول — نافذتكم إلى التاريخ والتراث. | اللهم صلِّ وسلم وبارك على سيدنا محمد وعلى آل سيدنا محمد.</span>
     </div>
   </div>
-  <div class="ticker ticker-prayer" role="region" aria-label="ذكر ودعاء">
-    <div class="container ticker-inner">
-      <span>الحمد لله اللهم صلِّ وسلم وبارك على سيدنا محمد وعلى آل سيدنا محمد.</span>
-    </div>
-  </div>
+
   <section class="section library-section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
       <div class="section-heading">
