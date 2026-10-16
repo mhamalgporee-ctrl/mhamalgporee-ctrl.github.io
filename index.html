@@ -530,7 +530,7 @@ audio{width:100%;margin-top:14px}
       <div class="hero-copy">
         <div class="hero-kicker"><span></span> من الشرقاط، حيث تحيا الذاكرة</div>
         <h1 id="heroTitle">الشرقاط <span class="hero-accent">الثقافي الأول</span></h1>
-        <p class="hero-byline">تصفح  <strong>صور ومقالات وتطبيقات وبث مباشرالطقس  والقنوات الرياضية    </strong></p>
+        <p class="hero-byline">تصفح <strong>صور، مقالات، تطبيقات، بث مباشر للطقس، والقنوات الرياضية</strong></p>
         <p class="hero-quote">أستغفر الله العظيم الذي لا إله إلا هو الحي القيوم وأتوب إليه، اللهم صلِّ وسلم على نبينا محمد وعلى آله وصحبه أجمعين.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#library">اكتشف المحتوى <span aria-hidden="true">←</span></a>
@@ -557,7 +557,7 @@ audio{width:100%;margin-top:14px}
   </div>
   <div class="ticker ticker-prayer" role="region" aria-label="ذكر ودعاء">
     <div class="container ticker-inner">
-      <span>الحمد لله اللهم صلِّ وسلم وبارك على سيدنا محمد وعلى آل سيدنا محمد، .</span>
+      <span>الحمد لله اللهم صلِّ وسلم وبارك على سيدنا محمد وعلى آل سيدنا محمد.</span>
     </div>
   </div>
   <section class="section library-section" id="library" aria-labelledby="libraryTitle">
@@ -583,7 +583,7 @@ audio{width:100%;margin-top:14px}
         <article class="content-card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب tv">
           <div class="card-top"><span class="icon" aria-hidden="true">▣</span><span class="card-index">02</span></div>
           <h3>تلفزيون القنوات الرياضية</h3>
-          <p>نافذتك لمتابعة القناة والمحتوى المرئي، ومشاهدةالقنوات الرياضية والافلام والمسلسلات.</p>
+          <p>نافذتك لمتابعة القناة والمحتوى المرئي، ومشاهدة القنوات الرياضية والأفلام والمسلسلات.</p>
           <a class="card-link" href="tv.html">شاهد التلفزيون <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الشيخ شلاش shelash قصة تاريخ سيرة">
@@ -752,7 +752,7 @@ audio{width:100%;margin-top:14px}
           <h2>لديك رسالة أو فكرة ثقافية؟</h2>
           <p>يسعدنا تواصلك ومشاركتك بما يثري ذاكرة المكان.</p>
         </div>
-        <button class="btn btn-gold" type="button" data-open="contactModal">راسلنا عبر اضغط هنا WhatsApp <span aria-hidden="true">↗</span></button>
+        <button class="btn btn-gold" type="button" data-open="contactModal">راسلنا عبر WhatsApp <span aria-hidden="true">↗</span></button>
       </div>
     </div>
   </section>
@@ -984,13 +984,14 @@ function closeModal(modal) {
     const previousModal = modalStack.pop();
     if (previousModal && !previousModal.hidden) {
       activeModal = previousModal;
-      const closeButton = $("[data-close]", previousModal); if (closeButton) closeButton.focus(); } else { activeModal = null; modalStack = []; document.body.classList.remove("modal-open"); if (previousFocus && typeof previousFocus.focus === "function") { previousFocus.focus(); } } } } $$("[data-open]").forEach(trigger => {
+      const closeButton = $("[data-close]", previousModal); if (closeButton) closeButton.focus(); } else { activeModal = null; modalStack = []; document.body.classList.remove("modal-open"); if (previousFocus && typeof previousFocus.focus === "function") { previousFocus.focus(); } } } }  $$("[data-open]").forEach(trigger => {
   trigger.addEventListener("click", event => {
     event.preventDefault();
     openModal(trigger.dataset.open);
     closeMenu();
   });
 });
+
 $$(".modal").forEach(modal => { $$
 ("[data-close]", modal).forEach(button => {
     button.addEventListener("click", () => closeModal(modal));
@@ -999,11 +1000,13 @@ $$(".modal").forEach(modal => { $$
     if (event.target === modal) closeModal(modal);
   });
 });
+
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && activeModal) {
     closeModal(activeModal);
   }
 });
+
 const githubContentsURL = folder => `https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${folder}`;
 async function fetchGitHubFiles(folder) {
   const response = await fetch(githubContentsURL(encodeURIComponent(folder)), { headers: { "Accept": "application/vnd.github+json" }, cache: "no-store" });
