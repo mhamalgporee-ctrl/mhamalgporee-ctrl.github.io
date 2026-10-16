@@ -16,7 +16,7 @@
 <link rel="icon" href="acon.jpg" type="image/jpeg">
 <title>الشرقاط الثقافي الأول | مجلة ثقافية</title>
 <style>
-:root{--green:#123b30;--green-deep:#0b2822;--green-mid:#205444;--green-soft:#e6eee8;--ivory:#f7f4eb;--paper:#fffdf7;--gold:#c6a45c;--gold-light:#e6d4a1;--ink:#202c26;--muted:#68756d;--line:#e7e2d5;--white:#fff;--shadow:0 18px 55px rgba(18,59,48,.10);--shadow-hover:0 25px 60px rgba(18,59,48,.17);--radius:24px;--radius-small:15px;--container:1200px}
+:root{--green:#123b30;--green-deep:#0b2822;--green-mid:#205444;--green-soft:#e6eee8;--ivory:#f7f4eb;--paper:#fffdf7;--gold:#c6a45c;--gold-light:#e6d4a1;--ink:#202c26;--muted:#68756d;--line:#e7e2d5;--white:#fff;--container:1200px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{margin:0;background:var(--ivory);color:var(--ink);font-family:Tahoma,Arial,"Noto Sans Arabic",sans-serif;font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
@@ -33,13 +33,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .gold{color:var(--gold)}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--green-mid);font-size:.77rem;font-weight:800;letter-spacing:.06em}
 .eyebrow::before{content:"";display:inline-block;width:27px;height:2px;background:var(--gold)}
-.section{padding-block:70px}
-.section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px}
+.section{padding-block:60px}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:25px}
 .section-heading h2{margin:8px 0 0;color:var(--green);font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.35;letter-spacing:-.04em}
 .section-heading p{max-width:460px;margin:0;color:var(--muted);font-size:.95rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:40px;padding:8px 18px;border:1px solid transparent;border-radius:999px;font-weight:800;font-size:.88rem;transition:transform .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:40px;padding:8px 18px;border:1px solid transparent;border-radius:999px;font-weight:800;font-size:.88rem;transition:transform .22s ease,background .22s ease,color .22s ease}
 .btn:hover{transform:translateY(-2px)}
-.btn-gold{background:var(--gold);color:var(--green-deep);box-shadow:0 8px 24px rgba(198,164,92,.19)}
+.btn-gold{background:var(--gold);color:var(--green-deep)}
 .btn-gold:hover{background:var(--gold-light)}
 .btn-outline{border-color:var(--green);color:var(--green);background:transparent}
 .btn-outline:hover{background:var(--green-soft)}
@@ -74,15 +74,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .hero-quote{max-width:560px;margin:0 0 12px;padding-right:12px;border-right:2px solid var(--gold);color:var(--ink);font-size:.85rem;line-height:1.6}
 .hero-actions{display:flex;flex-wrap:wrap;gap:8px}
 
-.hero-visual{position:relative;min-width:0;padding:0 !important;border:0 !important;background:transparent !important;box-shadow:none !important}
-.hero-main-image{width:100%;height:clamp(180px, 22vw, 260px);border-radius:16px;background:transparent !important;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.hero-visual{position:relative;min-width:0;padding:0 !important;border:0 !important;background:transparent !important}
+.hero-main-image{width:100%;height:clamp(180px, 22vw, 260px);border-radius:16px;object-fit:cover}
 .hero-image-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 0;color:var(--muted);font-size:.7rem}
 .hero-image-caption strong{color:var(--green)}
 .hero-thumbs{position:absolute;bottom:35px;right:-10px;display:flex;gap:6px;padding:0;border:0;background:transparent}
-.hero-thumbs button{width:42px;height:44px;padding:0;overflow:hidden;border:2px solid var(--paper);border-radius:8px;background:transparent;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.hero-thumbs button{width:42px;height:44px;padding:0;overflow:hidden;border:2px solid var(--paper);border-radius:8px;background:transparent}
 .hero-thumbs button[aria-pressed="true"]{border-color:var(--gold)}
 .hero-thumbs img{width:100%;height:100%;object-fit:cover}
-.hero-note{position:absolute;top:15px;left:-10px;max-width:125px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--green);box-shadow:var(--shadow);font-size:.7rem;font-weight:800}
+.hero-note{position:absolute;top:15px;left:-10px;max-width:125px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--green);font-size:.7rem;font-weight:800}
 .hero-note small{display:block;margin-top:2px;color:var(--muted);font-weight:400;font-size:.62rem}
 
 .ticker{overflow:hidden;background:var(--gold);color:var(--green-deep)}
@@ -92,308 +92,96 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .ticker-prayer .ticker-inner{min-height:38px;justify-content:center;text-align:center;color:var(--green);overflow:hidden;white-space:nowrap;position:relative}
 
 .library-section{background:var(--ivory)}
-.search-box{display:flex;align-items:center;gap:12px;width:min(420px,100%);padding:9px 14px;border:1px solid #e1dccf;border-radius:999px;background:var(--paper);box-shadow:0 5px 20px rgba(18,59,48,.035)}
+.search-box{display:flex;align-items:center;gap:12px;width:min(420px,100%);padding:9px 14px;border:1px solid #e1dccf;border-radius:999px;background:var(--paper)}
 .search-box span{color:var(--gold);font-size:1.1rem}
 .search-box input{width:100%;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-size:.86rem}
-.search-box input:focus-visible{outline:0}
-.search-box:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,164,92,.18)}
+.search-box:focus-within{border-color:var(--gold)}
 .search-status{min-height:22px;margin:-15px 0 15px;color:var(--muted);font-size:.82rem}
-.content-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 
-/* التعديل: إزالة الحدود والمربعات والخلفيات من كروت المعرفة */
-.content-card{position:relative;display:flex;flex-direction:column;min-height:200px;padding:15px;overflow:hidden;border:none;border-radius:0;background:transparent;box-shadow:none;transition:transform .25s ease}
-.content-card::after{display:none}
-.content-card:hover{transform:translateY(-3px);box-shadow:none}
-.card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+/* إزالة المربعات تماماً من كروت المعرفة والمكتبة */
+.content-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.content-card{position:relative;display:flex;flex-direction:column;min-height:190px;padding:10px;border:none;background:transparent;box-shadow:none}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
 .card-index{color:#b3b4a5;font-family:Georgia,serif;font-size:.85rem;direction:ltr}
-.content-card h3{margin:0 0 8px;color:var(--green);font-size:1.08rem;line-height:1.5}
-.content-card p{margin:0 0 16px;color:var(--muted);font-size:.84rem;line-height:1.8}
-.card-link{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:auto;color:var(--green-mid);font-size:.88rem;font-weight:900;text-decoration:none}
-.card-link span{color:var(--gold);transition:transform .2s ease}
-.card-link:hover span{transform:translateX(-4px)}
-.no-results{display:none;padding:25px;border:1px dashed #cfc6b1;border-radius:var(--radius);color:var(--muted);text-align:center}
+.content-card h3{margin:0 0 6px;color:var(--green);font-size:1.05rem;line-height:1.4}
+.content-card p{margin:0 0 12px;color:var(--muted);font-size:.84rem;line-height:1.7}
+.card-link{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:auto;color:var(--green-mid);font-size:.86rem;font-weight:900;text-decoration:none}
+.card-link span{color:var(--gold)}
+.no-results{display:none;padding:25px;color:var(--muted);text-align:center}
 
+/* إزالة المربعات من قسم الثقافة صوتها وصورتها */
 .media-section{background:var(--green);color:var(--white)}
 .media-section .eyebrow{color:var(--gold-light)}
 .media-section .section-heading h2{color:var(--white)}
 .media-section .section-heading p{color:#c3d1c6}
-.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.media-card{position:relative;display:flex;flex-direction:column;min-height:270px;padding:clamp(22px,3vw,34px);overflow:hidden;border:1px solid rgba(230,212,161,.2);border-radius:26px;background:radial-gradient(circle at 100% 0,rgba(198,164,92,.13),transparent 48%),rgba(255,255,255,.045)}
-.media-card .icon{width:50px;height:50px;margin-bottom:18px;border:1px solid rgba(230,212,161,.25);background:rgba(198,164,92,.13);color:var(--gold-light);font-size:1.4rem}
-.media-card h3{margin:0 0 8px;color:white;font-size:1.4rem}
-.media-card p{max-width:420px;margin:0 0 20px;color:#c4d2c8;font-size:.89rem}
+.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.media-card{position:relative;display:flex;flex-direction:column;padding:10px;border:none;background:transparent}
+.media-card .icon{width:50px;height:50px;margin-bottom:15px;border:1px solid rgba(230,212,161,.25);background:rgba(198,164,92,.13);color:var(--gold-light);font-size:1.4rem}
+.media-card h3{margin:0 0 8px;color:white;font-size:1.3rem}
+.media-card p{max-width:420px;margin:0 0 16px;color:#c4d2c8;font-size:.89rem}
 .media-card .btn{align-self:flex-start;margin-top:auto}
-.media-status{margin-top:12px;color:var(--gold-light);font-size:.76rem}
+.media-status{margin-top:10px;color:var(--gold-light);font-size:.76rem}
 
+/* إزالة المربعات من قسم الكتاب */
 .book-section{background:var(--paper)}
-.book-panel{display:grid;grid-template-columns:.7fr 1.3fr;align-items:center;gap:clamp(28px,5vw,65px);padding:clamp(24px,4vw,55px);border:1px solid var(--line);border-radius:28px;background:var(--ivory)}
-.book-art{position:relative;display:grid;place-items:center;min-height:280px;padding:20px;border-radius:22px;background:radial-gradient(circle at 50% 35%,rgba(198,164,92,.2),transparent 55%),var(--green)}
-.book-art img{position:relative;max-width:230px;width:100%;max-height:320px;border-radius:4px 10px 10px 4px;object-fit:contain;box-shadow:12px 18px 30px rgba(0,0,0,.3)}
-.book-placeholder{display:none;width:190px;min-height:250px;padding:22px 16px;align-content:center;border:2px solid var(--gold);background:var(--green-deep);color:var(--gold-light);text-align:center;box-shadow:10px 12px 25px rgba(0,0,0,.25)}
+.book-panel{display:grid;grid-template-columns:.7fr 1.3fr;align-items:center;gap:clamp(28px,5vw,65px);padding:20px;border:none;background:transparent}
+.book-art{position:relative;display:grid;place-items:center;min-height:260px;padding:10px;background:transparent}
+.book-art img{position:relative;max-width:230px;width:100%;max-height:320px;border-radius:4px 10px 10px 4px;object-fit:contain}
+.book-placeholder{display:none;width:190px;min-height:250px;padding:22px 16px;align-content:center;border:2px solid var(--gold);background:var(--green-deep);color:var(--gold-light);text-align:center}
 .book-placeholder strong{font-size:1.15rem;line-height:1.8}
 .book-placeholder span{margin-top:12px;font-size:.78rem}
 .book-copy h2{margin:10px 0 15px;color:var(--green);font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.4}
 .book-copy p{color:var(--muted);line-height:1.9}
 .book-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 
-.weather-section {
-  background: radial-gradient(ellipse at 0 100%, rgba(198,164,92,.10), transparent 36%), var(--ivory);
-}
-.weather-shell {
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.55);
-  border-radius: 26px;
-  background: #f8f7f2;
-  box-shadow: 0 16px 50px rgba(18,59,48,.12);
-}
-.weather-top {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 20px;
-  padding: 25px;
-  overflow: hidden;
-  color: white;
-  background: linear-gradient(115deg, rgba(7,29,24,.96), rgba(18,59,48,.88)), url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1400&q=85") center 45%/cover;
-  border-bottom: 3px solid var(--gold);
-}
-.weather-location {
-  margin: 0 0 4px;
-  color: #e5d2a0;
-  font-size: .8rem;
-  font-weight: 800;
-}
-.weather-top h3 {
-  margin: 0;
-  color: #fff;
-  font-size: clamp(1.4rem, 2.8vw, 1.8rem);
-}
-.clock {
-  color: #f0dfb2;
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
-  font-weight: 900;
-  font-variant-numeric: tabular-nums;
-  direction: ltr;
-  text-align: left;
-}
-.clock-label {
-  color: rgba(255,255,255,.82);
-  font-size: .74rem;
-  text-align: left;
-}
-.weather-current {
-  position: relative;
-  isolation: isolate;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 20px;
-  min-height: 240px;
-  padding: 28px;
-  overflow: hidden;
-  color: white;
-  background-color: #263c3a;
-  background-position: center;
-  background-size: cover;
-  border-bottom: 1px solid rgba(255,255,255,.18);
-}
-.weather-current::before {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  content: "";
-  background: linear-gradient(90deg, rgba(7,20,19,.78) 0%, rgba(7,20,19,.58) 48%, rgba(7,20,19,.32) 100%);
-}
-.weather-symbol {
-  display: grid;
-  place-items: center;
-  width: 75px;
-  height: 75px;
-  border: 1px solid rgba(255,255,255,.32);
-  border-radius: 20px;
-  background: rgba(255,255,255,.14);
-  color: white;
-  font-size: 2.7rem;
-  line-height: 1;
-  box-shadow: 0 6px 20px rgba(0,0,0,.13);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.temperature {
-  color: #fff;
-  font-size: clamp(2.8rem, 5.5vw, 4.4rem);
-  font-weight: 900;
-  line-height: 1.12;
-  letter-spacing: -.04em;
-  text-shadow: 0 3px 18px rgba(0,0,0,.22);
-}
-.weather-description {
-  margin-top: 5px;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 800;
-}
-.weather-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-.weather-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 11px;
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 999px;
-  background: rgba(9,31,27,.48);
-  color: #fff;
-  font-size: .78rem;
-  font-weight: 700;
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-}
-#feelsLike, #humidity, #windSpeed {
-  border-color: rgba(255,255,255,.28);
-  background: rgba(9,31,27,.48);
-  color: #fff;
-}
-.weather-extra {
-  align-self: end;
-  color: rgba(255,255,255,.94);
-  font-size: .78rem;
-  font-weight: 700;
-  line-height: 1.9;
-  text-align: left;
-  text-shadow: 0 1px 5px rgba(0,0,0,.3);
-}
-.weather-forecast {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap: 12px;
-  padding: 20px;
-  background: #f1f0e9;
-}
-.forecast-day {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 175px;
-  padding: 16px 10px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.45);
-  border-radius: 17px;
-  background-color: #334944;
-  background-position: center;
-  background-size: cover;
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(18,35,30,.10);
-  transition: transform .22s ease, box-shadow .22s ease;
-}
-.forecast-day::before {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  content: "";
-  background: linear-gradient(180deg, rgba(5,20,18,.48), rgba(5,20,18,.78));
-}
-.forecast-day:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(18,35,30,.18);
-}
-.forecast-day .day-name {
-  color: #fff;
-  font-size: .86rem;
-  font-weight: 900;
-  text-shadow: 0 1px 5px rgba(0,0,0,.35);
-}
-.forecast-day .day-icon {
-  display: grid;
-  place-items: center;
-  width: 50px;
-  height: 50px;
-  margin: 10px auto;
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 50%;
-  background: rgba(255,255,255,.14);
-  font-size: 1.8rem;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-.forecast-day .day-temps {
-  margin-top: 4px;
-  color: #fff;
-  font-size: .95rem;
-  font-weight: 900;
-  direction: rtl;
-  text-shadow: 0 1px 5px rgba(0,0,0,.35);
-}
-.forecast-day .day-desc {
-  margin-top: 4px;
-  color: rgba(255,255,255,.9);
-  font-size: .74rem;
-  font-weight: 700;
-  line-height: 1.7;
-}
-.weather-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 0 20px 20px;
-  background: #f1f0e9;
-}
-.weather-status {
-  color: #53645b;
-  font-size: .78rem;
-  font-weight: 700;
-}
-#refreshWeather {
-  padding: 8px 18px;
-  border: 1px solid #d6d0c1;
-  border-radius: 999px;
-  background: #fffdf7;
-  color: var(--green);
-  font-weight: 900;
-  box-shadow: 0 4px 12px rgba(18,59,48,.06);
-  cursor: pointer;
-  transition: background .2s ease, transform .2s ease;
-}
-#refreshWeather:hover {
-  transform: translateY(-2px);
-  background: #e9eee7;
-}
-#refreshWeather:disabled {
-  cursor: wait;
-  opacity: .65;
-}
+/* إزالة المربعات والحدود من قسم الطقس والتوقعات */
+.weather-section {background: var(--ivory);}
+.weather-shell {overflow: hidden; border: none; border-radius: 0; background: transparent; box-shadow: none;}
+.weather-top {position: relative; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; padding: 20px 0; color: var(--green); background: transparent; border-bottom: 2px solid var(--gold);}
+.weather-location {margin: 0 0 4px; color: var(--gold); font-size: .8rem; font-weight: 800;}
+.weather-top h3 {margin: 0; color: var(--green); font-size: clamp(1.4rem, 2.8vw, 1.8rem);}
+.clock {color: var(--green); font-size: clamp(1.4rem, 2.8vw, 2rem); font-weight: 900; font-variant-numeric: tabular-nums; direction: ltr; text-align: left;}
+.clock-label {color: var(--muted); font-size: .74rem; text-align: left;}
+.weather-current {position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; min-height: 200px; padding: 20px 0; background: transparent; border-bottom: 1px solid var(--line); color: var(--ink);}
+.weather-current::before {display: none;}
+.weather-symbol {display: grid; place-items: center; width: 75px; height: 75px; border: 1px solid var(--line); border-radius: 20px; background: var(--paper); color: var(--green); font-size: 2.7rem; line-height: 1;}
+.temperature {color: var(--green); font-size: clamp(2.8rem, 5.5vw, 4.4rem); font-weight: 900; line-height: 1.12;}
+.weather-description {margin-top: 5px; color: var(--green); font-size: 1rem; font-weight: 800;}
+.weather-details {display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;}
+.weather-chip {display: inline-flex; align-items: center; justify-content: center; padding: 6px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--green); font-size: .78rem; font-weight: 700;}
+#feelsLike, #humidity, #windSpeed {border-color: var(--line); background: var(--paper); color: var(--green);}
+.weather-extra {align-self: end; color: var(--muted); font-size: .78rem; font-weight: 700; line-height: 1.9; text-align: left;}
+.weather-forecast {display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; padding: 20px 0; background: transparent;}
+.forecast-day {position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 160px; padding: 14px 8px; border: none; border-radius: 14px; background: var(--paper); color: var(--ink); text-align: center; box-shadow: 0 4px 15px rgba(18,59,48,.04);}
+.forecast-day::before {display: none;}
+.forecast-day .day-name {color: var(--green); font-size: .86rem; font-weight: 900;}
+.forecast-day .day-icon {display: grid; place-items: center; width: 46px; height: 46px; margin: 8px auto; border: 1px solid var(--line); border-radius: 50%; background: var(--ivory); font-size: 1.5rem;}
+.forecast-day .day-temps {margin-top: 4px; color: var(--green); font-size: .92rem; font-weight: 900; direction: rtl;}
+.forecast-day .day-desc {margin-top: 4px; color: var(--muted); font-size: .74rem; font-weight: 700;}
+.weather-bottom {display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 0; background: transparent;}
+.weather-status {color: var(--muted); font-size: .78rem; font-weight: 700;}
+#refreshWeather {padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--green); font-weight: 900; cursor: pointer;}
 
-.map-frame{width:100%;height:360px;border:0;display:block;background:#e5e8de}
-.map-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 20px;color:var(--muted);font-size:.81rem}
-.contact-section{padding-block:55px 75px}
-.contact-panel{position:relative;display:flex;align-items:center;justify-content:space-between;gap:25px;padding:clamp(26px,4vw,48px);overflow:hidden;border-radius:26px;background:var(--green);color:white}
-.contact-panel::after{position:absolute;left:-90px;bottom:-170px;width:320px;height:320px;border:1px solid rgba(230,212,161,.2);border-radius:50%;box-shadow:0 0 0 30px rgba(230,212,161,.035),0 0 0 60px rgba(230,212,161,.025);content:"";pointer-events:none}
-.contact-panel h2{margin:6px 0;font-size:clamp(1.5rem,3.2vw,2.4rem);line-height:1.4}
-.contact-panel p{margin:0;color:#c6d4ca;font-size:.92rem}
-.contact-panel .eyebrow{color:var(--gold-light)}
-.contact-panel .btn{position:relative;z-index:1;flex:0 0 auto}
+.map-frame{width:100%;height:360px;border:0;display:block;border-radius:16px}
+.map-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 4px;color:var(--muted);font-size:.81rem}
+.contact-section{padding-block:50px}
+.contact-panel{position:relative;display:flex;align-items:center;justify-content:space-between;gap:25px;padding:30px 0;background:transparent;color:var(--green)}
+.contact-panel h2{margin:6px 0;font-size:clamp(1.5rem,3.2vw,2.4rem);line-height:1.4;color:var(--green)}
+.contact-panel p{margin:0;color:var(--muted);font-size:.92rem}
+.contact-panel .eyebrow{color:var(--green-mid)}
 .site-footer{padding:28px 0;background:var(--green-deep);color:#c8d4cb}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-brand{color:white;font-weight:900}
 .footer-note{margin:4px 0 0;font-size:.78rem}
 .footer-links{display:flex;flex-wrap:wrap;gap:16px;font-size:.8rem}
 .footer-links a:hover{color:var(--gold-light)}
-.back-to-top{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:var(--green);color:white;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(10px);transition:.2s ease}
-.back-to-top.visible{opacity:1;visibility:visible;transform:none}
+.back-to-top{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:var(--green);color:white;box-shadow:0 6px 20px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:.2s ease}
+.back-to-top.visible{opacity:1;visibility:visible}
+
 .modal{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:18px;background:rgba(5,22,18,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .modal[hidden]{display:none !important}
-.modal-panel{position:relative;width:min(760px,100%);max-height:min(88dvh,900px);overflow:auto;border:1px solid rgba(198,164,92,.4);border-radius:24px;background:var(--paper);color:var(--ink);box-shadow:0 35px 100px rgba(0,0,0,.35);overscroll-behavior:contain}
-.modal-head{position:sticky;z-index:2;top:0;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line);background:rgba(255,253,247,.96);backdrop-filter:blur(12px)}
+.modal-panel{position:relative;width:min(760px,100%);max-height:min(88dvh,900px);overflow:auto;border:1px solid rgba(198,164,92,.4);border-radius:24px;background:var(--paper);color:var(--ink);box-shadow:0 35px 100px rgba(0,0,0,.35)}
+.modal-head{position:sticky;z-index:2;top:0;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line);background:rgba(255,253,247,.96)}
 .modal-head h2{margin:0;color:var(--green);font-size:1.25rem}
 .modal-close{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border:1px solid var(--line);border-radius:50%;background:white;color:var(--green);font-size:1.3rem}
 .modal-body{padding:22px}
@@ -410,7 +198,6 @@ audio{width:100%;margin-top:14px}
 .gallery-item{position:relative;aspect-ratio:1;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--ivory)}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
 .gallery-item:hover img{transform:scale(1.06)}
-.gallery-empty{grid-column:1 / -1}
 .lightbox-panel{width:min(1100px,100%);overflow:hidden;border:0;background:#071b16}
 .lightbox-panel .modal-head{border-color:rgba(255,255,255,.12);background:#071b16}
 .lightbox-panel .modal-head h2{color:white}
@@ -425,54 +212,16 @@ audio{width:100%;margin-top:14px}
 .form-field input,.form-field textarea{width:100%;padding:11px 13px;border:1px solid #ddd7c8;border-radius:11px;background:white;color:var(--ink)}
 .form-field textarea{min-height:110px;resize:vertical}
 .form-note{color:var(--muted);font-size:.76rem}
-.toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid rgba(198,164,92,.4);border-radius:999px;background:var(--green-deep);color:white;box-shadow:var(--shadow);font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s ease}
+.toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid rgba(198,164,92,.4);border-radius:999px;background:var(--green-deep);color:white;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s ease}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
 
-@media (max-width:1050px){.nav-links{gap:12px}.nav-links a{font-size:.78rem}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{gap:24px}.hero-thumbs{right:-8px}.hero-note{left:-8px}}
-@media (max-width:780px){.container{width:min(100% - 28px,var(--container))}.section{padding-block:55px}.nav-wrap{min-height:68px}.menu-toggle{display:grid;place-items:center}.nav-links{position:absolute;top:calc(100% + 1px);right:0;left:0;display:none;align-items:stretch;gap:4px;padding:12px 15px 16px;border-bottom:1px solid var(--line);background:var(--ivory);box-shadow:0 15px 22px rgba(18,59,48,.09)}.nav-links.open{display:flex;flex-direction:column}.nav-links a{padding:9px 12px;font-size:.9rem}.nav-links .nav-cta{text-align:center}.hero{padding-block:20px 15px}.hero-grid{grid-template-columns:1fr;gap:18px}.hero-copy{max-width:none}.hero h1{font-size:clamp(1.9rem,6vw,2.8rem)}.hero-visual{width:min(380px,100%);margin-inline:auto}.hero-main-image{height:200px}.hero-thumbs{right:-4px;bottom:35px}.hero-note{left:-2px;top:15px}.section-heading{align-items:flex-start;flex-direction:column}.section-heading p{max-width:none}.search-box{width:100%}.media-grid{grid-template-columns:1fr}.book-panel{grid-template-columns:1fr}.book-art{min-height:260px}.book-art img{max-height:270px}.weather-top{padding:20px}.weather-current{grid-template-columns:auto 1fr;min-height:230px;padding:20px 14px}.weather-extra{grid-column:1 / -1;text-align:right}.contact-panel{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{gap:12px}}
-
+@media (max-width:1050px){.nav-links{gap:12px}.nav-links a{font-size:.78rem}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{gap:24px}}
+@media (max-width:780px){.container{width:min(100% - 28px,var(--container))}.section{padding-block:45px}.nav-wrap{min-height:68px}.menu-toggle{display:grid;place-items:center}.nav-links{position:absolute;top:calc(100% + 1px);right:0;left:0;display:none;align-items:stretch;gap:4px;padding:12px 15px 16px;border-bottom:1px solid var(--line);background:var(--ivory);box-shadow:0 15px 22px rgba(18,59,48,.09)}.nav-links.open{display:flex;flex-direction:column}.nav-links a{padding:9px 12px;font-size:.9rem}.hero{padding-block:20px 15px}.hero-grid{grid-template-columns:1fr;gap:18px}.hero-copy{max-width:none}.hero h1{font-size:clamp(1.9rem,6vw,2.8rem)}.hero-visual{width:min(380px,100%);margin-inline:auto}.section-heading{align-items:flex-start;flex-direction:column}.section-heading p{max-width:none}.search-box{width:100%}.media-grid{grid-template-columns:1fr}.book-panel{grid-template-columns:1fr}.weather-forecast{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-panel{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}}
 @media (max-width: 480px) {
   body{font-size:15px}
   .container{width:calc(100% - 24px)}
-  .brand-title{font-size:.88rem}
-  .brand-subtitle{font-size:.6rem}
-  .brand{gap:8px}
-  .brand-mark{width:38px;height:38px;flex-basis:38px}
-  .hero h1{font-size:1.8rem}
-  .hero-main-image{height:180px}
-  .hero-thumbs button{width:38px;height:40px}
-  .hero-note{max-width:110px;padding:5px 8px;font-size:.65rem}
-  .hero-actions .btn{flex:1 1 auto;padding-inline:12px}
-  .ticker-inner{font-size:.75rem}
-  .content-grid{grid-template-columns:1fr;gap:12px}
-  .content-card{min-height:180px}
-  .weather-top {grid-template-columns: 1fr; gap: 10px; padding: 18px;}
-  .clock, .clock-label { text-align: right; }
-  .weather-current { gap: 11px; min-height: 250px; padding: 18px 12px; }
-  .weather-symbol { width: 56px; height: 56px; border-radius: 16px; font-size: 2.1rem; }
-  .temperature { font-size: 2.6rem; }
-  .weather-description { font-size: .9rem; }
-  .weather-chip { padding: 5px 8px; font-size: .71rem; }
-  .weather-forecast { gap: 8px; padding: 12px; }
-  .forecast-day { min-height: 160px; padding: 12px 6px; }
-  .forecast-day .day-icon { width: 44px; height: 44px; font-size: 1.5rem; }
-  .forecast-day .day-temps { font-size: .9rem; }
-  .weather-bottom { align-items: flex-start; flex-direction: column; padding: 0 12px 15px; }
-  .map-frame{height:280px}
-  .book-panel{padding:16px}
-  .modal{padding:6px}
-  .modal-panel{max-height:94dvh;border-radius:15px}
-  .modal-head{padding:14px 15px}
-  .modal-body{padding:15px}
-  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .about-layout{grid-template-columns:1fr}
-  .about-avatar{width:80px;height:80px}
-  .back-to-top{left:12px;bottom:12px}
-}
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
-  .forecast-day {transition: none;}
+  .content-grid{grid-template-columns:1fr;gap:16px}
+  .weather-forecast{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -555,55 +304,55 @@ audio{width:100%;margin-top:14px}
           <div class="card-top"><span class="icon" aria-hidden="true">📿</span><span class="card-index">01</span></div>
           <h3>الأذكار والأدعية</h3>
           <p>حصن المسلم، الأذكار اليومية والأدعية المأثورة للتقرب إلى الله تعالى والتحصين المستمر.</p>
-          <a class="card-link" href="duaa.html">اقرأ الأذكار <span aria-hidden="true">←</span></a>
+          <a class="card-link" href="duaa.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب tv">
           <div class="card-top"><span class="icon" aria-hidden="true">▣</span><span class="card-index">02</span></div>
           <h3>تلفزيون القنوات الرياضية</h3>
           <p>نافذتك لمتابعة القناة والمحتوى المرئي، ومشاهدةالقنوات الرياضية والافلام والمسلسلات.</p>
-          <a class="card-link" href="tv.html">شاهد التلفزيون <span aria-hidden="true">←</span></a>
+          <a class="card-link" href="tv.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الشيخ شلاش shelash قصة تاريخ سيرة">
           <div class="card-top"><span class="icon" aria-hidden="true">✧</span><span class="card-index">03</span></div>
           <h3>قصة الشيخ شلاش رحمه الله وقصص بعض اهل السيرة من الشيوخ</h3>
           <p>صفحة من الحكايات المحلية والسير التي تستحق أن تحفظها الذاكرة وتتداولها الأجيال.</p>
-          <a class="card-link" href="shelash.html">اقرأ القصة <span aria-hidden="true">←</span></a>
+          <a class="card-link" href="shelash.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat">
           <div class="card-top"><span class="icon" aria-hidden="true">⌂</span><span class="card-index">04</span></div>
           <h3>الشرقاط مدينتي</h3>
           <p>تعرف على الشرقاط، ملامحها وتاريخها وموروثها الثقافي والاجتماعي.</p>
-          <a class="card-link" href="shirqat.html">اكتشف الشرقاط <span aria-hidden="true">←</span></a>
+          <a class="card-link" href="shirqat.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الجد عقاب اوكاب okab الأجداد العائلة">
           <div class="card-top"><span class="icon" aria-hidden="true">◇</span><span class="card-index">05</span></div>
           <h3>الجد عگاب رحمه الله</h3>
           <p>نافذة على الذاكرة العائلية وسيرة الأجداد وما تحمله من مواقف ودروس.</p>
-          <a class="card-link" href="okab.html">اقرأ المزيد <span aria-hidden="true">←</span></a>
+          <a class="card-link" href="okab.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين book">
           <div class="card-top"><span class="icon" aria-hidden="true">▤</span><span class="card-index">06</span></div>
           <h3>المكتبة والمؤلفات</h3>
           <p>تصفح الكتب والمؤلفات الثقافية والفكرية المرتبطة بتجربة الكاتب واهتماماته.</p>
-          <a class="card-link" href="book.html">تصفح الكتب <span aria-hidden="true">←</span></a>
+          <a class="card-link" href="book.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="التطبيقات برامج apps هاتف خدمات رقمية">
           <div class="card-top"><span class="icon" aria-hidden="true">▦</span><span class="card-index">07</span></div>
           <h3>التطبيقات والخدمات</h3>
           <p>الوصول إلى التطبيقات والخدمات الرقمية المرتبطة بالموقع ومشاريعه.</p>
-          <a class="card-link" href="apps.html">اكتشف التطبيقات <span aria-hidden="true">←</span></a>
+          <a class="card-link" href="apps.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
           <div class="card-top"><span class="icon" aria-hidden="true">▧</span><span class="card-index">08</span></div>
           <h3>معرض الصور</h3>
           <p>شاهد الصور واللقطات التي تحفظ وجوه المكان وتفاصيله وذكرياته.</p>
-          <button class="card-link" type="button" data-open="galleryModal" style="border:0;background:none;padding:0;font:inherit;cursor:pointer">افتح المعرض <span aria-hidden="true">←</span></button>
+          <button class="card-link" type="button" data-open="galleryModal" style="border:0;background:none;padding:0;font:inherit;cursor:pointer">اضغط هنا <span aria-hidden="true">←</span></button>
         </article>
         <article class="content-card" data-search="المدونة مقالات وردبريس wordpress تدوينات">
           <div class="card-top"><span class="icon" aria-hidden="true">¶</span><span class="card-index">09</span></div>
           <h3>المقالات والمدونة</h3>
           <p>تابع المقالات والمنشورات والتدوينات الثقافية المنشورة عبر المدونة.</p>
-          <a class="card-link" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">زيارة المدونة <span aria-hidden="true">←</span></a>
+          <a class="card-link" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
       </div>
       <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div>
@@ -623,14 +372,14 @@ audio{width:100%;margin-top:14px}
           <span class="icon" aria-hidden="true">♫</span>
           <h3>المكتبة الصوتية</h3>
           <p>استمع إلى الملفات الصوتية الموجودة في مكتبة الموقع، واختر التسجيل الذي ترغب بسماعه.</p>
-          <button class="btn btn-gold" type="button" data-open="audioModal">افتح المكتبة الصوتية <span aria-hidden="true">←</span></button>
+          <button class="btn btn-gold" type="button" data-open="audioModal">اضغط هنا <span aria-hidden="true">←</span></button>
           <div class="media-status" id="audioTeaserStatus" aria-live="polite">جاري تجهيز المكتبة الصوتية…</div>
         </article>
         <article class="media-card">
           <span class="icon" aria-hidden="true">▷</span>
           <h3>القناة المرئية</h3>
           <p>شاهد الفيديوهات المنشورة على قناة الشرقاط الثقافي، وتابع المحتوى المرئي من مكان واحد.</p>
-          <button class="btn btn-gold" type="button" data-open="videoModal">شاهد الفيديوهات <span aria-hidden="true">←</span></button>
+          <button class="btn btn-gold" type="button" data-open="videoModal">اضغط هنا <span aria-hidden="true">←</span></button>
           <div class="media-status">محتوى YouTube عبر قناة الموقع</div>
         </article>
       </div>
@@ -714,7 +463,7 @@ audio{width:100%;margin-top:14px}
           </div>
           <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&query=Shirqat%2C+Iraq" target="_blank" rel="noopener noreferrer">فتح الخريطة خارجياً ↗</a>
         </div>
-        <div class="weather-shell">
+        <div>
           <iframe class="map-frame" title="خريطة الطقس والموقع الجغرافي للشرقاط" src="https://embed.windy.com/embed2.html?lat=35.5292&lon=43.2199&detailLat=35.5292&detailLon=43.2199&width=650&height=450&zoom=8&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           <div class="map-caption"><span>الشرقاط، العراق · خريطة تفاعلية من Windy</span><span>35.5292° N · 43.2199° E</span></div>
         </div>
