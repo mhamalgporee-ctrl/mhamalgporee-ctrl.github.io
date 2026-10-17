@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b2822">
     <title>الأدعية والأذكار | الصلاة الإبراهيمية وسيد الاستغفار</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-green: #0b2822;
             --main-green: #123b30;
-            --mid-green: #205444;
-            --soft-green: #e6eee8;
             --gold: #c6a45c;
             --gold-light: #e6d4a1;
             --ivory: #f7f4eb;
-            --white: #ffffff;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Tajawal', sans-serif;
         }
 
         body {
+            font-family: 'Tajawal', sans-serif;
             background-color: var(--bg-green);
             color: var(--ivory);
             min-height: 100vh;
@@ -40,7 +40,7 @@
             padding: 15px;
         }
 
-        /* Top Bar & Navigation */
+        /* الشريط العلوي */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -49,19 +49,24 @@
             padding: 10px 0;
         }
 
+        .top-nav .site-name {
+            color: var(--gold-light);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
         .btn-back {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             color: var(--gold-light);
             background: rgba(198, 164, 92, 0.15);
-            border: none;
             padding: 8px 16px;
             border-radius: 999px;
             text-decoration: none;
             font-weight: 700;
             font-size: 14px;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .btn-back:hover {
@@ -69,7 +74,7 @@
             color: var(--bg-green);
         }
 
-        /* Main Card Header */
+        /* رأس الصفحة */
         .page-header {
             text-align: center;
             margin-bottom: 30px;
@@ -79,7 +84,7 @@
             font-family: 'Amiri', serif;
             font-size: 2.8rem;
             color: var(--gold-light);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 8px;
         }
 
@@ -88,17 +93,15 @@
             font-size: 1rem;
         }
 
-        /* Master Section Cards */
+        /* البطاقات الرئيسية */
         .master-card {
+            position: relative;
+            overflow: hidden;
             background: radial-gradient(circle at 50% 30%, #1a4d3e, #0b2822);
-            border: none;
             border-radius: 24px;
             padding: 35px 25px;
             text-align: center;
-            box-shadow: none;
             margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
         }
 
         .master-card::before {
@@ -129,8 +132,8 @@
             font-family: 'Amiri', serif;
             font-size: 1.8rem;
             line-height: 2.3;
-            color: #ffffff;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
             margin-bottom: 25px;
             padding: 0 10px;
         }
@@ -138,9 +141,6 @@
         .master-virtue {
             background: rgba(255, 255, 255, 0.05);
             border-right: 3px solid var(--gold);
-            border-top: none;
-            border-left: none;
-            border-bottom: none;
             padding: 12px 18px;
             border-radius: 8px;
             text-align: right;
@@ -149,7 +149,7 @@
             line-height: 1.8;
         }
 
-        /* Duaa Cards Grid */
+        /* شبكة الأدعية */
         .duaa-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -158,25 +158,22 @@
 
         .duaa-card {
             background: var(--main-green);
-            border: none;
             border-radius: 16px;
             padding: 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: none;
             transition: transform 0.25s ease;
         }
 
         .duaa-card:hover {
             transform: translateY(-4px);
-            border: none;
         }
 
         .duaa-title {
             color: var(--gold-light);
             font-size: 1.15rem;
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -187,7 +184,7 @@
             font-family: 'Amiri', serif;
             font-size: 1.35rem;
             line-height: 2;
-            color: #ffffff;
+            color: #fff;
             margin-bottom: 15px;
         }
 
@@ -198,7 +195,6 @@
             padding-top: 10px;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 600px) {
             .page-header h1 { font-size: 2.1rem; }
             .master-text { font-size: 1.45rem; line-height: 2; }
@@ -209,164 +205,165 @@
 
 <div class="container">
 
-    <!-- Navbar -->
-    <div class="top-nav">
+    <nav class="top-nav">
         <a href="index.html" class="btn-back">🏠 العودة للرئيسية</a>
-        <div style="color: var(--gold-light); font-size: 14px; font-weight: 700;">الشرقاط الثقافي الأول</div>
-    </div>
+        <span class="site-name">الشرقاط الثقافي الأول</span>
+    </nav>
 
-    <!-- Header -->
-    <div class="page-header">
+    <header class="page-header">
         <h1>مِشْكَاةُ الأَذْكَارِ وَالدَّعَوَاتِ</h1>
         <p>مجموعة مباركة من الصلوات والاستغفار والأدعية المستجابة</p>
-    </div>
+    </header>
 
-    <!-- 1. Ibrahimiyyah Prayer Card -->
-    <div class="master-card">
-        <span class="badge-gold">✨ الصَّلاَةُ الإِبْرَاهِيمِيَّةُ ✨</span>
-        <div class="master-text">
-            «اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ»
-        </div>
-        <div class="master-virtue">
-            <strong>فضلُها:</strong> الصلاة على النبي ﷺ من أعظم أسباب كفاية الهموم ومغفرة الذنوب وإجابة الدعاء.
-        </div>
-    </div>
+    <main>
 
-    <!-- 2. Sayyid al-Istighfar Card -->
-    <div class="master-card">
-        <span class="badge-gold">✨ سَيِّدُ الاِسْتِغْفَارِ ✨</span>
-        <div class="master-text">
-            «اللَّهُمَّ أَنْتَ رَبِّي لاَ إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لك بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ»
-        </div>
-        <div class="master-virtue">
-            <strong>فضلُه:</strong> قَالَ رَسُولُ اللَّهِ ﷺ: «وَمَنْ قَالَهَا مِنَ النَّهَارِ مُوقِنًا بِهَا، فَمَاتَ مِنْ يَوْمِهِ قَبْلَ أَنْ يُمْسِيَ، فَهُوَ مِنْ أَهْلِ الْجَنَّةِ، وَمَنْ قَالَهَا مِنَ اللَّيْلِ وَهُوَ مُوقِنٌ بِهَا، فَمَاتَ قَبْلَ أَنْ يُصْبِحَ، فَهُوَ مِنْ أَهْلِ الْجَنَّةِ». (رواه البخاري)
-        </div>
-    </div>
-
-    <!-- 3. Grid of Islamic Duas -->
-    <div class="duaa-grid">
-
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🤲</span> دعاء الفرج وزوال الهم</div>
-                <div class="duaa-body">
-                    «اللَّهُمَّ إِنِّي عَبْدُكَ، ابْنُ عَبْدِكَ، ابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ، أَوْ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ القُرْآنَ رَبِيعَ قَلْبِي، وَنُورَ صَدْرِي، وَجَلاَءَ حُزْنِي، وَذَهَابَ هَمِّي».
-                </div>
+        <!-- الصلاة الإبراهيمية -->
+        <section class="master-card">
+            <span class="badge-gold">✨ الصَّلاَةُ الإِبْرَاهِيمِيَّةُ ✨</span>
+            <div class="master-text">
+                «اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ»
             </div>
-            <div class="duaa-footer">دعاء نبوي شريف لذهاب الهم والغم</div>
-        </div>
-
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🌟</span> دعاء جامع للخيرات</div>
-                <div class="duaa-body">
-                    «رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ».
-                </div>
+            <div class="master-virtue">
+                <strong>فضلُها:</strong> الصلاة على النبي ﷺ من أعظم أسباب كفاية الهموم ومغفرة الذنوب وإجابة الدعاء.
             </div>
-            <div class="duaa-footer">من أكثر دعوات النبي ﷺ (متفق عليه)</div>
-        </div>
+        </section>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>❤️</span> دعاء الثبات على الدين</div>
-                <div class="duaa-body">
-                    «يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ، وَيَا مُصَرِّفَ الْقُلُوبِ صَرِّفْ قُلُوبَنَا عَلَى طَاعَتِكَ».
-                </div>
+        <!-- سيد الاستغفار -->
+        <section class="master-card">
+            <span class="badge-gold">✨ سَيِّدُ الاِسْتِغْفَارِ ✨</span>
+            <div class="master-text">
+                «اللَّهُمَّ أَنْتَ رَبِّي لاَ إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ»
             </div>
-            <div class="duaa-footer">من أكثر ما كان يدعو به المصطفى ﷺ</div>
-        </div>
-
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>💡</span> دعاء طلب الهداية والتقوى</div>
-                <div class="duaa-body">
-                    «اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى».
-                </div>
+            <div class="master-virtue">
+                <strong>فضلُه:</strong> قَالَ رَسُولُ اللَّهِ ﷺ: «وَمَنْ قَالَهَا مِنَ النَّهَارِ مُوقِنًا بِهَا، فَمَاتَ مِنْ يَوْمِهِ قَبْلَ أَنْ يُمْسِيَ، فَهُوَ مِنْ أَهْلِ الْجَنَّةِ، وَمَنْ قَالَهَا مِنَ اللَّيْلِ وَهُوَ مُوقِنٌ بِهَا، فَمَاتَ قَبْلَ أَنْ يُصْبِحَ، فَهُوَ مِنْ أَهْلِ الْجَنَّةِ». (رواه البخاري)
             </div>
-            <div class="duaa-footer">رواه مسلم</div>
-        </div>
+        </section>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🌾</span> دعاء جلب الرزق والتوفيق</div>
-                <div class="duaa-body">
-                    «اللَّهُمَّ اكْفِنِي بِحَلاَلِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ».
+        <!-- الأدعية -->
+        <section class="duaa-grid">
+
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🤲</span> دعاء الفرج وزوال الهم</div>
+                    <div class="duaa-body">
+                        «اللَّهُمَّ إِنِّي عَبْدُكَ، ابْنُ عَبْدِكَ، ابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ، أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي، وَنُورَ صَدْرِي، وَجَلاَءَ حُزْنِي، وَذَهَابَ هَمِّي».
+                    </div>
                 </div>
-            </div>
-            <div class="duaa-footer">دعاء مبارك لقضاء الدين والتوسعة (رواه الترمذي)</div>
-        </div>
+                <div class="duaa-footer">دعاء نبوي شريف لذهاب الهم والغم (رواه أحمد)</div>
+            </article>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🏥</span> دعاء الشفاء والعافية</div>
-                <div class="duaa-body">
-                    «اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَاسَ، اشْفِ وَأَنْتَ الشَّافِي، لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ، شِفَاءً لاَ يُغَادِرُ سَقَمًا».
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🌟</span> دعاء جامع للخيرات</div>
+                    <div class="duaa-body">
+                        «رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ».
+                    </div>
                 </div>
-            </div>
-            <div class="duaa-footer">دعاء الشفاء من الأمراض والأوجاع (متفق عليه)</div>
-        </div>
+                <div class="duaa-footer">من أكثر دعوات النبي ﷺ (متفق عليه)</div>
+            </article>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🛡️</span> دعاء الحفظ والوقاية</div>
-                <div class="duaa-body">
-                    «بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الأَرْضِ وَلاَ فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ».
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>❤️</span> دعاء الثبات على الدين</div>
+                    <div class="duaa-body">
+                        «يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ، يَا مُصَرِّفَ الْقُلُوبِ صَرِّفْ قُلُوبَنَا عَلَى طَاعَتِكَ».
+                    </div>
                 </div>
-            </div>
-            <div class="duaa-footer">يقال ثلاث مرات صباحاً ومساءً للوقاية</div>
-        </div>
+                <div class="duaa-footer">من أكثر ما كان يدعو به المصطفى ﷺ (رواه الترمذي ومسلم)</div>
+            </article>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🤍</span> دعاء العفو والصفح</div>
-                <div class="duaa-body">
-                    «اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي».
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>💡</span> دعاء طلب الهداية والتقوى</div>
+                    <div class="duaa-body">
+                        «اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى».
+                    </div>
                 </div>
-            </div>
-            <div class="duaa-footer">من جوامع الدعاء النبوي (رواه الترمذي)</div>
-        </div>
+                <div class="duaa-footer">رواه مسلم</div>
+            </article>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>✨</span> دعاء تيسير الأمور</div>
-                <div class="duaa-body">
-                    «اللَّهُمَّ لاَ سَهْلَ إِلاَّ مَا جَعَلْتَهُ سَهْلاً، وَأَنْتَ تَجْعَلُ الْحَزْنَ إِذَا شِئْتَ سَهْلاً».
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🌾</span> دعاء جلب الرزق وقضاء الدين</div>
+                    <div class="duaa-body">
+                        «اللَّهُمَّ اكْفِنِي بِحَلاَلِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ».
+                    </div>
                 </div>
-            </div>
-            <div class="duaa-footer">لتيسير العسير والصعاب (رواه ابن حبان)</div>
-        </div>
+                <div class="duaa-footer">دعاء مبارك لقضاء الدين والتوسعة (رواه الترمذي)</div>
+            </article>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🎓</span> دعاء طلب العلم والنافع من الرزق</div>
-                <div class="duaa-body">
-                    «اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً».
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🏥</span> دعاء الشفاء والعافية</div>
+                    <div class="duaa-body">
+                        «اللَّهُمَّ رَبَّ النَّاسِ، أَذْهِبِ الْبَاسَ، اشْفِ أَنْتَ الشَّافِي، لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ، شِفَاءً لاَ يُغَادِرُ سَقَمًا».
+                    </div>
                 </div>
-            </div>
-            <div class="duaa-footer">يقال بعد صلاة الفجر (رواه ابن ماجه)</div>
-        </div>
+                <div class="duaa-footer">دعاء الشفاء من الأمراض والأوجاع (متفق عليه)</div>
+            </article>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🌊</span> دعاء ذي النون (الكرب)</div>
-                <div class="duaa-body">
-                    «لاَ إِلَهَ إِلاَّ أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ».
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🛡️</span> دعاء الحفظ والوقاية</div>
+                    <div class="duaa-body">
+                        «بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الأَرْضِ وَلاَ فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ».
+                    </div>
                 </div>
-            </div>
-            <div class="duaa-footer">ما دعا بها مكروب إلا فرج الله عنه</div>
-        </div>
+                <div class="duaa-footer">يقال ثلاث مرات صباحاً ومساءً (رواه أبو داود والترمذي)</div>
+            </article>
 
-        <div class="duaa-card">
-            <div>
-                <div class="duaa-title"><span>🌿</span> دعاء صلاح الدين والدنيا</div>
-                <div class="duaa-body">
-                    «اللَّهُمَّ أَصْلِحْ لِي دِينِي الَّذِي هُوَ عِصْمَةُ أَمْرِي، وَأَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي، وَأَصْلِحْ لِي آخِرَتِي الَّتِي فِيهَا مَعَادِي، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لِي فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لِي مِنْ كُلِّ شَرٍّ».
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🤍</span> دعاء العفو والصفح</div>
+                    <div class="duaa-body">
+                        «اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي».
+                    </div>
                 </div>
-            </div>
-            <div class="duaa-footer">رواه مسلم</div>
-        </div>
+                <div class="duaa-footer">من جوامع الدعاء النبوي (رواه الترمذي)</div>
+            </article>
 
-    </div>
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>✨</span> دعاء تيسير الأمور</div>
+                    <div class="duaa-body">
+                        «اللَّهُمَّ لاَ سَهْلَ إِلاَّ مَا جَعَلْتَهُ سَهْلاً، وَأَنْتَ تَجْعَلُ الْحَزْنَ إِذَا شِئْتَ سَهْلاً».
+                    </div>
+                </div>
+                <div class="duaa-footer">لتيسير العسير والصعاب (رواه ابن حبان)</div>
+            </article>
+
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🎓</span> دعاء طلب العلم والرزق الطيب</div>
+                    <div class="duaa-body">
+                        «اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً».
+                    </div>
+                </div>
+                <div class="duaa-footer">يقال بعد صلاة الفجر (رواه ابن ماجه)</div>
+            </article>
+
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🌊</span> دعاء ذي النون (الكرب)</div>
+                    <div class="duaa-body">
+                        «لاَ إِلَهَ إِلاَّ أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ».
+                    </div>
+                </div>
+                <div class="duaa-footer">لم يدعُ بها مسلم في شيء إلا استجاب الله له (رواه الترمذي)</div>
+            </article>
+
+            <article class="duaa-card">
+                <div>
+                    <div class="duaa-title"><span>🌿</span> دعاء صلاح الدين والدنيا</div>
+                    <div class="duaa-body">
+                        «اللَّهُمَّ أَصْلِحْ لِي دِينِي الَّذِي هُوَ عِصْمَةُ أَمْرِي، وَأَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي، وَأَصْلِحْ لِي آخِرَتِي الَّتِي فِيهَا مَعَادِي، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لِي فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لِي مِنْ كُلِّ شَرٍّ».
+                    </div>
+                </div>
+                <div class="duaa-footer">رواه مسلم</div>
+            </article>
+
+        </section>
+    </main>
 
 </div>
 
