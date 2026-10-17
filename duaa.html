@@ -15,7 +15,6 @@
             --gold-light: #e6d4a1;
             --ivory: #f7f4eb;
             --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         * {
@@ -46,7 +45,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             padding: 10px 0;
         }
 
@@ -56,7 +55,7 @@
             gap: 8px;
             color: var(--gold-light);
             background: rgba(198, 164, 92, 0.15);
-            border: 1px solid var(--gold);
+            border: none;
             padding: 8px 16px;
             border-radius: 999px;
             text-decoration: none;
@@ -68,50 +67,6 @@
         .btn-back:hover {
             background: var(--gold);
             color: var(--bg-green);
-        }
-
-        /* Moving Ticker */
-        .ticker-wrap {
-            width: 100%;
-            overflow: hidden;
-            background: linear-gradient(90deg, #123b30, #205444, #123b30);
-            border: 2px solid var(--gold);
-            border-radius: 12px;
-            padding: 12px 0;
-            box-shadow: var(--shadow);
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .ticker {
-            display: flex;
-            width: max-content;
-            animation: marquee 35s linear infinite;
-        }
-
-        .ticker-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            white-space: nowrap;
-            padding: 0 30px;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--gold-light);
-        }
-
-        .ticker-item span.star {
-            color: var(--gold);
-            font-size: 18px;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(-50%);
-            }
-            100% {
-                transform: translateX(0%);
-            }
         }
 
         /* Main Card Header */
@@ -136,11 +91,11 @@
         /* Master Section Cards */
         .master-card {
             background: radial-gradient(circle at 50% 30%, #1a4d3e, #0b2822);
-            border: 2px solid var(--gold);
+            border: none;
             border-radius: 24px;
             padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            box-shadow: none;
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
@@ -168,7 +123,6 @@
             border-radius: 999px;
             font-size: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(198, 164, 92, 0.3);
         }
 
         .master-text {
@@ -184,59 +138,15 @@
         .master-virtue {
             background: rgba(255, 255, 255, 0.05);
             border-right: 3px solid var(--gold);
+            border-top: none;
+            border-left: none;
+            border-bottom: none;
             padding: 12px 18px;
             border-radius: 8px;
             text-align: right;
             font-size: 0.92rem;
             color: var(--gold-light);
             line-height: 1.8;
-        }
-
-        /* Counter Section (Electronic Tasbeeh) */
-        .counter-box {
-            background: rgba(18, 59, 48, 0.7);
-            border: 1px solid rgba(198, 164, 92, 0.4);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .counter-num {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--gold);
-            font-family: Georgia, serif;
-        }
-
-        .btn-count {
-            background: linear-gradient(135deg, #c6a45c, #e6d4a1);
-            color: #000;
-            font-weight: 900;
-            font-size: 1.2rem;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 999px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(198, 164, 92, 0.4);
-            transition: transform 0.1s ease;
-        }
-
-        .btn-count:active {
-            transform: scale(0.95);
-        }
-
-        .btn-reset {
-            background: transparent;
-            border: none;
-            color: #a0b0a5;
-            font-size: 0.85rem;
-            cursor: pointer;
-            text-decoration: underline;
         }
 
         /* Duaa Cards Grid */
@@ -248,19 +158,19 @@
 
         .duaa-card {
             background: var(--main-green);
-            border: 1px solid rgba(198, 164, 92, 0.3);
+            border: none;
             border-radius: 16px;
             padding: 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            box-shadow: none;
             transition: transform 0.25s ease;
         }
 
         .duaa-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
+            transform: translateY(-4px);
+            border: none;
         }
 
         .duaa-title {
@@ -292,7 +202,6 @@
         @media (max-width: 600px) {
             .page-header h1 { font-size: 2.1rem; }
             .master-text { font-size: 1.45rem; line-height: 2; }
-            .ticker-item { font-size: 14px; padding: 0 15px; }
         }
     </style>
 </head>
@@ -306,71 +215,24 @@
         <div style="color: var(--gold-light); font-size: 14px; font-weight: 700;">الشرقاط الثقافي الأول</div>
     </div>
 
-    <!-- Moving Ticker -->
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="ticker-item">
-                <span>اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِيِّنَا محمد وعلى آل محمد</span>
-                <span class="star">✦</span>
-            </div>
-            <div class="ticker-item">
-                <span>أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لاَ إِلَهَ إِلاَّ هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ</span>
-                <span class="star">✦</span>
-            </div>
-            <div class="ticker-item">
-                <span>سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ</span>
-                <span class="star">✦</span>
-            </div>
-            <div class="ticker-item">
-                <span>لاَ إِلَهَ إِلاَّ أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</span>
-                <span class="star">✦</span>
-            </div>
-            <div class="ticker-item">
-                <span>لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ الْعَلِيِّ الْعَظِيمِ</span>
-                <span class="star">✦</span>
-            </div>
-            <!-- تكرار لضمان الحركة الملساء المستمرة -->
-            <div class="ticker-item">
-                <span>اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِيِّنَا مُحَمَّدٍ</span>
-                <span class="star">✦</span>
-            </div>
-            <div class="ticker-item">
-                <span>أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لاَ إِلَهَ إِلاَّ هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ</span>
-                <span class="star">✦</span>
-            </div>
-            <div class="ticker-item">
-                <span>سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ</span>
-                <span class="star">✦</span>
-            </div>
-            <div class="ticker-item">
-                <span>لاَ إِلَهَ إِلاَّ أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</span>
-                <span class="star">✦</span>
-            </div>
-            <div class="ticker-item">
-                <span>لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ الْعَلِيِّ الْعَظِيمِ</span>
-                <span class="star">✦</span>
-            </div>
-        </div>
-    </div>
-
     <!-- Header -->
     <div class="page-header">
         <h1>مِشْكَاةُ الأَذْكَارِ وَالدَّعَوَاتِ</h1>
         <p>مجموعة مباركة من الصلوات والاستغفار والأدعية المستجابة</p>
     </div>
 
-    <!-- 1. Ibrahimiyyah Prayer Card (الصلاة الإبراهيمية أولاً) -->
+    <!-- 1. Ibrahimiyyah Prayer Card -->
     <div class="master-card">
         <span class="badge-gold">✨ الصَّلاَةُ الإِبْرَاهِيمِيَّةُ ✨</span>
         <div class="master-text">
             «اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ»
         </div>
         <div class="master-virtue">
-            <strong>فضلُها:</strong> الصلاة على النبي ﷺ من أعظم أسباب كفاية الهموم ومغفرة الذنوب وإجابة الدعاء،      .
+            <strong>فضلُها:</strong> الصلاة على النبي ﷺ من أعظم أسباب كفاية الهموم ومغفرة الذنوب وإجابة الدعاء.
         </div>
     </div>
 
-    <!-- 2. Sayyid al-Istighfar Card (سيد الاستغفار ثانياً) -->
+    <!-- 2. Sayyid al-Istighfar Card -->
     <div class="master-card">
         <span class="badge-gold">✨ سَيِّدُ الاِسْتِغْفَارِ ✨</span>
         <div class="master-text">
@@ -381,15 +243,7 @@
         </div>
     </div>
 
-    <!-- Electronic Counter -->
-    <div class="counter-box">
-        <div style="color: var(--gold-light); font-weight: 700;">عداد الصلاة والاستغفار التفاعلي</div>
-        <div class="counter-num" id="counter">0</div>
-        <button class="btn-count" onclick="countUp()">اذكر الله 📿</button>
-        <button class="btn-reset" onclick="resetCount()">إعادة العداد للصفر</button>
-    </div>
-
-    <!-- 3. Grid of Islamic Duas (بقية الأدعية المباركة) -->
+    <!-- 3. Grid of Islamic Duas -->
     <div class="duaa-grid">
 
         <div class="duaa-card">
@@ -515,18 +369,6 @@
     </div>
 
 </div>
-
-<script>
-    let count = 0;
-    function countUp() {
-        count++;
-        document.getElementById('counter').innerText = count;
-    }
-    function resetCount() {
-        count = 0;
-        document.getElementById('counter').innerText = count;
-    }
-</script>
 
 </body>
 </html>
