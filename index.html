@@ -172,6 +172,9 @@ button{cursor:pointer}
 
 .modal{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:18px;background:rgba(5,22,18,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .modal-panel{width:min(760px,100%);max-height:min(88dvh,900px);overflow:auto;border:1px solid rgba(198,164,92,.4);border-radius:24px;background:var(--paper);box-shadow:0 35px 100px rgba(0,0,0,.35)}
+/* صفحة كاملة (معرض الصور) */
+.modal-full{padding:0;background:var(--paper);backdrop-filter:none;-webkit-backdrop-filter:none;place-items:stretch}
+.modal-full .modal-panel{width:100%;max-width:none;height:100dvh;max-height:none;border:0;border-radius:0;box-shadow:none}
 .modal-head{position:sticky;z-index:2;top:0;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line);background:rgba(255,253,247,.96)}
 .modal-head h2{margin:0;color:var(--green);font-size:1.25rem}
 .modal-close{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--green);font-size:1.3rem}
@@ -558,7 +561,7 @@ body{font-size:15px}
   </div>
 </div>
 
-<div class="modal" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle" hidden>
+<div class="modal modal-full" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
       <h2 id="galleryModalTitle">معرض الصور</h2>
@@ -706,45 +709,57 @@ function runSearch() {
 searchInput.addEventListener("input", runSearch);
 runSearch();
 
-/* ---------- Modals ---------- */
-let activeModal = null;
+/* ---------- Modals (مرتبطة بزر الرجوع في الموبايل) ---------- */
+let openModals = [];
 let previousFocus = null;
-let modalStack = [];
 
 function openModal(id) {
   const modal = document.getElementById(id);
-  if (!modal) return;
-  if (activeModal && activeModal !== modal) modalStack.push(activeModal);
-  else if (!activeModal) previousFocus = document.activeElement;
+  if (!modal || !modal.hidden) return;
+  if (!openModals.length) previousFocus = document.activeElement;
   modal.hidden = false;
-  activeModal = modal;
+  openModals.push(modal);
   document.body.classList.add("modal-open");
+  // إضافة خطوة في سجل المتصفح، حتى يغلق زر الرجوع النافذة بدل الخروج من الموقع
+  history.pushState({ modalDepth: openModals.length }, "");
   if (id === "videoModal") {
     const frame = $("#youtubeFrame");
     if (!frame.getAttribute("src")) frame.src = frame.dataset.src;
   }
+  if (id === "galleryModal") modal.querySelector(".modal-panel").scrollTop = 0;
   $("[data-close]", modal)?.focus();
   if (id === "audioModal") loadAudioFiles();
   if (id === "galleryModal") loadGallery();
 }
 
-function closeModal(modal) {
+// إغلاق فعلي للنافذة (بدون لمس سجل المتصفح)
+function hideModal(modal) {
   if (!modal || modal.hidden) return;
   if (modal.id === "videoModal") $("#youtubeFrame").removeAttribute("src");
   if (modal.id === "lightboxModal") $("#lightboxImage").removeAttribute("src");
   modal.hidden = true;
-  if (activeModal !== modal) return;
-  const previous = modalStack.pop();
-  if (previous && !previous.hidden) {
-    activeModal = previous;
-    $("[data-close]", previous)?.focus();
+  openModals = openModals.filter(m => m !== modal);
+  const top = openModals[openModals.length - 1];
+  if (top) {
+    $("[data-close]", top)?.focus();
   } else {
-    activeModal = null;
-    modalStack = [];
     document.body.classList.remove("modal-open");
     previousFocus?.focus?.();
   }
 }
+
+// الإغلاق من الأزرار: نرجع خطوة في السجل ثم يتولى popstate الإغلاق
+function closeModal(modal) {
+  if (!modal || modal.hidden) return;
+  if (modal === openModals[openModals.length - 1]) history.back();
+  else hideModal(modal);
+}
+
+// زر الرجوع في الموبايل أو المتصفح
+window.addEventListener("popstate", event => {
+  const target = (event.state && event.state.modalDepth) || 0;
+  while (openModals.length > target) hideModal(openModals[openModals.length - 1]);
+});
 
 $$("[data-open]").forEach(trigger => {
   trigger.addEventListener("click", event => {
@@ -758,7 +773,7 @@ $$(".modal").forEach(modal => {
   modal.addEventListener("click", event => { if (event.target === modal) closeModal(modal); });
 });
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && activeModal) closeModal(activeModal);
+  if (event.key === "Escape" && openModals.length) closeModal(openModals[openModals.length - 1]);
 });
 
 /* ---------- GitHub files ---------- */
