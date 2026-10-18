@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هكذا روت لي أمي: قصة جدي عگاب ولقاؤها بالملك فيصل...اللَّهُمَّ اعْفُ وَارْحَمِ الْجَمِيعَ  - موقع الشرقاط الثقافي الأول</title>
+    <title>هكذا روت لي أمي: قصة جدي عگاب ولقاؤها بالملك فيصل...اللَّهُمَّ اعْفُ وَارْحَمِ الْجَمِيعَ  - موقع الشرقاط الثقافي الأول</title>
     <meta name="description" content="قصة تاريخية تروي سيرة جدي عگاب العلي الحلبي وعلاقته بمولود باشا مخلص ولقاء طفولة والدته بالملك فيصل.">
     <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
 
@@ -23,67 +23,46 @@
         :root {
           --primary: #064e3b;
           --primary-hover: #022c22;
-          --primary-light: #f0fdf4;
-          --bg: #fdfbf7;
-          --card-bg: #ffffff;
-          --text: #1e293b;
-          --muted: #64748b;
-          --border: #d4b572;
-          --shadow: 0 4px 20px rgba(6, 78, 59, 0.08);
+          --bg: #faf8f3;
+          --text: #2b3440;
+          --muted: #6b7280;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-          font-family: system-ui, -apple-system, sans-serif; 
-          background-color: var(--bg); 
-          background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.92), rgba(240, 253, 244, 0.92));
-          background-size: cover;
-          background-attachment: fixed;
-          background-position: center;
-          color: var(--text); 
-          direction: rtl; 
-          line-height: 1.8; 
+        body {
+          font-family: system-ui, -apple-system, sans-serif;
+          background: var(--bg);
+          color: var(--text);
+          direction: rtl;
+          line-height: 1.8;
         }
         a { text-decoration: none; color: inherit; }
 
         /* Navbar */
-        .navbar { background: rgba(6, 78, 59, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); border-bottom: 2px solid #d4b572; }
-        .nav-container { max-width: 1100px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 18px; font-weight: 800; color: #fef08a; }
+        .navbar { background: var(--bg); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 900px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 18px; font-weight: 800; color: var(--primary); }
         .nav-links { display: flex; gap: 15px; }
-        .nav-links a { font-size: 14px; font-weight: 700; color: #ffffff; }
-        .nav-links a:hover { color: #fef08a; }
+        .nav-links a { font-size: 14px; font-weight: 700; color: var(--primary); }
+        .nav-links a:hover { color: var(--primary-hover); }
 
         /* Container */
-        .container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
+        .container { max-width: 800px; margin: 20px auto; padding: 0 18px; }
 
-        /* Article Card */
-        .article-card {
-          background: var(--card-bg);
-          border: 2px solid var(--border);
-          border-radius: 20px;
-          padding: 30px 25px;
-          box-shadow: var(--shadow);
-          margin-bottom: 35px;
-          overflow: hidden;
-        }
+        .article-card { margin-bottom: 30px; }
 
         /* Banner Image */
         .article-banner {
+          display: block;
           width: 100%;
           max-height: 450px;
           object-fit: cover;
-          border-radius: 12px;
           margin-bottom: 22px;
-          border: 1px solid #e2e8f0;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .article-header {
           text-align: center;
-          border-bottom: 2px solid var(--primary-light);
-          padding-bottom: 20px;
-          margin-bottom: 25px;
+          margin-bottom: 28px;
         }
 
         .article-header h1 {
@@ -112,25 +91,22 @@
           color: var(--primary);
           font-weight: 800;
           margin: 30px 0 15px 0;
-          border-right: 4px solid var(--border);
-          padding-right: 12px;
         }
 
         .quote-box {
-          background: var(--primary-light);
-          border-right: 4px solid var(--primary);
-          padding: 16px 20px;
-          border-radius: 8px;
           margin: 22px 0;
           font-style: italic;
           font-weight: 600;
           color: var(--primary);
         }
 
+        .note-text {
+          font-size: 14px;
+          color: var(--muted);
+        }
+
         .article-footer-note {
           margin-top: 30px;
-          padding-top: 15px;
-          border-top: 1px solid #e2e8f0;
           font-size: 13px;
           color: var(--muted);
           display: flex;
@@ -141,23 +117,16 @@
         }
 
         .back-btn {
-          display: inline-block;
-          background: var(--primary);
-          color: #fff;
-          padding: 10px 22px;
-          border-radius: 12px;
+          color: var(--primary);
           font-size: 14px;
           font-weight: bold;
-          transition: background 0.2s ease;
-          box-shadow: 0 4px 12px rgba(6,78,59,0.2);
         }
-        .back-btn:hover { background: var(--primary-hover); }
+        .back-btn:hover { color: var(--primary-hover); }
 
         /* Footer */
-        .footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; margin-top: 25px; background: rgba(255,255,255,0.7); border-radius: 12px; }
+        .footer { text-align: center; padding: 20px; color: var(--muted); font-size: 12.5px; }
 
         @media (max-width: 480px) {
-          .article-card { padding: 20px 15px; }
           .article-header h1 { font-size: 20px; }
           .article-banner { max-height: 280px; }
           .nav-links { display: none; }
@@ -179,7 +148,7 @@
 
     <div class="container">
         <article class="article-card">
-            
+
             <!-- صورة مولود باشا -->
             <img src="okab.jpg" alt="مولود باشا مخلص" class="article-banner" onerror="this.style.display='none'">
 
@@ -190,11 +159,11 @@
 
             <div class="article-body">
                 <p>رأيت صورة لمولود باشا رحمه الله وذكرتني، الصورة رجعتني ليورى، وذكرتني بسوالف أمي (رحمها الله) وهي تقص لي حكاية جدي (عگاب العلي الحلبي).</p>
-                
+
                 <p>تقول أمي إن جدي كان يشتغل في منطقة الحمرة بصلاح الدين عند خاله مولود باشا، وظل عنده تقريباً كم شهر. وكان شغل جدي الأساسي ومسؤوليته هي عنابير الحب (مخازن الحبوب)؛ فكان الفلاليح يجيبون الحبوب والمحاصيل، وجدي هو المسؤول المباشر عن هذه الحبوب يتسلمها منهم ويدققها.</p>
-                
+
                 <p>وخلال هذا الشغل، صار اختلاف بالرأي بين جدي ومولود باشا على صيغة العمل وطريقة إدارة واستلام الحبوب؛ جدي كان يعترض على طريقة الشغل، وصار "زعل" بيناتهم بسبب هذا الخلاف، ومولود باشا غضب عليه. بعد هذا الزعل، جدي عگاب ترك الشغل وشال من منطقة الحمرة بكبرها، وتوجه إلى منطقة الزاب، وبعدها بفترة انتقل وسكن في قرية السفينة بالشرقاط.</p>
-                
+
                 <p>وتكمل أمي حكايتها وتذكر ذاك اليوم التاريخي اللي ما نسته أبداً، وتقول:</p>
 
                 <div class="quote-box">
@@ -209,7 +178,7 @@
 
                 <h2>نبذة عن مولود باشا مخلص</h2>
                 <p>مولود باشا مخلص (المعروف بـ مولود مخلص باشا) هو ضابط عراقي بارز، وسياسي، ومن القادة العسكريين البارزين في تاريخ العراق المعاصر والثورة العربية الكبرى.</p>
-                
+
                 <p><strong>النشأة والتعليم:</strong><br>
                 • <strong>ولادته:</strong> ولد في مدينة الموصل عام 1885م، وينحدر نسبه من عائلة "الحاج شعبان" (من البو حاشي في تكريت).<br>
                 • <strong>لقبه:</strong> اسمه الأصلي "مولود بن أحمد"، أما لقب "مخلص" فقد منحه إياه الشريف حسين بن علي (قائد الثورة العربية الكبرى) تقديراً لإخلاصه وشجاعته الفائقة في المعارك.<br>
@@ -223,7 +192,7 @@
                 <p><strong>صفاته ووفاته:</strong><br>
                 عُرف مولود باشا بجرأته الشديدة، وصراحته في إبداء الرأي، ووطنيته العالية. توفي في بيروت عام 1951م، ونُقل جثمانه ليُدفن في العاصمة بغداد.</p>
 
-                <p style="background: #fafaf9; padding: 14px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 14px; color: var(--muted);">
+                <p class="note-text">
                   <em>ملاحظة: هذه القصة مختصرة؛ لذا لبعض التعليقات عن الدفن أو ما شابه، فجدي تحول سكناه أيضاً إلى الشرقاط ومات هناك، وأما مولود باشا نُقل إلى تكريت ودفن فيها. وبرز من عائلته أيضاً شخصيات سياسية وطبية لاحقة في العراق، مثل ولده الدكتور غائب مولود مخلص الذي شغل منصب وزير وسفير في ستينيات وسبعينيات القرن الماضي.</em>
                 </p>
             </div>
