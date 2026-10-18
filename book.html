@@ -1,253 +1,152 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#102f26">
-  <title>المؤلفات والكتب | الشرقاط الثقافي الأول</title>
-  <meta name="description" content="قسم الكتب والمؤلفات - موقع الشرقاط الثقافي الأول. بقلم الأستاذ محمد علي أحمد الحطاب الجبوري.">
-  <link rel="canonical" href="https://mhamalgporee-ctrl.github.io/book.html">
-  <link rel="icon" href="acon.jpg" type="image/jpeg">
-
-  <style>
-    :root {
-      --p: #174b3a;
-      --dark: #102f26;
-      --light: #e8eee7;
-      --bg: #f8f6ef;
-      --text: #252a25;
-      --muted: #77776e;
-      --border: #d0b778;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Tahoma, "Segoe UI", sans-serif;
-      line-height: 1.85;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    .navbar {
-      background: var(--dark);
-      border-bottom: 3px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
-      max-width: 1240px;
-      margin: auto;
-      min-height: 68px;
-      padding: 12px 26px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      color: #e5d09b;
-      font-size: 19px;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      font-size: 14px;
-      color: #fff;
-    }
-
-    .nav-links a:hover { color: #e5d09b; }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-
-    .page-header {
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-    }
-
-    .page-header h1 {
-      color: var(--dark);
-      font-size: clamp(24px, 4vw, 36px);
-      margin: 0 0 8px;
-    }
-
-    .page-header p {
-      color: var(--muted);
-      margin: 0;
-      font-size: 15px;
-    }
-
-    .book-card {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 25px;
-      background: #fff;
-      border: 1px solid #dcd5c5;
-      border-right: 4px solid var(--border);
-      padding: 25px;
-      margin-bottom: 25px;
-      align-items: center;
-    }
-
-    .book-cover {
-      width: 100%;
-      max-height: 280px;
-      object-fit: contain;
-      border: 1px solid #d3c39a;
-      border-radius: 2px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      background: #fdfbf7;
-    }
-
-    .book-info h2 {
-      color: var(--dark);
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
-
-    .book-info p {
-      color: #4b5148;
-      font-size: 14px;
-      line-height: 1.8;
-      margin-bottom: 15px;
-    }
-
-    .note-text {
-      font-size: 12.5px;
-      color: #856404;
-      background-color: #fff3cd;
-      border: 1px solid #ffeeba;
-      border-radius: 4px;
-      padding: 8px 12px;
-      margin-bottom: 18px;
-      display: inline-block;
-    }
-
-    .book-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-start;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: var(--p);
-      color: #fff;
-      font-weight: bold;
-      border-radius: 3px;
-      font-size: 14px;
-      transition: background 0.2s;
-      width: fit-content;
-    }
-
-    .btn:hover {
-      background: var(--dark);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--p);
-      border: 1px solid var(--p);
-    }
-
-    .btn-secondary:hover {
-      background: var(--light);
-    }
-
-    .footer {
-      text-align: center;
-      border-top: 1px solid #d9d2c1;
-      padding: 25px 10px;
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 650px) {
-      .book-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .book-cover {
-        max-width: 150px;
-        margin: 0 auto;
-      }
-      .book-actions {
-        align-items: center;
-      }
-      .btn {
-        width: 100%;
-        max-width: 280px;
-      }
-      .nav-links {
-        font-size: 12px;
-        gap: 12px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf8f3">
+<title>المؤلفات والكتب | الشرقاط الثقافي الأول</title>
+<meta name="description" content="قسم الكتب والمؤلفات - موقع الشرقاط الثقافي الأول. بقلم الأستاذ محمد علي أحمد الحطاب الجبوري.">
+<link rel="canonical" href="https://mhamalgporee-ctrl.github.io/book.html">
+<link rel="icon" href="acon.jpg" type="image/jpeg">
+<style>
+:root{--primary:#4a3f33;--primary-hover:#3a3128;--gold:#b8964f;--bg:#faf8f3;--text:#2e2a24;--muted:#7a7164}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Tahoma,sans-serif;background:var(--bg);color:var(--text);direction:rtl;line-height:1.85}
+a{text-decoration:none;color:inherit}
+.navbar{background:var(--bg);position:sticky;top:0;z-index:100}
+.nav-container{max-width:900px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:18px;font-weight:800;color:var(--primary)}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:14px;font-weight:700;color:var(--primary)}
+.container{max-width:900px;margin:20px auto;padding:0 18px 30px}
+.page-header{text-align:center;margin-bottom:40px}
+.page-header h1{color:var(--primary);font-size:clamp(24px,4vw,34px);margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:15px}
+.book-card{display:grid;grid-template-columns:180px 1fr;gap:25px;margin-bottom:60px;align-items:center}
+.book-cover{width:100%;max-height:280px;object-fit:contain;border-radius:4px}
+.book-info h2{color:var(--primary);margin-bottom:10px;font-size:22px}
+.book-author{color:var(--gold);font-weight:700;font-size:14px;margin-bottom:8px}
+.book-info p{color:var(--text);font-size:14.5px;margin-bottom:14px}
+.note-text{font-size:13px;color:var(--muted);margin-bottom:16px}
+.book-actions{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.btn{display:inline-block;padding:10px 22px;background:var(--gold);color:#fff;font-weight:800;border-radius:999px;font-size:14px;transition:background .2s}
+.btn:hover{background:var(--primary)}
+.btn-secondary{background:transparent;color:var(--primary);border:1px solid var(--primary)}
+.btn-secondary:hover{background:var(--primary);color:#fff}
+.submit{text-align:center;margin:30px 0}
+.submit p{color:var(--muted);font-size:14.5px;margin-bottom:12px}
+.footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 10px}
+@media(max-width:650px){
+.book-card{grid-template-columns:1fr;text-align:center}
+.book-cover{max-width:150px;margin:0 auto}
+.book-actions{align-items:center}
+.btn{width:100%;max-width:300px;text-align:center}
+.nav-links{font-size:12px;gap:12px}
+}
+</style>
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="nav-container">
-      <a class="logo" href="index.html">الشرقاط الثقافي الأول</a>
-      <nav class="nav-links">
-        <a href="index.html">الرئيسية</a>
-        <a href="tv.html">التلفزيون</a>
-        <a href="apps.html">التطبيقات</a>
-      </nav>
-    </div>
-  </header>
+<header class="navbar">
+  <div class="nav-container">
+    <a class="logo" href="index.html">الشرقاط الثقافي الأول</a>
+    <nav class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="tv.html">التلفزيون</a>
+      <a href="apps.html">التطبيقات</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="container">
-    <div class="page-header">
-      <h1>📚 قسم المؤلفات والكتب</h1>
-      <p>المكتبة الأدبية والفكرية الموثقة لإصدارات موقع الشرقاط الثقافي الأول.</p>
-    </div>
+<main class="container">
+  <div class="page-header">
+    <h1>📚 قسم المؤلفات والكتب</h1>
+    <p>المكتبة الأدبية والفكرية الموثقة لإصدارات موقع الشرقاط الثقافي الأول.</p>
+  </div>
 
-    <article class="book-card">
-      <a href="https://heyzine.com/flip-book/7d35d68ef2.html" target="_blank" rel="noopener">
-        <img class="book-cover" src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر" onerror="this.src='acon.jpg'">
-      </a>
-      <div class="book-info">
-        <h2>الرجل والمرأة وعشرة العمر في بلاد الرافدين</h2>
-        <p>
-          كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة تأليف محمد علي أحمد الحطاب الجبوري.
-        </p>
-        
-        <div class="note-text">
-          💡 <strong>ملاحظة:</strong> عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة.
-        </div>
+  <div id="books"></div>
 
-        <div class="book-actions">
-          <a class="btn" href="https://heyzine.com/flip-book/7d35d68ef2.html" target="_blank" rel="noopener">اضغط هنا لقراءة الكتاب التفاعلي 📖</a>
-          <a class="btn btn-secondary" href="book.pdf" target="_blank" rel="noopener">اضغط هنا لقراءة الكتاب في ملف بي دي اف 📄</a>
-        </div>
-      </div>
-    </article>
-  </main>
+  <div class="submit">
+    <p>هل لديك كتاب أو رواية؟ أرسله لنراجعه وننشره باسمك.</p>
+    <a class="btn" href="sendbook.html">هل لديك كتاب؟ أرسله لننشره ✍️</a>
+  </div>
+</main>
 
-  <footer class="footer">
-    <p>جميع الحقوق محفوظة © <span id="year">2026</span></p>
-    <p>إشراف وتأليف: محمد علي أحمد الحطاب الجبوري</p>
-  </footer>
+<footer class="footer">
+  <p>جميع الحقوق محفوظة © <span id="year">2026</span></p>
+  <p>إشراف وتأليف: محمد علي أحمد الحطاب الجبوري</p>
+</footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<script>
+/* ===== قائمة الكتب: لإضافة كتاب جديد انسخ سطراً كاملاً بين { } وعدّله =====
+   title: العنوان | author: المؤلف | desc: النبذة
+   cover: صورة الغلاف (اختياري) | pdf: رابط ملف PDF (اختياري)
+   flip: رابط الكتاب التفاعلي (اختياري) | note: ملاحظة صغيرة (اختياري) */
+const BOOKS = [
+  {
+    title: "الرجل والمرأة وعشرة العمر في بلاد الرافدين",
+    author: "محمد علي أحمد الحطاب الجبوري",
+    desc: "كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة.",
+    cover: "cover.jpg",
+    flip: "https://heyzine.com/flip-book/7d35d68ef2.html",
+    pdf: "book.pdf",
+    note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
+  }
+  // مثال لكتاب جديد (احذف علامتي // لتفعيله):
+  // , { title: "اسم الكتاب", author: "اسم المؤلف", desc: "نبذة قصيرة", cover: "books/cover2.jpg", pdf: "books/book2.pdf" }
+];
+
+const box = document.getElementById("books");
+BOOKS.forEach(b => {
+  const card = document.createElement("article");
+  card.className = "book-card";
+
+  const link = b.flip || b.pdf || "#";
+  const a = document.createElement("a");
+  a.href = link; a.target = "_blank"; a.rel = "noopener";
+  const img = document.createElement("img");
+  img.className = "book-cover";
+  img.src = b.cover || "acon.jpg";
+  img.alt = "غلاف كتاب " + b.title;
+  img.onerror = () => { img.src = "acon.jpg"; };
+  a.append(img);
+
+  const info = document.createElement("div");
+  info.className = "book-info";
+  const h = document.createElement("h2"); h.textContent = b.title;
+  const au = document.createElement("div"); au.className = "book-author"; au.textContent = "تأليف: " + b.author;
+  const p = document.createElement("p"); p.textContent = b.desc;
+  info.append(h, au, p);
+
+  if (b.note) {
+    const n = document.createElement("div");
+    n.className = "note-text"; n.textContent = b.note;
+    info.append(n);
+  }
+
+  const actions = document.createElement("div");
+  actions.className = "book-actions";
+  if (b.flip) {
+    const x = document.createElement("a");
+    x.className = "btn"; x.href = b.flip; x.target = "_blank"; x.rel = "noopener";
+    x.textContent = "اضغط هنا لقراءة الكتاب التفاعلي 📖";
+    actions.append(x);
+  }
+  if (b.pdf) {
+    const x = document.createElement("a");
+    x.className = b.flip ? "btn btn-secondary" : "btn";
+    x.href = b.pdf; x.target = "_blank"; x.rel = "noopener";
+    x.textContent = "اضغط هنا لقراءة الكتاب في ملف بي دي اف 📄";
+    actions.append(x);
+  }
+  info.append(actions);
+
+  card.append(a, info);
+  box.append(card);
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
