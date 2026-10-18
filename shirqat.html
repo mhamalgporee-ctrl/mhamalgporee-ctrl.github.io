@@ -12,67 +12,46 @@
     :root {
       --primary: #064e3b;
       --primary-hover: #022c22;
-      --primary-light: #f0fdf4;
-      --bg: #fdfbf7;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-      --muted: #64748b;
-      --border: #d4b572;
-      --shadow: 0 4px 20px rgba(6, 78, 59, 0.08);
+      --bg: #faf8f3;
+      --text: #2b3440;
+      --muted: #6b7280;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      font-family: system-ui, -apple-system, sans-serif; 
-      background-color: var(--bg); 
-      background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.92), rgba(240, 253, 244, 0.92));
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: var(--text); 
-      direction: rtl; 
-      line-height: 1.8; 
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      line-height: 1.8;
     }
     a { text-decoration: none; color: inherit; }
 
     /* Navbar */
-    .navbar { background: rgba(6, 78, 59, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); border-bottom: 2px solid #d4b572; }
-    .nav-container { max-width: 1100px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 18px; font-weight: 800; color: #fef08a; }
+    .navbar { background: var(--bg); position: sticky; top: 0; z-index: 100; }
+    .nav-container { max-width: 900px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 18px; font-weight: 800; color: var(--primary); }
     .nav-links { display: flex; gap: 15px; }
-    .nav-links a { font-size: 14px; font-weight: 700; color: #ffffff; }
-    .nav-links a:hover { color: #fef08a; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--primary); }
+    .nav-links a:hover { color: var(--primary-hover); }
 
     /* Container */
-    .container { max-width: 900px; margin: 0 auto; padding: 30px 15px; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px 18px; }
 
-    /* Article Card */
-    .article-card {
-      background: var(--card-bg);
-      border: 2px solid var(--border);
-      border-radius: 20px;
-      padding: 30px 25px;
-      box-shadow: var(--shadow);
-      margin-bottom: 35px;
-      overflow: hidden;
-    }
+    .article-card { margin-bottom: 70px; }
 
     /* Article Banner Image */
     .article-banner {
+      display: block;
       width: 100%;
       max-height: 380px;
       object-fit: cover;
-      border-radius: 12px;
       margin-bottom: 22px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     .article-header {
       text-align: center;
-      border-bottom: 2px solid var(--primary-light);
-      padding-bottom: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
     }
 
     .article-header h1 {
@@ -104,10 +83,6 @@
     }
 
     .article-body blockquote {
-      background: var(--primary-light);
-      border-right: 4px solid var(--primary);
-      padding: 14px 18px;
-      border-radius: 8px;
       margin: 20px 0;
       font-weight: bold;
       color: var(--primary);
@@ -118,15 +93,9 @@
       color: var(--primary);
       font-weight: 800;
       margin: 25px 0 12px 0;
-      border-bottom: 1px dashed var(--border);
-      padding-bottom: 6px;
     }
 
     .notables-list {
-      background: #fafaf9;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 16px 20px;
       margin: 15px 0;
       list-style-position: inside;
     }
@@ -142,8 +111,6 @@
 
     .article-footer-note {
       margin-top: 30px;
-      padding-top: 15px;
-      border-top: 1px solid #e2e8f0;
       font-size: 13px;
       color: var(--muted);
       display: flex;
@@ -154,23 +121,16 @@
     }
 
     .back-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 12px;
+      color: var(--primary);
       font-size: 14px;
       font-weight: bold;
-      transition: background 0.2s ease;
-      box-shadow: 0 4px 12px rgba(6,78,59,0.2);
     }
-    .back-btn:hover { background: var(--primary-hover); }
+    .back-btn:hover { color: var(--primary-hover); }
 
     /* Footer */
-    .footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; margin-top: 25px; background: rgba(255,255,255,0.7); border-radius: 12px; }
+    .footer { text-align: center; padding: 20px; color: var(--muted); font-size: 12.5px; }
 
     @media (max-width: 480px) {
-      .article-card { padding: 20px 15px; }
       .article-header h1 { font-size: 20px; }
       .article-banner { max-height: 220px; }
       .nav-links { display: none; }
@@ -194,7 +154,7 @@
 
     <!-- المقالة الأولى: الشرقاط مدينتي تاريخ وإبداع -->
     <div class="article-card">
-      
+
       <!-- صورة المقالة الأولى: 1.jpg -->
       <img src="1.jpg" alt="الشرقاط مدينتي تاريخ وإبداع" class="article-banner" onerror="this.style.display='none'">
 
@@ -221,7 +181,7 @@
 
         <h3>بعاجة: منارة الإبداع والأصالة</h3>
         <p>تقع هذه القرية على نهر دجلة وهي تحاذي شواطئها الساحرة وتقابل القرى المجاورة، حيث تلتقي عذوبة النهر بسخاء الأرض لتشكل بيئة إبداعية فريدة كانت وما زالت منبراً للكلمة الملتزمة. وقد أنجبت هذه الأرض قمماً وفحولاً شاركوا في بناء الصرح الثقافي:</p>
-        
+
         <ul class="notables-list">
           <li><strong>الدكتور حمد الدوخي:</strong> قامة الفكر والموسوعية الأكاديمية البارزة في كافة المجالات، الذي تجاوز حدود التخصص ليكون شخصية ثقافية ومجتمعية موسوعية يشار إليها بالبنان.</li>
           <li><strong>الأستاذ فهد عنتر الدوخي:</strong> الروائي المتميز الذي أثرى المشهد السردي، وتزامن عطاؤه بأن أهديتُ منه روايته القيّمة، لتجسد بحق عمق الروابط الإنسانية وجمال وفاء الكلمة وروح المكان.</li>
@@ -242,7 +202,7 @@
 
     <!-- المقالة الثانية: صدى الذاكرة: الشرقاط.. أيام مكاين الشيوخ والبستان -->
     <div class="article-card">
-      
+
       <!-- صورة المقالة الثانية: 2.jpg -->
       <img src="2.jpg" alt="ذكريات بستان الشيوخ ومكاين الشرقاط" class="article-banner" onerror="this.style.display='none'">
 
@@ -253,7 +213,7 @@
       </div>
 
       <div class="article-body">
-        <p>تلوح في أفق الذاكرة أيامٌ خلت، لكنها وُشمت في جدار الروح فلا تمحوها السنون. يوم كانت الشرقاط عبارة عن جنةٍ عذراء، يلتفُّ حولها دجلة الخير كأنه سوارٌ من ماس، وتغفو على ضفافه بساتين الشيوخ التي كانت تفتح أحضانها للجميع بلا منّة ولا رياء.</p>
+        <p>تلوح في أفق الذاكرة أيامٌ خلت، لكنها وُشمت في جدار الروح فلا تمحوها السنون. يوم كانت الشرقاط عبارة عن جنةٍ عذراء، يلتفُّ حولها دجلة الخير كأنه سوارٌ من ماس، وتغفو على ضفافه بساتين الشيوخ التي كانت تفتح أحضانها للجميع بلا منّة ولا رياء.</p>
 
         <p>من منا ينسى <strong>"مكاين الشيوخ"</strong>؟ تلك المكائن الهادرة التي لم تكن تضخ المياه فحسب، بل كانت تضخ الحياة والأمان في عروق الأرض والناس. كان صوتها المنتظم بمثابة دقات قلب المدينة. وهناك.. عند حوض المكينة ومجرى المياه المتدفق بقوة، تخرجت أجيالٌ من السباحين! من منا ما "تعلّ" ورمى روحه بذاك المياه العذبة الباردة الصافية؟ كانت تلك الأيام هي مدرسة السباحة الأولى، حيث الخوف يتلاشى مع ضحكات الأصدقاء، وحيث صرخة القفز في المياه تعادل الدنيا وما فيها.</p>
 
@@ -269,7 +229,7 @@
         </blockquote>
 
         <p>تحية لكل "شرقاطي" يحمل في قلبه غصناً من ذاك البستان، وقطرة من تلك المياه، وتلك المكائن، وذكرى من ذاك الزمن الجميل الذي لا يعوض.</p>
-        
+
         <p style="text-align: center; font-weight: bold; color: var(--primary); margin-top: 20px;">
           رحم الله من عاش في تلك الأيام، ورحم الله الأموات، وحفظ الله الأحياء.<br>
           تحياتي لكم أينما كنتم 🌹
