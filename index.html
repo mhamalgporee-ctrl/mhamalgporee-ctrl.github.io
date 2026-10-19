@@ -628,7 +628,7 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
     </div>
     <div class="modal-body">
-      <iframe class="video-frame" id="youtubeFrame" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube-nocookie.com/embed/videoseries?list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe class="video-frame" id="youtubeFrame" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube.com/embed?listType=playlist&list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <p>إذا لم تظهر قائمة الفيديوهات، يمكنك زيارة القناة مباشرة.</p>
       <a class="btn btn-green" href="https://www.youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer">فتح القناة على YouTube ↗</a>
     </div>
@@ -793,7 +793,7 @@ function runSearch() {
 searchInput.addEventListener("input", runSearch);
 runSearch();
 
-/* ---------- النوافذ (مرتبطة بزر الرجوع في الموبايل) ---------- */
+/* ---------- النوافذ ---------- */
 let openModals = [];
 let previousFocus = null;
 
@@ -804,7 +804,7 @@ function openModal(id) {
   m.hidden = false;
   openModals.push(m);
   document.body.classList.add("modal-open");
-  location.hash = "m" + openModals.length + "-" + id;
+  
   if (id === "videoModal") {
     const f = $("#youtubeFrame");
     if (!f.getAttribute("src")) f.src = f.dataset.src;
@@ -818,22 +818,19 @@ function openModal(id) {
 function hideModal(m) {
   if (!m || m.hidden) return;
   if (m.id === "videoModal") $("#youtubeFrame").removeAttribute("src");
-  if (m.id === "lightboxModal") $("#lightboxImage").removeAttribute("src");
-  m.hidden = true;
-  openModals = openModals.filter(x => x !== m);
-  const top = openModals[openModals.length - 1];
-  if (top) {
-    $("[data-close]", top)?.focus(); } else { document.body.classList.remove("modal-open"); previousFocus?.focus?.(); } }  function closeModal(m) { if (!m \vert{}\vert{} m.hidden) return; if (m === openModals[openModals.length - 1]) history.back(); else hideModal(m); }  function hashDepth() { const m = /^#m(\d+)-/.exec(location.hash); return m ? parseInt(m[1], 10) : 0; }  function syncModalsToHash() { const d = hashDepth(); while (openModals.length > d) hideModal(openModals[openModals.length - 1]); } window.addEventListener("popstate", syncModalsToHash); window.addEventListener("hashchange", syncModalsToHash); if (hashDepth() > 0) history.replaceState(null, "", location.pathname + location.search);  $$("[data-open]").forEach(t => {
+  if (m.id === "lightboxModal") $("#lightboxImage").removeAttribute("src"); m.hidden = true; openModals = openModals.filter(x => x !== m); if (!openModals.length) { document.body.classList.remove("modal-open"); previousFocus?.focus?.(); } }  function closeModal(m) { hideModal(m); }  $$("[data-open]").forEach(t => {
   t.addEventListener("click", e => {
     e.preventDefault();
     openModal(t.dataset.open);
     closeMenu();
   });
 });
+
 $$(".modal").forEach(m => { $$
 ("[data-close]", m).forEach(b => b.addEventListener("click", () => closeModal(m)));
   m.addEventListener("click", e => { if (e.target === m) closeModal(m); });
 });
+
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && openModals.length) closeModal(openModals[openModals.length - 1]);
 });
@@ -995,7 +992,8 @@ function formatDay(ds, i) {
 }
 
 function formatBaghdadTime(ds) {
-  const d = new Date(`${ds}:00+03:00`.replace(":00:00+", ":00+"));
+  if (!ds) return "—";
+  const d = new Date(ds);
   if (Number.isNaN(d.getTime())) return "—";
   return new Intl.DateTimeFormat("ar-IQ", { hour: "numeric", minute: "2-digit", timeZone: CONFIG.timezone, hour12: true }).format(d);
 }
@@ -1017,22 +1015,11 @@ async function loadWeather() {
   b.disabled = true;
   s.textContent = "جاري تحديث بيانات الطقس…";
 
-  const params = new URLSearchParams({
-    latitude: CONFIG.latitude,
-    longitude: CONFIG.longitude,
-    current: "temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m,cloud_cover",
-    daily: "weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,cloud_cover_mean",
-    timezone: CONFIG.timezone,
-    forecast_days: "4",
-    wind_speed_unit: "kmh",
-    temperature_unit: "celsius"
-  });
-
   try {
-    const r = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`, { signal: AbortSignal.timeout(15000) });
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${CONFIG.latitude}&longitude=${CONFIG.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean&timezone=auto`;
+    const r = await fetch(url);
     if (!r.ok) throw new Error("خدمة الطقس غير متاحة حالياً.");
     const data = await r.json();
-    if (!data.current || !data.daily) throw new Error("بيانات الطقس غير مكتملة.");
 
     const c = data.current;
     const [desc, icon] = getWeatherInfo(c.weather_code, c.cloud_cover);
@@ -1048,32 +1035,21 @@ async function loadWeather() {
     const f = $("#weatherForecast");
     f.replaceChildren();
     data.daily.time.slice(0, 4).forEach((day, i) => {
-      const [dd, di] = getWeatherInfo(
-        data.daily.weather_code[i],
-        data.daily.cloud_cover_mean ? data.daily.cloud_cover_mean[i] : undefined
-      );
+      const [dd, di] = getWeatherInfo(data.daily.weather_code[i], data.daily.cloud_cover_mean ? data.daily.cloud_cover_mean[i] : 0);
       const card = document.createElement("div");
       card.className = "forecast-day";
-      const make = (cls, text) => {
-        const el = document.createElement("div");
-        el.className = cls;
-        el.textContent = text;
-        return el;
-      };
-      const ie = make("day-icon", di);
-      ie.setAttribute("aria-label", dd);
-      card.append(
-        make("day-name", formatDay(day, i)),
-        ie,
-        make("day-temps", `${Math.round(data.daily.temperature_2m_max[i])}° / ${Math.round(data.daily.temperature_2m_min[i])}°`),
-        make("day-desc", dd)
-      );
+      card.innerHTML = `
+        <div class="day-name">${formatDay(day, i)}</div>
+        <div class="day-icon" aria-label="${dd}">${di}</div>
+        <div class="day-temps">${Math.round(data.daily.temperature_2m_max[i])}° / ${Math.round(data.daily.temperature_2m_min[i])}°</div>
+        <div class="day-desc">${dd}</div>
+      `;
       f.append(card);
     });
     s.textContent = "تم تحديث حالة الطقس بنجاح.";
   } catch (e) {
-    s.textContent = `${e.message || "تعذر الاتصال بخدمة الطقس."} تحقق من اتصال الإنترنت ثم أعد المحاولة.`;
-    $("#weatherDescription").textContent = "تعذر جلب حالة الطقس حالياً.";
+    s.textContent = "تعذر جلب حالة الطقس تلقائياً. يرجى إعادة المحاولة.";
+    $("#weatherDescription").textContent = "تعذر جلب الطقس حالياً.";
   } finally {
     b.disabled = false;
   }
