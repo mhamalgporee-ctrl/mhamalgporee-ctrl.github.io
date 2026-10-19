@@ -54,7 +54,7 @@ updateClock();
 setInterval(updateClock,1000);
 loadWeather();
 const cf=$("#contactForm");
-if(cf){cf.addEventListener("submit",e=>{e.preventDefault();const name=$("#contactName")?.value.trim();const message=$("#contactMessage")?.value.trim();if(!message){$("#contactMessage")?.focus();showToast("يرجى كتابة الرسالة أولاً.");return;}$i=["السلام عليكم، رسالة من موقع الشرقاط الثقافي الأول.",name&&`الاسم: ${name}`,`الرسالة: ${message}`].filter(Boolean).join("\n");const u=`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;const w=window.open(u,"_blank","noopener,noreferrer");if(!w)window.location.href=u;});}
+if(cf){cf.addEventListener("submit",e=>{e.preventDefault();const name=$("#contactName")?.value.trim();const message=$("#contactMessage")?.value.trim();if(!message){$("#contactMessage")?.focus();showToast("يرجى كتابة الرسالة أولاً.");return;}const text=["السلام عليكم، رسالة من موقع الشرقاط الثقافي الأول.",name&&`الاسم: ${name}`,`الرسالة: ${message}`].filter(Boolean).join("\n");const u=`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;const w=window.open(u,"_blank","noopener,noreferrer");if(!w)window.location.href=u;});}
 const backToTop=$("#backToTop");
 if(backToTop){window.addEventListener("scroll",()=>backToTop.classList.toggle("visible",window.scrollY>450),{passive:true});backToTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));}
 const yr=$("#year");if(yr)yr.textContent=new Date().getFullYear();
