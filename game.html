@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الشخصية والصفات الطيبة</title>
+
+    <!-- وسوم فيسبوك للمعاينة المباشرة عند مشاركة الرابط -->
+    <meta property="og:title" content="اكتشف صفاتك الشخصية الحقيقية!" />
+    <meta property="og:description" content="اضغط هنا، اكتب اسمك وارفق صورتك لتعرف التحليل الخاص بشخصيتك." />
+    <meta property="og:type" content="website" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+        }
+        .card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            text-align: center;
+        }
+        h2 {
+            color: #1c1e21;
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        p {
+            color: #606770;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #4b4f56;
+            font-size: 13px;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccd0d5;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background-color: #f5f6f7;
+        }
+        input[type="text"]:focus {
+            border-color: #1877f2;
+            background-color: #fff;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #166fe5;
+        }
+        #result-box {
+            display: none;
+        }
+        .user-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1877f2;
+            margin: 15px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .result-text {
+            background: #e7f3ff;
+            color: #050505;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.6;
+            margin: 15px 0;
+            border-right: 4px solid #1877f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- واجهة الإدخال -->
+    <div id="input-box">
+        <h2>اكتشف صفاتك الشخصية</h2>
+        <p>اكتب اسمك وارفاق صورتك لمعرفة النتيجة وتحليل الشخصية</p>
+
+        <div class="form-group">
+            <label for="username">الاسم الكريم:</label>
+            <input type="text" id="username" placeholder="اكتب اسمك هنا...">
+        </div>
+
+        <div class="form-group">
+            <label for="userimage">اختر صورة شخصية:</label>
+            <input type="file" id="userimage" accept="image/*">
+        </div>
+
+        <button class="btn" onclick="showResult()">عرض النتيجة</button>
+    </div>
+
+    <!-- واجهة عرض النتيجة -->
+    <div id="result-box">
+        <h2>نتيجة التحليل الشخصي</h2>
+        <img id="res-img" class="user-img" src="" alt="صورة المستخدم">
+        <h3 id="res-name" style="color: #1877f2; margin: 5px 0;"></h3>
+        <div id="res-text" class="result-text"></div>
+        <button class="btn" style="background-color: #42b72a;" onclick="resetForm()">إعادة المحاولة</button>
+    </div>
+</div>
+
+<script>
+    function showResult() {
+        const name = document.getElementById('username').value.trim();
+        const imageInput = document.getElementById('userimage');
+
+        if (!name) {
+            alert('الرجاء كتابة الاسم أولاً!');
+            return;
+        }
+
+        // قائمة النتائج الإيجابية والطيبة
+        const results = [
+            "أنت شخص تحب عمل الخير، صاحب يد بيضاء، وتسعى دائماً لمساعدة المحتاجين وإفرح قلوب من حولك.",
+            "أنت شخص كريم النفس، نقي السريرة، يحبك الناس لصدق كلامك وطيبة قلبك وحسن معشرك.",
+            "أنت شخص أصيل وخدام لأهلك وناسك، صاحب موقف وشهم، وتفقد الآخرين في السراء والضراء.",
+            "أنت شخص هادئ وحكيم، تحب إصلاح ذات البين ونشر السلام والمحبة أينما حللت.",
+            "أنت شخص وفيّ وصبور، تحب خدمة الناس دون انتظار مقابل، وتترك أثراً طيباً في كل مكان."
+        ];
+
+        // اختيار نتيجة عشوائية
+        const randomResult = results[Math.floor(Math.random() * results.length)];
+
+        // تعبئة البيانات
+        document.getElementById('res-name').innerText = name;
+        document.getElementById('res-text').innerText = randomResult;
+
+        // قراءة الصورة المرفوعة
+        if (imageInput.files && imageInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('res-img').src = e.target.result;
+            }
+            reader.readAsDataURL(imageInput.files[0]);
+        } else {
+            // صورة افتراضية في حال عدم رفع صورة
+            document.getElementById('res-img').src = "https://via.placeholder.com/110?text=User";
+        }
+
+        // إخفاء الإدخال وإظهار النتيجة
+        document.getElementById('input-box').style.display = 'none';
+        document.getElementById('result-box').style.display = 'block';
+    }
+
+    function resetForm() {
+        document.getElementById('username').value = '';
+        document.getElementById('userimage').value = '';
+        document.getElementById('input-box').style.display = 'block';
+        document.getElementById('result-box').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
