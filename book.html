@@ -70,7 +70,7 @@ a{text-decoration:none;color:inherit}
   <div id="books"></div>
 
   <div class="submit">
-    <p>هل لديك كتاب أو رواية؟ أرسله لنراجعه وننشره باسمك.</p>
+    <p>هل لديك كتاب أو رواية؟ أرسله لنراجع وننشره باسمك.</p>
     <a class="btn" href="sendbook.html">هل لديك كتاب؟ أرسله لننشره ✍️</a>
   </div>
 
@@ -102,7 +102,9 @@ const BOOKS = [
     author: "فهد عنتر الدوخي",
     desc: "رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة، مستعرضاً الحكايات الإنسانية والذكريات الجميلة.",
     cover: "fahad-cover.jpg",
-    pdf: "فهد الدوخي.pdf"
+    flip: "https://heyzine.com/flip-book/0ec9c4a4d0.html",
+    pdf: "فهد الدوخي.pdf",
+    note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
   }
 ];
 
@@ -124,7 +126,7 @@ BOOKS.forEach(b => {
   const info = document.createElement("div");
   info.className = "book-info";
   const h = document.createElement("h2"); h.textContent = b.title;
-  const au = document.createElement("div"); au.className = "book-author"; au.textContent = "تأليف: " + b.author;
+  const au = document.className = "book-author"; au.textContent = "تأليف: " + b.author;
   const p = document.createElement("p"); p.textContent = b.desc;
   info.append(h, au, p);
 
