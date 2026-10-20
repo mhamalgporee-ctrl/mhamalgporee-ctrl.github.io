@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf8f3">
 <title>المؤلفات والكتب | الشرقاط الثقافي الأول</title>
-<meta name="description" content="قسم الكتب والمؤلفات - موقع الشرقاط الثقافي الأول. بقلم الأستاذ محمد علي أحمد الحطاب الجبوري.">
+<meta name="description" content="قسم الكتب والمؤلفات - موقع الشرقاط الثقافي الأول. بقلم الأستاذ محمد علي أحمد الحطاب الجبوري وكتّاب ومؤلفي الموقع.">
 <link rel="canonical" href="https://mhamalgporee-ctrl.github.io/book.html">
 <link rel="icon" href="acon.jpg" type="image/jpeg">
 <style>
@@ -86,10 +86,7 @@ a{text-decoration:none;color:inherit}
 </footer>
 
 <script>
-/* ===== قائمة الكتب: لإضافة كتاب جديد انسخ سطراً كاملاً بين { } وعدّله =====
-   title: العنوان | author: المؤلف | desc: النبذة
-   cover: صورة الغلاف (اختياري) | pdf: رابط ملف PDF (اختياري)
-   flip: رابط الكتاب التفاعلي (اختياري) | note: ملاحظة صغيرة (اختياري) */
+/* ===== قائمة الكتب ===== */
 const BOOKS = [
   {
     title: "الرجل والمرأة وعشرة العمر في بلاد الرافدين",
@@ -99,9 +96,14 @@ const BOOKS = [
     flip: "https://heyzine.com/flip-book/7d35d68ef2.html",
     pdf: "book.pdf",
     note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
+  },
+  {
+    title: "رواية المنافي السعيدة",
+    author: "فهد عنتر الدوخي",
+    desc: "رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة، مستعرضاً الحكايات الإنسانية والذكريات الجميلة.",
+    cover: "fahad-cover.jpg",
+    pdf: "فهد الدوخي.pdf"
   }
-  // مثال لكتاب جديد (احذف علامتي // لتفعيله):
-  // , { title: "اسم الكتاب", author: "اسم المؤلف", desc: "نبذة قصيرة", cover: "books/cover2.jpg", pdf: "books/book2.pdf" }
 ];
 
 const box = document.getElementById("books");
