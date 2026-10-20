@@ -803,7 +803,7 @@ function openModal(id) {
   if (!openModals.length) previousFocus = document.activeElement;
   m.hidden = false;
   openModals.push(m);
-  history.pushState({ modal: id }, "", location.href);
+  history.pushState({ modal: id, depth: openModals.length }, "", "#" + id);
   document.body.classList.add("modal-open");
 
   if (id === "videoModal") {
@@ -830,14 +830,20 @@ function hideModal(m) {
 
 function closeModal(m) {
   // الإغلاق عبر زر الرجوع في المتصفح ليبقى سجل التنقل متزناً
-  if (openModals[openModals.length - 1] === m && history.state && history.state.modal) history.back();
+  const top = openModals[openModals.length - 1];
+  const depth = history.state && history.state.depth;
+  if (top === m && depth === openModals.length) history.back();
   else hideModal(m);
 }
 
-// زر الرجوع في الموبايل: يغلق النافذة المفتوحة بدل الخروج من الموقع
+// زر الرجوع في الموبايل: يغلق النوافذ المفتوحة بدل الخروج من الموقع
 window.addEventListener("popstate", () => {
-  if (openModals.length) hideModal(openModals[openModals.length - 1]);
+  const depth = (history.state && history.state.depth) || 0;
+  while (openModals.length > depth) hideModal(openModals[openModals.length - 1]);
 });
+
+// تنظيف الرابط إذا فُتحت الصفحة وفيها أثر نافذة قديمة
+if (/Modal$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
 
 $$("[data-open]").forEach(t => {
   t.addEventListener("click", e => {
