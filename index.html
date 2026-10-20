@@ -803,6 +803,7 @@ function openModal(id) {
   if (!openModals.length) previousFocus = document.activeElement;
   m.hidden = false;
   openModals.push(m);
+  history.pushState({ modal: id }, "", location.href);
   document.body.classList.add("modal-open");
 
   if (id === "videoModal") {
@@ -827,7 +828,16 @@ function hideModal(m) {
   }
 }
 
-function closeModal(m) { hideModal(m); }
+function closeModal(m) {
+  // الإغلاق عبر زر الرجوع في المتصفح ليبقى سجل التنقل متزناً
+  if (openModals[openModals.length - 1] === m && history.state && history.state.modal) history.back();
+  else hideModal(m);
+}
+
+// زر الرجوع في الموبايل: يغلق النافذة المفتوحة بدل الخروج من الموقع
+window.addEventListener("popstate", () => {
+  if (openModals.length) hideModal(openModals[openModals.length - 1]);
+});
 
 $$("[data-open]").forEach(t => {
   t.addEventListener("click", e => {
