@@ -145,8 +145,8 @@ button{cursor:pointer}
             تُنشر الكتب والمواد في هذا القسم بناءً على طلب المُرْسِل وتعهده الصريح بحقوق الملكية. موقع الشرقاط الثقافي الأول هو منصة لنشر المحتوى حسن النية ولا يتحمل أي تبعات قانونية أو فكرية. في حال وجود أي إشعارات ملكية أو اعتراض، يرجى مراسلتنا فوراً وسيتم مراجعة وحذف المادة خلال 24 ساعة.
           </div>
 
-          <p class="form-note">عند الضغط أدناه، سيتم تجهيز طلبك وإرساله مباشرة عبر تطبيق واتساب لمراجعة النشر مع الإشراف.</p>
-          <button class="btn btn-gold" type="submit">إرسال تفاصيل الكتاب والتعهد عبر واتساب ↗</button>
+          <p class="form-note">عند الضغط أدناه، سيتم تجهيز طلبك وإرساله مباشرة عبر البريد الإلكتروني لمراجعة النشر مع الإشراف.</p>
+          <button class="btn btn-gold" type="submit">إرسال تفاصيل الكتاب والتعهد عبر البريد الإلكتروني ↗</button>
         </form>
       </div>
     </div>
@@ -173,9 +173,8 @@ button{cursor:pointer}
 
 <script>
 "use strict";
-const CONFIG = { whatsappNumber: "9647835025407" };
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const CONFIG = { contactEmail: "mhamalgporee@gmail.com" };
+const $ = (s, r = document) => r.querySelector(s); const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 let toastTimer;
 
 function showToast(m) {
@@ -187,20 +186,7 @@ function showToast(m) {
 }
 
 const menuToggle = $("#menuToggle");
-const navLinks = $("#navLinks");
-
-function closeMenu() {
-  navLinks.classList.remove("open");
-  menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "فتح قائمة التنقل");
-}
-
-menuToggle.addEventListener("click", () => {
-  const o = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(o));
-  menuToggle.setAttribute("aria-label", o ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل");
-});
-$$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
+const navLinks = $("#navLinks");  function closeMenu() { navLinks.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); menuToggle.setAttribute("aria-label", "فتح قائمة التنقل"); }  menuToggle.addEventListener("click", () => { const o = navLinks.classList.toggle("open"); menuToggle.setAttribute("aria-expanded", String(o)); menuToggle.setAttribute("aria-label", o ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل"); }); $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
 
 $("#sendBookForm").addEventListener("submit", e => {
@@ -220,7 +206,8 @@ $("#sendBookForm").addEventListener("submit", e => {
     return;
   }
 
-  const text = [
+  const subject = encodeURIComponent(`طلب نشر كتاب جديد: ${title}`);
+  const body = encodeURIComponent([
     "السلام عليكم، أود إرسال كتاب لنشره في موقع الشرقاط الثقافي الأول.",
     `اسم الكاتب: ${name}`,
     `عنوان الكتاب: ${title}`,
@@ -228,12 +215,10 @@ $("#sendBookForm").addEventListener("submit", e => {
     "-----------------------------------",
     "✔ أتعهد بأن هذا العمل من تأليفي الخالص أو أملك حقوقه وأتحمل كامل المسؤولية الفكرية والقانونية عن محتواه.",
     "-----------------------------------",
-    "📌 لطفاً: لإرفاق ملف الكتاب بصيغة PDF، اضغط على علامة المشبك 📎 (أو +) في الأسفل واختر (مستند / Document) ثم أرسل الرسالة."
-  ].join("\n");
+    "📌 لطفاً: لإرفاق ملف الكتاب بصيغة PDF، يرجى إرفاقه مباشرة في بريدك قبل إرسال هذه الرسالة."
+  ].join("\n\n"));
 
-  const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
-  const w = window.open(url, "_blank", "noopener,noreferrer");
-  if (!w) window.location.href = url;
+  window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
 });
 
 $("#year").textContent = new Date().getFullYear();
