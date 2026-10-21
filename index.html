@@ -91,12 +91,10 @@ button{cursor:pointer}
 .hero-thumbs button{width:42px;height:44px;padding:0;overflow:hidden;border:2px solid var(--paper);border-radius:8px;background:transparent}
 .hero-thumbs button[aria-pressed="true"]{border-color:var(--gold)}
 .hero-thumbs img{width:100%;height:100%;object-fit:cover}
-.hero-note{position:absolute;top:15px;left:10px;max-width:125px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--text);font-size:.7rem;font-weight:800}
 
 /* الشرائط */
 .ticker{overflow:hidden;background:var(--gold);color:#000}
 .ticker-inner{display:flex;align-items:center;gap:17px;min-height:42px;font-size:.84rem;font-weight:800}
-.ticker-label{flex:0 0 auto;padding:3px 10px;border-radius:5px;background:var(--green);color:var(--gold-light);font-size:.7rem}
 .ticker-prayer{border-bottom:1px solid rgba(184,150,79,.3);background:#efe9dc;color:var(--text)}
 .ticker-prayer .ticker-inner{display:block;min-height:38px;line-height:38px}
 .marquee{overflow:hidden;direction:ltr;white-space:nowrap}
@@ -117,7 +115,6 @@ button{cursor:pointer}
 .content-card h3{margin:0 0 6px;color:var(--text);font-size:1.05rem;line-height:1.4}
 .content-card p{margin:0 0 12px;color:var(--muted);font-size:.84rem;line-height:1.7}
 .card-link{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:auto;padding:0;border:0;background:none;color:var(--text);font-size:.86rem;font-weight:900}
-.card-link span{color:#000}
 .no-results{display:none;padding:25px;color:var(--muted);text-align:center}
 
 /* الوسائط */
@@ -125,7 +122,7 @@ button{cursor:pointer}
 .media-section .eyebrow{color:var(--text)}
 .media-section .section-heading h2{color:var(--text)}
 .media-section .section-heading p{color:var(--muted)}
-.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.media-grid{display:grid;grid-template-columns:1fr;gap:30px}
 .media-card{display:flex;flex-direction:column;padding:10px}
 .media-card .icon{width:50px;height:50px;margin-bottom:15px;border:1px solid rgba(184,150,79,.3);background:rgba(184,150,79,.12);color:#000;font-size:1.4rem}
 .media-card h3{margin:0 0 8px;color:var(--text);font-size:1.3rem}
@@ -199,12 +196,6 @@ button{cursor:pointer}
 .modal-body p{color:var(--muted)}
 .modal-status{padding:10px 14px;border-radius:10px;background:var(--green-soft);color:var(--muted);font-size:.84rem}
 .mt{margin-top:14px}
-.playlist{display:grid;gap:8px;margin-top:16px}
-.playlist-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:right}
-.playlist-item.active{border-color:var(--gold);background:#f8f2e3}
-.track-title{overflow-wrap:anywhere;font-size:.85rem}
-.track-play{color:var(--text);font-weight:900}
-audio{width:100%;margin-top:14px}
 .video-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:var(--green-deep)}
 .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .gallery-item{aspect-ratio:1;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--ivory)}
@@ -249,7 +240,7 @@ audio{width:100%;margin-top:14px}
   .section-heading{align-items:flex-start;flex-direction:column}
   .section-heading p{max-width:none}
   .search-box{width:100%}
-  .media-grid,.book-panel{grid-template-columns:1fr}
+  .book-panel{grid-template-columns:1fr}
   #weather .section-heading p{display:none}
   #weather .section-heading{margin-bottom:10px}
   .weather-top{padding:10px 0;gap:10px}
@@ -341,7 +332,6 @@ gtag('config','G-3VZQSDZNC7');
           <button type="button" data-hero-image="acon1.jpg" aria-label="عرض الصورة الثانية" aria-pressed="false"><img src="acon1.jpg" alt="" loading="lazy"></button>
           <button type="button" data-hero-image="acon2.jpg" aria-label="عرض الصورة الثالثة" aria-pressed="false"><img src="acon2.jpg" alt="" loading="lazy"></button>
         </div>
-        <div class="hero-note"></div>
       </div>
     </div>
   </section>
@@ -349,7 +339,6 @@ gtag('config','G-3VZQSDZNC7');
   <!-- الشرائط -->
   <div class="ticker" role="region" aria-label="رسالة الموقع">
     <div class="container ticker-inner">
-      <span class="ticker-label"></span>
       <span>موقع الشرقاط الثقافي الأول ❖ نافذتكم إلى التاريخ والتراث والثقافة والأدب.</span>
     </div>
   </div>
@@ -376,8 +365,7 @@ gtag('config','G-3VZQSDZNC7');
 
       <div class="content-grid" id="contentGrid">
         <article class="content-card" data-search="الأذكار والأدعية حصن المسلم دعاء duaa">
-          <div class="card-top"><span class="icon" aria-hidden="true">🕌
-</span><span class="card-index">01</span></div>
+          <div class="card-top"><span class="icon" aria-hidden="true">🕌</span><span class="card-index">01</span></div>
           <h3>الأذكار والأدعية</h3>
           <p>حصن المسلم، الأذكار اليومية والأدعية المأثورة للتقرب إلى الله تعالى والتحصين المستمر.</p>
           <a class="card-link" href="duaa.html">اضغط هنا <span aria-hidden="true">←</span></a>
@@ -452,24 +440,17 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </section>
 
-  <!-- الصوت والفيديو -->
+  <!-- الفيديو -->
   <section class="section media-section" aria-labelledby="mediaTitle">
     <div class="container">
       <div class="section-heading">
         <div>
-          <span class="eyebrow">استمع وشاهد</span>
-          <h2 id="mediaTitle">الثقافة بصوتها وصورتها</h2>
+          <span class="eyebrow">شاهد</span>
+          <h2 id="mediaTitle">الثقافة بالصورة</h2>
         </div>
-        <p>محتوى صوتي ومرئي يجمع الكلمة والصورة في تجربة واحدة.</p>
+        <p>محتوى مرئي من قناة الموقع على YouTube.</p>
       </div>
       <div class="media-grid">
-        <article class="media-card">
-          <span class="icon" aria-hidden="true">♫</span>
-          <h3>المكتبة الصوتية</h3>
-          <p>استمع إلى الملفات الصوتية الموجودة في مكتبة الموقع، واختر التسجيل الذي ترغب بسماعه.</p>
-          <button class="btn btn-gold" type="button" data-open="audioModal">اضغط هنا <span aria-hidden="true">←</span></button>
-          <div class="media-status" id="audioTeaserStatus" aria-live="polite">اضغط لفتح المكتبة الصوتية.</div>
-        </article>
         <article class="media-card">
           <span class="icon" aria-hidden="true">▷</span>
           <h3>القناة المرئية</h3>
@@ -508,20 +489,20 @@ gtag('config','G-3VZQSDZNC7');
   </section>
 
   <!-- قسم رواية المنافي السعيدة -->
-  <section class="section book-section featured-book" aria-labelledby="book2Title" style="margin-top: 40px;">
+  <section class="section book-section" aria-labelledby="book2Title" style="margin-top: 40px;">
     <div class="container">
       <div class="book-panel">
-        <div class="book-art book-cover-container">
-          <img src="fahad-cover.jpg" alt="غلاف رواية المنافي السعيدة" class="featured-book-img" loading="lazy" onerror="this.onerror=null;this.src='acon.jpg'">
+        <div class="book-art">
+          <img src="fahad-cover.jpg" alt="غلاف رواية المنافي السعيدة" loading="lazy" onerror="this.onerror=null;this.src='acon.jpg'">
         </div>
-        <div class="book-details book-copy">
-          <span class="eyebrow section-tag">من إصدارات الموقع</span>
+        <div class="book-copy">
+          <span class="eyebrow">من إصدارات الموقع</span>
           <h2 id="book2Title">رواية المنافي السعيدة</h2>
-          <p class="author-name"><strong>تأليف: الكاتب والروائي الأستاذ فهد عنتر الدوخي</strong></p>
-          <p class="book-description">
+          <p><strong>تأليف: الكاتب والروائي الأستاذ فهد عنتر الدوخي</strong></p>
+          <p>
             رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة.
           </p>
-          <div class="book-actions book-buttons">
+          <div class="book-actions">
             <a href="https://heyzine.com/flip-book/0ec9c4a4d0.html" target="_blank" rel="noopener" class="btn btn-green">اقرأ الكتاب التفاعلي 📖</a>
             <a href="فهد الدوخي.pdf" target="_blank" rel="noopener" class="btn btn-light">اقرأ الكتاب PDF <span aria-hidden="true">↗</span></a>
             <a href="book.html" class="btn btn-light">جميع المؤلفات <span aria-hidden="true">←</span></a>
@@ -542,7 +523,7 @@ gtag('config','G-3VZQSDZNC7');
         <p>الساعة المحلية وتحديثات الطقس والتوقعات للأيام القادمة.</p>
       </div>
 
-      <div class="weather-shell">
+      <div>
         <div class="weather-top">
           <div>
             <p class="weather-location">العراق · محافظة صلاح الدين</p>
@@ -632,22 +613,6 @@ gtag('config','G-3VZQSDZNC7');
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- ===== النوافذ ===== -->
-<div class="modal" id="audioModal" role="dialog" aria-modal="true" aria-labelledby="audioModalTitle" hidden>
-  <div class="modal-panel">
-    <div class="modal-head">
-      <h2 id="audioModalTitle">المكتبة الصوتية</h2>
-      <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
-    </div>
-    <div class="modal-body">
-      <p>الملفات الصوتية المتاحة في مكتبة الموقع. اختر ملفاً لبدء الاستماع.</p>
-      <div class="modal-status" id="audioStatus" role="status">جاري تحميل الملفات الصوتية…</div>
-      <audio id="audioPlayer" controls preload="metadata">متصفحك لا يدعم تشغيل الصوت.</audio>
-      <div class="playlist" id="audioPlaylist"></div>
-      <button class="btn btn-light mt" id="retryAudio" type="button">إعادة تحميل القائمة ↻</button>
-    </div>
-  </div>
-</div>
-
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -698,7 +663,7 @@ gtag('config','G-3VZQSDZNC7');
         <img class="about-avatar" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
         <div>
           <h3>محمد علي أحمد الحطاب الجبوري</h3>
-          <p>الشرقاط الثقافي الأول مساحة ثقافية تهتم بتاريخ الشرقاط وتراثها وذاكرتها، وتوثيق القصص والسير والموروث المحلي، إلى جانب المؤلفات والمقالات والمحتوى الصوتي والمرئي.</p>
+          <p>الشرقاط الثقافي الأول مساحة ثقافية تهتم بتاريخ الشرقاط وتراثها وذاكرتها، وتوثيق القصص والسير والموروث المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
           <p>تقوم فكرة الموقع على حفظ الذاكرة الثقافية والاجتماعية وإتاحتها للقراء والمهتمين، لتبقى حكاية المكان حاضرة لدى الأجيال.</p>
           <button class="btn btn-green" type="button" data-open="contactModal">تواصل معنا</button>
         </div>
@@ -738,7 +703,6 @@ gtag('config','G-3VZQSDZNC7');
 const CONFIG = {
   githubUser: "mhamalgporee-ctrl",
   githubRepo: "mhamalgporee-ctrl.github.io",
-  audioFolder: "audio",
   photosFolder: "photos",
   whatsappNumber: "9647835025407",
   latitude: 35.5292,
@@ -839,7 +803,6 @@ function openModal(id) {
   }
   if (id === "galleryModal") m.querySelector(".modal-panel").scrollTop = 0;
   $("[data-close]", m)?.focus();
-  if (id === "audioModal") loadAudioFiles();
   if (id === "galleryModal") loadGallery();
 }
 
@@ -905,71 +868,6 @@ async function fetchGitHubFiles(folder) {
 
 const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric: true, sensitivity: "base" });
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
-
-/* ---------- الصوت ---------- */
-let audioFiles = null;
-let selectedAudio = null;
-
-function playAudio(file, autoplay) {
-  selectedAudio = file.name;
-  const p = $("#audioPlayer");
-  p.src = file.download_url;
-  p.load();
-  renderAudioPlaylist();
-  if (autoplay) {
-    p.play().catch(() => {
-      $("#audioStatus").textContent = "تم اختيار الملف. اضغط زر التشغيل داخل المشغل لبدء الاستماع.";
-    });
-  }
-}
-
-function renderAudioPlaylist() {
-  const pl = $("#audioPlaylist");
-  pl.replaceChildren();
-  $("#audioStatus").textContent = `تم العثور على ${audioFiles.length} ملفات صوتية. اختر تسجيلاً للاستماع.`;
-  audioFiles.forEach(file => {
-    const active = file.name === selectedAudio;
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = "playlist-item" + (active ? " active" : "");
-    b.setAttribute("aria-label", `تشغيل ${cleanName(file.name)}`);
-    const t = document.createElement("span");
-    t.className = "track-title";
-    t.textContent = cleanName(file.name);
-    const p = document.createElement("span");
-    p.className = "track-play";
-    p.textContent = active ? "قيد الاختيار ✓" : "▶ تشغيل";
-    b.append(t, p);
-    b.addEventListener("click", () => playAudio(file, true));
-    pl.append(b);
-  });
-}
-
-async function loadAudioFiles(force = false) {
-  const s = $("#audioStatus");
-  const te = $("#audioTeaserStatus");
-  if (audioFiles && !force) { renderAudioPlaylist(); return; }
-  s.textContent = "جاري تحميل الملفات الصوتية…";
-  te.textContent = "جاري تجهيز المكتبة الصوتية…";
-  $("#audioPlaylist").replaceChildren();
-  try {
-    const files = await fetchGitHubFiles(CONFIG.audioFolder);
-    audioFiles = files.filter(f => /\.(mp3|m4a|ogg|wav|aac|opus|flac)$/i.test(f.name)).sort(naturalArabicSort);
-    if (!audioFiles.length) {
-      audioFiles = null;
-      s.textContent = "لا توجد ملفات صوتية مدعومة داخل مجلد audio.";
-      te.textContent = "لا توجد ملفات صوتية حالياً.";
-      return;
-    }
-    if (!selectedAudio) playAudio(audioFiles[0], false);
-    else renderAudioPlaylist();
-    te.textContent = `تتوفر ${audioFiles.length} ملفات صوتية.`;
-  } catch (e) {
-    s.textContent = e.message || "تعذر تحميل الملفات الصوتية.";
-    te.textContent = "تعذر تحميل المكتبة الصوتية.";
-  }
-}
-$("#retryAudio").addEventListener("click", () => loadAudioFiles(true));
 
 /* ---------- معرض الصور ---------- */
 let galleryLoaded = false;
