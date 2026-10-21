@@ -105,6 +105,13 @@ const BOOKS = [
     flip: "https://heyzine.com/flip-book/0ec9c4a4d0.html",
     pdf: "فهد الدوخي.pdf",
     note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
+  },
+  {
+    title: "ديوان شعري",
+    author: "محمد علي أحمد الحطاب الجبوري",
+    desc: "ديوان شعري يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.",
+    cover: "diwan-cover.jpg",
+    pdf: "diwan.pdf"
   }
 ];
 
@@ -113,20 +120,24 @@ BOOKS.forEach(b => {
   const card = document.createElement("article");
   card.className = "book-card";
 
-  const link = b.flip || b.pdf || "#";
+  const pdfUrl = b.pdf ? encodeURI(b.pdf) : "";
+  const link = b.flip || pdfUrl || "#";
   const a = document.createElement("a");
   a.href = link; a.target = "_blank"; a.rel = "noopener";
   const img = document.createElement("img");
   img.className = "book-cover";
   img.src = b.cover || "acon.jpg";
   img.alt = "غلاف كتاب " + b.title;
-  img.onerror = () => { img.src = "acon.jpg"; };
+  img.loading = "lazy";
+  img.onerror = () => { img.onerror = null; img.src = "acon.jpg"; };
   a.append(img);
 
   const info = document.createElement("div");
   info.className = "book-info";
   const h = document.createElement("h2"); h.textContent = b.title;
-  const au = document.className = "book-author"; au.textContent = "تأليف: " + b.author;
+  const au = document.createElement("div");
+  au.className = "book-author";
+  au.textContent = "تأليف: " + b.author;
   const p = document.createElement("p"); p.textContent = b.desc;
   info.append(h, au, p);
 
@@ -147,7 +158,7 @@ BOOKS.forEach(b => {
   if (b.pdf) {
     const x = document.createElement("a");
     x.className = b.flip ? "btn btn-secondary" : "btn";
-    x.href = b.pdf; x.target = "_blank"; x.rel = "noopener";
+    x.href = pdfUrl; x.target = "_blank"; x.rel = "noopener";
     x.textContent = "اضغط هنا لقراءة الكتاب في ملف بي دي اف 📄";
     actions.append(x);
   }
