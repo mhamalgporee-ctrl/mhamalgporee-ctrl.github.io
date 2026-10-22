@@ -71,7 +71,7 @@ button{cursor:pointer}
 .nav-links a:hover::after{width:100%}
 .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--text);font-size:1.25rem}
 
-/* الواجهة وتوحيد مقاسات الصور لمنع الاهتزاز */
+/* الواجهة وعرض الصور كاملة بدون قص */
 .hero{padding-block:20px 15px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(18px,2.5vw,35px)}
 .hero-copy{max-width:600px}
@@ -85,9 +85,9 @@ button{cursor:pointer}
 .hero-actions{display:flex;flex-wrap:wrap;gap:8px}
 .hero-visual{position:relative;min-width:0}
 
-/* تثبيت الأبعاد والارتفاع الموحد للصورة الرئيسية لمنع أي قفز أو اهتزاز */
-.hero-main-image-wrapper{width:100%;aspect-ratio:3/4;max-height:min(65vh,480px);border-radius:16px;overflow:hidden;background:var(--green-soft);display:flex;align-items:center;justify-content:center}
-.hero-main-image{display:block;width:100%;height:100%;object-fit:cover;transition:opacity 0.4s ease-in-out}
+/* إطار يضمن ظهور الصورة كاملة (contain) ودون قص الأطراف */
+.hero-main-image-wrapper{width:100%;aspect-ratio:4/3;max-height:min(65vh,480px);border-radius:16px;overflow:hidden;background:var(--ivory);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:6px}
+.hero-main-image{display:block;width:100%;height:100%;object-fit:contain;transition:opacity 0.4s ease-in-out}
 
 .hero-image-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 0;color:var(--muted);font-size:.7rem}
 .hero-image-caption strong{color:var(--text)}
@@ -328,7 +328,7 @@ gtag('config','G-3VZQSDZNC7');
         </div>
       </div>
       <div class="hero-visual">
-        <!-- إطار رئيسي ثابت الأبعاد لضمان استقرار الصفحة أثناء حركة التبديل -->
+        <!-- إطار يعرض الصورة كاملة بدون قص (object-fit: contain) -->
         <div class="hero-main-image-wrapper">
           <img class="hero-main-image" id="heroMainImage" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
         </div>
