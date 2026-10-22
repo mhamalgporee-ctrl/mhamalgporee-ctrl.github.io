@@ -71,7 +71,7 @@ button{cursor:pointer}
 .nav-links a:hover::after{width:100%}
 .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--text);font-size:1.25rem}
 
-/* الواجهة وتثبيت أبعاد الإطار لمنع الاهتزاز */
+/* الواجهة وتوحيد مقاسات الصور لمنع الاهتزاز */
 .hero{padding-block:20px 15px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(18px,2.5vw,35px)}
 .hero-copy{max-width:600px}
@@ -85,7 +85,7 @@ button{cursor:pointer}
 .hero-actions{display:flex;flex-wrap:wrap;gap:8px}
 .hero-visual{position:relative;min-width:0}
 
-/* إطار موحد وثابت لجميع الصور الثلاث لمنع القفز أو الاهتزاز */
+/* تثبيت الأبعاد والارتفاع الموحد للصورة الرئيسية لمنع أي قفز أو اهتزاز */
 .hero-main-image-wrapper{width:100%;aspect-ratio:3/4;max-height:min(65vh,480px);border-radius:16px;overflow:hidden;background:var(--green-soft);display:flex;align-items:center;justify-content:center}
 .hero-main-image{display:block;width:100%;height:100%;object-fit:cover;transition:opacity 0.4s ease-in-out}
 
@@ -328,7 +328,7 @@ gtag('config','G-3VZQSDZNC7');
         </div>
       </div>
       <div class="hero-visual">
-        <!-- إطار رئيسي ثابت الأبعاد لضمان استقرار الصفحة أثناء حركة التبديل التلقائي للصور الثلاث -->
+        <!-- إطار رئيسي ثابت الأبعاد لضمان استقرار الصفحة أثناء حركة التبديل -->
         <div class="hero-main-image-wrapper">
           <img class="hero-main-image" id="heroMainImage" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
         </div>
@@ -804,7 +804,7 @@ function stopHeroSlider() {
 heroThumbBtns.forEach((b, index) => {
   b.addEventListener("click", () => {
     setHeroImage(index);
-    startHeroSlider(); // إعادة تشغيل التوقيت بعد اختيار المستخدم اليدوي
+    startHeroSlider(); 
   });
 });
 
@@ -876,20 +876,17 @@ function hideModal(m) {
 }
 
 function closeModal(m) {
-  // الإغلاق عبر زر الرجوع في المتصفح ليبقى سجل التنقل متزناً
   const top = openModals[openModals.length - 1];
   const depth = history.state && history.state.depth;
   if (top === m && depth === openModals.length) history.back();
   else hideModal(m);
 }
 
-// زر الرجوع في الموبايل: يغلق النوافذ المفتوحة بدل الخروج من الموقع
 window.addEventListener("popstate", () => {
   const depth = (history.state && history.state.depth) || 0;
   while (openModals.length > depth) hideModal(openModals[openModals.length - 1]);
 });
 
-// تنظيف الرابط إذا فُتحت الصفحة وفيها أثر نافذة قديمة
 if (/Modal$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
 
 $$("[data-open]").forEach(t => {
