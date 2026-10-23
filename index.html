@@ -171,6 +171,9 @@ button{cursor:pointer}
 .guestbook-name{color:var(--text);font-weight:800}
 .guestbook-date{color:var(--muted);font-size:.74rem}
 .guestbook-text{margin:0;color:var(--ink);font-size:.92rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.guestbook-reply{margin-top:10px;padding:10px 12px;border-right:3px solid var(--green);border-radius:8px;background:var(--green-soft)}
+.guestbook-reply-label{display:block;margin-bottom:2px;color:var(--text);font-size:.76rem;font-weight:800}
+.guestbook-reply-text{margin:0;color:var(--ink);font-size:.9rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
 /* التذييل */
 .site-footer{padding:28px 0;background:var(--ivory);color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -771,6 +774,23 @@ gtag('config','G-3VZQSDZNC7');
 
         head.append(name, date);
         card.append(head, text);
+
+        if (typeof data.reply === "string" && data.reply.trim()) {
+          const reply = document.createElement("div");
+          reply.className = "guestbook-reply";
+
+          const label = document.createElement("span");
+          label.className = "guestbook-reply-label";
+          label.textContent = "↩ رد إدارة الموقع";
+
+          const replyText = document.createElement("p");
+          replyText.className = "guestbook-reply-text";
+          replyText.textContent = data.reply;
+
+          reply.append(label, replyText);
+          card.append(reply);
+        }
+
         listEl.append(card);
       });
     } catch (e) {
