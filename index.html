@@ -14,7 +14,6 @@
 <link rel="canonical" href="https://mhamalgporee-ctrl.github.io/">
 <link rel="icon" href="acon.jpg" type="image/jpeg">
 <title>الشرقاط الثقافي الأول | مجلة ثقافية</title>
-
 <style>
 :root{
   --green:#4a3f33;--green-deep:#3a3128;--green-mid:#6b5a47;--green-soft:#efe9dc;
@@ -32,7 +31,6 @@ button{cursor:pointer}
 :focus-visible{outline:3px solid var(--gold);outline-offset:4px}
 ::selection{background:var(--gold-light);color:#000}
 [hidden]{display:none !important}
-
 .skip-link{position:fixed;z-index:10000;top:10px;right:10px;padding:10px 18px;border-radius:10px;background:var(--paper);color:var(--text);transform:translateY(-150%)}
 .skip-link:focus{transform:translateY(0)}
 .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
@@ -42,7 +40,6 @@ button{cursor:pointer}
 .section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:25px}
 .section-heading h2{margin:8px 0 0;color:var(--text);font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.35}
 .section-heading p{max-width:460px;margin:0;color:var(--muted);font-size:.95rem}
-
 /* الأزرار */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:40px;padding:8px 18px;border:1px solid transparent;border-radius:999px;font-weight:800;font-size:.88rem;transition:transform .22s ease,background .22s ease}
 .btn:hover{transform:translateY(-2px)}
@@ -55,10 +52,8 @@ button{cursor:pointer}
 .btn-green:hover{background:var(--green-mid)}
 .btn-light{background:var(--paper);border-color:var(--line);color:var(--text)}
 .icon{display:inline-grid;place-items:center;width:44px;height:44px;flex:0 0 44px;border-radius:14px;background:var(--green-soft);color:var(--text);font-size:1.25rem}
-
 /* الشعر تحت العناوين */
 .poetry-sub{margin:8px 0 0;color:var(--muted);font-size:.92rem;line-height:1.8;font-style:italic}
-
 /* الرأس */
 .site-header{position:sticky;z-index:100;top:0;border-bottom:1px solid rgba(74,63,51,.09);background:rgba(250,248,243,.93);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:75px}
@@ -73,7 +68,6 @@ button{cursor:pointer}
 .nav-links a::after{position:absolute;right:0;bottom:0;width:0;height:2px;background:var(--gold);content:"";transition:width .2s ease}
 .nav-links a:hover::after{width:100%}
 .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--text);font-size:1.25rem}
-
 /* الواجهة */
 .hero{padding-block:10px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:15px}
@@ -95,7 +89,6 @@ button{cursor:pointer}
 .hero-thumbs button{width:42px;height:44px;padding:0;overflow:hidden;border:2px solid var(--paper);border-radius:8px;background:transparent;transition:border-color .2s ease}
 .hero-thumbs button[aria-pressed="true"]{border-color:var(--gold)}
 .hero-thumbs img{width:100%;height:100%;object-fit:cover}
-
 /* الشريط المتحرك */
 .ticker{overflow:hidden;background:var(--ivory);color:var(--text)}
 .ticker-inner{display:block;min-height:34px;line-height:34px;font-size:.82rem;font-weight:800}
@@ -103,7 +96,6 @@ button{cursor:pointer}
 .marquee span{display:inline-block;direction:rtl;animation:marquee 28s linear infinite}
 @keyframes marquee{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
 @media (prefers-reduced-motion:reduce){.marquee span{animation:none}html{scroll-behavior:auto}}
-
 /* البحث والبطاقات */
 .search-box{display:flex;align-items:center;gap:12px;width:min(420px,100%);padding:9px 14px;border:1px solid #e1dccf;border-radius:999px;background:var(--paper)}
 .search-box span{color:#000;font-size:1.1rem}
@@ -118,7 +110,6 @@ button{cursor:pointer}
 .content-card p{margin:0 0 12px;color:var(--muted);font-size:.84rem;line-height:1.7}
 .card-link{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:auto;padding:0;border:0;background:none;color:var(--text);font-size:.86rem;font-weight:900}
 .no-results{display:none;padding:25px;color:var(--muted);text-align:center}
-
 /* الوسائط */
 .media-section{background:var(--ivory);color:var(--ink)}
 .media-grid{display:grid;grid-template-columns:1fr;gap:30px}
@@ -128,7 +119,6 @@ button{cursor:pointer}
 .media-card p{max-width:420px;margin:0 0 16px;color:var(--muted);font-size:.89rem}
 .media-card .btn{align-self:flex-start}
 .media-status{margin-top:10px;color:var(--muted);font-size:.76rem}
-
 /* الكتب */
 .book-section{background:var(--paper)}
 .book-section + .book-section{margin-top:40px}
@@ -141,7 +131,6 @@ button{cursor:pointer}
 .book-copy h2{margin:10px 0 15px;color:var(--text);font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.4}
 .book-copy p{color:var(--muted)}
 .book-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-
 /* الطقس */
 .weather-top{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:20px 0;border-bottom:2px solid var(--gold)}
 .weather-location{margin:0 0 4px;color:#000;font-size:.8rem;font-weight:800}
@@ -168,13 +157,7 @@ button{cursor:pointer}
 .map-block h2{font-size:1.55rem}
 .map-frame{width:100%;height:360px;border:0;display:block;border-radius:16px}
 .map-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 4px;color:var(--muted);font-size:.81rem}
-
-/* التواصل والتذييل */
-.contact-section{padding-block:50px}
-.contact-panel{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:30px 0}
-.contact-panel h2{margin:6px 0;font-size:clamp(1.5rem,3.2vw,2.4rem);line-height:1.4;color:var(--text)}
-.contact-panel p{margin:0;color:var(--muted);font-size:.92rem}
-.contact-panel .contact-title{margin:0 0 4px;color:var(--text);font-size:1.05rem;font-weight:900}
+/* التذييل */
 .site-footer{padding:28px 0;background:var(--ivory);color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-brand{color:var(--text);font-weight:900}
@@ -183,7 +166,6 @@ button{cursor:pointer}
 .footer-links a:hover{color:var(--gold)}
 .back-to-top{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:var(--green);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:.2s ease}
 .back-to-top.visible{opacity:1;visibility:visible}
-
 /* النوافذ */
 .modal{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:18px;background:rgba(30,25,20,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .modal-panel{width:min(760px,100%);max-height:min(88dvh,900px);overflow:auto;border:1px solid rgba(184,150,79,.4);border-radius:24px;background:var(--paper);box-shadow:0 35px 100px rgba(0,0,0,.35)}
@@ -217,13 +199,11 @@ button{cursor:pointer}
 .form-note{margin:0;color:var(--muted);font-size:.76rem}
 .toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid rgba(184,150,79,.4);border-radius:999px;background:var(--green-deep);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s ease}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
-
 @media (max-width:1050px){
   .nav-links{gap:12px}
   .nav-links a{font-size:.78rem}
   .content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
 @media (max-width:780px){
   .container{width:min(100% - 28px,var(--container))}
   .section{padding-block:35px}
@@ -261,9 +241,8 @@ button{cursor:pointer}
   .map-block h2{font-size:1.2rem}
   .map-frame{height:240px}
   .map-caption{padding:8px 2px;font-size:.72rem}
-  .contact-panel,.footer-inner{align-items:flex-start;flex-direction:column}
+  .footer-inner{align-items:flex-start;flex-direction:column}
 }
-
 @media (max-width:480px){
   body{font-size:15px}
   .container{width:calc(100% - 24px)}
@@ -271,7 +250,6 @@ button{cursor:pointer}
   .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
-
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
 <script>
@@ -281,10 +259,8 @@ gtag('js',new Date());
 gtag('config','G-3VZQSDZNC7');
 </script>
 </head>
-
 <body>
 <a class="skip-link" href="#main">انتقل إلى المحتوى الرئيسي</a>
-
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="#home" aria-label="الشرقاط الثقافي الأول - الصفحة الرئيسية">
@@ -300,15 +276,12 @@ gtag('config','G-3VZQSDZNC7');
       <a href="#library">الأقسام الثقافية</a>
       <a href="tv.html">التلفزيون</a>
       <a href="book.html">المؤلفات</a>
-      <a href="sendbook.html">أرسل كتابك</a>
       <a href="#weather">الطقس</a>
       <a href="#contact" data-open="contactModal">اتصل بنا</a>
     </nav>
   </div>
 </header>
-
 <main id="main">
-
   <!-- الواجهة -->
   <section class="hero" id="home" aria-labelledby="heroTitle">
     <div class="container hero-grid">
@@ -334,14 +307,12 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
   <!-- الشريط المتحرك -->
   <div class="ticker ticker-prayer" role="region" aria-label="ذكر ودعاء">
     <div class="container ticker-inner">
       <div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه حمداً دائماً أبداً &nbsp;&nbsp;•&nbsp;&nbsp; اللهم صلِّ على محمد وعلى آل محمد ❖ &nbsp;&nbsp;•&nbsp;&nbsp; أستغفر الله ❖ &nbsp;&nbsp;•&nbsp;&nbsp; لا إله إلا الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div>
     </div>
   </div>
-
   <!-- الأقسام الثقافية -->
   <section class="section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
@@ -357,7 +328,6 @@ gtag('config','G-3VZQSDZNC7');
         </label>
       </div>
       <p class="search-status" id="searchStatus" aria-live="polite"></p>
-
       <div class="content-grid" id="contentGrid">
         <article class="content-card" data-search="الأذكار والأدعية حصن المسلم دعاء duaa">
           <div class="card-top"><span class="icon" aria-hidden="true">🕌</span><span class="card-index">01</span></div>
@@ -365,56 +335,48 @@ gtag('config','G-3VZQSDZNC7');
           <p>حصن المسلم، الأذكار اليومية والأدعية المأثورة للتقرب إلى الله تعالى والتحصين المستمر.</p>
           <a class="card-link" href="duaa.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-
         <article class="content-card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب رياضة افلام مسلسلات tv">
           <div class="card-top"><span class="icon" aria-hidden="true">▣</span><span class="card-index">02</span></div>
           <h3>شاهد القنوات الرياضية</h3>
           <p>نافذتك لمتابعة القناة والمحتوى المرئي، ومشاهدة القنوات الرياضية والأفلام والمسلسلات.</p>
           <a class="card-link" href="tv.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-
         <article class="content-card" data-search="الشيخ شلاش رحمه الله shelash قصة تاريخ سيرة">
           <div class="card-top"><span class="icon" aria-hidden="true">✧</span><span class="card-index">03</span></div>
           <h3>قصص بعض أهل السيرة رجال طيبون الصيت</h3>
           <p>صفحة من الحكايات المحلية والسير التي تستحق أن تحفظها الذاكرة وتتداولها الأجيال.</p>
           <a class="card-link" href="shelash.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-
         <article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat">
           <div class="card-top"><span class="icon" aria-hidden="true">⌂</span><span class="card-index">04</span></div>
           <h3>الشرقاط مدينتي</h3>
           <p>تعرف على الشرقاط، ملامحها وتاريخها وموروثها الثقافي والاجتماعي.</p>
           <a class="card-link" href="shirqat.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-
         <article class="content-card" data-search="الجد عقاب عگاب اوكاب okab الأجداد العائلة">
           <div class="card-top"><span class="icon" aria-hidden="true">◇</span><span class="card-index">05</span></div>
           <h3>الجد عگاب رحمه الله</h3>
           <p>نافذة على الذاكرة العائلية وسيرة الأجداد وما تحمله من مواقف ودروس.</p>
           <a class="card-link" href="okab.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-
         <article class="content-card" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book">
           <div class="card-top"><span class="icon" aria-hidden="true">▤</span><span class="card-index">06</span></div>
           <h3>المكتبة والمؤلفات</h3>
           <p>تصفح الكتب والمؤلفات الثقافية والفكرية المرتبطة بتجربة الكاتب واهتماماته.</p>
           <a class="card-link" href="book.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-
         <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
           <div class="card-top"><span class="icon" aria-hidden="true">▧</span><span class="card-index">07</span></div>
           <h3>معرض الصور</h3>
           <p>شاهد الصور واللقطات. هل لديك صور تاريخية للشرقاط لنشرها هنا في معرض الصور؟ راسلنا وأرسلها لنا عبر البريد الإلكتروني.</p>
           <button class="card-link" type="button" data-open="galleryModal">اضغط هنا <span aria-hidden="true">←</span></button>
         </article>
-
         <article class="content-card" data-search="المدونة مقالات ووردبريس wordpress تدوينات">
           <div class="card-top"><span class="icon" aria-hidden="true">¶</span><span class="card-index">08</span></div>
           <h3>المقالات والمدونة</h3>
           <p>تابع المقالات والمنشورات والتدوينات الثقافية المنشورة عبر المدونة.</p>
           <a class="card-link" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-
         <article class="content-card" data-search="أرسل كتابك رواية نشر مؤلف كتاب تأليف">
           <div class="card-top"><span class="icon" aria-hidden="true">📚</span><span class="card-index">09</span></div>
           <h3>أرسل كتابك أو روايتك</h3>
@@ -422,11 +384,9 @@ gtag('config','G-3VZQSDZNC7');
           <a class="card-link" href="sendbook.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
       </div>
-
       <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div>
     </div>
   </section>
-
   <!-- الفيديو -->
   <section class="section media-section" aria-labelledby="mediaTitle">
     <div class="container">
@@ -448,7 +408,6 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
   <!-- الكتاب الأول -->
   <section class="section book-section" aria-labelledby="bookTitle">
     <div class="container">
@@ -474,7 +433,6 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
   <!-- رواية المنافي السعيدة -->
   <section class="section book-section" aria-labelledby="book2Title">
     <div class="container">
@@ -496,7 +454,6 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
   <!-- الديوان الشعري -->
   <section class="section book-section" aria-labelledby="book3Title">
     <div class="container">
@@ -517,7 +474,6 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
   <!-- الطقس -->
   <section class="section" id="weather" aria-labelledby="weatherTitle">
     <div class="container">
@@ -528,7 +484,6 @@ gtag('config','G-3VZQSDZNC7');
         </div>
         <p>الساعة المحلية وتحديثات الطقس والتوقعات للأيام القادمة.</p>
       </div>
-
       <div>
         <div class="weather-top">
           <div>
@@ -540,7 +495,6 @@ gtag('config','G-3VZQSDZNC7');
             <div class="clock-label">التوقيت المحلي · بغداد</div>
           </div>
         </div>
-
         <div class="weather-current" aria-live="polite">
           <div class="weather-symbol" id="weatherIcon" aria-hidden="true">🌤️</div>
           <div>
@@ -557,15 +511,12 @@ gtag('config','G-3VZQSDZNC7');
             <div id="weatherRange">العظمى والصغرى: —</div>
           </div>
         </div>
-
         <div class="weather-forecast" id="weatherForecast" aria-label="توقعات الطقس لأربعة أيام"></div>
-
         <div class="weather-bottom">
           <span class="weather-status" id="weatherStatus" role="status">يتم الاتصال بخدمة الطقس…</span>
           <button class="btn btn-light" type="button" id="refreshWeather">↻ تحديث الطقس</button>
         </div>
       </div>
-
       <div class="map-block">
         <div class="section-heading">
           <div>
@@ -582,23 +533,7 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
-  <!-- التواصل -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-panel">
-        <div>
-          <span class="eyebrow">نبقى على تواصل</span>
-          <h2>لديك رسالة أو فكرة ثقافية؟</h2>
-          <p class="contact-title">تواصل معنا</p>
-          <p>نحن نرحب دائماً بمساهماتكم ومشاركاتكم الفكرية والثقافية. إذا كان لديك مقالة أو كتاب بصيغة PDF أو صور تود مشاركتها مع قرّائنا، فلا تتردد في إرسالها إلينا عبر البريد الإلكتروني، وسنقوم بمراجعتها ونشرها مباشرة باسمك على موقعنا.</p>
-        </div>
-        <button class="btn btn-gold" type="button" data-open="contactModal">اضغط هنا وراسلنا عبر البريد الإلكتروني <span aria-hidden="true">↗</span></button>
-      </div>
-    </div>
-  </section>
 </main>
-
 <footer class="site-footer">
   <div class="container footer-inner">
     <div>
@@ -613,10 +548,8 @@ gtag('config','G-3VZQSDZNC7');
     </nav>
   </div>
 </footer>
-
 <button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <!-- ===== النوافذ ===== -->
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
   <div class="modal-panel">
@@ -631,7 +564,6 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
-
 <div class="modal modal-full" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -646,7 +578,6 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
-
 <div class="modal" id="lightboxModal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
   <div class="modal-panel lightbox-panel">
     <div class="modal-head">
@@ -656,7 +587,6 @@ gtag('config','G-3VZQSDZNC7');
     <img class="lightbox-image" id="lightboxImage" alt="">
   </div>
 </div>
-
 <div class="modal" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -676,7 +606,6 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
-
 <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -700,10 +629,8 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
-
 <script>
 "use strict";
-
 /* ---------- الإعدادات ---------- */
 const CONFIG = {
   githubUser: "mhamalgporee-ctrl",
@@ -714,10 +641,8 @@ const CONFIG = {
   longitude: 43.2199,
   timezone: "Asia/Baghdad"
 };
-
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-
 /* ---------- تنبيه سريع ---------- */
 let toastTimer;
 function showToast(message) {
@@ -727,17 +652,14 @@ function showToast(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
 }
-
 /* ---------- القائمة ---------- */
 const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
-
 function closeMenu() {
   navLinks.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
   menuToggle.setAttribute("aria-label", "فتح قائمة التنقل");
 }
-
 menuToggle.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
@@ -745,18 +667,15 @@ menuToggle.addEventListener("click", () => {
 });
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
-
 /* ---------- صور الواجهة والتبديل التلقائي ---------- */
 const heroImage = $("#heroMainImage");
 const heroThumbBtns = $$("[data-hero-image]");
 const heroImagesList = ["acon.jpg", "acon1.jpg", "acon2.jpg"];
 let currentHeroIndex = 0;
 let heroSliderTimer = null;
-
 heroImage.addEventListener("error", () => {
   if (!heroImage.src.endsWith("acon.jpg")) heroImage.src = "acon.jpg";
 });
-
 function setHeroImage(index) {
   currentHeroIndex = index;
   const src = heroImagesList[currentHeroIndex];
@@ -767,29 +686,23 @@ function setHeroImage(index) {
   }, 200);
   heroThumbBtns.forEach((b, i) => b.setAttribute("aria-pressed", String(i === currentHeroIndex)));
 }
-
 function nextHeroImage() {
   setHeroImage((currentHeroIndex + 1) % heroImagesList.length);
 }
-
 function stopHeroSlider() {
   if (heroSliderTimer) clearInterval(heroSliderTimer);
 }
-
 function startHeroSlider() {
   stopHeroSlider();
   heroSliderTimer = setInterval(nextHeroImage, 10000);
 }
-
 heroThumbBtns.forEach((b, index) => {
   b.addEventListener("click", () => {
     setHeroImage(index);
     startHeroSlider();
   });
 });
-
 startHeroSlider();
-
 /* ---------- البحث ---------- */
 function normalizeText(v) {
   return String(v || "")
@@ -801,10 +714,8 @@ function normalizeText(v) {
     .toLowerCase()
     .trim();
 }
-
 const searchInput = $("#siteSearch");
 const contentCards = $$(".content-card");
-
 function runSearch() {
   const q = normalizeText(searchInput.value);
   let visible = 0;
@@ -820,11 +731,9 @@ function runSearch() {
 }
 searchInput.addEventListener("input", runSearch);
 runSearch();
-
 /* ---------- النوافذ ---------- */
 let openModals = [];
 let previousFocus = null;
-
 function openModal(id) {
   const m = document.getElementById(id);
   if (!m || !m.hidden) return;
@@ -833,7 +742,6 @@ function openModal(id) {
   openModals.push(m);
   history.pushState({ modal: id, depth: openModals.length }, "", "#" + id);
   document.body.classList.add("modal-open");
-
   if (id === "videoModal") {
     const f = $("#youtubeFrame");
     if (!f.getAttribute("src")) f.src = f.dataset.src;
@@ -842,7 +750,6 @@ function openModal(id) {
   $("[data-close]", m)?.focus();
   if (id === "galleryModal") loadGallery();
 }
-
 function hideModal(m) {
   if (!m || m.hidden) return;
   if (m.id === "videoModal") $("#youtubeFrame").removeAttribute("src");
@@ -854,21 +761,17 @@ function hideModal(m) {
     previousFocus?.focus?.();
   }
 }
-
 function closeModal(m) {
   const top = openModals[openModals.length - 1];
   const depth = history.state && history.state.depth;
   if (top === m && depth === openModals.length) history.back();
   else hideModal(m);
 }
-
 window.addEventListener("popstate", () => {
   const depth = (history.state && history.state.depth) || 0;
   while (openModals.length > depth) hideModal(openModals[openModals.length - 1]);
 });
-
 if (/Modal$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
-
 $$("[data-open]").forEach(t => {
   t.addEventListener("click", e => {
     e.preventDefault();
@@ -876,16 +779,13 @@ $$("[data-open]").forEach(t => {
     closeMenu();
   });
 });
-
 $$(".modal").forEach(m => {
   $$("[data-close]", m).forEach(b => b.addEventListener("click", () => closeModal(m)));
   m.addEventListener("click", e => { if (e.target === m) closeModal(m); });
 });
-
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && openModals.length) closeModal(openModals[openModals.length - 1]);
 });
-
 /* ---------- ملفات GitHub ---------- */
 async function fetchGitHubFiles(folder) {
   const url = `https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`;
@@ -899,13 +799,10 @@ async function fetchGitHubFiles(folder) {
   if (!Array.isArray(d)) throw new Error("استجابة الملفات غير متوقعة.");
   return d.filter(i => i && i.type === "file" && i.download_url);
 }
-
 const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric: true, sensitivity: "base" });
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
-
 /* ---------- معرض الصور ---------- */
 let galleryLoaded = false;
-
 async function loadGallery(force = false) {
   if (galleryLoaded && !force) return;
   const grid = $("#galleryGrid");
@@ -946,7 +843,6 @@ async function loadGallery(force = false) {
   }
 }
 $("#retryGallery").addEventListener("click", () => loadGallery(true));
-
 /* ---------- الطقس والساعة ---------- */
 const WEATHER_CODES = {
   0: ["سماء صافية", "☀️"], 1: ["صحو غالباً", "🌤️"], 2: ["غائم جزئياً", "⛅"], 3: ["غائم", "☁️"],
@@ -960,7 +856,6 @@ const WEATHER_CODES = {
   85: ["زخات ثلج خفيفة", "🌨️"], 86: ["زخات ثلج كثيفة", "❄️"],
   95: ["عواصف رعدية", "⛈️"], 96: ["عواصف رعدية مع برد", "⛈️"], 99: ["عواصف رعدية قوية مع برد", "⛈️"]
 };
-
 const getWeatherInfo = (code, cloud) => {
   if (code <= 3 && typeof cloud === "number") {
     if (cloud < 20) return WEATHER_CODES[0];
@@ -969,21 +864,18 @@ const getWeatherInfo = (code, cloud) => {
   }
   return WEATHER_CODES[code] || ["حالة جوية متغيرة", "🌤️"];
 };
-
 function formatDay(ds, i) {
   if (i === 0) return "اليوم";
   if (i === 1) return "غداً";
   const d = new Date(`${ds}T12:00:00+03:00`);
   return new Intl.DateTimeFormat("ar-IQ", { weekday: "long", timeZone: CONFIG.timezone }).format(d);
 }
-
 function formatBaghdadTime(ds) {
   if (!ds) return "—";
   const d = new Date(ds);
   if (Number.isNaN(d.getTime())) return "—";
   return new Intl.DateTimeFormat("ar-IQ", { hour: "numeric", minute: "2-digit", timeZone: CONFIG.timezone, hour12: true }).format(d);
 }
-
 function renderForecastPlaceholders() {
   const f = $("#weatherForecast");
   f.replaceChildren();
@@ -994,19 +886,16 @@ function renderForecastPlaceholders() {
     f.append(c);
   });
 }
-
 async function loadWeather() {
   const s = $("#weatherStatus");
   const b = $("#refreshWeather");
   b.disabled = true;
   s.textContent = "جاري تحديث بيانات الطقس…";
-
   try {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${CONFIG.latitude}&longitude=${CONFIG.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean&timezone=auto`;
     const r = await fetch(url);
     if (!r.ok) throw new Error("خدمة الطقس غير متاحة حالياً.");
     const data = await r.json();
-
     const c = data.current;
     const [desc, icon] = getWeatherInfo(c.weather_code, c.cloud_cover);
     $("#weatherIcon").textContent = icon;
@@ -1017,7 +906,6 @@ async function loadWeather() {
     $("#windSpeed").textContent = `الرياح: ${Math.round(c.wind_speed_10m)} كم/س`;
     $("#weatherUpdated").textContent = `آخر تحديث: ${formatBaghdadTime(c.time)}`;
     $("#weatherRange").textContent = `العظمى ${Math.round(data.daily.temperature_2m_max[0])}° · الصغرى ${Math.round(data.daily.temperature_2m_min[0])}°`;
-
     const f = $("#weatherForecast");
     f.replaceChildren();
     data.daily.time.slice(0, 4).forEach((day, i) => {
@@ -1039,19 +927,16 @@ async function loadWeather() {
     b.disabled = false;
   }
 }
-
 function updateClock() {
   $("#localClock").textContent = new Intl.DateTimeFormat("ar-IQ", {
     timeZone: CONFIG.timezone, hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
   }).format(new Date());
 }
-
 renderForecastPlaceholders();
 $("#refreshWeather").addEventListener("click", loadWeather);
 updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
-
 /* ---------- التواصل عبر البريد الإلكتروني ---------- */
 $("#contactForm").addEventListener("submit", e => {
   e.preventDefault();
@@ -1062,7 +947,6 @@ $("#contactForm").addEventListener("submit", e => {
     showToast("يرجى كتابة الرسالة أو تفاصيل الكتاب أولاً.");
     return;
   }
-
   const subject = encodeURIComponent("طلب نشر كتاب أو رسالة عبر موقع الشرقاط الثقافي الأول");
   const body = encodeURIComponent([
     "السلام عليكم،",
@@ -1071,10 +955,8 @@ $("#contactForm").addEventListener("submit", e => {
     "\n----------------------------------------",
     "ملاحظة للمرسل: يرجى إرفاق ملف الكتاب بصيغة PDF في هذه الرسالة قبل إرسالها."
   ].filter(Boolean).join("\n\n"));
-
   window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
 });
-
 /* ---------- زر الأعلى والسنة ---------- */
 const backToTop = $("#backToTop");
 window.addEventListener("scroll", () => backToTop.classList.toggle("visible", window.scrollY > 450), { passive: true });
