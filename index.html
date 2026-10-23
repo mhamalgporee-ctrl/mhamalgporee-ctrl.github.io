@@ -157,6 +157,20 @@ button{cursor:pointer}
 .map-block h2{font-size:1.55rem}
 .map-frame{width:100%;height:360px;border:0;display:block;border-radius:16px}
 .map-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 4px;color:var(--muted);font-size:.81rem}
+/* دفتر الزوار */
+.guestbook-section{background:var(--paper)}
+.guestbook-box{max-width:700px;margin:0 auto;padding:30px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 4px 20px rgba(74,63,51,.05)}
+.guestbook-form{display:grid;gap:15px;margin-bottom:25px}
+.guestbook-form .btn{width:100%}
+.guestbook-divider{margin:30px 0;border:0;border-top:1px solid var(--line)}
+.guestbook-box h3{margin:0 0 15px;color:var(--text);font-size:1.2rem}
+.guestbook-list{display:grid;gap:12px}
+.guestbook-empty{padding:20px;text-align:center}
+.guestbook-card{padding:14px;border-right:3px solid var(--gold);border-radius:10px;background:var(--ivory)}
+.guestbook-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.guestbook-name{color:var(--text);font-weight:800}
+.guestbook-date{color:var(--muted);font-size:.74rem}
+.guestbook-text{margin:0;color:var(--ink);font-size:.92rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
 /* التذييل */
 .site-footer{padding:28px 0;background:var(--ivory);color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -241,6 +255,7 @@ button{cursor:pointer}
   .map-block h2{font-size:1.2rem}
   .map-frame{height:240px}
   .map-caption{padding:8px 2px;font-size:.72rem}
+  .guestbook-box{padding:20px 16px}
   .footer-inner{align-items:flex-start;flex-direction:column}
 }
 @media (max-width:480px){
@@ -277,6 +292,7 @@ gtag('config','G-3VZQSDZNC7');
       <a href="tv.html">التلفزيون</a>
       <a href="book.html">المؤلفات</a>
       <a href="#weather">الطقس</a>
+      <a href="#guestbook">دفتر الزوار</a>
       <a href="#contact" data-open="contactModal">اتصل بنا</a>
     </nav>
   </div>
@@ -533,6 +549,39 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
+
+  <!-- دفتر الزوار (Firebase) -->
+  <section class="section guestbook-section" id="guestbook" aria-labelledby="guestbookTitle">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">تواصل وذاكرة</span>
+          <h2 id="guestbookTitle">📖 دفتر زوار الشرقاط الثقافي</h2>
+          <p class="poetry-sub">اترك بصمتك ورسالتك لتبقى محفورة في ذاكرة زوار الموقع ومحبيه.</p>
+        </div>
+      </div>
+
+      <div class="guestbook-box">
+        <div class="guestbook-form">
+          <div class="form-field">
+            <label for="visitorName">اسمك الكريم:</label>
+            <input type="text" id="visitorName" placeholder="اكتب اسمك هنا..." maxlength="100" autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="visitorMessage">ملاحظتك أو رسالتك:</label>
+            <textarea id="visitorMessage" rows="3" placeholder="اكتب رسالتك أو انطباعك عن الموقع..." maxlength="1000"></textarea>
+          </div>
+          <p class="form-note">تظهر الرسائل في الدفتر بعد مراجعتها من إدارة الموقع.</p>
+          <button id="submitGuestBtn" class="btn btn-gold" type="button">إرسال الملاحظة ✍️</button>
+        </div>
+
+        <hr class="guestbook-divider">
+
+        <h3>💬 رسائل وملاحظات الزوار</h3>
+        <div class="guestbook-list" id="guestMessagesList" aria-live="polite">جاري تحميل الرسائل...</div>
+      </div>
+    </div>
+  </section>
 </main>
 <footer class="site-footer">
   <div class="container footer-inner">
@@ -629,6 +678,149 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
+
+<!-- Firebase + دفتر الزوار -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-analytics.js";
+  import { getFirestore, collection, addDoc, getDocs, query, where, limit, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA9DsoO3epSRlDj9KZ8Awag3fQqxF7KJOs",
+    authDomain: "shirqat-guest.firebaseapp.com",
+    projectId: "shirqat-guest",
+    storageBucket: "shirqat-guest.firebasestorage.app",
+    messagingSenderId: "872939921676",
+    appId: "1:872939921676:web:19826acf92a25c8de7a929",
+    measurementId: "G-LL374VLFBV"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  const GUEST_COLLECTION = "guestbook";
+  const COOLDOWN_MS = 60 * 1000;
+  const COOLDOWN_KEY = "guestbookLastPost";
+  const MAX_SHOWN = 100;
+
+  const submitBtn = document.getElementById("submitGuestBtn");
+  const listEl = document.getElementById("guestMessagesList");
+  const nameEl = document.getElementById("visitorName");
+  const messageEl = document.getElementById("visitorMessage");
+
+  const notify = msg => (typeof showToast === "function" ? showToast(msg) : alert(msg));
+
+  function getLastPost() {
+    try { return Number(localStorage.getItem(COOLDOWN_KEY)) || 0; } catch { return 0; }
+  }
+  function setLastPost() {
+    try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch {}
+  }
+
+  function formatDate(ts) {
+    if (!ts || typeof ts.toDate !== "function") return "";
+    return new Intl.DateTimeFormat("ar-IQ", { year: "numeric", month: "long", day: "numeric", timeZone: "Asia/Baghdad" }).format(ts.toDate());
+  }
+
+  function showEmpty(text) {
+    listEl.replaceChildren();
+    const p = document.createElement("p");
+    p.className = "guestbook-empty";
+    p.textContent = text;
+    listEl.append(p);
+  }
+
+  async function loadGuestMessages() {
+    if (!listEl) return;
+    try {
+      const snap = await getDocs(query(
+        collection(db, GUEST_COLLECTION),
+        where("approved", "==", true),
+        limit(MAX_SHOWN)
+      ));
+
+      if (snap.empty) {
+        showEmpty("لا توجد رسائل حتى الآن. كن أول المارين هنا!");
+        return;
+      }
+
+      const items = snap.docs
+        .map(d => d.data())
+        .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+
+      listEl.replaceChildren();
+      items.forEach(data => {
+        const card = document.createElement("article");
+        card.className = "guestbook-card";
+
+        const head = document.createElement("div");
+        head.className = "guestbook-card-head";
+
+        const name = document.createElement("span");
+        name.className = "guestbook-name";
+        name.textContent = data.name || "زائر";
+
+        const date = document.createElement("span");
+        date.className = "guestbook-date";
+        date.textContent = formatDate(data.createdAt);
+
+        const text = document.createElement("p");
+        text.className = "guestbook-text";
+        text.textContent = data.message || "";
+
+        head.append(name, date);
+        card.append(head, text);
+        listEl.append(card);
+      });
+    } catch (e) {
+      console.error("خطأ في الجلب:", e);
+      showEmpty("تعذر تحميل رسائل الزوار.");
+    }
+  }
+
+  submitBtn?.addEventListener("click", async () => {
+    const name = nameEl.value.trim();
+    const message = messageEl.value.trim();
+
+    if (!name || !message) {
+      notify("الرجاء إدخال الاسم والرسالة أولاً.");
+      return;
+    }
+
+    const wait = COOLDOWN_MS - (Date.now() - getLastPost());
+    if (wait > 0) {
+      notify(`الرجاء الانتظار ${Math.ceil(wait / 1000)} ثانية قبل إرسال رسالة جديدة.`);
+      return;
+    }
+
+    try {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "جاري الإرسال...";
+
+      await addDoc(collection(db, GUEST_COLLECTION), {
+        name: name.slice(0, 100),
+        message: message.slice(0, 1000),
+        approved: false,
+        createdAt: serverTimestamp()
+      });
+
+      setLastPost();
+      nameEl.value = "";
+      messageEl.value = "";
+      notify("تم إرسال رسالتك، وستظهر بعد المراجعة. شكراً لك!");
+    } catch (e) {
+      console.error("خطأ في الإرسال:", e);
+      notify("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "إرسال الملاحظة ✍️";
+    }
+  });
+
+  loadGuestMessages();
+</script>
+
 <script>
 "use strict";
 /* ---------- الإعدادات ---------- */
@@ -647,6 +839,7 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 let toastTimer;
 function showToast(message) {
   const t = $("#toast");
+  if (!t) return;
   t.textContent = message;
   t.classList.add("visible");
   clearTimeout(toastTimer);
@@ -656,11 +849,12 @@ function showToast(message) {
 const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
 function closeMenu() {
+  if (!navLinks) return;
   navLinks.classList.remove("open");
-  menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "فتح قائمة التنقل");
+  menuToggle?.setAttribute("aria-expanded", "false");
+  menuToggle?.setAttribute("aria-label", "فتح قائمة التنقل");
 }
-menuToggle.addEventListener("click", () => {
+menuToggle?.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute("aria-label", isOpen ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل");
@@ -673,10 +867,11 @@ const heroThumbBtns = $$("[data-hero-image]");
 const heroImagesList = ["acon.jpg", "acon1.jpg", "acon2.jpg"];
 let currentHeroIndex = 0;
 let heroSliderTimer = null;
-heroImage.addEventListener("error", () => {
+heroImage?.addEventListener("error", () => {
   if (!heroImage.src.endsWith("acon.jpg")) heroImage.src = "acon.jpg";
 });
 function setHeroImage(index) {
+  if (!heroImage) return;
   currentHeroIndex = index;
   const src = heroImagesList[currentHeroIndex];
   heroImage.style.opacity = "0.2";
@@ -702,7 +897,7 @@ heroThumbBtns.forEach((b, index) => {
     startHeroSlider();
   });
 });
-startHeroSlider();
+if (heroThumbBtns.length) startHeroSlider();
 /* ---------- البحث ---------- */
 function normalizeText(v) {
   return String(v || "")
@@ -717,6 +912,7 @@ function normalizeText(v) {
 const searchInput = $("#siteSearch");
 const contentCards = $$(".content-card");
 function runSearch() {
+  if (!searchInput) return;
   const q = normalizeText(searchInput.value);
   let visible = 0;
   contentCards.forEach(c => {
@@ -724,12 +920,16 @@ function runSearch() {
     c.hidden = !match;
     if (match) visible++;
   });
-  $("#noResults").style.display = visible ? "none" : "block";
-  $("#searchStatus").textContent = q
-    ? `عدد النتائج: ${visible} من ${contentCards.length}`
-    : `تصفح جميع الأقسام الثقافية (${contentCards.length} أقسام)`;
+  const noRes = $("#noResults");
+  if (noRes) noRes.style.display = visible ? "none" : "block";
+  const searchStatus = $("#searchStatus");
+  if (searchStatus) {
+    searchStatus.textContent = q
+      ? `عدد النتائج: ${visible} من ${contentCards.length}`
+      : `تصفح جميع الأقسام الثقافية (${contentCards.length} أقسام)`;
+  }
 }
-searchInput.addEventListener("input", runSearch);
+searchInput?.addEventListener("input", runSearch);
 runSearch();
 /* ---------- النوافذ ---------- */
 let openModals = [];
@@ -744,16 +944,19 @@ function openModal(id) {
   document.body.classList.add("modal-open");
   if (id === "videoModal") {
     const f = $("#youtubeFrame");
-    if (!f.getAttribute("src")) f.src = f.dataset.src;
+    if (f && !f.getAttribute("src")) f.src = f.dataset.src;
   }
-  if (id === "galleryModal") m.querySelector(".modal-panel").scrollTop = 0;
+  if (id === "galleryModal") {
+    const panel = m.querySelector(".modal-panel");
+    if (panel) panel.scrollTop = 0;
+    loadGallery();
+  }
   $("[data-close]", m)?.focus();
-  if (id === "galleryModal") loadGallery();
 }
 function hideModal(m) {
   if (!m || m.hidden) return;
-  if (m.id === "videoModal") $("#youtubeFrame").removeAttribute("src");
-  if (m.id === "lightboxModal") $("#lightboxImage").removeAttribute("src");
+  if (m.id === "videoModal") $("#youtubeFrame")?.removeAttribute("src");
+  if (m.id === "lightboxModal") $("#lightboxImage")?.removeAttribute("src");
   m.hidden = true;
   openModals = openModals.filter(x => x !== m);
   if (!openModals.length) {
@@ -807,6 +1010,7 @@ async function loadGallery(force = false) {
   if (galleryLoaded && !force) return;
   const grid = $("#galleryGrid");
   const s = $("#galleryStatus");
+  if (!grid || !s) return;
   s.textContent = "جاري تحميل الصور…";
   grid.replaceChildren();
   try {
@@ -830,9 +1034,13 @@ async function loadGallery(force = false) {
       img.decoding = "async";
       b.append(img);
       b.addEventListener("click", () => {
-        $("#lightboxImage").src = img.src;
-        $("#lightboxImage").alt = name;
-        $("#lightboxTitle").textContent = name || "عرض الصورة";
+        const lbImg = $("#lightboxImage");
+        const lbTitle = $("#lightboxTitle");
+        if (lbImg) {
+          lbImg.src = img.src;
+          lbImg.alt = name;
+        }
+        if (lbTitle) lbTitle.textContent = name || "عرض الصورة";
         openModal("lightboxModal");
       });
       grid.append(b);
@@ -842,7 +1050,7 @@ async function loadGallery(force = false) {
     s.textContent = e.message || "تعذر تحميل معرض الصور.";
   }
 }
-$("#retryGallery").addEventListener("click", () => loadGallery(true));
+$("#retryGallery")?.addEventListener("click", () => loadGallery(true));
 /* ---------- الطقس والساعة ---------- */
 const WEATHER_CODES = {
   0: ["سماء صافية", "☀️"], 1: ["صحو غالباً", "🌤️"], 2: ["غائم جزئياً", "⛅"], 3: ["غائم", "☁️"],
@@ -878,6 +1086,7 @@ function formatBaghdadTime(ds) {
 }
 function renderForecastPlaceholders() {
   const f = $("#weatherForecast");
+  if (!f) return;
   f.replaceChildren();
   ["اليوم", "غداً", "بعد غد", "لاحقاً"].forEach(l => {
     const c = document.createElement("div");
@@ -889,8 +1098,8 @@ function renderForecastPlaceholders() {
 async function loadWeather() {
   const s = $("#weatherStatus");
   const b = $("#refreshWeather");
-  b.disabled = true;
-  s.textContent = "جاري تحديث بيانات الطقس…";
+  if (b) b.disabled = true;
+  if (s) s.textContent = "جاري تحديث بيانات الطقس…";
   try {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${CONFIG.latitude}&longitude=${CONFIG.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean&timezone=auto`;
     const r = await fetch(url);
@@ -898,52 +1107,58 @@ async function loadWeather() {
     const data = await r.json();
     const c = data.current;
     const [desc, icon] = getWeatherInfo(c.weather_code, c.cloud_cover);
-    $("#weatherIcon").textContent = icon;
-    $("#temperature").textContent = `${Math.round(c.temperature_2m)}°`;
-    $("#weatherDescription").textContent = desc;
-    $("#feelsLike").textContent = `المحسوسة: ${Math.round(c.apparent_temperature)}°`;
-    $("#humidity").textContent = `الرطوبة: ${c.relative_humidity_2m}%`;
-    $("#windSpeed").textContent = `الرياح: ${Math.round(c.wind_speed_10m)} كم/س`;
-    $("#weatherUpdated").textContent = `آخر تحديث: ${formatBaghdadTime(c.time)}`;
-    $("#weatherRange").textContent = `العظمى ${Math.round(data.daily.temperature_2m_max[0])}° · الصغرى ${Math.round(data.daily.temperature_2m_min[0])}°`;
+    if ($("#weatherIcon")) $("#weatherIcon").textContent = icon;
+    if ($("#temperature")) $("#temperature").textContent = `${Math.round(c.temperature_2m)}°`;
+    if ($("#weatherDescription")) $("#weatherDescription").textContent = desc;
+    if ($("#feelsLike")) $("#feelsLike").textContent = `المحسوسة: ${Math.round(c.apparent_temperature)}°`;
+    if ($("#humidity")) $("#humidity").textContent = `الرطوبة: ${c.relative_humidity_2m}%`;
+    if ($("#windSpeed")) $("#windSpeed").textContent = `الرياح: ${Math.round(c.wind_speed_10m)} كم/س`;
+    if ($("#weatherUpdated")) $("#weatherUpdated").textContent = `آخر تحديث: ${formatBaghdadTime(c.time)}`;
+    if ($("#weatherRange")) $("#weatherRange").textContent = `العظمى ${Math.round(data.daily.temperature_2m_max[0])}° · الصغرى ${Math.round(data.daily.temperature_2m_min[0])}°`;
     const f = $("#weatherForecast");
-    f.replaceChildren();
-    data.daily.time.slice(0, 4).forEach((day, i) => {
-      const [dd, di] = getWeatherInfo(data.daily.weather_code[i], data.daily.cloud_cover_mean ? data.daily.cloud_cover_mean[i] : 0);
-      const card = document.createElement("div");
-      card.className = "forecast-day";
-      card.innerHTML = `
-        <div class="day-name">${formatDay(day, i)}</div>
-        <div class="day-icon" aria-label="${dd}">${di}</div>
-        <div class="day-temps">${Math.round(data.daily.temperature_2m_max[i])}° / ${Math.round(data.daily.temperature_2m_min[i])}°</div>
-        <div class="day-desc">${dd}</div>`;
-      f.append(card);
-    });
-    s.textContent = "تم تحديث حالة الطقس بنجاح.";
+    if (f) {
+      f.replaceChildren();
+      data.daily.time.slice(0, 4).forEach((day, i) => {
+        const [dd, di] = getWeatherInfo(data.daily.weather_code[i], data.daily.cloud_cover_mean ? data.daily.cloud_cover_mean[i] : 0);
+        const card = document.createElement("div");
+        card.className = "forecast-day";
+        card.innerHTML = `
+          <div class="day-name">${formatDay(day, i)}</div>
+          <div class="day-icon" aria-label="${dd}">${di}</div>
+          <div class="day-temps">${Math.round(data.daily.temperature_2m_max[i])}° / ${Math.round(data.daily.temperature_2m_min[i])}°</div>
+          <div class="day-desc">${dd}</div>`;
+        f.append(card);
+      });
+    }
+    if (s) s.textContent = "تم تحديث حالة الطقس بنجاح.";
   } catch (e) {
-    s.textContent = "تعذر جلب حالة الطقس تلقائياً. يرجى إعادة المحاولة.";
-    $("#weatherDescription").textContent = "تعذر جلب الطقس حالياً.";
+    if (s) s.textContent = "تعذر جلب حالة الطقس تلقائياً. يرجى إعادة المحاولة.";
+    if ($("#weatherDescription")) $("#weatherDescription").textContent = "تعذر جلب الطقس حالياً.";
   } finally {
-    b.disabled = false;
+    if (b) b.disabled = false;
   }
 }
 function updateClock() {
-  $("#localClock").textContent = new Intl.DateTimeFormat("ar-IQ", {
-    timeZone: CONFIG.timezone, hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
-  }).format(new Date());
+  const clock = $("#localClock");
+  if (clock) {
+    clock.textContent = new Intl.DateTimeFormat("ar-IQ", {
+      timeZone: CONFIG.timezone, hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
+    }).format(new Date());
+  }
 }
 renderForecastPlaceholders();
-$("#refreshWeather").addEventListener("click", loadWeather);
+$("#refreshWeather")?.addEventListener("click", loadWeather);
 updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
 /* ---------- التواصل عبر البريد الإلكتروني ---------- */
-$("#contactForm").addEventListener("submit", e => {
+const contactForm = $("#contactForm");
+contactForm?.addEventListener("submit", e => {
   e.preventDefault();
-  const name = $("#contactName").value.trim();
-  const message = $("#contactMessage").value.trim();
+  const name = $("#contactName")?.value.trim() || "";
+  const message = $("#contactMessage")?.value.trim() || "";
   if (!message) {
-    $("#contactMessage").focus();
+    $("#contactMessage")?.focus();
     showToast("يرجى كتابة الرسالة أو تفاصيل الكتاب أولاً.");
     return;
   }
@@ -959,9 +1174,9 @@ $("#contactForm").addEventListener("submit", e => {
 });
 /* ---------- زر الأعلى والسنة ---------- */
 const backToTop = $("#backToTop");
-window.addEventListener("scroll", () => backToTop.classList.toggle("visible", window.scrollY > 450), { passive: true });
-backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-$("#year").textContent = new Date().getFullYear();
+window.addEventListener("scroll", () => backToTop?.classList.toggle("visible", window.scrollY > 450), { passive: true });
+backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+if ($("#year")) $("#year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
