@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#faf8f3">
-<meta name="description" content="الشرقاط الثقافي الأول — نافذة ثقافية والأدبية توثق تاريخ الشرقاط وتراثها وذاكرتها، بإشراف محمد علي أحمد الحطاب الجبوري.">
+<meta name="description" content="الشرقاط الثقافي الأول — نافذة ثقافية توثق تاريخ الشرقاط وتراثها.">
 <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
 <meta property="og:type" content="website">
 <meta property="og:title" content="الشرقاط الثقافي الأول | مجلة ثقافية">
@@ -40,7 +40,6 @@ button{cursor:pointer}
 .section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:25px}
 .section-heading h2{margin:8px 0 0;font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.35}
 .section-heading p{max-width:460px;margin:0;font-size:.95rem}
-/* الأزرار */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:40px;padding:8px 18px;border:1px solid transparent;border-radius:999px;font-weight:800;font-size:.88rem;transition:transform .22s ease,background .22s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn:disabled{opacity:.6;cursor:wait}
@@ -52,9 +51,7 @@ button{cursor:pointer}
 .btn-green:hover{background:var(--green-mid)}
 .btn-light{background:var(--ivory);border-color:var(--line)}
 .icon{display:inline-grid;place-items:center;width:44px;height:44px;flex:0 0 44px;border-radius:14px;background:var(--green-soft);font-size:1.25rem}
-/* الشعر تحت العناوين */
 .poetry-sub{margin:8px 0 0;font-size:.92rem;line-height:1.8;font-style:italic}
-/* الرأس */
 .site-header{position:sticky;z-index:100;top:0;border-bottom:1px solid rgba(74,63,51,.09);background:rgba(250,248,243,.93);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:75px}
 .brand{display:inline-flex;align-items:center;gap:13px;min-width:0}
@@ -68,7 +65,6 @@ button{cursor:pointer}
 .nav-links a::after{position:absolute;right:0;bottom:0;width:0;height:2px;background:var(--gold);content:"";transition:width .2s ease}
 .nav-links a:hover::after{width:100%}
 .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--ivory);font-size:1.25rem}
-/* الواجهة */
 .hero{padding-block:10px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:15px}
 .hero-copy{max-width:600px}
@@ -87,14 +83,12 @@ button{cursor:pointer}
 .hero-thumbs button{width:42px;height:44px;padding:0;overflow:hidden;border:2px solid var(--ivory);border-radius:8px;background:transparent;transition:border-color .2s ease}
 .hero-thumbs button[aria-pressed="true"]{border-color:var(--gold)}
 .hero-thumbs img{width:100%;height:100%;object-fit:cover}
-/* الشريط المتحرك */
 .ticker{overflow:hidden;background:var(--ivory)}
 .ticker-inner{display:block;min-height:34px;line-height:34px;font-size:.82rem;font-weight:800}
 .marquee{overflow:hidden;direction:ltr;white-space:nowrap}
 .marquee span{display:inline-block;direction:rtl;animation:marquee 28s linear infinite}
 @keyframes marquee{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
 @media (prefers-reduced-motion:reduce){.marquee span{animation:none}html{scroll-behavior:auto}}
-/* البحث والبطاقات */
 .search-box{display:flex;align-items:center;gap:12px;width:min(420px,100%);padding:9px 14px;border:1px solid #e1dccf;border-radius:999px;background:var(--ivory)}
 .search-box span{font-size:1.1rem}
 .search-box input{width:100%;min-width:0;border:0;outline:none;background:transparent;font-size:.86rem}
@@ -108,7 +102,6 @@ button{cursor:pointer}
 .content-card p{margin:0 0 12px;font-size:.84rem;line-height:1.7}
 .card-link{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:auto;padding:0;border:0;background:none;font-size:.86rem;font-weight:900}
 .no-results{display:none;padding:25px;text-align:center}
-/* الوسائط */
 .media-grid{display:grid;grid-template-columns:1fr;gap:30px}
 .media-card{display:flex;flex-direction:column;padding:10px}
 .media-card .icon{width:50px;height:50px;margin-bottom:15px;border:1px solid rgba(184,150,79,.3);background:rgba(184,150,79,.12);font-size:1.4rem}
@@ -116,7 +109,6 @@ button{cursor:pointer}
 .media-card p{max-width:420px;margin:0 0 16px;font-size:.89rem}
 .media-card .btn{align-self:flex-start}
 .media-status{margin-top:10px;font-size:.76rem}
-/* الكتب */
 .book-section + .book-section{margin-top:40px}
 .book-panel{display:grid;grid-template-columns:.7fr 1.3fr;align-items:center;gap:clamp(28px,5vw,65px);padding:20px}
 .book-art{display:grid;place-items:center;min-height:260px;padding:10px}
@@ -126,7 +118,6 @@ button{cursor:pointer}
 .book-placeholder span{margin-top:12px;font-size:.78rem}
 .book-copy h2{margin:10px 0 15px;font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.4}
 .book-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-/* دفتر الزوار */
 .guestbook-box{max-width:700px;margin:0 auto;padding:30px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 4px 20px rgba(74,63,51,.05)}
 .guestbook-form{display:grid;gap:15px;margin-bottom:25px}
 .guestbook-form .btn{width:100%}
@@ -142,7 +133,6 @@ button{cursor:pointer}
 .guestbook-reply{margin-top:10px;padding:10px 12px;border-right:3px solid var(--green);border-radius:8px;background:var(--green-soft)}
 .guestbook-reply-label{display:block;margin-bottom:2px;font-size:.76rem;font-weight:800}
 .guestbook-reply-text{margin:0;font-size:.9rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
-/* التذييل */
 .site-footer{padding:28px 0;background:var(--ivory)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-brand{font-weight:900}
@@ -151,7 +141,6 @@ button{cursor:pointer}
 .footer-links a:hover{color:var(--gold)}
 .back-to-top{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:var(--green);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:.2s ease}
 .back-to-top.visible{opacity:1;visibility:visible}
-/* النوافذ */
 .modal{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:18px;background:rgba(30,25,20,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .modal-panel{width:min(760px,100%);max-height:min(88dvh,900px);overflow:auto;border:1px solid rgba(184,150,79,.4);border-radius:24px;background:var(--ivory);box-shadow:0 35px 100px rgba(0,0,0,.35)}
 .modal-full{padding:0;background:var(--ivory);backdrop-filter:none;-webkit-backdrop-filter:none;place-items:stretch}
@@ -213,7 +202,6 @@ button{cursor:pointer}
   .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -245,7 +233,6 @@ gtag('config','G-3VZQSDZNC7');
   </div>
 </header>
 <main id="main">
-  <!-- الواجهة -->
   <section class="hero" id="home" aria-labelledby="heroTitle">
     <div class="container hero-grid">
       <div class="hero-copy">
@@ -270,13 +257,13 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-  <!-- الشريط المتحرك -->
+
   <div class="ticker" role="region" aria-label="ذكر ودعاء">
     <div class="container ticker-inner">
       <div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه حمداً دائماً أبداً &nbsp;&nbsp;•&nbsp;&nbsp; اللهم صلِّ على محمد وعلى آل محمد ❖ &nbsp;&nbsp;•&nbsp;&nbsp; أستغفر الله ❖ &nbsp;&nbsp;•&nbsp;&nbsp; لا إله إلا الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div>
     </div>
   </div>
-  <!-- الأقسام الثقافية -->
+
   <section class="section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
       <div class="section-heading">
@@ -295,62 +282,62 @@ gtag('config','G-3VZQSDZNC7');
         <article class="content-card" data-search="الأذكار والأدعية حصن المسلم دعاء duaa">
           <div class="card-top"><span class="icon" aria-hidden="true">🕌</span><span class="card-index">01</span></div>
           <h3>الأذكار والأدعية</h3>
-          <p>حصن المسلم، الأذكار اليومية والأدعية المأثورة للتقرب إلى الله تعالى والتحصين المستمر.</p>
+          <p>الأذكار اليومية والأدعية المأثورة للتحصين والتقرب إلى الله تعالى.</p>
           <a class="card-link" href="duaa.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب رياضة افلام مسلسلات tv">
           <div class="card-top"><span class="icon" aria-hidden="true">▣</span><span class="card-index">02</span></div>
           <h3>شاهد القنوات الرياضية</h3>
-          <p>نافذتك لمتابعة القناة والمحتوى المرئي، ومشاهدة القنوات الرياضية والأفلام والمسلسلات.</p>
+          <p>متابعة القنوات الرياضية والمحتوى المرئي والأفلام والمسلسلات.</p>
           <a class="card-link" href="tv.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الشيخ شلاش رحمه الله shelash قصة تاريخ سيرة">
           <div class="card-top"><span class="icon" aria-hidden="true">✧</span><span class="card-index">03</span></div>
-          <h3>قصص بعض أهل السيرة رجال طيبون الصيت</h3>
-          <p>صفحة من الحكايات المحلية والسير التي تستحق أن تحفظها الذاكرة وتتداولها الأجيال.</p>
+          <h3>قصص بعض أهل السيرة</h3>
+          <p>حكايات محلية وسير عطرة لأهل الصيت الطيب تستحق الحفظ.</p>
           <a class="card-link" href="shelash.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat">
           <div class="card-top"><span class="icon" aria-hidden="true">⌂</span><span class="card-index">04</span></div>
           <h3>الشرقاط مدينتي</h3>
-          <p>تعرف على الشرقاط، ملامحها وتاريخها وموروثها الثقافي والاجتماعي.</p>
+          <p>ملامح وتاريخ وموروث مدينة الشرقاط الثقافي والاجتماعي.</p>
           <a class="card-link" href="shirqat.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الجد عقاب عگاب اوكاب okab الأجداد العائلة">
           <div class="card-top"><span class="icon" aria-hidden="true">◇</span><span class="card-index">05</span></div>
           <h3>الجد عگاب رحمه الله</h3>
-          <p>نافذة على الذاكرة العائلية وسيرة الأجداد وما تحمله من مواقف ودروس.</p>
+          <p>نافذة على الذاكرة العائلية وسيرة الأجداد ومواقفهم.</p>
           <a class="card-link" href="okab.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book">
           <div class="card-top"><span class="icon" aria-hidden="true">▤</span><span class="card-index">06</span></div>
           <h3>المكتبة والمؤلفات</h3>
-          <p>تصفح الكتب والمؤلفات الثقافية والفكرية المرتبطة بتجربة الكاتب واهتماماته.</p>
+          <p>تصفح الكتب والمؤلفات الثقافية والفكرية للموقع.</p>
           <a class="card-link" href="book.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
           <div class="card-top"><span class="icon" aria-hidden="true">▧</span><span class="card-index">07</span></div>
           <h3>معرض الصور</h3>
-          <p>شاهد الصور واللقطات. هل لديك صور تاريخية للشرقاط لنشرها هنا في معرض الصور؟ راسلنا وأرسلها لنا عبر البريد الإلكتروني.</p>
+          <p>صور تاريخية للشرقاط. راسلنا لإرسال صورك ونشرها بالمعرض.</p>
           <button class="card-link" type="button" data-open="galleryModal">اضغط هنا <span aria-hidden="true">←</span></button>
         </article>
         <article class="content-card" data-search="المدونة مقالات ووردبريس wordpress تدوينات">
           <div class="card-top"><span class="icon" aria-hidden="true">¶</span><span class="card-index">08</span></div>
           <h3>المقالات والمدونة</h3>
-          <p>تابع المقالات والمنشورات والتدوينات الثقافية المنشورة عبر المدونة.</p>
+          <p>تابع المقالات والتدوينات الثقافية المنشورة عبر المدونة.</p>
           <a class="card-link" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="أرسل كتابك رواية نشر مؤلف كتاب تأليف">
           <div class="card-top"><span class="icon" aria-hidden="true">📚</span><span class="card-index">09</span></div>
           <h3>أرسل كتابك أو روايتك</h3>
-          <p>هل لديك كتاب أو رواية؟ أرسلها بصيغة PDF عبر البريد الإلكتروني ونراجعها وننشرها باسمك في صفحة المؤلفات.</p>
+          <p>أرسل كتابك بصيغة PDF لنراجع وننشر كتابك باسمك في المؤلفات.</p>
           <a class="card-link" href="sendbook.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
       </div>
-      <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div>
+      <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة.</div>
     </div>
   </section>
-  <!-- الفيديو -->
+
   <section class="section" aria-labelledby="mediaTitle">
     <div class="container">
       <div class="section-heading">
@@ -364,39 +351,38 @@ gtag('config','G-3VZQSDZNC7');
         <article class="media-card">
           <span class="icon" aria-hidden="true">▷</span>
           <h3>القناة المرئية</h3>
-          <p>شاهد الفيديوهات المنشورة على قناة الشرقاط الثقافي، وتابع المحتوى المرئي من مكان واحد.</p>
+          <p>شاهد فيديوهات قناة الشرقاط الثقافي من مكان واحد.</p>
           <button class="btn btn-gold" type="button" data-open="videoModal">اضغط هنا <span aria-hidden="true">←</span></button>
           <div class="media-status">محتوى YouTube عبر قناة الموقع</div>
         </article>
       </div>
     </div>
   </section>
-  <!-- الكتاب الأول -->
+
   <section class="section book-section" aria-labelledby="bookTitle">
     <div class="container">
       <div class="book-panel">
         <div class="book-art">
           <img id="bookCover" src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين" loading="lazy" onerror="this.style.display='none';document.getElementById('bookPlaceholder').style.display='grid'">
           <div class="book-placeholder" id="bookPlaceholder">
-            <strong>الرجل والمرأة وعشرة العمر في بلاد الرافدين</strong>
+            <strong>الرجل والمرأة وعشرة العمر</strong>
             <span>من مؤلفات الشرقاط الثقافي الأول</span>
           </div>
         </div>
         <div class="book-copy">
           <span class="eyebrow">من إصدارات الموقع</span>
           <h2 id="bookTitle">الرجل والمرأة وعشرة العمر في بلاد الرافدين</h2>
-          <p>كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين، ضمن اهتمام الموقع بالثقافة والتراث والموضوعات الإنسانية والاجتماعية.</p>
-          <p>يمكنك الاطلاع على نسخة الكتاب بصيغة PDF أو زيارة صفحة المؤلفات لمزيد من التفاصيل.</p>
+          <p>كتاب يعنى بالثقافة والتراث والموضوعات الاجتماعية والأسُرية.</p>
           <div class="book-actions">
-            <a class="btn btn-green" href="https://heyzine.com/flip-book/7d35d68ef2.html" target="_blank" rel="noopener">اقرأ الكتاب التفاعلي 📖</a>
-            <a class="btn btn-light" href="book.pdf" target="_blank" rel="noopener">اقرأ الكتاب PDF <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-light" href="book.html">جميع المؤلفات <span aria-hidden="true">←</span></a>
+            <a class="btn btn-green" href="https://heyzine.com/flip-book/7d35d68ef2.html" target="_blank" rel="noopener">اقرأ تفاعلي 📖</a>
+            <a class="btn btn-light" href="book.pdf" target="_blank" rel="noopener">اقرأ PDF <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-light" href="book.html">المؤلفات <span aria-hidden="true">←</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- رواية المنافي السعيدة -->
+
   <section class="section book-section" aria-labelledby="book2Title">
     <div class="container">
       <div class="book-panel">
@@ -406,18 +392,18 @@ gtag('config','G-3VZQSDZNC7');
         <div class="book-copy">
           <span class="eyebrow">من إصدارات الموقع</span>
           <h2 id="book2Title">رواية المنافي السعيدة</h2>
-          <p><strong>تأليف: الكاتب والروائي الأستاذ فهد عنتر الدوخي</strong></p>
-          <p>رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة.</p>
+          <p><strong>تأليف: الأستاذ فهد عنتر الدوخي</strong></p>
+          <p>رواية توثيقية تستحضر أجواء السبعينيات وذكريات الزملاء والمنافي البعيدة.</p>
           <div class="book-actions">
-            <a class="btn btn-green" href="https://heyzine.com/flip-book/0ec9c4a4d0.html" target="_blank" rel="noopener">اقرأ الكتاب التفاعلي 📖</a>
-            <a class="btn btn-light" href="فهد الدوخي.pdf" target="_blank" rel="noopener">اقرأ الكتاب PDF <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-light" href="book.html">جميع المؤلفات <span aria-hidden="true">←</span></a>
+            <a class="btn btn-green" href="https://heyzine.com/flip-book/0ec9c4a4d0.html" target="_blank" rel="noopener">اقرأ تفاعلي 📖</a>
+            <a class="btn btn-light" href="فهد الدوخي.pdf" target="_blank" rel="noopener">اقرأ PDF <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-light" href="book.html">المؤلفات <span aria-hidden="true">←</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- الديوان الشعري -->
+
   <section class="section book-section" aria-labelledby="book3Title">
     <div class="container">
       <div class="book-panel">
@@ -428,43 +414,40 @@ gtag('config','G-3VZQSDZNC7');
           <span class="eyebrow">من إصدارات الموقع</span>
           <h2 id="book3Title">ديوان شعر</h2>
           <p><strong>تأليف: محمد علي أحمد الحطاب الجبوري</strong></p>
-          <p>ديوان شعر يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.</p>
+          <p>قصائد وجدانية تتنقل بين الحنين والحكمة وصور الحياة ببلاد الرافدين.</p>
           <div class="book-actions">
-            <a class="btn btn-green" href="diwan.pdf" target="_blank" rel="noopener">اقرأ الديوان PDF <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-light" href="book.html">جميع المؤلفات <span aria-hidden="true">←</span></a>
+            <a class="btn btn-green" href="diwan.pdf" target="_blank" rel="noopener">اقرأ PDF <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-light" href="book.html">المؤلفات <span aria-hidden="true">←</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- دفتر الزوار (Firebase) -->
+
   <section class="section" id="guestbook" aria-labelledby="guestbookTitle">
     <div class="container">
       <div class="section-heading">
         <div>
           <span class="eyebrow">تواصل وذاكرة</span>
           <h2 id="guestbookTitle">📖 دفتر زوار الشرقاط الثقافي</h2>
-          <p class="poetry-sub">اترك بصمتك ورسالتك لتبقى محفورة في ذاكرة زوار الموقع ومحبيه.</p>
+          <p class="poetry-sub">اترك بصمتك ورسالتك لتبقى محفورة في ذاكرة الزوار.</p>
         </div>
       </div>
-
       <div class="guestbook-box">
         <div class="guestbook-form">
           <div class="form-field">
             <label for="visitorName">اسمك الكريم:</label>
-            <input type="text" id="visitorName" placeholder="اكتب اسمك هنا..." maxlength="100" autocomplete="name">
+            <input type="text" id="visitorName" placeholder="اكتب اسمك..." maxlength="100" autocomplete="name">
           </div>
           <div class="form-field">
             <label for="visitorMessage">ملاحظتك أو رسالتك:</label>
-            <textarea id="visitorMessage" rows="3" placeholder="اكتب رسالتك أو انطباعك عن الموقع..." maxlength="1000"></textarea>
+            <textarea id="visitorMessage" rows="3" placeholder="اكتب رسالتك أو انطباعك..." maxlength="1000"></textarea>
           </div>
-          <p class="form-note">تظهر الرسائل في الدفتر بعد مراجعتها من إدارة الموقع.</p>
+          <p class="form-note">تظهر الرسائل بعد مراجعتها من الإدارة.</p>
           <button id="submitGuestBtn" class="btn btn-gold" type="button">إرسال الملاحظة ✍️</button>
         </div>
-
         <hr class="guestbook-divider">
-
-        <h3>💬 رسائل وملاحظات الزوار</h3>
+        <h3>💬 رسائل الزوار</h3>
         <div class="guestbook-list" id="guestMessagesList" aria-live="polite">جاري تحميل الرسائل...</div>
       </div>
     </div>
@@ -484,19 +467,19 @@ gtag('config','G-3VZQSDZNC7');
     </nav>
   </div>
 </footer>
-<button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button>
+<button class="back-to-top" id="backToTop" type="button" aria-label="العودة لأعلى">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<!-- ===== النوافذ ===== -->
+
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
-      <h2 id="videoModalTitle">قناة الشرقاط الثقافي على YouTube</h2>
-      <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
+      <h2 id="videoModalTitle">قناة الشرقاط الثقافي</h2>
+      <button class="modal-close" type="button" data-close aria-label="إغلاق">×</button>
     </div>
     <div class="modal-body">
-      <iframe class="video-frame" id="youtubeFrame" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube.com/embed?listType=playlist&list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <p>إذا لم تظهر قائمة الفيديوهات، يمكنك زيارة القناة مباشرة.</p>
-      <a class="btn btn-green" href="https://www.youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer">فتح القناة على YouTube ↗</a>
+      <iframe class="video-frame" id="youtubeFrame" title="فيديوهات القناة" data-src="https://www.youtube.com/embed?listType=playlist&list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <p>يمكنك زيارة القناة مباشرة:</p>
+      <a class="btn btn-green" href="https://www.youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer">فتح على YouTube ↗</a>
     </div>
   </div>
 </div>
@@ -504,13 +487,13 @@ gtag('config','G-3VZQSDZNC7');
   <div class="modal-panel">
     <div class="modal-head">
       <h2 id="galleryModalTitle">معرض الصور</h2>
-      <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
+      <button class="modal-close" type="button" data-close aria-label="إغلاق">×</button>
     </div>
     <div class="modal-body">
-      <p>اضغط على أي صورة لعرضها بحجم أكبر.</p>
-      <div class="modal-status" id="galleryStatus" role="status">جاري تحميل الصور…</div>
+      <p>اضغط على أي صورة لتكبيرها.</p>
+      <div class="modal-status" id="galleryStatus" role="status">جاري التحميل…</div>
       <div class="gallery-grid mt" id="galleryGrid"></div>
-      <button class="btn btn-light mt" id="retryGallery" type="button">إعادة تحميل الصور ↻</button>
+      <button class="btn btn-light mt" id="retryGallery" type="button">إعادة تحميل ↻</button>
     </div>
   </div>
 </div>
@@ -518,7 +501,7 @@ gtag('config','G-3VZQSDZNC7');
   <div class="modal-panel lightbox-panel">
     <div class="modal-head">
       <h2 id="lightboxTitle">عرض الصورة</h2>
-      <button class="modal-close" type="button" data-close aria-label="إغلاق الصورة">×</button>
+      <button class="modal-close" type="button" data-close aria-label="إغلاق">×</button>
     </div>
     <img class="lightbox-image" id="lightboxImage" alt="">
   </div>
@@ -527,15 +510,14 @@ gtag('config','G-3VZQSDZNC7');
   <div class="modal-panel">
     <div class="modal-head">
       <h2 id="aboutModalTitle">عن الموقع وصاحبه</h2>
-      <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
+      <button class="modal-close" type="button" data-close aria-label="إغلاق">×</button>
     </div>
     <div class="modal-body">
       <div class="about-layout">
-        <img class="about-avatar" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
+        <img class="about-avatar" src="acon.jpg" alt="محمد علي">
         <div>
           <h3>محمد علي أحمد الحطاب الجبوري</h3>
-          <p>الشرقاط الثقافي الأول مساحة ثقافية تهتم بتاريخ الشرقاط وتراثها وذاكرتها، وتوثيق القصص والسير والموروث المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
-          <p>تقوم فكرة الموقع على حفظ الذاكرة الثقافية والاجتماعية وإتاحتها للقراء والمهتمين، لتبقى حكاية المكان حاضرة لدى الأجيال.</p>
+          <p>مساحة ثقافية لتوثيق تاريخ الشرقاط وتراثها وذاكرتها، وحفظ الحكايات والموروث المحلي للأجيال.</p>
           <button class="btn btn-green" type="button" data-open="contactModal">تواصل معنا</button>
         </div>
       </div>
@@ -545,34 +527,33 @@ gtag('config','G-3VZQSDZNC7');
 <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
-      <h2 id="contactModalTitle">راسلنا عبر البريد الإلكتروني</h2>
-      <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
+      <h2 id="contactModalTitle">راسلنا بريدياً</h2>
+      <button class="modal-close" type="button" data-close aria-label="إغلاق">×</button>
     </div>
     <div class="modal-body">
-      <p>اكتب اسمك وتفاصيل كتابك أو رسالتك لتجهيز البريد الإلكتروني وإرفاق ملف الـ PDF.</p>
+      <p>اكتب اسمك وتفاصيل رسالتك أو كتابك لتجهيز البريد الإلكتروني.</p>
       <form class="contact-form" id="contactForm">
         <div class="form-field">
-          <label for="contactName">الاسم أو اسم المؤلف</label>
-          <input id="contactName" type="text" maxlength="100" autocomplete="name" placeholder="اكتب اسمك الكامل">
+          <label for="contactName">الاسم أو المؤلف</label>
+          <input id="contactName" type="text" maxlength="100" autocomplete="name" placeholder="اسمك الكامل">
         </div>
         <div class="form-field">
-          <label for="contactMessage">الرسالة أو تفاصيل الكتاب / الرواية</label>
-          <textarea id="contactMessage" maxlength="3000" required placeholder="اكتب عنوان الكتاب ونبذة عنه هنا…"></textarea>
+          <label for="contactMessage">الرسالة أو تفاصيل الكتاب</label>
+          <textarea id="contactMessage" maxlength="3000" required placeholder="عنوان الكتاب ونبذة مختصرة…"></textarea>
         </div>
-        <p class="form-note">سيتم فتح بريدك الإلكتروني برسالة جاهزة؛ تذكر إرفاق ملف الكتاب بصيغة PDF قبل إرسال الرسالة.</p>
-        <button class="btn btn-green" type="submit">إرسال عبر البريد الإلكتروني ↗</button>
+        <p class="form-note">سيتم فتح بريدك برسالة جاهزة؛ تذكر إرفاق ملف PDF.</p>
+        <button class="btn btn-green" type="submit">إرسال عبر البريد ↗</button>
       </form>
     </div>
   </div>
 </div>
 
-<!-- Firebase + دفتر الزوار -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-analytics.js";
   import { getFirestore, collection, addDoc, getDocs, query, where, limit, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
-  const firebaseConfig = {
+  const app = initializeApp({
     apiKey: "AIzaSyA9DsoO3epSRlDj9KZ8Awag3fQqxF7KJOs",
     authDomain: "shirqat-guest.firebaseapp.com",
     projectId: "shirqat-guest",
@@ -580,35 +561,21 @@ gtag('config','G-3VZQSDZNC7');
     messagingSenderId: "872939921676",
     appId: "1:872939921676:web:19826acf92a25c8de7a929",
     measurementId: "G-LL374VLFBV"
-  };
-
-  const app = initializeApp(firebaseConfig);
+  });
   getAnalytics(app);
   const db = getFirestore(app);
-
   const GUEST_COLLECTION = "guestbook";
-  const COOLDOWN_MS = 60 * 1000;
+  const COOLDOWN_MS = 60000;
   const COOLDOWN_KEY = "guestbookLastPost";
-  const MAX_SHOWN = 100;
 
   const submitBtn = document.getElementById("submitGuestBtn");
   const listEl = document.getElementById("guestMessagesList");
   const nameEl = document.getElementById("visitorName");
   const messageEl = document.getElementById("visitorMessage");
 
-  const notify = showToast;
-
-  function getLastPost() {
-    try { return Number(localStorage.getItem(COOLDOWN_KEY)) || 0; } catch { return 0; }
-  }
-  function setLastPost() {
-    try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch {}
-  }
-
-  function formatDate(ts) {
-    if (!ts || typeof ts.toDate !== "function") return "";
-    return new Intl.DateTimeFormat("ar-IQ", { year: "numeric", month: "long", day: "numeric", timeZone: "Asia/Baghdad" }).format(ts.toDate());
-  }
+  const getLastPost = () => Number(localStorage.getItem(COOLDOWN_KEY)) || 0;
+  const setLastPost = () => localStorage.setItem(COOLDOWN_KEY, String(Date.now()));
+  const formatDate = ts => ts?.toDate ? new Intl.DateTimeFormat("ar-IQ", { year: "numeric", month: "long", day: "numeric", timeZone: "Asia/Baghdad" }).format(ts.toDate()) : "";
 
   function showEmpty(text) {
     listEl.replaceChildren();
@@ -621,105 +588,38 @@ gtag('config','G-3VZQSDZNC7');
   async function loadGuestMessages() {
     if (!listEl) return;
     try {
-      const snap = await getDocs(query(
-        collection(db, GUEST_COLLECTION),
-        where("approved", "==", true),
-        limit(MAX_SHOWN)
-      ));
-
-      if (snap.empty) {
-        showEmpty("لا توجد رسائل حتى الآن. كن أول المارين هنا!");
-        return;
-      }
-
-      const items = snap.docs
-        .map(d => d.data())
-        .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
-
+      const snap = await getDocs(query(collection(db, GUEST_COLLECTION), where("approved", "==", true), limit(100)));
+      if (snap.empty) { showEmpty("لا توجد رسائل حالياً."); return; }
+      const items = snap.docs.map(d => d.data()).sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
       listEl.replaceChildren();
       items.forEach(data => {
         const card = document.createElement("article");
         card.className = "guestbook-card";
-
-        const head = document.createElement("div");
-        head.className = "guestbook-card-head";
-
-        const name = document.createElement("span");
-        name.className = "guestbook-name";
-        name.textContent = data.name || "زائر";
-
-        const date = document.createElement("span");
-        date.className = "guestbook-date";
-        date.textContent = formatDate(data.createdAt);
-
-        const text = document.createElement("p");
-        text.className = "guestbook-text";
-        text.textContent = data.message || "";
-
-        head.append(name, date);
-        card.append(head, text);
-
-        if (typeof data.reply === "string" && data.reply.trim()) {
-          const reply = document.createElement("div");
-          reply.className = "guestbook-reply";
-
-          const label = document.createElement("span");
-          label.className = "guestbook-reply-label";
-          label.textContent = "↩ رد إدارة الموقع";
-
-          const replyText = document.createElement("p");
-          replyText.className = "guestbook-reply-text";
-          replyText.textContent = data.reply;
-
-          reply.append(label, replyText);
-          card.append(reply);
-        }
-
+        card.innerHTML = `
+          <div class="guestbook-card-head"><span class="guestbook-name">${data.name || "زائر"}</span><span class="guestbook-date">${formatDate(data.createdAt)}</span></div>
+          <p class="guestbook-text">${data.message || ""}</p>
+          ${data.reply ? `<div class="guestbook-reply"><span class="guestbook-reply-label">↩ رد الإدارة</span><p class="guestbook-reply-text">${data.reply}</p></div>` : ""}
+        `;
         listEl.append(card);
       });
-    } catch (e) {
-      console.error("خطأ في الجلب:", e);
-      showEmpty("تعذر تحميل رسائل الزوار.");
-    }
+    } catch { showEmpty("تعذر تحميل الرسائل."); }
   }
 
   submitBtn?.addEventListener("click", async () => {
     const name = nameEl.value.trim();
     const message = messageEl.value.trim();
-
-    if (!name || !message) {
-      notify("الرجاء إدخال الاسم والرسالة أولاً.");
-      return;
-    }
-
+    if (!name || !message) { showToast("الرجاء إدخال الاسم والرسالة."); return; }
     const wait = COOLDOWN_MS - (Date.now() - getLastPost());
-    if (wait > 0) {
-      notify(`الرجاء الانتظار ${Math.ceil(wait / 1000)} ثانية قبل إرسال رسالة جديدة.`);
-      return;
-    }
-
+    if (wait > 0) { showToast(`انتظر ${Math.ceil(wait / 1000)} ثانية.`); return; }
     try {
       submitBtn.disabled = true;
       submitBtn.textContent = "جاري الإرسال...";
-
-      await addDoc(collection(db, GUEST_COLLECTION), {
-        name: name.slice(0, 100),
-        message: message.slice(0, 1000),
-        approved: false,
-        createdAt: serverTimestamp()
-      });
-
+      await addDoc(collection(db, GUEST_COLLECTION), { name: name.slice(0, 100), message: message.slice(0, 1000), approved: false, createdAt: serverTimestamp() });
       setLastPost();
-      nameEl.value = "";
-      messageEl.value = "";
-      notify("تم إرسال رسالتك، وستظهر بعد المراجعة. شكراً لك!");
-    } catch (e) {
-      console.error("خطأ في الإرسال:", e);
-      notify("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "إرسال الملاحظة ✍️";
-    }
+      nameEl.value = ""; messageEl.value = "";
+      showToast("تم إرسال رسالتك وستظهر بعد المراجعة.");
+    } catch { showToast("حدث خطأ، حاول مجدداً."); }
+    finally { submitBtn.disabled = false; submitBtn.textContent = "إرسال الملاحظة ✍️"; }
   });
 
   loadGuestMessages();
@@ -727,85 +627,46 @@ gtag('config','G-3VZQSDZNC7');
 
 <script>
 "use strict";
-const CONFIG = {
-  githubUser: "mhamalgporee-ctrl",
-  githubRepo: "mhamalgporee-ctrl.github.io",
-  photosFolder: "photos",
-  contactEmail: "mhamalgporee@gmail.com"
-};
+const CONFIG = { githubUser: "mhamalgporee-ctrl", githubRepo: "mhamalgporee-ctrl.github.io", photosFolder: "photos", contactEmail: "mhamalgporee@gmail.com" };
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-/* ---------- تنبيه سريع ---------- */
 let toastTimer;
-function showToast(message) {
+function showToast(msg) {
   const t = $("#toast");
-  t.textContent = message;
+  t.textContent = msg;
   t.classList.add("visible");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
 }
 
-/* ---------- القائمة ---------- */
 const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
-
-function setMenu(open) {
-  navLinks.classList.toggle("open", open);
-  menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.setAttribute("aria-label", open ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل");
-}
-const closeMenu = () => setMenu(false);
-
+const setMenu = open => { navLinks.classList.toggle("open", open); menuToggle.setAttribute("aria-expanded", String(open)); };
 menuToggle.addEventListener("click", () => setMenu(!navLinks.classList.contains("open")));
-$$("#navLinks a").forEach(a => a.addEventListener("click", closeMenu));
-window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
+$$("#navLinks a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 
-/* ---------- صور الواجهة والتبديل التلقائي ---------- */
 const heroImage = $("#heroMainImage");
 const heroThumbs = $$("[data-hero-image]");
 const heroImages = heroThumbs.map(b => b.dataset.heroImage);
-let heroIndex = 0;
-let heroTimer;
-
-heroImage.addEventListener("error", () => {
-  if (!heroImage.src.endsWith("acon.jpg")) heroImage.src = "acon.jpg";
-});
-
-function setHeroImage(index) {
-  heroIndex = index;
+let heroIndex = 0, heroTimer;
+heroImage.addEventListener("error", () => { if (!heroImage.src.endsWith("acon.jpg")) heroImage.src = "acon.jpg"; });
+function setHeroImage(i) {
+  heroIndex = i;
   heroImage.style.opacity = "0.2";
-  setTimeout(() => {
-    heroImage.src = heroImages[heroIndex];
-    heroImage.style.opacity = "1";
-  }, 200);
-  heroThumbs.forEach((b, i) => b.setAttribute("aria-pressed", String(i === heroIndex)));
+  setTimeout(() => { heroImage.src = heroImages[heroIndex]; heroImage.style.opacity = "1"; }, 200);
+  heroThumbs.forEach((b, idx) => b.setAttribute("aria-pressed", String(idx === heroIndex)));
 }
-
 function startHeroSlider() {
   clearInterval(heroTimer);
   heroTimer = setInterval(() => setHeroImage((heroIndex + 1) % heroImages.length), 10000);
 }
-
-heroThumbs.forEach((b, i) => b.addEventListener("click", () => {
-  setHeroImage(i);
-  startHeroSlider();
-}));
+heroThumbs.forEach((b, i) => b.addEventListener("click", () => { setHeroImage(i); startHeroSlider(); }));
 startHeroSlider();
 
-/* ---------- البحث ---------- */
-const normalizeText = v => String(v || "")
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed]/g, "")
-  .replace(/[أإآٱ]/g, "ا")
-  .replace(/ى/g, "ي")
-  .replace(/ة/g, "ه")
-  .toLowerCase()
-  .trim();
-
+const normalizeText = v => String(v || "").normalize("NFD").replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed]/g, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").toLowerCase().trim();
 const searchInput = $("#siteSearch");
 const contentCards = $$(".content-card");
-
 function runSearch() {
   const q = normalizeText(searchInput.value);
   let visible = 0;
@@ -815,17 +676,12 @@ function runSearch() {
     if (match) visible++;
   });
   $("#noResults").style.display = visible ? "none" : "block";
-  $("#searchStatus").textContent = q
-    ? `عدد النتائج: ${visible} من ${contentCards.length}`
-    : `تصفح جميع الأقسام الثقافية (${contentCards.length} أقسام)`;
+  $("#searchStatus").textContent = q ? `النتائج: ${visible} من ${contentCards.length}` : `تصفح جميع الأقسام (${contentCards.length})`;
 }
 searchInput.addEventListener("input", runSearch);
 runSearch();
 
-/* ---------- النوافذ ---------- */
-let openModals = [];
-let previousFocus = null;
-
+let openModals = [], previousFocus = null;
 function openModal(id) {
   const m = document.getElementById(id);
   if (!m || !m.hidden) return;
@@ -834,143 +690,78 @@ function openModal(id) {
   openModals.push(m);
   history.pushState({ modal: id, depth: openModals.length }, "", "#" + id);
   document.body.classList.add("modal-open");
-
-  if (id === "videoModal") {
-    const f = $("#youtubeFrame");
-    if (!f.getAttribute("src")) f.src = f.dataset.src;
-  }
-  if (id === "galleryModal") {
-    m.querySelector(".modal-panel").scrollTop = 0;
-    loadGallery();
-  }
+  if (id === "videoModal" && !$("#youtubeFrame").getAttribute("src")) $("#youtubeFrame").src = $("#youtubeFrame").dataset.src;
+  if (id === "galleryModal") { m.querySelector(".modal-panel").scrollTop = 0; loadGallery(); }
   $("[data-close]", m).focus();
 }
-
 function hideModal(m) {
   if (!m || m.hidden) return;
   if (m.id === "videoModal") $("#youtubeFrame").removeAttribute("src");
   if (m.id === "lightboxModal") $("#lightboxImage").removeAttribute("src");
   m.hidden = true;
   openModals = openModals.filter(x => x !== m);
-  if (!openModals.length) {
-    document.body.classList.remove("modal-open");
-    previousFocus?.focus?.();
-  }
+  if (!openModals.length) { document.body.classList.remove("modal-open"); previousFocus?.focus?.(); }
 }
-
 function closeModal(m) {
   const top = openModals[openModals.length - 1];
-  const depth = history.state && history.state.depth;
-  if (top === m && depth === openModals.length) history.back();
+  if (top === m && history.state?.depth === openModals.length) history.back();
   else hideModal(m);
 }
-
 window.addEventListener("popstate", () => {
-  const depth = (history.state && history.state.depth) || 0;
+  const depth = history.state?.depth || 0;
   while (openModals.length > depth) hideModal(openModals[openModals.length - 1]);
 });
-
 if (/Modal$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
-
-$$("[data-open]").forEach(t => t.addEventListener("click", e => {
-  e.preventDefault();
-  openModal(t.dataset.open);
-  closeMenu();
-}));
-
+$$("[data-open]").forEach(t => t.addEventListener("click", e => { e.preventDefault(); openModal(t.dataset.open); setMenu(false); }));
 $$(".modal").forEach(m => {
   $$("[data-close]", m).forEach(b => b.addEventListener("click", () => closeModal(m)));
   m.addEventListener("click", e => { if (e.target === m) closeModal(m); });
 });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && openModals.length) closeModal(openModals[openModals.length - 1]); });
 
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && openModals.length) closeModal(openModals[openModals.length - 1]);
-});
-
-/* ---------- معرض الصور (من مجلد photos في GitHub) ---------- */
 async function fetchGitHubFiles(folder) {
-  const url = `https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`;
-  const r = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
-  if (!r.ok) {
-    if (r.status === 403 || r.status === 429) throw new Error("وصلنا إلى حد الطلبات المؤقت من GitHub. حاول بعد قليل.");
-    if (r.status === 404) throw new Error(`لم يتم العثور على مجلد "${folder}" في المستودع.`);
-    throw new Error(`تعذر تحميل الملفات (HTTP ${r.status}).`);
-  }
+  const r = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`, { headers: { Accept: "application/vnd.github+json" } });
+  if (!r.ok) throw new Error("تعذر تحميل الملفات.");
   const d = await r.json();
-  if (!Array.isArray(d)) throw new Error("استجابة الملفات غير متوقعة.");
-  return d.filter(i => i && i.type === "file" && i.download_url);
+  return Array.isArray(d) ? d.filter(i => i?.type === "file" && i.download_url) : [];
 }
-
-const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric: true, sensitivity: "base" });
-const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
-
 let galleryLoaded = false;
-
 async function loadGallery(force = false) {
   if (galleryLoaded && !force) return;
-  const grid = $("#galleryGrid");
-  const status = $("#galleryStatus");
-  status.textContent = "جاري تحميل الصور…";
+  const grid = $("#galleryGrid"), status = $("#galleryStatus");
+  status.textContent = "جاري التحميل…";
   grid.replaceChildren();
   try {
     const files = await fetchGitHubFiles(CONFIG.photosFolder);
-    const photos = files.filter(f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name)).sort(naturalArabicSort);
-    if (!photos.length) {
-      status.textContent = "لا توجد صور مدعومة داخل مجلد photos.";
-      return;
-    }
-    status.textContent = `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها.`;
+    const photos = files.filter(f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name)).sort((a, b) => a.name.localeCompare(b.name, "ar", { numeric: true }));
+    if (!photos.length) { status.textContent = "لا توجد صور."; return; }
+    status.textContent = `عدد الصور: ${photos.length}. اضغط للتكبير.`;
     photos.forEach(photo => {
-      const name = cleanName(photo.name);
+      const name = photo.name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
       const img = document.createElement("img");
-      img.src = photo.download_url;
-      img.alt = name;
-      img.loading = "lazy";
-      img.decoding = "async";
-
+      img.src = photo.download_url; img.alt = name; img.loading = "lazy";
       const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "gallery-item";
-      btn.setAttribute("aria-label", `تكبير الصورة ${name}`);
+      btn.type = "button"; btn.className = "gallery-item";
       btn.append(img);
       btn.addEventListener("click", () => {
-        const big = $("#lightboxImage");
-        big.src = img.src;
-        big.alt = name;
-        $("#lightboxTitle").textContent = name || "عرض الصورة";
+        $("#lightboxImage").src = img.src;
+        $("#lightboxTitle").textContent = name;
         openModal("lightboxModal");
       });
       grid.append(btn);
     });
     galleryLoaded = true;
-  } catch (e) {
-    status.textContent = e.message || "تعذر تحميل معرض الصور.";
-  }
+  } catch { status.textContent = "تعذر تحميل الصور."; }
 }
 $("#retryGallery").addEventListener("click", () => loadGallery(true));
 
-/* ---------- التواصل عبر البريد الإلكتروني ---------- */
 $("#contactForm").addEventListener("submit", e => {
   e.preventDefault();
-  const name = $("#contactName").value.trim();
-  const message = $("#contactMessage").value.trim();
-  if (!message) {
-    $("#contactMessage").focus();
-    showToast("يرجى كتابة الرسالة أو تفاصيل الكتاب أولاً.");
-    return;
-  }
-  const subject = encodeURIComponent("طلب نشر كتاب أو رسالة عبر موقع الشرقاط الثقافي الأول");
-  const body = encodeURIComponent([
-    "السلام عليكم،",
-    name && `اسم المؤلف / المرسل: ${name}`,
-    `تفاصيل الكتاب أو الرسالة:\n${message}`,
-    "\n----------------------------------------",
-    "ملاحظة للمرسل: يرجى إرفاق ملف الكتاب بصيغة PDF في هذه الرسالة قبل إرسالها."
-  ].filter(Boolean).join("\n\n"));
-  window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
+  const name = $("#contactName").value.trim(), message = $("#contactMessage").value.trim();
+  if (!message) { $("#contactMessage").focus(); showToast("يرجى كتابة الرسالة أولاً."); return; }
+  window.location.href = `mailto:${CONFIG.contactEmail}?subject=${encodeURIComponent("طلب عبر موقع الشرقاط الثقافي")}&body=${encodeURIComponent(`المرسل: ${name}\n\n${message}`)}`;
 });
 
-/* ---------- زر الأعلى والسنة ---------- */
 const backToTop = $("#backToTop");
 window.addEventListener("scroll", () => backToTop.classList.toggle("visible", window.scrollY > 450), { passive: true });
 backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
