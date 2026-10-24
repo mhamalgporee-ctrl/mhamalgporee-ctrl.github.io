@@ -45,14 +45,13 @@ button{cursor:pointer}
 .btn:hover{transform:translateY(-2px)}
 .btn:disabled{opacity:.6;cursor:wait}
 .btn-gold{background:var(--gold);color:#000}
-.btn-gold:hover{background:var(--gold-light);color:#000}
+.btn-gold:hover{background:var(--gold-light)}
 .btn-outline{border-color:var(--text);color:var(--text);background:transparent}
 .btn-outline:hover{background:var(--green-soft)}
 .btn-green{background:var(--green);color:#fff}
 .btn-green:hover{background:var(--green-mid)}
 .btn-light{background:var(--paper);border-color:var(--line);color:var(--text)}
 .icon{display:inline-grid;place-items:center;width:44px;height:44px;flex:0 0 44px;border-radius:14px;background:var(--green-soft);color:var(--text);font-size:1.25rem}
-/* الشعر تحت العناوين */
 .poetry-sub{margin:8px 0 0;color:var(--muted);font-size:.92rem;line-height:1.8;font-style:italic}
 /* الرأس */
 .site-header{position:sticky;z-index:100;top:0;border-bottom:1px solid rgba(74,63,51,.09);background:rgba(247,233,204,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
@@ -75,13 +74,13 @@ button{cursor:pointer}
 .hero-kicker{display:inline-flex;align-items:center;gap:6px;margin-bottom:4px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;color:var(--text);background:var(--paper);font-size:.7rem;font-weight:800}
 .hero-kicker span{width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .hero h1{max-width:650px;margin:0 0 4px;color:var(--text);font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.25;font-weight:900}
-.hero h1 .hero-accent{display:block;color:#000}
+.hero h1 .hero-accent{display:block}
 .hero-byline{margin:0 0 4px;color:var(--muted);font-size:.82rem}
 .hero-byline strong{color:var(--text)}
 .hero-quote{max-width:560px;margin:0 0 8px;padding-right:10px;border-right:2px solid var(--gold);font-size:.82rem;line-height:1.5}
 .hero-actions{display:flex;flex-wrap:wrap;gap:6px}
 .hero-visual{position:relative;min-width:0}
-.hero-main-image-wrapper{width:100%;height:auto;max-height:360px;border-radius:14px;overflow:hidden;background:rgba(74,63,51,.03);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:4px}
+.hero-main-image-wrapper{width:100%;max-height:360px;border-radius:14px;overflow:hidden;background:rgba(74,63,51,.03);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:4px}
 .hero-main-image{display:block;width:auto;height:auto;max-width:100%;max-height:350px;object-fit:contain;transition:opacity .4s ease-in-out;border-radius:10px}
 .hero-image-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 0;color:var(--muted);font-size:.7rem}
 .hero-image-caption strong{color:var(--text)}
@@ -109,28 +108,18 @@ button{cursor:pointer}
 .content-card h3{margin:0 0 6px;color:var(--text);font-size:1.05rem;line-height:1.4}
 .content-card p{margin:0 0 12px;color:var(--muted);font-size:.84rem;line-height:1.7}
 .card-link{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:auto;padding:0;border:0;background:none;color:var(--text);font-size:.86rem;font-weight:900}
+.covers-strip{display:flex;gap:8px;margin:0 0 10px;padding-bottom:4px;overflow-x:auto}
+.covers-strip a{flex:0 0 auto}
+.covers-strip img{width:58px;height:82px;object-fit:cover;border:1px solid var(--line);border-radius:3px 7px 7px 3px;box-shadow:0 3px 8px rgba(74,63,51,.18);transition:transform .2s ease}
+.covers-strip a:hover img{transform:translateY(-3px)}
 .no-results{display:none;padding:25px;color:var(--muted);text-align:center}
 /* الوسائط */
-.media-section{background:var(--ivory);color:var(--ink)}
-.media-grid{display:grid;grid-template-columns:1fr;gap:30px}
 .media-card{display:flex;flex-direction:column;padding:10px}
-.media-card .icon{width:50px;height:50px;margin-bottom:15px;border:1px solid rgba(184,150,79,.3);background:rgba(184,150,79,.12);color:#000;font-size:1.4rem}
+.media-card .icon{width:50px;height:50px;margin-bottom:15px;border:1px solid rgba(184,150,79,.3);background:rgba(184,150,79,.12);font-size:1.4rem}
 .media-card h3{margin:0 0 8px;color:var(--text);font-size:1.3rem}
 .media-card p{max-width:420px;margin:0 0 16px;color:var(--muted);font-size:.89rem}
 .media-card .btn{align-self:flex-start}
 .media-status{margin-top:10px;color:var(--muted);font-size:.76rem}
-/* الكتب */
-.book-section{background:var(--paper)}
-.book-section + .book-section{margin-top:40px}
-.book-panel{display:grid;grid-template-columns:.7fr 1.3fr;align-items:center;gap:clamp(28px,5vw,65px);padding:20px}
-.book-art{display:grid;place-items:center;min-height:260px;padding:10px}
-.book-art img{max-width:230px;width:100%;max-height:320px;border-radius:4px 10px 10px 4px;object-fit:contain}
-.book-placeholder{display:none;width:190px;min-height:250px;padding:22px 16px;align-content:center;border:2px solid var(--gold);background:var(--green-deep);color:var(--gold-light);text-align:center}
-.book-placeholder strong{font-size:1.15rem;line-height:1.8}
-.book-placeholder span{margin-top:12px;font-size:.78rem}
-.book-copy h2{margin:10px 0 15px;color:var(--text);font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.4}
-.book-copy p{color:var(--muted)}
-.book-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 /* الطقس */
 .weather-top{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:20px 0;border-bottom:2px solid var(--gold)}
 .weather-location{margin:0 0 4px;color:#000;font-size:.8rem;font-weight:800}
@@ -158,7 +147,6 @@ button{cursor:pointer}
 .map-frame{width:100%;height:360px;border:0;display:block;border-radius:16px}
 .map-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 4px;color:var(--muted);font-size:.81rem}
 /* دفتر الزوار */
-.guestbook-section{background:var(--paper)}
 .guestbook-box{max-width:700px;margin:0 auto;padding:30px;border:1px solid var(--line);border-radius:16px;background:var(--ivory);box-shadow:0 4px 20px rgba(74,63,51,.05)}
 .guestbook-form{display:grid;gap:15px;margin-bottom:25px}
 .guestbook-form .btn{width:100%}
@@ -170,10 +158,9 @@ button{cursor:pointer}
 .guestbook-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
 .guestbook-name{color:var(--text);font-weight:800}
 .guestbook-date{color:var(--muted);font-size:.74rem}
-.guestbook-text{margin:0;color:var(--ink);font-size:.92rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.guestbook-text,.guestbook-reply-text{margin:0;color:var(--ink);font-size:.92rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
 .guestbook-reply{margin-top:10px;padding:10px 12px;border-right:3px solid var(--green);border-radius:8px;background:var(--green-soft)}
 .guestbook-reply-label{display:block;margin-bottom:2px;color:var(--text);font-size:.76rem;font-weight:800}
-.guestbook-reply-text{margin:0;color:var(--ink);font-size:.9rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
 /* التذييل */
 .site-footer{padding:28px 0;background:var(--ivory);color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -235,7 +222,6 @@ button{cursor:pointer}
   .section-heading{align-items:flex-start;flex-direction:column}
   .section-heading p{max-width:none}
   .search-box{width:100%}
-  .book-panel{grid-template-columns:1fr}
   #weather .section-heading p{display:none}
   #weather .section-heading{margin-bottom:10px}
   .weather-top{padding:10px 0;gap:10px}
@@ -327,9 +313,9 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </section>
   <!-- الشريط المتحرك -->
-  <div class="ticker ticker-prayer" role="region" aria-label="ذكر ودعاء">
+  <div class="ticker" role="region" aria-label="ذكر ودعاء">
     <div class="container ticker-inner">
-      <div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه حمداً دائماً أبداً &nbsp;&nbsp;•&nbsp;&nbsp; اللهم صلِّ على محمد وعلى آل محمد ❖ &nbsp;&nbsp;•&nbsp;&nbsp; أستغفر الله ❖ &nbsp;&nbsp;•&nbsp;&nbsp; لا إله إلا الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div>
+      <div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه حمداً دائماً أبداً &nbsp;&nbsp;•&nbsp;&nbsp; اللهم صلِّ على محمد وعلى آل محمد ❖ &nbsp;&nbsp;•&nbsp;&nbsp; أستغفر الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div>
     </div>
   </div>
   <!-- الأقسام الثقافية -->
@@ -381,7 +367,8 @@ gtag('config','G-3VZQSDZNC7');
         <article class="content-card" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book">
           <div class="card-top"><span class="icon" aria-hidden="true">▤</span><span class="card-index">06</span></div>
           <h3>المكتبة والمؤلفات</h3>
-          <p>تصفح الكتب والمؤلفات الثقافية والفكرية المرتبطة بتجربة الكاتب واهتماماته.</p>
+          <div class="covers-strip" id="coversStrip" hidden></div>
+          <p>اقرأ الكتب والمؤلفات</p>
           <a class="card-link" href="book.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
@@ -407,7 +394,7 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </section>
   <!-- الفيديو -->
-  <section class="section media-section" aria-labelledby="mediaTitle">
+  <section class="section" aria-labelledby="mediaTitle">
     <div class="container">
       <div class="section-heading">
         <div>
@@ -416,81 +403,13 @@ gtag('config','G-3VZQSDZNC7');
         </div>
         <p>محتوى مرئي من قناة الموقع على YouTube.</p>
       </div>
-      <div class="media-grid">
-        <article class="media-card">
-          <span class="icon" aria-hidden="true">▷</span>
-          <h3>القناة المرئية</h3>
-          <p>شاهد الفيديوهات المنشورة على قناة الشرقاط الثقافي، وتابع المحتوى المرئي من مكان واحد.</p>
-          <button class="btn btn-gold" type="button" data-open="videoModal">اضغط هنا <span aria-hidden="true">←</span></button>
-          <div class="media-status">محتوى YouTube عبر قناة الموقع</div>
-        </article>
-      </div>
-    </div>
-  </section>
-  <!-- الكتاب الأول -->
-  <section class="section book-section" aria-labelledby="bookTitle">
-    <div class="container">
-      <div class="book-panel">
-        <div class="book-art">
-          <img id="bookCover" src="cover.jpg" alt="غلاف كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين" loading="lazy" onerror="this.style.display='none';document.getElementById('bookPlaceholder').style.display='grid'">
-          <div class="book-placeholder" id="bookPlaceholder">
-            <strong>الرجل والمرأة وعشرة العمر في بلاد الرافدين</strong>
-            <span>من مؤلفات الشرقاط الثقافي الأول</span>
-          </div>
-        </div>
-        <div class="book-copy">
-          <span class="eyebrow">من إصدارات الموقع</span>
-          <h2 id="bookTitle">الرجل والمرأة وعشرة العمر في بلاد الرافدين</h2>
-          <p>كتاب الرجل والمرأة وعشرة العمر في بلاد الرافدين، ضمن اهتمام الموقع بالثقافة والتراث والموضوعات الإنسانية والاجتماعية.</p>
-          <p>يمكنك الاطلاع على نسخة الكتاب بصيغة PDF أو زيارة صفحة المؤلفات لمزيد من التفاصيل.</p>
-          <div class="book-actions">
-            <a class="btn btn-green" href="https://heyzine.com/flip-book/7d35d68ef2.html" target="_blank" rel="noopener">اقرأ الكتاب التفاعلي 📖</a>
-            <a class="btn btn-light" href="book.pdf" target="_blank" rel="noopener">اقرأ الكتاب PDF <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-light" href="book.html">جميع المؤلفات <span aria-hidden="true">←</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- رواية المنافي السعيدة -->
-  <section class="section book-section" aria-labelledby="book2Title">
-    <div class="container">
-      <div class="book-panel">
-        <div class="book-art">
-          <img src="fahad-cover.jpg" alt="غلاف رواية المنافي السعيدة" loading="lazy" onerror="this.onerror=null;this.src='acon.jpg'">
-        </div>
-        <div class="book-copy">
-          <span class="eyebrow">من إصدارات الموقع</span>
-          <h2 id="book2Title">رواية المنافي السعيدة</h2>
-          <p><strong>تأليف: الكاتب والروائي الأستاذ فهد عنتر الدوخي</strong></p>
-          <p>رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة.</p>
-          <div class="book-actions">
-            <a class="btn btn-green" href="https://heyzine.com/flip-book/0ec9c4a4d0.html" target="_blank" rel="noopener">اقرأ الكتاب التفاعلي 📖</a>
-            <a class="btn btn-light" href="فهد الدوخي.pdf" target="_blank" rel="noopener">اقرأ الكتاب PDF <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-light" href="book.html">جميع المؤلفات <span aria-hidden="true">←</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- الديوان الشعري -->
-  <section class="section book-section" aria-labelledby="book3Title">
-    <div class="container">
-      <div class="book-panel">
-        <div class="book-art">
-          <img src="diwan-cover.jpg" alt="غلاف ديوان شعري" loading="lazy" onerror="this.onerror=null;this.src='acon.jpg'">
-        </div>
-        <div class="book-copy">
-          <span class="eyebrow">من إصدارات الموقع</span>
-          <h2 id="book3Title">ديوان شعر</h2>
-          <p><strong>تأليف: محمد علي أحمد الحطاب الجبوري</strong></p>
-          <p>ديوان شعر يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.</p>
-          <div class="book-actions">
-            <a class="btn btn-green" href="diwan.pdf" target="_blank" rel="noopener">اقرأ الديوان PDF <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-light" href="book.html">جميع المؤلفات <span aria-hidden="true">←</span></a>
-          </div>
-        </div>
-      </div>
+      <article class="media-card">
+        <span class="icon" aria-hidden="true">▷</span>
+        <h3>القناة المرئية</h3>
+        <p>شاهد الفيديوهات المنشورة على قناة الشرقاط الثقافي، وتابع المحتوى المرئي من مكان واحد.</p>
+        <button class="btn btn-gold" type="button" data-open="videoModal">اضغط هنا <span aria-hidden="true">←</span></button>
+        <div class="media-status">محتوى YouTube عبر قناة الموقع</div>
+      </article>
     </div>
   </section>
   <!-- الطقس -->
@@ -552,18 +471,16 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
   <!-- دفتر الزوار (Firebase) -->
-  <section class="section guestbook-section" id="guestbook" aria-labelledby="guestbookTitle">
+  <section class="section" id="guestbook" aria-labelledby="guestbookTitle">
     <div class="container">
       <div class="section-heading">
         <div>
           <span class="eyebrow">تواصل وذاكرة</span>
-          <h2 id="guestbookTitle">اترك لنا تعليقك او ملاحظتك  </h2>
+          <h2 id="guestbookTitle">اترك لنا تعليقك او ملاحظتك</h2>
           <p class="poetry-sub">اكتب تعليقك ورسالتك سنرد بعد الاطلاع عليها .</p>
         </div>
       </div>
-
       <div class="guestbook-box">
         <div class="guestbook-form">
           <div class="form-field">
@@ -577,9 +494,7 @@ gtag('config','G-3VZQSDZNC7');
           <p class="form-note">تظهر الرسائل في الدفتر بعد مراجعتها من إدارة الموقع.</p>
           <button id="submitGuestBtn" class="btn btn-gold" type="button">إرسال الملاحظة ✍️</button>
         </div>
-
         <hr class="guestbook-divider">
-
         <h3>💬 تعليقات وملاحظات الزوار والاجابة عليها</h3>
         <div class="guestbook-list" id="guestMessagesList" aria-live="polite">جاري تحميل الرسائل...</div>
       </div>
@@ -685,21 +600,16 @@ gtag('config','G-3VZQSDZNC7');
 <!-- Firebase + دفتر الزوار -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-analytics.js";
   import { getFirestore, collection, addDoc, getDocs, query, where, limit, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
-  const firebaseConfig = {
+  const app = initializeApp({
     apiKey: "AIzaSyA9DsoO3epSRlDj9KZ8Awag3fQqxF7KJOs",
     authDomain: "shirqat-guest.firebaseapp.com",
     projectId: "shirqat-guest",
     storageBucket: "shirqat-guest.firebasestorage.app",
     messagingSenderId: "872939921676",
-    appId: "1:872939921676:web:19826acf92a25c8de7a929",
-    measurementId: "G-LL374VLFBV"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+    appId: "1:872939921676:web:19826acf92a25c8de7a929"
+  });
   const db = getFirestore(app);
 
   const GUEST_COLLECTION = "guestbook";
@@ -712,14 +622,8 @@ gtag('config','G-3VZQSDZNC7');
   const nameEl = document.getElementById("visitorName");
   const messageEl = document.getElementById("visitorMessage");
 
-  const notify = msg => (typeof showToast === "function" ? showToast(msg) : alert(msg));
-
-  function getLastPost() {
-    try { return Number(localStorage.getItem(COOLDOWN_KEY)) || 0; } catch { return 0; }
-  }
-  function setLastPost() {
-    try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch {}
-  }
+  const getLastPost = () => { try { return Number(localStorage.getItem(COOLDOWN_KEY)) || 0; } catch { return 0; } };
+  const setLastPost = () => { try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch {} };
 
   function formatDate(ts) {
     if (!ts || typeof ts.toDate !== "function") return "";
@@ -727,31 +631,25 @@ gtag('config','G-3VZQSDZNC7');
   }
 
   function showEmpty(text) {
-    listEl.replaceChildren();
     const p = document.createElement("p");
     p.className = "guestbook-empty";
     p.textContent = text;
-    listEl.append(p);
+    listEl.replaceChildren(p);
+  }
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    e.className = cls;
+    e.textContent = text;
+    return e;
   }
 
   async function loadGuestMessages() {
-    if (!listEl) return;
     try {
-      const snap = await getDocs(query(
-        collection(db, GUEST_COLLECTION),
-        where("approved", "==", true),
-        limit(MAX_SHOWN)
-      ));
+      const snap = await getDocs(query(collection(db, GUEST_COLLECTION), where("approved", "==", true), limit(MAX_SHOWN)));
+      if (snap.empty) return showEmpty("لا توجد رسائل حتى الآن. كن أول المارين هنا!");
 
-      if (snap.empty) {
-        showEmpty("لا توجد رسائل حتى الآن. كن أول المارين هنا!");
-        return;
-      }
-
-      const items = snap.docs
-        .map(d => d.data())
-        .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
-
+      const items = snap.docs.map(d => d.data()).sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
       listEl.replaceChildren();
       items.forEach(data => {
         const card = document.createElement("article");
@@ -759,38 +657,15 @@ gtag('config','G-3VZQSDZNC7');
 
         const head = document.createElement("div");
         head.className = "guestbook-card-head";
-
-        const name = document.createElement("span");
-        name.className = "guestbook-name";
-        name.textContent = data.name || "زائر";
-
-        const date = document.createElement("span");
-        date.className = "guestbook-date";
-        date.textContent = formatDate(data.createdAt);
-
-        const text = document.createElement("p");
-        text.className = "guestbook-text";
-        text.textContent = data.message || "";
-
-        head.append(name, date);
-        card.append(head, text);
+        head.append(el("span", "guestbook-name", data.name || "زائر"), el("span", "guestbook-date", formatDate(data.createdAt)));
+        card.append(head, el("p", "guestbook-text", data.message || ""));
 
         if (typeof data.reply === "string" && data.reply.trim()) {
           const reply = document.createElement("div");
           reply.className = "guestbook-reply";
-
-          const label = document.createElement("span");
-          label.className = "guestbook-reply-label";
-          label.textContent = "↩ رد إدارة الموقع";
-
-          const replyText = document.createElement("p");
-          replyText.className = "guestbook-reply-text";
-          replyText.textContent = data.reply;
-
-          reply.append(label, replyText);
+          reply.append(el("span", "guestbook-reply-label", "↩ رد إدارة الموقع"), el("p", "guestbook-reply-text", data.reply));
           card.append(reply);
         }
-
         listEl.append(card);
       });
     } catch (e) {
@@ -802,36 +677,27 @@ gtag('config','G-3VZQSDZNC7');
   submitBtn?.addEventListener("click", async () => {
     const name = nameEl.value.trim();
     const message = messageEl.value.trim();
-
-    if (!name || !message) {
-      notify("الرجاء إدخال الاسم والرسالة أولاً.");
-      return;
-    }
+    if (!name || !message) return showToast("الرجاء إدخال الاسم والرسالة أولاً.");
 
     const wait = COOLDOWN_MS - (Date.now() - getLastPost());
-    if (wait > 0) {
-      notify(`الرجاء الانتظار ${Math.ceil(wait / 1000)} ثانية قبل إرسال رسالة جديدة.`);
-      return;
-    }
+    if (wait > 0) return showToast(`الرجاء الانتظار ${Math.ceil(wait / 1000)} ثانية قبل إرسال رسالة جديدة.`);
 
     try {
       submitBtn.disabled = true;
       submitBtn.textContent = "جاري الإرسال...";
-
       await addDoc(collection(db, GUEST_COLLECTION), {
         name: name.slice(0, 100),
         message: message.slice(0, 1000),
         approved: false,
         createdAt: serverTimestamp()
       });
-
       setLastPost();
       nameEl.value = "";
       messageEl.value = "";
-      notify("تم إرسال رسالتك، وستظهر بعد المراجعة. شكراً لك!");
+      showToast("تم إرسال رسالتك، وستظهر بعد المراجعة. شكراً لك!");
     } catch (e) {
       console.error("خطأ في الإرسال:", e);
-      notify("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
+      showToast("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = "إرسال الملاحظة ✍️";
@@ -843,11 +709,11 @@ gtag('config','G-3VZQSDZNC7');
 
 <script>
 "use strict";
-/* ---------- الإعدادات ---------- */
 const CONFIG = {
   githubUser: "mhamalgporee-ctrl",
   githubRepo: "mhamalgporee-ctrl.github.io",
   photosFolder: "photos",
+  coversFolder: "covers",
   contactEmail: "mhamalgporee@gmail.com",
   latitude: 35.5292,
   longitude: 43.2199,
@@ -855,6 +721,8 @@ const CONFIG = {
 };
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const setText = (sel, text) => { const e = $(sel); if (e) e.textContent = text; };
+
 /* ---------- تنبيه سريع ---------- */
 let toastTimer;
 function showToast(message) {
@@ -865,12 +733,12 @@ function showToast(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
 }
+
 /* ---------- القائمة ---------- */
 const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
 function closeMenu() {
-  if (!navLinks) return;
-  navLinks.classList.remove("open");
+  navLinks?.classList.remove("open");
   menuToggle?.setAttribute("aria-expanded", "false");
   menuToggle?.setAttribute("aria-label", "فتح قائمة التنقل");
 }
@@ -881,10 +749,11 @@ menuToggle?.addEventListener("click", () => {
 });
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
+
 /* ---------- صور الواجهة والتبديل التلقائي ---------- */
 const heroImage = $("#heroMainImage");
 const heroThumbBtns = $$("[data-hero-image]");
-const heroImagesList = ["acon.jpg", "acon1.jpg", "acon2.jpg"];
+const heroImagesList = heroThumbBtns.map(b => b.dataset.heroImage);
 let currentHeroIndex = 0;
 let heroSliderTimer = null;
 heroImage?.addEventListener("error", () => {
@@ -893,31 +762,23 @@ heroImage?.addEventListener("error", () => {
 function setHeroImage(index) {
   if (!heroImage) return;
   currentHeroIndex = index;
-  const src = heroImagesList[currentHeroIndex];
   heroImage.style.opacity = "0.2";
   setTimeout(() => {
-    heroImage.src = src;
+    heroImage.src = heroImagesList[currentHeroIndex];
     heroImage.style.opacity = "1";
   }, 200);
   heroThumbBtns.forEach((b, i) => b.setAttribute("aria-pressed", String(i === currentHeroIndex)));
 }
-function nextHeroImage() {
-  setHeroImage((currentHeroIndex + 1) % heroImagesList.length);
-}
-function stopHeroSlider() {
-  if (heroSliderTimer) clearInterval(heroSliderTimer);
-}
 function startHeroSlider() {
-  stopHeroSlider();
-  heroSliderTimer = setInterval(nextHeroImage, 10000);
+  clearInterval(heroSliderTimer);
+  heroSliderTimer = setInterval(() => setHeroImage((currentHeroIndex + 1) % heroImagesList.length), 10000);
 }
-heroThumbBtns.forEach((b, index) => {
-  b.addEventListener("click", () => {
-    setHeroImage(index);
-    startHeroSlider();
-  });
-});
+heroThumbBtns.forEach((b, index) => b.addEventListener("click", () => {
+  setHeroImage(index);
+  startHeroSlider();
+}));
 if (heroThumbBtns.length) startHeroSlider();
+
 /* ---------- البحث ---------- */
 function normalizeText(v) {
   return String(v || "")
@@ -932,8 +793,7 @@ function normalizeText(v) {
 const searchInput = $("#siteSearch");
 const contentCards = $$(".content-card");
 function runSearch() {
-  if (!searchInput) return;
-  const q = normalizeText(searchInput.value);
+  const q = normalizeText(searchInput?.value);
   let visible = 0;
   contentCards.forEach(c => {
     const match = !q || normalizeText(c.textContent + " " + c.dataset.search).includes(q);
@@ -942,15 +802,13 @@ function runSearch() {
   });
   const noRes = $("#noResults");
   if (noRes) noRes.style.display = visible ? "none" : "block";
-  const searchStatus = $("#searchStatus");
-  if (searchStatus) {
-    searchStatus.textContent = q
-      ? `عدد النتائج: ${visible} من ${contentCards.length}`
-      : `تصفح جميع الأقسام الثقافية (${contentCards.length} أقسام)`;
-  }
+  setText("#searchStatus", q
+    ? `عدد النتائج: ${visible} من ${contentCards.length}`
+    : `تصفح جميع الأقسام الثقافية (${contentCards.length} أقسام)`);
 }
 searchInput?.addEventListener("input", runSearch);
 runSearch();
+
 /* ---------- النوافذ ---------- */
 let openModals = [];
 let previousFocus = null;
@@ -995,13 +853,11 @@ window.addEventListener("popstate", () => {
   while (openModals.length > depth) hideModal(openModals[openModals.length - 1]);
 });
 if (/Modal$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
-$$("[data-open]").forEach(t => {
-  t.addEventListener("click", e => {
-    e.preventDefault();
-    openModal(t.dataset.open);
-    closeMenu();
-  });
-});
+$$("[data-open]").forEach(t => t.addEventListener("click", e => {
+  e.preventDefault();
+  openModal(t.dataset.open);
+  closeMenu();
+}));
 $$(".modal").forEach(m => {
   $$("[data-close]", m).forEach(b => b.addEventListener("click", () => closeModal(m)));
   m.addEventListener("click", e => { if (e.target === m) closeModal(m); });
@@ -1009,7 +865,8 @@ $$(".modal").forEach(m => {
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && openModals.length) closeModal(openModals[openModals.length - 1]);
 });
-/* ---------- ملفات GitHub ---------- */
+
+/* ---------- معرض الصور (من GitHub) ---------- */
 async function fetchGitHubFiles(folder) {
   const url = `https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`;
   const r = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
@@ -1024,23 +881,19 @@ async function fetchGitHubFiles(folder) {
 }
 const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric: true, sensitivity: "base" });
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
-/* ---------- معرض الصور ---------- */
+
 let galleryLoaded = false;
 async function loadGallery(force = false) {
   if (galleryLoaded && !force) return;
   const grid = $("#galleryGrid");
-  const s = $("#galleryStatus");
-  if (!grid || !s) return;
-  s.textContent = "جاري تحميل الصور…";
+  if (!grid || !$("#galleryStatus")) return;
+  setText("#galleryStatus", "جاري تحميل الصور…");
   grid.replaceChildren();
   try {
     const files = await fetchGitHubFiles(CONFIG.photosFolder);
     const photos = files.filter(f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name)).sort(naturalArabicSort);
-    if (!photos.length) {
-      s.textContent = "لا توجد صور مدعومة داخل مجلد photos.";
-      return;
-    }
-    s.textContent = `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها.`;
+    if (!photos.length) return setText("#galleryStatus", "لا توجد صور مدعومة داخل مجلد photos.");
+    setText("#galleryStatus", `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها.`);
     photos.forEach(photo => {
       const name = cleanName(photo.name);
       const b = document.createElement("button");
@@ -1055,22 +908,48 @@ async function loadGallery(force = false) {
       b.append(img);
       b.addEventListener("click", () => {
         const lbImg = $("#lightboxImage");
-        const lbTitle = $("#lightboxTitle");
-        if (lbImg) {
-          lbImg.src = img.src;
-          lbImg.alt = name;
-        }
-        if (lbTitle) lbTitle.textContent = name || "عرض الصورة";
+        if (lbImg) { lbImg.src = img.src; lbImg.alt = name; }
+        setText("#lightboxTitle", name || "عرض الصورة");
         openModal("lightboxModal");
       });
       grid.append(b);
     });
     galleryLoaded = true;
   } catch (e) {
-    s.textContent = e.message || "تعذر تحميل معرض الصور.";
+    setText("#galleryStatus", e.message || "تعذر تحميل معرض الصور.");
   }
 }
 $("#retryGallery")?.addEventListener("click", () => loadGallery(true));
+
+/* ---------- أغلفة الكتب في الرئيسية (من مجلد covers) ---------- */
+async function loadCovers() {
+  const strip = $("#coversStrip");
+  if (!strip) return;
+  try {
+    const files = await fetchGitHubFiles(CONFIG.coversFolder);
+    const covers = files.filter(f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name)).sort(naturalArabicSort);
+    if (!covers.length) return;
+    covers.forEach(cover => {
+      const name = cleanName(cover.name);
+      const a = document.createElement("a");
+      a.href = "book.html";
+      a.title = name;
+      a.setAttribute("aria-label", name);
+      const img = document.createElement("img");
+      img.src = cover.download_url;
+      img.alt = name;
+      img.loading = "lazy";
+      img.decoding = "async";
+      a.append(img);
+      strip.append(a);
+    });
+    strip.hidden = false;
+  } catch (e) {
+    console.error("تعذر تحميل أغلفة الكتب:", e);
+  }
+}
+loadCovers();
+
 /* ---------- الطقس والساعة ---------- */
 const WEATHER_CODES = {
   0: ["سماء صافية", "☀️"], 1: ["صحو غالباً", "🌤️"], 2: ["غائم جزئياً", "⛅"], 3: ["غائم", "☁️"],
@@ -1084,42 +963,28 @@ const WEATHER_CODES = {
   85: ["زخات ثلوج خفيفة", "🌨️"], 86: ["زخات ثلوج كثيفة", "❄️"],
   95: ["عواصف رعدية", "⛈️"], 96: ["عواصف رعدية مع برد", "⛈️"], 99: ["عواصف رعدية قوية مع برد", "⛈️"]
 };
-const getWeatherInfo = (code, cloud) => {
+function getWeatherInfo(code, cloud) {
   if (code <= 3 && typeof cloud === "number") {
     if (cloud < 20) return WEATHER_CODES[0];
     if (cloud < 45) return WEATHER_CODES[1];
     if (cloud < 75) return WEATHER_CODES[2];
   }
   return WEATHER_CODES[code] || ["حالة جوية متغيرة", "🌤️"];
-};
+}
 function formatDay(ds, i) {
   if (i === 0) return "اليوم";
   if (i === 1) return "غداً";
-  const d = new Date(`${ds}T12:00:00+03:00`);
-  return new Intl.DateTimeFormat("ar-IQ", { weekday: "long", timeZone: CONFIG.timezone }).format(d);
+  return new Intl.DateTimeFormat("ar-IQ", { weekday: "long", timeZone: CONFIG.timezone }).format(new Date(`${ds}T12:00:00+03:00`));
 }
 function formatBaghdadTime(ds) {
-  if (!ds) return "—";
-  const d = new Date(ds);
-  if (Number.isNaN(d.getTime())) return "—";
+  const d = ds ? new Date(ds) : null;
+  if (!d || Number.isNaN(d.getTime())) return "—";
   return new Intl.DateTimeFormat("ar-IQ", { hour: "numeric", minute: "2-digit", timeZone: CONFIG.timezone, hour12: true }).format(d);
 }
-function renderForecastPlaceholders() {
-  const f = $("#weatherForecast");
-  if (!f) return;
-  f.replaceChildren();
-  ["اليوم", "غداً", "بعد غد", "لاحقاً"].forEach(l => {
-    const c = document.createElement("div");
-    c.className = "forecast-day";
-    c.innerHTML = `<div class="day-name">${l}</div><div class="day-icon">…</div><div class="day-temps">--° / --°</div>`;
-    f.append(c);
-  });
-}
 async function loadWeather() {
-  const s = $("#weatherStatus");
   const b = $("#refreshWeather");
   if (b) b.disabled = true;
-  if (s) s.textContent = "جاري تحديث بيانات الطقس…";
+  setText("#weatherStatus", "جاري تحديث بيانات الطقس…");
   try {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${CONFIG.latitude}&longitude=${CONFIG.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean&timezone=auto`;
     const r = await fetch(url);
@@ -1127,14 +992,14 @@ async function loadWeather() {
     const data = await r.json();
     const c = data.current;
     const [desc, icon] = getWeatherInfo(c.weather_code, c.cloud_cover);
-    if ($("#weatherIcon")) $("#weatherIcon").textContent = icon;
-    if ($("#temperature")) $("#temperature").textContent = `${Math.round(c.temperature_2m)}°`;
-    if ($("#weatherDescription")) $("#weatherDescription").textContent = desc;
-    if ($("#feelsLike")) $("#feelsLike").textContent = `المحسوسة: ${Math.round(c.apparent_temperature)}°`;
-    if ($("#humidity")) $("#humidity").textContent = `الرطوبة: ${c.relative_humidity_2m}%`;
-    if ($("#windSpeed")) $("#windSpeed").textContent = `الرياح: ${Math.round(c.wind_speed_10m)} كم/س`;
-    if ($("#weatherUpdated")) $("#weatherUpdated").textContent = `آخر تحديث: ${formatBaghdadTime(c.time)}`;
-    if ($("#weatherRange")) $("#weatherRange").textContent = `العظمى ${Math.round(data.daily.temperature_2m_max[0])}° · الصغرى ${Math.round(data.daily.temperature_2m_min[0])}°`;
+    setText("#weatherIcon", icon);
+    setText("#temperature", `${Math.round(c.temperature_2m)}°`);
+    setText("#weatherDescription", desc);
+    setText("#feelsLike", `المحسوسة: ${Math.round(c.apparent_temperature)}°`);
+    setText("#humidity", `الرطوبة: ${c.relative_humidity_2m}%`);
+    setText("#windSpeed", `الرياح: ${Math.round(c.wind_speed_10m)} كم/س`);
+    setText("#weatherUpdated", `آخر تحديث: ${formatBaghdadTime(c.time)}`);
+    setText("#weatherRange", `العظمى ${Math.round(data.daily.temperature_2m_max[0])}° · الصغرى ${Math.round(data.daily.temperature_2m_min[0])}°`);
     const f = $("#weatherForecast");
     if (f) {
       f.replaceChildren();
@@ -1150,37 +1015,32 @@ async function loadWeather() {
         f.append(card);
       });
     }
-    if (s) s.textContent = "تم تحديث حالة الطقس بنجاح.";
+    setText("#weatherStatus", "تم تحديث حالة الطقس بنجاح.");
   } catch (e) {
-    if (s) s.textContent = "تعذر جلب حالة الطقس تلقائياً. يرجى إعادة المحاولة.";
-    if ($("#weatherDescription")) $("#weatherDescription").textContent = "تعذر جلب الطقس حالياً.";
+    setText("#weatherStatus", "تعذر جلب حالة الطقس تلقائياً. يرجى إعادة المحاولة.");
+    setText("#weatherDescription", "تعذر جلب الطقس حالياً.");
   } finally {
     if (b) b.disabled = false;
   }
 }
 function updateClock() {
-  const clock = $("#localClock");
-  if (clock) {
-    clock.textContent = new Intl.DateTimeFormat("ar-IQ", {
-      timeZone: CONFIG.timezone, hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
-    }).format(new Date());
-  }
+  setText("#localClock", new Intl.DateTimeFormat("ar-IQ", {
+    timeZone: CONFIG.timezone, hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
+  }).format(new Date()));
 }
-renderForecastPlaceholders();
 $("#refreshWeather")?.addEventListener("click", loadWeather);
 updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
+
 /* ---------- التواصل عبر البريد الإلكتروني ---------- */
-const contactForm = $("#contactForm");
-contactForm?.addEventListener("submit", e => {
+$("#contactForm")?.addEventListener("submit", e => {
   e.preventDefault();
   const name = $("#contactName")?.value.trim() || "";
   const message = $("#contactMessage")?.value.trim() || "";
   if (!message) {
     $("#contactMessage")?.focus();
-    showToast("يرجى كتابة الرسالة أو تفاصيل الكتاب أولاً.");
-    return;
+    return showToast("يرجى كتابة الرسالة أو تفاصيل الكتاب أولاً.");
   }
   const subject = encodeURIComponent("طلب نشر كتاب أو رسالة عبر موقع الشرقاط الثقافي الأول");
   const body = encodeURIComponent([
@@ -1192,11 +1052,12 @@ contactForm?.addEventListener("submit", e => {
   ].filter(Boolean).join("\n\n"));
   window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
 });
+
 /* ---------- زر الأعلى والسنة ---------- */
 const backToTop = $("#backToTop");
 window.addEventListener("scroll", () => backToTop?.classList.toggle("visible", window.scrollY > 450), { passive: true });
 backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-if ($("#year")) $("#year").textContent = new Date().getFullYear();
+setText("#year", new Date().getFullYear());
 </script>
 </body>
 </html>
