@@ -124,6 +124,7 @@ button{cursor:pointer}
 .media-card h3{margin:0 0 8px;color:var(--text);font-size:1.3rem}
 .media-card p{max-width:420px;margin:0 0 16px;color:var(--muted);font-size:.89rem}
 .media-card .btn{align-self:flex-start}
+.book-actions{display:flex;flex-wrap:wrap;gap:10px;align-self:flex-start}
 /* الطقس */
 .weather-top{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:20px 0;border-bottom:2px solid var(--gold)}
 .weather-location{margin:0 0 4px;color:#000;font-size:.8rem;font-weight:800}
@@ -280,6 +281,9 @@ button{cursor:pointer}
 .form-field input,.form-field textarea{border:0;border-bottom:1px solid var(--gold);border-radius:0;background:none}
 .map-block summary{padding-inline:0}
 .map-frame,.video-frame{border-radius:28px}
+.pledge{display:flex;gap:10px;align-items:flex-start;max-width:540px;margin:0 0 14px;color:var(--text);font-size:.84rem;line-height:1.7;cursor:pointer}
+.pledge input{flex:0 0 22px;width:22px;height:22px;margin-top:4px;accent-color:var(--gold)}
+.btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
@@ -323,6 +327,7 @@ gtag('config','G-3VZQSDZNC7');
         <p class="hero-quote">أهلاً بك في الشرقاط الثقافي الأول ❖</p>
         <div class="hero-actions">
           <button class="btn btn-outline" type="button" data-open="aboutModal">من نحن اضغط هنا</button>
+          <button class="btn btn-light" type="button" id="shareBtn">مشاركة الموقع ↗</button>
         </div>
       </div>
       <div class="hero-visual">
@@ -441,7 +446,11 @@ gtag('config','G-3VZQSDZNC7');
         <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
         <h3>أرسل كتابك أو روايتك</h3>
         <p>هل لديك كتاب أو رواية؟ أرسلها بصيغة PDF عبر البريد لنراجعها وننشرها باسمك في صفحة المؤلفات.</p>
-        <a class="btn btn-gold" href="sendbook.html">اضغط هنا <span aria-hidden="true">←</span></a>
+        <label class="pledge"><input type="checkbox" id="pledgeBook"><span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي.</span></label>
+        <div class="book-actions">
+          <a class="btn btn-gold" id="bookLink" href="sendbook.html">اضغط هنا <span aria-hidden="true">←</span></a>
+          <a class="btn btn-gold" id="waBook" href="#" target="_blank" rel="noopener noreferrer" hidden>أرسل كتابك عبر واتساب ↗</a>
+        </div>
       </article>
     </div>
   </section>
@@ -510,6 +519,7 @@ gtag('config','G-3VZQSDZNC7');
       <a href="book.html">المؤلفات</a>
       <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
       <a href="#contact" data-open="contactModal">اتصل بنا</a>
+      <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>واتساب ↗</a>
     </nav>
   </div>
 </footer>
@@ -580,7 +590,8 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
     </div>
     <div class="modal-body">
-      <p>اكتب رسالتك وسنجهّز لك بريداً جاهزاً للإرسال.</p>
+      <a class="btn btn-gold" id="waContact" href="#" target="_blank" rel="noopener noreferrer" hidden>تواصل معنا عبر واتساب ↗</a>
+      <p>أو اكتب رسالتك وسنجهّز لك بريداً جاهزاً للإرسال.</p>
       <form class="contact-form" id="contactForm">
         <div class="form-field">
           <label for="contactName">الاسم أو اسم المؤلف</label>
@@ -591,6 +602,7 @@ gtag('config','G-3VZQSDZNC7');
           <textarea id="contactMessage" maxlength="3000" required placeholder="اكتب عنوان الكتاب ونبذة عنه هنا…"></textarea>
         </div>
         <p class="form-note">سيفتح تطبيق البريد برسالة جاهزة. إن كنت ترسل كتاباً، أرفق ملف PDF قبل الإرسال.</p>
+        <label class="pledge"><input type="checkbox" id="pledgeContact"><span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي.</span></label>
         <button class="btn btn-green" type="submit">إرسال عبر البريد الإلكتروني ↗</button>
       </form>
     </div>
@@ -605,6 +617,8 @@ const CONFIG = {
   photosFolder: "photos",
   coversFolder: "covers",
   contactEmail: "mhamalgporee@gmail.com",
+  /* رقم الواتساب بصيغة دولية بلا + ولا أصفار، مثال: 9647701234567 (اتركه فارغاً لإخفاء الزر) */
+  whatsapp: "9647835025407",
   latitude: 35.5292,
   longitude: 43.2199,
   timezone: "Asia/Baghdad",
@@ -926,6 +940,7 @@ $("#contactForm")?.addEventListener("submit", e => {
     $("#contactMessage")?.focus();
     return showToast("يرجى كتابة الرسالة أو تفاصيل الكتاب أولاً.");
   }
+  if (!$("#pledgeContact")?.checked) return showToast("يرجى الضغط على التعهد قبل الإرسال.");
   const subject = encodeURIComponent("طلب نشر كتاب أو رسالة عبر موقع الشرقاط الثقافي الأول");
   const body = encodeURIComponent([
     "السلام عليكم،",
@@ -936,6 +951,34 @@ $("#contactForm")?.addEventListener("submit", e => {
   ].filter(Boolean).join("\n\n"));
   window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
 });
+
+/* ---------- واتساب والمشاركة ---------- */
+if (CONFIG.whatsapp) {
+  const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("السلام عليكم، تواصلت معكم من موقع الشرقاط الثقافي الأول.")}`;
+  ["#waFooter", "#waContact"].forEach(sel => { const a = $(sel); if (a) { a.href = wa; a.hidden = false; } });
+  const waBook = $("#waBook");
+  if (waBook) {
+    waBook.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("السلام عليكم، أرغب بإرسال كتابي أو روايتي للنشر في موقع الشرقاط الثقافي الأول.")}`;
+    waBook.hidden = false;
+  }
+}
+$("#shareBtn")?.addEventListener("click", async () => {
+  const data = { title: document.title, text: "الشرقاط الثقافي الأول — ذاكرة المكان وحكاية الإنسان", url: location.origin + location.pathname };
+  try {
+    if (navigator.share) { await navigator.share(data); return; }
+  } catch (e) { if (e.name === "AbortError") return; }
+  window.open("https://wa.me/?text=" + encodeURIComponent(data.text + "\n" + data.url), "_blank", "noopener");
+});
+
+/* ---------- التعهد بالحقوق (قسم أرسل كتابك) ---------- */
+const pledgeBook = $("#pledgeBook");
+const bookBtns = ["#bookLink", "#waBook"].map(sel => $(sel)).filter(Boolean);
+const syncPledge = () => bookBtns.forEach(b => b.setAttribute("aria-disabled", String(!pledgeBook?.checked)));
+pledgeBook?.addEventListener("change", syncPledge);
+syncPledge();
+bookBtns.forEach(b => b.addEventListener("click", e => {
+  if (!pledgeBook?.checked) { e.preventDefault(); showToast("يرجى الضغط على التعهد أولاً."); }
+}));
 
 /* ---------- زر الأعلى والسنة ---------- */
 const backToTop = $("#backToTop");
