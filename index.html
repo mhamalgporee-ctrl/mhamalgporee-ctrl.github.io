@@ -596,12 +596,11 @@ menuToggle?.addEventListener("click", () => {
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
 
-/* ---------- صور الواجهة والتبديل التلقائي ---------- */
+/* ---------- صور الواجهة (تتبدل بالضغط على الصورة المصغرة) ---------- */
 const heroImage = $("#heroMainImage");
 const heroThumbBtns = $$("[data-hero-image]");
 const heroImagesList = heroThumbBtns.map(b => b.dataset.heroImage);
 let currentHeroIndex = 0;
-let heroSliderTimer = null;
 heroImage?.addEventListener("error", () => {
   if (!heroImage.src.endsWith("acon.jpg")) heroImage.src = "acon.jpg";
 });
@@ -615,15 +614,7 @@ function setHeroImage(index) {
   }, 200);
   heroThumbBtns.forEach((b, i) => b.setAttribute("aria-pressed", String(i === currentHeroIndex)));
 }
-function startHeroSlider() {
-  clearInterval(heroSliderTimer);
-  heroSliderTimer = setInterval(() => setHeroImage((currentHeroIndex + 1) % heroImagesList.length), 10000);
-}
-heroThumbBtns.forEach((b, index) => b.addEventListener("click", () => {
-  setHeroImage(index);
-  startHeroSlider();
-}));
-if (heroThumbBtns.length) startHeroSlider();
+heroThumbBtns.forEach((b, index) => b.addEventListener("click", () => setHeroImage(index)));
 
 /* ---------- البحث ---------- */
 function normalizeText(v) {
