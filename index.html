@@ -146,21 +146,6 @@ button{cursor:pointer}
 .map-block h2{font-size:1.55rem}
 .map-frame{width:100%;height:360px;border:0;display:block;border-radius:16px}
 .map-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 4px;color:var(--muted);font-size:.81rem}
-/* دفتر الزوار */
-.guestbook-box{max-width:700px;margin:0 auto;padding:30px;border:1px solid var(--line);border-radius:16px;background:var(--ivory);box-shadow:0 4px 20px rgba(74,63,51,.05)}
-.guestbook-form{display:grid;gap:15px;margin-bottom:25px}
-.guestbook-form .btn{width:100%}
-.guestbook-divider{margin:30px 0;border:0;border-top:1px solid var(--line)}
-.guestbook-box h3{margin:0 0 15px;color:var(--text);font-size:1.2rem}
-.guestbook-list{display:grid;gap:12px}
-.guestbook-empty{padding:20px;text-align:center}
-.guestbook-card{padding:14px;border-right:3px solid var(--gold);border-radius:10px;background:var(--paper)}
-.guestbook-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
-.guestbook-name{color:var(--text);font-weight:800}
-.guestbook-date{color:var(--muted);font-size:.74rem}
-.guestbook-text,.guestbook-reply-text{margin:0;color:var(--ink);font-size:.92rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
-.guestbook-reply{margin-top:10px;padding:10px 12px;border-right:3px solid var(--green);border-radius:8px;background:var(--green-soft)}
-.guestbook-reply-label{display:block;margin-bottom:2px;color:var(--text);font-size:.76rem;font-weight:800}
 /* التذييل */
 .site-footer{padding:28px 0;background:var(--ivory);color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -244,7 +229,6 @@ button{cursor:pointer}
   .map-block h2{font-size:1.2rem}
   .map-frame{height:240px}
   .map-caption{padding:8px 2px;font-size:.72rem}
-  .guestbook-box{padding:20px 16px}
   .footer-inner{align-items:flex-start;flex-direction:column}
 }
 @media (max-width:480px){
@@ -283,7 +267,6 @@ gtag('config','G-3VZQSDZNC7');
       <a href="tv.html">التلفزيون</a>
       <a href="book.html">المؤلفات</a>
       <a href="#weather">الطقس</a>
-      <a href="#guestbook">دفتر الزوار</a>
       <a href="#contact" data-open="contactModal">اتصل بنا</a>
     </nav>
   </div>
@@ -473,35 +456,6 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-  <!-- دفتر الزوار (Firebase) -->
-  <section class="section" id="guestbook" aria-labelledby="guestbookTitle">
-    <div class="container">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">تواصل وذاكرة</span>
-          <h2 id="guestbookTitle">اترك لنا تعليقك او ملاحظتك</h2>
-          <p class="poetry-sub">اكتب تعليقك ورسالتك سنرد بعد الاطلاع عليها .</p>
-        </div>
-      </div>
-      <div class="guestbook-box">
-        <div class="guestbook-form">
-          <div class="form-field">
-            <label for="visitorName">اسمك الكريم:</label>
-            <input type="text" id="visitorName" placeholder="اكتب اسمك هنا..." maxlength="100" autocomplete="name">
-          </div>
-          <div class="form-field">
-            <label for="visitorMessage">ملاحظتك أو رسالتك:</label>
-            <textarea id="visitorMessage" rows="3" placeholder="اكتب رسالتك أو انطباعك عن الموقع..." maxlength="1000"></textarea>
-          </div>
-          <p class="form-note">تظهر الرسائل في الدفتر بعد مراجعتها من إدارة الموقع.</p>
-          <button id="submitGuestBtn" class="btn btn-gold" type="button">إرسال الملاحظة ✍️</button>
-        </div>
-        <hr class="guestbook-divider">
-        <h3>💬 تعليقات وملاحظات الزوار والاجابة عليها</h3>
-        <div class="guestbook-list" id="guestMessagesList" aria-live="polite">جاري تحميل الرسائل...</div>
-      </div>
-    </div>
-  </section>
 </main>
 <footer class="site-footer">
   <div class="container footer-inner">
@@ -598,116 +552,6 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
-
-<!-- Firebase + دفتر الزوار -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, getDocs, query, where, limit, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
-
-  const app = initializeApp({
-    apiKey: "AIzaSyA9DsoO3epSRlDj9KZ8Awag3fQqxF7KJOs",
-    authDomain: "shirqat-guest.firebaseapp.com",
-    projectId: "shirqat-guest",
-    storageBucket: "shirqat-guest.firebasestorage.app",
-    messagingSenderId: "872939921676",
-    appId: "1:872939921676:web:19826acf92a25c8de7a929"
-  });
-  const db = getFirestore(app);
-
-  const GUEST_COLLECTION = "guestbook";
-  const COOLDOWN_MS = 60 * 1000;
-  const COOLDOWN_KEY = "guestbookLastPost";
-  const MAX_SHOWN = 100;
-
-  const submitBtn = document.getElementById("submitGuestBtn");
-  const listEl = document.getElementById("guestMessagesList");
-  const nameEl = document.getElementById("visitorName");
-  const messageEl = document.getElementById("visitorMessage");
-
-  const getLastPost = () => { try { return Number(localStorage.getItem(COOLDOWN_KEY)) || 0; } catch { return 0; } };
-  const setLastPost = () => { try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch {} };
-
-  function formatDate(ts) {
-    if (!ts || typeof ts.toDate !== "function") return "";
-    return new Intl.DateTimeFormat("ar-IQ", { year: "numeric", month: "long", day: "numeric", timeZone: "Asia/Baghdad" }).format(ts.toDate());
-  }
-
-  function showEmpty(text) {
-    const p = document.createElement("p");
-    p.className = "guestbook-empty";
-    p.textContent = text;
-    listEl.replaceChildren(p);
-  }
-
-  function el(tag, cls, text) {
-    const e = document.createElement(tag);
-    e.className = cls;
-    e.textContent = text;
-    return e;
-  }
-
-  async function loadGuestMessages() {
-    try {
-      const snap = await getDocs(query(collection(db, GUEST_COLLECTION), where("approved", "==", true), limit(MAX_SHOWN)));
-      if (snap.empty) return showEmpty("لا توجد رسائل حتى الآن. كن أول المارين هنا!");
-
-      const items = snap.docs.map(d => d.data()).sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
-      listEl.replaceChildren();
-      items.forEach(data => {
-        const card = document.createElement("article");
-        card.className = "guestbook-card";
-
-        const head = document.createElement("div");
-        head.className = "guestbook-card-head";
-        head.append(el("span", "guestbook-name", data.name || "زائر"), el("span", "guestbook-date", formatDate(data.createdAt)));
-        card.append(head, el("p", "guestbook-text", data.message || ""));
-
-        if (typeof data.reply === "string" && data.reply.trim()) {
-          const reply = document.createElement("div");
-          reply.className = "guestbook-reply";
-          reply.append(el("span", "guestbook-reply-label", "↩ رد إدارة الموقع"), el("p", "guestbook-reply-text", data.reply));
-          card.append(reply);
-        }
-        listEl.append(card);
-      });
-    } catch (e) {
-      console.error("خطأ في الجلب:", e);
-      showEmpty("تعذر تحميل رسائل الزوار.");
-    }
-  }
-
-  submitBtn?.addEventListener("click", async () => {
-    const name = nameEl.value.trim();
-    const message = messageEl.value.trim();
-    if (!name || !message) return showToast("الرجاء إدخال الاسم والرسالة أولاً.");
-
-    const wait = COOLDOWN_MS - (Date.now() - getLastPost());
-    if (wait > 0) return showToast(`الرجاء الانتظار ${Math.ceil(wait / 1000)} ثانية قبل إرسال رسالة جديدة.`);
-
-    try {
-      submitBtn.disabled = true;
-      submitBtn.textContent = "جاري الإرسال...";
-      await addDoc(collection(db, GUEST_COLLECTION), {
-        name: name.slice(0, 100),
-        message: message.slice(0, 1000),
-        approved: false,
-        createdAt: serverTimestamp()
-      });
-      setLastPost();
-      nameEl.value = "";
-      messageEl.value = "";
-      showToast("تم إرسال رسالتك، وستظهر بعد المراجعة. شكراً لك!");
-    } catch (e) {
-      console.error("خطأ في الإرسال:", e);
-      showToast("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "إرسال الملاحظة ✍️";
-    }
-  });
-
-  loadGuestMessages();
-</script>
 
 <script>
 "use strict";
