@@ -64,7 +64,6 @@ button{cursor:pointer}
 .pledge input{flex:0 0 22px;width:22px;height:22px;margin-top:4px;accent-color:var(--gold);cursor:pointer}
 .disclaimer-box{font-size:.82rem;color:var(--muted);line-height:1.8}
 .disclaimer-box strong{display:block;margin-bottom:4px;color:#000}
-.disclaimer-box a{font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);unicode-bidi:plaintext}
 .form-note{margin:0;color:var(--muted);font-size:.8rem}
 .form-actions{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 24px;border:1px solid transparent;border-radius:999px;font-weight:800;font-size:.92rem;transition:transform .22s ease,background .22s ease}
@@ -148,8 +147,7 @@ button{cursor:pointer}
 
           <div class="disclaimer-box">
             <strong>تنويه وإخلاء مسؤولية</strong>
-            تُنشر المواد بناءً على طلب المُرسِل وتعهده بحقوق الملكية، وتخضع للمراجعة قبل النشر. الموقع منصة لنشر المحتوى بحسن نية، والمسؤولية الأساسية عن المحتوى تقع على المُرسِل. يحق للموقع رفض أو حذف أي مادة، ويُمنع إرسال محتوى فيه تشهير أو تحريض أو معلومات خاصة بأشخاص دون إذنهم. وإن كان لديك اعتراض أو إشعار بحقوق الملكية أو شكوى، فيرجى التواصل معنا حصراً عبر الواتساب:<br>
-            <a id="waDisclaimer" href="#" target="_blank" rel="noopener noreferrer">تقديم شكوى أو اعتراض عبر واتساب ↗</a>
+            تُنشر المواد بناءً على طلب المُرسِل وتعهده بحقوق الملكية، وتخضع للمراجعة قبل النشر. الموقع منصة لنشر المحتوى بحسن نية، والمسؤولية الأساسية عن المحتوى تقع على المُرسِل. يحق للموقع رفض أو حذف أي مادة، ويُمنع إرسال محتوى فيه تشهير أو تحريض أو معلومات خاصة بأشخاص دون إذنهم. وإن كان لديك اعتراض أو إشعار بحقوق الملكية أو شكوى، فيمكنك التواصل معنا عبر وسائل الاتصال المتاحة في أسفل الموقع.
           </div>
 
           <p class="form-note">يرجى إرفاق ملف الكتاب بصيغة PDF في رسالة البريد الإلكتروني.</p>
@@ -197,12 +195,10 @@ function showToast(m) {
   toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
 }
 
-/* ربط الواتساب */
+/* ربط الواتساب في التذييل */
 if (CONFIG.whatsapp) {
   const waText = encodeURIComponent("السلام عليكم، أود تقديم شكوى أو إشعار بخصوص حقوق الملكية عبر موقع الشرقاط الثقافي الأول.");
   const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${waText}`;
-  const waDisc = $("#waDisclaimer");
-  if (waDisc) waDisc.href = waUrl;
   const waFoot = $("#waFooter");
   if (waFoot) {
     waFoot.href = waUrl;
