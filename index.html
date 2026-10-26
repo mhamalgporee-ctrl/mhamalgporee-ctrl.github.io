@@ -191,12 +191,6 @@ button{cursor:pointer}
 .about-layout{display:grid;grid-template-columns:105px 1fr;align-items:start;gap:20px}
 .about-avatar{width:105px;height:105px;border:3px solid var(--gold);border-radius:50%;object-fit:cover}
 .about-layout h3{margin:0;color:var(--text);font-size:1.15rem}
-.contact-form{display:grid;gap:14px}
-.form-field{display:grid;gap:6px}
-.form-field label{color:var(--text);font-size:.84rem;font-weight:800}
-.form-field input,.form-field textarea,.form-field select{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--paper);color:var(--ink)}
-.form-field textarea{min-height:110px;resize:vertical}
-.form-note{margin:0;color:var(--muted);font-size:.76rem}
 .toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid rgba(184,150,79,.4);border-radius:999px;background:var(--green-deep);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s ease}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
 @media (max-width:1050px){
@@ -278,7 +272,6 @@ button{cursor:pointer}
 .lightbox-image{background:var(--ivory)}
 .modal-close,.lightbox-panel .modal-close{border:0;background:none;color:var(--text);font-size:1.7rem}
 .modal-status{background:none;padding:0}
-.form-field input,.form-field textarea,.form-field select{border:0;border-bottom:1px solid var(--gold);border-radius:0;background:none}
 .map-block summary{padding-inline:0}
 .map-frame,.video-frame{border-radius:28px}
 .pledge{display:flex;gap:10px;align-items:flex-start;max-width:540px;margin:0 0 14px;color:var(--text);font-size:.84rem;line-height:1.7;cursor:pointer}
@@ -295,7 +288,9 @@ gtag('config','G-3VZQSDZNC7');
 </script>
 </head>
 <body>
+
 <a class="skip-link" href="#main">انتقل إلى المحتوى الرئيسي</a>
+
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="#home" aria-label="الشرقاط الثقافي الأول - الصفحة الرئيسية">
@@ -315,6 +310,7 @@ gtag('config','G-3VZQSDZNC7');
     </nav>
   </div>
 </header>
+
 <main id="main">
   <!-- الواجهة -->
   <section class="hero" id="home" aria-labelledby="heroTitle">
@@ -342,12 +338,14 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
+
   <!-- الشريط المتحرك -->
   <div class="ticker" role="region" aria-label="ذكر ودعاء">
     <div class="container ticker-inner">
       <div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه حمداً دائماً أبداً &nbsp;&nbsp;•&nbsp;&nbsp; اللهم صلِّ على محمد وعلى آل محمد ❖ &nbsp;&nbsp;•&nbsp;&nbsp; أستغفر الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div>
     </div>
   </div>
+
   <!-- الأقسام الثقافية -->
   <section class="section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
@@ -384,7 +382,7 @@ gtag('config','G-3VZQSDZNC7');
         <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></span><span class="card-index">03</span></div>
           <h3>معرض الصور</h3>
-          <p>صور ولقطات من الشرقاط. هل لديك صور قديمة؟ أرسلها لنا لننشرها هنا.</p>
+          <p>صور ولقطات وتاريخ مصور من مدينة الشرقاط.</p>
           <button class="card-link" type="button" data-open="galleryModal">اضغط هنا <span aria-hidden="true">←</span></button>
         </article>
         <!-- 04 المقالات -->
@@ -426,6 +424,7 @@ gtag('config','G-3VZQSDZNC7');
       <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div>
     </div>
   </section>
+
   <!-- الفيديو -->
   <section class="section">
     <div class="container">
@@ -437,6 +436,7 @@ gtag('config','G-3VZQSDZNC7');
       </article>
     </div>
   </section>
+
   <!-- أرسل كتابك -->
   <section class="section">
     <div class="container">
@@ -444,13 +444,17 @@ gtag('config','G-3VZQSDZNC7');
         <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
         <h3>أرسل كتابك أو روايتك</h3>
         <p>هل لديك كتاب أو رواية؟ أرسلها بصيغة PDF عبر البريد الإلكتروني لنراجعها وننشرها باسمك في صفحة المؤلفات.</p>
-        <label class="pledge"><input type="checkbox" id="pledgeBook"><span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي.</span></label>
+        <label class="pledge" for="pledgeBook">
+          <input type="checkbox" id="pledgeBook">
+          <span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي.</span>
+        </label>
         <div class="book-actions">
           <a class="btn btn-gold" id="bookLink" href="sendbook.html">اضغط هنا لإرسال كتابك عبر البريد <span aria-hidden="true">←</span></a>
         </div>
       </article>
     </div>
   </section>
+
   <!-- الطقس -->
   <section class="section" id="weather" aria-labelledby="weatherTitle">
     <div class="container">
@@ -505,6 +509,7 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </section>
 </main>
+
 <footer class="site-footer">
   <div class="container footer-inner">
     <div>
@@ -519,8 +524,10 @@ gtag('config','G-3VZQSDZNC7');
     </nav>
   </div>
 </footer>
+
 <button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <!-- ===== النوافذ ===== -->
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
   <div class="modal-panel">
@@ -535,6 +542,7 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
+
 <div class="modal modal-full" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -546,11 +554,10 @@ gtag('config','G-3VZQSDZNC7');
       <div class="modal-status" id="galleryStatus" role="status">جارٍ تحميل الصور…</div>
       <div class="gallery-grid mt" id="galleryGrid"></div>
       <button class="btn btn-light mt" id="retryGallery" type="button">إعادة المحاولة ↻</button>
-      <p class="mt">هل لديك صور تاريخية للشرقاط؟ أرسلها لنا لنضيفها إلى المعرض.</p>
-      <button class="btn btn-green" type="button" data-open="sendPhotoModal">أرسل صورك بالبريد ↗</button>
     </div>
   </div>
 </div>
+
 <div class="modal" id="lightboxModal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
   <div class="modal-panel lightbox-panel">
     <div class="modal-head">
@@ -560,6 +567,7 @@ gtag('config','G-3VZQSDZNC7');
     <img class="lightbox-image" id="lightboxImage" alt="">
   </div>
 </div>
+
 <div class="modal" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -571,43 +579,10 @@ gtag('config','G-3VZQSDZNC7');
         <img class="about-avatar" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
         <div>
           <h3>محمد علي أحمد الحطاب الجبوري</h3>
-          <p>الشرقاط الثقافي الأول منصة ثقافية تُعنى بتاريخ الشرقاط وتراثها وذاكرتها، وتوثّق قصص أهلها وسِيَرهم وموروثهم المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
+          <p>الشرقاط الثقافي الأول منصة ثقافية تهتم بتاريخ الشرقاط وتراثها وذاكرتها، وتوثّق قصص أهلها وسِيَرهم وموروثهم المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
           <p>فكرة الموقع أن نحفظ الذاكرة الثقافية والاجتماعية ونتيحها لكل قارئ ومهتم، لتبقى حكاية المكان حاضرة في ذاكرة الأجيال.</p>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- نافذة إرسال الصور الخاصة بمعرض الصور -->
-<div class="modal" id="sendPhotoModal" role="dialog" aria-modal="true" aria-labelledby="sendPhotoModalTitle" hidden>
-  <div class="modal-panel">
-    <div class="modal-head">
-      <h2 id="sendPhotoModalTitle">إرسال صور تاريخية أو تراثية للمعرض</h2>
-      <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
-    </div>
-    <div class="modal-body">
-      <p>شاركنا صورك التاريخية أو التراثية الخاصة بالشرقاط لنراجعها وننشرها في معرض الصور.</p>
-      <form class="contact-form" id="sendPhotoForm">
-        <div class="form-field">
-          <label for="photoAuthor">الاسم الكريم</label>
-          <input id="photoAuthor" type="text" maxlength="100" autocomplete="name" required placeholder="اكتب اسمك الكامل">
-        </div>
-        <div class="form-field">
-          <label for="photoTitle">عنوان أو وصف الصور</label>
-          <input id="photoTitle" type="text" maxlength="150" required placeholder="مثال: صور قديمة لمدينتي الشرقاط">
-        </div>
-        <div class="form-field">
-          <label for="photoDesc">تفاصيل أو معلومات عن الصور</label>
-          <textarea id="photoDesc" maxlength="2000" required placeholder="اكتب تفاصيل أو تاريخ التقاط الصور…"></textarea>
-        </div>
-        <label class="pledge" for="pledgePhoto">
-          <input type="checkbox" id="pledgePhoto" required>
-          <span><strong>تعهد الملكية:</strong> أقرّ بأنني مالك صور المحتوى أو لدي الإذن الكامل بنشرها، وأتحمل المسؤولية القانونية عنها، وأوافق على نشرها في معرض صور الموقع.</span>
-        </label>
-        <p class="form-note">سيفتح تطبيق البريد برسالة جاهزة لإرسال الصور (يرجى إرفاق الصور مع البريد).</p>
-        <button class="btn btn-green" type="submit" id="photoSubmitBtn" aria-disabled="true">إرسال الصور عبر البريد الإلكتروني ↗</button>
-      </form>
     </div>
   </div>
 </div>
@@ -744,6 +719,7 @@ window.addEventListener("popstate", () => {
   while (openModals.length > depth) hideModal(openModals[openModals.length - 1]);
 });
 if (/Modal$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
+
 $$("[data-open]").forEach(t => t.addEventListener("click", e => {
   e.preventDefault();
   openModal(t.dataset.open);
@@ -769,6 +745,7 @@ async function fetchGitHubFiles(folder) {
   if (!Array.isArray(d)) throw new Error("استجابة الملفات غير متوقعة.");
   return d.filter(i => i && i.type === "file" && i.download_url);
 }
+
 const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric: true, sensitivity: "base" });
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
 
@@ -866,6 +843,7 @@ function formatBaghdadTime(ds) {
   if (!d || Number.isNaN(d.getTime())) return "—";
   return new Intl.DateTimeFormat(CONFIG.locale, { hour: "numeric", minute: "2-digit", timeZone: CONFIG.timezone, hour12: true }).format(d);
 }
+
 async function loadWeather() {
   const b = $("#refreshWeather");
   if (b) b.disabled = true;
@@ -908,6 +886,7 @@ async function loadWeather() {
     if (b) b.disabled = false;
   }
 }
+
 function updateClock() {
   setText("#localClock", new Intl.DateTimeFormat(CONFIG.locale, {
     timeZone: CONFIG.timezone, hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
@@ -918,42 +897,6 @@ updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
 
-/* ---------- تفعيل زر التعهد لنموذج إرسال الصور ---------- */
-const pledgePhoto = $("#pledgePhoto");
-const photoSubmitBtn = $("#photoSubmitBtn");
-const syncPhotoPledge = () => photoSubmitBtn?.setAttribute("aria-disabled", String(!pledgePhoto?.checked));
-pledgePhoto?.addEventListener("change", syncPhotoPledge);
-syncPhotoPledge();
-photoSubmitBtn?.addEventListener("click", e => {
-  if (!pledgePhoto?.checked) { e.preventDefault(); showToast("يرجى الضغط على تعهد الملكية أولاً."); }
-});
-
-/* ---------- إرسال الصور للمعرض عبر البريد الإلكتروني ---------- */
-$("#sendPhotoForm")?.addEventListener("submit", e => {
-  e.preventDefault();
-  const author = $("#photoAuthor")?.value.trim() || "";
-  const title = $("#photoTitle")?.value.trim() || "";
-  const desc = $("#photoDesc")?.value.trim() || "";
-  if (!pledgePhoto?.checked) {
-    return showToast("يرجى الموافقة على تعهد الملكية أولاً.");
-  }
-  if (!author || !title || !desc) {
-    return showToast("يرجى ملء جميع الحقول المطلوبة.");
-  }
-  const subject = encodeURIComponent("طلب نشر صور جديدة في المعرض: " + title);
-  const body = encodeURIComponent([
-    "السلام عليكم، أود إرسال صور تاريخية أو تراثية لنشرها في معرض صور موقع الشرقاط الثقافي الأول.",
-    `اسم المرسل: ${author}`,
-    `عنوان الصور: ${title}`,
-    `تفاصيل الصور:\n${desc}`,
-    "----------------------------------------",
-    "تعهد الملكية: أقرّ بأنني مالك صور المحتوى أو لدي الإذن الكامل بنشرها، وأتحمل المسؤولية القانونية عنها، وأوافق على نشرها في معرض صور الموقع.",
-    "----------------------------------------",
-    "ملاحظة: يرجى إرفاق الصور في رسالة البريد الإلكتروني."
-  ].join("\n\n"));
-  window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
-});
-
 if (CONFIG.whatsapp) {
   const waComplaintText = encodeURIComponent("السلام عليكم، أود تقديم شكوى أو ملاحظة عبر موقع الشرقاط الثقافي الأول.");
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${waComplaintText}`;
@@ -963,7 +906,7 @@ if (CONFIG.whatsapp) {
     waf.hidden = false;
     if (CONFIG.whatsapp.startsWith("964")) {
       const n = CONFIG.whatsapp;
-      waf.innerHTML = `<span>تقديم شكوى عبر واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0, 3)} ${n.slice(3, 6)} ${n.slice(6, 9)} ${n.slice(9)}</small>`;
+      waf.innerHTML = `<span>عندك ملاحظة راسلنا عبر واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0, 3)} ${n.slice(3, 6)} ${n.slice(6, 9)} ${n.slice(9)}</small>`;
     }
   }
 }
@@ -982,5 +925,6 @@ window.addEventListener("scroll", () => backToTop?.classList.toggle("visible", w
 backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 setText("#year", new Date().getFullYear());
 </script>
+
 </body>
 </html>
