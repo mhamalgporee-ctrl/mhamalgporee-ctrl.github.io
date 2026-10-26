@@ -64,6 +64,7 @@ button{cursor:pointer}
 .pledge input{flex:0 0 22px;width:22px;height:22px;margin-top:4px;accent-color:var(--gold);cursor:pointer}
 .disclaimer-box{font-size:.82rem;color:var(--muted);line-height:1.8}
 .disclaimer-box strong{display:block;margin-bottom:4px;color:#000}
+.disclaimer-box a{font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);unicode-bidi:plaintext}
 .form-note{margin:0;color:var(--muted);font-size:.8rem}
 .form-actions{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 24px;border:1px solid transparent;border-radius:999px;font-weight:800;font-size:.92rem;transition:transform .22s ease,background .22s ease}
@@ -143,12 +144,12 @@ button{cursor:pointer}
 
           <label class="pledge" for="agreeRights">
             <input type="checkbox" id="agreeRights">
-            <span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي.</span>
+            <span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأقرّ بأنه لا يتضمن تشهيراً أو تحريضاً أو معلومات خاصة بأشخاص، وأوافق على نشره في الموقع باسمي.</span>
           </label>
 
           <div class="disclaimer-box">
             <strong>تنويه وإخلاء مسؤولية</strong>
-            تُنشر الكتب والمواد في هذا القسم بناءً على طلب المُرسِل وتعهده الصريح بحقوق الملكية. موقع الشرقاط الثقافي الأول منصة لنشر المحتوى بحسن نية، ولا يتحمل أي تبعات قانونية أو فكرية. وفي حال وجود أي اعتراض أو إشعار بحقوق الملكية، يرجى مراسلتنا فوراً وسيتم مراجعة المادة وحذفها خلال 24 ساعة.
+            تُنشر المواد بناءً على طلب المُرسِل وتعهده بحقوق الملكية، وتخضع للمراجعة قبل النشر. الموقع منصة لنشر المحتوى بحسن نية، والمسؤولية الأساسية عن المحتوى تقع على المُرسِل. يحق للموقع رفض أو حذف أي مادة، ويُمنع إرسال محتوى فيه تشهير أو تحريض أو معلومات خاصة بأشخاص دون إذنهم. وإن كان لديك اعتراض أو إشعار بحقوق الملكية، فراسلنا على <a href="mailto:mhamalgporee@gmail.com">mhamalgporee@gmail.com</a> أو على واتساب <a href="https://wa.me/9647835025407" target="_blank" rel="noopener noreferrer">07835025407</a> وسنراجع المادة ونحذفها خلال 24 ساعة.
           </div>
 
           <p class="form-note">اختر البريد الإلكتروني أو واتساب لإرسال الطلب. وإذا كان لديك ملف الكتاب بصيغة PDF فأرفقه في الرسالة نفسها.</p>
@@ -235,7 +236,7 @@ function collect() {
     `عنوان الكتاب: ${title}`,
     `نبذة عن الكتاب:\n${desc}`,
     "-----------------------------------",
-    "تعهد: أقرّ بأنني مؤلف هذا العمل أو مالك حقوقه كاملة، وأتحمل المسؤولية الفكرية والقانونية عن محتواه، وأوافق على نشره في الموقع باسمي.",
+    "تعهد: أقرّ بأنني مؤلف هذا العمل أو مالك حقوقه كاملة، وأتحمل المسؤولية الفكرية والقانونية عن محتواه، وأقرّ بأنه لا يتضمن تشهيراً أو تحريضاً أو معلومات خاصة بأشخاص، وأوافق على نشره في الموقع باسمي.",
     "-----------------------------------",
     "ملاحظة: يرجى إرفاق ملف الكتاب بصيغة PDF في هذه المحادثة أو الرسالة."
   ].join("\n\n");
