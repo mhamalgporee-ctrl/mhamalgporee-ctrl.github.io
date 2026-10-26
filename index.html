@@ -587,7 +587,7 @@ gtag('config','G-3VZQSDZNC7');
 <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
-      <h2 id="contactModalTitle">راسلنا عبر البريد الإلكتروني</h2>
+      <h2 id="contactModalTitle">تواصل معنا</h2>
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
     </div>
     <div class="modal-body">
@@ -991,6 +991,12 @@ const backToTop = $("#backToTop");
 window.addEventListener("scroll", () => backToTop?.classList.toggle("visible", window.scrollY > 450), { passive: true });
 backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 setText("#year", new Date().getFullYear());
+
+/* فتح نافذة اتصل بنا عند القدوم من صفحة أخرى برابط index.html#contact */
+if (location.hash === "#contact") {
+  history.replaceState(null, "", location.pathname + location.search);
+  openModal("contactModal");
+}
 </script>
 </body>
 </html>
