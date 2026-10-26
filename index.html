@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f7e9cc">
-<meta name="description" content="الشرقاط الثقافي الأول — نافذة ثقافية والأدبية توثق تاريخ الشرقاط وتراثها وذاكرتها، بإشراف محمد علي أحمد الحطاب الجبوري.">
+<meta name="description" content="الشرقاط الثقافي الأول — نافذة ثقافية وأدبية توثق تاريخ الشرقاط وتراثها وذاكرتها، بإشراف محمد علي أحمد الحطاب الجبوري.">
 <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
 <meta property="og:type" content="website">
 <meta property="og:title" content="الشرقاط الثقافي الأول | مجلة ثقافية">
@@ -16,7 +16,7 @@
 <title>الشرقاط الثقافي الأول | مجلة ثقافية</title>
 <style>
 :root{
-  --green:#4a3f33;--green-deep:#3a3128;--green-mid:#6b5a47;--green-soft:#ebd8b1;
+  --green:#4a3f33;--green-deep:#3a3128;--green-mid:#6b5a47;--green-soft:#f7e9cc;
   --ivory:#f7e9cc;--paper:#f7e9cc;--gold:#b8964f;--gold-light:#d9c48f;
   --ink:#000;--muted:#222;--text:#000;--line:#e2cca8;--container:1200px
 }
@@ -34,13 +34,12 @@ button{cursor:pointer}
 .skip-link{position:fixed;z-index:10000;top:10px;right:10px;padding:10px 18px;border-radius:10px;background:var(--paper);color:var(--text);transform:translateY(-150%)}
 .skip-link:focus{transform:translateY(0)}
 .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--text);font-size:.77rem;font-weight:800;letter-spacing:.06em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--text);font-size:.77rem;font-weight:800}
 .eyebrow::before{content:"";width:27px;height:2px;background:var(--gold)}
 .section{padding-block:60px}
 .section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:25px}
 .section-heading h2{margin:8px 0 0;color:var(--text);font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.35}
 .section-heading p{max-width:460px;margin:0;color:var(--muted);font-size:.95rem}
-/* الأزرار */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:8px 18px;border:1px solid transparent;border-radius:999px;font-weight:800;font-size:.88rem;transition:transform .22s ease,background .22s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn:disabled{opacity:.6;cursor:wait}
@@ -54,7 +53,6 @@ button{cursor:pointer}
 .icon{display:inline-grid;place-items:center;width:44px;height:44px;flex:0 0 44px;border-radius:14px;background:var(--green-soft);color:var(--text)}
 .icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .poetry-sub{margin:8px 0 0;color:var(--muted);font-size:.92rem;line-height:1.8;font-style:italic}
-/* الرأس */
 .site-header{position:sticky;z-index:100;top:0;border-bottom:1px solid rgba(74,63,51,.09);background:rgba(247,233,204,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:75px}
 .brand{display:inline-flex;align-items:center;gap:13px;min-width:0}
@@ -68,7 +66,6 @@ button{cursor:pointer}
 .nav-links a::after{position:absolute;right:0;bottom:0;width:0;height:2px;background:var(--gold);content:"";transition:width .2s ease}
 .nav-links a:hover::after{width:100%}
 .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--text);font-size:1.25rem}
-/* الواجهة */
 .hero{padding-block:10px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:15px}
 .hero-copy{max-width:600px}
@@ -90,14 +87,12 @@ button{cursor:pointer}
 .hero-thumbs button[aria-pressed="true"]{border-color:var(--gold);opacity:1}
 .hero-thumbs img{width:100%;height:100%;object-fit:cover}
 .thumbs-hint{color:var(--muted);font-size:.7rem}
-/* الشريط المتحرك */
 .ticker{overflow:hidden;background:var(--ivory);color:var(--text)}
 .ticker-inner{display:block;min-height:34px;line-height:34px;font-size:.82rem;font-weight:800}
 .marquee{overflow:hidden;direction:ltr;white-space:nowrap}
 .marquee span{display:inline-block;direction:rtl;animation:marquee 28s linear infinite}
 @keyframes marquee{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
 @media (prefers-reduced-motion:reduce){.marquee span{animation:none}html{scroll-behavior:auto}}
-/* البحث والبطاقات */
 .search-box{display:flex;align-items:center;gap:12px;width:min(420px,100%);padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
 .search-box span{color:#000;font-size:1.1rem}
 .search-box input{width:100%;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-size:.86rem}
@@ -117,14 +112,12 @@ button{cursor:pointer}
 .covers-strip a:hover img{transform:translateY(-3px)}
 .swipe-hint{margin:0 0 8px;color:var(--muted);font-size:.72rem;font-weight:700}
 .no-results{display:none;padding:25px;color:var(--muted);text-align:center}
-/* الوسائط */
 .media-card{display:flex;flex-direction:column;padding:10px}
 .media-card .icon{width:50px;height:50px;margin-bottom:15px;border:1px solid rgba(184,150,79,.3);background:rgba(184,150,79,.12)}
 .media-card h3{margin:0 0 8px;color:var(--text);font-size:1.3rem}
 .media-card p{max-width:420px;margin:0 0 16px;color:var(--muted);font-size:.89rem}
 .media-card .btn{align-self:flex-start}
 .book-actions{display:flex;flex-wrap:wrap;gap:10px;align-self:flex-start}
-/* الطقس */
 .weather-top{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:20px 0;border-bottom:2px solid var(--gold)}
 .weather-location{margin:0 0 4px;color:#000;font-size:.8rem;font-weight:800}
 .weather-top h3{margin:0;color:var(--text);font-size:clamp(1.4rem,2.8vw,1.8rem)}
@@ -145,7 +138,6 @@ button{cursor:pointer}
 .day-desc{margin-top:4px;color:var(--muted);font-size:.74rem;font-weight:700}
 .weather-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
 .weather-status{color:var(--muted);font-size:.78rem;font-weight:700}
-/* التذييل */
 .site-footer{padding:28px 0;background:var(--ivory);color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-brand{color:var(--text);font-weight:900}
@@ -157,7 +149,6 @@ button{cursor:pointer}
 #waFooter small{font-size:.78rem;font-weight:600;color:var(--muted);unicode-bidi:plaintext}
 .back-to-top{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:var(--green);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:.2s ease}
 .back-to-top.visible{opacity:1;visibility:visible}
-/* النوافذ */
 .modal{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:18px;background:rgba(30,25,20,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .modal-panel{width:min(760px,100%);max-height:min(88dvh,900px);overflow:auto;border:1px solid rgba(184,150,79,.4);border-radius:24px;background:var(--paper);box-shadow:0 35px 100px rgba(0,0,0,.35)}
 .modal-full{padding:0;background:var(--paper);backdrop-filter:none;-webkit-backdrop-filter:none;place-items:stretch}
@@ -238,8 +229,6 @@ button{cursor:pointer}
   .covers-strip img{width:105px;height:150px}
   .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-/* خلفية موحدة بلا مربعات */
-:root{--green-soft:#f7e9cc}
 .site-header{border-bottom:0;background:var(--ivory);backdrop-filter:none;-webkit-backdrop-filter:none}
 .content-card,.forecast-day{border:0;border-radius:0;background:none;box-shadow:none}
 .content-card{padding:10px 4px}
@@ -264,7 +253,6 @@ button{cursor:pointer}
 .pledge{display:flex;gap:10px;align-items:flex-start;max-width:540px;margin:0 0 14px;color:var(--text);font-size:.84rem;line-height:1.7;cursor:pointer}
 .pledge input{flex:0 0 22px;width:22px;height:22px;margin-top:4px;accent-color:var(--gold)}
 .btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
-/* شفت صورتي */
 .paper-page{max-width:760px;margin-inline:auto}
 .paper-page figure{margin:0}
 .paper-page figure img{width:100%;height:auto;border-radius:0}
@@ -278,9 +266,7 @@ button{cursor:pointer}
 .m h4{margin:0;color:var(--text);font-size:clamp(.76rem,3.5vw,.95rem);line-height:1.5}
 .m p{margin:0;color:var(--muted);font-size:clamp(.68rem,3.2vw,.85rem);line-height:1.45}
 @media (min-width:620px){.meanings{column-count:2}}
-
 </style>
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -290,9 +276,7 @@ gtag('config','G-3VZQSDZNC7');
 </script>
 </head>
 <body>
-
 <a class="skip-link" href="#main">انتقل إلى المحتوى الرئيسي</a>
-
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="#home" aria-label="الشرقاط الثقافي الأول - الصفحة الرئيسية">
@@ -312,9 +296,7 @@ gtag('config','G-3VZQSDZNC7');
     </nav>
   </div>
 </header>
-
 <main id="main">
-  <!-- الواجهة -->
   <section class="hero" id="home" aria-labelledby="heroTitle">
     <div class="container hero-grid">
       <div class="hero-copy">
@@ -340,15 +322,11 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
-  <!-- الشريط المتحرك -->
   <div class="ticker" role="region" aria-label="ذكر ودعاء">
     <div class="container ticker-inner">
       <div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه حمداً دائماً أبداً &nbsp;&nbsp;•&nbsp;&nbsp; اللهم صلِّ على محمد وعلى آل محمد ❖ &nbsp;&nbsp;•&nbsp;&nbsp; أستغفر الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div>
     </div>
   </div>
-
-  <!-- الأقسام الثقافية -->
   <section class="section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
       <div class="section-heading">
@@ -364,14 +342,12 @@ gtag('config','G-3VZQSDZNC7');
       </div>
       <p class="search-status" id="searchStatus" aria-live="polite"></p>
       <div class="content-grid" id="contentGrid">
-        <!-- 01 الشرقاط -->
         <article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><span class="card-index">01</span></div>
           <h3>الشرقاط</h3>
           <p>تعرّف على الشرقاط: تاريخها وملامحها وموروثها الثقافي والاجتماعي.</p>
           <a class="card-link" href="shirqat.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        <!-- 02 المكتبة -->
         <article class="content-card card-wide" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></svg></span><span class="card-index">02</span></div>
           <h3>المكتبة والمؤلفات</h3>
@@ -380,42 +356,36 @@ gtag('config','G-3VZQSDZNC7');
           <p>تصفّح الكتب والدواوين والروايات.</p>
           <a class="card-link" href="book.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        <!-- 03 معرض الصور -->
         <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></span><span class="card-index">03</span></div>
           <h3>معرض الصور</h3>
           <p>صور ولقطات وتاريخ مصور من مدينة الشرقاط.</p>
           <button class="card-link" type="button" data-open="galleryModal">اضغط هنا <span aria-hidden="true">←</span></button>
         </article>
-        <!-- 04 المقالات -->
         <article class="content-card" data-search="مقالات وبرامج مدونة ووردبريس wordpress تدوينات">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span class="card-index">04</span></div>
           <h3>المقالات والمدونة</h3>
           <p>مقالات وتدوينات ثقافية جديدة على المدونة.</p>
           <a class="card-link" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        <!-- 05 الجد عگاب -->
         <article class="content-card" data-search="الجد عقاب عگاب اوكاب okab الأجداد العائلة">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="card-index">05</span></div>
           <h3>الجد عگاب رحمه الله</h3>
           <p>نافذة على الذاكرة العائلية وسيرة الأجداد، بما فيها من مواقف ودروس.</p>
           <a class="card-link" href="okab.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        <!-- 06 قصص أهل السيرة -->
         <article class="content-card" data-search="الشيخ شلاش رحمه الله shelash قصة تاريخ سيرة">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/></svg></span><span class="card-index">06</span></div>
           <h3>قصص رجال طيّبي الصيت من أهل السيرة</h3>
           <p>حكايات وسِيَر محلية تستحق أن تبقى في الذاكرة وتتناقلها الأجيال.</p>
           <a class="card-link" href="shelash.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        <!-- 07 الأذكار -->
         <article class="content-card" data-search="الأذكار والأدعية حصن المسلم دعاء duaa">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><span class="card-index">07</span></div>
           <h3>الأذكار والأدعية</h3>
           <p>أذكار يومية وأدعية مأثورة للتقرّب إلى الله والتحصين.</p>
           <a class="card-link" href="duaa.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        <!-- 08 القنوات -->
         <article class="content-card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب رياضة افلام مسلسلات tv">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="card-index">08</span></div>
           <h3>شاهد القنوات الرياضية</h3>
@@ -426,8 +396,6 @@ gtag('config','G-3VZQSDZNC7');
       <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div>
     </div>
   </section>
-
-  <!-- الفيديو -->
   <section class="section">
     <div class="container">
       <article class="media-card">
@@ -438,8 +406,6 @@ gtag('config','G-3VZQSDZNC7');
       </article>
     </div>
   </section>
-
-  <!-- أرسل كتابك -->
   <section class="section">
     <div class="container">
       <article class="media-card">
@@ -456,8 +422,6 @@ gtag('config','G-3VZQSDZNC7');
       </article>
     </div>
   </section>
-
-  <!-- الطقس -->
   <section class="section" id="weather" aria-labelledby="weatherTitle">
     <div class="container">
       <div class="section-heading">
@@ -501,8 +465,6 @@ gtag('config','G-3VZQSDZNC7');
       </div>
     </div>
   </section>
-
-  <!-- شفت صورتي -->
   <section class="section" id="memory" aria-labelledby="memoryTitle">
     <div class="container">
       <article class="paper-page">
@@ -533,9 +495,7 @@ gtag('config','G-3VZQSDZNC7');
       </article>
     </div>
   </section>
-
 </main>
-
 <footer class="site-footer">
   <div class="container footer-inner">
     <div>
@@ -550,11 +510,8 @@ gtag('config','G-3VZQSDZNC7');
     </nav>
   </div>
 </footer>
-
 <button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<!-- ===== النوافذ ===== -->
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -562,13 +519,12 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
     </div>
     <div class="modal-body">
-      <iframe class="video-frame" id="youtubeFrame" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube.com/embed?listType=playlist&list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe class="video-frame" id="youtubeFrame" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube.com/embed?listType=playlist&amp;list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <p>إن لم تظهر الفيديوهات، افتح القناة مباشرة على YouTube.</p>
       <a class="btn btn-green" href="https://www.youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer">فتح القناة على YouTube ↗</a>
     </div>
   </div>
 </div>
-
 <div class="modal modal-full" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -583,7 +539,6 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
-
 <div class="modal" id="lightboxModal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
   <div class="modal-panel lightbox-panel">
     <div class="modal-head">
@@ -593,7 +548,6 @@ gtag('config','G-3VZQSDZNC7');
     <img class="lightbox-image" id="lightboxImage" alt="">
   </div>
 </div>
-
 <div class="modal" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -604,15 +558,14 @@ gtag('config','G-3VZQSDZNC7');
       <div class="about-layout">
         <img class="about-avatar" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
         <div>
-          <h3> اهلا وسهلا بك زائرنا الكريم انا محمد علي أحمد الحطاب الجبوري</h3>
-          <p> الشرقاط الثقافي الأول موقع ثقافي يهتم بتاريخ الشرقاط وتراثها وذاكرتها، وتوثّق قصص أهلها وسِيَرهم وموروثهم المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
+          <h3>اهلا وسهلا بك زائرنا الكريم انا محمد علي أحمد الحطاب الجبوري</h3>
+          <p>الشرقاط الثقافي الأول موقع ثقافي يهتم بتاريخ الشرقاط وتراثها وذاكرتها، وتوثّق قصص أهلها وسِيَرهم وموروثهم المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
           <p>فكرة الموقع أن نحفظ الذاكرة الثقافية والاجتماعية ونتيحها لكل قارئ ومهتم، لتبقى حكاية المكان حاضرة في ذاكرة الأجيال.</p>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <script>
 "use strict";
 const CONFIG = {
@@ -630,7 +583,6 @@ const CONFIG = {
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const setText = (sel, text) => { const e = $(sel); if (e) e.textContent = text; };
-
 let toastTimer;
 function showToast(message) {
   const t = $("#toast");
@@ -640,7 +592,6 @@ function showToast(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
 }
-
 const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
 function closeMenu() {
@@ -655,7 +606,6 @@ menuToggle?.addEventListener("click", () => {
 });
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
-
 const heroImage = $("#heroMainImage");
 const heroThumbBtns = $$("[data-hero-image]");
 const heroImagesList = heroThumbBtns.map(b => b.dataset.heroImage);
@@ -674,7 +624,6 @@ function setHeroImage(index) {
   heroThumbBtns.forEach((b, i) => b.setAttribute("aria-pressed", String(i === currentHeroIndex)));
 }
 heroThumbBtns.forEach((b, index) => b.addEventListener("click", () => setHeroImage(index)));
-
 function normalizeText(v) {
   return String(v || "")
     .normalize("NFD")
@@ -701,7 +650,6 @@ function runSearch() {
 }
 searchInput?.addEventListener("input", runSearch);
 runSearch();
-
 let openModals = [];
 let previousFocus = null;
 function openModal(id) {
@@ -745,7 +693,6 @@ window.addEventListener("popstate", () => {
   while (openModals.length > depth) hideModal(openModals[openModals.length - 1]);
 });
 if (/Modal$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
-
 $$("[data-open]").forEach(t => t.addEventListener("click", e => {
   e.preventDefault();
   openModal(t.dataset.open);
@@ -758,7 +705,6 @@ $$(".modal").forEach(m => {
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && openModals.length) closeModal(openModals[openModals.length - 1]);
 });
-
 async function fetchGitHubFiles(folder) {
   const url = `https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`;
   const r = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
@@ -771,10 +717,8 @@ async function fetchGitHubFiles(folder) {
   if (!Array.isArray(d)) throw new Error("استجابة الملفات غير متوقعة.");
   return d.filter(i => i && i.type === "file" && i.download_url);
 }
-
 const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric: true, sensitivity: "base" });
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
-
 let galleryLoaded = false;
 async function loadGallery(force = false) {
   if (galleryLoaded && !force) return;
@@ -813,7 +757,6 @@ async function loadGallery(force = false) {
   }
 }
 $("#retryGallery")?.addEventListener("click", () => loadGallery(true));
-
 async function loadCovers() {
   const strip = $("#coversStrip");
   if (!strip) return;
@@ -842,7 +785,6 @@ async function loadCovers() {
   }
 }
 loadCovers();
-
 const WEATHER_CODES = {
   0: ["سماء صافية", "☀️"], 1: ["صحو غالباً", "🌤️"], 2: ["غائم جزئياً", "⛅"], 3: ["غائم", "☁️"],
   45: ["ضباب", "🌫️"], 48: ["ضباب متجمد", "🌫️"],
@@ -869,7 +811,6 @@ function formatBaghdadTime(ds) {
   if (!d || Number.isNaN(d.getTime())) return "—";
   return new Intl.DateTimeFormat(CONFIG.locale, { hour: "numeric", minute: "2-digit", timeZone: CONFIG.timezone, hour12: true }).format(d);
 }
-
 async function loadWeather() {
   const b = $("#refreshWeather");
   if (b) b.disabled = true;
@@ -912,7 +853,6 @@ async function loadWeather() {
     if (b) b.disabled = false;
   }
 }
-
 function updateClock() {
   setText("#localClock", new Intl.DateTimeFormat(CONFIG.locale, {
     timeZone: CONFIG.timezone, hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
@@ -922,7 +862,6 @@ $("#refreshWeather")?.addEventListener("click", loadWeather);
 updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
-
 if (CONFIG.whatsapp) {
   const waComplaintText = encodeURIComponent("السلام عليكم، أود تقديم شكوى أو ملاحظة عبر موقع الشرقاط الثقافي الأول.");
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${waComplaintText}`;
@@ -936,7 +875,6 @@ if (CONFIG.whatsapp) {
     }
   }
 }
-
 const pledgeBook = $("#pledgeBook");
 const bookBtn = $("#bookLink");
 const syncPledge = () => bookBtn?.setAttribute("aria-disabled", String(!pledgeBook?.checked));
@@ -945,12 +883,10 @@ syncPledge();
 bookBtn?.addEventListener("click", e => {
   if (!pledgeBook?.checked) { e.preventDefault(); showToast("يرجى الضغط على التعهد أولاً."); }
 });
-
 const backToTop = $("#backToTop");
 window.addEventListener("scroll", () => backToTop?.classList.toggle("visible", window.scrollY > 450), { passive: true });
 backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 setText("#year", new Date().getFullYear());
 </script>
-
 </body>
 </html>
