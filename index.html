@@ -145,15 +145,6 @@ button{cursor:pointer}
 .day-desc{margin-top:4px;color:var(--muted);font-size:.74rem;font-weight:700}
 .weather-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
 .weather-status{color:var(--muted);font-size:.78rem;font-weight:700}
-/* الخريطة */
-.map-block{margin-top:22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.2)}
-.map-block summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;cursor:pointer;list-style:none;color:var(--text);font-size:1.1rem;font-weight:900}
-.map-block summary::-webkit-details-marker{display:none}
-.map-block summary::after{content:"▾ اضغط للعرض";color:var(--muted);font-size:.78rem;font-weight:700}
-.map-block[open] summary::after{content:"▴ إخفاء"}
-.map-inner{padding:0 12px 12px}
-.map-actions{display:flex;justify-content:flex-start;margin-bottom:10px}
-.map-frame{width:100%;height:360px;border:0;display:block;border-radius:16px}
 /* التذييل */
 .site-footer{padding:28px 0;background:var(--ivory);color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -228,9 +219,6 @@ button{cursor:pointer}
   .day-temps{font-size:.74rem;direction:ltr}
   .day-desc{display:none}
   .weather-bottom{padding:4px 0}
-  .map-block{margin-top:12px}
-  .map-block summary{font-size:1rem}
-  .map-frame{height:260px}
   .footer-inner{align-items:flex-start;flex-direction:column}
 }
 @media (max-width:480px){
@@ -253,7 +241,7 @@ button{cursor:pointer}
 /* خلفية موحدة بلا مربعات */
 :root{--green-soft:#f7e9cc}
 .site-header{border-bottom:0;background:var(--ivory);backdrop-filter:none;-webkit-backdrop-filter:none}
-.content-card,.forecast-day,.map-block{border:0;border-radius:0;background:none;box-shadow:none}
+.content-card,.forecast-day{border:0;border-radius:0;background:none;box-shadow:none}
 .content-card{padding:10px 4px}
 .icon,.content-card .icon,.media-card .icon,.weather-symbol,.day-icon{border:0;border-radius:0;background:none}
 .icon{color:#8a6d2f}
@@ -272,11 +260,25 @@ button{cursor:pointer}
 .lightbox-image{background:var(--ivory)}
 .modal-close,.lightbox-panel .modal-close{border:0;background:none;color:var(--text);font-size:1.7rem}
 .modal-status{background:none;padding:0}
-.map-block summary{padding-inline:0}
-.map-frame,.video-frame{border-radius:28px}
+.video-frame{border-radius:28px}
 .pledge{display:flex;gap:10px;align-items:flex-start;max-width:540px;margin:0 0 14px;color:var(--text);font-size:.84rem;line-height:1.7;cursor:pointer}
 .pledge input{flex:0 0 22px;width:22px;height:22px;margin-top:4px;accent-color:var(--gold)}
 .btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
+/* شفت صورتي */
+.paper-page{max-width:760px;margin-inline:auto}
+.paper-page figure{margin:0}
+.paper-page figure img{width:100%;height:auto;border-radius:0}
+.paper-page figcaption{padding:6px 0 10px;border-bottom:3px solid var(--text);color:var(--muted);font-size:.9rem;line-height:1.6}
+.paper-page h2{margin:18px 0 6px;color:var(--text);font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.3}
+.verses{margin:10px 0 20px;padding:12px 0;border-block:1px solid var(--text)}
+.verses p{margin:0;color:var(--text);font-size:clamp(1.15rem,3vw,1.4rem);line-height:2.1;text-align:center}
+.meaning-title{margin:0 0 10px;padding-bottom:4px;border-bottom:1px solid var(--text);color:var(--text);font-size:1.25rem}
+.meanings{column-gap:22px;column-rule:1px solid var(--line)}
+.m{break-inside:avoid;margin-bottom:14px}
+.m h4{margin:0;color:var(--text);font-size:1rem}
+.m p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.8}
+@media (min-width:620px){.meanings{column-count:2}}
+
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
@@ -497,17 +499,41 @@ gtag('config','G-3VZQSDZNC7');
           <button class="btn btn-light" type="button" id="refreshWeather">↻ تحديث الطقس</button>
         </div>
       </div>
-      <details class="map-block">
-        <summary>خريطة طقس الشرقاط</summary>
-        <div class="map-inner">
-          <div class="map-actions">
-            <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&query=Shirqat%2C+Iraq" target="_blank" rel="noopener noreferrer">فتح الخريطة خارجياً ↗</a>
-          </div>
-          <iframe class="map-frame" title="خريطة الطقس والموقع الجغرافي للشرقاط" src="https://embed.windy.com/embed2.html?lat=35.5292&lon=43.2199&detailLat=35.5292&detailLon=43.2199&width=650&height=450&zoom=8&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-        </div>
-      </details>
     </div>
   </section>
+
+  <!-- شفت صورتي -->
+  <section class="section" id="memory" aria-labelledby="memoryTitle">
+    <div class="container">
+      <article class="paper-page">
+        <figure>
+          <img src="memory-1984.jpg" alt="صورتي" loading="lazy">
+          <figcaption>صورتي في عام ١٩٨٤</figcaption>
+        </figure>
+        <h2 id="memoryTitle">شفت صورتي</h2>
+        <div class="verses">
+        <p>شـفـت صـورتـي مـن مِـضى هَـيـضِت جـروحي وعَـن</p>
+        <p>يـوم الـنـوايـا صِـدگ والـوِكِـت مـا بـيه عَـن</p>
+        <p>يـا ريـت ذيچ الـلـيـالي والـعِـمِـر يـرجـعَـن</p>
+        <p>چـانـت مِـحِـنة وشِـيَـم والـعِـيـش خِـبـزة ومَـي</p>
+        <p>وظـل الـكـرامـة وفِـيـد الـنـاس لـلـنـاس مَـي</p>
+        <p>الـيـوم كِـلـمَـن يـحـوف بـدنـيـتـه والـمَـي</p>
+        <p>مـا عـاد صـافـي وعـلـيـه غـيـوم هَـم اوعَـن</p>
+        </div>
+        <h3 class="meaning-title">المعنى</h3>
+        <div class="meanings">
+        <div class="m"><h4>مِضى / هَيضِت / عَن</h4><p>مِضى: الماضي أو ما انقضى من العمر. هَيضِت: هاجت وتحركت، أي تجددت الأحزان والجروح. عَن: أبعدت أو حادت، أو بمعنى عَنَّت أي خطرت على البال وظهرت.</p></div>
+        <div class="m"><h4>يوم النوايا صدگ والوكت ما بيه عَن</h4><p>النوايا صدگ: القلوب صافية والنوايا صادقة وغير مزيفة. الوكت ما بيه عَن: الزمن لم يكن فيه غدر أو التواء ومكر.</p></div>
+        <div class="m"><h4>يا ريت ذيچ الليالي والعمر يرجعَن</h4><p>ذيچ الليالي: تلك الأيام الخوالي. يرجعَن: ليت الشباب وتلك الفترة تعود مجدداً.</p></div>
+        <div class="m"><h4>چانت محنة وشيم والعيش خبزة ومي</h4><p>محنة وشيم: مودة وتآخٍ وأخلاق عالية ومروءة. العيش خبزة ومي: الحياة بسيطة ومكتفية بالقليل الشريف دون طمع.</p></div>
+        <div class="m"><h4>وظل الكرامة وفيد الناس للناس مَي</h4><p>ظل الكرامة: العزة والرفعة والمكانة المصانة. فيد الناس للناس: منفعة الناس وخدمتهم لبعضهم ومواقفهم الطيبة. مَي في هذا السياق: تدل على سهولة الفائدة للناس.</p></div>
+        <div class="m"><h4>اليوم كلمن يحوف بدنيته والمي</h4><p>كلمن يحوف بدنيته: كل شخص يسعى لمصالحه الخاصة ويحاول الاستحواذ لنفسه. المَي: المال والمكاسب الدنيوية التي يسعى خلفها الناس.</p></div>
+        <div class="m"><h4>ما عاد صافي وعليه غيوم هم اوعَن</h4><p>ما عاد صافي: لم تعد النفوس ولا الأيام صافية كالسابق. غيوم هم اوعَن: تراكمت غيوم الهموم والأحزان والغموض فوق الأجواء.</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
