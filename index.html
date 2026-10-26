@@ -585,7 +585,7 @@ gtag('config','G-3VZQSDZNC7');
 <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
-      <h2 id="contactModalTitle">تواصل معنا</h2>
+      <h2 id="contactModalTitle">اتصل بنا</h2>
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
     </div>
     <div class="modal-body">
@@ -593,23 +593,15 @@ gtag('config','G-3VZQSDZNC7');
       <p>أو اكتب رسالتك وسنجهّز لك بريداً جاهزاً للإرسال.</p>
       <form class="contact-form" id="contactForm">
         <div class="form-field">
-          <label for="contactType">نوع الرسالة / التواصل</label>
-          <select id="contactType">
-            <option value="إرسال كتاب أو رواية أو مشاركة">📖 إرسال كتاب أو رواية أو مشاركة</option>
-            <option value="شكوى أو بلاغ عن صورة أو كتاب أو مقال">⚠️ شكوى أو بلاغ عن صورة أو كتاب أو مقال</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="contactName">الاسم أو اسم المؤلف</label>
+          <label for="contactName">الاسم الكريم</label>
           <input id="contactName" type="text" maxlength="100" autocomplete="name" placeholder="اكتب اسمك الكامل">
         </div>
         <div class="form-field">
-          <label for="contactMessage">الرسالة أو تفاصيل الكتاب / الشكوى</label>
-          <textarea id="contactMessage" maxlength="3000" required placeholder="اكتب تفاصيل كتابك أو شكواك هنا…"></textarea>
+          <label for="contactMessage">الشكوى أو الاستفسار</label>
+          <textarea id="contactMessage" maxlength="3000" required placeholder="اكتب تفاصيل شكواك أو استفسارك هنا…"></textarea>
         </div>
-        <p class="form-note">سيفتح تطبيق البريد برسالة جاهزة. إن كنت ترسل كتاباً، أرفق ملف PDF قبل الإرسال.</p>
-        <label class="pledge"><input type="checkbox" id="pledgeContact"><span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله أو مالك حقوقه، وأتحمل المسؤولية القانونية عنه.</span></label>
-        <button class="btn btn-green" type="submit">إرسال عبر البريد الإلكتروني ↗</button>
+        <p class="form-note">سيفتح تطبيق البريد برسالة جاهزة لإرسال الشكوى أو الملاحظة.</p>
+        <button class="btn btn-green" type="submit">إرسال الشكوى عبر البريد الإلكتروني ↗</button>
       </form>
     </div>
   </div>
@@ -921,22 +913,19 @@ updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
 
-/* ---------- التواصل عبر البريد الإلكتروني مع تصنيف نوع الرسالة ---------- */
+/* ---------- التواصل والشكاوى عبر البريد الإلكتروني ---------- */
 $("#contactForm")?.addEventListener("submit", e => {
   e.preventDefault();
-  const type = $("#contactType")?.value || "مشاركة";
   const name = $("#contactName")?.value.trim() || "";
   const message = $("#contactMessage")?.value.trim() || "";
   if (!message) {
     $("#contactMessage")?.focus();
-    return showToast("يرجى كتابة الرسالة أو التفاصيل أولاً.");
+    return showToast("يرجى كتابة الشكوى أو الملاحظة أولاً.");
   }
-  if (!$("#pledgeContact")?.checked) return showToast("يرجى الضغط على التعهد قبل الإرسال.");
-  const subject = encodeURIComponent(`[${type}] عبر موقع الشرقاط الثقافي الأول`);
+  const subject = encodeURIComponent("شكوى أو بلاغ عبر موقع الشرقاط الثقافي الأول");
   const body = encodeURIComponent([
-    `نوع التواصل: ${type}`,
-    name && `الاسم / المرسل: ${name}`,
-    `التفاصيل:\n${message}`,
+    name && `الاسم: ${name}`,
+    `تفاصيل الشكوى:\n${message}`,
     "\n----------------------------------------",
     "ملاحظة: موقع الشرقاط الثقافي الأول"
   ].filter(Boolean).join("\n\n"));
@@ -944,7 +933,8 @@ $("#contactForm")?.addEventListener("submit", e => {
 });
 
 if (CONFIG.whatsapp) {
-  const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("السلام عليكم، تواصلت معكم من موقع الشرقاط الثقافي الأول.")}`;
+  const waComplaintText = encodeURIComponent("اتصلت من موقع الشرقاط حول شكوى");
+  const wa = `https://wa.me/${CONFIG.whatsapp}?text=${waComplaintText}`;
   ["#waFooter", "#waContact"].forEach(sel => { const a = $(sel); if (a) { a.href = wa; a.hidden = false; } });
   const waf = $("#waFooter");
   if (waf && CONFIG.whatsapp.startsWith("964")) {
