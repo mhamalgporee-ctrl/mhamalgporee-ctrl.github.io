@@ -445,11 +445,10 @@ gtag('config','G-3VZQSDZNC7');
       <article class="media-card">
         <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
         <h3>أرسل كتابك أو روايتك</h3>
-        <p>هل لديك كتاب أو رواية؟ أرسلها بصيغة PDF عبر البريد لنراجعها وننشرها باسمك في صفحة المؤلفات.</p>
+        <p>هل لديك كتاب أو رواية؟ أرسلها بصيغة PDF عبر البريد الإلكتروني لنراجعها وننشرها باسمك في صفحة المؤلفات.</p>
         <label class="pledge"><input type="checkbox" id="pledgeBook"><span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي.</span></label>
         <div class="book-actions">
-          <a class="btn btn-gold" id="bookLink" href="sendbook.html">اضغط هنا <span aria-hidden="true">←</span></a>
-          <a class="btn btn-gold" id="waBook" href="#" target="_blank" rel="noopener noreferrer" hidden>أرسل كتابك عبر واتساب ↗</a>
+          <a class="btn btn-gold" id="bookLink" href="sendbook.html">اضغط هنا لإرسال كتابك عبر البريد <span aria-hidden="true">←</span></a>
         </div>
       </article>
     </div>
@@ -941,11 +940,6 @@ if (CONFIG.whatsapp) {
     const n = CONFIG.whatsapp;
     waf.innerHTML = `<span>واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0, 3)} ${n.slice(3, 6)} ${n.slice(6, 9)} ${n.slice(9)}</small>`;
   }
-  const waBook = $("#waBook");
-  if (waBook) {
-    waBook.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("السلام عليكم، أرغب بإرسال كتابي أو روايتي للنشر في موقع الشرقاط الثقافي الأول.")}`;
-    waBook.hidden = false;
-  }
 }
 $("#shareBtn")?.addEventListener("click", async () => {
   const data = { title: document.title, text: "الشرقاط الثقافي الأول — ذاكرة المكان وحكاية الإنسان", url: location.origin + location.pathname };
@@ -956,13 +950,13 @@ $("#shareBtn")?.addEventListener("click", async () => {
 });
 
 const pledgeBook = $("#pledgeBook");
-const bookBtns = ["#bookLink", "#waBook"].map(sel => $(sel)).filter(Boolean);
-const syncPledge = () => bookBtns.forEach(b => b.setAttribute("aria-disabled", String(!pledgeBook?.checked)));
+const bookBtn = $("#bookLink");
+const syncPledge = () => bookBtn?.setAttribute("aria-disabled", String(!pledgeBook?.checked));
 pledgeBook?.addEventListener("change", syncPledge);
 syncPledge();
-bookBtns.forEach(b => b.addEventListener("click", e => {
+bookBtn?.addEventListener("click", e => {
   if (!pledgeBook?.checked) { e.preventDefault(); showToast("يرجى الضغط على التعهد أولاً."); }
-}));
+});
 
 const backToTop = $("#backToTop");
 window.addEventListener("scroll", () => backToTop?.classList.toggle("visible", window.scrollY > 450), { passive: true });
