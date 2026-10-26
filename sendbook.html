@@ -111,7 +111,6 @@ button{cursor:pointer}
       <a href="book.html">المؤلفات</a>
       <a href="sendbook.html" aria-current="page">أرسل كتابك</a>
       <a href="index.html#weather">الطقس</a>
-      <a href="index.html#contact">اتصل بنا</a>
     </nav>
   </div>
 </header>
@@ -149,8 +148,8 @@ button{cursor:pointer}
 
           <div class="disclaimer-box">
             <strong>تنويه وإخلاء مسؤولية</strong>
-            تُنشر المواد بناءً على طلب المُرسِل وتعهده بحقوق الملكية، وتخضع للمراجعة قبل النشر. الموقع منصة لنشر المحتوى بحسن نية، والمسؤولية الأساسية عن المحتوى تقع على المُرسِل. يحق للموقع رفض أو حذف أي مادة، ويُمنع إرسال محتوى فيه تشهير أو تحريض أو معلومات خاصة بأشخاص دون إذنهم. وإن كان لديك اعتراض أو إشعار بحقوق الملكية، فراسلنا وسنراجع المادة ونحذفها خلال 24 ساعة.<br>
-            البريد الإلكتروني: <a href="mailto:mhamalgporee@gmail.com">mhamalgporee@gmail.com</a>
+            تُنشر المواد بناءً على طلب المُرسِل وتعهده بحقوق الملكية، وتخضع للمراجعة قبل النشر. الموقع منصة لنشر المحتوى بحسن نية، والمسؤولية الأساسية عن المحتوى تقع على المُرسِل. يحق للموقع رفض أو حذف أي مادة، ويُمنع إرسال محتوى فيه تشهير أو تحريض أو معلومات خاصة بأشخاص دون إذنهم. وإن كان لديك اعتراض أو إشعار بحقوق الملكية أو شكوى، فيرجى التواصل معنا حصراً عبر الواتساب:<br>
+            <a id="waDisclaimer" href="#" target="_blank" rel="noopener noreferrer">تقديم شكوى أو اعتراض عبر واتساب ↗</a>
           </div>
 
           <p class="form-note">يرجى إرفاق ملف الكتاب بصيغة PDF في رسالة البريد الإلكتروني.</p>
@@ -174,6 +173,7 @@ button{cursor:pointer}
       <a href="book.html">المؤلفات</a>
       <a href="sendbook.html">أرسل كتابك</a>
       <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
+      <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>تقديم شكوى عبر واتساب ↗</a>
     </nav>
   </div>
 </footer>
@@ -183,7 +183,8 @@ button{cursor:pointer}
 <script>
 "use strict";
 const CONFIG = {
-  contactEmail: "mhamalgporee@gmail.com"
+  contactEmail: "mhamalgporee@gmail.com",
+  whatsapp: "9647835025407"
 };
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -194,6 +195,19 @@ function showToast(m) {
   t.classList.add("visible");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
+}
+
+/* ربط الواتساب */
+if (CONFIG.whatsapp) {
+  const waText = encodeURIComponent("السلام عليكم، أود تقديم شكوى أو إشعار بخصوص حقوق الملكية عبر موقع الشرقاط الثقافي الأول.");
+  const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${waText}`;
+  const waDisc = $("#waDisclaimer");
+  if (waDisc) waDisc.href = waUrl;
+  const waFoot = $("#waFooter");
+  if (waFoot) {
+    waFoot.href = waUrl;
+    waFoot.hidden = false;
+  }
 }
 
 /* القائمة */
