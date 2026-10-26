@@ -99,7 +99,7 @@ const BOOKS = [
     title: "رواية متاهة العقل",
     author: "محمد علي أحمد الحطاب الجبوري",
     desc: "رواية أدبية مشوقة تأخذ القارئ في دروب التفكير والعمق الإنساني، حافلة بالصور الفكرية والوجدان ومواقف الحياة.",
-    cover: "covers/mataha-cover.jpg",
+    cover: "mataha-cover.jpg",
     pdf: "mataha.pdf",
     note: "💡 اضغط على الزر أدناه لقراءة الرواية بصيغة PDF."
   },
@@ -107,25 +107,26 @@ const BOOKS = [
     title: "الرجل والمرأة وعشرة العمر في بلاد الرافدين",
     author: "محمد علي أحمد الحطاب الجبوري",
     desc: "كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة.",
-    cover: "covers/الرجل والمرأة وعشرة العمر 3.jpg",
+    cover: "cover.jpg",
+    flip: "https://heyzine.com/flip-book/7d35d68ef2.html",
     pdf: "book.pdf",
-    note: "💡 اضغط على الزر أدناه لقراءة الكتاب بصيغة PDF."
+    note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
   },
   {
     title: "رواية المنافي السعيدة",
-    author: "الكاتب والروائي الأستاذ فهد عنتر الدوخي",
-    desc: "رواية أدبية راقية تستحضر أجواء وذكريات مقاعد الدراسة الجامعية في السبعينيات والثمانينيات، مستعرضة محطات الشباب وأيام الأصدقاء والأحبة في رحلة المنافي البعيدة بأسلوب إنساني وداافئ.",
-    cover: "covers/المنافي السعيدة 1.jpg",
+    author: "فهد عنتر الدوخي",
+    desc: "رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة، مستعرضاً الحكايات الإنسانية والذكريات الجميلة.",
+    cover: "fahad-cover.jpg",
+    flip: "https://heyzine.com/flip-book/0ec9c4a4d0.html",
     pdf: "فهد الدوخي.pdf",
-    note: "💡 اضغط على الزر أدناه لقراءة الرواية بصيغة PDF."
+    note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
   },
   {
     title: "ديوان شعري",
     author: "محمد علي أحمد الحطاب الجبوري",
     desc: "ديوان شعري يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.",
-    cover: "covers/ديوان شعر 2.jpg",
-    pdf: "diwan.pdf",
-    note: "💡 اضغط على الزر أدناه لقراءة الديوان بصيغة PDF."
+    cover: "diwan-cover.jpg",
+    pdf: "diwan.pdf"
   }
 ];
 
@@ -135,8 +136,9 @@ BOOKS.forEach(b => {
   card.className = "book-card";
 
   const pdfUrl = b.pdf ? encodeURI(b.pdf) : "";
+  const link = b.flip || pdfUrl || "#";
   const a = document.createElement("a");
-  a.href = pdfUrl || "#"; a.target = "_blank"; a.rel = "noopener";
+  a.href = link; a.target = "_blank"; a.rel = "noopener";
   const img = document.createElement("img");
   img.className = "book-cover";
   img.src = b.cover || "acon.jpg";
@@ -162,10 +164,16 @@ BOOKS.forEach(b => {
 
   const actions = document.createElement("div");
   actions.className = "book-actions";
+  if (b.flip) {
+    const x = document.createElement("a");
+    x.className = "btn"; x.href = b.flip; x.target = "_blank"; x.rel = "noopener";
+    x.textContent = "اضغط هنا لقراءة الكتاب التفاعلي 📖";
+    actions.append(x);
+  }
   if (b.pdf) {
     const x = document.createElement("a");
-    x.className = "btn";
-    x.href = pdfUrl; x.target = "_blank"; x.rel, "noopener";
+    x.className = b.flip ? "btn btn-secondary" : "btn";
+    x.href = pdfUrl; x.target = "_blank"; x.rel = "noopener";
     x.textContent = "اضغط هنا لقراءة الكتاب في ملف بي دي اف 📄";
     actions.append(x);
   }
