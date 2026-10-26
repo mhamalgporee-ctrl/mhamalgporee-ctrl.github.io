@@ -26,7 +26,7 @@ body{margin:0;background:var(--ivory);color:var(--ink);font-family:Tahoma,Arial,
 body.modal-open{overflow:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-button,input,textarea{font:inherit}
+button,input,textarea,select{font:inherit}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--gold);outline-offset:4px}
 ::selection{background:var(--gold-light);color:#000}
@@ -109,7 +109,6 @@ button{cursor:pointer}
 .card-index{color:#000;font-family:Georgia,serif;font-size:.85rem;direction:ltr}
 .content-card h3{margin:0 0 6px;color:var(--text);font-size:1.05rem;line-height:1.4}
 .content-card p{margin:0 0 12px;color:var(--muted);font-size:.84rem;line-height:1.7}
-/* زر "اضغط هنا" واضح كزر */
 .card-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;align-self:flex-start;margin-top:auto;min-height:40px;padding:6px 16px;border:0;border-radius:999px;background:var(--gold);color:#000;font-size:.86rem;font-weight:900;transition:background .2s ease,transform .2s ease}
 .card-link:hover{background:var(--gold-light);transform:translateY(-2px)}
 .covers-strip{display:flex;gap:8px;margin:0 0 6px;padding-bottom:4px;overflow-x:auto;scroll-snap-type:x proximity}
@@ -146,7 +145,7 @@ button{cursor:pointer}
 .day-desc{margin-top:4px;color:var(--muted);font-size:.74rem;font-weight:700}
 .weather-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
 .weather-status{color:var(--muted);font-size:.78rem;font-weight:700}
-/* الخريطة (قابلة للطي) */
+/* الخريطة */
 .map-block{margin-top:22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.2)}
 .map-block summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;cursor:pointer;list-style:none;color:var(--text);font-size:1.1rem;font-weight:900}
 .map-block summary::-webkit-details-marker{display:none}
@@ -195,7 +194,7 @@ button{cursor:pointer}
 .contact-form{display:grid;gap:14px}
 .form-field{display:grid;gap:6px}
 .form-field label{color:var(--text);font-size:.84rem;font-weight:800}
-.form-field input,.form-field textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--paper);color:var(--ink)}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--paper);color:var(--ink)}
 .form-field textarea{min-height:110px;resize:vertical}
 .form-note{margin:0;color:var(--muted);font-size:.76rem}
 .toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid rgba(184,150,79,.4);border-radius:999px;background:var(--green-deep);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s ease}
@@ -243,7 +242,6 @@ button{cursor:pointer}
 @media (max-width:480px){
   body{font-size:15px}
   .container{width:calc(100% - 24px)}
-  /* بطاقتين بالصف على الجوال لتقليل التمرير */
   .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .content-card{min-height:0;padding:12px;border-radius:14px}
   .content-card h3{font-size:.92rem}
@@ -280,7 +278,7 @@ button{cursor:pointer}
 .lightbox-image{background:var(--ivory)}
 .modal-close,.lightbox-panel .modal-close{border:0;background:none;color:var(--text);font-size:1.7rem}
 .modal-status{background:none;padding:0}
-.form-field input,.form-field textarea{border:0;border-bottom:1px solid var(--gold);border-radius:0;background:none}
+.form-field input,.form-field textarea,.form-field select{border:0;border-bottom:1px solid var(--gold);border-radius:0;background:none}
 .map-block summary{padding-inline:0}
 .map-frame,.video-frame{border-radius:28px}
 .pledge{display:flex;gap:10px;align-items:flex-start;max-width:540px;margin:0 0 14px;color:var(--text);font-size:.84rem;line-height:1.7;cursor:pointer}
@@ -352,7 +350,7 @@ gtag('config','G-3VZQSDZNC7');
       <div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه حمداً دائماً أبداً &nbsp;&nbsp;•&nbsp;&nbsp; اللهم صلِّ على محمد وعلى آل محمد ❖ &nbsp;&nbsp;•&nbsp;&nbsp; أستغفر الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div>
     </div>
   </div>
-  <!-- الأقسام الثقافية (مرتبة حسب الأهمية) -->
+  <!-- الأقسام الثقافية -->
   <section class="section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
       <div class="section-heading">
@@ -595,15 +593,22 @@ gtag('config','G-3VZQSDZNC7');
       <p>أو اكتب رسالتك وسنجهّز لك بريداً جاهزاً للإرسال.</p>
       <form class="contact-form" id="contactForm">
         <div class="form-field">
+          <label for="contactType">نوع الرسالة / التواصل</label>
+          <select id="contactType">
+            <option value="إرسال كتاب أو رواية أو مشاركة">📖 إرسال كتاب أو رواية أو مشاركة</option>
+            <option value="شكوى أو بلاغ عن صورة أو كتاب أو مقال">⚠️ شكوى أو بلاغ عن صورة أو كتاب أو مقال</option>
+          </select>
+        </div>
+        <div class="form-field">
           <label for="contactName">الاسم أو اسم المؤلف</label>
           <input id="contactName" type="text" maxlength="100" autocomplete="name" placeholder="اكتب اسمك الكامل">
         </div>
         <div class="form-field">
-          <label for="contactMessage">الرسالة أو تفاصيل الكتاب / الرواية</label>
-          <textarea id="contactMessage" maxlength="3000" required placeholder="اكتب عنوان الكتاب ونبذة عنه هنا…"></textarea>
+          <label for="contactMessage">الرسالة أو تفاصيل الكتاب / الشكوى</label>
+          <textarea id="contactMessage" maxlength="3000" required placeholder="اكتب تفاصيل كتابك أو شكواك هنا…"></textarea>
         </div>
         <p class="form-note">سيفتح تطبيق البريد برسالة جاهزة. إن كنت ترسل كتاباً، أرفق ملف PDF قبل الإرسال.</p>
-        <label class="pledge"><input type="checkbox" id="pledgeContact"><span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي.</span></label>
+        <label class="pledge"><input type="checkbox" id="pledgeContact"><span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله أو مالك حقوقه، وأتحمل المسؤولية القانونية عنه.</span></label>
         <button class="btn btn-green" type="submit">إرسال عبر البريد الإلكتروني ↗</button>
       </form>
     </div>
@@ -618,19 +623,16 @@ const CONFIG = {
   photosFolder: "photos",
   coversFolder: "covers",
   contactEmail: "mhamalgporee@gmail.com",
-  /* رقم الواتساب بصيغة دولية بلا + ولا أصفار، مثال: 9647701234567 (اتركه فارغاً لإخفاء الزر) */
   whatsapp: "9647835025407",
   latitude: 35.5292,
   longitude: 43.2199,
   timezone: "Asia/Baghdad",
-  /* أرقام إنجليزية (0-9) في الساعة والطقس لتوحيد الشكل */
   locale: "ar-IQ-u-nu-latn"
 };
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const setText = (sel, text) => { const e = $(sel); if (e) e.textContent = text; };
 
-/* ---------- تنبيه سريع ---------- */
 let toastTimer;
 function showToast(message) {
   const t = $("#toast");
@@ -641,7 +643,6 @@ function showToast(message) {
   toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
 }
 
-/* ---------- القائمة ---------- */
 const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
 function closeMenu() {
@@ -657,7 +658,6 @@ menuToggle?.addEventListener("click", () => {
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
 
-/* ---------- صور الواجهة ---------- */
 const heroImage = $("#heroMainImage");
 const heroThumbBtns = $$("[data-hero-image]");
 const heroImagesList = heroThumbBtns.map(b => b.dataset.heroImage);
@@ -677,7 +677,6 @@ function setHeroImage(index) {
 }
 heroThumbBtns.forEach((b, index) => b.addEventListener("click", () => setHeroImage(index)));
 
-/* ---------- البحث ---------- */
 function normalizeText(v) {
   return String(v || "")
     .normalize("NFD")
@@ -700,14 +699,11 @@ function runSearch() {
   });
   const noRes = $("#noResults");
   if (noRes) noRes.style.display = visible ? "none" : "block";
-  setText("#searchStatus", q
-    ? `النتائج: ${visible} من ${contentCards.length}`
-    : "");
+  setText("#searchStatus", q ? `النتائج: ${visible} من ${contentCards.length}` : "");
 }
 searchInput?.addEventListener("input", runSearch);
 runSearch();
 
-/* ---------- النوافذ ---------- */
 let openModals = [];
 let previousFocus = null;
 function openModal(id) {
@@ -764,7 +760,6 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape" && openModals.length) closeModal(openModals[openModals.length - 1]);
 });
 
-/* ---------- معرض الصور (من GitHub) ---------- */
 async function fetchGitHubFiles(folder) {
   const url = `https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`;
   const r = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
@@ -819,7 +814,6 @@ async function loadGallery(force = false) {
 }
 $("#retryGallery")?.addEventListener("click", () => loadGallery(true));
 
-/* ---------- أغلفة الكتب في الرئيسية ---------- */
 async function loadCovers() {
   const strip = $("#coversStrip");
   if (!strip) return;
@@ -849,18 +843,13 @@ async function loadCovers() {
 }
 loadCovers();
 
-/* ---------- الطقس والساعة ---------- */
 const WEATHER_CODES = {
   0: ["سماء صافية", "☀️"], 1: ["صحو غالباً", "🌤️"], 2: ["غائم جزئياً", "⛅"], 3: ["غائم", "☁️"],
   45: ["ضباب", "🌫️"], 48: ["ضباب متجمد", "🌫️"],
   51: ["رذاذ خفيف", "🌦️"], 53: ["رذاذ متوسط", "🌦️"], 55: ["رذاذ كثيف", "🌧️"],
-  56: ["رذاذ متجمد خفيف", "🌧️"], 57: ["رذاذ متجمد كثيف", "🌧️"],
   61: ["مطر خفيف", "🌦️"], 63: ["مطر متوسط", "🌧️"], 65: ["مطر غزير", "🌧️"],
-  66: ["مطر متجمد خفيف", "🌧️"], 67: ["مطر متجمد غزير", "🌧️"],
-  71: ["ثلج خفيف", "🌨️"], 73: ["ثلج متوسط", "🌨️"], 75: ["ثلج غزير", "❄️"], 77: ["حبيبات ثلجية", "🌨️"],
   80: ["زخات مطر خفيفة", "🌦️"], 81: ["زخات مطر متوسطة", "🌧️"], 82: ["زخات مطر غزيرة", "⛈️"],
-  85: ["زخات ثلوج خفيفة", "🌨️"], 86: ["زخات ثلوج كثيفة", "❄️"],
-  95: ["عواصف رعدية", "⛈️"], 96: ["عواصف رعدية مع برد", "⛈️"], 99: ["عواصف رعدية قوية مع برد", "⛈️"]
+  95: ["عواصف رعدية", "⛈️"]
 };
 function getWeatherInfo(code, cloud) {
   if (code <= 3 && typeof cloud === "number") {
@@ -932,28 +921,28 @@ updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
 
-/* ---------- التواصل عبر البريد الإلكتروني ---------- */
+/* ---------- التواصل عبر البريد الإلكتروني مع تصنيف نوع الرسالة ---------- */
 $("#contactForm")?.addEventListener("submit", e => {
   e.preventDefault();
+  const type = $("#contactType")?.value || "مشاركة";
   const name = $("#contactName")?.value.trim() || "";
   const message = $("#contactMessage")?.value.trim() || "";
   if (!message) {
     $("#contactMessage")?.focus();
-    return showToast("يرجى كتابة الرسالة أو تفاصيل الكتاب أولاً.");
+    return showToast("يرجى كتابة الرسالة أو التفاصيل أولاً.");
   }
   if (!$("#pledgeContact")?.checked) return showToast("يرجى الضغط على التعهد قبل الإرسال.");
-  const subject = encodeURIComponent("طلب نشر كتاب أو رسالة عبر موقع الشرقاط الثقافي الأول");
+  const subject = encodeURIComponent(`[${type}] عبر موقع الشرقاط الثقافي الأول`);
   const body = encodeURIComponent([
-    "السلام عليكم،",
-    name && `اسم المؤلف / المرسل: ${name}`,
-    `تفاصيل الكتاب أو الرسالة:\n${message}`,
+    `نوع التواصل: ${type}`,
+    name && `الاسم / المرسل: ${name}`,
+    `التفاصيل:\n${message}`,
     "\n----------------------------------------",
-    "ملاحظة للمرسل: يرجى إرفاق ملف الكتاب بصيغة PDF في هذه الرسالة قبل إرسالها."
+    "ملاحظة: موقع الشرقاط الثقافي الأول"
   ].filter(Boolean).join("\n\n"));
   window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
 });
 
-/* ---------- واتساب والمشاركة ---------- */
 if (CONFIG.whatsapp) {
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("السلام عليكم، تواصلت معكم من موقع الشرقاط الثقافي الأول.")}`;
   ["#waFooter", "#waContact"].forEach(sel => { const a = $(sel); if (a) { a.href = wa; a.hidden = false; } });
@@ -976,7 +965,6 @@ $("#shareBtn")?.addEventListener("click", async () => {
   window.open("https://wa.me/?text=" + encodeURIComponent(data.text + "\n" + data.url), "_blank", "noopener");
 });
 
-/* ---------- التعهد بالحقوق (قسم أرسل كتابك) ---------- */
 const pledgeBook = $("#pledgeBook");
 const bookBtns = ["#bookLink", "#waBook"].map(sel => $(sel)).filter(Boolean);
 const syncPledge = () => bookBtns.forEach(b => b.setAttribute("aria-disabled", String(!pledgeBook?.checked)));
@@ -986,13 +974,11 @@ bookBtns.forEach(b => b.addEventListener("click", e => {
   if (!pledgeBook?.checked) { e.preventDefault(); showToast("يرجى الضغط على التعهد أولاً."); }
 }));
 
-/* ---------- زر الأعلى والسنة ---------- */
 const backToTop = $("#backToTop");
 window.addEventListener("scroll", () => backToTop?.classList.toggle("visible", window.scrollY > 450), { passive: true });
 backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 setText("#year", new Date().getFullYear());
 
-/* فتح نافذة اتصل بنا عند القدوم من صفحة أخرى برابط index.html#contact */
 if (location.hash === "#contact") {
   history.replaceState(null, "", location.pathname + location.search);
   openModal("contactModal");
