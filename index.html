@@ -326,7 +326,6 @@ gtag('config','G-3VZQSDZNC7');
         <p class="hero-quote">أهلاً بك في الشرقاط الثقافي الأول ❖</p>
         <div class="hero-actions">
           <button class="btn btn-outline" type="button" data-open="aboutModal">من نحن اضغط هنا</button>
-          <button class="btn btn-light" type="button" id="shareBtn">مشاركة الموقع ↗</button>
         </div>
       </div>
       <div class="hero-visual">
@@ -919,7 +918,7 @@ updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
 
-/* ---------- تفيعل زر التعهد لنموذج إرسال الصور ---------- */
+/* ---------- تفعيل زر التعهد لنموذج إرسال الصور ---------- */
 const pledgePhoto = $("#pledgePhoto");
 const photoSubmitBtn = $("#photoSubmitBtn");
 const syncPhotoPledge = () => photoSubmitBtn?.setAttribute("aria-disabled", String(!pledgePhoto?.checked));
@@ -968,14 +967,6 @@ if (CONFIG.whatsapp) {
     }
   }
 }
-
-$("#shareBtn")?.addEventListener("click", async () => {
-  const data = { title: document.title, text: "الشرقاط الثقافي الأول — ذاكرة المكان وحكاية الإنسان", url: location.origin + location.pathname };
-  try {
-    if (navigator.share) { await navigator.share(data); return; }
-  } catch (e) { if (e.name === "AbortError") return; }
-  window.open("https://wa.me/?text=" + encodeURIComponent(data.text + "\n" + data.url), "_blank", "noopener");
-});
 
 const pledgeBook = $("#pledgeBook");
 const bookBtn = $("#bookLink");
