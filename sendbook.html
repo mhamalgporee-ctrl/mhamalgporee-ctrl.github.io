@@ -109,7 +109,7 @@ button{cursor:pointer}
       <a href="index.html#library">الأقسام الثقافية</a>
       <a href="tv.html">التلفزيون</a>
       <a href="book.html">المؤلفات</a>
-      <a href="sendbook.html">أرسل كتابك</a>
+      <a href="sendbook.html" aria-current="page">أرسل كتابك</a>
       <a href="index.html#weather">الطقس</a>
       <a href="index.html#contact">اتصل بنا</a>
     </nav>
@@ -149,13 +149,13 @@ button{cursor:pointer}
 
           <div class="disclaimer-box">
             <strong>تنويه وإخلاء مسؤولية</strong>
-            تُنشر المواد بناءً على طلب المُرسِل وتعهده بحقوق الملكية، وتخضع للمراجعة قبل النشر. الموقع منصة لنشر المحتوى بحسن نية، والمسؤولية الأساسية عن المحتوى تقع على المُرسِل. يحق للموقع رفض أو حذف أي مادة، ويُمنع إرسال محتوى فيه تشهير أو تحريض أو معلومات خاصة بأشخاص دون إذنهم. وإن كان لديك اعتراض أو إشعار بحقوق الملكية، فراسلنا وسنراجع المادة ونحذفها خلال 24 ساعة.<br>البريد: <a href="mailto:mhamalgporee@gmail.com">mhamalgporee@gmail.com</a><br>واتساب: <a href="https://wa.me/9647835025407" target="_blank" rel="noopener noreferrer">07835025407</a><br>الدولي: <span dir="ltr">+964 783 502 5407</span>
+            تُنشر المواد بناءً على طلب المُرسِل وتعهده بحقوق الملكية، وتخضع للمراجعة قبل النشر. الموقع منصة لنشر المحتوى بحسن نية، والمسؤولية الأساسية عن المحتوى تقع على المُرسِل. يحق للموقع رفض أو حذف أي مادة، ويُمنع إرسال محتوى فيه تشهير أو تحريض أو معلومات خاصة بأشخاص دون إذنهم. وإن كان لديك اعتراض أو إشعار بحقوق الملكية، فراسلنا وسنراجع المادة ونحذفها خلال 24 ساعة.<br>
+            البريد الإلكتروني: <a href="mailto:mhamalgporee@gmail.com">mhamalgporee@gmail.com</a>
           </div>
 
-          <p class="form-note">اختر البريد الإلكتروني أو واتساب لإرسال الطلب. وإذا كان لديك ملف الكتاب بصيغة PDF فأرفقه في الرسالة نفسها.</p>
+          <p class="form-note">يرجى إرفاق ملف الكتاب بصيغة PDF في رسالة البريد الإلكتروني.</p>
           <div class="form-actions">
             <button class="btn btn-gold" id="mailBtn" type="submit" aria-disabled="true">إرسال عبر البريد الإلكتروني ↗</button>
-            <button class="btn btn-gold" id="waBtn" type="button" aria-disabled="true" hidden>إرسال عبر واتساب ↗</button>
           </div>
         </form>
       </div>
@@ -183,9 +183,7 @@ button{cursor:pointer}
 <script>
 "use strict";
 const CONFIG = {
-  contactEmail: "mhamalgporee@gmail.com",
-  /* رقم الواتساب بصيغة دولية بلا + ولا أصفار (اتركه فارغاً لإخفاء الزر) */
-  whatsapp: "9647835025407"
+  contactEmail: "mhamalgporee@gmail.com"
 };
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -214,12 +212,10 @@ menuToggle.addEventListener("click", () => {
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
 
-/* التعهد: الأزرار معطلة حتى يضغط المرسل على التعهد */
+/* التعهد: الزر معطل حتى يضغط المرسل على التعهد */
 const pledge = $("#agreeRights");
 const mailBtn = $("#mailBtn");
-const waBtn = $("#waBtn");
-if (CONFIG.whatsapp) waBtn.hidden = false;
-const syncPledge = () => [mailBtn, waBtn].forEach(b => b.setAttribute("aria-disabled", String(!pledge.checked)));
+const syncPledge = () => mailBtn.setAttribute("aria-disabled", String(!pledge.checked));
 pledge.addEventListener("change", syncPledge);
 syncPledge();
 
@@ -238,7 +234,7 @@ function collect() {
     "-----------------------------------",
     "تعهد: أقرّ بأنني مؤلف هذا العمل أو مالك حقوقه كاملة، وأتحمل المسؤولية الفكرية والقانونية عن محتواه، وأقرّ بأنه لا يتضمن تشهيراً أو تحريضاً أو معلومات خاصة بأشخاص، وأوافق على نشره في الموقع باسمي.",
     "-----------------------------------",
-    "ملاحظة: يرجى إرفاق ملف الكتاب بصيغة PDF في هذه المحادثة أو الرسالة."
+    "ملاحظة: يرجى إرفاق ملف الكتاب بصيغة PDF في رسالة البريد الإلكتروني."
   ].join("\n\n");
   return { title, text };
 }
@@ -248,12 +244,6 @@ $("#sendBookForm").addEventListener("submit", e => {
   const d = collect();
   if (!d) return;
   window.location.href = `mailto:${CONFIG.contactEmail}?subject=${encodeURIComponent("طلب نشر كتاب جديد: " + d.title)}&body=${encodeURIComponent(d.text)}`;
-});
-
-waBtn.addEventListener("click", () => {
-  const d = collect();
-  if (!d) return;
-  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(d.text)}`, "_blank", "noopener");
 });
 
 $("#year").textContent = new Date().getFullYear();
