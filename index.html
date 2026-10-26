@@ -550,7 +550,7 @@ gtag('config','G-3VZQSDZNC7');
       <div class="gallery-grid mt" id="galleryGrid"></div>
       <button class="btn btn-light mt" id="retryGallery" type="button">إعادة المحاولة ↻</button>
       <p class="mt">هل لديك صور تاريخية للشرقاط؟ أرسلها لنا لنضيفها إلى المعرض.</p>
-      <button class="btn btn-green" type="button" data-open="contactModal">أرسل صورك بالبريد ↗</button>
+      <button class="btn btn-green" type="button" data-open="sendPhotoModal">أرسل صورك بالبريد ↗</button>
     </div>
   </div>
 </div>
@@ -581,22 +581,65 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 </div>
-<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" hidden>
+
+<!-- نافذة إرسال الصور الخاصة بمعرض الصور -->
+<div class="modal" id="sendPhotoModal" role="dialog" aria-modal="true" aria-labelledby="sendPhotoModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
-      <h2 id="contactModalTitle">اتصل بنا</h2>
+      <h2 id="sendPhotoModalTitle">إرسال صور تاريخية أو تراثية للمعرض</h2>
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
     </div>
     <div class="modal-body">
-      <a class="btn btn-gold" id="waContact" href="#" target="_blank" rel="noopener noreferrer" hidden>تواصل معنا عبر واتساب ↗</a>
-      <p>أو اكتب رسالتك وسنجهّز لك بريداً جاهزاً للإرسال.</p>
+      <p>شاركنا صورك التاريخية أو التراثية الخاصة بالشرقاط لنراجعها وننشرها في معرض الصور.</p>
+      <form class="contact-form" id="sendPhotoForm">
+        <div class="form-field">
+          <label for="photoAuthor">الاسم الكريم</label>
+          <input id="photoAuthor" type="text" maxlength="100" autocomplete="name" required placeholder="اكتب اسمك الكامل">
+        </div>
+        <div class="form-field">
+          <label for="photoTitle">عنوان أو وصف الصور</label>
+          <input id="photoTitle" type="text" maxlength="150" required placeholder="مثال: صور قديمة لمدينتي الشرقاط">
+        </div>
+        <div class="form-field">
+          <label for="photoDesc">تفاصيل أو معلومات عن الصور</label>
+          <textarea id="photoDesc" maxlength="2000" required placeholder="اكتب تفاصيل أو تاريخ التقاط الصور…"></textarea>
+        </div>
+        <label class="pledge" for="pledgePhoto">
+          <input type="checkbox" id="pledgePhoto" required>
+          <span><strong>تعهد الملكية:</strong> أقرّ بأنني مالك صور المحتوى أو لدي الإذن الكامل بنشرها، وأتحمل المسؤولية القانونية عنها، وأوافق على نشرها في معرض صور الموقع.</span>
+        </label>
+        <p class="form-note">سيفتح تطبيق البريد برسالة جاهزة لإرسال الصور (يرجى إرفاق الصور مع البريد).</p>
+        <button class="btn btn-green" type="submit" id="photoSubmitBtn" aria-disabled="true">إرسال الصور عبر البريد الإلكتروني ↗</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" hidden>
+  <div class="modal-panel">
+    <div class="modal-head">
+      <h2 id="contactModalTitle">اتصل بنا وتقديم الشكاوى</h2>
+      <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
+    </div>
+    <div class="modal-body">
+      <a class="btn btn-gold" id="waContact" href="#" target="_blank" rel="noopener noreferrer" hidden>تقديم شكوى عبر واتساب ↗</a>
+      <p>أو املأ النموذج أدناه لنجهّز لك بريداً جاهزاً للشكوى أو الاستفسار.</p>
       <form class="contact-form" id="contactForm">
         <div class="form-field">
           <label for="contactName">الاسم الكريم</label>
           <input id="contactName" type="text" maxlength="100" autocomplete="name" placeholder="اكتب اسمك الكامل">
         </div>
         <div class="form-field">
-          <label for="contactMessage">الشكوى أو الاستفسار</label>
+          <label for="complaintType">نوع الشكوى أو الملاحظة</label>
+          <select id="complaintType" required>
+            <option value="شكوى عامة">شكوى عامة</option>
+            <option value="اعتراض أو إشعار بانتهاك حقوق الملكية الفكرية">اعتراض أو إشعار بانتهاك حقوق الملكية الفكرية</option>
+            <option value="استفسار أو ملاحظة حول كتاب أو مقال">استفسار أو ملاحظة حول كتاب أو مقال</option>
+            <option value="أخرى">أخرى</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="contactMessage">تفاصيل الشكوى أو الاستفسار</label>
           <textarea id="contactMessage" maxlength="3000" required placeholder="اكتب تفاصيل شكواك أو استفسارك هنا…"></textarea>
         </div>
         <p class="form-note">سيفتح تطبيق البريد برسالة جاهزة لإرسال الشكوى أو الملاحظة.</p>
@@ -912,19 +955,57 @@ updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
 
+/* ---------- تفيعل زر التعهد لنموذج إرسال الصور ---------- */
+const pledgePhoto = $("#pledgePhoto");
+const photoSubmitBtn = $("#photoSubmitBtn");
+const syncPhotoPledge = () => photoSubmitBtn?.setAttribute("aria-disabled", String(!pledgePhoto?.checked));
+pledgePhoto?.addEventListener("change", syncPhotoPledge);
+syncPhotoPledge();
+photoSubmitBtn?.addEventListener("click", e => {
+  if (!pledgePhoto?.checked) { e.preventDefault(); showToast("يرجى الضغط على تعهد الملكية أولاً."); }
+});
+
+/* ---------- إرسال الصور للمعرض عبر البريد الإلكتروني ---------- */
+$("#sendPhotoForm")?.addEventListener("submit", e => {
+  e.preventDefault();
+  const author = $("#photoAuthor")?.value.trim() || "";
+  const title = $("#photoTitle")?.value.trim() || "";
+  const desc = $("#photoDesc")?.value.trim() || "";
+  if (!pledgePhoto?.checked) {
+    return showToast("يرجى الموافقة على تعهد الملكية أولاً.");
+  }
+  if (!author || !title || !desc) {
+    return showToast("يرجى ملء جميع الحقول المطلوبة.");
+  }
+  const subject = encodeURIComponent("طلب نشر صور جديدة في المعرض: " + title);
+  const body = encodeURIComponent([
+    "السلام عليكم، أود إرسال صور تاريخية أو تراثية لنشرها في معرض صور موقع الشرقاط الثقافي الأول.",
+    `اسم المرسل: ${author}`,
+    `عنوان الصور: ${title}`,
+    `تفاصيل الصور:\n${desc}`,
+    "----------------------------------------",
+    "تعهد الملكية: أقرّ بأنني مالك صور المحتوى أو لدي الإذن الكامل بنشرها، وأتحمل المسؤولية القانونية عنها، وأوافق على نشرها في معرض صور الموقع.",
+    "----------------------------------------",
+    "ملاحظة: يرجى إرفاق الصور في رسالة البريد الإلكتروني."
+  ].join("\n\n"));
+  window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
+});
+
 /* ---------- التواصل والشكاوى عبر البريد الإلكتروني ---------- */
 $("#contactForm")?.addEventListener("submit", e => {
   e.preventDefault();
   const name = $("#contactName")?.value.trim() || "";
+  const complaintType = $("#complaintType")?.value || "شكوى عامة";
   const message = $("#contactMessage")?.value.trim() || "";
   if (!message) {
     $("#contactMessage")?.focus();
-    return showToast("يرجى كتابة الشكوى أو الملاحظة أولاً.");
+    return showToast("يرجى كتابة تفاصيل الشكوى أو الملاحظة أولاً.");
   }
-  const subject = encodeURIComponent("شكوى أو بلاغ عبر موقع الشرقاط الثقافي الأول");
+  const subject = encodeURIComponent(`${complaintType} عبر موقع الشرقاط الثقافي الأول`);
   const body = encodeURIComponent([
     name && `الاسم: ${name}`,
-    `تفاصيل الشكوى:\n${message}`,
+    `نوع الشكوى / الملاحظة: ${complaintType}`,
+    `التفاصيل:\n${message}`,
     "\n----------------------------------------",
     "ملاحظة: موقع الشرقاط الثقافي الأول"
   ].filter(Boolean).join("\n\n"));
@@ -932,7 +1013,7 @@ $("#contactForm")?.addEventListener("submit", e => {
 });
 
 if (CONFIG.whatsapp) {
-  const waComplaintText = encodeURIComponent("اتصلت من موقع الشرقاط حول شكوى");
+  const waComplaintText = encodeURIComponent("السلام عليكم، أود تقديم شكوى أو ملاحظة عبر موقع الشرقاط الثقافي الأول.");
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${waComplaintText}`;
   ["#waFooter", "#waContact"].forEach(sel => { const a = $(sel); if (a) { a.href = wa; a.hidden = false; } });
   const waf = $("#waFooter");
