@@ -163,6 +163,8 @@ button{cursor:pointer}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:.9rem}
 .footer-links a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .footer-links a:hover{color:var(--gold)}
+#waFooter{flex-direction:column;align-items:flex-start;justify-content:center;line-height:1.5}
+#waFooter small{font-size:.78rem;font-weight:600;color:var(--muted);unicode-bidi:plaintext}
 .back-to-top{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:var(--green);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:.2s ease}
 .back-to-top.visible{opacity:1;visibility:visible}
 /* النوافذ */
@@ -575,9 +577,8 @@ gtag('config','G-3VZQSDZNC7');
         <img class="about-avatar" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
         <div>
           <h3>محمد علي أحمد الحطاب الجبوري</h3>
-          <p>الشرقاط الثقافي الأول مساحة ثقافية تهتم بتاريخ الشرقاط وتراثها وذاكرتها، وتوثيق القصص والسير والموروث المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
-          <p>تقوم فكرة الموقع على حفظ الذاكرة الثقافية والاجتماعية وإتاحتها للقراء والمهتمين، لتبقى حكاية المكان حاضرة لدى الأجيال.</p>
-          <button class="btn btn-green" type="button" data-open="contactModal">تواصل معنا</button>
+          <p>الشرقاط الثقافي الأول منصة ثقافية تُعنى بتاريخ الشرقاط وتراثها وذاكرتها، وتوثّق قصص أهلها وسِيَرهم وموروثهم المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
+          <p>فكرة الموقع أن نحفظ الذاكرة الثقافية والاجتماعية ونتيحها لكل قارئ ومهتم، لتبقى حكاية المكان حاضرة في ذاكرة الأجيال.</p>
         </div>
       </div>
     </div>
@@ -956,6 +957,11 @@ $("#contactForm")?.addEventListener("submit", e => {
 if (CONFIG.whatsapp) {
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("السلام عليكم، تواصلت معكم من موقع الشرقاط الثقافي الأول.")}`;
   ["#waFooter", "#waContact"].forEach(sel => { const a = $(sel); if (a) { a.href = wa; a.hidden = false; } });
+  const waf = $("#waFooter");
+  if (waf && CONFIG.whatsapp.startsWith("964")) {
+    const n = CONFIG.whatsapp;
+    waf.innerHTML = `<span>واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0, 3)} ${n.slice(3, 6)} ${n.slice(6, 9)} ${n.slice(9)}</small>`;
+  }
   const waBook = $("#waBook");
   if (waBook) {
     waBook.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("السلام عليكم، أرغب بإرسال كتابي أو روايتي للنشر في موقع الشرقاط الثقافي الأول.")}`;
