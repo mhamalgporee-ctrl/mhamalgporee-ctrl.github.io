@@ -171,7 +171,7 @@ button{cursor:pointer}
       <a href="book.html">المؤلفات</a>
       <a href="sendbook.html">أرسل كتابك</a>
       <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
-      <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>تقديم شكوى عبر واتساب ↗</a>
+      <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>هل لديك ملاحظة؟ راسلنا عبر واتساب ↗</a>
     </nav>
   </div>
 </footer>
@@ -197,7 +197,7 @@ function showToast(m) {
 
 /* ربط الواتساب في التذييل */
 if (CONFIG.whatsapp) {
-  const waText = encodeURIComponent("السلام عليكم، أود تقديم شكوى أو إشعار بخصوص حقوق الملكية عبر موقع الشرقاط الثقافي الأول.");
+  const waText = encodeURIComponent("السلام عليكم، أود إرسال ملاحظة أو إشعار بخصوص حقوق الملكية عبر موقع الشرقاط الثقافي الأول.");
   const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${waText}`;
   const waFoot = $("#waFooter");
   if (waFoot) {
