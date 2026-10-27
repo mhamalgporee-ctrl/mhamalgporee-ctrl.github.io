@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7e9cc">
+<meta name="description" content="قسم التطبيقات والذكاء الاصطناعي - موقع الشرقاط الثقافي الأول. أحدث تطبيقات الموبايل وبرامج الكمبيوتر المجانية والموثوقة.">
+<meta name="author" content="محمد علي أحمد الحطاب الجبوري">
+<link rel="icon" href="acon.jpg" type="image/jpeg">
+<title>تطبيقات الذكاء الاصطناعي والبرامج | الشرقاط الثقافي الأول</title>
+<style>
+:root{
+  --green:#4a3f33;--green-deep:#3a3128;--green-mid:#6b5a47;--green-soft:#f7e9cc;
+  --ivory:#f7e9cc;--paper:#f7e9cc;--gold:#b8964f;--gold-light:#d9c48f;
+  --ink:#000;--muted:#222;--text:#000;--line:#e2cca8;--container:1200px
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Tahoma,Arial,"Noto Sans Arabic",sans-serif;font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
+.site-header{position:sticky;z-index:100;top:0;border-bottom:1px solid rgba(74,63,51,.09);background:var(--ivory)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:75px}
+.brand{display:inline-flex;align-items:center;gap:13px;min-width:0}
+.brand-mark{width:44px;height:44px;overflow:hidden;flex:0 0 44px;border:2px solid var(--gold);border-radius:50%;background:var(--green)}
+.brand-mark img{width:100%;height:100%;object-fit:cover}
+.brand-title{display:block;color:var(--text);font-weight:900;font-size:1rem}
+.brand-subtitle{display:block;color:var(--muted);font-size:.66rem}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-links a{position:relative;padding-block:8px;color:#000;font-size:.86rem;font-weight:700;white-space:nowrap}
+.nav-links a::after{position:absolute;right:0;bottom:0;width:0;height:2px;background:var(--gold);content:"";transition:width .2s ease}
+.nav-links a:hover::after{width:100%}
+
+.page-header{padding:40px 0 20px;text-align:center}
+.page-header h1{font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--text);margin-bottom:10px;font-weight:900}
+.page-header p{color:var(--muted);font-size:.95rem;max-width:600px;margin:0 auto}
+
+.section{padding-block:30px 50px}
+.section-title{font-size:1.4rem;color:var(--text);margin-bottom:20px;padding-bottom:8px;border-bottom:2px solid var(--gold);display:inline-block}
+
+.apps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.app-card{display:flex;flex-direction:column;justify-content:space-between;padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.35);transition:transform .2s ease,background .2s ease}
+.app-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.6)}
+.app-info h3{margin:0 0 6px;font-size:1.05rem;color:var(--text)}
+.app-info p{margin:0 0 14px;font-size:0.83rem;color:var(--muted);line-height:1.6}
+.app-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:38px;padding:6px 14px;border-radius:999px;background:var(--gold);color:#000;font-size:0.82rem;font-weight:900;transition:background .2s ease}
+.app-btn:hover{background:var(--gold-light)}
+
+.site-footer{padding:28px 0;background:var(--ivory);color:var(--muted);border-top:1px solid var(--line);margin-top:40px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-brand{color:var(--text);font-weight:900}
+.footer-note{margin:4px 0 0;font-size:.78rem}
+
+@media(max-width:780px){
+  .nav-links{display:none}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html#home" aria-label="الرئيسية">
+      <span class="brand-mark"><img src="acon.jpg" alt="" onerror="this.style.display='none'"></span>
+      <span class="brand-copy">
+        <span class="brand-title">الشرقاط الثقافي الأول</span>
+        <span class="brand-subtitle">ذاكرة المكان · حكاية الإنسان</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#home">الرئيسية</a>
+      <a href="index.html#library">الأقسام</a>
+      <a href="tv.html">التلفزيون</a>
+      <a href="book.html">المؤلفات</a>
+      <a href="apps.html" style="color:var(--gold)">التطبيقات والذكاء الاصطناعي</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-header">
+    <h1>مكتبة التطبيقات والذكاء الاصطناعي</h1>
+    <p>أكثر من 50 برنامجاً وتطبيقاً مختاراً بعناية للكمبيوتر والموبايل وأدوات الذكاء الاصطناعي بروابط تحميل رسمية ومباشرة.</p>
+  </div>
+
+  <!-- القسم الأول: أدوات الذكاء الاصطناعي -->
+  <section class="section">
+    <h2 class="section-title">أولاً: أدوات وتطبيقات الذكاء الاصطناعي (AI Tools)</h2>
+    <div class="apps-grid">
+      <div class="app-card">
+        <div class="app-info">
+          <h3>ChatGPT</h3>
+          <p>المساعد الذكي الأشهر للإجابة عن الأسئلة، كتابة النصوص والمقالات والبرمجة.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Microsoft Copilot</h3>
+          <p>مساعد ذكي مدعوم من مايكروسوفت لتوليد الصور والبحث السريع وتحليل النصوص.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.microsoft.copilot" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Google Gemini</h3>
+          <p>مساعد جوجل المتطور المدمج لتقديم الأفكار والمساعدة في المهام اليومية.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Perplexity AI</h3>
+          <p>محرك بحث ذكي يعطيك إجابات دقيقة موثقة بالمصادر والمراجع لكل سؤال.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.perplexity.android" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Claude AI</h3>
+          <p>نموذج ذكاء اصطناعي فائق التطور في تحليل الملفات الطويلة وتلخيصها والكتابة.</p>
+        </div>
+        <a class="app-btn" href="https://claude.ai" target="_blank" rel="noopener">زيارة الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Remini</h3>
+          <p>تطبيق خرافي لتحسين وتوضيح وتلوين الصور القديمة بالذكاء الاصطناعي.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.bigvue.remini" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>CapCut</h3>
+          <p>محرر فيديو احترافي يحتوي على ميزات ذكاء اصطناعي لإزالة الخلفيات والمؤثرات.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.lemon.lvoverseas" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Photoleap</h3>
+          <p>تطبيق لتوليد وتعديل الصور الفنية بالذكاء الاصطناعي وبدقة مذهلة.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.lightricks.photoleap" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Lumen5</h3>
+          <p>أداة ذكية لتحويل النصوص والمقالات إلى فيديوهات تفاعلية جذابة.</p>
+        </div>
+        <a class="app-btn" href="https://lumen5.com" target="_blank" rel="noopener">زيارة الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Bing Image Creator</h3>
+          <p>توليد تصاميم وصور مذهلة بالوصف النصي مجاناً عبر مايكروسوفت.</p>
+        </div>
+        <a class="app-btn" href="https://www.bing.com/create" target="_blank" rel="noopener">زيارة الموقع الرسمي ←</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- القسم الثاني: برامج الكمبيوتر الأساسية -->
+  <section class="section">
+    <h2 class="section-title">ثانياً: برامج الكمبيوتر الأساسية والمهمة (PC Programs)</h2>
+    <div class="apps-grid">
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Google Chrome</h3>
+          <p>متصفح الويب الأسرع والأكثر استخداماً عالمياً لتصفح آمن وسريع.</p>
+        </div>
+        <a class="app-btn" href="https://www.google.com/chrome/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Mozilla Firefox</h3>
+          <p>متصفح قوي يحافظ على الخصوصية ويحجب الإعلانات المزعجة بكفاءة.</p>
+        </div>
+        <a class="app-btn" href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>VLC Media Player</h3>
+          <p>العملاق لتشغيل جميع صيغ الفيديو والصوت دون الحاجة لأي برامج إضافية.</p>
+        </div>
+        <a class="app-btn" href="https://www.videolan.org/vlc/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>7-Zip</h3>
+          <p>أداة مجانية خفيفة لضغط وفك ضغط جميع أنواع الملفات المضغوطة.</p>
+        </div>
+        <a class="app-btn" href="https://www.7-zip.org/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Adobe Acrobat Reader</h3>
+          <p>البرنامج الأساسي لقراءة وتصفح وطباعة ملفات الـ PDF الرسمية.</p>
+        </div>
+        <a class="app-btn" href="https://get.adobe.com/reader/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Telegram Desktop</h3>
+          <p>تطبيق التلغرام للكمبيوتر لمتابعة القنوات والمراسلة بسرعة عالية.</p>
+        </div>
+        <a class="app-btn" href="https://desktop.telegram.org/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>WhatsApp Desktop</h3>
+          <p>تطبيق الواتساب المكتبي لإدارة المحادثات بكل سهولة من حاسوبك.</p>
+        </div>
+        <a class="app-btn" href="https://www.whatsapp.com/download" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>AnyDesk</h3>
+          <p>برنامج للتحكم بالكمبيوتر عن بعد لمساعدة الأصدقاء والصيانة الفنية.</p>
+        </div>
+        <a class="app-btn" href="https://anydesk.com/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Visual Studio Code</h3>
+          <p>أفضل محرر أكواد وتطوير وتعديل ملفات المواقع (HTML, CSS, JS).</p>
+        </div>
+        <a class="app-btn" href="https://code.visualstudio.com/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>OBS Studio</h3>
+          <p>البرنامج الأول عالمياً لتسجيل الشاشة، وعمل البثوث المباشرة باحترافية.</p>
+        </div>
+        <a class="app-btn" href="https://obsproject.com/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Audacity</h3>
+          <p>برنامج مجاني لتسجيل وهندسة وتعديل الملفات الصوتية وتنقية الأصوات.</p>
+        </div>
+        <a class="app-btn" href="https://www.audacityteam.org/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>HandBrake</h3>
+          <p>أداة مجانية لضغط الفيديوهات وتغيير صيغها وحجمها بجودة عالية جداً.</p>
+        </div>
+        <a class="app-btn" href="https://handbrake.fr/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>LibreOffice</h3>
+          <p>حزمة مكتبية متكاملة مجانية بديلة لبرامج الأوفيس (كتابة وجداول).</p>
+        </div>
+        <a class="app-btn" href="https://www.libreoffice.org/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>K-Lite Codec Pack</h3>
+          <p>حزمة ترميز أساسية لتشغيل جميع صيغ الفيديو على مشغل ويندوز الافتراضي.</p>
+        </div>
+        <a class="app-btn" href="https://www.codecguide.com/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Bitwarden</h3>
+          <p>مدير كلمات مرور آمن ومفتوح المصدر لحفظ بياناتك وكلمات سرك بأمان.</p>
+        </div>
+        <a class="app-btn" href="https://bitwarden.com/" target="_blank" rel="noopener">الموقع الرسمي ←</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- القسم الثالث: تطبيقات الموبايل الأساسية والإنتاجية -->
+  <section class="section">
+    <h2 class="section-title">ثالثاً: تطبيقات الموبايل الأساسية والإنتاجية (Mobile Apps)</h2>
+    <div class="apps-grid">
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Telegram</h3>
+          <p>تطبيق المراسلة السريع والآمن لمتابعة القنوات والأخبار والتواصل.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=org.telegram.messenger" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>WhatsApp Messenger</h3>
+          <p>تطبيق التواصُل الاجتماعي الأوسع انتشاراً للمراسلة الفورية.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.whatsapp" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Google Drive</h3>
+          <p>مساحة التخزين السحابي الآمنة لحفظ صورك وملفاتك ومستنداتك.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.google.android.apps.docs" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Google Maps</h3>
+          <p>تطبيق الخرائط والملاحة الأول لمعرفة الطرق واستكشاف الأماكن بدقة.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.google.android.apps.maps" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Snapseed</h3>
+          <p>تطبيق احترافي مجاني من جوجل لتعديل الصور باحترافية عالية.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.niksoftware.snapseed" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>CamScanner</h3>
+          <p>لمسح المستندات والوثائق بكاميرا الهاتف وتحويلها لملفات PDF واضحة.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.intsig.camscanner" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Duolingo</h3>
+          <p>التطبيق الأمتع والأسهل لتعلم اللغات الأجنبية مجاناً بطريقة تفاعلية.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.duolingo" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Truecaller</h3>
+          <p>لمعرفة هوية المتصلين الحقيقية وحظر المكالمات المزعجة والرسائل.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.truecaller" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Shazam</h3>
+          <p>لاكتشاف ومعرفة أسماء الأغاني والأناشيد والموسيقى من خلال سماعها.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.shazam.android" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Files by Google</h3>
+          <p>لتنظيف ذاكرة الهاتف، حذف الملفات الزائدة، وإدارة الملفات بذكاء.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.files" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Muslim Pro</h3>
+          <p>تطبيق إسلامي شامل للقرآن الكريم، الأذكار، مواقيت الصلاة واتجاه القبلة.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.bitsmedia.android.muslimpro" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Microsoft SwiftKey</h3>
+          <p>لوحة مفاتيح ذكية وسريعة تدعم التصحيح التلقائي والكتابة السلسة.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.touchtype.swiftkey" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Pocket</h3>
+          <p>لحفظ المقالات وصفحات الويب وقراءتها لاحقاً بدون الحاجة لإنترنت.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.ideashower.readitlater.pro" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Speedtest by Ookla</h3>
+          <p>الأداة الأدق لفحص واختبار سرعة الإنترنت (واي فاي وبيانات الهاتف).</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=org.zwanoo.android.speedtest" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Adobe Scan</h3>
+          <p>مسح المستندات الضوئية والكتب وتحويلها لملفات PDF بجودة عالية.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.adobe.scan.android" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- القسم الرابع: تطبيقات الترفيه، قراءة الكتب، والثقافة -->
+  <section class="section">
+    <h2 class="section-title">رابعاً: تطبيقات الترفيه، قراءة الكتب، والثقافة</h2>
+    <div class="apps-grid">
+      <div class="app-card">
+        <div class="app-info">
+          <h3>YouTube</h3>
+          <p>منصة الفيديوهات العالمية لمشاهدة البرامج والمحتوى الترفيهي.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.google.android.youtube" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Google Play Books</h3>
+          <p>قراءة الكتب الإلكترونية والروايات والمستندات المفضلة بكل سهولة.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.google.android.apps.books" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Goodreads</h3>
+          <p>اكتشاف كتب جديدة، تقييم الروايات، ومتابعة ما يقرأه الأصدقاء.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.goodreads.goodreads" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Spotify</h3>
+          <p>الاستماع إلى ملايين الأغاني والبودكاست والبرامج الصوتية المفضلة.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.spotify.music" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>TuneIn Radio</h3>
+          <p>الاستماع لمحطات الإذاعة والراديو المحلية والعالمية عبر الإنترنت.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=tunein.player" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>TED</h3>
+          <p>مشاهدة المحاضرات الملهمة والأفكار الثقافية والعلمية من علماء العالم.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.ted.android" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Coursera</h3>
+          <p>دورات أكاديمية مجانية ومعتمدة من أشهر الجامعات والشركات العالمية.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=org.coursera.android" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Internet Archive</h3>
+          <p>أكبر أرشيف رقمي مجاني للكتب التاريخية والمستندات والمقالات النادرة.</p>
+        </div>
+        <a class="app-btn" href="https://archive.org" target="_blank" rel="noopener">زيارة الموقع الرسمي ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>Wikipedia</h3>
+          <p>الموسوعة الحرة الشاملة لمعرفة معلومات عن كل شخص وتاريخ وحدث.</p>
+        </div>
+        <a class="app-btn" href="https://play.google.com/store/apps/details?id=org.wikipedia" target="_blank" rel="noopener">تحميل من المتجر ←</a>
+      </div>
+      <div class="app-card">
+        <div class="app-info">
+          <h3>TED Books</h3>
+          <p>قلسفة الأفكار المختصرة والكتب الثقافية السريعة الملهمة للقارئ.</p>
+        </div>
+        <a class="app-btn" href="https://www.ted.com" target="_blank" rel="noopener">زيارة الموقع الرسمي ←</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <a class="footer-brand" href="index.html#home">الشرقاط الثقافي الأول</a>
+      <p class="footer-note">إشراف محمد علي أحمد الحطاب الجبوري · جميع الحقوق محفوظة © 2026</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
