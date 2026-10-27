@@ -506,7 +506,7 @@ gtag('config','G-3VZQSDZNC7');
       <a href="#home">الرئيسية</a>
       <a href="book.html">المؤلفات</a>
       <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
-      <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>تقديم شكوى عبر واتساب ↗</a>
+      <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>هل لديك ملاحظة؟ راسلنا عبر واتساب ↗</a>
     </nav>
   </div>
 </footer>
@@ -863,7 +863,7 @@ updateClock();
 setInterval(updateClock, 1000);
 loadWeather();
 if (CONFIG.whatsapp) {
-  const waComplaintText = encodeURIComponent("السلام عليكم، أود تقديم شكوى أو ملاحظة عبر موقع الشرقاط الثقافي الأول.");
+  const waComplaintText = encodeURIComponent("السلام عليكم، أود إرسال ملاحظة عبر موقع الشرقاط الثقافي الأول.");
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${waComplaintText}`;
   const waf = $("#waFooter");
   if (waf) {
@@ -871,7 +871,7 @@ if (CONFIG.whatsapp) {
     waf.hidden = false;
     if (CONFIG.whatsapp.startsWith("964")) {
       const n = CONFIG.whatsapp;
-      waf.innerHTML = `<span>عندك ملاحظة راسلنا عبر واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0, 3)} ${n.slice(3, 6)} ${n.slice(6, 9)} ${n.slice(9)}</small>`;
+      waf.innerHTML = `<span>هل لديك ملاحظة؟ راسلنا عبر واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0, 3)} ${n.slice(3, 6)} ${n.slice(6, 9)} ${n.slice(9)}</small>`;
     }
   }
 }
