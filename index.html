@@ -84,31 +84,36 @@ button{cursor:pointer}
 .hero-image-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 0;color:var(--muted);font-size:.7rem}
 .hero-image-caption strong{color:var(--text)}
 
-/* ===== الكتابة ثلاثية الأبعاد (بدل الصورة) ===== */
-.calli-stage{perspective:900px;padding:10px 4px 4px;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+/* ===== الكتابة ثلاثية الأبعاد (مضغوطة + زخرفة) ===== */
+.calli-stage{perspective:900px;padding:0;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
 .calli-float{animation:calliBob 6s ease-in-out infinite}
 .calli{
   position:relative;transform-style:preserve-3d;
   transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
   transition:transform .18s ease-out;
-  text-align:center;padding:14px 6px 16px;
+  text-align:center;padding:2px 4px 4px;
   font-family:'Aref Ruqaa','Amiri',"Noto Naskh Arabic",Tahoma,serif;font-weight:700;
 }
-.c-bismillah{margin:10px 0 0;font-size:clamp(1rem,3.8vw,1.25rem);line-height:1.8;color:#4a3412;transform:translateZ(14px);
-  text-shadow:1px 1px 0 var(--gold-light),2px 2px 0 var(--gold),3px 3px 4px rgba(0,0,0,.3)}
-.c-ayah{margin:2px 0 6px;font-size:clamp(2.1rem,10vw,3.4rem);line-height:1.8;font-weight:700;color:#2b1c0c;transform:translateZ(60px);
+.orn{display:block;width:min(190px,60%);height:auto;margin:0 auto;color:var(--gold);transform:translateZ(24px);
+  filter:drop-shadow(1px 1px 0 #8a6a2c) drop-shadow(2px 3px 3px rgba(40,25,5,.35))}
+.orn-top{margin-bottom:0}
+.orn-bottom{margin-top:2px;transform:translateZ(24px) scaleY(-1)}
+.c-bismillah{margin:0;font-size:clamp(.85rem,3.3vw,1.05rem);line-height:1.6;color:#4a3412;transform:translateZ(14px);
+  text-shadow:1px 1px 0 var(--gold-light),2px 2px 0 var(--gold),2px 3px 3px rgba(0,0,0,.3)}
+.c-ayah{margin:0;font-size:clamp(1.55rem,7.4vw,2.35rem);line-height:1.55;font-weight:700;color:#2b1c0c;transform:translateZ(50px);
   text-shadow:
     -1px -1px 0 #fff3cf,
-    1px 1px 0 #cfae62,2px 2px 0 #c4a257,3px 3px 0 #b8964f,4px 4px 0 #a98743,
-    5px 5px 0 #9a7938,6px 6px 0 #8a6a2c,7px 7px 0 #7a5b22,
-    9px 12px 14px rgba(40,25,5,.45)}
+    1px 1px 0 #cfae62,2px 2px 0 #c4a257,3px 3px 0 #b8964f,
+    4px 4px 0 #a98743,5px 5px 0 #8a6a2c,
+    6px 8px 10px rgba(40,25,5,.4)}
 .c-ayah span{display:block}
-.c-tasbih{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 10px;margin:6px 4px 8px;transform:translateZ(32px)}
-.c-tasbih span{display:block;padding:2px 6px 6px;font-size:clamp(1.15rem,5.2vw,1.65rem);line-height:1.7;color:#3a2711;
-  text-shadow:1px 1px 0 #d9c48f,2px 2px 0 #b8964f,3px 3px 0 #9a7938,4px 6px 7px rgba(40,25,5,.35)}
-.c-salawat{margin:6px 0 4px;font-size:clamp(1.05rem,4.4vw,1.4rem);line-height:1.8;color:#3a2711;transform:translateZ(20px);
-  text-shadow:1px 1px 0 #d9c48f,2px 2px 0 #b8964f,3px 3px 0 #9a7938,4px 6px 7px rgba(40,25,5,.35)}
-@keyframes calliBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.c-tasbih{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 4px;margin:2px 0 0;transform:translateZ(28px)}
+.c-tasbih span{font-size:clamp(.92rem,4vw,1.2rem);line-height:1.6;color:#3a2711;
+  text-shadow:1px 1px 0 #d9c48f,2px 2px 0 #b8964f,2px 3px 4px rgba(40,25,5,.35)}
+.c-tasbih span+span::before{content:"❖";display:inline-block;margin-inline-end:6px;font-size:.6em;color:var(--gold);text-shadow:1px 1px 0 #8a6a2c;vertical-align:middle}
+.c-salawat{margin:0;font-size:clamp(.88rem,3.8vw,1.1rem);line-height:1.6;color:#3a2711;transform:translateZ(18px);
+  text-shadow:1px 1px 0 #d9c48f,2px 2px 0 #b8964f,2px 3px 4px rgba(40,25,5,.35)}
+@keyframes calliBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @media (prefers-reduced-motion:reduce){.calli-float{animation:none}.calli{transition:none}}
 /* ============================================== */
 
@@ -345,6 +350,21 @@ gtag('config','G-3VZQSDZNC7');
         <div class="calli-stage" id="calliStage">
           <div class="calli-float">
             <div class="calli" id="calli">
+              <svg class="orn orn-top" viewBox="0 0 200 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <g id="ornR">
+                  <path d="M112 13C124 13 128 5 139 5C149 5 152 13 145 14C139 15 138 9 143 9"/>
+                  <path d="M112 13C124 13 128 21 139 21C149 21 152 13 145 12"/>
+                  <path d="M150 13H170" stroke-width="1.2"/>
+                  <circle cx="176" cy="13" r="2" fill="currentColor" stroke="none"/>
+                </g>
+                <use href="#ornR" transform="translate(200 0) scale(-1 1)"/>
+                <g fill="currentColor" stroke="none">
+                  <path d="M100 1.5C106.5 7 106.5 16 100 22C93.5 16 93.5 7 100 1.5Z"/>
+                  <path d="M99 23C90 22 84.5 16 85 8C92 10.5 96.5 15.5 99 23Z"/>
+                  <path d="M101 23C110 22 115.5 16 115 8C108 10.5 103.5 15.5 101 23Z"/>
+                  <circle cx="100" cy="24.2" r="1.6"/>
+                </g>
+              </svg>
               <p class="c-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
               <h2 class="c-ayah"><span>أَلَا بِذِكْرِ اللَّهِ</span><span>تَطْمَئِنُّ الْقُلُوبُ</span></h2>
               <div class="c-tasbih">
@@ -353,7 +373,22 @@ gtag('config','G-3VZQSDZNC7');
                 <span>لَا إِلَٰهَ إِلَّا اللَّهُ</span>
                 <span>اللَّهُ أَكْبَرُ</span>
               </div>
-              <p class="c-salawat">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ<br>وَعَلَى آلِ مُحَمَّدٍ</p>
+              <p class="c-salawat">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
+              <svg class="orn orn-bottom" viewBox="0 0 200 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <g id="ornR2">
+                  <path d="M112 13C124 13 128 5 139 5C149 5 152 13 145 14C139 15 138 9 143 9"/>
+                  <path d="M112 13C124 13 128 21 139 21C149 21 152 13 145 12"/>
+                  <path d="M150 13H170" stroke-width="1.2"/>
+                  <circle cx="176" cy="13" r="2" fill="currentColor" stroke="none"/>
+                </g>
+                <use href="#ornR2" transform="translate(200 0) scale(-1 1)"/>
+                <g fill="currentColor" stroke="none">
+                  <path d="M100 1.5C106.5 7 106.5 16 100 22C93.5 16 93.5 7 100 1.5Z"/>
+                  <path d="M99 23C90 22 84.5 16 85 8C92 10.5 96.5 15.5 99 23Z"/>
+                  <path d="M101 23C110 22 115.5 16 115 8C108 10.5 103.5 15.5 101 23Z"/>
+                  <circle cx="100" cy="24.2" r="1.6"/>
+                </g>
+              </svg>
             </div>
           </div>
         </div>
