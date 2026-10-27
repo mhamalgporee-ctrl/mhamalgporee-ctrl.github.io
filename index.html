@@ -13,6 +13,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://mhamalgporee-ctrl.github.io/">
 <link rel="icon" href="acon.jpg" type="image/jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@700&display=swap" rel="stylesheet">
 <title>الشرقاط الثقافي الأول | مجلة ثقافية</title>
 <style>
 :root{
@@ -78,17 +81,38 @@ button{cursor:pointer}
 .hero-quote{max-width:560px;margin:0 0 8px;padding-right:10px;border-right:2px solid var(--gold);font-size:.82rem;line-height:1.5}
 .hero-actions{display:flex;flex-wrap:wrap;gap:6px}
 .hero-visual{position:relative;min-width:0}
-.hero-main-image-wrapper{width:100%;max-height:360px;border-radius:14px;overflow:hidden;background:rgba(74,63,51,.03);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:4px}
-.hero-main-image{display:block;width:auto;height:auto;max-width:100%;max-height:350px;object-fit:contain;transition:opacity .4s ease-in-out;border-radius:10px}
 .hero-image-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 0;color:var(--muted);font-size:.7rem}
 .hero-image-caption strong{color:var(--text)}
-.hero-thumbs{display:flex;align-items:center;gap:8px;margin-top:8px}
-.hero-thumbs button{width:56px;height:56px;padding:0;overflow:hidden;border:2px solid var(--paper);border-radius:10px;background:transparent;opacity:.7;transition:border-color .2s ease,opacity .2s ease}
-.hero-thumbs button[aria-pressed="true"]{border-color:var(--gold);opacity:1}
-.hero-thumbs img{width:100%;height:100%;object-fit:cover}
-.thumbs-hint{color:var(--muted);font-size:.7rem}
 
-/* --- تعديل الشريط المتحرك ثلاثي الأبعاد و الواضح --- */
+/* ===== الكتابة ثلاثية الأبعاد (بدل الصورة) ===== */
+.calli-stage{perspective:900px;padding:10px 4px 4px;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.calli-float{animation:calliBob 6s ease-in-out infinite}
+.calli{
+  position:relative;transform-style:preserve-3d;
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform .18s ease-out;
+  text-align:center;padding:14px 6px 16px;
+  font-family:'Aref Ruqaa','Amiri',"Noto Naskh Arabic",Tahoma,serif;font-weight:700;
+}
+.c-bismillah{margin:10px 0 0;font-size:clamp(1rem,3.8vw,1.25rem);line-height:1.8;color:#4a3412;transform:translateZ(14px);
+  text-shadow:1px 1px 0 var(--gold-light),2px 2px 0 var(--gold),3px 3px 4px rgba(0,0,0,.3)}
+.c-ayah{margin:2px 0 6px;font-size:clamp(2.1rem,10vw,3.4rem);line-height:1.8;font-weight:700;color:#2b1c0c;transform:translateZ(60px);
+  text-shadow:
+    -1px -1px 0 #fff3cf,
+    1px 1px 0 #cfae62,2px 2px 0 #c4a257,3px 3px 0 #b8964f,4px 4px 0 #a98743,
+    5px 5px 0 #9a7938,6px 6px 0 #8a6a2c,7px 7px 0 #7a5b22,
+    9px 12px 14px rgba(40,25,5,.45)}
+.c-ayah span{display:block}
+.c-tasbih{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 10px;margin:6px 4px 8px;transform:translateZ(32px)}
+.c-tasbih span{display:block;padding:2px 6px 6px;font-size:clamp(1.15rem,5.2vw,1.65rem);line-height:1.7;color:#3a2711;
+  text-shadow:1px 1px 0 #d9c48f,2px 2px 0 #b8964f,3px 3px 0 #9a7938,4px 6px 7px rgba(40,25,5,.35)}
+.c-salawat{margin:6px 0 4px;font-size:clamp(1.05rem,4.4vw,1.4rem);line-height:1.8;color:#3a2711;transform:translateZ(20px);
+  text-shadow:1px 1px 0 #d9c48f,2px 2px 0 #b8964f,3px 3px 0 #9a7938,4px 6px 7px rgba(40,25,5,.35)}
+@keyframes calliBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.calli-float{animation:none}.calli{transition:none}}
+/* ============================================== */
+
+/* --- الشريط المتحرك --- */
 .ticker{overflow:hidden;background:var(--ivory);color:var(--text);padding-block:6px;border-top:1px solid rgba(184,150,79,0.2);border-bottom:1px solid rgba(184,150,79,0.2)}
 .ticker-inner{display:block;min-height:38px;line-height:38px;font-size:.9rem;font-weight:900}
 .marquee{overflow:hidden;direction:ltr;white-space:nowrap}
@@ -247,8 +271,6 @@ button{cursor:pointer}
 .hero-kicker,.weather-chip{border:0;background:none;padding-inline:0}
 .weather-chip{margin-inline-end:10px}
 .search-box{border:0;border-bottom:1px solid var(--gold);border-radius:0;background:none;padding-inline:4px}
-.hero-main-image-wrapper{border:0;background:none;padding:0}
-.hero-thumbs button{border-radius:50%}
 .btn-outline{background:var(--gold);border-color:transparent}
 .btn-outline:hover{background:var(--gold-light)}
 .btn-light{border:0;background:none;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px}
@@ -320,16 +342,22 @@ gtag('config','G-3VZQSDZNC7');
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-main-image-wrapper">
-          <img class="hero-main-image" id="heroMainImage" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
+        <div class="calli-stage" id="calliStage">
+          <div class="calli-float">
+            <div class="calli" id="calli">
+              <p class="c-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+              <h2 class="c-ayah"><span>أَلَا بِذِكْرِ اللَّهِ</span><span>تَطْمَئِنُّ الْقُلُوبُ</span></h2>
+              <div class="c-tasbih">
+                <span>سُبْحَانَ اللَّهِ</span>
+                <span>الْحَمْدُ لِلَّهِ</span>
+                <span>لَا إِلَٰهَ إِلَّا اللَّهُ</span>
+                <span>اللَّهُ أَكْبَرُ</span>
+              </div>
+              <p class="c-salawat">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ<br>وَعَلَى آلِ مُحَمَّدٍ</p>
+            </div>
+          </div>
         </div>
         <div class="hero-image-caption"><span>الشرقاط · العراق</span><strong>تراثٌ لا يغيب</strong></div>
-        <div class="hero-thumbs" role="group" aria-label="اختيار الصورة الرئيسية">
-          <button type="button" data-hero-image="acon.jpg" aria-label="عرض الصورة الأولى" aria-pressed="true"><img src="acon.jpg" alt="" loading="lazy"></button>
-          <button type="button" data-hero-image="acon1.jpg" aria-label="عرض الصورة الثانية" aria-pressed="false"><img src="acon1.jpg" alt="" loading="lazy"></button>
-          <button type="button" data-hero-image="acon2.jpg" aria-label="عرض الصورة الثالثة" aria-pressed="false"><img src="acon2.jpg" alt="" loading="lazy"></button>
-          <span class="thumbs-hint">اضغط لتغيير الصورة</span>
-        </div>
       </div>
     </div>
   </section>
@@ -630,24 +658,26 @@ menuToggle?.addEventListener("click", () => {
 });
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
-const heroImage = $("#heroMainImage");
-const heroThumbBtns = $$("[data-hero-image]");
-const heroImagesList = heroThumbBtns.map(b => b.dataset.heroImage);
-let currentHeroIndex = 0;
-heroImage?.addEventListener("error", () => {
-  if (!heroImage.src.endsWith("acon.jpg")) heroImage.src = "acon.jpg";
-});
-function setHeroImage(index) {
-  if (!heroImage) return;
-  currentHeroIndex = index;
-  heroImage.style.opacity = "0.2";
-  setTimeout(() => {
-    heroImage.src = heroImagesList[currentHeroIndex];
-    heroImage.style.opacity = "1";
-  }, 200);
-  heroThumbBtns.forEach((b, i) => b.setAttribute("aria-pressed", String(i === currentHeroIndex)));
-}
-heroThumbBtns.forEach((b, index) => b.addEventListener("click", () => setHeroImage(index)));
+
+/* ميلان الكتابة ثلاثية الأبعاد مع الماوس أو اللمس */
+(function () {
+  const stage = $("#calliStage");
+  const calli = $("#calli");
+  if (!stage || !calli) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const reset = () => { calli.style.setProperty("--rx", "0deg"); calli.style.setProperty("--ry", "0deg"); };
+  stage.addEventListener("pointermove", e => {
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    calli.style.setProperty("--ry", (x * 22).toFixed(1) + "deg");
+    calli.style.setProperty("--rx", (-y * 16).toFixed(1) + "deg");
+  });
+  stage.addEventListener("pointerleave", reset);
+  stage.addEventListener("pointercancel", reset);
+  stage.addEventListener("pointerup", e => { if (e.pointerType === "touch") reset(); });
+})();
+
 function normalizeText(v) {
   return String(v || "")
     .normalize("NFD")
@@ -914,4 +944,3 @@ setText("#year", new Date().getFullYear());
 </script>
 </body>
 </html>
-
