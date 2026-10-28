@@ -49,9 +49,14 @@ button{font:inherit;cursor:pointer}
 .page-header h1{margin:10px 0 10px;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;line-height:1.4;color:var(--green)}
 .page-header p{max-width:650px;margin-inline:auto;color:var(--muted);font-size:1rem}
 
-.scholar-article{background:rgba(255,255,255,0.35);border:1px solid rgba(184,150,79,0.3);border-radius:16px;padding:35px;margin-bottom:60px;box-shadow:0 10px 30px rgba(74,63,51,0.05)}
-.scholar-article h2{font-size:1.6rem;color:var(--green);margin-top:0;margin-bottom:15px;border-bottom:2px solid var(--gold);padding-bottom:10px;line-height:1.4}
-.scholar-article h3{font-size:1.25rem;color:var(--green-mid);margin-top:30px;margin-bottom:12px;font-weight:800}
+/* تنسيق بطاقة القصة الفاصلة */
+.scholar-article{background:rgba(255,255,255,0.4);border:1px solid rgba(184,150,79,0.35);border-radius:20px;padding:40px;margin-bottom:50px;box-shadow:0 12px 35px rgba(74,63,51,0.06)}
+.scholar-image-wrap{text-align:center;margin-bottom:30px}
+.scholar-image{width:min(260px,100%);aspect-ratio:3/4;object-fit:cover;border-radius:16px;border:3px solid var(--gold);box-shadow:0 8px 25px rgba(74,63,51,0.2)}
+.scholar-image-caption{margin-top:10px;color:var(--muted);font-size:0.85rem;font-weight:700}
+
+.scholar-article h2{font-size:1.6rem;color:var(--green);margin-top:0;margin-bottom:15px;line-height:1.4;text-align:center}
+.scholar-article h3{font-size:1.25rem;color:var(--green-mid);margin-top:35px;margin-bottom:12px;font-weight:800;border-bottom:1px dashed var(--gold);padding-bottom:6px}
 .scholar-article p{margin-bottom:16px;text-align:justify}
 .hadith-box{background:var(--ivory);border-right:4px solid var(--gold);padding:15px 20px;margin:20px 0;font-style:italic;color:var(--muted);border-radius:4px}
 
@@ -104,7 +109,13 @@ button{font:inherit;cursor:pointer}
     <p>توثيق حي لسير الأعلام والعلماء الأجلاء الذين تركوا بصمات خالدة في مسيرة العلم والفضل في مدينة الشرقاط.</p>
   </div>
 
+  <!-- القصة الأولى: العالم الجليل ملا مرعي هايس (تفصلها بطاقة مستقلة عن أي قصة قادمة) -->
   <article class="scholar-article">
+    <div class="scholar-image-wrap">
+      <img class="scholar-image" src="mullah-marai.jpg" alt="العالم الجليل الحاج ملا مرعي هايس الجبوري رحمه الله" loading="lazy" onerror="this.style.display='none'">
+      <div class="scholar-image-caption">العالم الجليل الحاج ملا مرعي هايس الجبوري (رحمه الله)</div>
+    </div>
+
     <h2>ورثة الأنبياء.. سيرة عطرة للعالم الجليل الحاج ملا مرعي هايس الجبوري (رحمه الله)</h2>
     
     <div class="hadith-box">
@@ -143,6 +154,9 @@ button{font:inherit;cursor:pointer}
     <p>نُقل جثمانه الطاهر إلى مسقط رأسه في (هيجل)، ليوارى الثرى هناك، تاركاً خلفه إرثاً عظيماً من العلم والذكر الحسن.</p>
     <p><em>رحم الله الشيخ الجليل الحاج ملا مرعي هايس، وغفر له ولأخويه، وجمعنا وإياه في جنات النعيم، ونسألكم الدعاء له ولجميع أموات المسلمين.</em></p>
   </article>
+
+  <!-- (مستقبلاً، عندما تضيف قصة عالم آخر، يمكنك نسخ ووضع بطاقة <article class="scholar-article"> جديدة هنا لتكون مفصولة ومنظمة بالكامل) -->
+
 </main>
 
 <footer class="site-footer">
