@@ -84,13 +84,13 @@ button{cursor:pointer}
 .hero-image-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 0;color:var(--muted);font-size:.7rem}
 .hero-image-caption strong{color:var(--text)}
 
-/* ===== الكتابة ثلاثية الأبعاد (مضغوطة + زخرفة) ===== */
+/* ===== الكتابة ثلاثية الأبعاد (بسرعة 30 ثانية) ===== */
 .calli-stage{perspective:900px;padding:0;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
-.calli-float{--r:14px;--ra:8deg;transform-style:preserve-3d;animation:calliOrbit 8s linear infinite;will-change:transform}
+.calli-float{--r:10px;--ra:5deg;transform-style:preserve-3d;animation:calliOrbit 30s linear infinite;will-change:transform}
 .calli{
   position:relative;transform-style:preserve-3d;
   transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
-  transition:transform .18s ease-out;
+  transition:transform .25s ease-out;
   text-align:center;padding:2px 4px 4px;
   font-family:'Aref Ruqaa','Amiri',"Noto Naskh Arabic",Tahoma,serif;font-weight:700;
 }
@@ -114,7 +114,7 @@ button{cursor:pointer}
 .c-salawat{margin:0;font-size:clamp(.88rem,3.8vw,1.1rem);line-height:1.6;color:#3a2711;transform:translateZ(18px);
   text-shadow:1px 1px 0 #d9c48f,2px 2px 0 #b8964f,2px 3px 4px rgba(40,25,5,.35)}
 @keyframes calliOrbit{0.0%{transform:translate3d(calc(var(--r)*1.000),calc(var(--r)*0.000),0) rotateX(calc(var(--ra)*-0.000)) rotateY(calc(var(--ra)*1.000))}4.167%{transform:translate3d(calc(var(--r)*0.966),calc(var(--r)*0.259),0) rotateX(calc(var(--ra)*-0.155)) rotateY(calc(var(--ra)*0.966))}8.333%{transform:translate3d(calc(var(--r)*0.866),calc(var(--r)*0.500),0) rotateX(calc(var(--ra)*-0.300)) rotateY(calc(var(--ra)*0.866))}12.5%{transform:translate3d(calc(var(--r)*0.707),calc(var(--r)*0.707),0) rotateX(calc(var(--ra)*-0.424)) rotateY(calc(var(--ra)*0.707))}16.667%{transform:translate3d(calc(var(--r)*0.500),calc(var(--r)*0.866),0) rotateX(calc(var(--ra)*-0.520)) rotateY(calc(var(--ra)*0.500))}20.833%{transform:translate3d(calc(var(--r)*0.259),calc(var(--r)*0.966),0) rotateX(calc(var(--ra)*-0.580)) rotateY(calc(var(--ra)*0.259))}25.0%{transform:translate3d(calc(var(--r)*0.000),calc(var(--r)*1.000),0) rotateX(calc(var(--ra)*-0.600)) rotateY(calc(var(--ra)*0.000))}29.167%{transform:translate3d(calc(var(--r)*-0.259),calc(var(--r)*0.966),0) rotateX(calc(var(--ra)*-0.580)) rotateY(calc(var(--ra)*-0.259))}33.333%{transform:translate3d(calc(var(--r)*-0.500),calc(var(--r)*0.866),0) rotateX(calc(var(--ra)*-0.520)) rotateY(calc(var(--ra)*-0.500))}37.5%{transform:translate3d(calc(var(--r)*-0.707),calc(var(--r)*0.707),0) rotateX(calc(var(--ra)*-0.424)) rotateY(calc(var(--ra)*-0.707))}41.667%{transform:translate3d(calc(var(--r)*-0.866),calc(var(--r)*0.500),0) rotateX(calc(var(--ra)*-0.300)) rotateY(calc(var(--ra)*-0.866))}45.833%{transform:translate3d(calc(var(--r)*-0.966),calc(var(--r)*0.259),0) rotateX(calc(var(--ra)*-0.155)) rotateY(calc(var(--ra)*-0.966))}50.0%{transform:translate3d(calc(var(--r)*-1.000),calc(var(--r)*0.000),0) rotateX(calc(var(--ra)*-0.000)) rotateY(calc(var(--ra)*-1.000))}54.167%{transform:translate3d(calc(var(--r)*-0.966),calc(var(--r)*-0.259),0) rotateX(calc(var(--ra)*0.155)) rotateY(calc(var(--ra)*-0.966))}58.333%{transform:translate3d(calc(var(--r)*-0.866),calc(var(--r)*-0.500),0) rotateX(calc(var(--ra)*0.300)) rotateY(calc(var(--ra)*-0.866))}62.5%{transform:translate3d(calc(var(--r)*-0.707),calc(var(--r)*-0.707),0) rotateX(calc(var(--ra)*0.424)) rotateY(calc(var(--ra)*-0.707))}66.667%{transform:translate3d(calc(var(--r)*-0.500),calc(var(--r)*-0.866),0) rotateX(calc(var(--ra)*0.520)) rotateY(calc(var(--ra)*-0.500))}70.833%{transform:translate3d(calc(var(--r)*-0.259),calc(var(--r)*-0.966),0) rotateX(calc(var(--ra)*0.580)) rotateY(calc(var(--ra)*-0.259))}75.0%{transform:translate3d(calc(var(--r)*-0.000),calc(var(--r)*-1.000),0) rotateX(calc(var(--ra)*0.600)) rotateY(calc(var(--ra)*-0.000))}79.167%{transform:translate3d(calc(var(--r)*0.259),calc(var(--r)*-0.966),0) rotateX(calc(var(--ra)*0.580)) rotateY(calc(var(--ra)*0.259))}83.333%{transform:translate3d(calc(var(--r)*0.500),calc(var(--r)*-0.866),0) rotateX(calc(var(--ra)*0.520)) rotateY(calc(var(--ra)*0.500))}87.5%{transform:translate3d(calc(var(--r)*0.707),calc(var(--r)*-0.707),0) rotateX(calc(var(--ra)*0.424)) rotateY(calc(var(--ra)*0.707))}91.667%{transform:translate3d(calc(var(--r)*0.866),calc(var(--r)*-0.500),0) rotateX(calc(var(--ra)*0.300)) rotateY(calc(var(--ra)*0.866))}95.833%{transform:translate3d(calc(var(--r)*0.966),calc(var(--r)*-0.259),0) rotateX(calc(var(--ra)*0.155)) rotateY(calc(var(--ra)*0.966))}100.0%{transform:translate3d(calc(var(--r)*1.000),calc(var(--r)*-0.000),0) rotateX(calc(var(--ra)*0.000)) rotateY(calc(var(--ra)*1.000))}}
-@media (max-width:780px){.calli-float{--r:9px;--ra:6deg}}
+@media (max-width:780px){.calli-float{--r:6px;--ra:3deg}}
 @media (prefers-reduced-motion:reduce){.calli-float{animation:none}.calli{transition:none}}
 /* ============================================== */
 
@@ -452,13 +452,13 @@ gtag('config','G-3VZQSDZNC7');
         <article class="content-card" data-search="الشيخ شلاش رحمه الله shelash قصة تاريخ سيرة">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/></svg></span><span class="card-index">06</span></div>
           <h3>قصص رجال طيّبي الصيت من أهل السيرة</h3>
-          <p>حكايات وسِيَر محلية تستحق أن تبقى في الذاكرة و تتناقلها الأجيال.</p>
+          <p>حكايات وسِيَر محلية تستحق أن تبقى في الذاكرة وتتناقلها الأجيال.</p>
           <a class="card-link" href="shelash.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="الأذكار والأدعية duaa">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><span class="card-index">07</span></div>
           <h3>الأذكار والأدعية</h3>
-          <p>أذكار يومية وأدعية .</p>
+          <p>أذكار يومية وأدعية.</p>
           <a class="card-link" href="duaa.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
         <article class="content-card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب رياضة افلام مسلسلات tv">
@@ -481,12 +481,11 @@ gtag('config','G-3VZQSDZNC7');
       </article>
     </div>
   </section>
-  <!-- قسم التطبيقات  (أعلى قسم شفت صورتي) -->
   <section class="section">
     <div class="container">
       <article class="media-card">
         <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
-        <h3>قسم التطبيقات </h3>
+        <h3>قسم التطبيقات</h3>
         <p>حمّل أحدث التطبيقات المجانية وبرامج الكمبيوتر وأدوات الذكاء الاصطناعي بروابط تحميل رسمية ومباشرة وآمنة.</p>
         <a class="btn btn-gold" href="apps.html">اضغط هنا لتصفح التطبيقات <span aria-hidden="true">←</span></a>
       </article>
@@ -542,18 +541,17 @@ gtag('config','G-3VZQSDZNC7');
       <article class="paper-page">
         <figure>
           <img src="memory-1984.jpg" alt="صورتي" loading="lazy">
-          <figcaption>صورتي في عام ١٩٨٤في حاوي بعاجة طريق الدوبة التقطها لي الاخ والصديق رحمه الله حسين العلي الحصوات بكامرتي</figcaption>
+          <figcaption>صورتي في عام ١٩٨٤ في حاوي بعاجة طريق الدوبة، التقطها لي الأخ والصديق رحمه الله حسين العلي الحصوات بكامرتي.</figcaption>
         </figure>
         <h2 id="memoryTitle">شفت صورتي</h2>
         <div class="verses">
         <p>شـفـت صـورتـي مـن مِـضى هَـيـضِت جـروحي وعَـن</p>
         <p>يـوم الـنـوايـا صِـدگ والـوِكِـت مـا بـيه عَـن</p>
         <p>يـا ريـت ذيچ الـلـيـالي والـعِـمِـر يـرجـعَـن</p>
-        <p>چـانـت مَـحَـنة
-وشِـيَـم والـعِـيـش خِـبـزة ومَـي</p>
+        <p>چـانـت مَـحَـنة وشِـيَـم والـعِـيـش خِـبـزة ومَـي</p>
         <p>وظـل الـكـرامـة وفِـيـد الـنـاس لـلـنـاس مَـي</p>
         <p>الـيـوم كِـلـمَـن يـحـوف بـدنـيـتـه والـمَـي</p>
-        <p>مـا عـاد صـافـي وعـلـيـه غيــوم هَـم اوعَـن</p>
+        <p>مـا عـاد صـافـي وعـلـيـه غيــوم هم اوعَـن</p>
         </div>
         <h3 class="meaning-title">المعنى</h3>
         <div class="meanings">
@@ -647,7 +645,7 @@ gtag('config','G-3VZQSDZNC7');
       <div class="about-layout">
         <img class="about-avatar" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول">
         <div>
-          <h3>اهلا وسهلا بك زائرنا الكريم انا محمد علي أحمد الحطاب الجبوري</h3>
+          <h3>أهلاً وسهلاً بك زائرنا الكريم، أنا محمد علي أحمد الحطاب الجبوري</h3>
           <p>الشرقاط الثقافي الأول موقع ثقافي يهتم بتاريخ الشرقاط وتراثها وذاكرتها، وتوثّق قصص أهلها وسِيَرهم وموروثهم المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
           <p>فكرة الموقع أن نحفظ الذاكرة الثقافية والاجتماعية ونتيحها لكل قارئ ومهتم، لتبقى حكاية المكان حاضرة في ذاكرة الأجيال.</p>
         </div>
@@ -696,7 +694,6 @@ menuToggle?.addEventListener("click", () => {
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
 
-/* ميلان الكتابة ثلاثية الأبعاد مع الماوس أو اللمس */
 (function () {
   const stage = $("#calliStage");
   const calli = $("#calli");
