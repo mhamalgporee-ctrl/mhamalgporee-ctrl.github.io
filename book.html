@@ -47,13 +47,8 @@ button{font:inherit;cursor:pointer}
 .eyebrow::before{content:"";width:27px;height:2px;background:var(--gold)}
 .page-header h1{margin:10px 0 10px;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.35}
 .page-header p{max-width:650px;margin-inline:auto;color:var(--muted);font-size:1rem}
-
-/* تنسيق بطاقة الكتاب والأغلفة المتعددة بجانب بعضها */
-.book-card{display:grid;grid-template-columns:auto 1fr;gap:28px;margin-bottom:60px;align-items:center}
-.book-covers-wrap{display:flex;gap:10px;justify-content:center;align-items:center}
-.book-cover{width:110px;max-height:280px;object-fit:contain;border-radius:4px;border:1px solid rgba(184,150,79,0.3);box-shadow:0 4px 12px rgba(74,63,51,0.12);transition:transform .2s ease}
-.book-cover:hover{transform:translateY(-3px)}
-
+.book-card{display:grid;grid-template-columns:180px 1fr;gap:28px;margin-bottom:60px;align-items:center}
+.book-cover{width:100%;max-height:280px;object-fit:contain;border-radius:4px}
 .book-info h2{margin:0 0 10px;font-size:1.4rem;line-height:1.5}
 .book-author{color:#8a6d2f;font-weight:800;font-size:.9rem;margin-bottom:8px}
 .book-info p{margin:0 0 14px;color:var(--ink);font-size:.95rem}
@@ -80,7 +75,7 @@ button{font:inherit;cursor:pointer}
 }
 @media(max-width:650px){
   .book-card{grid-template-columns:1fr;text-align:center;gap:18px}
-  .book-covers-wrap{justify-content:center}
+  .book-cover{max-width:150px;margin:0 auto}
   .book-actions{align-items:center}
   .btn{width:100%;max-width:320px}
 }
@@ -135,13 +130,13 @@ button{font:inherit;cursor:pointer}
 </footer>
 
 <script>
-/* ===== قائمة الكتب (رواية المنافي السعيدة مع الغلافين الأمامي والخلفي جنباً إلى جنب) ===== */
+/* ===== قائمة الكتب (ترتيب: المنافي السعيدة أولاً، ثم كتاب الرجل والمرأة ثانياً) ===== */
 const BOOKS = [
   {
     title: "رواية المنافي السعيدة",
     author: "الكاتب والروائي الأستاذ فهد عنتر الدوخي",
     desc: "رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة، مستعرضاً الحكايات الإنسانية والذكريات الجميلة.",
-    covers: ["fahad-cover.jpg", "fahad-back.jpg"],
+    cover: "fahad-cover.jpg",
     flip: "https://heyzine.com/flip-book/0ec9c4a4d0.html",
     pdf: "فهد الدوخي.pdf",
     note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
@@ -150,7 +145,7 @@ const BOOKS = [
     title: "الرجل والمرأة وعشرة العمر في بلاد الرافدين",
     author: "محمد علي أحمد الحطاب الجبوري",
     desc: "كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة.",
-    covers: ["cover.jpg"],
+    cover: "cover.jpg",
     flip: "https://heyzine.com/flip-book/7d35d68ef2.html",
     pdf: "book.pdf",
     note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
@@ -159,7 +154,7 @@ const BOOKS = [
     title: "رواية متاهة العقل",
     author: "محمد علي أحمد الحطاب الجبوري",
     desc: "رواية أدبية مشوقة تأخذ القارئ في دروب التفكير والعمق الإنساني، حافلة بالصور الفكرية والوجدان ومواقف الحياة.",
-    covers: ["mataha-cover.jpg"],
+    cover: "mataha-cover.jpg",
     pdf: "mataha.pdf",
     note: "💡 اضغط على الزر أدناه لقراءة الرواية بصيغة PDF."
   },
@@ -167,7 +162,7 @@ const BOOKS = [
     title: "ديوان شعري",
     author: "محمد علي أحمد الحطاب الجبوري",
     desc: "ديوان شعري يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.",
-    covers: ["diwan-cover.jpg"],
+    cover: "diwan-cover.jpg",
     pdf: "diwan.pdf"
   }
 ];
@@ -179,27 +174,16 @@ BOOKS.forEach(b => {
 
   const pdfUrl = b.pdf ? encodeURI(b.pdf) : "";
   const link = b.flip || pdfUrl || "#";
-
-  // حاوية الأغلفة لتظهر جنباً إلى جنب
-  const coversWrap = document.createElement("div");
-  coversWrap.className = "book-covers-wrap";
-
-  const coverList = b.covers && b.covers.length ? b.covers : ["acon.jpg"];
-  coverList.forEach((cSrc, idx) => {
-    const a = document.createElement("a");
-    a.href = link; a.target = "_blank"; a.rel = "noopener";
-    a.setAttribute("aria-label", "افتح كتاب " + b.title);
-    
-    const img = document.createElement("img");
-    img.className = "book-cover";
-    img.src = cSrc;
-    img.alt = b.title + (idx === 0 ? " - الغلاف الأمامي" : " - الغلاف الخلفي");
-    img.loading = "lazy";
-    img.onerror = () => { img.onerror = null; img.src = "acon.jpg"; };
-    
-    a.append(img);
-    coversWrap.append(a);
-  });
+  const a = document.createElement("a");
+  a.href = link; a.target = "_blank"; a.rel = "noopener";
+  a.setAttribute("aria-label", "افتح كتاب " + b.title);
+  const img = document.createElement("img");
+  img.className = "book-cover";
+  img.src = b.cover || "acon.jpg";
+  img.alt = "غلاف كتاب " + b.title;
+  img.loading = "lazy";
+  img.onerror = () => { img.onerror = null; img.src = "acon.jpg"; };
+  a.append(img);
 
   const info = document.createElement("div");
   info.className = "book-info";
@@ -233,7 +217,7 @@ BOOKS.forEach(b => {
   }
   info.append(actions);
 
-  card.append(coversWrap, info);
+  card.append(a, info);
   box.append(card);
 });
 
