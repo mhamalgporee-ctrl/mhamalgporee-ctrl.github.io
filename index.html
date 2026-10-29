@@ -119,15 +119,20 @@ button{cursor:pointer}
 /* ============================================== */
 
 /* --- الشريط المتحرك --- */
-.ticker{overflow:hidden;background:var(--ivory);color:var(--text);padding-block:6px;border-top:1px solid rgba(184,150,79,0.2);border-bottom:1px solid rgba(184,150,79,0.2)}
-.ticker-inner{display:block;min-height:38px;line-height:38px;font-size:.9rem;font-weight:900}
+.ticker{overflow:hidden;background:var(--ivory);color:var(--text);padding-block:10px;border-top:1px solid rgba(184,150,79,0.2);border-bottom:1px solid rgba(184,150,79,0.2)}
+.ticker-inner{display:block;min-height:40px;line-height:40px;font-size:1.02rem;font-weight:900}
 .marquee{overflow:hidden;direction:ltr;white-space:nowrap}
 .marquee span{
   display:inline-block;
   direction:rtl;
   animation:marquee 28s linear infinite;
-  color:#111;
-  text-shadow: 0 1px 0 #d9c48f, 0 2px 0 #b8964f, 0 3px 2px rgba(0,0,0,0.25), 0 0 10px rgba(184,150,79,0.35);
+  color:#2b1c0c;
+  letter-spacing:.2px;
+  text-shadow:
+    -1px -1px 0 #fff3cf,
+    1px 1px 0 #d9c48f, 2px 2px 0 #cfae62, 3px 3px 0 #b8964f,
+    4px 4px 0 #a98743, 5px 5px 0 #8a6a2c,
+    6px 8px 8px rgba(40,25,5,.35);
 }
 @keyframes marquee{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
 @media (prefers-reduced-motion:reduce){.marquee span{animation:none}html{scroll-behavior:auto}}
@@ -1047,4 +1052,3 @@ setText("#year", new Date().getFullYear());
 </script>
 </body>
 </html>
-
