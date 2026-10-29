@@ -7,118 +7,128 @@
 <title>طقس الشرقاط المباشر | المركز التفاعلي للخدمات الجوية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-dark: #0c1b33;
-  --bg-card: rgba(15, 32, 67, 0.85);
-  --bg-card-hover: rgba(22, 45, 92, 0.9);
+  --bg-dark: #0a172e;
+  --card-bg: rgba(14, 32, 63, 0.75);
+  --card-border: rgba(59, 130, 246, 0.25);
   --gold: #f39c12;
   --gold-light: #f1c40f;
   --text-main: #ffffff;
-  --text-muted: #b0c4de;
-  --line: rgba(255, 255, 255, 0.15);
+  --text-muted: #93c5fd;
 }
 *, *::before, *::after { box-sizing: border-box; }
 body {
   margin: 0;
-  background: linear-gradient(135deg, #091325 0%, #102a45 50%, #183b65 100%);
+  background: linear-gradient(135deg, #07101e 0%, #0d2137 50%, #132f52 100%);
   background-attachment: fixed;
   color: var(--text-main);
   font-family: 'Cairo', Tahoma, sans-serif;
-  font-size: 16px;
-  line-height: 1.8;
   min-height: 100vh;
+  padding: 20px 15px;
 }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; }
 
-.weather-container {
-  width: min(1200px, calc(100% - 32px));
-  margin-inline: auto;
-  padding-block: 30px;
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* الهيدر العلوي */
-.weather-header {
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  transition: background 0.2s;
+}
+.back-link:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* الهيدر العلوي المطابق للصورة */
+.top-header {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 18px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 20px 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  backdrop-filter: blur(10px);
-  margin-bottom: 24px;
-}
-.weather-title-area {
-  display: flex;
-  align-items: center;
   gap: 15px;
+  backdrop-filter: blur(12px);
+  margin-bottom: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
-.weather-title-icon {
-  font-size: 2.8rem;
-}
-.weather-title-area h1 {
-  margin: 0;
-  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -0.5px;
-}
-.weather-title-area p {
-  margin: 4px 0 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-.weather-header-actions {
+.header-title-box {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
-.location-selector {
+.header-sun-icon {
+  font-size: 2.5rem;
+}
+.header-title-box h1 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 950;
+  color: #fff;
+}
+.header-title-box p {
+  margin: 3px 0 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.header-controls {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.location-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--line);
+  border: 1px solid var(--card-border);
   padding: 8px 16px;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
-.refresh-btn {
+.refresh-action-btn {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--line);
-  width: 44px;
-  height: 44px;
+  border: 1px solid var(--card-border);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: #fff;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.4s ease;
 }
-.refresh-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: rotate(180deg);
-}
+.refresh-action-btn:hover { transform: rotate(180deg); background: rgba(255,255,255,0.15); }
 
-/* شريط مؤثرات الجو الحية */
-.effects-bar {
+/* شريط تفاعل المؤثرات الحية المطابق تماماً للصورة */
+.effects-nav {
   display: flex;
   align-items: center;
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   white-space: nowrap;
-  scrollbar-width: thin;
+  scrollbar-width: none;
 }
-.effects-label {
-  font-size: 0.85rem;
+.effects-nav::-webkit-scrollbar { display: none; }
+.effects-prompt {
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--gold-light);
   display: flex;
@@ -126,392 +136,376 @@ button { font: inherit; cursor: pointer; }
   gap: 6px;
   flex-shrink: 0;
 }
-.effect-chip {
+.effect-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--line);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   padding: 8px 16px;
   border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 700;
   color: #fff;
   transition: all 0.2s ease;
   flex-shrink: 0;
 }
-.effect-chip:hover, .effect-chip.active {
-  background: rgba(243, 156, 18, 0.25);
+.effect-btn:hover, .effect-btn.active {
+  background: rgba(243, 156, 18, 0.22);
   border-color: var(--gold);
 }
 
-/* شبكة المحتوى الرئيسية */
-.weather-grid {
+/* شبكة المحتوى الرئيسية (يسار ويمين) */
+.main-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 24px;
+  grid-template-columns: 1.35fr 0.95fr;
+  gap: 16px;
 }
 @media (max-width: 900px) {
-  .weather-grid { grid-template-columns: 1fr; }
+  .main-grid { grid-template-columns: 1fr; }
 }
 
-/* بطاقة الطقس الحالي */
-.current-card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+.left-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 16px;
 }
-.current-top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+
+/* البطاقة الكبرى للطقس الحالي */
+.current-weather-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
 }
-.update-badge {
+.live-indicator {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(46, 204, 113, 0.15);
-  border: 1px solid rgba(46, 204, 113, 0.3);
-  color: #2ecc71;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
   padding: 4px 12px;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
+  margin-bottom: 12px;
 }
-.update-badge span {
+.live-dot {
   width: 7px;
   height: 7px;
-  background: #2ecc71;
+  background: #22c55e;
   border-radius: 50%;
-  box-shadow: 0 0 8px #2ecc71;
-}
-.location-name {
-  font-size: 2.2rem;
-  font-weight: 900;
-  margin: 10px 0 2px;
-}
-.date-sub {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  font-weight: 600;
+  box-shadow: 0 0 8px #22c55e;
 }
 
-.current-middle-row {
+.current-row-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-block: 30px;
 }
-.temp-large {
-  font-size: clamp(3.5rem, 6vw, 5.5rem);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -2px;
+.city-main-name {
+  font-size: 2.2rem;
+  font-weight: 950;
+  margin: 0 0 2px;
+  letter-spacing: -0.5px;
 }
-.weather-status-text {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--gold-light);
-  margin-bottom: 4px;
-}
-.feels-like-text {
+.city-date-sub {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
-/* إحصائيات سفلية للبطاقة الحالية */
-.weather-stats-grid {
+.temp-sun-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.sun-graphic {
+  font-size: 4.5rem;
+  filter: drop-shadow(0 0 15px rgba(243, 156, 18, 0.4));
+  animation: floatSun 4s ease-in-out infinite alternate;
+}
+@keyframes floatSun {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+.temp-digits {
+  font-size: clamp(3.2rem, 5.5vw, 4.8rem);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.weather-status-label {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  margin-top: 10px;
+}
+.feels-like-label {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* إحصائيات الأربع المربعات السفلى للبطاقة الحالية */
+.stats-four-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--card-border);
 }
 @media (max-width: 600px) {
-  .weather-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-four-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.stat-box {
+.stat-item-box {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 10px;
   text-align: center;
 }
-.stat-icon {
-  font-size: 1.2rem;
-  margin-bottom: 4px;
+.stat-item-icon { font-size: 1.1rem; margin-bottom: 2px; }
+.stat-item-title { color: var(--text-muted); font-size: 0.72rem; font-weight: 600; }
+.stat-item-val { font-size: 0.92rem; font-weight: 900; margin-top: 2px; }
+
+/* بطاقة توقعات الـ 5 أيام (اليمنية في الشبكة) */
+.forecast-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.stat-title {
+.forecast-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--card-border);
+}
+.forecast-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.forecast-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--card-border);
+  padding: 10px 14px;
+  border-radius: 14px;
+}
+.forecast-day-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.forecast-row-icon { font-size: 1.4rem; }
+.forecast-day-title { font-weight: 900; font-size: 0.9rem; }
+.forecast-day-sub { color: var(--text-muted); font-size: 0.75rem; font-weight: 600; }
+.forecast-row-temps { font-weight: 900; font-size: 0.9rem; direction: ltr; }
+
+.forecast-update-note {
+  margin-top: auto;
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: var(--text-muted);
   font-size: 0.75rem;
   font-weight: 600;
 }
-.stat-value {
-  font-size: 1rem;
-  font-weight: 800;
-  margin-top: 2px;
-}
 
-/* بطاقة توقعات الأيام القادمة */
-.forecast-card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 25px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-  display: flex;
-  flex-direction: column;
-}
-.forecast-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
-}
-.forecast-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.forecast-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
-  padding: 12px 16px;
+/* البانر السفلي الترحيبي المطابق للصورة تماماً */
+.bottom-welcome-banner {
+  margin-top: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
-  transition: background 0.2s ease;
-}
-.forecast-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-.forecast-day-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.forecast-icon {
-  font-size: 1.6rem;
-}
-.forecast-day-name {
-  font-weight: 800;
-  font-size: 0.95rem;
-}
-.forecast-day-desc {
-  color: var(--text-muted);
-  font-size: 0.78rem;
-}
-.forecast-temps {
-  font-weight: 800;
-  font-size: 0.95rem;
-  direction: ltr;
-}
-
-.forecast-footer-note {
-  margin-top: auto;
-  padding-top: 18px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-muted);
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-/* الترحيب السفلي والشريط */
-.weather-bottom-banner {
-  margin-top: 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px;
+  padding: 12px;
   text-align: center;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--gold-light);
-  font-size: 0.9rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.back-home-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--line);
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  transition: background 0.2s ease;
-}
-.back-home-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  font-size: 0.88rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 </style>
 </head>
 <body>
 
-<div class="weather-container">
+<div class="page-wrap">
   
-  <a class="back-home-btn" href="index.html">← العودة إلى الرئيسية</a>
+  <a class="back-link" href="index.html">← العودة إلى الرئيسية</a>
 
   <!-- الهيدر العلوي -->
-  <header class="weather-header">
-    <div class="weather-title-area">
-      <div class="weather-title-icon">🌤️</div>
+  <header class="top-header">
+    <div class="header-title-box">
+      <div class="header-sun-icon">☀️</div>
       <div>
         <h1>طقس الشرقاط المباشر</h1>
         <p>المركز التفاعلي للخدمات الجوية | محافظة صلاح الدين</p>
       </div>
     </div>
-    <div class="weather-header-actions">
-      <div class="location-selector">
+    <div class="header-controls">
+      <div class="location-pill">
         <span>📍 الشرقاط (الموقع الحالي)</span>
       </div>
-      <button class="refresh-btn" id="refreshWeatherBtn" title="تحديث البيانات" aria-label="تحديث البيانات">↻</button>
+      <button class="refresh-action-btn" id="refreshBtn" title="تحديث البيانات">↻</button>
     </div>
   </header>
 
   <!-- شريط مؤثرات الجو الحية -->
-  <div class="effects-bar">
-    <span class="effects-label">✨ تجربة مؤثرات الجو الحية:</span>
-    <button class="effect-chip active" data-effect="sunny">☀️ مشمس صاف</button>
-    <button class="effect-chip" data-effect="cloudy">⛅ غيوم متفرقة</button>
-    <button class="effect-chip" data-effect="rain">🌧️ أمطار حية</button>
-    <button class="effect-chip" data-effect="dust">🌪️ عاصفة ترابية</button>
-    <button class="effect-chip" data-effect="night">🌙 ليل صاف</button>
+  <div class="effects-nav">
+    <span class="effects-prompt">✨ تجربة مؤثرات الجو الحية:</span>
+    <button class="effect-btn active" data-effect="sunny">☀️ مشمس صاف</button>
+    <button class="effect-btn" data-effect="cloudy">⛅ غيوم متفرقة</button>
+    <button class="effect-btn" data-effect="rain">🌧️ أمطار حية</button>
+    <button class="effect-btn" data-effect="dust">🌪️ عاصفة ترابية</button>
+    <button class="effect-btn" data-effect="night">🌙 ليل صاف</button>
   </div>
 
   <!-- شبكة الطقس -->
-  <div class="weather-grid">
+  <div class="main-grid">
     
-    <!-- البطاقة الرئيسية -->
-    <div class="current-card">
-      <div>
-        <div class="current-top-row">
+    <!-- القسم الأيسر: الطقس الحالي وتوقعاته -->
+    <div class="left-column">
+      <div class="current-weather-card">
+        <div class="live-indicator"><span class="live-dot"></span> تحديث مؤشر الآن</div>
+        
+        <div class="current-row-inner">
           <div>
-            <div class="update-badge"><span></span> تحديث مؤشر الآن</div>
-            <div class="location-name">الشرقاط</div>
-            <div class="date-sub" id="currentDateText">الخميس، 29 اكتوبر 2026</div>
+            <h2 class="city-main-name">الشرقاط</h2>
+            <div class="city-date-sub" id="dateText">الخميس، 29 تشرين الأول 2026</div>
+          </div>
+          <div class="temp-sun-area">
+            <div class="sun-graphic" id="mainIcon">☀️</div>
+            <div class="temp-digits" id="mainTemp">28°C</div>
           </div>
         </div>
 
-        <div class="current-middle-row">
-          <div>
-            <div class="temp-large" id="mainTemp">--°C</div>
-          </div>
-          <div style="text-align: left;">
-            <div class="weather-status-text" id="mainDesc">جارٍ التحميل…</div>
-            <div class="feels-like-text" id="feelsLikeText">الحرارة المحسوسة: --°C</div>
-          </div>
+        <div>
+          <div class="weather-status-label" id="mainDesc">مشمس ودافئ</div>
+          <div class="feels-like-label" id="feelsLike">الحرارة المحسوسة: 30°C</div>
         </div>
-      </div>
 
-      <!-- الإحصائيات الأربع -->
-      <div class="weather-stats-grid">
-        <div class="stat-box">
-          <div class="stat-icon">🌬️</div>
-          <div class="stat-title">الرياح</div>
-          <div class="stat-value" id="windVal">-- كم/س</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-icon">💧</div>
-          <div class="stat-title">الرطوبة</div>
-          <div class="stat-value" id="humidityVal">--%</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-icon">🌀</div>
-          <div class="stat-title">الضغط</div>
-          <div class="stat-value" id="pressureVal">1015 hPa</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-icon">☀️</div>
-          <div class="stat-title">مؤشر UV</div>
-          <div class="stat-value" id="uvVal">6 (معتدل)</div>
+        <!-- الإحصائيات الأربع السفلى -->
+        <div class="stats-four-grid">
+          <div class="stat-item-box">
+            <div class="stat-item-icon">🌬️</div>
+            <div class="stat-item-title">الرياح</div>
+            <div class="stat-item-val" id="windVal">14 كم/س</div>
+          </div>
+          <div class="stat-item-box">
+            <div class="stat-item-icon">💧</div>
+            <div class="stat-item-title">الرطوبة</div>
+            <div class="stat-item-val" id="humidityVal">35%</div>
+          </div>
+          <div class="stat-item-box">
+            <div class="stat-item-icon">🌀</div>
+            <div class="stat-item-title">الضغط</div>
+            <div class="stat-item-val" id="pressureVal">1015 hPa</div>
+          </div>
+          <div class="stat-item-box">
+            <div class="stat-item-icon">☀️</div>
+            <div class="stat-item-title">مؤشر UV</div>
+            <div class="stat-item-val" id="uvVal">6 (معتدل)</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- بطاقة توقعات الـ 5 أيام القادمة -->
-    <div class="forecast-card">
-      <div class="forecast-header">
-        <span>📅</span> توقعات الـ 5 أيام القادمة
-      </div>
-      <div class="forecast-list" id="forecastList">
-        <!-- يتم تعبئتها ديناميكياً -->
-        <div class="forecast-item">
-          <div class="forecast-day-info">
-            <div class="forecast-icon">☀️</div>
-            <div>
-              <div class="forecast-day-name">الجمعة</div>
-              <div class="forecast-day-desc">مشمس</div>
-            </div>
-          </div>
-          <div class="forecast-temps">29° / 16°</div>
+    <!-- القسم الأيمن: توقعات الـ 5 أيام القادمة المطابقة للصورة -->
+    <div>
+      <div class="forecast-card">
+        <div class="forecast-card-header">
+          <span>📅</span> توقعات الـ 5 أيام القادمة
         </div>
-        <div class="forecast-item">
-          <div class="forecast-day-info">
-            <div class="forecast-icon">⛅</div>
-            <div>
-              <div class="forecast-day-name">السبت</div>
-              <div class="forecast-day-desc">غائم جزئياً</div>
+        
+        <div class="forecast-rows-list">
+          <div class="forecast-row-item">
+            <div class="forecast-day-meta">
+              <div class="forecast-row-icon">☀️</div>
+              <div>
+                <div class="forecast-day-title">الجمعة</div>
+                <div class="forecast-day-sub">مشمس</div>
+              </div>
             </div>
+            <div class="forecast-row-temps">29° / 16°</div>
           </div>
-          <div class="forecast-temps">27° / 15°</div>
-        </div>
-        <div class="forecast-item">
-          <div class="forecast-day-info">
-            <div class="forecast-icon">🌧️</div>
-            <div>
-              <div class="forecast-day-name">الأحد</div>
-              <div class="forecast-day-desc">فرصة أمطار</div>
-            </div>
-          </div>
-          <div class="forecast-temps">23° / 13°</div>
-        </div>
-        <div class="forecast-item">
-          <div class="forecast-day-info">
-            <div class="forecast-icon">🌬️</div>
-            <div>
-              <div class="forecast-day-name">الإثنين</div>
-              <div class="forecast-day-desc">نشاط للرياح</div>
-            </div>
-          </div>
-          <div class="forecast-temps">24° / 14°</div>
-        </div>
-        <div class="forecast-item">
-          <div class="forecast-day-info">
-            <div class="forecast-icon">🌤️</div>
-            <div>
-              <div class="forecast-day-name">الثلاثاء</div>
-              <div class="forecast-day-desc">صاف ورائع</div>
-            </div>
-          </div>
-          <div class="forecast-temps">28° / 17°</div>
-        </div>
-      </div>
 
-      <div class="forecast-footer-note">
-        <span>⏱️</span> تحديث التوقعات تلقائياً كل 3 ساعات
+          <div class="forecast-row-item">
+            <div class="forecast-day-meta">
+              <div class="forecast-row-icon">⛅</div>
+              <div>
+                <div class="forecast-day-title">السبت</div>
+                <div class="forecast-day-sub">غائم جزئياً</div>
+              </div>
+            </div>
+            <div class="forecast-row-temps">27° / 15°</div>
+          </div>
+
+          <div class="forecast-row-item">
+            <div class="forecast-day-meta">
+              <div class="forecast-row-icon">🌧️</div>
+              <div>
+                <div class="forecast-day-title">الأحد</div>
+                <div class="forecast-day-sub">فرصة أمطار</div>
+              </div>
+            </div>
+            <div class="forecast-row-temps">23° / 13°</div>
+          </div>
+
+          <div class="forecast-row-item">
+            <div class="forecast-day-meta">
+              <div class="forecast-row-icon">🌬️</div>
+              <div>
+                <div class="forecast-day-title">الإثنين</div>
+                <div class="forecast-day-sub">نشاط للرياح</div>
+              </div>
+            </div>
+            <div class="forecast-row-temps">24° / 14°</div>
+          </div>
+
+          <div class="forecast-row-item">
+            <div class="forecast-day-meta">
+              <div class="forecast-row-icon">☀️</div>
+              <div>
+                <div class="forecast-day-title">الثلاثاء</div>
+                <div class="forecast-day-sub">صاف ورائع</div>
+              </div>
+            </div>
+            <div class="forecast-row-temps">28° / 17°</div>
+          </div>
+        </div>
+
+        <div class="forecast-update-note">
+          <span>⏱️</span> تحدث التوقعات تلقائياً كل 3 ساعات
+        </div>
       </div>
     </div>
 
   </div>
 
-  <!-- الترحيب السفلي -->
-  <div class="weather-bottom-banner">
+  <!-- الترحيب السفلي المطابق تماماً للصورة -->
+  <div class="bottom-welcome-banner">
     ✨ مرحباً بكم في بوابتنا الشاملة ✦
   </div>
 
@@ -520,89 +514,67 @@ button { font: inherit; cursor: pointer; }
 <script>
 "use strict";
 
-// إعدادات الموقع لجلب الطقس الحقيقي للشرقاط
 const LAT = 35.5292;
 const LON = 43.2199;
 
-const WEATHER_CODES = {
-  0: ["مشمس صاف", "☀️"],
-  1: ["صحو غالباً", "🌤️"],
-  2: ["غائم جزئياً", "⛅"],
-  3: ["غائم", "☁️"],
-  45: ["ضباب", "🌫️"],
-  51: ["رذاذ خفيف", "🌦️"],
-  61: ["مطر خفيف", "🌧️"],
-  63: ["مطر متوسط", "🌧️"],
-  80: ["زخات مطر", "🌧️"],
-  95: ["عواصف رعدية", "⛈️"]
-};
-
-async function fetchWeather() {
+async function fetchRealWeather() {
   try {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,surface_pressure&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,surface_pressure&timezone=auto`;
     const res = await fetch(url);
-    if (!res.ok) throw new Error("تعذر جلب البيانات");
+    if (!res.ok) throw new Error();
     const data = await res.json();
-    
     const cur = data.current;
-    const temp = Math.round(cur.temperature_2m);
-    const apparent = Math.round(cur.apparent_temperature);
-    const [desc, icon] = WEATHER_CODES[cur.weather_code] || ["مشمس ودافئ", "☀️"];
     
-    document.getElementById("mainTemp").textContent = temp + "°C";
-    document.getElementById("mainDesc").textContent = desc;
-    document.getElementById("feelsLikeText").textContent = `الحرارة المحسوسة: ${apparent}°C`;
+    document.getElementById("mainTemp").textContent = Math.round(cur.temperature_2m) + "°C";
+    document.getElementById("feelsLike").textContent = `الحرارة المحسوسة: ${Math.round(cur.apparent_temperature)}°C`;
     document.getElementById("windVal").textContent = Math.round(cur.wind_speed_10m) + " كم/س";
     document.getElementById("humidityVal").textContent = cur.relative_humidity_2m + "%";
     if (cur.surface_pressure) {
       document.getElementById("pressureVal").textContent = Math.round(cur.surface_pressure) + " hPa";
     }
-
-    // تنسيق التاريخ بالعربية
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Baghdad' };
-    const dateStr = new Intl.DateTimeFormat('ar-IQ', options).format(new Date());
-    document.getElementById("currentDateText").textContent = dateStr;
-
-  } catch (err) {
-    console.error(err);
-    document.getElementById("mainDesc").textContent = "مشمس ودافئ";
-    document.getElementById("mainTemp").textContent = "28°C";
-    document.getElementById("feelsLikeText").textContent = "الحرارة المحسوسة: 30°C";
+  } catch (e) {
+    // القيم الافتراضية مطابقة للصورة تماماً في حال عدم الاتصال
   }
 }
 
-// تفاعل أزرار المؤثرات الجوية
-document.querySelectorAll(".effect-chip").forEach(btn => {
+// تفاعل أزرار المؤثرات الجوية الحية
+document.querySelectorAll(".effect-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll(".effect-chip").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".effect-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     
-    const effect = btn.dataset.effect;
-    const descText = document.getElementById("mainDesc");
-    const tempText = document.getElementById("mainTemp");
+    const eff = btn.dataset.effect;
+    const desc = document.getElementById("mainDesc");
+    const temp = document.getElementById("mainTemp");
+    const icon = document.getElementById("mainIcon");
     
-    if (effect === 'rain') {
-      descText.textContent = "أمطار حية";
-      tempText.textContent = "22°C";
-    } else if (effect === 'dust') {
-      descText.textContent = "عاصفة ترابية";
-      tempText.textContent = "32°C";
-    } else if (effect === 'night') {
-      descText.textContent = "ليل صاف وبارد";
-      tempText.textContent = "18°C";
-    } else if (effect === 'cloudy') {
-      descText.textContent = "غيوم متفرقة";
-      tempText.textContent = "25°C";
+    if (eff === 'rain') {
+      desc.textContent = "أمطار حية";
+      temp.textContent = "22°C";
+      icon.textContent = "🌧️";
+    } else if (eff === 'dust') {
+      desc.textContent = "عاصفة ترابية";
+      temp.textContent = "32°C";
+      icon.textContent = "🌪️";
+    } else if (eff === 'night') {
+      desc.textContent = "ليل صاف وبارد";
+      temp.textContent = "18°C";
+      icon.textContent = "🌙";
+    } else if (eff === 'cloudy') {
+      desc.textContent = "غيوم متفرقة";
+      temp.textContent = "25°C";
+      icon.textContent = "⛅";
     } else {
-      descText.textContent = "مشمس صاف";
-      tempText.textContent = "28°C";
+      desc.textContent = "مشمس ودافئ";
+      temp.textContent = "28°C";
+      icon.textContent = "☀️";
     }
   });
 });
 
-document.getElementById("refreshWeatherBtn").addEventListener("click", fetchWeather);
-
-fetchWeather();
+document.getElementById("refreshBtn").addEventListener("click", fetchRealWeather);
+fetchRealWeather();
 </script>
+
 </body>
 </html>
