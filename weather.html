@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0c1b33">
+<meta name="theme-color" content="#0d2137">
 <title>طقس الشرقاط المباشر | المركز التفاعلي للخدمات الجوية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,8 +11,8 @@
 <style>
 :root {
   --bg-dark: #0a172e;
-  --card-bg: rgba(14, 32, 63, 0.75);
-  --card-border: rgba(59, 130, 246, 0.25);
+  --card-bg: rgba(13, 29, 56, 0.85);
+  --card-border: rgba(59, 130, 246, 0.22);
   --gold: #f39c12;
   --gold-light: #f1c40f;
   --text-main: #ffffff;
@@ -21,7 +21,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 body {
   margin: 0;
-  background: linear-gradient(135deg, #07101e 0%, #0d2137 50%, #132f52 100%);
+  background: linear-gradient(135deg, #07101e 0%, #0c203b 50%, #112d52 100%);
   background-attachment: fixed;
   color: var(--text-main);
   font-family: 'Cairo', Tahoma, sans-serif;
@@ -32,7 +32,7 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; }
 
 .page-wrap {
-  max-width: 1100px;
+  max-width: 1050px;
   margin: 0 auto;
 }
 
@@ -46,44 +46,47 @@ button { font: inherit; cursor: pointer; }
   border-radius: 999px;
   font-weight: 700;
   font-size: 0.85rem;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   transition: background 0.2s;
 }
 .back-link:hover { background: rgba(255, 255, 255, 0.15); }
 
-/* الهيدر العلوي المطابق للصورة */
+/* الهيدر العلوي المطابق للصورة تماماً */
 .top-header {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 20px;
-  padding: 18px 22px;
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
   backdrop-filter: blur(12px);
-  margin-bottom: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  margin-bottom: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 .header-title-box {
   display: flex;
   align-items: center;
   gap: 14px;
 }
-.header-sun-icon {
-  font-size: 2.5rem;
+.header-sun-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(243, 156, 18, 0.6));
 }
 .header-title-box h1 {
   margin: 0;
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  font-weight: 950;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 900;
   color: #fff;
 }
 .header-title-box p {
-  margin: 3px 0 0;
+  margin: 2px 0 0;
   color: var(--text-muted);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
 }
 .header-controls {
@@ -100,13 +103,13 @@ button { font: inherit; cursor: pointer; }
   padding: 8px 16px;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 }
 .refresh-action-btn {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--card-border);
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -115,20 +118,20 @@ button { font: inherit; cursor: pointer; }
 }
 .refresh-action-btn:hover { transform: rotate(180deg); background: rgba(255,255,255,0.15); }
 
-/* شريط تفاعل المؤثرات الحية المطابق تماماً للصورة */
+/* شريط أزرار مؤثرات الجو الحية (المطابق للصورة) */
 .effects-nav {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   overflow-x: auto;
   padding-bottom: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   white-space: nowrap;
   scrollbar-width: none;
 }
 .effects-nav::-webkit-scrollbar { display: none; }
 .effects-prompt {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--gold-light);
   display: flex;
@@ -139,27 +142,27 @@ button { font: inherit; cursor: pointer; }
 .effect-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  padding: 8px 16px;
+  padding: 7px 14px;
   border-radius: 999px;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #fff;
   transition: all 0.2s ease;
   flex-shrink: 0;
 }
 .effect-btn:hover, .effect-btn.active {
-  background: rgba(243, 156, 18, 0.22);
+  background: rgba(243, 156, 18, 0.25);
   border-color: var(--gold);
 }
 
-/* شبكة المحتوى الرئيسية (يسار ويمين) */
+/* الشبكة الرئيسية (يمين ويسار) */
 .main-grid {
   display: grid;
   grid-template-columns: 1.35fr 0.95fr;
-  gap: 16px;
+  gap: 14px;
 }
 @media (max-width: 900px) {
   .main-grid { grid-template-columns: 1fr; }
@@ -168,16 +171,16 @@ button { font: inherit; cursor: pointer; }
 .left-column {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 /* البطاقة الكبرى للطقس الحالي */
 .current-weather-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 22px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
@@ -189,18 +192,18 @@ button { font: inherit; cursor: pointer; }
   background: rgba(34, 197, 94, 0.15);
   border: 1px solid rgba(34, 197, 94, 0.3);
   color: #22c55e;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .live-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   background: #22c55e;
   border-radius: 50%;
-  box-shadow: 0 0 8px #22c55e;
+  box-shadow: 0 0 6px #22c55e;
 }
 
 .current-row-inner {
@@ -209,58 +212,60 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
 }
 .city-main-name {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 950;
   margin: 0 0 2px;
   letter-spacing: -0.5px;
 }
 .city-date-sub {
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
 }
 
 .temp-sun-area {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
-.sun-graphic {
-  font-size: 4.5rem;
-  filter: drop-shadow(0 0 15px rgba(243, 156, 18, 0.4));
+.sun-realistic-large {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(243, 156, 18, 0.7));
   animation: floatSun 4s ease-in-out infinite alternate;
 }
 @keyframes floatSun {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-5px); }
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-4px) scale(1.04); }
 }
 .temp-digits {
-  font-size: clamp(3.2rem, 5.5vw, 4.8rem);
+  font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 950;
   line-height: 1;
   letter-spacing: -2px;
 }
 
 .weather-status-label {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 900;
   color: var(--gold-light);
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .feels-like-label {
   color: var(--text-muted);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
   margin-top: 2px;
 }
 
-/* إحصائيات الأربع المربعات السفلى للبطاقة الحالية */
+/* إحصائيات الأربع مربعات السفلى */
 .stats-four-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 22px;
-  padding-top: 18px;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 16px;
   border-top: 1px solid var(--card-border);
 }
 @media (max-width: 600px) {
@@ -269,21 +274,21 @@ button { font: inherit; cursor: pointer; }
 .stat-item-box {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--card-border);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 10px;
   text-align: center;
 }
 .stat-item-icon { font-size: 1.1rem; margin-bottom: 2px; }
-.stat-item-title { color: var(--text-muted); font-size: 0.72rem; font-weight: 600; }
-.stat-item-val { font-size: 0.92rem; font-weight: 900; margin-top: 2px; }
+.stat-item-title { color: var(--text-muted); font-size: 0.7rem; font-weight: 600; }
+.stat-item-val { font-size: 0.88rem; font-weight: 900; margin-top: 2px; }
 
-/* بطاقة توقعات الـ 5 أيام (اليمنية في الشبكة) */
+/* بطاقة توقعات الـ 5 أيام (المطابقة للصورة يميناً) */
 .forecast-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 22px;
-  padding: 22px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
@@ -293,16 +298,16 @@ button { font: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 900;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--card-border);
 }
 .forecast-rows-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 .forecast-row-item {
   display: flex;
@@ -310,42 +315,46 @@ button { font: inherit; cursor: pointer; }
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--card-border);
-  padding: 10px 14px;
-  border-radius: 14px;
+  padding: 9px 12px;
+  border-radius: 12px;
 }
 .forecast-day-meta {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.forecast-row-icon { font-size: 1.4rem; }
-.forecast-day-title { font-weight: 900; font-size: 0.9rem; }
-.forecast-day-sub { color: var(--text-muted); font-size: 0.75rem; font-weight: 600; }
-.forecast-row-temps { font-weight: 900; font-size: 0.9rem; direction: ltr; }
+.forecast-icon-small {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+.forecast-day-title { font-weight: 900; font-size: 0.86rem; }
+.forecast-day-sub { color: var(--text-muted); font-size: 0.72rem; font-weight: 600; }
+.forecast-row-temps { font-weight: 900; font-size: 0.88rem; direction: ltr; }
 
 .forecast-update-note {
   margin-top: auto;
-  padding-top: 15px;
+  padding-top: 12px;
   display: flex;
   align-items: center;
   gap: 6px;
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
 }
 
-/* البانر السفلي الترحيبي المطابق للصورة تماماً */
+/* البانر السفلي الترحيبي المطابق للصورة */
 .bottom-welcome-banner {
-  margin-top: 16px;
+  margin-top: 14px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 12px;
   text-align: center;
   font-weight: 900;
   color: var(--gold-light);
-  font-size: 0.88rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-size: 0.85rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 </style>
 </head>
@@ -358,7 +367,8 @@ button { font: inherit; cursor: pointer; }
   <!-- الهيدر العلوي -->
   <header class="top-header">
     <div class="header-title-box">
-      <div class="header-sun-icon">☀️</div>
+      <!-- صورة شمس واقعية احترافية مطابقة للصورة -->
+      <img class="header-sun-img" src="https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=100&auto=format&fit=crop&q=80" alt="طقس" crossorigin="anonymous">
       <div>
         <h1>طقس الشرقاط المباشر</h1>
         <p>المركز التفاعلي للخدمات الجوية | محافظة صلاح الدين</p>
@@ -372,7 +382,7 @@ button { font: inherit; cursor: pointer; }
     </div>
   </header>
 
-  <!-- شريط مؤثرات الجو الحية -->
+  <!-- شريط مؤثرات الجو الحية (المطابق للصورة) -->
   <div class="effects-nav">
     <span class="effects-prompt">✨ تجربة مؤثرات الجو الحية:</span>
     <button class="effect-btn active" data-effect="sunny">☀️ مشمس صاف</button>
@@ -382,10 +392,10 @@ button { font: inherit; cursor: pointer; }
     <button class="effect-btn" data-effect="night">🌙 ليل صاف</button>
   </div>
 
-  <!-- شبكة الطقس -->
+  <!-- شبكة المحتوى -->
   <div class="main-grid">
     
-    <!-- القسم الأيسر: الطقس الحالي وتوقعاته -->
+    <!-- القسم الأيسر: الطقس الحالي -->
     <div class="left-column">
       <div class="current-weather-card">
         <div class="live-indicator"><span class="live-dot"></span> تحديث مؤشر الآن</div>
@@ -396,7 +406,8 @@ button { font: inherit; cursor: pointer; }
             <div class="city-date-sub" id="dateText">الخميس، 29 تشرين الأول 2026</div>
           </div>
           <div class="temp-sun-area">
-            <div class="sun-graphic" id="mainIcon">☀️</div>
+            <!-- شمس واقعية كبرى مطابقة للصورة -->
+            <img class="sun-realistic-large" id="mainSunImg" src="https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=300&auto=format&fit=crop&q=80" alt="شمس" crossorigin="anonymous">
             <div class="temp-digits" id="mainTemp">28°C</div>
           </div>
         </div>
@@ -432,7 +443,7 @@ button { font: inherit; cursor: pointer; }
       </div>
     </div>
 
-    <!-- القسم الأيمن: توقعات الـ 5 أيام القادمة المطابقة للصورة -->
+    <!-- القسم الأيمن: توقعات الـ 5 أيام القادمة (المطابق للصورة) -->
     <div>
       <div class="forecast-card">
         <div class="forecast-card-header">
@@ -442,7 +453,7 @@ button { font: inherit; cursor: pointer; }
         <div class="forecast-rows-list">
           <div class="forecast-row-item">
             <div class="forecast-day-meta">
-              <div class="forecast-row-icon">☀️</div>
+              <img class="forecast-icon-small" src="https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=100&auto=format&fit=crop&q=80" alt="مشمس">
               <div>
                 <div class="forecast-day-title">الجمعة</div>
                 <div class="forecast-day-sub">مشمس</div>
@@ -453,7 +464,7 @@ button { font: inherit; cursor: pointer; }
 
           <div class="forecast-row-item">
             <div class="forecast-day-meta">
-              <div class="forecast-row-icon">⛅</div>
+              <span style="font-size: 1.2rem;">⛅</span>
               <div>
                 <div class="forecast-day-title">السبت</div>
                 <div class="forecast-day-sub">غائم جزئياً</div>
@@ -464,7 +475,7 @@ button { font: inherit; cursor: pointer; }
 
           <div class="forecast-row-item">
             <div class="forecast-day-meta">
-              <div class="forecast-row-icon">🌧️</div>
+              <span style="font-size: 1.2rem;">🌧️</span>
               <div>
                 <div class="forecast-day-title">الأحد</div>
                 <div class="forecast-day-sub">فرصة أمطار</div>
@@ -475,7 +486,7 @@ button { font: inherit; cursor: pointer; }
 
           <div class="forecast-row-item">
             <div class="forecast-day-meta">
-              <div class="forecast-row-icon">🌬️</div>
+              <span style="font-size: 1.2rem;">🌬️</span>
               <div>
                 <div class="forecast-day-title">الإثنين</div>
                 <div class="forecast-day-sub">نشاط للرياح</div>
@@ -486,7 +497,7 @@ button { font: inherit; cursor: pointer; }
 
           <div class="forecast-row-item">
             <div class="forecast-day-meta">
-              <div class="forecast-row-icon">☀️</div>
+              <img class="forecast-icon-small" src="https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=100&auto=format&fit=crop&q=80" alt="صاف">
               <div>
                 <div class="forecast-day-title">الثلاثاء</div>
                 <div class="forecast-day-sub">صاف ورائع</div>
@@ -504,7 +515,7 @@ button { font: inherit; cursor: pointer; }
 
   </div>
 
-  <!-- الترحيب السفلي المطابق تماماً للصورة -->
+  <!-- البانر السفلي الترحيبي المطابق للصورة -->
   <div class="bottom-welcome-banner">
     ✨ مرحباً بكم في بوابتنا الشاملة ✦
   </div>
@@ -516,6 +527,8 @@ button { font: inherit; cursor: pointer; }
 
 const LAT = 35.5292;
 const LON = 43.2199;
+
+const SUN_IMG_URL = "https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=300&auto=format&fit=crop&q=80";
 
 async function fetchRealWeather() {
   try {
@@ -532,12 +545,10 @@ async function fetchRealWeather() {
     if (cur.surface_pressure) {
       document.getElementById("pressureVal").textContent = Math.round(cur.surface_pressure) + " hPa";
     }
-  } catch (e) {
-    // القيم الافتراضية مطابقة للصورة تماماً في حال عدم الاتصال
-  }
+  } catch (e) {}
 }
 
-// تفاعل أزرار المؤثرات الجوية الحية
+// تفاعل أزرار المؤثرات الجوية الحية بصور وأيقونات واقعية
 document.querySelectorAll(".effect-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".effect-btn").forEach(b => b.classList.remove("active"));
@@ -546,28 +557,28 @@ document.querySelectorAll(".effect-btn").forEach(btn => {
     const eff = btn.dataset.effect;
     const desc = document.getElementById("mainDesc");
     const temp = document.getElementById("mainTemp");
-    const icon = document.getElementById("mainIcon");
+    const sunImgElem = document.getElementById("mainSunImg");
     
     if (eff === 'rain') {
       desc.textContent = "أمطار حية";
       temp.textContent = "22°C";
-      icon.textContent = "🌧️";
+      sunImgElem.src = "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=300&auto=format&fit=crop&q=80";
     } else if (eff === 'dust') {
       desc.textContent = "عاصفة ترابية";
       temp.textContent = "32°C";
-      icon.textContent = "🌪️";
+      sunImgElem.src = "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=300&auto=format&fit=crop&q=80";
     } else if (eff === 'night') {
       desc.textContent = "ليل صاف وبارد";
       temp.textContent = "18°C";
-      icon.textContent = "🌙";
+      sunImgElem.src = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&auto=format&fit=crop&q=80";
     } else if (eff === 'cloudy') {
       desc.textContent = "غيوم متفرقة";
       temp.textContent = "25°C";
-      icon.textContent = "⛅";
+      sunImgElem.src = "https://images.unsplash.com/photo-1534088568595-a066fa41088a?w=300&auto=format&fit=crop&q=80";
     } else {
       desc.textContent = "مشمس ودافئ";
       temp.textContent = "28°C";
-      icon.textContent = "☀️";
+      sunImgElem.src = SUN_IMG_URL;
     }
   });
 });
