@@ -67,44 +67,84 @@ select{background:rgba(8,24,46,.85);border:1px solid var(--line);border-radius:1
 .banner .by{font-weight:900;color:var(--gold2)}
 @media(max-width:850px){.grid{grid-template-columns:1fr}.current{order:1}.fc{order:2}}
 @media(max-width:600px){body{padding:10px 8px 120px}.wrap{gap:10px}header{padding:10px 12px}.title{width:100%;gap:8px}.title .ico{font-size:2rem}.title p{font-size:.68rem}.ctrl{width:100%}select{min-width:0;flex:1;padding:8px 10px;font-size:.8rem}.refresh{width:40px;height:40px;font-size:1.1rem}.fxbar{padding:8px 10px;gap:8px}.fxbar .lbl{font-size:.75rem}.fxbar button{padding:7px 12px;font-size:.78rem}.current{padding:14px;min-height:0}.date{font-size:.8rem}.big{gap:6px}.feels{font-size:.8rem}.stats{padding:10px 2px;margin-top:12px}.stat .i{font-size:1.1rem}.stat .t{font-size:.65rem}.stat .v{font-size:.7rem}.fc{padding:12px}.row{padding:8px 10px}.row .ic{font-size:1.5rem;width:36px}.row .d b{font-size:.85rem}.row .tp{font-size:.9rem}.banner .pill,.banner .by{font-size:.8rem}}
+.card{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.wrap{text-shadow:0 1px 8px rgba(0,0,0,.45)}
+header{border-bottom:1px solid var(--line)!important;padding-inline:0}
+select,.refresh{background:none!important;border:0!important;box-shadow:none}
+select{padding-inline:0}
+select option{background:#0d2137;color:#fff}
+.fxbar{border-bottom:1px solid rgba(255,255,255,.1)!important;padding-inline:0}
+.fxbar button{background:none!important;border:0!important;border-bottom:2px solid transparent!important;border-radius:0;padding:8px 12px;box-shadow:none!important}
+.fxbar button.on{border-bottom-color:var(--gold)!important;color:var(--gold2)}
+.live{background:none;border:0;padding:0}
+.stats{background:none;border:0;border-top:1px solid var(--line);border-radius:0}
+.row{background:none;border:0;border-bottom:1px solid rgba(255,255,255,.1);border-radius:0;padding-inline:0}
+.fc h2{padding-bottom:10px;border-bottom:1px solid var(--line)}
+.fc,.current{padding-inline:0}
+.banner{border:0!important;border-top:1px solid var(--line)!important;box-shadow:none!important}
+.banner .pill{background:none;border:0;padding:0}
+body{padding-bottom:30px;background:#0d2137}
+h1{font-size:clamp(1rem,3.4vw,1.7rem)}.title p{font-size:.72rem}.title .ico{font-size:2.2rem}
+.city{font-size:clamp(1.4rem,5vw,2.6rem)}.temp{font-size:clamp(2.2rem,8vw,4.6rem)}
+.hero{width:clamp(2.6rem,9vw,5rem);height:clamp(2.6rem,9vw,5rem);font-size:clamp(2.2rem,8vw,4.2rem)}
+.desc{font-size:clamp(1rem,3vw,1.3rem)}.date,.feels{font-size:.78rem}
+@media(max-width:600px){h1{font-size:1rem}.title p{font-size:.62rem}.title .ico{font-size:1.8rem}.city{font-size:1.5rem}.date,.feels{font-size:.7rem}.temp{font-size:2.3rem}.hero{width:2.6rem;height:2.6rem;font-size:2.2rem}.desc{font-size:1rem}.big{gap:4px}.fxbar .lbl{font-size:.68rem}.fxbar button{font-size:.7rem;padding:6px 9px}.stat .i{font-size:1rem}.stat .t{font-size:.6rem}.stat .v{font-size:.62rem}.fc h2{font-size:.9rem}.row .d b{font-size:.78rem}.row .d span{font-size:.65rem}.row .ic{font-size:1.3rem;width:30px}.row .tp{font-size:.8rem}.note,.banner .pill,.banner .by{font-size:.7rem}select{font-size:.75rem}}
+@media(max-width:700px){
+body{padding:3vw 3.5vw 4vw}.wrap{gap:2vw}
+header{padding:0 0 2.5vw;gap:2vw}.title{width:100%;gap:2vw}.title .ico{font-size:8vw}
+h1{font-size:4.6vw}.title p{font-size:2.6vw;margin-top:.5vw}
+.ctrl{width:100%;gap:2vw}select{font-size:3vw;min-width:0;flex:1;padding:1.5vw 0}.refresh{width:7vw;height:7vw;font-size:4.5vw;padding:0}
+.fxbar{flex-wrap:wrap;overflow:visible;gap:.5vw 1.5vw;padding:1.5vw 0}.fxbar .lbl{flex-basis:100%;font-size:2.7vw}
+.fxbar button{font-size:2.7vw;padding:1.2vw 2vw}
+.grid{gap:3vw}.current{padding:2vw 0;min-height:0}.fc{padding:1vw 0}
+.live{font-size:2.6vw;gap:1.5vw}.dot{width:2.4vw;height:2.4vw}
+.cur-main{gap:2vw;margin:2vw 0}.city{font-size:6.8vw}.date{font-size:2.8vw}
+.big{gap:1.5vw}.hero{width:10vw;height:10vw;font-size:9vw}.temp{font-size:9.5vw}
+.desc{font-size:4vw}.feels{font-size:2.8vw}
+.stats{margin-top:3vw;padding:2.5vw 0}.stat{padding:0 .5vw}.stat .i{font-size:4.5vw}.stat .t{font-size:2.4vw}.stat .v{font-size:2.5vw}
+.fc h2{font-size:3.6vw;padding-bottom:2vw;margin-bottom:1vw}
+.row{padding:1.6vw 0;gap:2vw;margin:0}.row .ic{font-size:6vw;width:9vw}.row .d b{font-size:3.1vw}.row .d span{font-size:2.5vw}.row .tp{font-size:3.2vw}
+.note{font-size:2.5vw;margin-top:2vw}
+.banner{padding:3vw 0 1vw}.banner .pill,.banner .by{font-size:3vw}.banner .pill{margin-bottom:1vw}
+}
+@media(max-width:700px){
+body{padding:2.5vw 3vw 3vw}.wrap{gap:1.5vw}
+header{padding:0 0 1.8vw;gap:1.5vw}.title{gap:1.5vw}.title .ico{font-size:5.5vw}
+h1{font-size:3.3vw}
+select{font-size:2.3vw;padding:1vw 0}.refresh{width:5vw;height:5vw;font-size:3.3vw}
+.fxbar{padding:1vw 0;gap:.4vw 1vw}.fxbar button{font-size:2vw;padding:.9vw 1.5vw}
+.current{padding:1.5vw 0}.live{font-size:2vw}.dot{width:1.8vw;height:1.8vw}
+.cur-main{margin:1.5vw 0}.city{font-size:4.4vw}.date{font-size:2.1vw}
+.hero{width:7vw;height:7vw;font-size:6vw}.temp{font-size:6.5vw}
+.desc{font-size:2.9vw}.feels{font-size:2.1vw}
+.stats{margin-top:2vw;padding:1.8vw 0}.stat .i{font-size:3.2vw}.stat .t{font-size:1.8vw}.stat .v{font-size:1.9vw}
+.fc h2{font-size:2.6vw;padding-bottom:1.4vw}
+.row{padding:1.1vw 0}.row .ic{font-size:4.2vw;width:6.5vw}.row .d b{font-size:2.3vw}.row .d span{font-size:1.9vw}.row .tp{font-size:2.4vw}
+.note{font-size:1.9vw;margin-top:1.4vw}
+.banner .pill,.banner .by{font-size:2.3vw}
+}
 </style>
 </head>
 <body data-fx="sunny">
 <canvas id="fx"></canvas>
-<svg class="scene" viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-<defs><g id="p" stroke="#07182a" fill="none" stroke-linecap="round"><path d="M0 0Q6-35 0-70" stroke-width="5"/><path d="M0-70Q-25-88-48-62M0-70Q25-88 48-62M0-70Q-18-98-38-92M0-70Q18-98 38-92M0-70Q0-100 0-96" stroke-width="3.5"/></g></defs>
-<path d="M0 120V84h50l8-10 8 10h70V72h36v20h80l10-16 10 16h110V80h46v14h100V70h28v24h90l10-12 10 12h120V82h36v14h140V68h28v28h110V120z" fill="#0a2038" fill-opacity=".85"/>
-<g class="palms"><use href="#p" x="40" y="118"/><use href="#p" x="210" y="120" transform="translate(0 0)"/><use href="#p" x="430" y="118"/><use href="#p" x="640" y="120"/><use href="#p" x="860" y="118"/><use href="#p" x="1060" y="120"/><use href="#p" x="1170" y="118"/></g>
-</svg>
-<div id="clouds"></div>
 
 <div class="wrap">
   <header class="card">
-    <div class="title"><div class="ico">🌤️</div><div><h1>طقس الشرقاط المباشر</h1><p>المركز التفاعلي للخدمات الجوية | محافظة صلاح الدين</p></div></div>
+    <div class="title"><div class="ico">🌤️</div><div><h1>طقس الشرقاط المباشر</h1></div></div>
     <div class="ctrl">
-      <select id="citySel" aria-label="الموقع"></select>
       <button class="refresh" id="ref" title="تحديث البيانات">↻</button>
     </div>
   </header>
-
-  <nav class="card fxbar">
-    <span class="lbl">✨ تجربة المؤثرات الجوية الحية:</span>
-    <button data-fx="sunny">☀️ مشمس صاف</button>
-    <button data-fx="cloudy">☁️ غيوم متفرقة</button>
-    <button data-fx="rain">🌧️ أمطار حية</button>
-    <button data-fx="dust">🌪️ عاصفة ترابية</button>
-    <button data-fx="night">🌙 ليل صاف</button>
-  </nav>
 
   <div class="grid">
     <aside class="card fc">
       <h2>📅 توقعات الـ 5 أيام القادمة</h2>
       <div id="fcList"></div>
-      <div class="note">🕒 تحدث التوقعات تلقائياً كل 3 ساعات</div>
+      <div class="note">🕒 تتحدث البيانات تلقائياً كل 10 دقائق</div>
     </aside>
     <section class="card current">
       <div>
-        <span class="live"><span class="dot"></span> تحديث مؤشر الآن</span>
+        <span class="live"><span class="dot" id="liveDot"></span> <span id="liveTxt">تحديث مؤشر الآن</span></span>
         <div class="cur-main">
           <div><h2 class="city" id="cityName">الشرقاط</h2><div class="date" id="date"></div></div>
           <div class="big"><div class="hero" id="hero"></div><div class="temp" id="temp">--°C</div></div>
@@ -130,13 +170,11 @@ select{background:rgba(8,24,46,.85);border:1px solid var(--line);border-radius:1
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
-const CITIES={"الشرقاط":[35.5292,43.2199],"بيجي":[34.9306,43.4936],"تكريت":[34.6071,43.6782],"الموصل":[36.34,43.13],"بغداد":[33.3152,44.3661],"أربيل":[36.19,44.01],"البصرة":[30.5,47.78]};
+const LAT=35.52,LON=43.25;
 const DAYS=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
 const MONS=["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول"];
-const FXD={sunny:["☀️","مشمس ودافئ"],cloudy:["⛅","غيوم متفرقة"],rain:["🌧️","أمطار حية"],dust:["🌪️","عاصفة ترابية"],night:["🌙","ليل صاف وبارد"]};
-let city="الشرقاط",manual=null,S=null,mode="sunny";
+const city="الشرقاط";let S=null,mode="sunny",curKey="";
 
-Object.keys(CITIES).forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c==="الشرقاط"?"الشرقاط (الموقع الحالي)":c;$("citySel").appendChild(o)});
 
 function wx(c){ // [icon, desc, fx]
  if(c===0)return["☀️","مشمس","sunny"];
@@ -152,82 +190,120 @@ const uvTxt=u=>u<3?"منخفض":u<6?"معتدل":u<8?"مرتفع":"مرتفع ج
 
 const FALLBACK={t:28,f:30,w:14,h:35,p:1015,uv:6,day:1,code:0,daily:[[0,29,16],[2,27,15],[61,23,13],[2,24,14],[0,28,17]],dn:[5,6,0,1,2]};
 
+function fb(){const d=new Date();d.setHours(6,0,0,0);const sr=+d;d.setHours(17,15,0,0);return{...FALLBACK,off:1,cc:15,now0:Date.now(),at:Date.now(),sr,ss:+d}}
 async function load(){
  try{
-  const [la,lo]=CITIES[city];
-  const u=`https://api.open-meteo.com/v1/forecast?latitude=${la}&longitude=${lo}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,surface_pressure,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max&forecast_days=6&timezone=auto`;
-  const r=await fetch(u);if(!r.ok)throw 0;
-  const d=await r.json(),c=d.current,dl=d.daily;
-  S={t:Math.round(c.temperature_2m),f:Math.round(c.apparent_temperature),w:Math.round(c.wind_speed_10m),h:c.relative_humidity_2m,p:Math.round(c.surface_pressure),uv:Math.round(dl.uv_index_max[0]),day:c.is_day,code:c.weather_code,
-   daily:[1,2,3,4,5].map(i=>[dl.weather_code[i],Math.round(dl.temperature_2m_max[i]),Math.round(dl.temperature_2m_min[i])]),
+  const base=`latitude=${LAT}&longitude=${LON}&timezone=Asia%2FBaghdad`;
+  const [rw,ra]=await Promise.allSettled([
+   fetch(`https://api.open-meteo.com/v1/forecast?${base}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,pressure_msl,cloud_cover,uv_index,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,precipitation_probability_max&forecast_days=6`),
+   fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?${base}&current=dust`)]);
+  if(rw.status!=="fulfilled"||!rw.value.ok)throw 0;
+  const d=await rw.value.json(),c=d.current,dl=d.daily;
+  let dust=0;try{dust=(await ra.value.json()).current.dust||0}catch(e){}
+  S={t:Math.round(c.temperature_2m),f:Math.round(c.apparent_temperature),w:Math.round(c.wind_speed_10m),h:c.relative_humidity_2m,p:Math.round(c.pressure_msl),uv:Math.round(c.uv_index),cc:c.cloud_cover,dust,code:c.weather_code,now0:Date.parse(c.time),at:Date.now(),sr:Date.parse(dl.sunrise[0]),ss:Date.parse(dl.sunset[0]),
+   daily:[1,2,3,4,5].map(i=>[dl.weather_code[i],Math.round(dl.temperature_2m_max[i]),Math.round(dl.temperature_2m_min[i]),dl.wind_speed_10m_max[i],dl.precipitation_probability_max[i]]),
    dn:[1,2,3,4,5].map(i=>new Date(dl.time[i]+"T12:00:00").getDay())};
- }catch(e){S=S||FALLBACK}
+ }catch(e){S=S||fb();if(S.off)setTimeout(load,30000)}
  render();
 }
-
 function liveFx(){
- if(!S.day)return"night";
- if(S.w>=40&&S.h<30)return"dust";
+ if(S.dust>=150||(S.w>=40&&S.h<30))return"dust";
  return wx(S.code)[2];
 }
-
+function fi(x){const w=wx(x[0]);if(x[3]>=35&&x[0]<=3)return["🌬️","نشاط للرياح"];if(x[4]>=50&&w[2]!=="rain")return["🌧️","فرصة أمطار"];return w}
 function render(){
  $("cityName").textContent=city;
- const n=new Date();
+ const n=new Date(S.now0+(Date.now()-S.at));
  $("date").textContent=DAYS[n.getDay()]+"، "+n.getDate()+" "+MONS[n.getMonth()]+" "+n.getFullYear();
  $("temp").textContent=S.t+"°C";
  $("feels").textContent="الحرارة المحسوسة: "+S.f+"°C";
  $("wi").textContent=S.w+" كم/س";$("hu").textContent=S.h+"%";$("pr").textContent=S.p+" hPa";
  $("uv").textContent=S.uv+" ("+uvTxt(S.uv)+")";
- $("fcList").innerHTML=S.daily.map((x,i)=>{const w=wx(x[0]);
+ $("fcList").innerHTML=S.daily.map((x,i)=>{const w=fi(x);
   return `<div class="row"><div class="ic">${w[0]}</div><div class="d"><b>${DAYS[S.dn[i]]}</b><span>${w[1]}</span></div><div class="tp"><span class="hi">${x[1]}°</span> / <span class="lo">${x[2]}°</span></div></div>`}).join("");
- setFx(manual||liveFx());
+ $("liveTxt").textContent=S.off?"غير متصل - قيم تقريبية":"تحديث مؤشر الآن";$("liveDot").style.background=S.off?"#999":"";
+ setFx(liveFx());
 }
 
+function cover(){const c=(S.cc??15)/100;return mode==="dust"?.5:mode==="rain"?Math.max(.9,c):c}
 function setFx(fx){
  mode=fx;document.body.dataset.fx=fx;
- document.querySelectorAll(".fxbar button").forEach(b=>b.classList.toggle("on",b.dataset.fx===fx));
- let icon=FXD[fx][0],desc=FXD[fx][1];
- if(!manual){const w=wx(S.code);if(S.day&&fx!=="dust"&&fx!=="night"){icon=w[0];desc=fx==="sunny"?(S.t>=25?"مشمس ودافئ":"مشمس صاف"):w[1]}}
+ const night=sky().a<0,w=wx(S.code);let icon=w[0],desc=w[1];
+ if(fx==="dust"){icon="🌪️";desc="عاصفة ترابية"}
+ else if(fx==="sunny"){icon=night?"🌙":"☀️";desc=night?(S.t<20?"ليل صاف وبارد":"ليل صاف"):(S.t>=25?"مشمس ودافئ":"مشمس صاف")}
+ else if(night&&icon==="⛅")icon="☁️";
  $("desc").textContent=desc;
- $("hero").innerHTML=fx==="sunny"?'<div class="sun"></div>':icon;
- makeClouds(fx);initParticles();
+ $("hero").innerHTML=(fx==="sunny"&&!night)?'<div class="sun"></div>':icon;
+ const key=fx+Math.round(cover()*5);if(key!==curKey||!CL.length){curKey=key;initScene()}
 }
 
-function makeClouds(fx){
- const k={sunny:3,cloudy:7,rain:7,dust:4,night:3}[fx];let h="";
- for(let i=0;i<k;i++){const w=140+Math.random()*180,top=3+Math.random()*50,dur=60+Math.random()*80;
-  h+=`<div class="cl" style="width:${w}px;height:${w*.32}px;top:${top}%;animation-duration:${dur}s;animation-delay:-${Math.random()*dur}s"></div>`}
- $("clouds").innerHTML=h;
+const cv=$("fx"),cx=cv.getContext("2d");let W=1,H=1,P=[],CL=[],ST=[],flash=0;
+const KS=[[-1,[5,10,26],[12,22,52]],[-.25,[10,18,45],[30,40,85]],[0,[60,60,120],[240,130,80]],[.15,[60,110,180],[250,190,120]],[.5,[30,100,180],[130,195,240]],[1,[20,100,190],[150,215,255]]];
+const mix=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t),cl01=v=>Math.max(0,Math.min(1,v));
+const rgb=(c,a=1)=>`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a})`;
+function pal(a){a=Math.max(-1,Math.min(1,a));let i=0;while(i<KS.length-2&&a>KS[i+1][0])i++;const k0=KS[i],k1=KS[i+1],t=(a-k0[0])/(k1[0]-k0[0]);return[mix(k0[1],k1[1],t),mix(k0[2],k1[2],t)]}
+function sky(ignore){
+ const now=S.now0+(Date.now()-S.at),f=(now-S.sr)/(S.ss-S.sr);
+ let a,day=f>=0&&f<=1,pos=f;
+ if(day)a=Math.sin(Math.PI*f);
+ else{const nl=(S.sr+864e5)-S.ss;pos=cl01(f>1?(now-S.ss)/nl:(now-(S.ss-864e5))/nl);a=-Math.sin(Math.PI*pos)}
+ return{a,day,pos};
 }
-
-const cv=$("fx"),cx=cv.getContext("2d");let P=[];
-function size(){cv.width=innerWidth;cv.height=innerHeight}
-function initParticles(){
+function size(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+function initScene(){
  size();P=[];
- const n={rain:220,dust:140,night:120}[mode]||0;
- for(let i=0;i<n;i++)P.push({x:Math.random()*cv.width,y:Math.random()*cv.height,s:Math.random(),r:Math.random()});
+ const n={rain:260,dust:150}[mode]||0;
+ for(let i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,s:Math.random(),r:Math.random()});
+ ST=[];for(let i=0;i<170;i++)ST.push({x:Math.random()*W,y:Math.random()*H*.7,s:Math.random(),r:Math.random()*20});
+ CL=[];const k=Math.round(2+cover()*9);
+ for(let i=0;i<k;i++){const sc=.6+Math.random()*1.1,m=7+Math.floor(Math.random()*5),pf=[];
+  for(let j=0;j<m;j++){const u=j/(m-1)-.5;pf.push({dx:u*190*sc+(Math.random()-.5)*26,dy:(Math.random()-.5)*16*sc-(1-Math.abs(u)*2)*20*sc,r:(32+Math.random()*28)*sc*(1-Math.abs(u)*.5)})}
+  CL.push({x:Math.random()*(W+500)-250,y:H*(.05+Math.random()*.5),v:.12+Math.random()*.3,pf})}
 }
-function loop(t){
- cx.clearRect(0,0,cv.width,cv.height);
- if(mode==="rain"){
-  cx.strokeStyle="rgba(180,215,255,.55)";cx.lineWidth=1.3;cx.beginPath();
-  P.forEach(p=>{cx.moveTo(p.x,p.y);cx.lineTo(p.x-3,p.y+14+p.s*10);p.y+=9+p.s*9;p.x-=1.2;if(p.y>cv.height){p.y=-20;p.x=Math.random()*cv.width}});cx.stroke();
- }else if(mode==="dust"){
-  P.forEach(p=>{cx.fillStyle=`rgba(210,150,80,${.15+p.s*.3})`;cx.beginPath();cx.ellipse(p.x,p.y,10+p.r*26,1.5+p.r*2.5,0,0,7);cx.fill();p.x-=3+p.s*7;p.y+=Math.sin((t/700)+p.r*9)*.6;if(p.x<-40){p.x=cv.width+40;p.y=Math.random()*cv.height}});
- }else if(mode==="night"){
-  P.forEach(p=>{cx.fillStyle=`rgba(255,255,255,${.25+.75*Math.abs(Math.sin(t/900+p.r*20))})`;cx.beginPath();cx.arc(p.x,p.y*.8,.6+p.s*1.5,0,7);cx.fill()});
+function draw(t){
+ const{a,day,pos}=sky(),cov=cover();
+ let[top,bot]=pal(a);
+ const gray=mode==="rain"?.7:mode==="cloudy"?.45:0,lum=(top[0]+top[1]+top[2])/3;
+ if(gray){top=mix(top,[lum*.8,lum*.85,lum*.95],gray);bot=mix(bot,[lum*1.15,lum*1.2,lum*1.25],gray)}
+ if(mode==="dust"){top=mix(top,[150,100,50],.55);bot=mix(bot,[220,160,90],.65)}
+ const gr=cx.createLinearGradient(0,0,0,H);gr.addColorStop(0,rgb(top));gr.addColorStop(1,rgb(bot));cx.fillStyle=gr;cx.fillRect(0,0,W,H);
+ const sa=cl01(-a*3)*(1-cov*.75);
+ if(sa>0)ST.forEach(s=>{cx.fillStyle=`rgba(255,255,255,${sa*(.3+.7*Math.abs(Math.sin(t/900+s.r)))})`;cx.beginPath();cx.arc(s.x,s.y,.5+s.s*1.2,0,7);cx.fill()});
+ const hy=H*.7,px=W*(.12+.76*pos),py=hy-Math.sin(Math.PI*pos)*H*.48,vis=1-cov*.6;
+ if(day){
+  const warm=cl01(1-a*3),c=mix([255,245,205],[255,140,60],warm);
+  let g=cx.createRadialGradient(px,py,0,px,py,H*.55);g.addColorStop(0,rgb(c,.55*vis));g.addColorStop(.25,rgb(c,.2*vis));g.addColorStop(1,rgb(c,0));cx.fillStyle=g;cx.fillRect(0,0,W,H);
+  g=cx.createRadialGradient(px,py,0,px,py,38);g.addColorStop(0,rgb([255,255,240],vis));g.addColorStop(.7,rgb(c,vis));g.addColorStop(1,rgb(c,0));cx.fillStyle=g;cx.beginPath();cx.arc(px,py,38,0,7);cx.fill();
+ }else{
+  let g=cx.createRadialGradient(px,py,0,px,py,H*.3);g.addColorStop(0,`rgba(190,205,255,${.3*vis})`);g.addColorStop(1,"rgba(190,205,255,0)");cx.fillStyle=g;cx.fillRect(0,0,W,H);
+  cx.globalAlpha=vis;cx.fillStyle="#f1f1e6";cx.beginPath();cx.arc(px,py,26,0,7);cx.fill();
+  cx.fillStyle="rgba(150,150,140,.35)";[[-8,-6,6],[7,4,8],[-4,11,4],[10,-9,3.5]].forEach(q=>{cx.beginPath();cx.arc(px+q[0],py+q[1],q[2],0,7);cx.fill()});cx.globalAlpha=1;
  }
- requestAnimationFrame(loop);
+ let cc=mix([70,80,120],[255,255,255],cl01((a+.3)/.8));
+ const tw=cl01(1-Math.abs(a-.05)/.25);cc=mix(cc,[255,185,150],tw*.6);
+ if(gray)cc=mix(cc,[110,120,138],gray);
+ if(mode==="dust")cc=mix(cc,[215,165,100],.6);
+ const al=.5+.35*cov;
+ CL.forEach(c=>{c.x+=c.v;if(c.x>W+260)c.x=-260;
+  c.pf.forEach(q=>{const x=c.x+q.dx,y=c.y+q.dy,g=cx.createRadialGradient(x,y,0,x,y,q.r);
+   g.addColorStop(0,rgb(cc,al));g.addColorStop(.55,rgb(cc,al*.55));g.addColorStop(1,rgb(cc,0));cx.fillStyle=g;cx.beginPath();cx.arc(x,y,q.r,0,7);cx.fill()})});
+ if(mode==="dust"){cx.fillStyle="rgba(200,140,70,.18)";cx.fillRect(0,0,W,H);
+  P.forEach(p=>{cx.fillStyle=`rgba(210,150,80,${.15+p.s*.3})`;cx.beginPath();cx.ellipse(p.x,p.y,10+p.r*26,1.5+p.r*2.5,0,0,7);cx.fill();p.x-=3+p.s*7;p.y+=Math.sin(t/700+p.r*9)*.6;if(p.x<-40){p.x=W+40;p.y=Math.random()*H}})}
+ if(mode==="rain"){
+  cx.strokeStyle="rgba(190,220,255,.5)";cx.lineWidth=1.2;cx.beginPath();
+  P.forEach(p=>{cx.moveTo(p.x,p.y);cx.lineTo(p.x-3,p.y+14+p.s*10);p.y+=9+p.s*9;p.x-=1.2;if(p.y>H){p.y=-20;p.x=Math.random()*W}});cx.stroke();
+  if(Math.random()<.0025)flash=1;
+  if(flash>0){cx.fillStyle=`rgba(255,255,255,${flash*.35})`;cx.fillRect(0,0,W,H);flash-=.06}
+ }
 }
-addEventListener("resize",initParticles);
+function loop(t){if(S)draw(t);requestAnimationFrame(loop)}
+addEventListener("resize",initScene);
 
-document.querySelectorAll(".fxbar button").forEach(b=>b.addEventListener("click",()=>{manual=b.dataset.fx;setFx(manual)}));
-$("citySel").addEventListener("change",e=>{city=e.target.value;manual=null;load()});
-$("ref").addEventListener("click",()=>{const r=$("ref");r.classList.add("spin");setTimeout(()=>r.classList.remove("spin"),600);manual=null;load()});
+$("ref").addEventListener("click",()=>{const r=$("ref");r.classList.add("spin");setTimeout(()=>r.classList.remove("spin"),600);load()});
 
 load();requestAnimationFrame(loop);
 setInterval(load,10*60*1000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
 </script>
 </body>
 </html>
