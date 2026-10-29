@@ -310,6 +310,71 @@ button{cursor:pointer}
 .m h4{margin:0;color:var(--text);font-size:clamp(.76rem,3.5vw,.95rem);line-height:1.5}
 .m p{margin:0;color:var(--muted);font-size:clamp(.68rem,3.2vw,.85rem);line-height:1.45}
 @media (min-width:620px){.meanings{column-count:2}}
+
+/* ===== زر "من نحن" ثلاثي الأبعاد (نفس الخط) ===== */
+.hero-actions .btn-outline{
+  min-height:50px;padding:10px 28px;border:0;color:#2b1c0c;font-weight:900;
+  background:linear-gradient(180deg,#ead8a4 0%,#d6ba72 48%,#b8964f 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255,243,207,.9),
+    inset 0 -4px 8px rgba(138,106,44,.35),
+    0 2px 0 #a98743,0 4px 0 #8a6a2c,0 6px 0 #6b5220,
+    0 14px 16px rgba(40,25,5,.38);
+  text-shadow:-1px -1px 0 #fff3cf,1px 1px 0 #a98743,2px 2px 0 #8a6a2c,3px 4px 5px rgba(40,25,5,.4);
+  transition:transform .15s ease,box-shadow .15s ease,filter .15s ease;
+}
+.hero-actions .btn-outline:hover{
+  background:linear-gradient(180deg,#f0e0b0 0%,#dcc27c 48%,#c2a05a 100%);
+  transform:translateY(-2px);
+  box-shadow:
+    inset 0 2px 0 rgba(255,243,207,.95),
+    inset 0 -4px 8px rgba(138,106,44,.35),
+    0 2px 0 #a98743,0 4px 0 #8a6a2c,0 6px 0 #6b5220,0 8px 0 #523f19,
+    0 18px 20px rgba(40,25,5,.4);
+}
+.hero-actions .btn-outline:active{
+  transform:translateY(5px);
+  box-shadow:
+    inset 0 2px 0 rgba(255,243,207,.8),
+    inset 0 -3px 6px rgba(138,106,44,.3),
+    0 1px 0 #8a6a2c,
+    0 4px 6px rgba(40,25,5,.35);
+}
+@media (prefers-reduced-motion:reduce){.hero-actions .btn-outline{transition:none}}
+/* ============================================== */
+
+/* ===== كل أزرار "اضغط هنا" بنفس صيغة زر "من نحن" ثلاثية الأبعاد ===== */
+.card-link,.btn-gold{
+  border:0;color:#2b1c0c;font-weight:900;
+  background:linear-gradient(180deg,#ead8a4 0%,#d6ba72 48%,#b8964f 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255,243,207,.9),
+    inset 0 -3px 6px rgba(138,106,44,.35),
+    0 2px 0 #a98743,0 4px 0 #8a6a2c,0 5px 0 #6b5220,
+    0 11px 13px rgba(40,25,5,.36);
+  text-shadow:-1px -1px 0 #fff3cf,1px 1px 0 #a98743,2px 2px 0 #8a6a2c,2px 3px 4px rgba(40,25,5,.38);
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.card-link:hover,.btn-gold:hover{
+  background:linear-gradient(180deg,#f0e0b0 0%,#dcc27c 48%,#c2a05a 100%);
+  transform:translateY(-2px);
+  box-shadow:
+    inset 0 2px 0 rgba(255,243,207,.95),
+    inset 0 -3px 6px rgba(138,106,44,.35),
+    0 2px 0 #a98743,0 4px 0 #8a6a2c,0 5px 0 #6b5220,0 7px 0 #523f19,
+    0 15px 17px rgba(40,25,5,.38);
+}
+.card-link:active,.btn-gold:active{
+  transform:translateY(4px);
+  box-shadow:
+    inset 0 2px 0 rgba(255,243,207,.8),
+    inset 0 -2px 5px rgba(138,106,44,.3),
+    0 1px 0 #8a6a2c,
+    0 3px 5px rgba(40,25,5,.35);
+}
+.card-link{margin-bottom:6px}
+@media (prefers-reduced-motion:reduce){.card-link,.btn-gold{transition:none}}
+/* ============================================== */
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
 <script>
