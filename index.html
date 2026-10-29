@@ -200,14 +200,14 @@ button{cursor:pointer}
 .toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid rgba(184,150,79,.4);border-radius:999px;background:var(--green-deep);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s ease}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
 
-/* تنسيق واجهة الطقس المدمجة تحت الأقسام */
+/* تعديل ارتفاع واجهة الطقس لتكون كاملة وبدون أي اقتطاع */
 .weather-widget-section {
   padding-block: 20px;
 }
 .weather-widget-container {
   width: 100%;
   max-width: 800px;
-  height: 280px;
+  height: 480px; /* ارتفاع كافي لعرض البطاقة كاملة والتوقعات */
   overflow: hidden;
   margin: 0 auto;
   border-radius: 18px;
@@ -218,7 +218,7 @@ button{cursor:pointer}
 .weather-widget-container iframe {
   width: 100%;
   height: 600px;
-  margin-top: -60px;
+  margin-top: 0; /* تم إزالة الإزاحة لكي لا تقص شيئاً من الأعلى */
   border: none;
 }
 
