@@ -200,6 +200,28 @@ button{cursor:pointer}
 .toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid rgba(184,150,79,.4);border-radius:999px;background:var(--green-deep);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s ease}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
 
+/* تنسيق واجهة الطقس المدمجة تحت الأقسام */
+.weather-widget-section {
+  padding-block: 20px;
+}
+.weather-widget-container {
+  width: 100%;
+  max-width: 800px;
+  height: 280px;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 20px rgba(74,63,51,.1);
+  background: var(--paper);
+}
+.weather-widget-container iframe {
+  width: 100%;
+  height: 600px;
+  margin-top: -60px;
+  border: none;
+}
+
 @media (max-width:1050px){
   .nav-links{gap:12px}
   .nav-links a{font-size:.78rem}
@@ -362,7 +384,6 @@ gtag('config','G-3VZQSDZNC7');
       <a href="tv.html">التلفزيون</a>
       <a href="book.html">المؤلفات</a>
       <a href="apps.html">التطبيقات</a>
-      <a href="weather.html" style="color:var(--gold)">طقس الشرقاط ☀️</a>
     </nav>
   </div>
 </header>
@@ -512,18 +533,26 @@ gtag('config','G-3VZQSDZNC7');
           <p>تابع القنوات الرياضية والأفلام والمسلسلات والمحتوى المرئي.</p>
           <a class="card-link" href="tv.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-
-        <!-- قسم طقس الشرقاط الجديد -->
-        <article class="content-card" data-search="طقس الشرقاط جو درجات الحرارة الطقس weather">
-          <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></span><span class="card-index">10</span></div>
-          <h3>طقس الشرقاط</h3>
-          <p>تابع حالة الطقس المباشرة وتوقعات الأيام القادمة في مدينة الشرقاط.</p>
-          <a class="card-link" href="weather.html">اضغط هنا <span aria-hidden="true">←</span></a>
-        </article>
       </div>
       <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div>
     </div>
   </section>
+
+  <!-- واجهة الطقس المدمجة تحت الأقسام بدون أزرار أو تفاصيل زائدة -->
+  <section class="section weather-widget-section">
+    <div class="container">
+      <div class="section-heading" style="margin-bottom: 15px;">
+        <div>
+          <span class="eyebrow">حالة الجو</span>
+          <h2 style="font-size: 1.6rem; margin: 4px 0 0;">طقس الشرقاط المباشر</h2>
+        </div>
+      </div>
+      <div class="weather-widget-container">
+        <iframe src="weather.html" scrolling="no" frameborder="0" title="واجهة طقس الشرقاط"></iframe>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <article class="media-card">
@@ -602,7 +631,6 @@ gtag('config','G-3VZQSDZNC7');
       <a href="#home">الرئيسية</a>
       <a href="scholars.html">علماء الشرقاط</a>
       <a href="book.html">المؤلفات</a>
-      <a href="weather.html">طقس الشرقاط</a>
       <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
       <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>هل لديك ملاحظة؟ راسلنا عبر واتساب ↗</a>
     </nav>
