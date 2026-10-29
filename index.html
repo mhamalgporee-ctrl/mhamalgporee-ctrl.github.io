@@ -296,9 +296,21 @@ button{cursor:pointer}
 .pledge input{flex:0 0 22px;width:22px;height:22px;margin-top:4px;accent-color:var(--gold)}
 .btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
 .paper-page{max-width:760px;margin-inline:auto}
-.paper-page figure{margin:0}
-.paper-page figure img{width:100%;height:auto;border-radius:0}
-.paper-page figcaption{padding:6px 0 10px;border-bottom:3px solid var(--text);color:var(--muted);font-size:.9rem;line-height:1.6}
+.paper-page figure{
+  margin: 0 0 16px 0;
+  padding: 12px;
+  background: var(--ivory);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(74, 63, 51, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+.paper-page figure img{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+.paper-page figcaption{padding:10px 0 10px;border-bottom:3px solid var(--text);color:var(--muted);font-size:.9rem;line-height:1.6}
 .paper-page h2{margin:18px 0 6px;color:var(--text);font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.3}
 .verses{margin:8px 0 14px;padding:6px 0;border-block:1px solid var(--text)}
 .verses p{margin:0;color:var(--text);font-size:clamp(.68rem,3.2vw,.9rem);line-height:1.4;text-align:center}
