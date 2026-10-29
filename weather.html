@@ -2,500 +2,232 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0d2137">
 <title>طقس الشرقاط المباشر | المركز التفاعلي للخدمات الجوية</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --gold: #f39c12;
-  --gold-light: #f1c40f;
-  --text-main: #ffffff;
-  --text-muted: #93c5fd;
-}
-*, *::before, *::after { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: linear-gradient(135deg, #07101e 0%, #0c203b 50%, #112d52 100%);
-  background-attachment: fixed;
-  color: var(--text-main);
-  font-family: 'Cairo', Tahoma, sans-serif;
-  min-height: 100vh;
-  padding: 25px 15px;
-}
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; }
-
-.page-wrap {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-muted);
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 25px;
-  transition: color 0.2s;
-}
-.back-link:hover { color: #fff; }
-
-/* الهيدر العلوي بدون أي مربع */
-.top-header {
-  padding: 10px 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 20px;
-}
-.header-title-box {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.header-sun-icon {
-  font-size: 2rem;
-}
-.header-title-box h1 {
-  margin: 0;
-  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-  font-weight: 900;
-  color: #fff;
-}
-.header-title-box p {
-  margin: 2px 0 0;
-  color: var(--text-muted);
-  font-size: 0.82rem;
-}
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.location-pill {
-  color: var(--gold-light);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-.refresh-action-btn {
-  background: none;
-  border: none;
-  font-size: 1.3rem;
-  color: #fff;
-  transition: transform 0.4s ease;
-  padding: 5px;
-}
-.refresh-action-btn:hover { transform: rotate(180deg); color: var(--gold); }
-
-/* شريط المؤثرات الجوية بدون أطر */
-.effects-nav {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 12px;
-  margin-bottom: 25px;
-  white-space: nowrap;
-  scrollbar-width: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.effects-nav::-webkit-scrollbar { display: none; }
-.effects-prompt {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--gold-light);
-  flex-shrink: 0;
-}
-.effect-btn {
-  background: none;
-  border: none;
-  padding: 6px 12px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-}
-.effect-btn:hover, .effect-btn.active {
-  color: #fff;
-  border-bottom: 2px solid var(--gold);
-}
-
-/* الشبكة الرئيسية مفتوحة وبدون مربعات إطلاقاً */
-.main-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 30px;
-}
-@media (max-width: 850px) {
-  .main-grid { grid-template-columns: 1fr; gap: 35px; }
-}
-
-.left-column {
-  display: flex;
-  flex-direction: column;
-}
-
-/* الطقس الحالي المباشر */
-.live-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #22c55e;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-.live-dot {
-  width: 7px;
-  height: 7px;
-  background: #22c55e;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #22c55e;
-}
-
-.current-row-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.city-main-name {
-  font-size: 2.5rem;
-  font-weight: 950;
-  margin: 0 0 4px;
-}
-.city-date-sub {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.temp-sun-area {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.sun-emoji-large {
-  font-size: 4rem;
-  line-height: 1;
-}
-.temp-digits {
-  font-size: clamp(3.5rem, 6vw, 5rem);
-  font-weight: 950;
-  line-height: 1;
-}
-
-.weather-status-label {
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: var(--gold-light);
-  margin-top: 10px;
-}
-.feels-like-label {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-/* الإحصائيات الأربع بأسلوب قراءة مباشر وبدون أطر */
-.stats-four-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-@media (max-width: 600px) {
-  .stats-four-grid { grid-template-columns: repeat(2, 1fr); }
-}
-.stat-item-box {
-  text-align: center;
-}
-.stat-item-icon { font-size: 1.3rem; margin-bottom: 4px; }
-.stat-item-title { color: var(--text-muted); font-size: 0.78rem; font-weight: 600; }
-.stat-item-val { font-size: 1rem; font-weight: 900; margin-top: 2px; }
-
-/* توقعات الـ 5 أيام القادمة بدون مربعات */
-.forecast-card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1.1rem;
-  font-weight: 900;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.forecast-rows-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.forecast-row-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.forecast-day-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.forecast-icon-small {
-  font-size: 1.4rem;
-}
-.forecast-day-title { font-weight: 900; font-size: 0.95rem; }
-.forecast-day-sub { color: var(--text-muted); font-size: 0.78rem; font-weight: 600; }
-.forecast-row-temps { font-weight: 900; font-size: 0.95rem; direction: ltr; }
-
-.forecast-update-note {
-  margin-top: 25px;
-  color: var(--text-muted);
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-/* البانر السفلي المفتوح */
-.bottom-welcome-banner {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  font-weight: 900;
-  color: var(--gold-light);
-  font-size: 0.95rem;
-}
+:root{--gold:#f5b02e;--gold2:#ffd166;--muted:#cfe3ff;--card:rgba(10,28,52,.62);--line:rgba(255,255,255,.16);--sky1:#1e5a9c;--sky2:#3a8bd6;--sky3:#0f2f5a;--cloud:rgba(255,255,255,.8);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Cairo',Tahoma,sans-serif;color:#fff;padding:16px 14px 130px;background:linear-gradient(180deg,var(--sky3),var(--sky1) 45%,var(--sky2));background-attachment:fixed}
+body[data-fx=cloudy]{--sky1:#4a6788;--sky2:#8aa2bd;--sky3:#2b3f5a;--cloud:rgba(235,242,250,.85)}
+body[data-fx=rain]{--sky1:#2c4259;--sky2:#506a85;--sky3:#16222f;--cloud:rgba(120,140,160,.85)}
+body[data-fx=dust]{--sky1:#8a5a24;--sky2:#d09342;--sky3:#4b2f12;--cloud:rgba(220,170,100,.7)}
+body[data-fx=night]{--sky1:#0b1430;--sky2:#1b2a5c;--sky3:#050a1a;--cloud:rgba(120,130,170,.3)}
+button,select{font:inherit;color:inherit;cursor:pointer}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.cl{position:fixed;left:-40vw;border-radius:50%;background:var(--cloud);filter:blur(16px);z-index:0;pointer-events:none;animation:drift linear infinite}
+@keyframes drift{to{transform:translateX(175vw)}}
+.scene{position:fixed;bottom:0;left:0;width:100%;height:120px;z-index:0;pointer-events:none}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 30px rgba(0,0,0,.25)}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 18px}
+.title{display:flex;align-items:center;gap:14px;min-width:0}
+.title .ico{font-size:3rem;line-height:1;filter:drop-shadow(0 0 12px rgba(255,200,60,.6))}
+h1{margin:0;font-size:clamp(1.2rem,4vw,2.1rem);font-weight:900;color:var(--gold2)}
+.title p{margin:2px 0 0;font-size:.85rem;font-weight:600}
+.ctrl{display:flex;gap:10px;align-items:center}
+select{background:rgba(8,24,46,.85);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:700;min-width:190px}
+.refresh{width:46px;height:46px;border-radius:12px;background:rgba(8,24,46,.85);border:1px solid var(--line);font-size:1.4rem;transition:transform .6s}
+.refresh.spin{transform:rotate(360deg)}
+.fxbar{display:flex;align-items:center;gap:10px;padding:12px 16px;overflow-x:auto;scrollbar-width:none}
+.fxbar::-webkit-scrollbar{display:none}
+.fxbar .lbl{font-weight:800;white-space:nowrap;flex-shrink:0}
+.fxbar button{white-space:nowrap;flex-shrink:0;padding:10px 18px;border-radius:999px;font-weight:700;font-size:.9rem;background:rgba(8,24,46,.7);border:1.5px solid}
+.fxbar button[data-fx=sunny]{border-color:#f5b02e}.fxbar button[data-fx=cloudy]{border-color:#9db4d4}.fxbar button[data-fx=rain]{border-color:#3b9cff}.fxbar button[data-fx=dust]{border-color:#d0763a}.fxbar button[data-fx=night]{border-color:#7b6cf0}
+.fxbar button.on{background:rgba(255,255,255,.2);box-shadow:0 0 14px rgba(255,255,255,.35)}
+.grid{display:grid;grid-template-columns:1fr 1.75fr;gap:14px}
+.current{order:2;padding:20px;min-height:400px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.live{align-self:flex-start;display:inline-flex;gap:8px;align-items:center;background:rgba(8,24,46,.75);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:.8rem;font-weight:700}
+.dot{width:12px;height:12px;border-radius:50%;background:#22e05a;box-shadow:0 0 10px #22e05a;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.8)}}
+.cur-main{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0}
+.city{font-size:clamp(1.9rem,7vw,3.4rem);font-weight:900;margin:0}
+.date{font-weight:600;color:var(--muted)}
+.big{display:flex;align-items:center;gap:18px}
+.hero{width:clamp(3.4rem,12vw,7rem);height:clamp(3.4rem,12vw,7rem);display:grid;place-items:center;font-size:clamp(3rem,10vw,6rem);line-height:1;filter:drop-shadow(0 0 20px rgba(255,255,255,.4));animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+.sun{position:relative;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff7b0,#ffc61a 55%,#f59e0b);box-shadow:0 0 40px 12px rgba(255,200,40,.7)}
+.sun::before{content:"";position:absolute;inset:-45%;border-radius:50%;background:repeating-conic-gradient(rgba(255,220,80,.5) 0 6deg,transparent 6deg 24deg);-webkit-mask:radial-gradient(circle,transparent 38%,#000 40%,transparent 70%);mask:radial-gradient(circle,transparent 38%,#000 40%,transparent 70%);animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.temp{font-size:clamp(3rem,11vw,6.5rem);font-weight:900;line-height:1;direction:ltr}
+.desc{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:900;color:var(--gold2);text-align:end}
+.feels{text-align:end;font-weight:600;margin-top:2px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:18px;background:rgba(8,24,46,.62);border:1px solid var(--line);border-radius:18px;padding:14px 4px}
+.stat{text-align:center;padding:4px;border-inline-start:1px solid var(--line)}.stat:first-child{border-inline-start:0}
+.stat .i{font-size:1.5rem}.stat .t{font-weight:700;font-size:.9rem}.stat .v{font-weight:800;font-size:1.05rem}
+.fc{order:1;padding:18px}
+.fc h2{margin:0 0 14px;font-size:1.15rem;font-weight:900}
+.row{display:flex;align-items:center;gap:10px;padding:10px 14px;margin-bottom:10px;background:rgba(8,24,46,.55);border:1px solid var(--line);border-radius:14px}
+.row .ic{font-size:2rem;width:48px;text-align:center}.row .d{flex:1}.row .d b{display:block;font-weight:900}.row .d span{font-size:.8rem;color:var(--muted)}
+.row .tp{direction:ltr;font-weight:900;font-size:1.05rem}.hi{color:var(--gold2)}.lo{color:#7ab8ff}
+.note{font-size:.8rem;color:var(--muted);font-weight:600}
+.banner{text-align:center;padding:14px;border:1.5px solid var(--gold);box-shadow:0 0 18px rgba(245,176,46,.25)}
+.banner .pill{display:inline-block;background:rgba(8,24,46,.8);border:1px solid var(--gold);border-radius:999px;padding:6px 22px;font-weight:800;margin-bottom:8px}
+.banner .by{font-weight:900;color:var(--gold2)}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.current{order:1}.fc{order:2}}
+@media(max-width:600px){body{padding:10px 8px 120px}.wrap{gap:10px}header{padding:10px 12px}.title{width:100%;gap:8px}.title .ico{font-size:2rem}.title p{font-size:.68rem}.ctrl{width:100%}select{min-width:0;flex:1;padding:8px 10px;font-size:.8rem}.refresh{width:40px;height:40px;font-size:1.1rem}.fxbar{padding:8px 10px;gap:8px}.fxbar .lbl{font-size:.75rem}.fxbar button{padding:7px 12px;font-size:.78rem}.current{padding:14px;min-height:0}.date{font-size:.8rem}.big{gap:6px}.feels{font-size:.8rem}.stats{padding:10px 2px;margin-top:12px}.stat .i{font-size:1.1rem}.stat .t{font-size:.65rem}.stat .v{font-size:.7rem}.fc{padding:12px}.row{padding:8px 10px}.row .ic{font-size:1.5rem;width:36px}.row .d b{font-size:.85rem}.row .tp{font-size:.9rem}.banner .pill,.banner .by{font-size:.8rem}}
 </style>
 </head>
-<body>
+<body data-fx="sunny">
+<canvas id="fx"></canvas>
+<svg class="scene" viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+<defs><g id="p" stroke="#07182a" fill="none" stroke-linecap="round"><path d="M0 0Q6-35 0-70" stroke-width="5"/><path d="M0-70Q-25-88-48-62M0-70Q25-88 48-62M0-70Q-18-98-38-92M0-70Q18-98 38-92M0-70Q0-100 0-96" stroke-width="3.5"/></g></defs>
+<path d="M0 120V84h50l8-10 8 10h70V72h36v20h80l10-16 10 16h110V80h46v14h100V70h28v24h90l10-12 10 12h120V82h36v14h140V68h28v28h110V120z" fill="#0a2038" fill-opacity=".85"/>
+<g class="palms"><use href="#p" x="40" y="118"/><use href="#p" x="210" y="120" transform="translate(0 0)"/><use href="#p" x="430" y="118"/><use href="#p" x="640" y="120"/><use href="#p" x="860" y="118"/><use href="#p" x="1060" y="120"/><use href="#p" x="1170" y="118"/></g>
+</svg>
+<div id="clouds"></div>
 
-<div class="page-wrap">
-  
-  <a class="back-link" href="index.html">← العودة إلى الرئيسية</a>
-
-  <!-- الهيدر العلوي -->
-  <header class="top-header">
-    <div class="header-title-box">
-      <div class="header-sun-icon">☀️</div>
-      <div>
-        <h1>طقس الشرقاط المباشر</h1>
-        <p>المركز التفاعلي للخدمات الجوية | محافظة صلاح الدين</p>
-      </div>
-    </div>
-    <div class="header-controls">
-      <div class="location-pill">📍 الشرقاط (الموقع الحالي)</div>
-      <button class="refresh-action-btn" id="refreshBtn" title="تحديث البيانات">↻</button>
+<div class="wrap">
+  <header class="card">
+    <div class="title"><div class="ico">🌤️</div><div><h1>طقس الشرقاط المباشر</h1><p>المركز التفاعلي للخدمات الجوية | محافظة صلاح الدين</p></div></div>
+    <div class="ctrl">
+      <select id="citySel" aria-label="الموقع"></select>
+      <button class="refresh" id="ref" title="تحديث البيانات">↻</button>
     </div>
   </header>
 
-  <!-- شريط مؤثرات الجو الحية -->
-  <div class="effects-nav">
-    <span class="effects-prompt">✨ تجربة المؤثرات الحية:</span>
-    <button class="effect-btn active" data-effect="sunny">☀️ مشمس صاف</button>
-    <button class="effect-btn" data-effect="cloudy">⛅ غيوم متفرقة</button>
-    <button class="effect-btn" data-effect="rain">🌧️ أمطار حية</button>
-    <button class="effect-btn" data-effect="dust">🌪️ عاصفة ترابية</button>
-    <button class="effect-btn" data-effect="night">🌙 ليل صاف</button>
-  </div>
+  <nav class="card fxbar">
+    <span class="lbl">✨ تجربة المؤثرات الجوية الحية:</span>
+    <button data-fx="sunny">☀️ مشمس صاف</button>
+    <button data-fx="cloudy">☁️ غيوم متفرقة</button>
+    <button data-fx="rain">🌧️ أمطار حية</button>
+    <button data-fx="dust">🌪️ عاصفة ترابية</button>
+    <button data-fx="night">🌙 ليل صاف</button>
+  </nav>
 
-  <!-- شبكة الطقس المفتوحة -->
-  <div class="main-grid">
-    
-    <!-- القسم الأيسر: الطقس الحالي -->
-    <div class="left-column">
-      <div class="live-indicator"><span class="live-dot"></span> تحديث مؤشر الآن</div>
-      
-      <div class="current-row-inner">
-        <div>
-          <h2 class="city-main-name">الشرقاط</h2>
-          <div class="city-date-sub" id="dateText">الخميس، 29 تشرين الأول 2026</div>
-        </div>
-        <div class="temp-sun-area">
-          <div class="sun-emoji-large" id="mainSunEmoji">☀️</div>
-          <div class="temp-digits" id="mainTemp">28°C</div>
-        </div>
-      </div>
-
+  <div class="grid">
+    <aside class="card fc">
+      <h2>📅 توقعات الـ 5 أيام القادمة</h2>
+      <div id="fcList"></div>
+      <div class="note">🕒 تحدث التوقعات تلقائياً كل 3 ساعات</div>
+    </aside>
+    <section class="card current">
       <div>
-        <div class="weather-status-label" id="mainDesc">مشمس ودافئ</div>
-        <div class="feels-like-label" id="feelsLike">الحرارة المحسوسة: 30°C</div>
+        <span class="live"><span class="dot"></span> تحديث مؤشر الآن</span>
+        <div class="cur-main">
+          <div><h2 class="city" id="cityName">الشرقاط</h2><div class="date" id="date"></div></div>
+          <div class="big"><div class="hero" id="hero"></div><div class="temp" id="temp">--°C</div></div>
+        </div>
+        <div class="desc" id="desc">...</div>
+        <div class="feels" id="feels"></div>
       </div>
-
-      <!-- الإحصائيات الأربع السفلى -->
-      <div class="stats-four-grid">
-        <div class="stat-item-box">
-          <div class="stat-item-icon">🌬️</div>
-          <div class="stat-item-title">الرياح</div>
-          <div class="stat-item-val" id="windVal">14 كم/س</div>
-        </div>
-        <div class="stat-item-box">
-          <div class="stat-item-icon">💧</div>
-          <div class="stat-item-title">الرطوبة</div>
-          <div class="stat-item-val" id="humidityVal">35%</div>
-        </div>
-        <div class="stat-item-box">
-          <div class="stat-item-icon">🌀</div>
-          <div class="stat-item-title">الضغط</div>
-          <div class="stat-item-val" id="pressureVal">1015 hPa</div>
-        </div>
-        <div class="stat-item-box">
-          <div class="stat-item-icon">☀️</div>
-          <div class="stat-item-title">مؤشر UV</div>
-          <div class="stat-item-val" id="uvVal">6 (معتدل)</div>
-        </div>
+      <div class="stats">
+        <div class="stat"><div class="i">☀️</div><div class="t">مؤشر UV</div><div class="v" id="uv">--</div></div>
+        <div class="stat"><div class="i">🧭</div><div class="t">الضغط</div><div class="v" id="pr">--</div></div>
+        <div class="stat"><div class="i">💧</div><div class="t">الرطوبة</div><div class="v" id="hu">--</div></div>
+        <div class="stat"><div class="i">🌬️</div><div class="t">الرياح</div><div class="v" id="wi">--</div></div>
       </div>
-    </div>
-
-    <!-- القسم الأيمن: توقعات الـ 5 أيام القادمة -->
-    <div>
-      <div class="forecast-card-header">
-        <span>📅</span> توقعات الـ 5 أيام القادمة
-      </div>
-      
-      <div class="forecast-rows-list">
-        <div class="forecast-row-item">
-          <div class="forecast-day-meta">
-            <span class="forecast-icon-small">☀️</span>
-            <div>
-              <div class="forecast-day-title">الجمعة</div>
-              <div class="forecast-day-sub">مشمس</div>
-            </div>
-          </div>
-          <div class="forecast-row-temps">29° / 16°</div>
-        </div>
-
-        <div class="forecast-row-item">
-          <div class="forecast-day-meta">
-            <span class="forecast-icon-small">⛅</span>
-            <div>
-              <div class="forecast-day-title">السبت</div>
-              <div class="forecast-day-sub">غائم جزئياً</div>
-            </div>
-          </div>
-          <div class="forecast-row-temps">27° / 15°</div>
-        </div>
-
-        <div class="forecast-row-item">
-          <div class="forecast-day-meta">
-            <span class="forecast-icon-small">🌧️</span>
-            <div>
-              <div class="forecast-day-title">الأحد</div>
-              <div class="forecast-day-sub">فرصة أمطار</div>
-            </div>
-          </div>
-          <div class="forecast-row-temps">23° / 13°</div>
-        </div>
-
-        <div class="forecast-row-item">
-          <div class="forecast-day-meta">
-            <span class="forecast-icon-small">🌬️</span>
-            <div>
-              <div class="forecast-day-title">الإثنين</div>
-              <div class="forecast-day-sub">نشاط للرياح</div>
-            </div>
-          </div>
-          <div class="forecast-row-temps">24° / 14°</div>
-        </div>
-
-        <div class="forecast-row-item">
-          <div class="forecast-day-meta">
-            <span class="forecast-icon-small">☀️</span>
-            <div>
-              <div class="forecast-day-title">الثلاثاء</div>
-              <div class="forecast-day-sub">صاف ورائع</div>
-            </div>
-          </div>
-          <div class="forecast-row-temps">28° / 17°</div>
-        </div>
-      </div>
-
-      <div class="forecast-update-note">
-        <span>⏱️</span> تحدث التوقعات تلقائياً كل 3 ساعات
-      </div>
-    </div>
-
+    </section>
   </div>
 
-  <div class="bottom-welcome-banner">
-  تصميم واعداد محمد علي احمد الحطاب الجبوري ✦
+  <div class="card banner">
+    <div class="pill">✦ مرحباً بكم في بوابتنا الشاملة ✦</div>
+    <div class="by">تصميم واعداد محمد علي احمد الحطاب الجبوري ✦</div>
   </div>
-
 </div>
 
 <script>
 "use strict";
+const $=id=>document.getElementById(id);
+const CITIES={"الشرقاط":[35.5292,43.2199],"بيجي":[34.9306,43.4936],"تكريت":[34.6071,43.6782],"الموصل":[36.34,43.13],"بغداد":[33.3152,44.3661],"أربيل":[36.19,44.01],"البصرة":[30.5,47.78]};
+const DAYS=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+const MONS=["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول"];
+const FXD={sunny:["☀️","مشمس ودافئ"],cloudy:["⛅","غيوم متفرقة"],rain:["🌧️","أمطار حية"],dust:["🌪️","عاصفة ترابية"],night:["🌙","ليل صاف وبارد"]};
+let city="الشرقاط",manual=null,S=null,mode="sunny";
 
-const LAT = 35.5292;
-const LON = 43.2199;
+Object.keys(CITIES).forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c==="الشرقاط"?"الشرقاط (الموقع الحالي)":c;$("citySel").appendChild(o)});
 
-async function fetchRealWeather() {
-  try {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,surface_pressure&timezone=auto`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error();
-    const data = await res.json();
-    const cur = data.current;
-    
-    document.getElementById("mainTemp").textContent = Math.round(cur.temperature_2m) + "°C";
-    document.getElementById("feelsLike").textContent = `الحرارة المحسوسة: ${Math.round(cur.apparent_temperature)}°C`;
-    document.getElementById("windVal").textContent = Math.round(cur.wind_speed_10m) + " كم/س";
-    document.getElementById("humidityVal").textContent = cur.relative_humidity_2m + "%";
-    if (cur.surface_pressure) {
-      document.getElementById("pressureVal").textContent = Math.round(cur.surface_pressure) + " hPa";
-    }
-  } catch (e) {}
+function wx(c){ // [icon, desc, fx]
+ if(c===0)return["☀️","مشمس","sunny"];
+ if(c<=2)return["⛅","غائم جزئياً","cloudy"];
+ if(c===3)return["☁️","غائم","cloudy"];
+ if(c<=48)return["🌫️","ضباب","cloudy"];
+ if(c<=57)return["🌦️","رذاذ خفيف","rain"];
+ if(c<=67||(c>=80&&c<=82))return["🌧️","فرصة أمطار","rain"];
+ if(c<=77)return["❄️","ثلوج","cloudy"];
+ return["⛈️","عواصف رعدية","rain"];
+}
+const uvTxt=u=>u<3?"منخفض":u<6?"معتدل":u<8?"مرتفع":"مرتفع جداً";
+
+const FALLBACK={t:28,f:30,w:14,h:35,p:1015,uv:6,day:1,code:0,daily:[[0,29,16],[2,27,15],[61,23,13],[2,24,14],[0,28,17]],dn:[5,6,0,1,2]};
+
+async function load(){
+ try{
+  const [la,lo]=CITIES[city];
+  const u=`https://api.open-meteo.com/v1/forecast?latitude=${la}&longitude=${lo}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,surface_pressure,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max&forecast_days=6&timezone=auto`;
+  const r=await fetch(u);if(!r.ok)throw 0;
+  const d=await r.json(),c=d.current,dl=d.daily;
+  S={t:Math.round(c.temperature_2m),f:Math.round(c.apparent_temperature),w:Math.round(c.wind_speed_10m),h:c.relative_humidity_2m,p:Math.round(c.surface_pressure),uv:Math.round(dl.uv_index_max[0]),day:c.is_day,code:c.weather_code,
+   daily:[1,2,3,4,5].map(i=>[dl.weather_code[i],Math.round(dl.temperature_2m_max[i]),Math.round(dl.temperature_2m_min[i])]),
+   dn:[1,2,3,4,5].map(i=>new Date(dl.time[i]+"T12:00:00").getDay())};
+ }catch(e){S=S||FALLBACK}
+ render();
 }
 
-document.querySelectorAll(".effect-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".effect-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    
-    const eff = btn.dataset.effect;
-    const desc = document.getElementById("mainDesc");
-    const temp = document.getElementById("mainTemp");
-    const emoji = document.getElementById("mainSunEmoji");
-    
-    if (eff === 'rain') {
-      desc.textContent = "أمطار حية";
-      temp.textContent = "22°C";
-      emoji.textContent = "🌧️";
-    } else if (eff === 'dust') {
-      desc.textContent = "عاصفة ترابية";
-      temp.textContent = "32°C";
-      emoji.textContent = "🌪️";
-    } else if (eff === 'night') {
-      desc.textContent = "ليل صاف وبارد";
-      temp.textContent = "18°C";
-      emoji.textContent = "🌙";
-    } else if (eff === 'cloudy') {
-      desc.textContent = "غيوم متفرقة";
-      temp.textContent = "25°C";
-      emoji.textContent = "⛅";
-    } else {
-      desc.textContent = "مشمس ودافئ";
-      temp.textContent = "28°C";
-      emoji.textContent = "☀️";
-    }
-  });
-});
+function liveFx(){
+ if(!S.day)return"night";
+ if(S.w>=40&&S.h<30)return"dust";
+ return wx(S.code)[2];
+}
 
-document.getElementById("refreshBtn").addEventListener("click", fetchRealWeather);
-fetchRealWeather();
+function render(){
+ $("cityName").textContent=city;
+ const n=new Date();
+ $("date").textContent=DAYS[n.getDay()]+"، "+n.getDate()+" "+MONS[n.getMonth()]+" "+n.getFullYear();
+ $("temp").textContent=S.t+"°C";
+ $("feels").textContent="الحرارة المحسوسة: "+S.f+"°C";
+ $("wi").textContent=S.w+" كم/س";$("hu").textContent=S.h+"%";$("pr").textContent=S.p+" hPa";
+ $("uv").textContent=S.uv+" ("+uvTxt(S.uv)+")";
+ $("fcList").innerHTML=S.daily.map((x,i)=>{const w=wx(x[0]);
+  return `<div class="row"><div class="ic">${w[0]}</div><div class="d"><b>${DAYS[S.dn[i]]}</b><span>${w[1]}</span></div><div class="tp"><span class="hi">${x[1]}°</span> / <span class="lo">${x[2]}°</span></div></div>`}).join("");
+ setFx(manual||liveFx());
+}
+
+function setFx(fx){
+ mode=fx;document.body.dataset.fx=fx;
+ document.querySelectorAll(".fxbar button").forEach(b=>b.classList.toggle("on",b.dataset.fx===fx));
+ let icon=FXD[fx][0],desc=FXD[fx][1];
+ if(!manual){const w=wx(S.code);if(S.day&&fx!=="dust"&&fx!=="night"){icon=w[0];desc=fx==="sunny"?(S.t>=25?"مشمس ودافئ":"مشمس صاف"):w[1]}}
+ $("desc").textContent=desc;
+ $("hero").innerHTML=fx==="sunny"?'<div class="sun"></div>':icon;
+ makeClouds(fx);initParticles();
+}
+
+function makeClouds(fx){
+ const k={sunny:3,cloudy:7,rain:7,dust:4,night:3}[fx];let h="";
+ for(let i=0;i<k;i++){const w=140+Math.random()*180,top=3+Math.random()*50,dur=60+Math.random()*80;
+  h+=`<div class="cl" style="width:${w}px;height:${w*.32}px;top:${top}%;animation-duration:${dur}s;animation-delay:-${Math.random()*dur}s"></div>`}
+ $("clouds").innerHTML=h;
+}
+
+const cv=$("fx"),cx=cv.getContext("2d");let P=[];
+function size(){cv.width=innerWidth;cv.height=innerHeight}
+function initParticles(){
+ size();P=[];
+ const n={rain:220,dust:140,night:120}[mode]||0;
+ for(let i=0;i<n;i++)P.push({x:Math.random()*cv.width,y:Math.random()*cv.height,s:Math.random(),r:Math.random()});
+}
+function loop(t){
+ cx.clearRect(0,0,cv.width,cv.height);
+ if(mode==="rain"){
+  cx.strokeStyle="rgba(180,215,255,.55)";cx.lineWidth=1.3;cx.beginPath();
+  P.forEach(p=>{cx.moveTo(p.x,p.y);cx.lineTo(p.x-3,p.y+14+p.s*10);p.y+=9+p.s*9;p.x-=1.2;if(p.y>cv.height){p.y=-20;p.x=Math.random()*cv.width}});cx.stroke();
+ }else if(mode==="dust"){
+  P.forEach(p=>{cx.fillStyle=`rgba(210,150,80,${.15+p.s*.3})`;cx.beginPath();cx.ellipse(p.x,p.y,10+p.r*26,1.5+p.r*2.5,0,0,7);cx.fill();p.x-=3+p.s*7;p.y+=Math.sin((t/700)+p.r*9)*.6;if(p.x<-40){p.x=cv.width+40;p.y=Math.random()*cv.height}});
+ }else if(mode==="night"){
+  P.forEach(p=>{cx.fillStyle=`rgba(255,255,255,${.25+.75*Math.abs(Math.sin(t/900+p.r*20))})`;cx.beginPath();cx.arc(p.x,p.y*.8,.6+p.s*1.5,0,7);cx.fill()});
+ }
+ requestAnimationFrame(loop);
+}
+addEventListener("resize",initParticles);
+
+document.querySelectorAll(".fxbar button").forEach(b=>b.addEventListener("click",()=>{manual=b.dataset.fx;setFx(manual)}));
+$("citySel").addEventListener("change",e=>{city=e.target.value;manual=null;load()});
+$("ref").addEventListener("click",()=>{const r=$("ref");r.classList.add("spin");setTimeout(()=>r.classList.remove("spin"),600);manual=null;load()});
+
+load();requestAnimationFrame(loop);
+setInterval(load,10*60*1000);
 </script>
-
 </body>
 </html>
