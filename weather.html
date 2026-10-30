@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0d2137">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
@@ -199,6 +202,7 @@ h1{color:#ffe08a}
   <div class="banner">
     <div class="pill">مرحباً بكم في بوابتنا الشاملة</div>
     <div class="by">تصميم واعداد محمد علي احمد الحطاب الجبوري</div>
+    <a href="https://mhamalgporee-ctrl.github.io/" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:8px 18px;border-radius:999px;background:#f5b02e;color:#0d2137;font-weight:900;text-decoration:none;text-shadow:none">اضغط هنا لمعاينة الموقع</a>
   </div>
 </div>
 
@@ -454,6 +458,9 @@ addEventListener("load",postHeight);
 $("ref").addEventListener("click",()=>{const r=$("ref");r.classList.add("spin");setTimeout(()=>r.classList.remove("spin"),600);load()});
 setInterval(load,10*60*1000);
 load();startLoop();
+
+/* ===== تسجيل Service Worker لتثبيت التطبيق ===== */
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
 </body>
 </html>
