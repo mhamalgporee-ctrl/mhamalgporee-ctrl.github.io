@@ -65,8 +65,37 @@ select{background:rgba(8,24,46,.85);border:1px solid var(--line);border-radius:1
 .banner{text-align:center;padding:14px;border:1.5px solid var(--gold);box-shadow:0 0 18px rgba(245,176,46,.25)}
 .banner .pill{display:inline-block;background:rgba(8,24,46,.8);border:1px solid var(--gold);border-radius:999px;padding:6px 22px;font-weight:800;margin-bottom:8px}
 .banner .by{font-weight:900;color:var(--gold2)}
+
+/* تصميم الساعة الدائرية بنظام 12 ساعة */
+.weather-clock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(8, 24, 46, 0.65);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  box-shadow: inset 0 0 12px rgba(245, 176, 46, 0.15);
+}
+.clock-icon {
+  font-size: 1.1rem;
+  animation: pulseClock 2s infinite ease-in-out;
+}
+@keyframes pulseClock {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+.clock-time {
+  font-family: 'Cairo', Tahoma, sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--gold2);
+  direction: ltr;
+  letter-spacing: 0.5px;
+}
+
 @media(max-width:850px){.grid{grid-template-columns:1fr}.current{order:1}.fc{order:2}}
-@media(max-width:600px){body{padding:10px 8px 120px}.wrap{gap:10px}header{padding:10px 12px}.title{width:100%;gap:8px}.title .ico{font-size:2rem}.title p{font-size:.68rem}.ctrl{width:100%}select{min-width:0;flex:1;padding:8px 10px;font-size:.8rem}.refresh{width:40px;height:40px;font-size:1.1rem}.fxbar{padding:8px 10px;gap:8px}.fxbar .lbl{font-size:.75rem}.fxbar button{padding:7px 12px;font-size:.78rem}.current{padding:14px;min-height:0}.date{font-size:.8rem}.big{gap:6px}.feels{font-size:.8rem}.stats{padding:10px 2px;margin-top:12px}.stat .i{font-size:1.1rem}.stat .t{font-size:.65rem}.stat .v{font-size:.7rem}.fc{padding:12px}.row{padding:8px 10px}.row .ic{font-size:1.5rem;width:36px}.row .d b{font-size:.85rem}.row .tp{font-size:.9rem}.banner .pill,.banner .by{font-size:.8rem}}
+@media(max-width:600px){body{padding:10px 8px 120px}.wrap{gap:10px}header{padding:10px 12px}.title{width:100%;gap:8px}.title .ico{font-size:2rem}.title p{font-size:.68rem}.ctrl{width:100%}select{min-width:0;flex:1;padding:8px 10px;font-size:.8rem}.refresh{width:40px;height:40px;font-size:1.1rem}.fxbar{padding:8px 10px;gap:8px}.fxbar .lbl{font-size:.75rem}.fxbar button{padding:7px 12px;font-size:.78rem}.current{padding:14px;min-height:0}.date{font-size:.8rem}.big{gap:6px}.feels{font-size:.8rem}.stats{padding:10px 2px;margin-top:12px}.stat .i{font-size:1.1rem}.stat .t{font-size:.65rem}.stat .v{font-size:.7rem}.fc{padding:12px}.row{padding:8px 10px}.row .ic{font-size:1.5rem;width:36px}.row .d b{font-size:.85rem}.row .tp{font-size:.9rem}.note,.banner .pill,.banner .by{font-size:.7rem}}
 .card{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 .wrap{text-shadow:0 1px 8px rgba(0,0,0,.45)}
 header{border-bottom:1px solid var(--line)!important;padding-inline:0}
@@ -132,6 +161,11 @@ select{font-size:2.3vw;padding:1vw 0}.refresh{width:5vw;height:5vw;font-size:3.3
   <header class="card">
     <div class="title"><div class="ico">🌤️</div><div><h1>طقس الشرقاط المباشر</h1></div></div>
     <div class="ctrl">
+      <!-- الساعة الدائرية المدمجة بنظام 12 ساعة (ص / م) -->
+      <div class="weather-clock" id="weatherClock" title="الوقت الحالي بتوقيت بغداد">
+        <span class="clock-icon">🕒</span>
+        <span class="clock-time" id="clockTime">--:--:-- --</span>
+      </div>
       <button class="refresh" id="ref" title="تحديث البيانات">↻</button>
     </div>
   </header>
@@ -172,9 +206,26 @@ select{font-size:2.3vw;padding:1vw 0}.refresh{width:5vw;height:5vw;font-size:3.3
 const $=id=>document.getElementById(id);
 const LAT=35.52,LON=43.25;
 const DAYS=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
-const MONS=["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول"];
+const MONS=["كانون الثاني","شباط","آذار","نيسان","آيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول"];
 const city="الشرقاط";let S=null,mode="sunny",curKey="";
 
+// دالة تحديث الساعة الدائرية الحية بنظام 12 ساعة (AM/PM) بتوقيت بغداد
+function updateClock() {
+  const now = new Date();
+  let timeString = now.toLocaleTimeString('en-US', {
+    timeZone: 'Asia/Baghdad',
+    hour12: true,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  // تحويل AM/PM إلى العربية (ص / م) لمزيد من التناسق الجمالي
+  timeString = timeString.replace('AM', 'ص').replace('PM', 'م');
+  const clockEl = $("clockTime");
+  if (clockEl) clockEl.textContent = timeString;
+}
+setInterval(updateClock, 1000);
+updateClock();
 
 function wx(c){ // [icon, desc, fx]
  if(c===0)return["☀️","مشمس","sunny"];
