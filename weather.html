@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0d2137">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 <title>طقس الشرقاط المباشر | المركز التفاعلي للخدمات الجوية</title>
 <style>
 :root{--gold:#f5b02e;--gold2:#ffd166;--muted:#cfe3ff;--line:rgba(255,255,255,.16);color-scheme:dark}
@@ -23,8 +26,8 @@ h1{margin:0;font-size:clamp(1.05rem,3.4vw,1.7rem);font-weight:900;color:var(--go
 .refresh{width:40px;height:40px;border:0;background:none;font-size:1.4rem;transition:transform .6s}
 .refresh.spin{transform:rotate(360deg)}
 
-.grid{display:grid;grid-template-columns:1fr 1.75fr;gap:14px}
-.fc{order:1;padding:6px 0}
+.grid{display:grid;grid-template-columns:1fr 1.75fr;gap:14px;align-items:start}
+.fc{order:1;padding:12px;border-radius:18px;background:linear-gradient(180deg,#12304f,#0e2540);border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .current{order:2;padding:6px 0;min-height:340px;display:flex;flex-direction:column;justify-content:space-between}
 .live{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;font-weight:700}
 .dot{width:12px;height:12px;border-radius:50%;background:#22e05a;box-shadow:0 0 10px #22e05a;animation:pulse 1.4s infinite;flex-shrink:0}
@@ -48,49 +51,79 @@ h1{margin:0;font-size:clamp(1.05rem,3.4vw,1.7rem);font-weight:900;color:var(--go
 .stat .i{font-size:1.4rem}
 .stat .t{font-weight:700;font-size:.78rem}
 .stat .v{font-weight:800;font-size:.9rem}
-.fc h2{margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:1.05rem;font-weight:900}
-.row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1)}
-.row .ic{font-size:1.8rem;width:42px;text-align:center}
-.row .d{flex:1;min-width:0}
+.fc h2{margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line);font-size:1.05rem;font-weight:900}
+
+/* ===== بطاقات التوقعات: خلفية صورة تناسب حالة الطقس (بدون ظهور السماء) ===== */
+#fcList{display:flex;flex-direction:column;gap:6px}
+.row{position:relative;overflow:hidden;display:flex;align-items:center;gap:10px;padding:6px 12px;min-height:58px;border-radius:14px;border:1px solid rgba(255,255,255,.18);box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.row>*{position:relative;z-index:1}
+.row .ic{font-size:1.7rem;width:40px;text-align:center;line-height:1}
+.row .d{flex:1;min-width:0;line-height:1.45}
 .row .d b{display:block;font-weight:900;font-size:.95rem}
-.row .d span{font-size:.78rem;color:var(--muted)}
+.row .d span{font-size:.78rem;color:#e6f0ff}
 .row .tp{direction:ltr;font-weight:900;font-size:1rem;white-space:nowrap}
-.hi{color:var(--gold2)}.lo{color:#7ab8ff}
+.hi{color:#ffe08a}.lo{color:#bfe0ff}
+
+/* مشمس */
+.r-sunny{background:
+  radial-gradient(circle at 14% 35%,#fffbd0 0 6%,rgba(255,214,90,.95) 7% 14%,rgba(255,190,60,.35) 15% 30%,transparent 46%),
+  linear-gradient(120deg,#1c6fc0 0%,#3b9be6 55%,#7cc5f5 100%)}
+/* غائم جزئياً */
+.r-partly{background:
+  radial-gradient(circle at 12% 30%,rgba(255,236,150,.95) 0 8%,rgba(255,200,70,.35) 9% 26%,transparent 42%),
+  radial-gradient(ellipse 22% 38% at 34% 66%,rgba(255,255,255,.55),transparent 70%),
+  radial-gradient(ellipse 26% 42% at 62% 40%,rgba(255,255,255,.42),transparent 70%),
+  radial-gradient(ellipse 20% 36% at 86% 70%,rgba(255,255,255,.4),transparent 70%),
+  linear-gradient(120deg,#2f78bd,#6aa9dc)}
+/* غائم */
+.r-cloudy{background:
+  radial-gradient(ellipse 24% 44% at 18% 62%,rgba(255,255,255,.4),transparent 70%),
+  radial-gradient(ellipse 28% 46% at 46% 34%,rgba(255,255,255,.34),transparent 70%),
+  radial-gradient(ellipse 24% 44% at 74% 66%,rgba(255,255,255,.36),transparent 70%),
+  radial-gradient(ellipse 20% 38% at 94% 34%,rgba(255,255,255,.3),transparent 70%),
+  linear-gradient(120deg,#52677f,#7d92a8)}
+/* أمطار */
+.r-rain{background:
+  repeating-linear-gradient(105deg,rgba(190,220,255,.32) 0 1.2px,transparent 1.2px 11px),
+  repeating-linear-gradient(105deg,rgba(190,220,255,.2) 0 1px,transparent 1px 17px) 6px 5px,
+  radial-gradient(ellipse 28% 40% at 22% 14%,rgba(30,40,60,.55),transparent 75%),
+  radial-gradient(ellipse 30% 40% at 62% 10%,rgba(30,40,60,.5),transparent 75%),
+  linear-gradient(120deg,#26384f,#3c556f)}
+/* رياح */
+.r-wind{background:
+  linear-gradient(90deg,transparent 4%,rgba(255,255,255,.4) 5% 31%,transparent 32%) 0 22%/100% 2px no-repeat,
+  linear-gradient(90deg,transparent 22%,rgba(255,255,255,.35) 23% 60%,transparent 61%) 0 46%/100% 2px no-repeat,
+  linear-gradient(90deg,transparent 42%,rgba(255,255,255,.4) 43% 88%,transparent 89%) 0 70%/100% 2px no-repeat,
+  linear-gradient(120deg,#1f7f86,#4fb3b6)}
+/* غبار */
+.r-dust{background:
+  repeating-linear-gradient(0deg,rgba(255,220,150,.14) 0 3px,transparent 3px 9px),
+  linear-gradient(120deg,#8a5a2b,#c9955a)}
+/* ثلوج */
+.r-snow{background:
+  radial-gradient(circle,rgba(255,255,255,.9) 0 1.6px,transparent 2.2px) 0 0/22px 22px,
+  radial-gradient(circle,rgba(255,255,255,.6) 0 1.2px,transparent 1.8px) 11px 11px/22px 22px,
+  linear-gradient(120deg,#5f7d9c,#a9c1d8)}
+
 .note{font-size:.78rem;color:var(--muted);font-weight:600;margin-top:8px}
 .banner{text-align:center;padding:12px 0 0;border-top:1px solid var(--line)}
 .banner .pill{font-weight:800;font-size:.9rem;margin-bottom:6px}
-.banner .by{font-weight:900;color:var(--gold2);font-size:.9rem}
+.banner .by{font-family:"Aref Ruqaa",Tahoma,Arial,sans-serif;font-weight:700;color:var(--gold2);font-size:1.45rem;line-height:1.9;letter-spacing:0;text-shadow:0 2px 10px rgba(0,0,0,.55),0 0 14px rgba(255,209,102,.35)}
 
-/* الساعة التناظرية بتوقيت بغداد */
-.analog-clock{position:relative;width:90px;height:90px;background:#000;border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 15px rgba(245,176,46,.3),inset 0 0 10px rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.clock-face{position:relative;width:100%;height:100%}
-.c-number{position:absolute;width:100%;height:100%;text-align:center;font-weight:700;font-size:.75rem;color:var(--gold2)}
-.c-number:nth-child(1) span{display:inline-block;transform:rotate(-30deg)}
-.c-number:nth-child(2) span{display:inline-block;transform:rotate(-60deg)}
-.c-number:nth-child(3) span{display:inline-block;transform:rotate(-90deg)}
-.c-number:nth-child(4) span{display:inline-block;transform:rotate(-120deg)}
-.c-number:nth-child(5) span{display:inline-block;transform:rotate(-150deg)}
-.c-number:nth-child(6) span{display:inline-block;transform:rotate(-180deg)}
-.c-number:nth-child(7) span{display:inline-block;transform:rotate(-210deg)}
-.c-number:nth-child(8) span{display:inline-block;transform:rotate(-240deg)}
-.c-number:nth-child(9) span{display:inline-block;transform:rotate(-270deg)}
-.c-number:nth-child(10) span{display:inline-block;transform:rotate(-300deg)}
-.c-number:nth-child(11) span{display:inline-block;transform:rotate(-330deg)}
-.c-number:nth-child(12) span{display:inline-block;transform:rotate(-360deg)}
-.hand{position:absolute;bottom:50%;left:50%;transform-origin:bottom center;border-radius:4px;z-index:3}
-.hour-hand{width:3.5px;height:22px;background:var(--gold2);margin-left:-1.75px}
-.min-hand{width:2.5px;height:31px;background:var(--gold2);margin-left:-1.25px}
-.sec-hand{width:1.2px;height:36px;background:#ff3b30;margin-left:-.6px;z-index:4}
-.clock-center{position:absolute;top:50%;left:50%;width:7px;height:7px;background:#ff3b30;border-radius:50%;transform:translate(-50%,-50%);z-index:5}
-.clock-date-box{position:absolute;top:56%;right:18%;font-size:.5rem;font-weight:800;color:var(--gold2);border:1px solid rgba(255,209,102,.6);padding:0 2px;border-radius:2px;background:rgba(0,0,0,.6);z-index:2;direction:ltr}
+
+/* ===== الساعة الإلكترونية ===== */
+.digital-clock{flex-shrink:0;min-width:112px;padding:8px 10px;border-radius:14px;background:linear-gradient(180deg,#0b121b,#05090f);border:2px solid var(--gold);box-shadow:0 0 15px rgba(245,176,46,.3),inset 0 0 10px rgba(0,0,0,.8);text-align:center;text-shadow:0 0 10px rgba(255,209,102,.6);font-family:inherit;font-variant-numeric:tabular-nums;line-height:1.25}
+.dc-main{display:flex;align-items:baseline;justify-content:center;gap:5px;color:var(--gold2);font-weight:900}
+#dcHM{font-size:1.7rem;font-weight:900;line-height:1.1}
+.dc-s{font-size:.95rem;font-weight:800;color:#ff6b5e;min-width:1.3em}
+.dc-ap{font-size:.78rem;font-weight:700;color:var(--muted);margin-top:2px}
 
 @media(max-width:850px){.grid{grid-template-columns:1fr}.current{order:1;min-height:0}.fc{order:2}}
 @media(max-width:600px){
   body{padding:10px 10px 18px}
   .wrap{gap:10px}
-  .analog-clock{width:76px;height:76px}
-  .c-number{font-size:.62rem}
-  .hour-hand{height:18px}.min-hand{height:26px}.sec-hand{height:30px}
+  .digital-clock{min-width:92px;padding:6px 8px}
+  #dcHM{font-size:1.4rem}
   .stat .t{font-size:.72rem}.stat .v{font-size:.8rem}
 }
 @media(prefers-reduced-motion:reduce){.dot,.hero,.sun::before{animation:none}.refresh{transition:none}}
@@ -103,26 +136,9 @@ h1{margin:0;font-size:clamp(1.05rem,3.4vw,1.7rem);font-weight:900;color:var(--go
   <header>
     <div class="title"><div class="ico">🌤️</div><div><h1>طقس الشرقاط المباشر</h1></div></div>
     <div class="ctrl">
-      <div class="analog-clock" id="analogClock" title="الساعة الحالية بتوقيت بغداد">
-        <div class="clock-face">
-          <div class="c-number" style="transform:rotate(30deg)"><span>1</span></div>
-          <div class="c-number" style="transform:rotate(60deg)"><span>2</span></div>
-          <div class="c-number" style="transform:rotate(90deg)"><span>3</span></div>
-          <div class="c-number" style="transform:rotate(120deg)"><span>4</span></div>
-          <div class="c-number" style="transform:rotate(150deg)"><span>5</span></div>
-          <div class="c-number" style="transform:rotate(180deg)"><span>6</span></div>
-          <div class="c-number" style="transform:rotate(210deg)"><span>7</span></div>
-          <div class="c-number" style="transform:rotate(240deg)"><span>8</span></div>
-          <div class="c-number" style="transform:rotate(270deg)"><span>9</span></div>
-          <div class="c-number" style="transform:rotate(300deg)"><span>10</span></div>
-          <div class="c-number" style="transform:rotate(330deg)"><span>11</span></div>
-          <div class="c-number" style="transform:rotate(360deg)"><span>12</span></div>
-          <div class="clock-date-box" id="clockDate">--</div>
-          <div class="hand hour-hand" id="hourHand"></div>
-          <div class="hand min-hand" id="minHand"></div>
-          <div class="hand sec-hand" id="secHand"></div>
-          <div class="clock-center"></div>
-        </div>
+      <div class="digital-clock" id="digitalClock" title="الوقت الحالي بتوقيت بغداد" dir="ltr">
+        <div class="dc-main"><span id="dcHM">--:--</span><span class="dc-s" id="dcS">--</span></div>
+        <div class="dc-ap" id="dcAP"></div>
       </div>
       <button class="refresh" id="ref" type="button" title="تحديث البيانات" aria-label="تحديث البيانات">↻</button>
     </div>
@@ -155,8 +171,8 @@ h1{margin:0;font-size:clamp(1.05rem,3.4vw,1.7rem);font-weight:900;color:var(--go
   </div>
 
   <div class="banner">
-    <div class="pill">✦ مرحباً بكم في بوابتنا الشاملة ✦</div>
-    <div class="by">تصميم واعداد محمد علي احمد الحطاب الجبوري ✦</div>
+    <div class="pill">مرحباً بكم في بوابتنا الشاملة</div>
+    <div class="by">تصميم واعداد محمد علي احمد الحطاب الجبوري</div>
   </div>
 </div>
 
@@ -172,16 +188,16 @@ const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const city="الشرقاط";
 let S=null,mode="sunny",curKey="",lastOk=0,thunderSoon=false,retryTimer=0;
 
-/* ===== الساعة التناظرية بتوقيت بغداد ===== */
+/* ===== الساعة الإلكترونية بتوقيت بغداد ===== */
 const clockFmt=new Intl.DateTimeFormat("en-US",{timeZone:TZ,hourCycle:"h23",hour:"numeric",minute:"numeric",second:"numeric",day:"numeric"});
 function updateClock(){
   const p={};
   clockFmt.formatToParts(new Date()).forEach(x=>{p[x.type]=x.value});
   const h=Number(p.hour)%24,m=Number(p.minute),s=Number(p.second);
-  $("hourHand").style.transform=`rotate(${(h%12)*30+m*.5}deg)`;
-  $("minHand").style.transform=`rotate(${m*6+s*.1}deg)`;
-  $("secHand").style.transform=`rotate(${s*6}deg)`;
-  $("clockDate").textContent=p.day;
+  const h12=h%12||12,pad=v=>String(v).padStart(2,"0");
+  $("dcHM").textContent=pad(h12)+":"+pad(m);
+  $("dcS").textContent=pad(s);
+  $("dcAP").textContent=h<12?"صباحاً":"مساءً";
 }
 setInterval(updateClock,1000);updateClock();
 
@@ -195,6 +211,15 @@ function wx(c){ // [icon, desc, fx]
   if(c<=67||(c>=80&&c<=82))return["🌧️","أمطار","rain"];
   if(c<=77||c===85||c===86)return["❄️","ثلوج","cloudy"];
   return["⛈️","عواصف رعدية","rain"];
+}
+/* نوع خلفية بطاقة اليوم */
+function kind(c){
+  if(c===0)return"sunny";
+  if(c<=2)return"partly";
+  if(c<=48)return"cloudy";
+  if(c<=67||(c>=80&&c<=82))return"rain";
+  if(c<=77||c===85||c===86)return"snow";
+  return"rain";
 }
 const uvTxt=u=>u<3?"منخفض":u<6?"معتدل":u<8?"مرتفع":u<11?"مرتفع جداً":"شديد";
 
@@ -257,7 +282,13 @@ function liveFx(){
   if(S.precip>.1&&S.code<=3)return"rain";
   return wx(S.code)[2];
 }
-function fi(x){const w=wx(x[0]);if(x[3]>=35&&x[0]<=3)return["🌬️","نشاط للرياح"];if(x[4]>=50&&w[2]!=="rain")return["🌧️","فرصة أمطار"];return w}
+/* [أيقونة، وصف، نوع الخلفية] */
+function fi(x){
+  const w=wx(x[0]);
+  if(x[3]>=35&&x[0]<=3)return["🌬️","نشاط للرياح","wind"];
+  if(x[4]>=50&&w[2]!=="rain")return["🌧️","فرصة أمطار","rain"];
+  return[w[0],w[1],kind(x[0])];
+}
 function render(){
   $("cityName").textContent=city;
   const n=new Date(S.now0+(Date.now()-S.at));
@@ -277,7 +308,7 @@ function render(){
     $("wi").textContent=S.w+" كم/س";$("hu").textContent=S.h+"%";$("pr").textContent=S.p+" hPa";
     $("uv").textContent=S.uv+" ("+uvTxt(S.uv)+")";
     $("fcList").innerHTML=S.daily.map((x,i)=>{const w=fi(x);
-      return `<div class="row"><div class="ic">${w[0]}</div><div class="d"><b>${DAYS[S.dn[i]]}</b><span>${w[1]}</span></div><div class="tp"><span class="hi">${x[1]}°</span> / <span class="lo">${x[2]}°</span></div></div>`}).join("");
+      return `<div class="row r-${w[2]}"><div class="ic">${w[0]}</div><div class="d"><b>${DAYS[S.dn[i]]}</b><span>${w[1]}</span></div><div class="tp"><span class="hi">${x[1]}°</span> / <span class="lo">${x[2]}°</span></div></div>`}).join("");
     if(S.stale){
       const m=Math.max(1,Math.round((Date.now()-lastOk)/60000));
       $("liveTxt").textContent="تعذّر التحديث · آخر بيانات قبل "+m+" دقيقة";
