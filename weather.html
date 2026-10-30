@@ -42,6 +42,9 @@ h1{margin:0;font-size:clamp(1rem,3.4vw,1.6rem);font-weight:900;color:#ffe08a;lin
 @keyframes spin{to{transform:rotate(360deg)}}
 .temp{font-size:clamp(2.6rem,8vw,4.6rem);font-weight:900;line-height:1;direction:ltr;white-space:nowrap}
 .desc{font-size:clamp(1.3rem,4.4vw,1.7rem);font-weight:900;color:var(--gold2);text-align:end}
+.descrow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.descrow .desc{flex-shrink:0}
+.tag{flex:1;min-width:0;font-size:.82rem;font-weight:700;color:#eaf3ff;line-height:1.35;text-align:start}
 .feels{text-align:end;font-weight:800;margin-top:2px;font-size:.95rem}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:5px;border-top:1px solid var(--line);padding-top:4px}
 .stat{text-align:center;padding:2px;border-inline-start:1px solid var(--line);min-width:0}
@@ -102,7 +105,7 @@ h1{margin:0;font-size:clamp(1rem,3.4vw,1.6rem);font-weight:900;color:#ffe08a;lin
     <div><h2 class="city" id="cityName">الشرقاط</h2><div class="date" id="date"></div></div>
     <div class="big"><div class="hero" id="hero">🌤️</div><div class="temp" id="temp">--°C</div></div>
    </div>
-   <div class="desc" id="desc">جارٍ جلب حالة الطقس</div><div class="feels" id="feels"></div>
+   <div class="descrow"><div class="tag" id="tag" hidden>🏖️ جو مال ونسة على الشاطي</div><div class="desc" id="desc">جارٍ جلب حالة الطقس</div></div><div class="feels" id="feels"></div>
   </div>
   <div class="stats">
    <div class="stat"><div class="i">☀️</div><div class="t">مؤشر UV</div><div class="v" id="uv">--</div></div>
@@ -510,6 +513,8 @@ function setFx(fx){
   else if(fx==="sunny"){icon=night?"🌙":"☀️";desc=night?"سماء صافية ليلاً":w[1];}
 
   $("desc").textContent=desc;
+  /* العبارة تظهر فقط عند الصحو والشمس نهاراً، وتختفي مع الغيوم أو الليل أو أي حالة أخرى */
+  $("tag").hidden=!(fx==="sunny"&&!night);
   if(fx==="sunny"&&!night){
    if(!$("hero").querySelector(".sun"))$("hero").innerHTML='<div class="sun"></div>';
   }else{
@@ -517,6 +522,7 @@ function setFx(fx){
   }
  }else{
   $("hero").textContent=night?"🌙":"☀️";
+  $("tag").hidden=true;
  }
 
  const key=fx+Math.round(cover()*5);
