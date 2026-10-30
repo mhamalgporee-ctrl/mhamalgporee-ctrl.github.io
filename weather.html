@@ -269,15 +269,16 @@ function kind(c){
 }
 const uvTxt=u=>u<3?"منخفض":u<6?"معتدل":u<8?"مرتفع":u<11?"مرتفع جداً":"شديد";
 
-/* ===== تصحيح حالة السماء الحالية اعتماداً على الغيوم الحاجبة فعلياً =====
-   الغيوم المنخفضة والمتوسطة فقط تحجب الشمس، أما العالية الرقيقة فتُعطى وزناً خفيفاً.
-   عدّل العتبتين (25 و 65) حسب ما تراه بعينك. */
-function effCloud(l,m,h){return Math.min(100,Math.max(l||0,m||0,(h||0)*.3))}
+/* ===== تصحيح حالة السماء بما يتوافق مع واقع الشرقاط ===== */
+function effCloud(l,m){
+  // نعتمد على الغيوم المنخفضة والمتوسطة فقط، ونهمل الغيوم العالية الرقيقة لأنها لا تحجب الشمس
+  return Math.min(100,Math.max(l||0,m||0));
+}
 function fixCode(code,eff){
-  if(code>3)return code;      // ضباب/أمطار/عواصف: لا نغيّرها
-  if(eff<25)return 0;         // سماء صافية
-  if(eff<65)return 2;         // غائم جزئياً
-  return 3;                   // غائم
+  if(code>3)return code;   // الضباب والأمطار والعواصف تبقى كما هي
+  if(eff<40)return 0;      // أقل من 40%: السماء صافية عملياً (غيوم قليلة لا تحجب الشمس)
+  if(eff<75)return 2;      // غائم جزئياً
+  return 3;                // غائم
 }
 
 /* ===== تنبيه جوي ===== */
@@ -304,7 +305,7 @@ function buildAlert(c,h){
 /* ===== تحميل البيانات ===== */
 function offlineState(){
   const d=new Date();d.setHours(6,0,0,0);const sr=+d;d.setHours(17,15,0,0);
-  return{off:1,cc:15,code:0,t:0,precip:0,now0:Date.now(),at:Date.now(),sr,ss:+d,daily:[],dn:[],dust:0,w:0,h:0,p:0,uv:0,f:0}
+  return{off:1,cc:0,code:0,t:0,precip:0,now0:Date.now(),at:Date.now(),sr,ss:+d,daily:[],dn:[],dust:0,w:0,h:0,p:0,uv:0,f:0}
 }
 async function load(){
   clearTimeout(retryTimer);
@@ -320,12 +321,14 @@ async function load(){
     const d=await rw.value.json(),c=d.current,dl=d.daily;
     let dust=0;try{dust=(await ra.value.json()).current.dust||0}catch(e){}
     let hourly=null;try{hourly=(await rm.value.json()).hourly}catch(e){}
-    const eff=effCloud(c.cloud_cover_low,c.cloud_cover_mid,c.cloud_cover_high);
+    const eff=effCloud(c.cloud_cover_low,c.cloud_cover_mid);
     const hasLayers=typeof c.cloud_cover_low==="number"||typeof c.cloud_cover_mid==="number";
+    const correctedCode=hasLayers?fixCode(c.weather_code,eff):c.weather_code;
+
     S={t:Math.round(c.temperature_2m),f:Math.round(c.apparent_temperature),w:Math.round(c.wind_speed_10m),h:c.relative_humidity_2m,p:Math.round(c.pressure_msl),uv:Math.round(c.uv_index),
-      cc:hasLayers?eff:c.cloud_cover,
+      cc:correctedCode===0?0:(hasLayers?eff:c.cloud_cover),
       precip:c.precipitation||0,dust,
-      code:hasLayers?fixCode(c.weather_code,eff):c.weather_code,
+      code:correctedCode,
       now0:Date.parse(c.time),at:Date.now(),sr:Date.parse(dl.sunrise[0]),ss:Date.parse(dl.sunset[0]),
       daily:[1,2,3,4,5].map(i=>[dl.weather_code[i],Math.round(dl.temperature_2m_max[i]),Math.round(dl.temperature_2m_min[i]),dl.wind_speed_10m_max[i],dl.precipitation_probability_max[i]]),
       dn:[1,2,3,4,5].map(i=>new Date(dl.time[i]+"T12:00:00").getDay())};
@@ -383,7 +386,7 @@ function render(){
   setFx(liveFx());
   if(reduce)draw(performance.now());
 }
-function cover(){const c=(S.cc??15)/100;return mode==="dust"?.5:mode==="rain"?Math.max(.9,c):c}
+function cover(){const c=(S.cc??0)/100;return mode==="dust"?.5:mode==="rain"?Math.max(.9,c):c}
 function setFx(fx){
   mode=fx;
   const night=sky().a<0;
@@ -421,7 +424,7 @@ function initScene(){
   const n={rain:260,dust:150}[mode]||0;
   for(let i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,s:Math.random(),r:Math.random()});
   ST=[];for(let i=0;i<170;i++)ST.push({x:Math.random()*W,y:Math.random()*H*.7,s:Math.random(),r:Math.random()*20});
-  CL=[];const k=Math.round(cover()*10); // صافٍ تماماً = لا غيوم مرسومة
+  CL=[];const k=Math.round(cover()*10); // السماء الصافية = لا غيوم مرسومة
   for(let i=0;i<k;i++){const sc=.6+Math.random()*1.1,m=7+Math.floor(Math.random()*5),pf=[];
     for(let j=0;j<m;j++){const u=j/(m-1)-.5;pf.push({dx:u*190*sc+(Math.random()-.5)*26,dy:(Math.random()-.5)*16*sc-(1-Math.abs(u)*2)*20*sc,r:(32+Math.random()*28)*sc*(1-Math.abs(u)*.5)})}
     CL.push({x:Math.random()*(W+500)-250,y:H*(.05+Math.random()*.5),v:.12+Math.random()*.3,pf})}
