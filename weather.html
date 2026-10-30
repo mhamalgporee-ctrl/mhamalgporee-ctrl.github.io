@@ -66,32 +66,113 @@ select{background:rgba(8,24,46,.85);border:1px solid var(--line);border-radius:1
 .banner .pill{display:inline-block;background:rgba(8,24,46,.8);border:1px solid var(--gold);border-radius:999px;padding:6px 22px;font-weight:800;margin-bottom:8px}
 .banner .by{font-weight:900;color:var(--gold2)}
 
-/* تصميم الساعة الدائرية بنظام 12 ساعة */
-.weather-clock {
+/* تصميم الساعة التناظرية المطابقة تماماً للصورة المطلوبة وبنفس الألوان والأرقام */
+.analog-clock {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  background: #000000;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(245, 176, 46, 0.3), inset 0 0 10px rgba(0,0,0,0.8);
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(8, 24, 46, 0.65);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 14px;
-  box-shadow: inset 0 0 12px rgba(245, 176, 46, 0.15);
+  justify-content: center;
+  flex-shrink: 0;
 }
-.clock-icon {
-  font-size: 1.1rem;
-  animation: pulseClock 2s infinite ease-in-out;
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-@keyframes pulseClock {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.12); }
-}
-.clock-time {
+.c-number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
   font-family: 'Cairo', Tahoma, sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #ffd166;
+}
+/* توجيه الأرقام بالشكل الدائري الصحيح */
+.c-number:nth-child(1) { transform: rotate(30deg); }
+.c-number:nth-child(1) span { display: inline-block; transform: rotate(-30deg); }
+.c-number:nth-child(2) { transform: rotate(60deg); }
+.c-number:nth-child(2) span { display: inline-block; transform: rotate(-60deg); }
+.c-number:nth-child(3) { transform: rotate(90deg); }
+.c-number:nth-child(3) span { display: inline-block; transform: rotate(-90deg); }
+.c-number:nth-child(4) { transform: rotate(120deg); }
+.c-number:nth-child(4) span { display: inline-block; transform: rotate(-120deg); }
+.c-number:nth-child(5) { transform: rotate(150deg); }
+.c-number:nth-child(5) span { display: inline-block; transform: rotate(-150deg); }
+.c-number:nth-child(6) { transform: rotate(180deg); }
+.c-number:nth-child(6) span { display: inline-block; transform: rotate(-180deg); }
+.c-number:nth-child(7) { transform: rotate(210deg); }
+.c-number:nth-child(7) span { display: inline-block; transform: rotate(-210deg); }
+.c-number:nth-child(8) { transform: rotate(240deg); }
+.c-number:nth-child(8) span { display: inline-block; transform: rotate(-240deg); }
+.c-number:nth-child(9) { transform: rotate(270deg); }
+.c-number:nth-child(9) span { display: inline-block; transform: rotate(-270deg); }
+.c-number:nth-child(10) { transform: rotate(300deg); }
+.c-number:nth-child(10) span { display: inline-block; transform: rotate(-300deg); }
+.c-number:nth-child(11) { transform: rotate(330deg); }
+.c-number:nth-child(11) span { display: inline-block; transform: rotate(-330deg); }
+.c-number:nth-child(12) { transform: rotate(360deg); }
+.c-number:nth-child(12) span { display: inline-block; transform: rotate(-360deg); }
+
+/* العقارب وعلامات الـ CSS */
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 4px;
+  z-index: 3;
+}
+.hour-hand {
+  width: 3.5px;
+  height: 22px;
+  background: #ffd166;
+  margin-left: -1.75px;
+}
+.min-hand {
+  width: 2.5px;
+  height: 31px;
+  background: #ffd166;
+  margin-left: -1.25px;
+}
+.sec-hand {
+  width: 1.2px;
+  height: 36px;
+  background: #ff3b30;
+  margin-left: -0.6px;
+  z-index: 4;
+}
+.clock-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  background: #ff3b30;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+.clock-date-box {
+  position: absolute;
+  top: 56%;
+  right: 18%;
+  font-size: 0.5rem;
   font-weight: 800;
-  font-size: 0.9rem;
-  color: var(--gold2);
+  color: #ffd166;
+  border: 1px solid rgba(255,209,102,0.6);
+  padding: 0px 2px;
+  border-radius: 2px;
+  background: rgba(0,0,0,0.6);
+  z-index: 2;
   direction: ltr;
-  letter-spacing: 0.5px;
 }
 
 @media(max-width:850px){.grid{grid-template-columns:1fr}.current{order:1}.fc{order:2}}
@@ -161,10 +242,27 @@ select{font-size:2.3vw;padding:1vw 0}.refresh{width:5vw;height:5vw;font-size:3.3
   <header class="card">
     <div class="title"><div class="ico">🌤️</div><div><h1>طقس الشرقاط المباشر</h1></div></div>
     <div class="ctrl">
-      <!-- الساعة الدائرية المدمجة بنظام 12 ساعة (ص / م) -->
-      <div class="weather-clock" id="weatherClock" title="الوقت الحالي بتوقيت بغداد">
-        <span class="clock-icon">🕒</span>
-        <span class="clock-time" id="clockTime">--:--:-- --</span>
+      <!-- الساعة التناظرية المطابقة تماماً للصورة المطلوبة بتوقيت بغداد -->
+      <div class="analog-clock" id="analogClock" title="الساعة الحالية بتوقيت بغداد">
+        <div class="clock-face">
+          <div class="c-number" style="transform:rotate(30deg)"><span>1</span></div>
+          <div class="c-number" style="transform:rotate(60deg)"><span>2</span></div>
+          <div class="c-number" style="transform:rotate(90deg)"><span>3</span></div>
+          <div class="c-number" style="transform:rotate(120deg)"><span>4</span></div>
+          <div class="c-number" style="transform:rotate(150deg)"><span>5</span></div>
+          <div class="c-number" style="transform:rotate(180deg)"><span>6</span></div>
+          <div class="c-number" style="transform:rotate(210deg)"><span>7</span></div>
+          <div class="c-number" style="transform:rotate(240deg)"><span>8</span></div>
+          <div class="c-number" style="transform:rotate(270deg)"><span>9</span></div>
+          <div class="c-number" style="transform:rotate(300deg)"><span>10</span></div>
+          <div class="c-number" style="transform:rotate(330deg)"><span>11</span></div>
+          <div class="c-number" style="transform:rotate(360deg)"><span>12</span></div>
+          <div class="clock-date-box" id="clockDate">--</div>
+          <div class="hand hour-hand" id="hourHand"></div>
+          <div class="hand min-hand" id="minHand"></div>
+          <div class="hand sec-hand" id="secHand"></div>
+          <div class="clock-center"></div>
+        </div>
       </div>
       <button class="refresh" id="ref" title="تحديث البيانات">↻</button>
     </div>
@@ -209,20 +307,31 @@ const DAYS=["الأحد","الإثنين","الثلاثاء","الأربعاء",
 const MONS=["كانون الثاني","شباط","آذار","نيسان","آيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول"];
 const city="الشرقاط";let S=null,mode="sunny",curKey="";
 
-// دالة تحديث الساعة الدائرية الحية بنظام 12 ساعة (AM/PM) بتوقيت بغداد
+// دالة تحديث عقارب الساعة التناظرية والتاريخ بتوقيت بغداد
 function updateClock() {
   const now = new Date();
-  let timeString = now.toLocaleTimeString('en-US', {
-    timeZone: 'Asia/Baghdad',
-    hour12: true,
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
-  // تحويل AM/PM إلى العربية (ص / م) لمزيد من التناسق الجمالي
-  timeString = timeString.replace('AM', 'ص').replace('PM', 'م');
-  const clockEl = $("clockTime");
-  if (clockEl) clockEl.textContent = timeString;
+  // حساب الوقت بتوقيت بغداد
+  const baghdadTimeStr = now.toLocaleString("en-US", { timeZone: "Asia/Baghdad" });
+  const bgDate = new Date(baghdadTimeStr);
+  
+  const hours = bgDate.getHours();
+  const minutes = bgDate.getMinutes();
+  const seconds = bgDate.getSeconds();
+  const dayNum = bgDate.getDate();
+
+  const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+  const minDeg = minutes * 6 + seconds * 0.1;
+  const secDeg = seconds * 6;
+
+  const hHand = $("hourHand");
+  const mHand = $("minHand");
+  const sHand = $("secHand");
+  const dBox = $("clockDate");
+
+  if (hHand) hHand.style.transform = `rotate(${hourDeg}deg)`;
+  if (mHand) mHand.style.transform = `rotate(${minDeg}deg)`;
+  if (sHand) sHand.style.transform = `rotate(${secDeg}deg)`;
+  if (dBox) dBox.textContent = dayNum;
 }
 setInterval(updateClock, 1000);
 updateClock();
