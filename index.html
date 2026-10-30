@@ -113,7 +113,16 @@ button{cursor:pointer}
 .c-tasbih span+span::before{content:"❖";display:inline-block;margin-inline-end:6px;font-size:.6em;color:var(--gold);text-shadow:1px 1px 0 #8a6a2c;vertical-align:middle}
 .c-salawat{margin:0;font-size:clamp(.88rem,3.8vw,1.1rem);line-height:1.6;color:#3a2711;transform:translateZ(18px);
   text-shadow:1px 1px 0 #d9c48f,2px 2px 0 #b8964f,2px 3px 4px rgba(40,25,5,.35)}
-@keyframes calliOrbit{0.0%{transform:translate3d(calc(var(--r)*1.000),calc(var(--r)*0.000),0) rotateX(calc(var(--ra)*-0.000)) rotateY(calc(var(--ra)*1.000))}4.167%{transform:translate3d(calc(var(--r)*0.966),calc(var(--r)*0.259),0) rotateX(calc(var(--ra)*-0.155)) rotateY(calc(var(--ra)*0.966))}8.333%{transform:translate3d(calc(var(--r)*0.866),calc(var(--r)*0.500),0) rotateX(calc(var(--ra)*-0.300)) rotateY(calc(var(--ra)*0.866))}12.5%{transform:translate3d(calc(var(--r)*0.707),calc(var(--r)*0.707),0) rotateX(calc(var(--ra)*-0.424)) rotateY(calc(var(--ra)*0.707))}16.667%{transform:translate3d(calc(var(--r)*0.500),calc(var(--r)*0.866),0) rotateX(calc(var(--ra)*-0.520)) rotateY(calc(var(--ra)*0.500))}20.833%{transform:translate3d(calc(var(--r)*0.259),calc(var(--r)*0.966),0) rotateX(calc(var(--ra)*-0.580)) rotateY(calc(var(--ra)*0.259))}25.0%{transform:translate3d(calc(var(--r)*0.000),calc(var(--r)*1.000),0) rotateX(calc(var(--ra)*-0.600)) rotateY(calc(var(--ra)*0.000))}29.167%{transform:translate3d(calc(var(--r)*-0.259),calc(var(--r)*0.966),0) rotateX(calc(var(--ra)*-0.580)) rotateY(calc(var(--ra)*-0.259))}33.333%{transform:translate3d(calc(var(--r)*-0.500),calc(var(--r)*0.866),0) rotateX(calc(var(--ra)*-0.520)) rotateY(calc(var(--ra)*-0.500))}37.5%{transform:translate3d(calc(var(--r)*-0.707),calc(var(--r)*0.707),0) rotateX(calc(var(--ra)*-0.424)) rotateY(calc(var(--ra)*-0.707))}41.667%{transform:translate3d(calc(var(--r)*-0.866),calc(var(--r)*0.500),0) rotateX(calc(var(--ra)*-0.300)) rotateY(calc(var(--ra)*-0.866))}45.833%{transform:translate3d(calc(var(--r)*-0.966),calc(var(--r)*0.259),0) rotateX(calc(var(--ra)*-0.155)) rotateY(calc(var(--ra)*-0.966))}50.0%{transform:translate3d(calc(var(--r)*-1.000),calc(var(--r)*0.000),0) rotateX(calc(var(--ra)*-0.000)) rotateY(calc(var(--ra)*-1.000))}54.167%{transform:translate3d(calc(var(--r)*-0.966),calc(var(--r)*-0.259),0) rotateX(calc(var(--ra)*0.155)) rotateY(calc(var(--ra)*-0.966))}58.333%{transform:translate3d(calc(var(--r)*-0.866),calc(var(--r)*-0.500),0) rotateX(calc(var(--ra)*0.300)) rotateY(calc(var(--ra)*-0.866))}62.5%{transform:translate3d(calc(var(--r)*-0.707),calc(var(--r)*-0.707),0) rotateX(calc(var(--ra)*0.424)) rotateY(calc(var(--ra)*-0.707))}66.667%{transform:translate3d(calc(var(--r)*-0.500),calc(var(--r)*-0.866),0) rotateX(calc(var(--ra)*0.520)) rotateY(calc(var(--ra)*-0.500))}70.833%{transform:translate3d(calc(var(--r)*-0.259),calc(var(--r)*-0.966),0) rotateX(calc(var(--ra)*0.580)) rotateY(calc(var(--ra)*-0.259))}75.0%{transform:translate3d(calc(var(--r)*-0.000),calc(var(--r)*-1.000),0) rotateX(calc(var(--ra)*0.600)) rotateY(calc(var(--ra)*-0.000))}79.167%{transform:translate3d(calc(var(--r)*0.259),calc(var(--r)*-0.966),0) rotateX(calc(var(--ra)*0.580)) rotateY(calc(var(--ra)*0.259))}83.333%{transform:translate3d(calc(var(--r)*0.500),calc(var(--r)*-0.866),0) rotateX(calc(var(--ra)*0.520)) rotateY(calc(var(--ra)*0.500))}87.5%{transform:translate3d(calc(var(--r)*0.707),calc(var(--r)*-0.707),0) rotateX(calc(var(--ra)*0.424)) rotateY(calc(var(--ra)*0.707))}91.667%{transform:translate3d(calc(var(--r)*0.866),calc(var(--r)*-0.500),0) rotateX(calc(var(--ra)*0.300)) rotateY(calc(var(--ra)*0.866))}95.833%{transform:translate3d(calc(var(--r)*0.966),calc(var(--r)*-0.259),0) rotateX(calc(var(--ra)*0.155)) rotateY(calc(var(--ra)*0.966))}100.0%{transform:translate3d(calc(var(--r)*1.000),calc(var(--r)*-0.000),0) rotateX(calc(var(--ra)*0.000)) rotateY(calc(var(--ra)*1.000))}}
+@keyframes calliOrbit{
+  0%,100%{transform:translate3d(calc(var(--r)*1),0,0) rotateX(0deg) rotateY(calc(var(--ra)*1))}
+  12.5%{transform:translate3d(calc(var(--r)*.707),calc(var(--r)*.707),0) rotateX(calc(var(--ra)*-.424)) rotateY(calc(var(--ra)*.707))}
+  25%{transform:translate3d(0,var(--r),0) rotateX(calc(var(--ra)*-.6)) rotateY(0deg)}
+  37.5%{transform:translate3d(calc(var(--r)*-.707),calc(var(--r)*.707),0) rotateX(calc(var(--ra)*-.424)) rotateY(calc(var(--ra)*-.707))}
+  50%{transform:translate3d(calc(var(--r)*-1),0,0) rotateX(0deg) rotateY(calc(var(--ra)*-1))}
+  62.5%{transform:translate3d(calc(var(--r)*-.707),calc(var(--r)*-.707),0) rotateX(calc(var(--ra)*.424)) rotateY(calc(var(--ra)*-.707))}
+  75%{transform:translate3d(0,calc(var(--r)*-1),0) rotateX(calc(var(--ra)*.6)) rotateY(0deg)}
+  87.5%{transform:translate3d(calc(var(--r)*.707),calc(var(--r)*-.707),0) rotateX(calc(var(--ra)*.424)) rotateY(calc(var(--ra)*.707))}
+}
 @media (max-width:780px){.calli-float{--r:6px;--ra:3deg}}
 @media (prefers-reduced-motion:reduce){.calli-float{animation:none}.calli{transition:none}}
 
@@ -200,27 +209,13 @@ button{cursor:pointer}
 .toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid rgba(184,150,79,.4);border-radius:999px;background:var(--green-deep);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s ease}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
 
-/* ===== تعديل ارتفاع واجهة الطقس لتكون كاملة وبدون أي قص (تمت زيادة الارتفاع هنا) ===== */
-.weather-widget-section {
-  padding-block: 20px;
+/* ===== واجهة الطقس (تحت الأقسام مباشرة) ===== */
+.weather-widget-section{padding-top:10px;padding-bottom:30px}
+.weather-widget-container{
+  width:100%;max-width:800px;height:780px;overflow:hidden;margin:0 auto;
+  border-radius:18px;border:1px solid var(--line);box-shadow:0 6px 20px rgba(74,63,51,.1);background:var(--paper);
 }
-.weather-widget-container {
-  width: 100%;
-  max-width: 800px;
-  height: 780px; /* ارتفاع كافي جداً لعرض جميع أيام الأسبوع والتفاصيل السفلية كاملاً */
-  overflow: hidden;
-  margin: 0 auto;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  box-shadow: 0 6px 20px rgba(74,63,51,.1);
-  background: var(--paper);
-}
-.weather-widget-container iframe {
-  width: 100%;
-  height: 780px;
-  margin-top: 0;
-  border: none;
-}
+.weather-widget-container iframe{width:100%;height:780px;margin-top:0;border:none}
 
 @media (max-width:1050px){
   .nav-links{gap:12px}
@@ -259,13 +254,6 @@ button{cursor:pointer}
   .covers-strip{gap:12px}
   .covers-strip img{width:105px;height:150px}
   .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  /* تعديل إضافي للموبايل لتناسب ارتفاع الويدجت تماماً وبدون قص */
-  .weather-widget-container {
-    height: 780px;
-  }
-  .weather-widget-container iframe {
-    height: 780px;
-  }
 }
 
 .site-header{border-bottom:0;background:var(--ivory);backdrop-filter:none;-webkit-backdrop-filter:none}
@@ -303,7 +291,7 @@ button{cursor:pointer}
 .m p{margin:0;color:var(--muted);font-size:clamp(.68rem,3.2vw,.85rem);line-height:1.45}
 @media (min-width:620px){.meanings{column-count:2}}
 
-/* ===== تعديل وتصغير أحجام الأزرار ثلاثية الأبعاد ===== */
+/* ===== الأزرار ثلاثية الأبعاد ===== */
 .hero-actions .btn-outline{
   min-height:36px;padding:4px 14px;border:0;color:#2b1c0c;font-weight:900;font-size:.78rem;
   background:linear-gradient(180deg,#ead8a4 0%,#d6ba72 48%,#b8964f 100%);
@@ -332,7 +320,6 @@ button{cursor:pointer}
     0 1px 0 #8a6a2c,
     0 2px 3px rgba(40,25,5,.3);
 }
-
 .card-link,.btn-gold{
   min-height:30px;padding:2px 10px;font-size:.72rem;gap:4px;line-height:1.5;border:0;color:#2b1c0c;font-weight:900;
   background:linear-gradient(180deg,#ead8a4 0%,#d6ba72 48%,#b8964f 100%);
@@ -461,6 +448,8 @@ gtag('config','G-3VZQSDZNC7');
       <div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه حمداً دائماً أبداً &nbsp;&nbsp;•&nbsp;&nbsp; اللهم صلِّ على محمد وعلى آل محمد ❖ &nbsp;&nbsp;•&nbsp;&nbsp; أستغفر الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div>
     </div>
   </div>
+
+  <!-- ===== جميع الأقسام في شبكة واحدة ===== -->
   <section class="section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
       <div class="section-heading">
@@ -482,7 +471,7 @@ gtag('config','G-3VZQSDZNC7');
           <p>بعض التلميحات عن الشرقاط: تاريخها وملامحها وموروثها الثقافي والاجتماعي.</p>
           <a class="card-link" href="shirqat.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        
+
         <article class="content-card" data-search="علماء الشرقاط رحمهم الله ملا مرعي هايس الفقه الدين ulama scholars">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h12M6 10h12"/></svg></span><span class="card-index">02</span></div>
           <h3>علماء الشرقاط</h3>
@@ -498,86 +487,79 @@ gtag('config','G-3VZQSDZNC7');
           <p>تصفّح الكتب والدواوين والروايات.</p>
           <a class="card-link" href="book.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        
+
         <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></span><span class="card-index">04</span></div>
           <h3>معرض الصور</h3>
           <p>صور ولقطات وتاريخ مصور من مدينة الشرقاط.</p>
           <button class="card-link" type="button" data-open="galleryModal">اضغط هنا <span aria-hidden="true">←</span></button>
         </article>
-        
+
         <article class="content-card" data-search="مقالات وبرامج مدونة ووردبريس wordpress تدوينات">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span class="card-index">05</span></div>
           <h3>المقالات والمدونة</h3>
           <p>مقالات وتدوينات ثقافية جديدة على المدونة.</p>
           <a class="card-link" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        
+
         <article class="content-card" data-search="الجد عقاب عگاب اوكاب okab الأجداد العائلة">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="card-index">06</span></div>
           <h3>الجد عگاب رحمه الله</h3>
           <p>نافذة على الذاكرة العائلية وسيرة الأجداد، بما فيها من مواقف ودروس.</p>
           <a class="card-link" href="okab.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        
+
         <article class="content-card" data-search="الشيخ شلاش رحمه الله shelash قصة تاريخ سيرة">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/></svg></span><span class="card-index">07</span></div>
           <h3>قصص رجال طيّبي الصيت من أهل السيرة</h3>
           <p>حكايات وسِيَر محلية تستحق أن تبقى في الذاكرة وتتناقلها الأجيال.</p>
           <a class="card-link" href="shelash.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        
+
         <article class="content-card" data-search="الأذكار والأدعية duaa">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><span class="card-index">08</span></div>
           <h3>الأذكار والأدعية</h3>
           <p>أذكار يومية وأدعية.</p>
           <a class="card-link" href="duaa.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
-        
+
         <article class="content-card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب رياضة افلام مسلسلات tv">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="card-index">09</span></div>
           <h3>شاهد القنوات الرياضية</h3>
           <p>تابع القنوات الرياضية والأفلام والمسلسلات والمحتوى المرئي.</p>
           <a class="card-link" href="tv.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
+
+        <article class="content-card" data-search="القناة المرئية فيديو يوتيوب youtube قناة الشرقاط الثقافي">
+          <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="card-index">10</span></div>
+          <h3>القناة المرئية</h3>
+          <p>شاهد الفيديوهات المنشورة على قناة الشرقاط الثقافي، وتابع المحتوى المرئي من مكان واحد.</p>
+          <button class="card-link" type="button" data-open="videoModal">اضغط هنا <span aria-hidden="true">←</span></button>
+        </article>
+
+        <article class="content-card" data-search="التطبيقات برامج الكمبيوتر الذكاء الاصطناعي تحميل apps">
+          <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><span class="card-index">11</span></div>
+          <h3>قسم التطبيقات</h3>
+          <p>حمّل أحدث التطبيقات المجانية وبرامج الكمبيوتر وأدوات الذكاء الاصطناعي بروابط تحميل رسمية ومباشرة وآمنة.</p>
+          <a class="card-link" href="apps.html">اضغط هنا <span aria-hidden="true">←</span></a>
+        </article>
       </div>
       <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div>
     </div>
   </section>
 
-  <!-- واجهة الطقس المدمجة تحت الأقسام بدون أزرار أو تفاصيل زائدة -->
-  <section class="section weather-widget-section">
+  <!-- ===== الطقس تحت الأقسام مباشرة ===== -->
+  <section class="section weather-widget-section" id="weather" aria-labelledby="weatherTitle">
     <div class="container">
-      <div class="section-heading" style="margin-bottom: 15px;">
+      <div class="section-heading" style="margin-bottom:15px;">
         <div>
           <span class="eyebrow">حالة الجو تصميم واعداد محمد علي احمد الحطاب الجبوري</span>
-          <h2 style="font-size: 1.6rem; margin: 4px 0 0;">طقس الشرقاط المباشر</h2>
+          <h2 id="weatherTitle" style="font-size:1.6rem;margin:4px 0 0;">طقس الشرقاط المباشر</h2>
         </div>
       </div>
       <div class="weather-widget-container">
         <iframe src="weather.html" scrolling="no" frameborder="0" title="واجهة طقس الشرقاط"></iframe>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <article class="media-card">
-        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <h3>القناة المرئية</h3>
-        <p>شاهد الفيديوهات المنشورة على قناة الشرقاط الثقافي، وتابع المحتوى المرئي من مكان واحد.</p>
-        <button class="btn btn-gold" type="button" data-open="videoModal">اضغط هنا <span aria-hidden="true">←</span></button>
-      </article>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <article class="media-card">
-        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
-        <h3>قسم التطبيقات</h3>
-        <p>حمّل أحدث التطبيقات المجانية وبرامج الكمبيوتر وأدوات الذكاء الاصطناعي بروابط تحميل رسمية ومباشرة وآمنة.</p>
-        <a class="btn btn-gold" href="apps.html">اضغط هنا لتصفح التطبيقات <span aria-hidden="true">←</span></a>
-      </article>
     </div>
   </section>
 
@@ -611,6 +593,7 @@ gtag('config','G-3VZQSDZNC7');
       </article>
     </div>
   </section>
+
   <section class="section">
     <div class="container">
       <article class="media-card">
