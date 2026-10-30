@@ -269,16 +269,16 @@ function kind(c){
 }
 const uvTxt=u=>u<3?"منخفض":u<6?"معتدل":u<8?"مرتفع":u<11?"مرتفع جداً":"شديد";
 
-/* ===== تصحيح حالة السماء بما يتوافق مع واقع الشرقاط ===== */
+/* ===== تصحيح صارم لحالة السماء في الشرقاط (منع الغيوم الوهمية) ===== */
 function effCloud(l,m){
-  // نعتمد على الغيوم المنخفضة والمتوسطة فقط، ونهمل الغيوم العالية الرقيقة لأنها لا تحجب الشمس
-  return Math.min(100,Math.max(l||0,m||0));
+  return Math.min(100, Math.max(l||0, m||0));
 }
-function fixCode(code,eff){
-  if(code>3)return code;   // الضباب والأمطار والعواصف تبقى كما هي
-  if(eff<40)return 0;      // أقل من 40%: السماء صافية عملياً (غيوم قليلة لا تحجب الشمس)
-  if(eff<75)return 2;      // غائم جزئياً
-  return 3;                // غائم
+function fixCode(code, eff){
+  if(code > 3) return code;      // الضباب والأمطار والعواصف تبقى كما هي
+  // تم رفع عتبة الاعتبار إلى 65% لضمان بقاء الجو "مشمس وصافٍ تماماً" حتى لو أرسل الapi نسب غيوم طفيفة خاطئة
+  if(eff < 65) return 0;         // صافٍ تماماً (مشمس)
+  if(eff < 85) return 2;         // غائم جزئياً حقيقي
+  return 3;                      // غائم كلياً
 }
 
 /* ===== تنبيه جوي ===== */
@@ -393,7 +393,7 @@ function setFx(fx){
   if(!S.off){
     const w=wx(S.code);let icon=w[0],desc=w[1];
     if(fx==="dust"){icon="🌪️";desc="عاصفة ترابية"}
-    else if(fx==="rain"&&w[2]!=="rain"){icon="🌧️";desc="أمطار"}
+    else if(fx==="rain"&&w[2]!=="rain"){icon="🌧️","أمطار"}
     else if(fx==="sunny"){icon=night?"🌙":"☀️";desc=night?(S.t<20?"ليل صاف وبارد":"ليل صاف"):(S.t>=25?"مشمس ودافئ":"مشمس صاف")}
     else if(night&&icon==="⛅")icon="☁️";
     $("desc").textContent=desc;
@@ -424,7 +424,7 @@ function initScene(){
   const n={rain:260,dust:150}[mode]||0;
   for(let i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,s:Math.random(),r:Math.random()});
   ST=[];for(let i=0;i<170;i++)ST.push({x:Math.random()*W,y:Math.random()*H*.7,s:Math.random(),r:Math.random()*20});
-  CL=[];const k=Math.round(cover()*10); // السماء الصافية = لا غيوم مرسومة
+  CL=[];const k=Math.round(cover()*10); // السماء الصافية تماماً = لا غيوم مرسومة
   for(let i=0;i<k;i++){const sc=.6+Math.random()*1.1,m=7+Math.floor(Math.random()*5),pf=[];
     for(let j=0;j<m;j++){const u=j/(m-1)-.5;pf.push({dx:u*190*sc+(Math.random()-.5)*26,dy:(Math.random()-.5)*16*sc-(1-Math.abs(u)*2)*20*sc,r:(32+Math.random()*28)*sc*(1-Math.abs(u)*.5)})}
     CL.push({x:Math.random()*(W+500)-250,y:H*(.05+Math.random()*.5),v:.12+Math.random()*.3,pf})}
@@ -486,7 +486,7 @@ function postHeight(){
   if(Math.abs(h-lastH)>2){lastH=h;parent.postMessage({wxHeight:h},"*")}
 }
 if("ResizeObserver" in window)new ResizeObserver(postHeight).observe(document.querySelector(".wrap"));
-addEventListener("load",postHeight);
+addEventListener("load",postHeart=postHeight);
 
 $("ref").addEventListener("click",()=>{const r=$("ref");r.classList.add("spin");setTimeout(()=>r.classList.remove("spin"),600);load()});
 setInterval(load,10*60*1000);
