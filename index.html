@@ -217,17 +217,6 @@ button{cursor:pointer}
 }
 .weather-widget-container iframe{width:100%;height:780px;margin-top:0;border:none}
 
-/* ===== تلفزيون البلازما الفضائي المباشر (فيديو تلاوة دائم ومضمون 100%) ===== */
-.live-tv-section{padding-top:10px;padding-bottom:30px}
-.tv-plasma-container{width:100%;max-width:800px;margin:0 auto;text-align:center}
-.tv-plasma-frame{
-  position:relative;width:100%;padding-bottom:56.25%;background:#000;
-  border:14px solid #1a1a1a;border-radius:18px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.5);overflow:hidden;
-}
-.tv-plasma-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
-.tv-plasma-stand{width:140px;height:14px;background:#2c2c2c;margin:0 auto;border-bottom-left-radius:8px;border-bottom-right-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.3)}
-
 @media (max-width:1050px){
   .nav-links{gap:12px}
   .nav-links a{font-size:.78rem}
@@ -559,25 +548,6 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </section>
 
-  <!-- ===== تلفزيون البلازما الفضائي المباشر (فيديو تلاوة دائم ومضمون 100%) ===== -->
-  <section class="section live-tv-section" id="liveTv" aria-labelledby="liveTvTitle">
-    <div class="container">
-      <div class="section-heading" style="margin-bottom:15px;">
-        <div>
-          <span class="eyebrow">البث الفضائي المباشر</span>
-          <h2 id="liveTvTitle" style="font-size:1.6rem;margin:4px 0 0;">تلاوة قرآنية مباركة (شاشة بلازما)</h2>
-        </div>
-      </div>
-      <div class="tv-plasma-container">
-        <div class="tv-plasma-frame">
-          <!-- استخدام رابط فيديو تلاوة ثابت ومستقر ومعالج بالكامل من يوتيوب -->
-          <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1" title="تلاوة قرآنية مباركة" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-        <div class="tv-plasma-stand"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== الطقس تحت الأقسام مباشرة ===== -->
   <section class="section weather-widget-section" id="weather" aria-labelledby="weatherTitle">
     <div class="container">
@@ -588,6 +558,7 @@ gtag('config','G-3VZQSDZNC7');
         </div>
       </div>
       <div class="weather-widget-container">
+        <!-- رقم v في آخر الرابط يجبر المتصفح على تحميل نسخة الطقس الجديدة؛ زِده (v=3, v=4...) عند كل تعديل على weather.html -->
         <iframe src="weather.html?v=2" scrolling="no" frameborder="0" title="واجهة طقس الشرقاط"></iframe>
       </div>
     </div>
@@ -962,3 +933,5 @@ setText("#year", new Date().getFullYear());
 </script>
 </body>
 </html>
+
+
