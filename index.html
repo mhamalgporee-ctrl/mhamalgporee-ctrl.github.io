@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<title>الشرقاط الثقافي الأول | مجلة ثقافية</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#123d32">
 <meta name="description" content="الشرقاط الثقافي الأول — نافذة ثقافية وأدبية توثق تاريخ الشرقاط وتراثها وذاكرتها، بإشراف محمد علي أحمد الحطاب الجبوري.">
@@ -10,13 +11,14 @@
 <meta property="og:title" content="الشرقاط الثقافي الأول | مجلة ثقافية">
 <meta property="og:description" content="الثقافة والتراث والذاكرة من الشرقاط إلى العالم.">
 <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
+<meta property="og:url" content="https://mhamalgporee-ctrl.github.io/">
+<meta property="og:locale" content="ar_IQ">
+<meta property="og:site_name" content="الشرقاط الثقافي الأول">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="الشرقاط الثقافي الأول | مجلة ثقافية">
+<meta name="twitter:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
 <link rel="canonical" href="https://mhamalgporee-ctrl.github.io/">
 <link rel="icon" href="acon.jpg" type="image/jpeg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
-<title>الشرقاط الثقافي الأول | مجلة ثقافية</title>
 <style>
 :root{
   --green:#123d32;--green-2:#1c5747;--green-3:#2b6b58;
@@ -26,7 +28,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{margin:0;background:var(--ivory);color:var(--ink);font-family:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Tahoma,Arial,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
 body.modal-open{overflow:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -43,7 +45,7 @@ button{cursor:pointer}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
 .brand-mark{width:48px;height:48px;flex:0 0 48px;overflow:hidden;border:2px solid var(--gold);border-radius:16px;background:var(--green);box-shadow:0 5px 14px #123d3220}
 .brand-mark img{width:100%;height:100%;object-fit:cover}
-.brand-title{display:block;color:var(--green);font-weight:800;font-size:1.02rem;line-height:1.4}
+.brand-title{display:block;color:var(--green);font-weight:700;font-size:1.02rem;line-height:1.4}
 .brand-subtitle{display:block;color:var(--muted);font-size:.72rem}
 .nav-links{display:flex;align-items:center;gap:21px}
 .nav-links a{position:relative;padding:8px 0;color:#35433a;font-size:.87rem;font-weight:600;white-space:nowrap}
@@ -58,10 +60,10 @@ button{cursor:pointer}
 .hero-copy{max-width:650px}
 .hero-kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:12px;padding:6px 13px;border:1px solid #d8c18b70;border-radius:999px;color:#f1dfb5;background:#ffffff0b;font-size:.8rem;font-weight:600}
 .hero-kicker span{width:7px;height:7px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 0 4px #d8c18b22}
-.hero h1{margin:0 0 10px;font-family:Amiri,serif;font-size:clamp(2.7rem,6vw,4.7rem);line-height:1.12;font-weight:700;color:#fff}
+.hero h1{margin:0 0 10px;font-size:clamp(2.7rem,6vw,4.7rem);line-height:1.12;font-weight:700;color:#fff}
 .hero h1 .hero-accent{display:block;color:#e1c98f}
 .hero-byline{margin:0 0 8px;color:#e8eee9;font-size:.98rem}
-.hero-quote{margin:0 0 22px;padding-right:14px;border-right:3px solid var(--gold-2);color:#f4ead4;font-family:Amiri,serif;font-size:1.2rem}
+.hero-quote{margin:0 0 22px;padding-right:14px;border-right:3px solid var(--gold-2);color:#f4ead4;font-size:1.2rem}
 .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 19px;border:1px solid transparent;border-radius:999px;font-size:.88rem;font-weight:700;transition:.2s}
 .btn:hover{transform:translateY(-2px)}
@@ -69,10 +71,11 @@ button{cursor:pointer}
 .btn-ghost{border-color:#e7d7b0aa;background:#ffffff0b;color:#fff}
 .btn-ghost:hover{background:#ffffff18}
 .btn-green{background:var(--green);color:#fff}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
 .btn-light{background:var(--paper);border-color:var(--line);color:var(--green)}
 .calli-stage{perspective:900px;max-width:520px;margin-inline:auto}
 .calli-float{animation:float 8s ease-in-out infinite}
-.calli{padding:20px 12px;text-align:center;font-family:"Aref Ruqaa",Amiri,serif;transform-style:preserve-3d}
+.calli{transition:transform .15s ease-out;padding:20px 12px;text-align:center;transform-style:preserve-3d}
 .orn{display:block;width:min(210px,65%);height:auto;margin:0 auto;color:#d6b96f;filter:drop-shadow(0 5px 4px #0005)}
 .c-bismillah{margin:3px 0;color:#f4dfaa;font-size:1.15rem;text-shadow:0 3px 12px #0007}
 .c-ayah{margin:4px 0 8px;color:#fff3d0;font-size:clamp(2rem,5vw,3.25rem);line-height:1.5;text-shadow:0 4px 0 #8a6b31,0 9px 18px #0008}
@@ -88,17 +91,17 @@ button{cursor:pointer}
 @keyframes marquee{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
 .section{padding-block:66px}
 .section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#947638;font-size:.78rem;font-weight:800}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#947638;font-size:.78rem;font-weight:700}
 .eyebrow:before{width:26px;height:2px;background:var(--gold);content:""}
-.section-heading h2{margin:7px 0 0;color:var(--green);font-family:Amiri,serif;font-size:clamp(2rem,4vw,2.8rem);line-height:1.3}
+.section-heading h2{margin:7px 0 0;color:var(--green);font-size:clamp(2rem,4vw,2.8rem);line-height:1.3}
 .section-heading p{max-width:480px;margin:0;color:var(--muted);font-size:.93rem}
-.poetry-sub{margin:8px 0 0;color:var(--muted);font-family:Amiri,serif;font-size:1rem}
+.poetry-sub{margin:8px 0 0;color:var(--muted);font-size:1rem}
 .search-box{display:flex;align-items:center;gap:10px;width:min(390px,100%);padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:var(--paper);box-shadow:0 5px 18px #203d2910}
 .search-box span{color:var(--gold);font-size:1.35rem}
 .search-box input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font-size:.87rem}
 .search-box:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px #b795501c}
 .search-status{min-height:22px;margin:-12px 0 14px;color:var(--muted);font-size:.82rem}
-.content-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.content-grid{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .content-card{position:relative;display:flex;flex-direction:column;min-height:225px;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:0 7px 24px #203d2908;transition:transform .25s,box-shadow .25s,border-color .25s}
 .content-card:hover{transform:translateY(-5px);border-color:#cbb77f;box-shadow:var(--shadow)}
 .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
@@ -107,7 +110,7 @@ button{cursor:pointer}
 .card-index{color:#b4a783;font-family:Georgia,serif;font-size:.9rem;direction:ltr}
 .content-card h3{margin:0 0 7px;color:var(--green);font-size:1.12rem;line-height:1.45}
 .content-card p{margin:0 0 17px;color:var(--muted);font-size:.86rem;line-height:1.75}
-.card-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;align-self:flex-start;min-height:38px;margin-top:auto;padding:7px 16px;border:0;border-radius:999px;background:#e9dfc9;color:#344332;font-size:.82rem;font-weight:800;transition:.2s}
+.card-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;align-self:flex-start;min-height:38px;margin-top:auto;padding:7px 16px;border:0;border-radius:999px;background:#e9dfc9;color:#344332;font-size:.82rem;font-weight:700;transition:.2s}
 .card-link:hover{background:var(--gold);color:#fff;transform:translateY(-2px)}
 .card-wide{grid-column:span 2}
 .covers-strip{display:flex;gap:12px;margin:0 0 10px;padding:4px 2px 9px;overflow-x:auto;scroll-snap-type:x proximity}
@@ -119,29 +122,16 @@ button{cursor:pointer}
 .weather-widget-section{padding-top:8px}
 .weather-widget-container{width:100%;max-width:850px;height:780px;overflow:hidden;margin:0 auto;border:1px solid var(--line);border-radius:22px;background:var(--paper);box-shadow:var(--shadow)}
 .weather-widget-container iframe{width:100%;height:780px;border:0}
-.paper-page{max-width:820px;margin-inline:auto;padding:clamp(18px,4vw,36px);border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
-.paper-page figure{margin:0}
-.paper-page figure img{width:100%;max-height:540px;object-fit:cover;border-radius:14px}
-.paper-page figcaption{padding:10px 2px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.88rem}
-.paper-page h2{margin:20px 0 8px;color:var(--green);font-family:Amiri,serif;font-size:2.4rem}
-.verses{margin:10px 0 22px;padding:14px 10px;border-block:1px solid var(--gold-2);background:#f8f3e8}
-.verses p{margin:0;color:#344332;font-family:Amiri,serif;font-size:clamp(.85rem,2.4vw,1.1rem);line-height:1.8;text-align:center}
-.meaning-title{margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line);color:var(--green);font-size:1.1rem}
-.meanings{column-gap:24px;column-rule:1px solid var(--line)}
-.m{break-inside:avoid;margin-bottom:14px}
-.m h4{margin:0;color:#7e632e;font-size:.9rem}
-.m p{margin:3px 0 0;color:var(--muted);font-size:.83rem;line-height:1.7}
-@media(min-width:650px){.meanings{column-count:2}}
 .media-card{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(120deg,#fffdf8,#f0eadc);box-shadow:var(--shadow)}
 .media-card .icon{margin-bottom:14px;background:#e8eee7}
-.media-card h3{margin:0 0 8px;color:var(--green);font-family:Amiri,serif;font-size:1.65rem}
+.media-card h3{margin:0 0 8px;color:var(--green);font-size:1.65rem}
 .media-card p{max-width:680px;margin:0 0 16px;color:var(--muted);font-size:.9rem}
 .pledge{display:flex;align-items:flex-start;gap:10px;max-width:700px;margin:0 0 17px;color:var(--ink);font-size:.83rem;cursor:pointer}
 .pledge input{width:20px;height:20px;flex:0 0 20px;margin-top:4px;accent-color:var(--green)}
 .book-actions{display:flex;flex-wrap:wrap;gap:10px}
 .site-footer{padding:34px 0;background:#102f28;color:#d9e3dc}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.footer-brand{color:#f1dfb5;font-weight:800;font-size:1.05rem}
+.footer-brand{color:#f1dfb5;font-weight:700;font-size:1.05rem}
 .footer-note{margin:5px 0 0;color:#c0cec4;font-size:.78rem}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px 22px}
 .footer-links a{display:inline-flex;align-items:center;min-height:42px;color:#e1e9e3;font-size:.85rem}
@@ -151,11 +141,11 @@ button{cursor:pointer}
 .back-to-top{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;background:var(--green);color:#fff;box-shadow:0 7px 20px #0003;opacity:0;visibility:hidden;transition:.2s}
 .back-to-top.visible{opacity:1;visibility:visible}
 .modal{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:18px;background:#101c18c9;backdrop-filter:blur(7px)}
-.modal-panel{width:min(760px,100%);max-height:min(90dvh,900px);overflow:auto;border:1px solid #d8c18b66;border-radius:22px;background:var(--paper);box-shadow:0 30px 90px #0005}
+.modal-panel{width:min(760px,100%);max-height:min(90vh,900px);max-height:min(90dvh,900px);overflow:auto;border:1px solid #d8c18b66;border-radius:22px;background:var(--paper);box-shadow:0 30px 90px #0005}
 .modal-full{padding:0;place-items:stretch}
-.modal-full .modal-panel{width:100%;max-width:none;height:100dvh;max-height:none;border:0;border-radius:0}
+.modal-full .modal-panel{width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;border:0;border-radius:0}
 .modal-head{position:sticky;z-index:2;top:0;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px 22px;border-bottom:1px solid var(--line);background:#fffdf8f5}
-.modal-head h2{margin:0;color:var(--green);font-family:Amiri,serif;font-size:1.35rem}
+.modal-head h2{margin:0;color:var(--green);font-size:1.35rem}
 .modal-close{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--green);font-size:1.4rem}
 .modal-body{padding:22px}
 .modal-body p{color:var(--muted)}
@@ -170,7 +160,7 @@ button{cursor:pointer}
 .lightbox-panel .modal-head{background:#111;border-color:#ffffff20}
 .lightbox-panel .modal-head h2{color:#fff}
 .lightbox-panel .modal-close{background:#263d34;color:#fff;border:0}
-.lightbox-image{display:block;width:100%;max-height:76dvh;object-fit:contain;background:#111}
+.lightbox-image{display:block;width:100%;max-height:76vh;max-height:76dvh;object-fit:contain;background:#111}
 .about-layout{display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:start}
 .about-avatar{width:110px;height:110px;border:3px solid var(--gold);border-radius:24px;object-fit:cover}
 .about-layout h3{margin:0;color:var(--green);font-size:1.1rem}
@@ -186,11 +176,18 @@ button{cursor:pointer}
 }
 @media(max-width:480px){
  body{font-size:15px}.container{width:calc(100% - 24px)}.content-grid{gap:10px}.content-card{min-height:205px;padding:14px;border-radius:16px}.content-card h3{font-size:.96rem}.content-card p{font-size:.78rem;line-height:1.65}
- .content-card .icon{width:40px;height:40px}.card-link{min-height:36px;padding:6px 12px;font-size:.77rem}.card-wide{grid-column:1/-1}.card-wide p{display:block}
+ .content-card .icon{width:40px;height:40px}.card-link{min-height:36px;padding:6px 12px;font-size:.77rem}.card-wide{grid-column:1/-1}
  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-layout{grid-template-columns:1fr}.about-avatar{width:88px;height:88px}
- .weather-widget-container,.weather-widget-container iframe{height:720px}.paper-page{padding:15px}.paper-page h2{font-size:2rem}
+ .weather-widget-container,.weather-widget-container iframe{height:720px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* ===== كتابة سوداء عادية ===== */
+html body,html body *{font-family:Tahoma,Arial,sans-serif!important;text-shadow:none!important}
+body *{color:#111!important}
+.hero,.hero *,.site-footer,.site-footer *,.lightbox-panel *,.toast,.btn-green,.back-to-top{color:#fff!important}
+.hero .btn-gold,.hero .btn-gold *{color:#111!important}
+input::placeholder{color:#6b6b6b!important}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
 <script>
@@ -213,7 +210,7 @@ gtag('js',new Date());gtag('config','G-3VZQSDZNC7');
   </nav>
  </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
  <section class="hero" id="home" aria-labelledby="heroTitle">
   <div class="container hero-grid">
    <div class="hero-copy">
@@ -227,7 +224,7 @@ gtag('js',new Date());gtag('config','G-3VZQSDZNC7');
     <div class="calli-stage" id="calliStage"><div class="calli-float"><div class="calli" id="calli">
      <svg class="orn" viewBox="0 0 200 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 13C35 13 35 4 55 4s20 18 0 18S35 13 10 13M190 13c-25 0-25-9-45-9s-20 18 0 18 20-9 45-9M70 13h60M100 2l7 11-7 11-7-11z"/></svg>
      <p class="c-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-     <h2 class="c-ayah"><span>أَلَا بِذِكْرِ اللَّهِ</span><span>تَطْمَئِنُّ الْقُلُوبُ</span></h2>
+     <p class="c-ayah"><span>أَلَا بِذِكْرِ اللَّهِ</span><span>تَطْمَئِنُّ الْقُلُوبُ</span></p>
      <div class="c-tasbih"><span>سُبْحَانَ اللَّهِ</span><span>الْحَمْدُ لِلَّهِ</span><span>لَا إِلَٰهَ إِلَّا اللَّهُ</span><span>اللَّهُ أَكْبَرُ</span></div>
      <p class="c-salawat">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
      <svg class="orn" viewBox="0 0 200 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 13C35 13 35 4 55 4s20 18 0 18S35 13 10 13M190 13c-25 0-25-9-45-9s-20 18 0 18 20-9 45-9M70 13h60M100 2l7 11-7 11-7-11z"/></svg>
@@ -246,10 +243,10 @@ gtag('js',new Date());gtag('config','G-3VZQSDZNC7');
    </div>
    <p class="search-status" id="searchStatus" aria-live="polite"></p>
    <div class="content-grid" id="contentGrid">
-    <article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><span class="card-index">01</span></div><h3>الشرقاط</h3><p>بعض التلميحات عن الشرقاط: تاريخها وملامحها وموروثها الثقافي والاجتماعي.</p><a class="card-link" href="shirqat.html">اضغط هنا ←</a></article>
-    <article class="content-card" data-search="علماء الشرقاط رحمهم الله ملا مرعي هايس الفقه الدين ulama scholars"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5ZM6 6h12M6 10h12"/></svg></span><span class="card-index">02</span></div><h3>سيرة بعض علماء الدين في الشرقاط</h3><p>سير عطرة وأعلام من توثيق وتاريخ علماء الشرقاط الأجلاء، وسنوافيكم بإذن الله بقصص وسير أخرى.</p><a class="card-link" href="scholars.html">اضغط هنا ←</a></article>
-    <article class="content-card card-wide" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5"/></svg></span><span class="card-index">03</span></div><h3>المكتبة والمؤلفات</h3><div class="covers-strip" id="coversStrip" hidden></div><p class="swipe-hint" id="swipeHint" hidden>← اسحب لمزيد من الكتب</p><p>تصفّح الكتب والدواوين والروايات.</p><a class="card-link" href="book.html">اضغط هنا ←</a></article>
-    <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg></span><span class="card-index">04</span></div><h3>معرض الصور</h3><p>صور ولقطات وتاريخ مصور من مدينة الشرقاط.</p><button class="card-link" type="button" data-open="galleryModal">اضغط هنا ←</button></article>
+    <article class="content-card card-wide" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5"/></svg></span><span class="card-index">01</span></div><h3>المكتبة والمؤلفات</h3><div class="covers-strip" id="coversStrip" hidden></div><p class="swipe-hint" id="swipeHint" hidden>← اسحب لمزيد من الكتب</p><p>تصفّح الكتب والدواوين والروايات.</p><a class="card-link" href="book.html">اضغط هنا ←</a></article>
+    <article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><span class="card-index">02</span></div><h3>الشرقاط</h3><p>بعض التلميحات عن الشرقاط: تاريخها وملامحها وموروثها الثقافي والاجتماعي.</p><a class="card-link" href="shirqat.html">اضغط هنا ←</a></article>
+    <article class="content-card" data-search="علماء الشرقاط رحمهم الله ملا مرعي هايس الفقه الدين ulama scholars"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5ZM6 6h12M6 10h12"/></svg></span><span class="card-index">03</span></div><h3>سيرة بعض علماء الدين في الشرقاط</h3><p>سِيَر عطرة وأعلام من توثيق تاريخ علماء الشرقاط الأجلّاء، وسنوافيكم بإذن الله بسِيَر وقصص أخرى.</p><a class="card-link" href="scholars.html">اضغط هنا ←</a></article>
+    <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg></span><span class="card-index">04</span></div><h3>معرض الصور</h3><p>صور ولقطات وتاريخ مصوَّر من مدينة الشرقاط.</p><button class="card-link" type="button" data-open="galleryModal">اضغط هنا ←</button></article>
     <article class="content-card" data-search="مقالات وبرامج مدونة ووردبريس wordpress تدوينات"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="m4 20 4-.8L19 8l-4-4L4 15zM13.5 5.5l4 4"/></svg></span><span class="card-index">05</span></div><h3>المقالات والمدونة</h3><p>مقالات وتدوينات ثقافية جديدة على المدونة.</p><a class="card-link" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">اضغط هنا ↗</a></article>
     <article class="content-card" data-search="الجد عقاب عگاب اوكاب okab الأجداد العائلة"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="card-index">06</span></div><h3>الجد عگاب رحمه الله</h3><p>نافذة على الذاكرة العائلية وسيرة الأجداد، بما فيها من مواقف ودروس.</p><a class="card-link" href="okab.html">اضغط هنا ←</a></article>
     <article class="content-card" data-search="الشيخ شلاش رحمه الله shelash قصة تاريخ سيرة"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/></svg></span><span class="card-index">07</span></div><h3>قصص رجال طيّبي الصيت من أهل السيرة</h3><p>حكايات وسِيَر محلية تستحق أن تبقى في الذاكرة وتتناقلها الأجيال.</p><a class="card-link" href="shelash.html">اضغط هنا ←</a></article>
@@ -264,26 +261,8 @@ gtag('js',new Date());gtag('config','G-3VZQSDZNC7');
 
  <section class="section weather-widget-section" id="weather" aria-labelledby="weatherTitle"><div class="container">
   <div class="section-heading"><div><span class="eyebrow">حالة الجو · تصميم وإعداد محمد علي أحمد الحطاب الجبوري</span><h2 id="weatherTitle">طقس الشرقاط المباشر</h2></div></div>
-  <div class="weather-widget-container"><iframe src="weather.html?v=2" scrolling="no" title="واجهة طقس الشرقاط" loading="lazy"></iframe></div>
+  <div class="weather-widget-container"><iframe src="weather.html?v=2" title="واجهة طقس الشرقاط" loading="lazy"></iframe></div>
  </div></section>
-
- <section class="section" id="memory" aria-labelledby="memoryTitle"><div class="container"><article class="paper-page">
-  <figure><img src="memory-1984.jpg" alt="صورة من عام 1984" loading="lazy"><figcaption>صورتي في عام ١٩٨٤ في حاوي بعاجة طريق الدوبة، التقطها لي الأخ والصديق رحمه الله حسين العلي الحصوات بكامرتي.</figcaption></figure>
-  <h2 id="memoryTitle">شفت صورتي</h2>
-  <div class="verses">
-   <p>شـفـت صـورتـي مـن مِـضى هَـيـضِت جـروحي وعَـن</p><p>يـوم الـنـوايـا صِـدگ والـوِكِـت مـا بـيه عَـن</p><p>يـا ريـت ذيچ الـلـيـالي والـعِـمِـر يـرجـعَـن</p><p>چـانـت مَـحَـنة وشِـيَـم والـعِـيـش خِـبـزة ومَـي</p><p>وظـل الـكـرامـة وفِـيـد الـنـاس لـلـنـاس مَـي</p><p>الـيـوم كِـلـمَـن يـحـوف بـدنـيـتـه والـمَـي</p><p>مـا عـاد صـافـي وعـلـيـه غيــوم هم اوعَـن</p>
-  </div>
-  <h3 class="meaning-title">المعنى</h3>
-  <div class="meanings">
-   <div class="m"><h4>مِضى / هَيضِت / عَن</h4><p>مِضى: الماضي أو ما انقضى من العمر. هَيضِت: هاجت وتحركت، أي تجددت الأحزان والجروح. عَن: أبعدت أو حادت، أو بمعنى عَنَّت أي خطرت على البال وظهرت.</p></div>
-   <div class="m"><h4>يوم النوايا صدگ والوكت ما بيه عَن</h4><p>النوايا صدگ: القلوب صافية والنوايا صادقة وغير مزيفة. الوكت ما بيه عَن: الزمن لم يكن فيه غدر أو التواء ومكر.</p></div>
-   <div class="m"><h4>يا ريت ذيچ الليالي والعمر يرجعَن</h4><p>ذيچ الليالي: تلك الأيام الخوالي. يرجعَن: ليت الشباب وتلك الفترة تعود مجدداً.</p></div>
-   <div class="m"><h4>چانت محنة وشيم والعيش خبزة ومي</h4><p>محنة وشيم: مودة وتآخٍ وأخلاق عالية ومروءة. العيش خبزة ومي: الحياة بسيطة ومكتفية بالقليل الشريف دون طمع.</p></div>
-   <div class="m"><h4>ظل الكرامة وفيد الناس للناس مَي</h4><p>ظل الكرامة: العزة والرفعة والمكانة المصانة. فيد الناس للناس: منفعة الناس وخدمتهم لبعضهم ومواقفهم الطيبة. مَي في هذا السياق: تدل على سهولة الفائدة للناس.</p></div>
-   <div class="m"><h4>اليوم كلمن يحوف بدنيته والمي</h4><p>كلمن يحوف بدنيته: كل شخص يسعى لمصالحه الخاصة ويحاول الاستحواذ لنفسه. المَي: المال والمكاسب الدنيوية التي يسعى خلفها الناس.</p></div>
-   <div class="m"><h4>ما عاد صافي وعليه غيوم هم اوعَن</h4><p>ما عاد صافي: لم تعد النفوس ولا الأيام صافية كالسابق. غيوم هم اوعَن: تراكمت غيوم الهموم والأحزان والغموض فوق الأجواء.</p></div>
-  </div>
- </article></div></section>
 
  <section class="section"><div class="container"><article class="media-card">
   <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></span>
@@ -305,7 +284,7 @@ gtag('js',new Date());gtag('config','G-3VZQSDZNC7');
 </div></div>
 <div class="modal modal-full" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle" hidden><div class="modal-panel">
  <div class="modal-head"><h2 id="galleryModalTitle">معرض الصور</h2><button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button></div>
- <div class="modal-body"><p>اضغط على أي صورة لتكبيرها.</p><div class="modal-status" id="galleryStatus" role="status">جارٍ تحميل الصور…</div><div class="gallery-grid mt" id="galleryGrid"></div><button class="btn btn-light mt" id="retryGallery" type="button">إعادة المحاولة ↻</button></div>
+ <div class="modal-body"><p>اضغط على أي صورة لتكبيرها.</p><div class="modal-status" id="galleryStatus" role="status">جارٍ تحميل الصور…</div><div class="gallery-grid mt" id="galleryGrid"></div><button class="btn btn-light mt" id="retryGallery" type="button" hidden>إعادة المحاولة ↻</button></div>
 </div></div>
 <div class="modal" id="lightboxModal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden><div class="modal-panel lightbox-panel">
  <div class="modal-head"><h2 id="lightboxTitle">عرض الصورة</h2><button class="modal-close" type="button" data-close aria-label="إغلاق الصورة">×</button></div><img class="lightbox-image" id="lightboxImage" alt="">
@@ -360,8 +339,8 @@ window.addEventListener("resize",()=>{if(innerWidth>780)closeMenu()});
 
 function normalizeText(v){
  return String(v||"").normalize("NFD")
-  .replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed]/g,"")
-  .replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").toLowerCase().trim();
+  .replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g,"")
+  .replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/گ/g,"ك").replace(/چ/g,"ج").replace(/پ/g,"ب").replace(/ڤ/g,"ف").toLowerCase().trim();
 }
 const searchInput=$("#siteSearch"),contentCards=$$(".content-card");
 function runSearch(){
@@ -390,6 +369,7 @@ function hideModal(modal){
  if(modal.id==="lightboxModal")$("#lightboxImage")?.removeAttribute("src");
  modal.hidden=true;openModals=openModals.filter(item=>item!==modal);
  if(!openModals.length){document.body.classList.remove("modal-open");previousFocus?.focus?.()}
+ else openModals[openModals.length-1].querySelector("[data-close]")?.focus();
 }
 function closeModal(modal){hideModal(modal)}
 $$("[data-open]").forEach(trigger=>trigger.addEventListener("click",e=>{
@@ -400,26 +380,41 @@ $$(".modal").forEach(modal=>{
  modal.addEventListener("click",e=>{if(e.target===modal)closeModal(modal)});
 });
 document.addEventListener("keydown",e=>{
- if(e.key==="Escape"&&openModals.length)closeModal(openModals[openModals.length-1]);
+ if(e.key==="Escape"){if(openModals.length)closeModal(openModals[openModals.length-1]);else closeMenu();return}
+ if(e.key==="Tab"&&openModals.length){
+  const f=$$('button:not([hidden]),a[href],input,iframe',openModals[openModals.length-1]).filter(x=>!x.closest("[hidden]"));
+  if(!f.length)return;const a=f[0],z=f[f.length-1];
+  if(!openModals[openModals.length-1].contains(document.activeElement)){e.preventDefault();a.focus()}
+  else if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}
+  else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+ }
 });
 
+const ghCache=new Map();
 async function fetchGitHubFiles(folder){
+ if(ghCache.has(folder))return ghCache.get(folder);
+ try{const c=JSON.parse(sessionStorage.getItem("gh:"+folder)||"null");if(c&&Date.now()-c.t<6e5){ghCache.set(folder,c.d);return c.d}}catch(_){}
  const url=`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`;
- const response=await fetch(url,{headers:{Accept:"application/vnd.github+json"}});
+ let response;
+ try{response=await fetch(url,{headers:{Accept:"application/vnd.github+json"}})}catch(_){throw new Error("تعذر الاتصال بالإنترنت. تحقق من الشبكة وحاول مجدداً.")}
  if(!response.ok){
   if(response.status===403||response.status===429)throw new Error("وصلنا إلى حد الطلبات المؤقت من GitHub. حاول بعد قليل.");
   if(response.status===404)throw new Error(`لم يتم العثور على مجلد "${folder}" في المستودع.`);
   throw new Error(`تعذر تحميل الملفات (HTTP ${response.status}).`);
  }
  const data=await response.json();if(!Array.isArray(data))throw new Error("استجابة الملفات غير متوقعة.");
- return data.filter(item=>item&&item.type==="file"&&item.download_url);
+ const files=data.filter(item=>item&&item.type==="file"&&item.download_url).map(({name,download_url})=>({name,download_url}));
+ ghCache.set(folder,files);
+ try{sessionStorage.setItem("gh:"+folder,JSON.stringify({t:Date.now(),d:files}))}catch(_){}
+ return files;
 }
 const naturalArabicSort=(a,b)=>a.name.localeCompare(b.name,"ar",{numeric:true,sensitivity:"base"});
 const cleanName=name=>name.replace(/\.[^.]+$/,"").replace(/[_-]+/g," ");
-let galleryLoaded=false;
+let galleryLoaded=false,galleryLoading=false;
 async function loadGallery(force=false){
- if(galleryLoaded&&!force)return;
+ if(galleryLoading||(galleryLoaded&&!force))return;
  const grid=$("#galleryGrid");if(!grid||!$("#galleryStatus"))return;
+ galleryLoading=true;$("#retryGallery").hidden=true;
  setText("#galleryStatus","جارٍ تحميل الصور…");grid.replaceChildren();
  try{
   const files=await fetchGitHubFiles(CONFIG.photosFolder);
@@ -438,7 +433,8 @@ async function loadGallery(force=false){
    grid.append(button);
   });
   galleryLoaded=true;
- }catch(error){setText("#galleryStatus",error.message||"تعذر تحميل معرض الصور.")}
+ }catch(error){setText("#galleryStatus",error.message||"تعذر تحميل معرض الصور.");$("#retryGallery").hidden=false}
+ finally{galleryLoading=false}
 }
 $("#retryGallery")?.addEventListener("click",()=>loadGallery(true));
 async function loadCovers(){
@@ -464,14 +460,14 @@ if(CONFIG.whatsapp){
  if(footer){
   footer.href=wa;footer.hidden=false;
   const n=CONFIG.whatsapp;
-  if(n.startsWith("964"))footer.innerHTML=`<span>هل لديك ملاحظة؟ راسلنا عبر واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0,3)} ${n.slice(3,6)} ${n.slice(6,9)} ${n.slice(9)}</small>`;
+  if(n.startsWith("964"))footer.innerHTML=`<span>هل لديك ملاحظة؟ راسلنا عبر واتساب ↗</span><small dir="ltr">+${n.slice(0,3)} ${n.slice(3,6)} ${n.slice(6,9)} ${n.slice(9)}</small>`;
  }
 }
 const pledgeBook=$("#pledgeBook"),bookLink=$("#bookLink");
 function syncPledge(){bookLink?.setAttribute("aria-disabled",String(!pledgeBook?.checked))}
 pledgeBook?.addEventListener("change",syncPledge);syncPledge();
 bookLink?.addEventListener("click",event=>{
- if(!pledgeBook?.checked){event.preventDefault();showToast("يرجى الضغط على التعهد أولاً.")}
+ if(!pledgeBook?.checked){event.preventDefault();showToast("يرجى الموافقة على التعهد أولاً.")}
 });
 const backToTop=$("#backToTop");
 window.addEventListener("scroll",()=>backToTop?.classList.toggle("visible",window.scrollY>450),{passive:true});
