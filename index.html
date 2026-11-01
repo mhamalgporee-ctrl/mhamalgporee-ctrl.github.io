@@ -370,6 +370,33 @@ main>.section:last-child::before{display:none}
 .hero-actions .btn-outline:hover{
   color:var(--green-text-hover);
 }
+/* ===== ظل أخضر خفيف للكتابة ثلاثية الأبعاد ===== */
+.c-bismillah{
+  text-shadow:
+    1px 1px 0 #d8eedc,
+    2px 2px 0 #b5dbbd,
+    2px 3px 3px rgba(40,100,60,.3);
+}
+.c-ayah{
+  text-shadow:
+    -1px -1px 0 #f2fff5,
+    1px 1px 0 #d6edda,2px 2px 0 #c3e4ca,3px 3px 0 #afdbb8,
+    4px 4px 0 #9bd1a7,5px 5px 0 #86c595,
+    6px 8px 10px rgba(40,100,60,.35);
+}
+.c-tasbih span,
+.c-salawat{
+  text-shadow:
+    1px 1px 0 #d8eedc,
+    2px 2px 0 #aedab7,
+    2px 3px 4px rgba(40,100,60,.3);
+}
+.orn{
+  filter:drop-shadow(1px 1px 0 #86c595) drop-shadow(2px 3px 3px rgba(40,100,60,.3));
+}
+.c-tasbih span+span::before{
+  text-shadow:1px 1px 0 #86c595;
+}
 </style>
 <script>document.documentElement.classList.add("js");</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
