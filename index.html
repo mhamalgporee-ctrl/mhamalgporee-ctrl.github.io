@@ -397,6 +397,14 @@ main>.section:last-child::before{display:none}
 .c-tasbih span+span::before{
   text-shadow:1px 1px 0 #86c595;
 }
+/* ===== ظل أخضر للشريط المتحرك (مثل آية ألا بذكر الله) ===== */
+.marquee span{
+  text-shadow:
+    -1px -1px 0 #f2fff5,
+    1px 1px 0 #d6edda,2px 2px 0 #c3e4ca,3px 3px 0 #afdbb8,
+    4px 4px 0 #9bd1a7,5px 5px 0 #86c595,
+    6px 8px 8px rgba(40,100,60,.35);
+}
 </style>
 <script>document.documentElement.classList.add("js");</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
@@ -646,7 +654,7 @@ gtag('config','G-3VZQSDZNC7');
       <a href="scholars.html">علماء الشرقاط</a>
       <a href="book.html">المؤلفات</a>
       <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
-      <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>هل لديك ملاحظة؟ راسلنا عبر واتساب ↗</a>
+      <a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>هل لديك ملاحظة؟ راسلنا عبر واتساب · اضغط هنا ↗</a>
     </nav>
   </div>
 </footer>
@@ -942,9 +950,7 @@ loadCovers();
   const text = encodeURIComponent("السلام عليكم، أود إرسال ملاحظة عبر موقع الشرقاط الثقافي الأول.");
   link.href = `https://wa.me/${n}?text=${text}`;
   link.hidden = false;
-  if (n.startsWith("964")) {
-    link.innerHTML = `<span>هل لديك ملاحظة؟ راسلنا عبر واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0, 3)} ${n.slice(3, 6)} ${n.slice(6, 9)} ${n.slice(9)}</small>`;
-  }
+  link.textContent = "هل لديك ملاحظة؟ راسلنا عبر واتساب · اضغط هنا ↗";
 })();
 /* ===== التعهد ===== */
 const pledgeBook = $("#pledgeBook");
