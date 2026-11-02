@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>الشرقاط الثقافي الأول | مجلة ثقافية</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#102f28">
+<meta name="theme-color" content="#123d32">
 <meta name="description" content="الشرقاط الثقافي الأول — نافذة ثقافية وأدبية توثق تاريخ الشرقاط وتراثها وذاكرتها، بإشراف محمد علي أحمد الحطاب الجبوري.">
 <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
 <meta property="og:type" content="website">
@@ -15,122 +15,365 @@
 <meta property="og:locale" content="ar_IQ">
 <meta property="og:site_name" content="الشرقاط الثقافي الأول">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="الشرقاط الثقافي الأول | مجلة ثقافية">
-<meta name="twitter:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
 <link rel="canonical" href="https://mhamalgporee-ctrl.github.io/">
 <link rel="icon" href="acon.jpg" type="image/jpeg">
 <style>
-:root{--green:#123d32;--green2:#1c5747;--green3:#2b6b58;--ivory:#f5f1e8;--paper:#fffdf8;--gold:#b79550;--gold2:#dfc991;--ink:#25342c;--muted:#718078;--line:#e8e0d1;--shadow:0 22px 60px rgba(22,52,40,.11);--radius:24px;--container:1200px}
+:root{--green:#123d32;--ivory:#f6f1e7;--paper:#fffdf8;--gold:#b79550;--gold-2:#d8c18b;--ink:#111;--soft:#333;--line:#e4ddce;--sand:#e9dfc9}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{margin:0;background:var(--ivory);color:var(--ink);font-family:Tahoma,Arial,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
-body.modal-open{overflow:hidden}
-img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}
-:focus-visible{outline:3px solid var(--gold);outline-offset:4px}::selection{background:var(--gold2);color:#172b22}[hidden]{display:none!important}
-.skip-link{position:fixed;z-index:9999;top:10px;right:10px;padding:10px 18px;border-radius:12px;background:var(--paper);transform:translateY(-150%)}.skip-link:focus{transform:translateY(0)}
-.container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
-.site-header{position:sticky;z-index:100;top:0;background:rgba(255,253,248,.91);backdrop-filter:blur(18px);border-bottom:1px solid rgba(18,61,50,.1);box-shadow:0 5px 25px #183d2c0a}
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:82px}
-.brand{display:flex;align-items:center;gap:13px;min-width:0}.brand-mark{width:52px;height:52px;flex:0 0 52px;overflow:hidden;border:2px solid var(--gold);border-radius:17px;background:var(--green);box-shadow:0 7px 20px #123d3228}.brand-mark img{width:100%;height:100%;object-fit:cover}
-.brand-title{display:block;color:var(--green);font-weight:700;font-size:1.08rem;line-height:1.4}.brand-subtitle{display:block;color:var(--muted);font-size:.73rem}
-.nav-links{display:flex;align-items:center;gap:22px}.nav-links a{position:relative;padding:9px 0;color:#35483e;font-size:.86rem;font-weight:700;white-space:nowrap}.nav-links a:after{position:absolute;right:0;bottom:2px;width:0;height:2px;background:var(--gold);content:"";transition:width .25s}.nav-links a:hover:after{width:100%}
-.menu-toggle{display:none;width:45px;height:45px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--green);font-size:1.3rem}
-.hero{position:relative;isolation:isolate;overflow:hidden;padding:66px 0 54px;background:radial-gradient(circle at 80% 20%,#39715b66,transparent 30%),linear-gradient(125deg,#0e3028,#174b3c 58%,#28634e);color:#fff}
-.hero:before,.hero:after{position:absolute;z-index:-1;content:"";border:1px solid #e0c78b35;border-radius:50%;pointer-events:none}.hero:before{width:570px;height:570px;top:-370px;left:-130px}.hero:after{width:400px;height:400px;bottom:-330px;right:26%}
-.hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:42px}.hero-copy{max-width:680px}
-.hero-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;padding:7px 15px;border:1px solid #dfc99180;border-radius:999px;color:#f1dfb5;background:#ffffff0b;font-size:.82rem;font-weight:700}.hero-kicker span{width:8px;height:8px;border-radius:50%;background:var(--gold2);box-shadow:0 0 0 5px #d8c18b22}
-.hero h1{margin:0 0 14px;font-size:clamp(2.8rem,6vw,5rem);line-height:1.13;font-weight:700;color:#fff;letter-spacing:-1px}.hero h1 .hero-accent{display:block;color:#e4cd96}
-.hero-byline{margin:0 0 9px;color:#e7eee9;font-size:1rem}.hero-quote{margin:0 0 25px;padding-right:16px;border-right:3px solid var(--gold2);color:#f4ead4;font-size:1.22rem}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:47px;padding:10px 21px;border:1px solid transparent;border-radius:999px;font-size:.88rem;font-weight:700;transition:transform .2s,box-shadow .2s,background .2s}.btn:hover{transform:translateY(-3px);box-shadow:0 9px 22px #0002}.btn-gold{background:linear-gradient(135deg,#f0dfb2,#b79550);color:#26372c;box-shadow:0 8px 22px #080f0c35}.btn-ghost{border-color:#e7d7b0aa;background:#ffffff0b;color:#fff}.btn-ghost:hover{background:#ffffff18}.btn-green{background:var(--green);color:#fff}.btn-light{background:var(--paper);border-color:var(--line);color:var(--green)}.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
-.calli-stage{perspective:900px;max-width:530px;margin-inline:auto}.calli-float{animation:float 8s ease-in-out infinite}.calli{transition:transform .15s ease-out;padding:24px 12px;text-align:center;transform-style:preserve-3d}.orn{display:block;width:min(210px,65%);height:auto;margin:0 auto;color:#d6b96f;filter:drop-shadow(0 5px 4px #0005)}.c-bismillah{margin:3px 0;color:#f4dfaa;font-size:1.15rem;text-shadow:0 3px 12px #0007}.c-ayah{margin:4px 0 8px;color:#fff3d0;font-size:clamp(2rem,5vw,3.25rem);line-height:1.5;text-shadow:0 4px 0 #8a6b31,0 9px 18px #0008}.c-ayah span{display:block}.c-tasbih{display:flex;flex-wrap:wrap;justify-content:center;gap:3px 13px;color:#f1d99e;font-size:1rem}.c-salawat{margin:10px 0 0;color:#f5e8c8;font-size:1rem}
-@keyframes float{0%,100%{transform:translateY(0) rotateY(-2deg)}50%{transform:translateY(-10px) rotateY(2deg)}}
-.hero-image-caption{display:flex;justify-content:space-between;gap:10px;margin-top:4px;color:#dbe7df;font-size:.76rem}
-.ticker{overflow:hidden;background:#e9dfc9;border-block:1px solid #d9cba9;color:var(--green)}.ticker-inner{padding:10px 0;font-weight:700}.marquee{overflow:hidden;direction:ltr;white-space:nowrap}.marquee span{display:inline-block;direction:rtl;animation:marquee 32s linear infinite}@keyframes marquee{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
-.section{padding-block:76px}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#947638;font-size:.78rem;font-weight:700;letter-spacing:.2px}.eyebrow:before{width:28px;height:2px;background:var(--gold);content:""}.section-heading h2{margin:7px 0 0;color:var(--green);font-size:clamp(2rem,4vw,2.9rem);line-height:1.3}.section-heading p{max-width:480px;margin:0;color:var(--muted);font-size:.93rem}.poetry-sub{margin:8px 0 0;color:var(--muted);font-size:1rem}
-.search-box{display:flex;align-items:center;gap:10px;width:min(400px,100%);padding:12px 17px;border:1px solid var(--line);border-radius:999px;background:var(--paper);box-shadow:0 7px 22px #203d2910}.search-box span{color:var(--gold);font-size:1.4rem}.search-box input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font-size:.87rem}.search-box:focus-within{border-color:var(--gold);box-shadow:0 0 0 4px #b795501c}.search-status{min-height:22px;margin:-12px 0 14px;color:var(--muted);font-size:.82rem}
-.content-grid{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.content-card{position:relative;display:flex;flex-direction:column;min-height:245px;padding:25px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(155deg,#fffefa,#fffdf8 70%,#f7f2e8);box-shadow:0 8px 28px #203d2909;transition:transform .28s,box-shadow .28s,border-color .28s}.content-card:before{position:absolute;top:0;right:25px;left:25px;height:3px;border-radius:0 0 5px 5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);content:"";opacity:0;transition:opacity .25s}.content-card:hover{transform:translateY(-7px);border-color:#cbb77f;box-shadow:var(--shadow)}.content-card:hover:before{opacity:1}
-.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.icon{display:grid;place-items:center;width:51px;height:51px;border:1px solid #dce6dc;border-radius:17px;background:linear-gradient(145deg,#edf3eb,#e0eae0);color:var(--green)}.icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.card-index{color:#b4a783;font-family:Georgia,serif;font-size:.9rem;direction:ltr}.content-card h3{margin:0 0 8px;color:var(--green);font-size:1.12rem;line-height:1.5}.content-card p{margin:0 0 18px;color:var(--muted);font-size:.86rem;line-height:1.8}.card-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;align-self:flex-start;min-height:39px;margin-top:auto;padding:7px 17px;border:0;border-radius:999px;background:#eee6d5;color:#344332;font-size:.82rem;font-weight:700;transition:.2s}.card-link:hover{background:var(--green);color:#fff;transform:translateY(-2px)}.card-wide{grid-column:span 2}
-.covers-strip{display:flex;gap:12px;margin:0 0 10px;padding:4px 2px 9px;overflow-x:auto;scroll-snap-type:x proximity}.covers-strip a{flex:0 0 auto;scroll-snap-align:start}.covers-strip img{width:82px;height:116px;object-fit:cover;border:1px solid var(--line);border-radius:5px 9px 9px 5px;box-shadow:0 5px 12px #243b291e;transition:transform .2s}.covers-strip a:hover img{transform:translateY(-4px)}.swipe-hint{margin:0 0 8px;color:var(--muted);font-size:.72rem}.no-results{padding:30px;color:var(--muted);text-align:center}
-.weather-widget-section{padding-top:12px}.weather-widget-container{width:100%;max-width:900px;height:780px;overflow:hidden;margin:0 auto;border:1px solid var(--line);border-radius:25px;background:var(--paper);box-shadow:var(--shadow)}.weather-widget-container iframe{width:100%;height:780px;border:0}
-.media-card{position:relative;overflow:hidden;padding:36px;border:1px solid #e3d7bd;border-radius:var(--radius);background:radial-gradient(circle at 100% 0,#eadfca 0,transparent 36%),linear-gradient(120deg,#fffdf8,#f0eadc);box-shadow:var(--shadow)}.media-card .icon{margin-bottom:15px;background:#e8eee7}.media-card h3{margin:0 0 8px;color:var(--green);font-size:1.7rem}.media-card p{max-width:680px;margin:0 0 16px;color:var(--muted);font-size:.9rem}.pledge{display:flex;align-items:flex-start;gap:10px;max-width:700px;margin:0 0 18px;color:var(--ink);font-size:.83rem;cursor:pointer}.pledge input{width:20px;height:20px;flex:0 0 20px;margin-top:4px;accent-color:var(--green)}.book-actions{display:flex;flex-wrap:wrap;gap:10px}
-.site-footer{padding:42px 0;background:linear-gradient(120deg,#0d2b24,#143b30);color:#d9e3dc}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}.footer-brand{color:#f1dfb5;font-weight:700;font-size:1.08rem}.footer-note{margin:5px 0 0;color:#c0cec4;font-size:.78rem}.footer-links{display:flex;flex-wrap:wrap;gap:8px 22px}.footer-links a{display:inline-flex;align-items:center;min-height:42px;color:#e1e9e3;font-size:.85rem}.footer-links a:hover{color:#e1c98f}#waFooter{flex-direction:column;align-items:flex-start;justify-content:center;line-height:1.5}#waFooter small{color:#b9c8be;font-size:.75rem}
-.back-to-top{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:48px;height:48px;border:1px solid #ffffff30;border-radius:50%;background:var(--green);color:#fff;box-shadow:0 7px 20px #0003;opacity:0;visibility:hidden;transition:.2s}.back-to-top.visible{opacity:1;visibility:visible}
-.modal{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:18px;background:#101c18d9;backdrop-filter:blur(8px)}.modal-panel{width:min(780px,100%);max-height:min(90vh,900px);max-height:min(90dvh,900px);overflow:auto;border:1px solid #d8c18b66;border-radius:24px;background:var(--paper);box-shadow:0 30px 90px #0005}.modal-full{padding:0;place-items:stretch}.modal-full .modal-panel{width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;border:0;border-radius:0}.modal-head{position:sticky;z-index:2;top:0;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px 23px;border-bottom:1px solid var(--line);background:#fffdf8f5}.modal-head h2{margin:0;color:var(--green);font-size:1.35rem}.modal-close{display:grid;place-items:center;width:41px;height:41px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--green);font-size:1.4rem}.modal-body{padding:24px}.modal-body p{color:var(--muted)}.modal-status{padding:11px 14px;border-radius:12px;background:#edf1e9;color:var(--muted);font-size:.84rem}.mt{margin-top:14px}.video-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:15px;background:#102f28}.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.gallery-item{aspect-ratio:1;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:var(--ivory)}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}.gallery-item:hover img{transform:scale(1.06)}.lightbox-panel{width:min(1100px,100%);overflow:hidden;background:#111}.lightbox-panel .modal-head{background:#111;border-color:#ffffff20}.lightbox-panel .modal-head h2{color:#fff}.lightbox-panel .modal-close{background:#263d34;color:#fff;border:0}.lightbox-image{display:block;width:100%;max-height:76vh;max-height:76dvh;object-fit:contain;background:#111}.about-layout{display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:start}.about-avatar{width:110px;height:110px;border:3px solid var(--gold);border-radius:24px;object-fit:cover}.about-layout h3{margin:0;color:var(--green);font-size:1.1rem}
-.toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 30px);padding:11px 18px;border:1px solid #d8c18b;border-radius:999px;background:#123d32;color:#fff;box-shadow:0 10px 30px #0003;font-size:.84rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s}.toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
-@media(max-width:1050px){.nav-links{gap:12px}.nav-links a{font-size:.8rem}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:780px){.container{width:calc(100% - 30px)}.section{padding-block:50px}.nav-wrap{min-height:70px}.menu-toggle{display:grid;place-items:center}.nav-links{position:absolute;top:100%;right:0;left:0;display:none;align-items:stretch;gap:3px;padding:13px 18px 18px;border-bottom:1px solid var(--line);background:var(--paper);box-shadow:0 15px 25px #142d2015}.nav-links.open{display:flex;flex-direction:column}.nav-links a{padding:10px 12px;font-size:.92rem}.hero{padding-block:40px}.hero-grid{grid-template-columns:1fr;gap:12px}.hero-copy{text-align:center;margin-inline:auto}.hero-quote{display:inline-block;text-align:right}.hero-actions{justify-content:center}.calli-stage{max-width:420px}.section-heading{align-items:flex-start;flex-direction:column}.search-box{width:100%}.footer-inner{align-items:flex-start;flex-direction:column}}
-@media(max-width:480px){body{font-size:15px}.container{width:calc(100% - 24px)}.content-grid{gap:11px}.content-card{min-height:215px;padding:15px;border-radius:17px}.content-card h3{font-size:.96rem}.content-card p{font-size:.78rem;line-height:1.7}.content-card .icon{width:41px;height:41px}.card-link{min-height:36px;padding:6px 12px;font-size:.77rem}.card-wide{grid-column:1/-1}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-layout{grid-template-columns:1fr}.about-avatar{width:88px;height:88px}.weather-widget-container,.weather-widget-container iframe{height:720px}.media-card{padding:23px}}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--ivory);color:var(--ink);font:16px/1.85 Tahoma,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body:has(dialog[open]){overflow:hidden}
+h1,h2,h3,p{margin:0}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+::selection{background:var(--gold-2)}
+[hidden]{display:none!important}
+.skip{position:fixed;z-index:9999;top:10px;right:10px;padding:10px 18px;border-radius:12px;background:var(--paper);transform:translateY(-150%)}
+.skip:focus{transform:none}
+.wrap{width:min(1180px,calc(100% - 44px));margin-inline:auto}
+.top{position:sticky;top:0;z-index:100;background:#f6f1e7ee;backdrop-filter:blur(14px);border-bottom:1px solid #123d321a}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{width:46px;height:46px;flex:none;border:2px solid var(--gold);border-radius:14px;background:var(--green);object-fit:cover}
+.brand b{display:block;font-size:1.02rem;line-height:1.4}
+.brand small{display:block;color:var(--soft);font-size:.72rem}
+#nav{display:flex;align-items:center;gap:22px}
+#nav a{padding:8px 0;border-bottom:2px solid transparent;font-size:.87rem;font-weight:700;white-space:nowrap}
+#nav a:hover{border-color:var(--gold)}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:13px;background:var(--paper);font-size:1.3rem}
+.hero{position:relative;overflow:hidden;padding:44px 0 36px;background:linear-gradient(130deg,#123d32,#174a3c 55%,#245c49);color:#fff}
+.hero:before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84'%3E%3Cg fill='none' stroke='%23d8c18b' stroke-opacity='.14'%3E%3Cpath d='M42 6l9 27 27 9-27 9-9 27-9-27-27-9 27-9z'/%3E%3Crect x='21' y='21' width='42' height='42' transform='rotate(45 42 42)'/%3E%3C/g%3E%3C/svg%3E");-webkit-mask:linear-gradient(#000,transparent);mask:linear-gradient(#000,transparent)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:36px}
+.kicker{display:inline-block;margin-bottom:14px;padding:5px 14px;border:1px solid #d8c18b80;border-radius:999px;color:#f1dfb5;font-size:.8rem;font-weight:700}
+.hero h1{margin-bottom:12px;font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.2}
+.byline{margin-bottom:24px;color:#e8eee9}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 20px;border:1px solid transparent;border-radius:999px;font-size:.88rem;font-weight:700;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.gold{background:linear-gradient(135deg,#e3d09f,#b79550);color:#111}
+.ghost{border-color:#e7d7b0aa;color:#fff}
+.ghost:hover{background:#ffffff18}
+.green{background:var(--green);color:#fff}
+.light{background:var(--paper);border-color:var(--line)}
+.btn[aria-disabled=true]{opacity:.55;cursor:not-allowed}
+.stage{max-width:420px;margin-inline:auto;perspective:900px}
+.float{animation:float 8s ease-in-out infinite}
+.calli{padding:48px 20px 26px;border:1px solid #d8c18b8c;border-radius:210px 210px 24px 24px;outline:1px solid #d8c18b40;outline-offset:8px;background:#ffffff0a;text-align:center;transform-style:preserve-3d;transition:transform .15s ease-out}
+.orn{display:block;width:min(210px,65%);height:auto;margin:6px auto;color:#d6b96f}
+.calli p{font-family:"Amiri","Traditional Arabic",Tahoma,serif}
+.bsm{color:#f4dfaa;font-size:1.15rem}
+.ayah{margin:6px 0 10px;color:#fff3d0;font-size:clamp(2rem,5vw,3rem);line-height:1.5}
+.ayah span{display:block}
+.tsb{display:flex;flex-wrap:wrap;justify-content:center;gap:3px 13px;color:#f1d99e}
+.sal{margin-top:10px;color:#f5e8c8}
+.caption{display:flex;justify-content:space-between;gap:10px;margin-top:14px;color:#dbe7df;font-size:.78rem}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.ticker{overflow:hidden;direction:ltr;background:var(--sand);border-block:1px solid #d9cba9}
+.track{display:flex;width:max-content}
+.track.run{animation:slide 60s linear infinite}
+.track span{padding:9px 24px;direction:rtl;font-weight:700;white-space:nowrap}
+@keyframes slide{from{transform:translateX(-25%)}to{transform:none}}
+.sec{padding-block:64px}
+.sec.tight{padding-top:8px}
+.head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:26px}
+.head h2{padding-right:14px;border-right:4px solid var(--gold);font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.3}
+.head p{margin-top:8px;color:var(--soft);font-size:.95rem}
+.search{display:flex;align-items:center;gap:10px;width:min(390px,100%);padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.search:focus-within{border-color:var(--gold)}
+.search span{color:var(--gold);font-size:1.35rem}
+.search input{width:100%;min-width:0;border:0;outline:0;background:transparent;font-size:.87rem}
+.search input::placeholder{color:#6b6b6b}
+.status{min-height:22px;margin:-12px 0 14px;color:var(--soft);font-size:.82rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{display:flex;flex-direction:column;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--paper);transition:border-color .2s}
+.card:hover{border-color:var(--gold)}
+.card.wide{grid-column:span 2}
+.ico{display:grid;place-items:center;width:46px;height:46px;margin-bottom:14px;border-radius:14px;background:#e6eee8;color:var(--green)}
+.ico svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{margin-bottom:6px;font-size:1.1rem;line-height:1.5}
+.card p{margin-bottom:16px;color:var(--soft);font-size:.86rem;line-height:1.75}
+.go{display:inline-flex;align-items:center;align-self:flex-start;min-height:38px;margin-top:auto;padding:7px 20px;border:0;border-radius:999px;background:var(--sand);font-size:.82rem;font-weight:700;transition:background .2s}
+.go:hover{background:var(--gold-2)}
+.covers{display:flex;gap:12px;margin-bottom:8px;padding-bottom:8px;overflow-x:auto;scroll-snap-type:x proximity}
+.covers a{flex:none;scroll-snap-align:start}
+.covers img{width:82px;height:116px;border:1px solid var(--line);border-radius:5px 9px 9px 5px;object-fit:cover}
+.card .swipe{margin:0 0 8px;font-size:.74rem}
+.empty{padding:30px;color:var(--soft);text-align:center}
+.wx{max-width:850px;height:780px;margin:0 auto;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:var(--paper)}
+.wx iframe{width:100%;height:100%;border:0}
+.send{padding:30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(120deg,var(--paper),#f0eadc)}
+.send h3{margin-bottom:8px;font-size:1.65rem}
+.send p{max-width:680px;margin-bottom:16px;color:var(--soft);font-size:.92rem}
+.pledge{display:flex;align-items:flex-start;gap:10px;max-width:700px;margin-bottom:18px;font-size:.84rem;cursor:pointer}
+.pledge input{flex:none;width:20px;height:20px;margin-top:4px;accent-color:var(--green)}
+.foot{padding:34px 0;background:#102f28;color:#d9e3dc}
+.foot-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.foot-brand{color:#f1dfb5;font-size:1.05rem;font-weight:700}
+.foot p{margin-top:4px;color:#c0cec4;font-size:.78rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 22px}
+.foot-links a{display:inline-flex;align-items:center;min-height:42px;font-size:.85rem}
+.foot a:hover{color:#e1c98f}
+#wa{flex-direction:column;align-items:flex-start;justify-content:center;line-height:1.5}
+#wa small{color:#b9c8be;font-size:.75rem}
+.up{position:fixed;z-index:80;left:20px;bottom:20px;display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;background:var(--green);color:#fff;opacity:0;visibility:hidden;transition:.2s}
+.up.on{opacity:1;visibility:visible}
+.toast{position:fixed;z-index:2000;left:50%;bottom:22px;max-width:calc(100% - 30px);padding:11px 18px;border:1px solid var(--gold-2);border-radius:999px;background:var(--green);color:#fff;font-size:.84rem;text-align:center;opacity:0;visibility:hidden;transform:translate(-50%,20px);transition:.25s}
+.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+dialog{width:min(760px,calc(100% - 28px));max-height:90dvh;padding:0;overflow:auto;border:1px solid #d8c18b66;border-radius:22px;background:var(--paper);color:var(--ink);box-shadow:0 30px 90px #0005}
+dialog::backdrop{background:#101c18c9;backdrop-filter:blur(6px)}
+dialog.full{width:100%;max-width:none;height:100dvh;max-height:none;border:0;border-radius:0}
+dialog.dark{width:min(1100px,calc(100% - 28px));background:#111;color:#fff}
+.dh{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 22px;border-bottom:1px solid var(--line);background:inherit}
+.dark .dh{border-color:#ffffff26}
+.dh h2{font-size:1.3rem}
+.dh form{margin:0}
+.x{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:transparent;font-size:1.4rem;line-height:1}
+.dark .x{border-color:#ffffff40}
+.db{padding:22px}
+.db>*+*{margin-top:14px}
+.vid{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:var(--green)}
+.note{padding:10px 14px;border-radius:10px;background:#edf1e9;font-size:.84rem}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.thumb{aspect-ratio:1;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:13px;background:var(--ivory)}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.thumb:hover img{transform:scale(1.06)}
+.lb{display:block;width:100%;max-height:76dvh;object-fit:contain}
+.about{display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:start}
+.about img{width:110px;height:110px;border:3px solid var(--gold);border-radius:24px;object-fit:cover}
+.about h3{margin-bottom:8px;font-size:1.1rem}
+.about p+p{margin-top:10px}
+@media(max-width:1050px){#nav{gap:14px}#nav a{font-size:.8rem}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:780px){
+.wrap{width:calc(100% - 30px)}
+.sec{padding-block:44px}
+.top .wrap{min-height:66px}
+.burger{display:grid;place-items:center}
+#nav{position:absolute;top:100%;right:0;left:0;display:none;flex-direction:column;align-items:stretch;gap:3px;padding:12px 18px 17px;border-bottom:1px solid var(--line);background:var(--ivory)}
+#nav.open{display:flex}
+#nav a{padding:9px 12px;font-size:.92rem}
+.hero{padding-block:32px}
+.hero .wrap{grid-template-columns:1fr;gap:20px;text-align:center}
+.actions{justify-content:center}
+.head{align-items:flex-start;flex-direction:column}
+.search{width:100%}
+.foot-in{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:480px){
+body{font-size:15px}
+.wrap{width:calc(100% - 24px)}
+.grid{gap:10px}
+.card{padding:14px;border-radius:16px}
+.card.wide{grid-column:1/-1}
+.card h3{font-size:.96rem}
+.card p{font-size:.78rem;line-height:1.65}
+.ico{width:40px;height:40px}
+.go{min-height:36px;padding:6px 14px;font-size:.77rem}
+.thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.about{grid-template-columns:1fr}
+.about img{width:88px;height:88px}
+.wx{height:720px}
+}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-/* تثبيت الخط الأصلي مع إبقاء ألوان كل مكوّن حسب تصميمه */
-html body,html body *{font-family:Tahoma,Arial,sans-serif!important}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-3VZQSDZNC7');</script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag("js",new Date());gtag("config","G-3VZQSDZNC7");
+</script>
 </head>
 <body>
-<a class="skip-link" href="#main">انتقل إلى المحتوى الرئيسي[span_1](start_span)[span_1](end_span)</a>
-<header class="site-header"><div class="container nav-wrap">
-<a class="brand" href="#home" aria-label="الشرقاط الثقافي الأول - الصفحة الرئيسية"><span class="brand-mark"><img src="acon.jpg" alt="" onerror="this.style.display='none'"></span><span><span class="brand-title">الشرقاط الثقافي الأول[span_2](start_span)[span_2](end_span)</span><span class="brand-subtitle">ذاكرة المكان · حكاية الإنسان</span></span></a>
-<button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="navLinks">☰</button>
-<nav class="nav-links" id="navLinks" aria-label="القائمة الرئيسية"><a href="#home">الرئيسية[span_3](start_span)[span_3](end_span)</a><a href="#library">الأقسام الثقافية</a><a href="scholars.html">علماء الشرقاط[span_4](start_span)[span_4](end_span)</a><a href="tv.html">التلفزيون[span_5](start_span)[span_5](end_span)</a><a href="book.html">المؤلفات[span_6](start_span)[span_6](end_span)</a><a href="apps.html">التطبيقات[span_7](start_span)[span_7](end_span)</a></nav>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="orn" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 13C35 13 35 4 55 4s20 18 0 18S35 13 10 13M190 13c-25 0-25-9-45-9s-20 18 0 18 20-9 45-9M70 13h60M100 2l7 11-7 11-7-11z"/></symbol></svg>
+<a class="skip" href="#main">انتقل إلى المحتوى الرئيسي</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="#home" aria-label="الشرقاط الثقافي الأول - الصفحة الرئيسية"><img src="acon.jpg" alt=""><span><b>الشرقاط الثقافي الأول</b><small>ذاكرة المكان · حكاية الإنسان</small></span></a>
+<button class="burger" id="burger" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">☰</button>
+<nav id="nav" aria-label="القائمة الرئيسية"><a href="#home">الرئيسية</a><a href="#library">الأقسام الثقافية</a><a href="scholars.html">علماء الشرقاط</a><a href="tv.html">التلفزيون</a><a href="book.html">المؤلفات</a><a href="apps.html">التطبيقات</a></nav>
 </div></header>
 <main id="main" tabindex="-1">
-<section class="hero" id="home" aria-labelledby="heroTitle"><div class="container hero-grid"><div class="hero-copy">
-<div class="hero-kicker"><span></span> من الشرقاط، حيث تحيا الذاكرة</div><h1 id="heroTitle">الشرقاط <span class="hero-accent">الثقافي الأول[span_8](start_span)[span_8](end_span)</span></h1>
-<p class="hero-byline"><strong>صور ومقالات وبث مباشر وقنوات رياضية</strong> في مكان واحد[span_9](start_span)[span_9](end_span)</p><p class="hero-quote">أهلاً بك في الشرقاط الثقافي الأول ❖[span_10](start_span)[span_10](end_span)</p>
-<div class="hero-actions"><button class="btn btn-gold" type="button" data-open="aboutModal">من نحن؟</button><a class="btn btn-ghost" href="#library">اكتشف أقسام الموقع ↓</a></div></div>
-<div class="hero-visual"><div class="calli-stage" id="calliStage"><div class="calli-float"><div class="calli" id="calli">
-<svg class="orn" viewBox="0 0 200 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 13C35 13 35 4 55 4s20 18 0 18S35 13 10 13M190 13c-25 0-25-9-45-9s-20 18 0 18 20-9 45-9M70 13h60M100 2l7 11-7 11-7-11z"/></svg>
-<p class="c-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p><p class="c-ayah"><span>أَلَا بِذِكْرِ اللَّهِ</span><span>تَطْمَئِنُّ الْقُلُوبُ</span></p>
-<div class="c-tasbih"><span>سُبْحَانَ اللَّهِ</span><span>الْحَمْدُ لِلَّهِ</span><span>لَا إِلَٰهَ إِلَّا اللَّهُ</span><span>اللَّهُ أَكْبَرُ</span></div><p class="c-salawat">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
-<svg class="orn" viewBox="0 0 200 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 13C35 13 35 4 55 4s20 18 0 18S35 13 10 13M190 13c-25 0-25-9-45-9s-20 18 0 18 20-9 45-9M70 13h60M100 2l7 11-7 11-7-11z"/></svg>
-</div></div></div><div class="hero-image-caption"><span>الشرقاط · العراق[span_11](start_span)[span_11](end_span)</span><strong>تراثٌ لا يغيب</strong></div></div></div></section>
-<div class="ticker" role="region" aria-label="ذكر ودعاء"><div class="container ticker-inner"><div class="marquee"><span>سبحان الله ❖ الحمد لله ❖ لا إله إلا الله ❖ الله أكبر ❖ الحمد لله حمداً كثيراً طيباً مباركاً فيه ❖ اللهم صلِّ على محمد وعلى آل محمد ❖ أستغفر الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div></div></div>
-<section class="section" id="library" aria-labelledby="libraryTitle"><div class="container"><div class="section-heading"><div><span class="eyebrow">المكتبة الثقافية</span><h2 id="libraryTitle">أبواب إلى المعرفة</h2><p class="poetry-sub">قريباً إن شاء الله، سنكمل جميع الأقسام والقصص.</p></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="siteSearch" type="search" placeholder="ابحث في أقسام الموقع..." autocomplete="off" aria-label="ابحث في محتويات الموقع"></label></div>
-<p class="search-status" id="searchStatus" aria-live="polite"></p><div class="content-grid" id="contentGrid">
-<article class="content-card card-wide" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5"/></svg></span><span class="card-index">01</span></div><h3>المكتبة والمؤلفات</h3><div class="covers-strip" id="coversStrip" hidden></div><p class="swipe-hint" id="swipeHint" hidden>← اسحب لمزيد من الكتب</p><p>تصفّح الكتب والدواوين والروايات[span_12](start_span)[span_12](end_span).</p><a class="card-link" href="book.html">اضغط هنا ←</a></article>
-<article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><span class="card-index">02</span></div><h3>الشرقاط[span_13](start_span)[span_13](end_span)</h3><p>بعض التلميحات عن الشرقاط: تاريخها وملامحها وموروثها الثقافي والاجتماعي[span_14](start_span)[span_14](end_span).</p><a class="card-link" href="shirqat.html">اضغط هنا ←</a></article>
-<article class="content-card" data-search="علماء الشرقاط رحمهم الله ملا مرعي هايس الفقه الدين ulama scholars"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5ZM6 6h12M6 10h12"/></svg></span><span class="card-index">03</span></div><h3>سيرة بعض علماء الدين في الشرقاط</h3><p>سِيَر عطرة وأعلام من توثيق تاريخ علماء الشرقاط الأجلّاء، وسنوافيكم بإذن الله بسِيَر وقصص أخرى[span_15](start_span)[span_15](end_span).</p><a class="card-link" href="scholars.html">اضغط هنا ←</a></article>
-<article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg></span><span class="card-index">04</span></div><h3>معرض الصور[span_16](start_span)[span_16](end_span)</h3><p>صور ولقطات وتاريخ مصوَّر من مدينة الشرقاط[span_17](start_span)[span_17](end_span).</p><button class="card-link" type="button" data-open="galleryModal">اضغط هنا ←</button></article>
-<article class="content-card" data-search="مقالات وبرامج مدونة ووردبريس wordpress تدوينات"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="m4 20 4-.8L19 8l-4-4L4 15zM13.5 5.5l4 4"/></svg></span><span class="card-index">05</span></div><h3>المقالات والمدونة[span_18](start_span)[span_18](end_span)</h3><p>مقالات وتدوينات ثقافية جديدة على المدونة[span_19](start_span)[span_19](end_span).</p><a class="card-link" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">اضغط هنا ↗</a></article>
-<article class="content-card" data-search="الجد عقاب عگاب اوكاب okab الأجداد العائلة"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="card-index">06</span></div><h3>الجد عگاب رحمه الله[span_20](start_span)[span_20](end_span)</h3><p>نافذة على الذاكرة العائلية وسيرة الأجداد، بما فيها من مواقف ودروس[span_21](start_span)[span_21](end_span).</p><a class="card-link" href="okab.html">اضغط هنا ←</a></article>
-<article class="content-card" data-search="الشيخ شلاش رحمه الله shelash قصة تاريخ سيرة"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/></svg></span><span class="card-index">07</span></div><h3>قصص رجال طيّبي الصيت من أهل السيرة[span_22](start_span)[span_22](end_span)</h3><p>حكايات وسِيَر محلية تستحق أن تبقى في الذاكرة وتتناقلها الأجيال[span_23](start_span)[span_23](end_span).</p><a class="card-link" href="shelash.html">اضغط هنا ←</a></article>
-<article class="content-card" data-search="الأذكار والأدعية duaa"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></svg></span><span class="card-index">08</span></div><h3>الأذكار والأدعية[span_24](start_span)[span_24](end_span)</h3><p>أذكار يومية وأدعية[span_25](start_span)[span_25](end_span).</p><a class="card-link" href="duaa.html">اضغط هنا ←</a></article>
-<article class="content-card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب رياضة افلام مسلسلات tv"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="card-index">09</span></div><h3>شاهد القنوات الرياضية[span_26](start_span)[span_26](end_span)</h3><p>تابع القنوات الرياضية والأفلام والمسلسلات والمحتوى المرئي[span_27](start_span)[span_27](end_span).</p><a class="card-link" href="tv.html">اضغط هنا ←</a></article>
-<article class="content-card" data-search="القناة المرئية فيديو يوتيوب youtube قناة الشرقاط الثقافي"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="card-index">10</span></div><h3>القناة المرئية[span_28](start_span)[span_28](end_span)</h3><p>شاهد الفيديوهات المنشورة على قناة الشرقاط الثقافي، وتابع المحتوى المرئي من مكان واحد[span_29](start_span)[span_29](end_span).</p><button class="card-link" type="button" data-open="videoModal">اضغط هنا ←</button></article>
-<article class="content-card" data-search="التطبيقات برامج الكمبيوتر الذكاء الاصطناعي تحميل apps"><div class="card-top"><span class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><span class="card-index">11</span></div><h3>قسم التطبيقات[span_30](start_span)[span_30](end_span)</h3><p>حمّل أحدث التطبيقات المجانية وبرامج الكمبيوتر وأدوات الذكاء الاصطناعي بروابط رسمية ومباشرة[span_31](start_span)[span_31](end_span).</p><a class="card-link" href="apps.html">اضغط هنا ←</a></article>
-</div><div class="no-results" id="noResults" role="status" hidden>لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div></div></section>
-<section class="section weather-widget-section" id="weather" aria-labelledby="weatherTitle"><div class="container"><div class="section-heading"><div><span class="eyebrow">حالة الجو · تصميم وإعداد محمد علي أحمد الحطاب الجبوري[span_32](start_span)[span_32](end_span)</span><h2 id="weatherTitle">طقس الشرقاط المباشر[span_33](start_span)[span_33](end_span)</h2></div></div><div class="weather-widget-container"><iframe src="weather.html?v=2" title="واجهة طقس الشرقاط" loading="lazy"></iframe></div></div></section>
-<section class="section"><div class="container"><article class="media-card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></span><h3>أرسل كتابك أو روايتك[span_34](start_span)[span_34](end_span)</h3><p>هل لديك كتاب أو رواية؟ أرسلها بصيغة PDF عبر البريد الإلكتروني لنراجعها وننشرها باسمك في صفحة المؤلفات[span_35](start_span)[span_35](end_span).</p><label class="pledge" for="pledgeBook"><input type="checkbox" id="pledgeBook"><span><strong>تعهد:</strong> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي[span_36](start_span)[span_36](end_span).</span></label><div class="book-actions"><a class="btn btn-gold" id="bookLink" href="sendbook.html" aria-disabled="true">اضغط هنا لإرسال كتابك عبر البريد ←</a></div></article></div></section>
+<section class="hero" id="home" aria-labelledby="title"><div class="wrap">
+<div>
+<span class="kicker">من الشرقاط، حيث تحيا الذاكرة</span>
+<h1 id="title">الشرقاط الثقافي الأول</h1>
+<p class="byline"><b>صور ومقالات وبث مباشر وقنوات رياضية</b> في مكان واحد</p>
+<div class="actions"><button class="btn gold" type="button" data-open="aboutModal">من نحن؟</button><a class="btn ghost" href="#library">اكتشف أقسام الموقع</a></div>
+</div>
+<div>
+<div class="stage" id="stage"><div class="float"><div class="calli" id="calli">
+<svg class="orn" viewBox="0 0 200 26" aria-hidden="true"><use href="#orn"/></svg>
+<p class="bsm">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+<p class="ayah"><span>أَلَا بِذِكْرِ اللَّهِ</span><span>تَطْمَئِنُّ الْقُلُوبُ</span></p>
+<p class="tsb"><span>سُبْحَانَ اللَّهِ</span><span>الْحَمْدُ لِلَّهِ</span><span>لَا إِلَٰهَ إِلَّا اللَّهُ</span><span>اللَّهُ أَكْبَرُ</span></p>
+<p class="sal">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
+<svg class="orn" viewBox="0 0 200 26" aria-hidden="true"><use href="#orn"/></svg>
+</div></div></div>
+<div class="caption"><span>الشرقاط · العراق</span><b>تراثٌ لا يغيب</b></div>
+</div>
+</div></section>
+<div class="ticker" role="region" aria-label="ذكر ودعاء"><div class="track" id="track"><span>الحمد لله حمداً كثيراً طيباً مباركاً فيه ❖ اللهم صلِّ على محمد وعلى آل محمد ❖ أستغفر الله ❖ سبحان الله وبحمده ❖ سبحان الله العظيم ❖</span></div></div>
+<section class="sec" id="library" aria-labelledby="libTitle"><div class="wrap">
+<div class="head">
+<div><h2 id="libTitle">المكتبة الثقافية</h2><p>أبواب إلى المعرفة، وقريباً إن شاء الله نكمل جميع الأقسام والقصص.</p></div>
+<label class="search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="ابحث في أقسام الموقع..." autocomplete="off" aria-label="ابحث في محتويات الموقع"></label>
+</div>
+<p class="status" id="count" aria-live="polite"></p>
+<div class="grid">
+<article class="card wide" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد رواية book"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5"/></svg></span><h3>المكتبة والمؤلفات</h3><div class="covers" id="covers" hidden></div><p class="swipe" id="swipe" hidden>اسحب لمزيد من الكتب</p><p>الكتب والدواوين والروايات.</p><a class="go" href="book.html">فتح</a></article>
+<article class="card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><h3>الشرقاط</h3><p>تاريخها وملامحها وموروثها الثقافي والاجتماعي.</p><a class="go" href="shirqat.html">فتح</a></article>
+<article class="card" data-search="علماء الشرقاط رحمهم الله ملا مرعي هايس الفقه الدين ulama scholars"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5ZM6 6h12M6 10h12"/></svg></span><h3>سيرة بعض علماء الدين في الشرقاط</h3><p>سِيَر عطرة وأعلام من علماء الشرقاط الأجلّاء، والمزيد بإذن الله.</p><a class="go" href="scholars.html">فتح</a></article>
+<article class="card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg></span><h3>معرض الصور</h3><p>لقطات وتاريخ مصوَّر من مدينة الشرقاط.</p><button class="go" type="button" data-open="galleryModal">فتح</button></article>
+<article class="card" data-search="مقالات وبرامج مدونة ووردبريس wordpress تدوينات"><span class="ico"><svg viewBox="0 0 24 24"><path d="m4 20 4-.8L19 8l-4-4L4 15zM13.5 5.5l4 4"/></svg></span><h3>المقالات والمدونة</h3><p>مقالات وتدوينات ثقافية على المدونة.</p><a class="go" href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">فتح المدونة</a></article>
+<article class="card" data-search="الجد عقاب عگاب اوكاب okab الأجداد العائلة"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><h3>الجد عگاب رحمه الله</h3><p>الذاكرة العائلية وسيرة الأجداد ومواقفهم ودروسهم.</p><a class="go" href="okab.html">فتح</a></article>
+<article class="card" data-search="الشيخ شلاش رحمه الله shelash قصة تاريخ سيرة"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/></svg></span><h3>قصص رجال طيّبي الصيت من أهل السيرة</h3><p>حكايات وسِيَر محلية تتناقلها الأجيال.</p><a class="go" href="shelash.html">فتح</a></article>
+<article class="card" data-search="الأذكار والأدعية duaa"><span class="ico"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></svg></span><h3>الأذكار والأدعية</h3><p>أذكار يومية وأدعية.</p><a class="go" href="duaa.html">فتح</a></article>
+<article class="card" data-search="التلفزيون بث مباشر قناة فيديو يوتيوب رياضة افلام مسلسلات tv"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h3>شاهد القنوات الرياضية</h3><p>القنوات الرياضية والأفلام والمسلسلات والمحتوى المرئي.</p><a class="go" href="tv.html">فتح</a></article>
+<article class="card" data-search="القناة المرئية فيديو يوتيوب youtube قناة الشرقاط الثقافي"><span class="ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><h3>القناة المرئية</h3><p>فيديوهات قناة الشرقاط الثقافي في مكان واحد.</p><button class="go" type="button" data-open="videoModal">فتح</button></article>
+<article class="card" data-search="التطبيقات برامج الكمبيوتر الذكاء الاصطناعي تحميل apps"><span class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><h3>قسم التطبيقات</h3><p>تطبيقات مجانية وبرامج كمبيوتر وأدوات ذكاء اصطناعي بروابط رسمية مباشرة.</p><a class="go" href="apps.html">فتح</a></article>
+</div>
+<p class="empty" id="none" role="status" hidden>لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</p>
+</div></section>
+<section class="sec tight" id="weather" aria-labelledby="wxTitle"><div class="wrap">
+<div class="head"><div><h2 id="wxTitle">طقس الشرقاط المباشر</h2><p>تصميم وإعداد محمد علي أحمد الحطاب الجبوري</p></div></div>
+<div class="wx"><iframe src="weather.html?v=2" title="واجهة طقس الشرقاط" loading="lazy"></iframe></div>
+</div></section>
+<section class="sec"><div class="wrap"><article class="send">
+<h3>أرسل كتابك أو روايتك</h3>
+<p>أرسلها بصيغة PDF عبر البريد الإلكتروني لنراجعها وننشرها باسمك في صفحة المؤلفات.</p>
+<label class="pledge" for="pledge"><input type="checkbox" id="pledge"><span><b>تعهد:</b> أقرّ بأنني مؤلف المحتوى الذي أرسله (كتاب، رواية، نص أو صور) أو مالك حقوقه كاملة، وأتحمل المسؤولية القانونية عنه، وأوافق على نشره في الموقع باسمي.</span></label>
+<a class="btn gold" id="bookLink" href="sendbook.html" aria-disabled="true">أرسل كتابك عبر البريد</a>
+</article></div></section>
 </main>
-<footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand" href="#home">الشرقاط الثقافي الأول[span_37](start_span)[span_37](end_span)</a><p class="footer-note">إشراف محمد علي أحمد الحطاب الجبوري · جميع الحقوق محفوظة © <span id="year"></span>[span_38](start_span)[span_38](end_span)</p></div><nav class="footer-links" aria-label="روابط إضافية"><a href="#home">الرئيسية[span_39](start_span)[span_39](end_span)</a><a href="scholars.html">علماء الشرقاط[span_40](start_span)[span_40](end_span)</a><a href="book.html">المؤلفات[span_41](start_span)[span_41](end_span)</a><a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗[span_42](start_span)[span_42](end_span)</a><a id="waFooter" href="#" target="_blank" rel="noopener noreferrer" hidden>هل لديك ملاحظة؟ راسلنا عبر واتساب ↗</a></nav></div></footer>
-<button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button><div class="toast" id="toast" role="status" aria-live="polite"></div>
-<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden><div class="modal-panel"><div class="modal-head"><h2 id="videoModalTitle">قناة الشرقاط الثقافي على YouTube[span_43](start_span)[span_43](end_span)</h2><button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button></div><div class="modal-body"><iframe class="video-frame" id="youtubeFrame" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube.com/embed?listType=playlist&amp;list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p>إن لم تظهر الفيديوهات، افتح القناة مباشرة على YouTube[span_44](start_span)[span_44](end_span).</p><a class="btn btn-green" href="https://www.youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer">فتح القناة على YouTube ↗</a></div></div></div>
-<div class="modal modal-full" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle" hidden><div class="modal-panel"><div class="modal-head"><h2 id="galleryModalTitle">معرض الصور[span_45](start_span)[span_45](end_span)</h2><button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button></div><div class="modal-body"><p>اضغط على أي صورة لتكبيرها[span_46](start_span)[span_46](end_span).</p><div class="modal-status" id="galleryStatus" role="status">جارٍ تحميل الصور…</div><div class="gallery-grid mt" id="galleryGrid"></div><button class="btn btn-light mt" id="retryGallery" type="button" hidden>إعادة المحاولة ↻</button></div></div></div>
-<div class="modal" id="lightboxModal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden><div class="modal-panel lightbox-panel"><div class="modal-head"><h2 id="lightboxTitle">عرض الصورة</h2><button class="modal-close" type="button" data-close aria-label="إغلاق الصورة">×</button></div><img class="lightbox-image" id="lightboxImage" alt=""></div></div>
-<div class="modal" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle" hidden><div class="modal-panel"><div class="modal-head"><h2 id="aboutModalTitle">عن الموقع وصاحبه</h2><button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button></div><div class="modal-body"><div class="about-layout"><img class="about-avatar" src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول"><div><h3>أهلاً وسهلاً بك زائرنا الكريم، أنا محمد علي أحمد الحطاب الجبوري[span_47](start_span)[span_47](end_span)</h3><p>الشرقاط الثقافي الأول موقع ثقافي يهتم بتاريخ الشرقاط وتراثها وذاكرتها، ويوثّق قصص أهلها وسِيَرهم وموروثهم المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي[span_48](start_span)[span_48](end_span).</p><p>فكرة الموقع أن نحفظ الذاكرة الثقافية والاجتماعية ونتيحها لكل قارئ ومهتم، لتبقى حكاية المكان حاضرة في ذاكرة الأجيال[span_49](start_span)[span_49](end_span).</p></div></div></div></div></div>
+<footer class="foot"><div class="wrap foot-in">
+<div><a class="foot-brand" href="#home">الشرقاط الثقافي الأول</a><p>إشراف محمد علي أحمد الحطاب الجبوري · جميع الحقوق محفوظة © <span id="year"></span></p></div>
+<nav class="foot-links" aria-label="روابط إضافية"><a href="#home">الرئيسية</a><a href="scholars.html">علماء الشرقاط</a><a href="book.html">المؤلفات</a><a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة</a><a id="wa" href="#" target="_blank" rel="noopener noreferrer" hidden>راسلنا عبر واتساب</a></nav>
+</div></footer>
+<button class="up" id="up" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog id="videoModal" aria-labelledby="vt"><div class="dh"><h2 id="vt">قناة الشرقاط الثقافي على YouTube</h2><form method="dialog"><button class="x" aria-label="إغلاق">×</button></form></div>
+<div class="db"><iframe class="vid" id="yt" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube.com/embed?listType=playlist&amp;list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p>إن لم تظهر الفيديوهات، افتح القناة مباشرة.</p><a class="btn green" href="https://www.youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer">فتح القناة على YouTube</a></div></dialog>
+<dialog class="full" id="galleryModal" aria-labelledby="gt"><div class="dh"><h2 id="gt">معرض الصور</h2><form method="dialog"><button class="x" aria-label="إغلاق">×</button></form></div>
+<div class="db"><p class="note" id="gStatus" role="status">جارٍ تحميل الصور…</p><div class="thumbs" id="gGrid"></div><button class="btn light" id="gRetry" type="button" hidden>إعادة المحاولة</button></div></dialog>
+<dialog class="dark" id="lightbox" aria-labelledby="lbTitle"><div class="dh"><h2 id="lbTitle">عرض الصورة</h2><form method="dialog"><button class="x" aria-label="إغلاق الصورة">×</button></form></div><img class="lb" id="lbImg" alt=""></dialog>
+<dialog id="aboutModal" aria-labelledby="at"><div class="dh"><h2 id="at">عن الموقع وصاحبه</h2><form method="dialog"><button class="x" aria-label="إغلاق">×</button></form></div>
+<div class="db"><div class="about"><img src="acon.jpg" alt="هوية موقع الشرقاط الثقافي الأول"><div>
+<h3>أهلاً وسهلاً بك زائرنا الكريم، أنا محمد علي أحمد الحطاب الجبوري</h3>
+<p>الشرقاط الثقافي الأول موقع ثقافي يهتم بتاريخ الشرقاط وتراثها وذاكرتها، ويوثّق قصص أهلها وسِيَرهم وموروثهم المحلي، إلى جانب المؤلفات والمقالات والمحتوى المرئي.</p>
+<p>فكرة الموقع أن نحفظ الذاكرة الثقافية والاجتماعية ونتيحها لكل قارئ ومهتم، لتبقى حكاية المكان حاضرة في ذاكرة الأجيال.</p>
+</div></div></div></dialog>
 <script>
 "use strict";
-const CONFIG={githubUser:"mhamalgporee-ctrl",githubRepo:"mhamalgporee-ctrl.github.io",photosFolder:"photos",coversFolder:"covers",contactEmail:"mhamalgp@gmail.com",whatsapp:"9647835025407"};
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s)),setText=(s,v)=>{const e=$(s);if(e)e.textContent=v};
-let toastTimer;function showToast(message){const t=$("#toast");if(!t)return;t.textContent=message;t.classList.add("visible");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("visible"),3200)}
-const menuToggle=$("#menuToggle"),navLinks=$("#navLinks");function closeMenu(){navLinks?.classList.remove("open");menuToggle?.setAttribute("aria-expanded","false");menuToggle?.setAttribute("aria-label","فتح قائمة التنقل")}
-menuToggle?.addEventListener("click",()=>{const opened=navLinks.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(opened));menuToggle.setAttribute("aria-label",opened?"إغلاق قائمة التنقل":"فتح قائمة التنقل")});$$("#navLinks a").forEach(a=>a.addEventListener("click",closeMenu));window.addEventListener("resize",()=>{if(innerWidth>780)closeMenu()});
-(function(){const stage=$("#calliStage"),calli=$("#calli");if(!stage||!calli||matchMedia("(prefers-reduced-motion: reduce)").matches)return;const reset=()=>{calli.style.transform="rotateX(0deg) rotateY(0deg)"};stage.addEventListener("pointermove",e=>{if(e.pointerType==="touch")return;const r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;calli.style.transform=`rotateX(${-y*12}deg) rotateY(${x*16}deg)`});stage.addEventListener("pointerleave",reset)})();
-function normalizeText(v){return String(v||"").normalize("NFD").replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/گ/g,"ك").replace(/چ/g,"ج").replace(/پ/g,"ب").replace(/ڤ/g,"ف").toLowerCase().trim()}
-const searchInput=$("#siteSearch"),contentCards=$$(".content-card");function runSearch(){const q=normalizeText(searchInput?.value);let visible=0;contentCards.forEach(card=>{const match=!q||normalizeText(card.textContent+" "+card.dataset.search).includes(q);card.hidden=!match;if(match)visible++});$("#noResults").hidden=visible!==0;setText("#searchStatus",q?`النتائج: ${visible} من ${contentCards.length}`:"")}searchInput?.addEventListener("input",runSearch);runSearch();
-let openModals=[],previousFocus=null;function openModal(id){const modal=document.getElementById(id);if(!modal||!modal.hidden)return;if(!openModals.length)previousFocus=document.activeElement;modal.hidden=false;openModals.push(modal);document.body.classList.add("modal-open");if(id==="videoModal"){const frame=$("#youtubeFrame");if(frame&&!frame.getAttribute("src"))frame.src=frame.dataset.src}if(id==="galleryModal"){const panel=modal.querySelector(".modal-panel");if(panel)panel.scrollTop=0;loadGallery()}modal.querySelector("[data-close]")?.focus()}
-function hideModal(modal){if(!modal||modal.hidden)return;if(modal.id==="videoModal")$("#youtubeFrame")?.removeAttribute("src");if(modal.id==="lightboxModal")$("#lightboxImage")?.removeAttribute("src");modal.hidden=true;openModals=openModals.filter(item=>item!==modal);if(!openModals.length){document.body.classList.remove("modal-open");previousFocus?.focus?.()}else openModals[openModals.length-1].querySelector("[data-close]")?.focus()}
-function closeModal(modal){hideModal(modal)}$$("[data-open]").forEach(trigger=>trigger.addEventListener("click",e=>{e.preventDefault();openModal(trigger.dataset.open);closeMenu()}));$$(".modal").forEach(modal=>{$$("[data-close]",modal).forEach(btn=>btn.addEventListener("click",()=>closeModal(modal)));modal.addEventListener("click",e=>{if(e.target===modal)closeModal(modal)})});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(openModals.length)closeModal(openModals[openModals.length-1]);else closeMenu();return}if(e.key==="Tab"&&openModals.length){const f=$$('button:not([hidden]),a[href],input,iframe',openModals[openModals.length-1]).filter(x=>!x.closest("[hidden]"));if(!f.length)return;const a=f[0],z=f[f.length-1];if(!openModals[openModals.length-1].contains(document.activeElement)){e.preventDefault();a.focus()}else if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
-const ghCache=new Map();async function fetchGitHubFiles(folder){if(ghCache.has(folder))return ghCache.get(folder);try{const c=JSON.parse(sessionStorage.getItem("gh:"+folder)||"null");if(c&&Date.now()-c.t<6e5){ghCache.set(folder,c.d);return c.d}}catch(_){}const url=`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`;let response;try{response=await fetch(url,{headers:{Accept:"application/vnd.github+json"}})}catch(_){throw new Error("تعذر الاتصال بالإنترنت. تحقق من الشبكة وحاول مجدداً.")}if(!response.ok){if(response.status===403||response.status===429)throw new Error("وصلنا إلى حد الطلبات المؤقت من GitHub. حاول بعد قليل.");if(response.status===404)throw new Error(`لم يتم العثور على مجلد "${folder}" في المستودع.`);throw new Error(`تعذر تحميل الملفات (HTTP ${response.status}).`)}const data=await response.json();if(!Array.isArray(data))throw new Error("استجابة الملفات غير متوقعة.");const files=data.filter(item=>item&&item.type==="file"&&item.download_url).map(({name,download_url})=>({name,download_url}));ghCache.set(folder,files);try{sessionStorage.setItem("gh:"+folder,JSON.stringify({t:Date.now(),d:files}))}catch(_){}return files}
-const naturalArabicSort=(a,b)=>a.name.localeCompare(b.name,"ar",{numeric:true,sensitivity:"base"}),cleanName=name=>name.replace(/\.[^.]+$/,"").replace(/[_-]+/g," ");
-let galleryLoaded=false,galleryLoading=false;async function loadGallery(force=false){if(galleryLoading||(galleryLoaded&&!force))return;const grid=$("#galleryGrid");if(!grid||!$("#galleryStatus"))return;galleryLoading=true;$("#retryGallery").hidden=true;setText("#galleryStatus","جارٍ تحميل الصور…");grid.replaceChildren();try{const files=await fetchGitHubFiles(CONFIG.photosFolder),photos=files.filter(file=>/\.(jpe?g|png|webp|gif|avif)$/i.test(file.name)).sort(naturalArabicSort);if(!photos.length){setText("#galleryStatus","لا توجد صور مدعومة داخل مجلد photos.");return}setText("#galleryStatus",`عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها.`);photos.forEach(photo=>{const name=cleanName(photo.name),button=document.createElement("button");button.type="button";button.className="gallery-item";button.setAttribute("aria-label",`تكبير الصورة ${name}`);const img=document.createElement("img");img.src=photo.download_url;img.alt=name;img.loading="lazy";img.decoding="async";button.append(img);button.addEventListener("click",()=>{const lightboxImage=$("#lightboxImage");if(lightboxImage){lightboxImage.src=img.src;lightboxImage.alt=name}setText("#lightboxTitle",name||"عرض الصورة");openModal("lightboxModal")});grid.append(button)});galleryLoaded=true}catch(error){setText("#galleryStatus",error.message||"تعذر تحميل معرض الصور.");$("#retryGallery").hidden=false}finally{galleryLoading=false}}
-$("#retryGallery")?.addEventListener("click",()=>loadGallery(true));
-async function loadCovers(){const strip=$("#coversStrip");if(!strip)return;try{const files=await fetchGitHubFiles(CONFIG.coversFolder),covers=files.filter(file=>/\.(jpe?g|png|webp|gif|avif)$/i.test(file.name)).sort(naturalArabicSort);if(!covers.length)return;covers.forEach(cover=>{const name=cleanName(cover.name),link=document.createElement("a");link.href="book.html";link.title=name;link.setAttribute("aria-label",name);const img=document.createElement("img");img.src=cover.download_url;img.alt=name;img.loading="lazy";img.decoding="async";link.append(img);strip.append(link)});strip.hidden=false;if(covers.length>1)$("#swipeHint").hidden=false}catch(error){console.error("تعذر تحميل أغلفة الكتب:",error)}}loadCovers();
-if(CONFIG.whatsapp){const message=encodeURIComponent("السلام عليكم، أود إرسال ملاحظة عبر موقع الشرقاط الثقافي الأول."),wa=`https://wa.me/${CONFIG.whatsapp}?text=${message}`,footer=$("#waFooter");if(footer){footer.href=wa;footer.hidden=false;const n=CONFIG.whatsapp;if(n.startsWith("964"))footer.innerHTML=`<span>هل لديك ملاحظة؟ راسلنا عبر واتساب ↗</span><small dir="ltr">+${n.slice(0,3)} ${n.slice(3,6)} ${n.slice(6,9)} ${n.slice(9)}</small>`}}
-const pledgeBook=$("#pledgeBook"),bookLink=$("#bookLink");function syncPledge(){bookLink?.setAttribute("aria-disabled",String(!pledgeBook?.checked))}pledgeBook?.addEventListener("change",syncPledge);syncPledge();bookLink?.addEventListener("click",event=>{if(!pledgeBook?.checked){event.preventDefault();showToast("يرجى الموافقة على التعهد أولاً.")}});
-const backToTop=$("#backToTop");window.addEventListener("scroll",()=>backToTop?.classList.toggle("visible",window.scrollY>450),{passive:true});backToTop?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));setText("#year",new Date().getFullYear());
+const CFG={user:"mhamalgporee-ctrl",repo:"mhamalgporee-ctrl.github.io",photos:"photos",covers:"covers",whatsapp:"9647835025407"};
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const IMG=/\.(jpe?g|png|webp|gif|avif)$/i,clean=n=>n.replace(/\.[^.]+$/,"").replace(/[_-]+/g," ");
+let tt;
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),3200)};
+const burger=$("#burger"),nav=$("#nav");
+const setMenu=o=>{nav.classList.toggle("open",o);burger.setAttribute("aria-expanded",o);burger.setAttribute("aria-label",o?"إغلاق القائمة":"فتح القائمة")};
+burger.onclick=()=>setMenu(!nav.classList.contains("open"));
+$$("a",nav).forEach(a=>a.onclick=()=>setMenu(false));
+addEventListener("resize",()=>innerWidth>780&&setMenu(false));
+addEventListener("keydown",e=>e.key==="Escape"&&setMenu(false));
+const track=$("#track"),first=track.firstElementChild;
+for(let i=0;i<3;i++){const c=first.cloneNode(true);c.setAttribute("aria-hidden","true");track.append(c)}
+track.classList.add("run");
+const stage=$("#stage"),calli=$("#calli");
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
+ stage.onpointermove=e=>{
+  if(e.pointerType==="touch")return;
+  const r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  calli.style.transform=`rotateX(${-y*12}deg) rotateY(${x*16}deg)`;
+ };
+ stage.onpointerleave=()=>calli.style.transform="";
+}
+const norm=v=>String(v||"").normalize("NFD").replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/گ/g,"ك").replace(/چ/g,"ج").replace(/پ/g,"ب").replace(/ڤ/g,"ف").toLowerCase().trim();
+const cards=$$(".card");
+function search(){
+ const q=norm($("#q").value);let n=0;
+ cards.forEach(c=>{const ok=!q||norm(c.textContent+" "+c.dataset.search).includes(q);c.hidden=!ok;if(ok)n++});
+ $("#none").hidden=n!==0;
+ $("#count").textContent=q?`النتائج: ${n} من ${cards.length}`:"";
+}
+$("#q").oninput=search;
+$$("[data-open]").forEach(b=>b.onclick=()=>{
+ const d=$("#"+b.dataset.open);
+ d.showModal();setMenu(false);
+ if(d.id==="videoModal"){const f=$("#yt");if(!f.getAttribute("src"))f.src=f.dataset.src}
+ if(d.id==="galleryModal"){d.scrollTop=0;loadGallery()}
+});
+$$("dialog").forEach(d=>{
+ d.onclick=e=>{if(e.target===d)d.close()};
+ d.onclose=()=>{
+  if(d.id==="videoModal")$("#yt").removeAttribute("src");
+  if(d.id==="lightbox")$("#lbImg").removeAttribute("src");
+ };
+});
+async function files(folder){
+ const k="gh:"+folder;
+ try{const c=JSON.parse(sessionStorage.getItem(k));if(c&&Date.now()-c.t<6e5)return c.d}catch{}
+ let r;
+ try{r=await fetch(`https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${encodeURIComponent(folder)}`,{headers:{Accept:"application/vnd.github+json"}})}
+ catch{throw Error("تعذر الاتصال بالإنترنت. تحقق من الشبكة وحاول مجدداً.")}
+ if(!r.ok)throw Error(r.status===403||r.status===429?"وصلنا إلى حد الطلبات المؤقت من GitHub. حاول بعد قليل.":r.status===404?`لم يتم العثور على مجلد "${folder}".`:`تعذر تحميل الملفات (${r.status}).`);
+ const j=await r.json();
+ if(!Array.isArray(j))throw Error("استجابة الملفات غير متوقعة.");
+ const d=j.filter(f=>f.type==="file"&&IMG.test(f.name)).map(f=>({name:f.name,url:f.download_url})).sort((a,b)=>a.name.localeCompare(b.name,"ar",{numeric:true,sensitivity:"base"}));
+ try{sessionStorage.setItem(k,JSON.stringify({t:Date.now(),d}))}catch{}
+ return d;
+}
+let busy=false,loaded=false;
+async function loadGallery(force){
+ if(busy||(loaded&&!force))return;
+ busy=true;
+ const grid=$("#gGrid"),st=$("#gStatus"),retry=$("#gRetry");
+ retry.hidden=true;st.textContent="جارٍ تحميل الصور…";grid.replaceChildren();
+ try{
+  const photos=await files(CFG.photos);
+  if(!photos.length){st.textContent="لا توجد صور داخل مجلد photos.";return}
+  st.textContent=`${photos.length} صورة، اضغط على أي صورة لتكبيرها.`;
+  photos.forEach(({name,url})=>{
+   const n=clean(name),btn=document.createElement("button"),img=new Image;
+   btn.type="button";btn.className="thumb";btn.setAttribute("aria-label","تكبير الصورة "+n);
+   img.src=url;img.alt=n;img.loading="lazy";img.decoding="async";
+   btn.append(img);
+   btn.onclick=()=>{$("#lbImg").src=url;$("#lbImg").alt=n;$("#lbTitle").textContent=n||"عرض الصورة";$("#lightbox").showModal()};
+   grid.append(btn);
+  });
+  loaded=true;
+ }catch(e){st.textContent=e.message;retry.hidden=false}
+ finally{busy=false}
+}
+$("#gRetry").onclick=()=>loadGallery(true);
+(async()=>{
+ try{
+  const covers=await files(CFG.covers);
+  if(!covers.length)return;
+  const strip=$("#covers");
+  covers.forEach(({name,url})=>{
+   const n=clean(name),a=document.createElement("a"),img=new Image;
+   a.href="book.html";a.title=n;a.setAttribute("aria-label",n);
+   img.src=url;img.alt=n;img.loading="lazy";img.decoding="async";
+   a.append(img);strip.append(a);
+  });
+  strip.hidden=false;$("#swipe").hidden=covers.length<2;
+ }catch{}
+})();
+const num=CFG.whatsapp,wa=$("#wa");
+if(num){
+ wa.href=`https://wa.me/${num}?text=${encodeURIComponent("السلام عليكم، أود إرسال ملاحظة عبر موقع الشرقاط الثقافي الأول.")}`;
+ wa.hidden=false;
+ if(num.startsWith("964"))wa.innerHTML=`<span>هل لديك ملاحظة؟ راسلنا عبر واتساب</span><small dir="ltr">+${num.slice(0,3)} ${num.slice(3,6)} ${num.slice(6,9)} ${num.slice(9)}</small>`;
+}
+const pledge=$("#pledge"),bookLink=$("#bookLink");
+pledge.onchange=()=>bookLink.setAttribute("aria-disabled",!pledge.checked);
+pledge.onchange();
+bookLink.onclick=e=>{if(!pledge.checked){e.preventDefault();toast("يرجى الموافقة على التعهد أولاً.")}};
+const up=$("#up");
+addEventListener("scroll",()=>up.classList.toggle("on",scrollY>450),{passive:true});
+up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+$("#year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
