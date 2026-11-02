@@ -231,6 +231,20 @@ body{background-color:var(--page);background-image:radial-gradient(rgba(217,196,
 .modal-body p{color:var(--brown)}
 @media (max-width:480px){.content-card{padding:16px 14px}}
 
+/* ===== أزرار جديدة: إطار ذهبي بزوايا خفيفة بدل الكبسولة ===== */
+.btn{border:1px solid var(--gold);border-radius:4px;background:transparent;color:var(--gold-light);box-shadow:none;text-shadow:none;font-weight:700;letter-spacing:.2px;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:#2b1c0c;transform:none}
+.btn:active{transform:translateY(1px);box-shadow:none}
+.btn span[aria-hidden]{display:inline-block;transition:transform .2s ease}
+.btn:hover span[aria-hidden]{transform:translateX(-4px)}
+.card-link{min-height:38px;padding:4px 18px;font-size:.84rem}
+.btn-main{min-height:44px;padding:6px 26px;font-size:.92rem;background:var(--gold);color:#2b1c0c}
+.btn-main:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn-dark{background:var(--brown);border-color:var(--brown);color:#fff}
+.btn-dark:hover{background:var(--brown-mid);border-color:var(--brown-mid);color:#fff}
+.btn-light{border:0;border-radius:0;background:none;color:var(--brown);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px}
+.btn-light:hover{background:none;color:var(--brown)}
+
 @media (max-width:1050px){
   .nav-links{gap:12px}
   .nav-links a{font-size:.78rem}
