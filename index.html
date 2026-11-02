@@ -102,7 +102,7 @@ button{cursor:pointer}
 .covers img{width:82px;height:116px;border:1px solid var(--line);border-radius:5px 9px 9px 5px;object-fit:cover}
 .card .swipe{margin:0 0 8px;font-size:.74rem}
 .empty{padding:30px;color:var(--soft);text-align:center}
-.wx{max-width:850px;height:780px;margin:0 auto;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:var(--paper)}
+.wx{max-width:850px;height:880px;margin:0 auto;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:var(--paper)}
 .wx iframe{width:100%;height:100%;border:0}
 .send{padding:30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(120deg,var(--paper),#f0eadc)}
 .send h3{margin-bottom:8px;font-size:1.65rem}
@@ -174,7 +174,7 @@ body{font-size:15px}
 .thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
 .about{grid-template-columns:1fr}
 .about img{width:88px;height:88px}
-.wx{height:720px}
+.wx{height:820px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
@@ -303,20 +303,23 @@ $$("[data-open]").forEach(b=>b.onclick=()=>{
  if(d.id==="videoModal"){const f=$("#yt");if(!f.getAttribute("src"))f.src=f.dataset.src}
  if(d.id==="galleryModal"){d.scrollTop=0;loadGallery()}
 });
-let popping=false,skip=false;
+let pending=false,popping=false,skip=false;
+const back=()=>{if(!pending){pending=true;history.back()}};
 function openDlg(d){d.showModal();history.pushState({dlg:d.id},"")}
 addEventListener("popstate",()=>{
+ pending=false;
  if(skip){skip=false;return}
  const o=$$("dialog[open]").pop();
  if(o){popping=true;o.close()}
 });
 $$("dialog").forEach(d=>{
- d.onclick=e=>{if(e.target===d)d.close()};
+ d.oncancel=e=>{e.preventDefault();back()};
+ d.onclick=e=>{if(e.target===d)back()};
  d.onclose=()=>{
   if(d.id==="videoModal")$("#yt").removeAttribute("src");
   if(d.id==="lightbox")$("#lbImg").removeAttribute("src");
   if(popping)popping=false;
-  else{skip=true;history.back()}
+  else{skip=true;back()}
  };
 });
 async function files(folder){
