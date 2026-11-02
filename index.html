@@ -304,6 +304,12 @@ $$("[data-open]").forEach(b=>b.onclick=()=>{
  if(d.id==="galleryModal"){$(".panel",d).scrollTop=0;loadGallery()}
 });
 const stack=[];let prev=null,pend=false;
+
+// تهيئة التاريخ للتأكد من عدم خروج الموقع مباشرة عند زر الرجوع
+if(!history.state){
+ history.replaceState({dlg:0}, "");
+}
+
 function openDlg(d){
  if(!d.hidden)return;
  if(!stack.length)prev=document.activeElement;
@@ -329,7 +335,6 @@ addEventListener("popstate",()=>{
  const t=(history.state&&history.state.dlg)||0;
  while(stack.length>t)hideDlg(stack[stack.length-1]);
 });
-if(history.state&&history.state.dlg)history.replaceState(null,"");
 $$(".modal").forEach(d=>{
  $$("[data-close]",d).forEach(b=>b.onclick=closeDlg);
  d.onclick=e=>{if(e.target===d)closeDlg()};
