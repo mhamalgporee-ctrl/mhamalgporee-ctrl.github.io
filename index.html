@@ -299,15 +299,24 @@ function search(){
 $("#q").oninput=search;
 $$("[data-open]").forEach(b=>b.onclick=()=>{
  const d=$("#"+b.dataset.open);
- d.showModal();setMenu(false);
+ openDlg(d);setMenu(false);
  if(d.id==="videoModal"){const f=$("#yt");if(!f.getAttribute("src"))f.src=f.dataset.src}
  if(d.id==="galleryModal"){d.scrollTop=0;loadGallery()}
+});
+let popping=false,skip=false;
+function openDlg(d){d.showModal();history.pushState({dlg:d.id},"")}
+addEventListener("popstate",()=>{
+ if(skip){skip=false;return}
+ const o=$$("dialog[open]").pop();
+ if(o){popping=true;o.close()}
 });
 $$("dialog").forEach(d=>{
  d.onclick=e=>{if(e.target===d)d.close()};
  d.onclose=()=>{
   if(d.id==="videoModal")$("#yt").removeAttribute("src");
   if(d.id==="lightbox")$("#lbImg").removeAttribute("src");
+  if(popping)popping=false;
+  else{skip=true;history.back()}
  };
 });
 async function files(folder){
@@ -338,7 +347,7 @@ async function loadGallery(force){
    btn.type="button";btn.className="thumb";btn.setAttribute("aria-label","تكبير الصورة "+n);
    img.src=url;img.alt=n;img.loading="lazy";img.decoding="async";
    btn.append(img);
-   btn.onclick=()=>{$("#lbImg").src=url;$("#lbImg").alt=n;$("#lbTitle").textContent=n||"عرض الصورة";$("#lightbox").showModal()};
+   btn.onclick=()=>{$("#lbImg").src=url;$("#lbImg").alt=n;$("#lbTitle").textContent=n||"عرض الصورة";openDlg($("#lightbox"))};
    grid.append(btn);
   });
   loaded=true;
