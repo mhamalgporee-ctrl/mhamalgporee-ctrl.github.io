@@ -24,9 +24,11 @@ h1{margin:0;font-size:clamp(.8rem,2.4vw,1.05rem);font-weight:900;color:#ffe08a;l
 .ctrl{display:flex;gap:10px;align-items:center}
 .refresh{width:30px;height:30px;border:0;background:none;font-size:1.25rem;transition:transform .6s}
 .refresh.spin{transform:rotate(360deg)}
-.grid{display:grid;grid-template-columns:1fr 1.4fr;column-gap:clamp(60px,24vw,300px);row-gap:6px;align-items:start}
-.fc{order:1;padding:4px 8px;border-radius:14px;background:linear-gradient(180deg,#12304f,#0e2540);border:1px solid var(--line);box-shadow:0 6px 18px #0006}
-.current{order:2;padding:2px 0;display:flex;flex-direction:column;justify-content:space-between}
+.grid{display:grid;grid-template-columns:1fr 1.4fr;column-gap:clamp(60px,24vw,300px);row-gap:6px;align-items:start;grid-template-areas:"fc top" "fc low"}
+.fc{grid-area:fc;padding:4px 8px;border-radius:14px;background:linear-gradient(180deg,#12304f,#0e2540);border:1px solid var(--line);box-shadow:0 6px 18px #0006}
+.current{display:contents}
+.cur-top{grid-area:top}
+.cur-low{grid-area:low}
 .live{display:inline-flex;gap:6px;align-items:center;font-size:.8rem;font-weight:700}
 .dot{width:9px;height:9px;border-radius:50%;background:#22e05a;box-shadow:0 0 10px #22e05a;animation:pulse 1.4s infinite;flex-shrink:0}
 @keyframes pulse{50%{opacity:.35;transform:scale(.8)}}
@@ -76,7 +78,7 @@ h1{margin:0;font-size:clamp(.8rem,2.4vw,1.05rem);font-weight:900;color:#ffe08a;l
 #dcHM{font-size:1.3rem;line-height:1.1}
 .dc-s{font-size:.8rem;color:#ff6b5e;min-width:1.2em}
 .dc-ap{font-size:.66rem;color:#eaf3ff;margin-top:1px}
-@media(max-width:850px){.grid{grid-template-columns:1fr;row-gap:clamp(90px,24vh,220px)}.current{order:1}.fc{order:2}}
+@media(max-width:850px){.grid{grid-template-columns:1fr;grid-template-areas:"top" "low" "fc";row-gap:6px}.cur-low{margin-top:clamp(90px,26vh,240px)}}
 @media(max-width:600px){body{padding:6px 10px 8px}header{flex-wrap:nowrap;gap:8px}.title{gap:6px}.ctrl{gap:4px;flex-shrink:0}.digital-clock{min-width:74px;padding:3px 6px}#dcHM{font-size:1.05rem}.dc-s{font-size:.7rem}.dc-ap{font-size:.6rem;margin-top:0}h1{font-size:.8rem}}
 @media(prefers-reduced-motion:reduce){.dot,.hero{animation:none}.refresh{transition:none}}
 </style>
@@ -95,21 +97,23 @@ h1{margin:0;font-size:clamp(.8rem,2.4vw,1.05rem);font-weight:900;color:#ffe08a;l
 </header>
 <div class="grid">
  <aside class="fc"><h2>📅 توقعات الـ 5 أيام القادمة</h2><div id="fcList"><div class="note">جارٍ تحميل التوقعات...</div></div><div class="note">🕒 تتحدث البيانات تلقائياً كل 10 دقائق</div><div class="note" id="src"></div></aside>
- <section class="current" aria-live="polite">
-  <div>
+ <section class="current">
+  <div class="cur-top" aria-live="polite">
    <span class="live"><span class="dot" id="liveDot"></span><span id="liveTxt">جارٍ التحميل…</span></span>
    <div class="alert" id="alert" role="alert" hidden></div>
    <div class="cur-main">
     <div><h2 class="city" id="cityName">الشرقاط</h2><div class="date" id="date"></div></div>
     <div class="big"><div class="hero" id="hero">🌤️</div><div class="temp" id="temp">--°C</div></div>
    </div>
-   <div class="descrow"><div class="tag" id="tag" hidden>🏖️ جو مال ونسة على الشاطي</div><div class="desc" id="desc">جارٍ جلب حالة الطقس</div></div><div class="feels" id="feels"></div>
   </div>
-  <div class="stats">
-   <div class="stat"><div class="i">☀️</div><div class="t">مؤشر UV</div><div class="v" id="uv">--</div></div>
-   <div class="stat"><div class="i">🧭</div><div class="t">الضغط</div><div class="v" id="pr">--</div></div>
-   <div class="stat"><div class="i">💧</div><div class="t">الرطوبة</div><div class="v" id="hu">--</div></div>
-   <div class="stat"><div class="i">🌬️</div><div class="t">الرياح</div><div class="v" id="wi">--</div></div>
+  <div class="cur-low">
+   <div class="descrow"><div class="tag" id="tag" hidden>🏖️ جو مال ونسة على الشاطي</div><div class="desc" id="desc">جارٍ جلب حالة الطقس</div></div><div class="feels" id="feels"></div>
+   <div class="stats">
+    <div class="stat"><div class="i">☀️</div><div class="t">مؤشر UV</div><div class="v" id="uv">--</div></div>
+    <div class="stat"><div class="i">🧭</div><div class="t">الضغط</div><div class="v" id="pr">--</div></div>
+    <div class="stat"><div class="i">💧</div><div class="t">الرطوبة</div><div class="v" id="hu">--</div></div>
+    <div class="stat"><div class="i">🌬️</div><div class="t">الرياح</div><div class="v" id="wi">--</div></div>
+   </div>
   </div>
  </section>
 </div>
