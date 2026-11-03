@@ -135,7 +135,7 @@ button{font:inherit;cursor:pointer}
 </footer>
 
 <script>
-/* ===== قائمة الكتب (رواية المنافي السعيدة مع الغلافين الأمامي والخلفي جنباً إلى جنب) ===== */
+/* ===== قائمة الكتب (تم ترتيب الأزرار بحيث يكون الـ PDF أولاً ثم الكتاب التفاعلي بالأسفل) ===== */
 const BOOKS = [
   {
     title: "رواية المنافي السعيدة",
@@ -178,7 +178,6 @@ BOOKS.forEach(b => {
   card.className = "book-card";
 
   const pdfUrl = b.pdf ? encodeURI(b.pdf) : "";
-  const link = b.flip || pdfUrl || "#";
 
   // حاوية الأغلفة لتظهر جنباً إلى جنب
   const coversWrap = document.createElement("div");
@@ -187,7 +186,7 @@ BOOKS.forEach(b => {
   const coverList = b.covers && b.covers.length ? b.covers : ["acon.jpg"];
   coverList.forEach((cSrc, idx) => {
     const a = document.createElement("a");
-    a.href = link; a.target = "_blank"; a.rel = "noopener";
+    a.href = b.flip || pdfUrl || "#"; a.target = "_blank"; a.rel = "noopener";
     a.setAttribute("aria-label", "افتح كتاب " + b.title);
     
     const img = document.createElement("img");
@@ -216,21 +215,25 @@ BOOKS.forEach(b => {
     info.append(n);
   }
 
+  // ترتيب الأزرار: ملف البي دي اف أولاً ثم الكتاب التفاعلي بالأسفل
   const actions = document.createElement("div");
   actions.className = "book-actions";
-  if (b.flip) {
-    const x = document.createElement("a");
-    x.className = "btn"; x.href = b.flip; x.target = "_blank"; x.rel = "noopener";
-    x.textContent = "اضغط هنا لقراءة الكتاب التفاعلي ←";
-    actions.append(x);
-  }
+
   if (b.pdf) {
-    const x = document.createElement("a");
-    x.className = b.flip ? "btn btn-secondary" : "btn";
-    x.href = pdfUrl; x.target = "_blank"; x.rel = "noopener";
-    x.textContent = "اضغط هنا لقراءة الكتاب في ملف بي دي اف ←";
-    actions.append(x);
+    const pdfBtn = document.createElement("a");
+    pdfBtn.className = b.flip ? "btn btn-secondary" : "btn";
+    pdfBtn.href = pdfUrl; pdfBtn.target = "_blank"; pdfBtn.rel = "noopener";
+    pdfBtn.textContent = "اضغط هنا لقراءة الكتاب في ملف بي دي اف ←";
+    actions.append(pdfBtn);
   }
+
+  if (b.flip) {
+    const flipBtn = document.createElement("a");
+    flipBtn.className = "btn"; flipBtn.href = b.flip; flipBtn.target = "_blank"; flipBtn.rel = "noopener";
+    flipBtn.textContent = "اضغط هنا لقراءة الكتاب التفاعلي ←";
+    actions.append(flipBtn);
+  }
+
   info.append(actions);
 
   card.append(coversWrap, info);
