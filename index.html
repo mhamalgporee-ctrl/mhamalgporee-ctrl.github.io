@@ -7,7 +7,7 @@
 <meta name="description" content="الشرقاط الثقافي الأول — نافذة ثقافية وأدبية توثّق تاريخ الشرقاط وتراثها وذاكرتها، بإشراف محمد علي أحمد الحطاب الجبوري.">
 <meta name="author" content="محمد علي أحمد الحطاب الجبوري">
 <meta property="og:type" content="website">
-<meta property="og:title" content="الشرقاط الثقافي الأول | مجلة ثقافية">
+<meta property="og:title" content="الشرقاط الثقافي الأول">
 <meta property="og:description" content="الثقافة والتراث والذاكرة من الشرقاط إلى العالم.">
 <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@700&display=swap" rel="stylesheet">
-<title>الشرقاط الثقافي الأول | مجلة ثقافية</title>
+<title>الشرقاط الثقافي الأول</title>
 <style>
 :root{--brown:#3a3128;--brown-mid:#6b5a47;--soft:#f5ece1;--ivory:#fcf8f2;--gold:#b8964f;--gold-light:#d9c48f;--text:#000;--muted:#3a3128;--line:#e6d6bd;--container:1200px}
 *,*::before,*::after{box-sizing:border-box}
@@ -797,10 +797,6 @@ if (CONFIG.whatsapp) {
   if (waf) {
     waf.href = `https://wa.me/${CONFIG.whatsapp}?text=${text}`;
     waf.hidden = false;
-    if (CONFIG.whatsapp.startsWith("964")) {
-      const n = CONFIG.whatsapp;
-      waf.innerHTML = `<span>هل لديك ملاحظة؟ راسلنا عبر واتساب 0${n.slice(3)} ↗</span><small dir="ltr">+${n.slice(0, 3)} ${n.slice(3, 6)} ${n.slice(6, 9)} ${n.slice(9)}</small>`;
-    }
   }
 }
 
