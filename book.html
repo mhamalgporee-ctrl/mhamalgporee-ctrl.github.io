@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -55,12 +54,17 @@ button{font:inherit;cursor:pointer}
 .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
 .btn-secondary{background:transparent;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px;padding-inline:4px}
 .btn-secondary:hover{background:transparent}
+
+/* عارض PDF.js داخل الصفحة */
 .pdf-viewer{display:none;grid-column:1/-1;width:100%;margin-top:15px;padding:12px;background:#fff;border:1px solid var(--gold);border-radius:12px}
 .pdf-viewer.open{display:block}
 .pdf-viewer h3{margin:0 0 10px;font-size:1rem;text-align:center}
-.pdf-frame{display:block;width:100%;height:75vh;min-height:450px;border:0;border-radius:6px;background:#eee}
+.pdf-pages{width:100%;max-height:75vh;overflow:auto;background:#e7e2d8;padding:10px;border-radius:6px;overscroll-behavior:contain}
+.pdf-page{display:block;width:100%;height:auto;max-width:900px;margin:0 auto 12px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.pdf-status{text-align:center;padding:24px 8px;color:#555;margin:0}
 .pdf-help{text-align:center;font-size:.82rem;color:#555;margin:10px 0 0}
 .close-pdf{display:block;margin:12px auto 0}
+
 .site-footer{padding:28px 0;color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-brand{color:#000;font-weight:900}
@@ -83,13 +87,12 @@ button{font:inherit;cursor:pointer}
 .book-actions{align-items:center}
 .btn{width:100%;max-width:320px}
 .pdf-viewer{grid-column:1}
-.pdf-frame{height:65vh;min-height:400px}
+.pdf-pages{max-height:68vh;padding:6px}
 }
 </style>
 </head>
 
 <body>
-
 <header class="site-header">
 <div class="container nav-wrap">
 <a class="brand" href="index.html" aria-label="الشرقاط الثقافي الأول">
@@ -135,7 +138,11 @@ button{font:inherit;cursor:pointer}
 </div>
 </footer>
 
+<!-- مكتبة PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
+"use strict";
+
 const BOOKS = [
 {
 title:"رواية المنافي السعيدة",
@@ -173,147 +180,217 @@ pdf:"diwan.pdf"
 ];
 
 const box=document.getElementById("books");
+const PDF_WORKER="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-BOOKS.forEach((b,index)=>{
-const card=document.createElement("article");
-card.className="book-card";
-
-const pdfUrl=b.pdf ? encodeURI(b.pdf) : "";
-
-const coversWrap=document.createElement("div");
-coversWrap.className="book-covers-wrap";
-
-const coverList=b.covers?.length ? b.covers : ["acon.jpg"];
-
-coverList.forEach((cSrc,idx)=>{
-const a=document.createElement("a");
-a.href=b.flip || "#";
-if(b.flip){
-a.target="_blank";
-a.rel="noopener noreferrer";
-}
-a.setAttribute("aria-label","افتح الكتاب التفاعلي "+b.title);
-
-const img=document.createElement("img");
-img.className="book-cover";
-img.src=cSrc;
-img.alt=b.title+(idx===0?" - الغلاف الأمامي":" - الغلاف الخلفي");
-img.loading="lazy";
-img.onerror=()=>{
-img.onerror=null;
-img.src="acon.jpg";
-};
-a.append(img);
-coversWrap.append(a);
-});
-
-const info=document.createElement("div");
-info.className="book-info";
-
-const h=document.createElement("h2");
-h.textContent=b.title;
-
-const au=document.createElement("div");
-au.className="book-author";
-au.textContent="تأليف: "+b.author;
-
-const p=document.createElement("p");
-p.textContent=b.desc;
-
-info.append(h,au,p);
-
-if(b.note){
-const n=document.createElement("div");
-n.className="note-text";
-n.textContent=b.note;
-info.append(n);
+if(window.pdfjsLib){
+  pdfjsLib.GlobalWorkerOptions.workerSrc=PDF_WORKER;
 }
 
-const actions=document.createElement("div");
-actions.className="book-actions";
+/* نخزن ملفات الكتب المحمّلة حتى لا نعيد تحميلها عند فتحها مرة ثانية */
+const loadedPDFs=new Map();
+let activeViewer=null;
 
-if(b.pdf){
-const pdfBtn=document.createElement("button");
-pdfBtn.type="button";
-pdfBtn.className=b.flip?"btn btn-secondary":"btn";
-pdfBtn.textContent="اضغط هنا لقراءة الكتاب PDF ←";
-
-const viewer=document.createElement("section");
-viewer.className="pdf-viewer";
-viewer.setAttribute("aria-label","قارئ الكتاب "+b.title);
-
-const viewerTitle=document.createElement("h3");
-viewerTitle.textContent="قراءة: "+b.title;
-
-const frame=document.createElement("iframe");
-frame.className="pdf-frame";
-frame.title="ملف PDF: "+b.title;
-frame.loading="lazy";
-frame.setAttribute("allow","fullscreen");
-frame.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
-
-/* إخفاء أدوات عارض PDF المعتادة قدر الإمكان */
-frame.src=pdfUrl+"#toolbar=0&navpanes=0&scrollbar=1";
-
-const help=document.createElement("p");
-help.className="pdf-help";
-help.textContent="يمكنك تصفح صفحات الكتاب داخل هذه النافذة. قد تختلف أدوات العرض حسب المتصفح.";
-
-const closeBtn=document.createElement("button");
-closeBtn.type="button";
-closeBtn.className="btn close-pdf";
-closeBtn.textContent="إغلاق الكتاب";
-
-closeBtn.addEventListener("click",()=>{
-viewer.classList.remove("open");
-frame.src="about:blank";
-pdfBtn.textContent="اضغط هنا لقراءة الكتاب PDF ←";
-pdfBtn.setAttribute("aria-expanded","false");
-});
-
-pdfBtn.setAttribute("aria-expanded","false");
-pdfBtn.addEventListener("click",()=>{
-const isOpen=viewer.classList.contains("open");
-
-document.querySelectorAll(".pdf-viewer.open").forEach(v=>{
-v.classList.remove("open");
-const f=v.querySelector("iframe");
-if(f) f.src="about:blank";
-const button=v.parentElement.querySelector(".book-actions button");
-if(button){
-button.textContent="اضغط هنا لقراءة الكتاب PDF ←";
-button.setAttribute("aria-expanded","false");
-}
-});
-
-if(!isOpen){
-frame.src=pdfUrl+"#toolbar=0&navpanes=0&scrollbar=1";
-viewer.classList.add("open");
-pdfBtn.textContent="إخفاء الكتاب ↑";
-pdfBtn.setAttribute("aria-expanded","true");
-viewer.scrollIntoView({behavior:"smooth",block:"start"});
-}
-});
-
-viewer.append(viewerTitle,frame,help,closeBtn);
-actions.append(pdfBtn);
-card.append(coversWrap,info,viewer);
-}else{
-card.append(coversWrap,info);
+function setButtonClosed(button){
+  button.textContent="اضغط هنا لقراءة الكتاب PDF ←";
+  button.setAttribute("aria-expanded","false");
 }
 
-if(b.flip){
-const flipBtn=document.createElement("a");
-flipBtn.className="btn";
-flipBtn.href=b.flip;
-flipBtn.target="_blank";
-flipBtn.rel="noopener noreferrer";
-flipBtn.textContent="اضغط هنا لقراءة الكتاب التفاعلي ←";
-actions.append(flipBtn);
+async function renderPDF(url,pages,status){
+  if(!window.pdfjsLib){
+    throw new Error("مكتبة PDF.js لم يتم تحميلها. تحقق من اتصال الإنترنت.");
+  }
+
+  let pdf=loadedPDFs.get(url);
+  if(!pdf){
+    const task=pdfjsLib.getDocument({url:url});
+    pdf=await task.promise;
+    loadedPDFs.set(url,pdf);
+  }
+
+  pages.replaceChildren();
+
+  for(let number=1;number<=pdf.numPages;number++){
+    const page=await pdf.getPage(number);
+
+    const baseViewport=page.getViewport({scale:1});
+    const availableWidth=Math.max(280,pages.clientWidth-20);
+    const scale=Math.min(2,availableWidth/baseViewport.width);
+    const viewport=page.getViewport({scale:scale});
+
+    const canvas=document.createElement("canvas");
+    canvas.className="pdf-page";
+    const context=canvas.getContext("2d",{alpha:false});
+
+    const outputScale=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.floor(viewport.width*outputScale);
+    canvas.height=Math.floor(viewport.height*outputScale);
+    canvas.style.width=Math.floor(viewport.width)+"px";
+    canvas.style.maxWidth="100%";
+    canvas.style.height="auto";
+
+    pages.append(canvas);
+
+    await page.render({
+      canvasContext:context,
+      viewport:viewport,
+      transform:outputScale===1?null:[outputScale,0,0,outputScale,0,0]
+    }).promise;
+
+    page.cleanup();
+  }
+
+  status.textContent="اكتمل تحميل الكتاب · عدد الصفحات: "+pdf.numPages;
 }
 
-info.append(actions);
-box.append(card);
+BOOKS.forEach((b)=>{
+  const card=document.createElement("article");
+  card.className="book-card";
+
+  const coversWrap=document.createElement("div");
+  coversWrap.className="book-covers-wrap";
+
+  const coverList=b.covers?.length?b.covers:["acon.jpg"];
+
+  coverList.forEach((cSrc,idx)=>{
+    const a=document.createElement("a");
+    a.href=b.flip||"#";
+    if(b.flip){
+      a.target="_blank";
+      a.rel="noopener noreferrer";
+    }
+    a.setAttribute("aria-label","افتح الكتاب التفاعلي "+b.title);
+
+    const img=document.createElement("img");
+    img.className="book-cover";
+    img.src=cSrc;
+    img.alt=b.title+(idx===0?" - الغلاف الأمامي":" - الغلاف الخلفي");
+    img.loading="lazy";
+    img.onerror=()=>{
+      img.onerror=null;
+      img.src="acon.jpg";
+    };
+    a.append(img);
+    coversWrap.append(a);
+  });
+
+  const info=document.createElement("div");
+  info.className="book-info";
+
+  const h=document.createElement("h2");
+  h.textContent=b.title;
+
+  const au=document.createElement("div");
+  au.className="book-author";
+  au.textContent="تأليف: "+b.author;
+
+  const p=document.createElement("p");
+  p.textContent=b.desc;
+  info.append(h,au,p);
+
+  if(b.note){
+    const n=document.createElement("div");
+    n.className="note-text";
+    n.textContent=b.note;
+    info.append(n);
+  }
+
+  const actions=document.createElement("div");
+  actions.className="book-actions";
+
+  if(b.pdf){
+    const pdfUrl=new URL(b.pdf,document.baseURI).href;
+
+    const pdfBtn=document.createElement("button");
+    pdfBtn.type="button";
+    pdfBtn.className=b.flip?"btn btn-secondary":"btn";
+    pdfBtn.textContent="اضغط هنا لقراءة الكتاب PDF ←";
+    pdfBtn.setAttribute("aria-expanded","false");
+
+    const viewer=document.createElement("section");
+    viewer.className="pdf-viewer";
+    viewer.setAttribute("aria-label","قارئ الكتاب "+b.title);
+
+    const viewerTitle=document.createElement("h3");
+    viewerTitle.textContent="قراءة: "+b.title;
+
+    const pages=document.createElement("div");
+    pages.className="pdf-pages";
+
+    const status=document.createElement("p");
+    status.className="pdf-status";
+    status.textContent="اضغط على زر القراءة لعرض صفحات الكتاب.";
+    pages.append(status);
+
+    const help=document.createElement("p");
+    help.className="pdf-help";
+    help.textContent="مرّر للأعلى والأسفل لتصفح صفحات الكتاب.";
+
+    const closeBtn=document.createElement("button");
+    closeBtn.type="button";
+    closeBtn.className="btn close-pdf";
+    closeBtn.textContent="إغلاق الكتاب";
+
+    function closeViewer(){
+      viewer.classList.remove("open");
+      setButtonClosed(pdfBtn);
+      if(activeViewer===viewer) activeViewer=null;
+    }
+
+    closeBtn.addEventListener("click",closeViewer);
+
+    pdfBtn.addEventListener("click",async()=>{
+      if(activeViewer && activeViewer!==viewer){
+        const oldViewer=activeViewer;
+        oldViewer.classList.remove("open");
+        const oldButton=oldViewer.parentElement.querySelector(".book-actions button[data-pdf-button]");
+        if(oldButton) setButtonClosed(oldButton);
+      }
+
+      if(viewer.classList.contains("open")){
+        closeViewer();
+        return;
+      }
+
+      activeViewer=viewer;
+      viewer.classList.add("open");
+      pdfBtn.textContent="إخفاء الكتاب ↑";
+      pdfBtn.setAttribute("aria-expanded","true");
+      viewer.scrollIntoView({behavior:"smooth",block:"start"});
+
+      if(!viewer.dataset.loaded){
+        status.textContent="جارٍ تحميل صفحات الكتاب...";
+        try{
+          await renderPDF(pdfUrl,pages,status);
+          viewer.dataset.loaded="true";
+        }catch(error){
+          console.error("PDF error:",error);
+          pages.replaceChildren();
+          status.textContent="تعذر عرض الكتاب. تأكد من وجود الملف بالاسم نفسه داخل مستودع الموقع، ثم حدّث الصفحة. ("+error.message+")";
+          pages.append(status);
+        }
+      }
+    });
+
+    pdfBtn.dataset.pdfButton="true";
+    viewer.append(viewerTitle,pages,help,closeBtn);
+    actions.append(pdfBtn);
+    card.append(coversWrap,info,viewer);
+  }else{
+    card.append(coversWrap,info);
+  }
+
+  if(b.flip){
+    const flipBtn=document.createElement("a");
+    flipBtn.className="btn";
+    flipBtn.href=b.flip;
+    flipBtn.target="_blank";
+    flipBtn.rel="noopener noreferrer";
+    flipBtn.textContent="اضغط هنا لقراءة الكتاب التفاعلي ←";
+    actions.append(flipBtn);
+  }
+
+  info.append(actions);
+  box.append(card);
 });
 
 /* القائمة */
@@ -321,23 +398,23 @@ const menuToggle=document.getElementById("menuToggle");
 const navLinks=document.getElementById("navLinks");
 
 function closeMenu(){
-navLinks.classList.remove("open");
-menuToggle.setAttribute("aria-expanded","false");
-menuToggle.setAttribute("aria-label","فتح قائمة التنقل");
+  navLinks.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded","false");
+  menuToggle.setAttribute("aria-label","فتح قائمة التنقل");
 }
 
 menuToggle.addEventListener("click",()=>{
-const open=navLinks.classList.toggle("open");
-menuToggle.setAttribute("aria-expanded",String(open));
-menuToggle.setAttribute("aria-label",open?"إغلاق قائمة التنقل":"فتح قائمة التنقل");
+  const open=navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded",String(open));
+  menuToggle.setAttribute("aria-label",open?"إغلاق قائمة التنقل":"فتح قائمة التنقل");
 });
 
 navLinks.querySelectorAll("a").forEach(link=>{
-link.addEventListener("click",closeMenu);
+  link.addEventListener("click",closeMenu);
 });
 
 window.addEventListener("resize",()=>{
-if(window.innerWidth>780) closeMenu();
+  if(window.innerWidth>780) closeMenu();
 });
 
 document.getElementById("year").textContent=new Date().getFullYear();
