@@ -2,20 +2,11 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
-<script>
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());
-gtag('config','G-3VZQSDZNC7');
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f7e9cc">
 <title>المؤلفات والكتب | الشرقاط الثقافي الأول</title>
-<meta name="description" content="قسم الكتب والمؤلفات - موقع الشرقاط الثقافي الأول. بقلم الأستاذ محمد علي أحمد الحطاب الجبوري وكتّاب ومؤلفي الموقع.">
+<meta name="description" content="قسم الكتب والمؤلفات - موقع الشرقاط الثقافي الأول.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="المؤلفات والكتب | الشرقاط الثقافي الأول">
 <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
@@ -23,7 +14,7 @@ gtag('config','G-3VZQSDZNC7');
 <link rel="icon" href="acon.jpg" type="image/jpeg">
 
 <style>
-:root{--green:#4a3f33;--green-mid:#6b5a47;--ivory:#f7e9cc;--gold:#b8964f;--gold-light:#d9c48f;--ink:#000;--muted:#222;--container:1000px}
+:root{--green:#4a3f33;--ivory:#f7e9cc;--gold:#b8964f;--gold-light:#d9c48f;--ink:#000;--muted:#222;--container:1000px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--ivory);color:var(--ink);font-family:Tahoma,Arial,"Noto Sans Arabic",sans-serif;font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
@@ -48,23 +39,28 @@ button{font:inherit;cursor:pointer}
 .page-header{padding:40px 0 30px;text-align:center}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.77rem;font-weight:800;letter-spacing:.06em}
 .eyebrow::before{content:"";width:27px;height:2px;background:var(--gold)}
-.page-header h1{margin:10px 0 10px;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.35}
+.page-header h1{margin:10px 0;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.35}
 .page-header p{max-width:650px;margin-inline:auto;color:var(--muted);font-size:1rem}
 
 .book-card{display:grid;grid-template-columns:auto 1fr;gap:28px;margin-bottom:60px;align-items:center}
 .book-covers-wrap{display:flex;gap:10px;justify-content:center;align-items:center}
-.book-cover{width:110px;max-height:280px;object-fit:contain;border-radius:4px;border:1px solid rgba(184,150,79,0.3);box-shadow:0 4px 12px rgba(74,63,51,0.12);transition:transform .2s ease}
+.book-cover{width:110px;max-height:280px;object-fit:contain;border-radius:4px;border:1px solid rgba(184,150,79,.3);box-shadow:0 4px 12px rgba(74,63,51,.12);transition:transform .2s}
 .book-cover:hover{transform:translateY(-3px)}
-
 .book-info h2{margin:0 0 10px;font-size:1.4rem;line-height:1.5}
 .book-author{color:#8a6d2f;font-weight:800;font-size:.9rem;margin-bottom:8px}
-.book-info p{margin:0 0 14px;color:var(--ink);font-size:.95rem}
+.book-info p{margin:0 0 14px;font-size:.95rem}
 .note-text{font-size:.84rem;color:var(--muted);margin-bottom:16px}
 .book-actions{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 22px;background:var(--gold);color:#000;font-weight:800;border-radius:999px;font-size:.9rem;transition:transform .2s ease,background .2s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 22px;background:var(--gold);color:#000;font-weight:800;border-radius:999px;font-size:.9rem;transition:transform .2s,background .2s;border:0}
 .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
-.btn-secondary{background:transparent;color:#000;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px;padding-inline:4px}
+.btn-secondary{background:transparent;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px;padding-inline:4px}
 .btn-secondary:hover{background:transparent}
+.pdf-viewer{display:none;grid-column:1/-1;width:100%;margin-top:15px;padding:12px;background:#fff;border:1px solid var(--gold);border-radius:12px}
+.pdf-viewer.open{display:block}
+.pdf-viewer h3{margin:0 0 10px;font-size:1rem;text-align:center}
+.pdf-frame{display:block;width:100%;height:75vh;min-height:450px;border:0;border-radius:6px;background:#eee}
+.pdf-help{text-align:center;font-size:.82rem;color:#555;margin:10px 0 0}
+.close-pdf{display:block;margin:12px auto 0}
 .site-footer{padding:28px 0;color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-brand{color:#000;font-weight:900}
@@ -86,6 +82,8 @@ button{font:inherit;cursor:pointer}
 .book-covers-wrap{justify-content:center}
 .book-actions{align-items:center}
 .btn{width:100%;max-width:320px}
+.pdf-viewer{grid-column:1}
+.pdf-frame{height:65vh;min-height:400px}
 }
 </style>
 </head>
@@ -94,19 +92,14 @@ button{font:inherit;cursor:pointer}
 
 <header class="site-header">
 <div class="container nav-wrap">
-
-<a class="brand" href="index.html" aria-label="الشرقاط الثقافي الأول - الصفحة الرئيسية">
-<span class="brand-mark">
-<img src="acon.jpg" alt="" onerror="this.style.display='none'">
-</span>
+<a class="brand" href="index.html" aria-label="الشرقاط الثقافي الأول">
+<span class="brand-mark"><img src="acon.jpg" alt="" onerror="this.style.display='none'"></span>
 <span class="brand-copy">
 <span class="brand-title">الشرقاط الثقافي الأول</span>
 <span class="brand-subtitle">ذاكرة المكان · حكاية الإنسان</span>
 </span>
 </a>
-
 <button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="navLinks">☰</button>
-
 <nav class="nav-links" id="navLinks" aria-label="القائمة الرئيسية">
 <a href="index.html">الرئيسية</a>
 <a href="index.html#library">الأقسام الثقافية</a>
@@ -115,266 +108,239 @@ button{font:inherit;cursor:pointer}
 <a href="sendbook.html">أرسل كتابك</a>
 <a href="index.html#weather">الطقس</a>
 </nav>
-
 </div>
 </header>
 
 <main class="container">
-
 <div class="page-header">
 <span class="eyebrow">المكتبة الثقافية</span>
 <h1>قسم المؤلفات والكتب</h1>
 <p>المكتبة الأدبية والفكرية الموثقة لإصدارات موقع الشرقاط الثقافي الأول.</p>
 </div>
-
 <div id="books"></div>
-
 </main>
 
 <footer class="site-footer">
 <div class="container footer-inner">
-
 <div>
 <a class="footer-brand" href="index.html">الشرقاط الثقافي الأول</a>
-<p class="footer-note">
-إشراف وتأليف: محمد علي أحمد الحطاب الجبوري · جميع الحقوق محفوظة ©
-<span id="year">2026</span>
-</p>
+<p class="footer-note">إشراف وتأليف: محمد علي أحمد الحطاب الجبوري · جميع الحقوق محفوظة © <span id="year">2026</span></p>
 </div>
-
 <nav class="footer-links" aria-label="روابط إضافية">
 <a href="index.html">الرئيسية</a>
 <a href="book.html">المؤلفات</a>
 <a href="sendbook.html">أرسل كتابك</a>
 <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
 </nav>
-
 </div>
 </footer>
 
 <script>
-
-/* قائمة الكتب */
-
 const BOOKS = [
-
 {
-title: "رواية المنافي السعيدة",
-author: "الكاتب والروائي الأستاذ فهد عنتر الدوخي",
-desc: "رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة، مستعرضاً الحكايات الإنسانية والذكريات الجميلة.",
-covers: ["fahad-cover.jpg", "Fahad-back1.jpg"],
-flip: "https://heyzine.com/flip-book/0ec9c4a4d0.html",
-pdf: "فهد الدوخي.pdf",
-note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
+title:"رواية المنافي السعيدة",
+author:"الكاتب والروائي الأستاذ فهد عنتر الدوخي",
+desc:"رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة، مستعرضاً الحكايات الإنسانية والذكريات الجميلة.",
+covers:["fahad-cover.jpg","Fahad-back1.jpg"],
+flip:"https://heyzine.com/flip-book/0ec9c4a4d0.html",
+pdf:"فهد الدوخي.pdf",
+note:"💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
 },
-
 {
-title: "الرجل والمرأة وعشرة العمر في بلاد الرافدين",
-author: "محمد علي أحمد الحطاب الجبوري",
-desc: "كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة.",
-covers: ["cover.jpg"],
-flip: "https://heyzine.com/flip-book/fbeda5b9de.html",
-pdf: "book.pdf",
-note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
+title:"الرجل والمرأة وعشرة العمر في بلاد الرافدين",
+author:"محمد علي أحمد الحطاب الجبوري",
+desc:"كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة.",
+covers:["cover.jpg"],
+flip:"https://heyzine.com/flip-book/fbeda5b9de.html",
+pdf:"book.pdf",
+note:"💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
 },
-
 {
-title: "رواية متاهة العقل",
-author: "محمد علي أحمد الحطاب الجبوري",
-desc: "رواية أدبية مشوقة تأخذ القارئ في دروب التفكير والعمق الإنساني، حافلة بالصور الفكرية والوجدان ومواقف الحياة.",
-covers: ["mataha-cover.jpg"],
-pdf: "mataha.pdf",
-note: "💡 اضغط على الزر أدناه لقراءة الرواية بصيغة PDF."
+title:"رواية متاهة العقل",
+author:"محمد علي أحمد الحطاب الجبوري",
+desc:"رواية أدبية مشوقة تأخذ القارئ في دروب التفكير والعمق الإنساني، حافلة بالصور الفكرية والوجدان ومواقف الحياة.",
+covers:["mataha-cover.jpg"],
+pdf:"mataha.pdf",
+note:"💡 اضغط على الزر أدناه لقراءة الرواية بصيغة PDF."
 },
-
 {
-title: "ديوان شعر",
-author: "محمد علي أحمد الحطاب الجبوري",
-desc: "ديوان شعر يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.",
-covers: ["diwan-cover.jpg"],
-pdf: "diwan.pdf"
+title:"ديوان شعر",
+author:"محمد علي أحمد الحطاب الجبوري",
+desc:"ديوان شعر يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.",
+covers:["diwan-cover.jpg"],
+pdf:"diwan.pdf"
 }
-
 ];
 
+const box=document.getElementById("books");
 
-/* إنشاء بطاقات الكتب */
+BOOKS.forEach((b,index)=>{
+const card=document.createElement("article");
+card.className="book-card";
 
-const box = document.getElementById("books");
+const pdfUrl=b.pdf ? encodeURI(b.pdf) : "";
 
-BOOKS.forEach(b => {
+const coversWrap=document.createElement("div");
+coversWrap.className="book-covers-wrap";
 
-const card = document.createElement("article");
-card.className = "book-card";
+const coverList=b.covers?.length ? b.covers : ["acon.jpg"];
 
-const pdfUrl = b.pdf
-? encodeURI(b.pdf)
-: "";
+coverList.forEach((cSrc,idx)=>{
+const a=document.createElement("a");
+a.href=b.flip || "#";
+if(b.flip){
+a.target="_blank";
+a.rel="noopener noreferrer";
+}
+a.setAttribute("aria-label","افتح الكتاب التفاعلي "+b.title);
 
-/* الأغلفة */
-
-const coversWrap = document.createElement("div");
-coversWrap.className = "book-covers-wrap";
-
-const coverList = b.covers && b.covers.length
-? b.covers
-: ["acon.jpg"];
-
-coverList.forEach((cSrc, idx) => {
-
-const a = document.createElement("a");
-
-/* روابط الأغلفة كما كانت */
-
-a.href = b.flip || pdfUrl || "#";
-a.target = "_blank";
-a.rel = "noopener";
-a.setAttribute("aria-label", "افتح كتاب " + b.title);
-
-const img = document.createElement("img");
-img.className = "book-cover";
-img.src = cSrc;
-img.alt = b.title + (idx === 0 ? " - الغلاف الأمامي" : " - الغلاف الخلفي");
-img.loading = "lazy";
-
-img.onerror = () => {
-img.onerror = null;
-img.src = "acon.jpg";
+const img=document.createElement("img");
+img.className="book-cover";
+img.src=cSrc;
+img.alt=b.title+(idx===0?" - الغلاف الأمامي":" - الغلاف الخلفي");
+img.loading="lazy";
+img.onerror=()=>{
+img.onerror=null;
+img.src="acon.jpg";
 };
-
 a.append(img);
 coversWrap.append(a);
-
 });
 
+const info=document.createElement("div");
+info.className="book-info";
 
-/* معلومات الكتاب */
+const h=document.createElement("h2");
+h.textContent=b.title;
 
-const info = document.createElement("div");
-info.className = "book-info";
+const au=document.createElement("div");
+au.className="book-author";
+au.textContent="تأليف: "+b.author;
 
-const h = document.createElement("h2");
-h.textContent = b.title;
+const p=document.createElement("p");
+p.textContent=b.desc;
 
-const au = document.createElement("div");
-au.className = "book-author";
-au.textContent = "تأليف: " + b.author;
+info.append(h,au,p);
 
-const p = document.createElement("p");
-p.textContent = b.desc;
-
-info.append(h, au, p);
-
-
-/* الملاحظات */
-
-if (b.note) {
-
-const n = document.createElement("div");
-n.className = "note-text";
-n.textContent = b.note;
-
+if(b.note){
+const n=document.createElement("div");
+n.className="note-text";
+n.textContent=b.note;
 info.append(n);
-
 }
 
+const actions=document.createElement("div");
+actions.className="book-actions";
 
-/* أزرار القراءة */
+if(b.pdf){
+const pdfBtn=document.createElement("button");
+pdfBtn.type="button";
+pdfBtn.className=b.flip?"btn btn-secondary":"btn";
+pdfBtn.textContent="اضغط هنا لقراءة الكتاب PDF ←";
 
-const actions = document.createElement("div");
-actions.className = "book-actions";
+const viewer=document.createElement("section");
+viewer.className="pdf-viewer";
+viewer.setAttribute("aria-label","قارئ الكتاب "+b.title);
 
+const viewerTitle=document.createElement("h3");
+viewerTitle.textContent="قراءة: "+b.title;
 
-/* زر PDF - تم إصلاح فتح الملف */
+const frame=document.createElement("iframe");
+frame.className="pdf-frame";
+frame.title="ملف PDF: "+b.title;
+frame.loading="lazy";
+frame.setAttribute("allow","fullscreen");
+frame.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
 
-if (b.pdf) {
+/* إخفاء أدوات عارض PDF المعتادة قدر الإمكان */
+frame.src=pdfUrl+"#toolbar=0&navpanes=0&scrollbar=1";
 
-const pdfBtn = document.createElement("a");
+const help=document.createElement("p");
+help.className="pdf-help";
+help.textContent="يمكنك تصفح صفحات الكتاب داخل هذه النافذة. قد تختلف أدوات العرض حسب المتصفح.";
 
-pdfBtn.className = b.flip
-? "btn btn-secondary"
-: "btn";
+const closeBtn=document.createElement("button");
+closeBtn.type="button";
+closeBtn.className="btn close-pdf";
+closeBtn.textContent="إغلاق الكتاب";
 
-/* التعديل المهم:
-   إزالة target="_blank"
-   حتى يفتح PDF في نفس الصفحة */
+closeBtn.addEventListener("click",()=>{
+viewer.classList.remove("open");
+frame.src="about:blank";
+pdfBtn.textContent="اضغط هنا لقراءة الكتاب PDF ←";
+pdfBtn.setAttribute("aria-expanded","false");
+});
 
-pdfBtn.href = pdfUrl;
+pdfBtn.setAttribute("aria-expanded","false");
+pdfBtn.addEventListener("click",()=>{
+const isOpen=viewer.classList.contains("open");
 
-pdfBtn.textContent = "اضغط هنا لقراءة الكتاب في ملف بي دي اف ←";
+document.querySelectorAll(".pdf-viewer.open").forEach(v=>{
+v.classList.remove("open");
+const f=v.querySelector("iframe");
+if(f) f.src="about:blank";
+const button=v.parentElement.querySelector(".book-actions button");
+if(button){
+button.textContent="اضغط هنا لقراءة الكتاب PDF ←";
+button.setAttribute("aria-expanded","false");
+}
+});
 
+if(!isOpen){
+frame.src=pdfUrl+"#toolbar=0&navpanes=0&scrollbar=1";
+viewer.classList.add("open");
+pdfBtn.textContent="إخفاء الكتاب ↑";
+pdfBtn.setAttribute("aria-expanded","true");
+viewer.scrollIntoView({behavior:"smooth",block:"start"});
+}
+});
+
+viewer.append(viewerTitle,frame,help,closeBtn);
 actions.append(pdfBtn);
-
+card.append(coversWrap,info,viewer);
+}else{
+card.append(coversWrap,info);
 }
 
-
-/* زر الكتاب التفاعلي */
-
-if (b.flip) {
-
-const flipBtn = document.createElement("a");
-
-flipBtn.className = "btn";
-flipBtn.href = b.flip;
-flipBtn.target = "_blank";
-flipBtn.rel = "noopener";
-
-flipBtn.textContent = "اضغط هنا لقراءة الكتاب التفاعلي ←";
-
+if(b.flip){
+const flipBtn=document.createElement("a");
+flipBtn.className="btn";
+flipBtn.href=b.flip;
+flipBtn.target="_blank";
+flipBtn.rel="noopener noreferrer";
+flipBtn.textContent="اضغط هنا لقراءة الكتاب التفاعلي ←";
 actions.append(flipBtn);
-
 }
-
 
 info.append(actions);
-
-card.append(coversWrap, info);
-
 box.append(card);
-
 });
-
 
 /* القائمة */
+const menuToggle=document.getElementById("menuToggle");
+const navLinks=document.getElementById("navLinks");
 
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-function closeMenu() {
-
+function closeMenu(){
 navLinks.classList.remove("open");
-
-menuToggle.setAttribute("aria-expanded", "false");
-
-menuToggle.setAttribute("aria-label", "فتح قائمة التنقل");
-
+menuToggle.setAttribute("aria-expanded","false");
+menuToggle.setAttribute("aria-label","فتح قائمة التنقل");
 }
 
-menuToggle.addEventListener("click", () => {
-
-const o = navLinks.classList.toggle("open");
-
-menuToggle.setAttribute("aria-expanded", String(o));
-
-menuToggle.setAttribute(
-"aria-label",
-o ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل"
-);
-
+menuToggle.addEventListener("click",()=>{
+const open=navLinks.classList.toggle("open");
+menuToggle.setAttribute("aria-expanded",String(open));
+menuToggle.setAttribute("aria-label",open?"إغلاق قائمة التنقل":"فتح قائمة التنقل");
 });
 
-navLinks.querySelectorAll("a").forEach(l => {
-l.addEventListener("click", closeMenu);
+navLinks.querySelectorAll("a").forEach(link=>{
+link.addEventListener("click",closeMenu);
 });
 
-window.addEventListener("resize", () => {
-if (window.innerWidth > 780) closeMenu();
+window.addEventListener("resize",()=>{
+if(window.innerWidth>780) closeMenu();
 });
 
-document.getElementById("year").textContent =
-new Date().getFullYear();
-
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
-
 </body>
 </html>
