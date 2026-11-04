@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,6 +10,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());
 gtag('config','G-3VZQSDZNC7');
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f7e9cc">
@@ -19,6 +21,7 @@ gtag('config','G-3VZQSDZNC7');
 <meta property="og:image" content="https://mhamalgporee-ctrl.github.io/acon.jpg">
 <link rel="canonical" href="https://mhamalgporee-ctrl.github.io/book.html">
 <link rel="icon" href="acon.jpg" type="image/jpeg">
+
 <style>
 :root{--green:#4a3f33;--green-mid:#6b5a47;--ivory:#f7e9cc;--gold:#b8964f;--gold-light:#d9c48f;--ink:#000;--muted:#222;--container:1000px}
 *,*::before,*::after{box-sizing:border-box}
@@ -48,7 +51,6 @@ button{font:inherit;cursor:pointer}
 .page-header h1{margin:10px 0 10px;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.35}
 .page-header p{max-width:650px;margin-inline:auto;color:var(--muted);font-size:1rem}
 
-/* تنسيق بطاقة الكتاب والأغلفة المتعددة بجانب بعضها */
 .book-card{display:grid;grid-template-columns:auto 1fr;gap:28px;margin-bottom:60px;align-items:center}
 .book-covers-wrap{display:flex;gap:10px;justify-content:center;align-items:center}
 .book-cover{width:110px;max-height:280px;object-fit:contain;border-radius:4px;border:1px solid rgba(184,150,79,0.3);box-shadow:0 4px 12px rgba(74,63,51,0.12);transition:transform .2s ease}
@@ -70,193 +72,308 @@ button{font:inherit;cursor:pointer}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:.9rem}
 .footer-links a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .footer-links a:hover{color:var(--gold)}
+
 @media(max-width:780px){
-  .container{width:min(100% - 28px,var(--container))}
-  .menu-toggle{display:grid;place-items:center}
-  .nav-links{position:absolute;top:100%;right:0;left:0;display:none;align-items:stretch;gap:4px;padding:12px 15px 16px;background:var(--ivory)}
-  .nav-links.open{display:flex;flex-direction:column}
-  .nav-links a{padding:9px 12px;font-size:.9rem}
-  .footer-inner{align-items:flex-start;flex-direction:column}
+.container{width:min(100% - 28px,var(--container))}
+.menu-toggle{display:grid;place-items:center}
+.nav-links{position:absolute;top:100%;right:0;left:0;display:none;align-items:stretch;gap:4px;padding:12px 15px 16px;background:var(--ivory)}
+.nav-links.open{display:flex;flex-direction:column}
+.nav-links a{padding:9px 12px;font-size:.9rem}
+.footer-inner{align-items:flex-start;flex-direction:column}
 }
 @media(max-width:650px){
-  .book-card{grid-template-columns:1fr;text-align:center;gap:18px}
-  .book-covers-wrap{justify-content:center}
-  .book-actions{align-items:center}
-  .btn{width:100%;max-width:320px}
+.book-card{grid-template-columns:1fr;text-align:center;gap:18px}
+.book-covers-wrap{justify-content:center}
+.book-actions{align-items:center}
+.btn{width:100%;max-width:320px}
 }
 </style>
 </head>
+
 <body>
 
 <header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="index.html" aria-label="الشرقاط الثقافي الأول - الصفحة الرئيسية">
-      <span class="brand-mark"><img src="acon.jpg" alt="" onerror="this.style.display='none'"></span>
-      <span class="brand-copy">
-        <span class="brand-title">الشرقاط الثقافي الأول</span>
-        <span class="brand-subtitle">ذاكرة المكان · حكاية الإنسان</span>
-      </span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="navLinks">☰</button>
-    <nav class="nav-links" id="navLinks" aria-label="القائمة الرئيسية">
-      <a href="index.html">الرئيسية</a>
-      <a href="index.html#library">الأقسام الثقافية</a>
-      <a href="tv.html">التلفزيون</a>
-      <a href="book.html" aria-current="page">المؤلفات</a>
-      <a href="sendbook.html">أرسل كتابك</a>
-      <a href="index.html#weather">الطقس</a>
-    </nav>
-  </div>
+<div class="container nav-wrap">
+
+<a class="brand" href="index.html" aria-label="الشرقاط الثقافي الأول - الصفحة الرئيسية">
+<span class="brand-mark">
+<img src="acon.jpg" alt="" onerror="this.style.display='none'">
+</span>
+<span class="brand-copy">
+<span class="brand-title">الشرقاط الثقافي الأول</span>
+<span class="brand-subtitle">ذاكرة المكان · حكاية الإنسان</span>
+</span>
+</a>
+
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+<nav class="nav-links" id="navLinks" aria-label="القائمة الرئيسية">
+<a href="index.html">الرئيسية</a>
+<a href="index.html#library">الأقسام الثقافية</a>
+<a href="tv.html">التلفزيون</a>
+<a href="book.html" aria-current="page">المؤلفات</a>
+<a href="sendbook.html">أرسل كتابك</a>
+<a href="index.html#weather">الطقس</a>
+</nav>
+
+</div>
 </header>
 
 <main class="container">
-  <div class="page-header">
-    <span class="eyebrow">المكتبة الثقافية</span>
-    <h1>قسم المؤلفات والكتب</h1>
-    <p>المكتبة الأدبية والفكرية الموثقة لإصدارات موقع الشرقاط الثقافي الأول.</p>
-  </div>
 
-  <div id="books"></div>
+<div class="page-header">
+<span class="eyebrow">المكتبة الثقافية</span>
+<h1>قسم المؤلفات والكتب</h1>
+<p>المكتبة الأدبية والفكرية الموثقة لإصدارات موقع الشرقاط الثقافي الأول.</p>
+</div>
+
+<div id="books"></div>
+
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <div>
-      <a class="footer-brand" href="index.html">الشرقاط الثقافي الأول</a>
-      <p class="footer-note">إشراف وتأليف: محمد علي أحمد الحطاب الجبوري · جميع الحقوق محفوظة © <span id="year">2026</span></p>
-    </div>
-    <nav class="footer-links" aria-label="روابط إضافية">
-      <a href="index.html">الرئيسية</a>
-      <a href="book.html">المؤلفات</a>
-      <a href="sendbook.html">أرسل كتابك</a>
-      <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
-    </nav>
-  </div>
+<div class="container footer-inner">
+
+<div>
+<a class="footer-brand" href="index.html">الشرقاط الثقافي الأول</a>
+<p class="footer-note">
+إشراف وتأليف: محمد علي أحمد الحطاب الجبوري · جميع الحقوق محفوظة ©
+<span id="year">2026</span>
+</p>
+</div>
+
+<nav class="footer-links" aria-label="روابط إضافية">
+<a href="index.html">الرئيسية</a>
+<a href="book.html">المؤلفات</a>
+<a href="sendbook.html">أرسل كتابك</a>
+<a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
+</nav>
+
+</div>
 </footer>
 
 <script>
-/* ===== قائمة الكتب (تم ترتيب الأزرار بحيث يكون الـ PDF أولاً ثم الكتاب التفاعلي بالأسفل) ===== */
+
+/* قائمة الكتب */
+
 const BOOKS = [
-  {
-    title: "رواية المنافي السعيدة",
-    author: "الكاتب والروائي الأستاذ فهد عنتر الدوخي",
-    desc: "رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة، مستعرضاً الحكايات الإنسانية والذكريات الجميلة.",
-    covers: ["fahad-cover.jpg", "Fahad-back1.jpg"],
-    flip: "https://heyzine.com/flip-book/0ec9c4a4d0.html",
-    pdf: "فهد الدوخي.pdf",
-    note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
-  },
-  {
-    title: "الرجل والمرأة وعشرة العمر في بلاد الرافدين",
-    author: "محمد علي أحمد الحطاب الجبوري",
-    desc: "كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة.",
-    covers: ["cover.jpg"],
-    flip: "https://heyzine.com/flip-book/fbeda5b9de.html",
-    pdf: "book.pdf",
-    note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
-  },
-  {
-    title: "رواية متاهة العقل",
-    author: "محمد علي أحمد الحطاب الجبوري",
-    desc: "رواية أدبية مشوقة تأخذ القارئ في دروب التفكير والعمق الإنساني، حافلة بالصور الفكرية والوجدان ومواقف الحياة.",
-    covers: ["mataha-cover.jpg"],
-    pdf: "mataha.pdf",
-    note: "💡 اضغط على الزر أدناه لقراءة الرواية بصيغة PDF."
-  },
-  {
-    title: "ديوان شعر",
-    author: "محمد علي أحمد الحطاب الجبوري",
-    desc: "ديوان شعر يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.",
-    covers: ["diwan-cover.jpg"],
-    pdf: "diwan.pdf"
-  }
+
+{
+title: "رواية المنافي السعيدة",
+author: "الكاتب والروائي الأستاذ فهد عنتر الدوخي",
+desc: "رواية وكتاب توثيقي يستحضر أجواء السبعينيات وأيام الدراسة الجامعية، مسلطاً الضوء على مواقف العمر وذاكرة الأصدقاء والزملاء الذين غابوا في رحلة المنافي البعيدة، مستعرضاً الحكايات الإنسانية والذكريات الجميلة.",
+covers: ["fahad-cover.jpg", "Fahad-back1.jpg"],
+flip: "https://heyzine.com/flip-book/0ec9c4a4d0.html",
+pdf: "فهد الدوخي.pdf",
+note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
+},
+
+{
+title: "الرجل والمرأة وعشرة العمر في بلاد الرافدين",
+author: "محمد علي أحمد الحطاب الجبوري",
+desc: "كتاب إنساني واجتماعي يتناول رحلة الرجل والمرأة والعلاقة الإنسانية الشريفة وعشرة العمر في أرض بلاد الرافدين، من بداية اللقاء إلى الذكريات والحكايات الشعبية والاجتماعية الراسخة في ذاكرة المنطقة.",
+covers: ["cover.jpg"],
+flip: "https://heyzine.com/flip-book/fbeda5b9de.html",
+pdf: "book.pdf",
+note: "💡 عند الدخول إلى الكتاب التفاعلي، اضغط على الأسهم داخل الكتاب لتصفح الصفحات بسهولة."
+},
+
+{
+title: "رواية متاهة العقل",
+author: "محمد علي أحمد الحطاب الجبوري",
+desc: "رواية أدبية مشوقة تأخذ القارئ في دروب التفكير والعمق الإنساني، حافلة بالصور الفكرية والوجدان ومواقف الحياة.",
+covers: ["mataha-cover.jpg"],
+pdf: "mataha.pdf",
+note: "💡 اضغط على الزر أدناه لقراءة الرواية بصيغة PDF."
+},
+
+{
+title: "ديوان شعر",
+author: "محمد علي أحمد الحطاب الجبوري",
+desc: "ديوان شعر يضم قصائد من نظم المؤلف، تتنقل بين الوجدان والحنين والحكمة وصور الحياة في بلاد الرافدين.",
+covers: ["diwan-cover.jpg"],
+pdf: "diwan.pdf"
+}
+
 ];
 
+
+/* إنشاء بطاقات الكتب */
+
 const box = document.getElementById("books");
+
 BOOKS.forEach(b => {
-  const card = document.createElement("article");
-  card.className = "book-card";
 
-  const pdfUrl = b.pdf ? encodeURI(b.pdf) : "";
+const card = document.createElement("article");
+card.className = "book-card";
 
-  // حاوية الأغلفة لتظهر جنباً إلى جنب
-  const coversWrap = document.createElement("div");
-  coversWrap.className = "book-covers-wrap";
+const pdfUrl = b.pdf
+? encodeURI(b.pdf)
+: "";
 
-  const coverList = b.covers && b.covers.length ? b.covers : ["acon.jpg"];
-  coverList.forEach((cSrc, idx) => {
-    const a = document.createElement("a");
-    a.href = b.flip || pdfUrl || "#"; a.target = "_blank"; a.rel = "noopener";
-    a.setAttribute("aria-label", "افتح كتاب " + b.title);
-    
-    const img = document.createElement("img");
-    img.className = "book-cover";
-    img.src = cSrc;
-    img.alt = b.title + (idx === 0 ? " - الغلاف الأمامي" : " - الغلاف الخلفي");
-    img.loading = "lazy";
-    img.onerror = () => { img.onerror = null; img.src = "acon.jpg"; };
-    
-    a.append(img);
-    coversWrap.append(a);
-  });
+/* الأغلفة */
 
-  const info = document.createElement("div");
-  info.className = "book-info";
-  const h = document.createElement("h2"); h.textContent = b.title;
-  const au = document.createElement("div");
-  au.className = "book-author";
-  au.textContent = "تأليف: " + b.author;
-  const p = document.createElement("p"); p.textContent = b.desc;
-  info.append(h, au, p);
+const coversWrap = document.createElement("div");
+coversWrap.className = "book-covers-wrap";
 
-  if (b.note) {
-    const n = document.createElement("div");
-    n.className = "note-text"; n.textContent = b.note;
-    info.append(n);
-  }
+const coverList = b.covers && b.covers.length
+? b.covers
+: ["acon.jpg"];
 
-  // ترتيب الأزرار: ملف البي دي اف أولاً ثم الكتاب التفاعلي بالأسفل
-  const actions = document.createElement("div");
-  actions.className = "book-actions";
+coverList.forEach((cSrc, idx) => {
 
-  if (b.pdf) {
-    const pdfBtn = document.createElement("a");
-    pdfBtn.className = b.flip ? "btn btn-secondary" : "btn";
-    pdfBtn.href = pdfUrl; pdfBtn.target = "_blank"; pdfBtn.rel = "noopener";
-    pdfBtn.textContent = "اضغط هنا لقراءة الكتاب في ملف بي دي اف ←";
-    actions.append(pdfBtn);
-  }
+const a = document.createElement("a");
 
-  if (b.flip) {
-    const flipBtn = document.createElement("a");
-    flipBtn.className = "btn"; flipBtn.href = b.flip; flipBtn.target = "_blank"; flipBtn.rel = "noopener";
-    flipBtn.textContent = "اضغط هنا لقراءة الكتاب التفاعلي ←";
-    actions.append(flipBtn);
-  }
+/* روابط الأغلفة كما كانت */
 
-  info.append(actions);
+a.href = b.flip || pdfUrl || "#";
+a.target = "_blank";
+a.rel = "noopener";
+a.setAttribute("aria-label", "افتح كتاب " + b.title);
 
-  card.append(coversWrap, info);
-  box.append(card);
+const img = document.createElement("img");
+img.className = "book-cover";
+img.src = cSrc;
+img.alt = b.title + (idx === 0 ? " - الغلاف الأمامي" : " - الغلاف الخلفي");
+img.loading = "lazy";
+
+img.onerror = () => {
+img.onerror = null;
+img.src = "acon.jpg";
+};
+
+a.append(img);
+coversWrap.append(a);
+
 });
+
+
+/* معلومات الكتاب */
+
+const info = document.createElement("div");
+info.className = "book-info";
+
+const h = document.createElement("h2");
+h.textContent = b.title;
+
+const au = document.createElement("div");
+au.className = "book-author";
+au.textContent = "تأليف: " + b.author;
+
+const p = document.createElement("p");
+p.textContent = b.desc;
+
+info.append(h, au, p);
+
+
+/* الملاحظات */
+
+if (b.note) {
+
+const n = document.createElement("div");
+n.className = "note-text";
+n.textContent = b.note;
+
+info.append(n);
+
+}
+
+
+/* أزرار القراءة */
+
+const actions = document.createElement("div");
+actions.className = "book-actions";
+
+
+/* زر PDF - تم إصلاح فتح الملف */
+
+if (b.pdf) {
+
+const pdfBtn = document.createElement("a");
+
+pdfBtn.className = b.flip
+? "btn btn-secondary"
+: "btn";
+
+/* التعديل المهم:
+   إزالة target="_blank"
+   حتى يفتح PDF في نفس الصفحة */
+
+pdfBtn.href = pdfUrl;
+
+pdfBtn.textContent = "اضغط هنا لقراءة الكتاب في ملف بي دي اف ←";
+
+actions.append(pdfBtn);
+
+}
+
+
+/* زر الكتاب التفاعلي */
+
+if (b.flip) {
+
+const flipBtn = document.createElement("a");
+
+flipBtn.className = "btn";
+flipBtn.href = b.flip;
+flipBtn.target = "_blank";
+flipBtn.rel = "noopener";
+
+flipBtn.textContent = "اضغط هنا لقراءة الكتاب التفاعلي ←";
+
+actions.append(flipBtn);
+
+}
+
+
+info.append(actions);
+
+card.append(coversWrap, info);
+
+box.append(card);
+
+});
+
 
 /* القائمة */
+
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
-function closeMenu() {
-  navLinks.classList.remove("open");
-  menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "فتح قائمة التنقل");
-}
-menuToggle.addEventListener("click", () => {
-  const o = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(o));
-  menuToggle.setAttribute("aria-label", o ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل");
-});
-navLinks.querySelectorAll("a").forEach(l => l.addEventListener("click", closeMenu));
-window.addEventListener("resize", () => { if (window.innerWidth > 780) closeMenu(); });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+function closeMenu() {
+
+navLinks.classList.remove("open");
+
+menuToggle.setAttribute("aria-expanded", "false");
+
+menuToggle.setAttribute("aria-label", "فتح قائمة التنقل");
+
+}
+
+menuToggle.addEventListener("click", () => {
+
+const o = navLinks.classList.toggle("open");
+
+menuToggle.setAttribute("aria-expanded", String(o));
+
+menuToggle.setAttribute(
+"aria-label",
+o ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل"
+);
+
+});
+
+navLinks.querySelectorAll("a").forEach(l => {
+l.addEventListener("click", closeMenu);
+});
+
+window.addEventListener("resize", () => {
+if (window.innerWidth > 780) closeMenu();
+});
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
 </script>
 
 </body>
