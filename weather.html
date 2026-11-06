@@ -132,6 +132,12 @@ const OFF=3*3600; /* العراق UTC+3 طوال العام */
 const DAYS=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/* ---------- عتبات المطر (عدّلها إذا تريد حساسية أعلى أو أقل) ---------- */
+const RAIN_NOW=.5;        /* ملم/ساعة: الحد الأدنى لاعتبار الجو ممطراً الآن */
+const ALERT_SUM=2;        /* ملم: مجموع أمطار الـ 12 ساعة القادمة لإظهار تنبيه */
+const ALERT_HOUR=1;       /* ملم: أو هطول ساعة واحدة بهذه الكمية */
+const THUNDER_MIN=.3;     /* ملم/ساعة: الحد الأدنى لتأكيد العاصفة الرعدية */
+
 /* المصادر: MET Norway (نموذج ECMWF) كمصدر رئيسي + wttr.in كمصدر ثانٍ للمطابقة */
 const URL_MET=`https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=${LAT}&lon=${LON}`;
 const URL_WTTR=`https://wttr.in/${LAT},${LON}?format=j1`;
@@ -213,13 +219,14 @@ function cloudWx(e,daily){
 }
 
 function isClear(){
- return S.kind==="none"&&S.precip<.2&&S.eff<=20;
+ return S.kind==="none"&&S.precip<RAIN_NOW&&S.eff<=20;
 }
 
+/* المطر الحالي يتطلب كمية فعلية، وليس رمز الطقس وحده */
 function currentWx(){
- if(S.kind==="thunder")return["⛈️","عواصف رعدية","rain"];
- if(S.kind==="snow")return["❄️","ثلوج","snow"];
- if(S.kind==="rain"||S.precip>=.2)return["🌧️",S.precip>=1?"أمطار":"زخات مطر","rain"];
+ if(S.kind==="thunder"&&S.precip>=THUNDER_MIN)return["⛈️","عواصف رعدية","rain"];
+ if(S.kind==="snow"&&S.precip>=.1)return["❄️","ثلوج","snow"];
+ if(S.precip>=RAIN_NOW)return["🌧️",S.precip>=1?"أمطار":"زخات مطر","rain"];
  if(S.kind==="fog")return["🌫️","ضباب","cloudy"];
  return cloudWx(S.eff,false);
 }
@@ -250,10 +257,11 @@ function buildDaily(ts,now){
   if(Number.isFinite(ws))o.wind=Math.max(o.wind,ws);
   const h=new Date(t+OFF*1000).getUTCHours();
   if(h>=7&&h<=17)o.cl.push(effOf(d));
-  o.pr+=precipOf(e);
+  const p=precipOf(e);
+  o.pr+=p;
   const k=kindOf(symOf(e));
-  if(k==="thunder")o.thunder=true;
-  if(k==="snow")o.snow=true;
+  if(k==="thunder"&&p>=THUNDER_MIN)o.thunder=true;
+  if(k==="snow"&&p>=.1)o.snow=true;
  }
  const today=dayKey(now);
  return Object.keys(days).sort().filter(k=>k>today&&days[k].n>=3&&Number.isFinite(days[k].hi)).slice(0,5).map(k=>{
@@ -262,30 +270,34 @@ function buildDaily(ts,now){
   if(o.thunder)info=["⛈️","عواصف رعدية","rain"];
   else if(o.snow)info=["❄️","ثلوج","snow"];
   else if(o.pr>=3)info=["🌧️","أمطار","rain"];
-  else if(o.pr>=.5)info=["🌦️","زخات مطر","rain"];
+  else if(o.pr>=1)info=["🌦️","زخات مطر","rain"];
   else if(o.wind>=45)info=["🌬️","نشاط رياح","wind"];
   else info=cloudWx(o.cl.length?o.cl.reduce((a,b)=>a+b,0)/o.cl.length:0,true);
   return{hi:Math.round(o.hi),lo:Math.round(o.lo),info,dn:new Date(k+"T00:00:00Z").getUTCDay()};
  });
 }
 
+/* التنبيه: يعتمد على كمية الأمطار الفعلية وليس على رمز الطقس فقط */
 function buildAlert(ts,ci,now){
- let thunder=false,wet=false,gust=0;
+ let thunder=false,gust=0,rainSum=0,rainMax=0;
  for(let i=ci;i<ts.length;i++){
   const e=ts[i],t=Date.parse(e.time);
   if(t>now+12*3600e3)break;
   const d=e.data.instant.details;
   const k=kindOf(symOf(e));
-  if(k==="thunder")thunder=true;
-  if(k==="rain"||precipOf(e)>.2)wet=true;
+  const p=precipOf(e);
+  if(k==="thunder"&&p>=THUNDER_MIN)thunder=true;
+  rainSum+=p;
+  rainMax=Math.max(rainMax,p);
   const g=num(d.wind_speed_of_gust),w=num(d.wind_speed);
   const gk=(Number.isFinite(g)?g:(Number.isFinite(w)?w*1.4:0))*3.6;
   gust=Math.max(gust,gk);
  }
  thunderSoon=thunder;
+ const wet=rainSum>=ALERT_SUM||rainMax>=ALERT_HOUR;
  const parts=[];
  if(thunder)parts.push("⚡ عواصف رعدية وبرق");
- if(wet)parts.push("🌧️ أمطار متوقعة أو هطول");
+ if(wet)parts.push("🌧️ أمطار متوقعة");
  if(gust>=65)parts.push(`💨 رياح عاصفة، هبات حتى ${Math.round(gust)} كم/س`);
  else if(gust>=45)parts.push(`💨 رياح قوية، هبات حتى ${Math.round(gust)} كم/س`);
  return parts.length?"تنبيه جوي: "+parts.join(" · "):"";
@@ -294,7 +306,7 @@ function buildAlert(ts,ci,now){
 function getJSON(url){
  const ctl=new AbortController();
  const t=setTimeout(()=>ctl.abort(),15000);
- return fetch(url,{signal:ctl.signal})
+ return fetch(url,{signal:ctl.signal,cache:"no-store"})
   .then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
   .finally(()=>clearTimeout(t));
 }
@@ -385,7 +397,7 @@ async function load(){
 }
 
 function liveFx(){
- if(S.w>=40&&S.h<30&&S.precip<.2)return"dust";
+ if(S.w>=40&&S.h<30&&S.precip<RAIN_NOW)return"dust";
  return currentWx()[2];
 }
 
