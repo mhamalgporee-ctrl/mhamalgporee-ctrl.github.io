@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -32,7 +33,7 @@ body{
  font-family:Tahoma,Arial,"Noto Sans Arabic",sans-serif;
  color:#fff;
  background:transparent;
- line-height:1.4;
+ line-height:1.5;
 }
 
 [hidden]{display:none!important}
@@ -52,7 +53,7 @@ button{font:inherit;color:inherit;cursor:pointer}
  margin:auto;
  display:flex;
  flex-direction:column;
- gap:8px;
+ gap:10px;
  position:relative;
  z-index:1;
  text-shadow:0 0 3px #000b,0 1px 10px #000b;
@@ -64,7 +65,7 @@ header{
  justify-content:space-between;
  gap:12px;
  flex-wrap:wrap;
- padding-bottom:6px;
+ padding-bottom:8px;
  border-bottom:1px solid var(--line);
 }
 
@@ -76,16 +77,16 @@ header{
 }
 
 .title .ico{
- font-size:1.4rem;
+ font-size:1.6rem;
  filter:drop-shadow(0 0 12px #ffc83c99);
 }
 
 h1{
  margin:0;
- font-size:clamp(.8rem,2.4vw,1.05rem);
+ font-size:clamp(.95rem,2.8vw,1.25rem);
  font-weight:900;
  color:#ffe08a;
- line-height:1.35;
+ line-height:1.5;
 }
 
 .ctrl{
@@ -95,12 +96,12 @@ h1{
 }
 
 .refresh{
- width:36px;
- height:36px;
- border:0;
+ width:44px;
+ height:44px;
+ border:1px solid #ffffff25;
  border-radius:50%;
  background:#ffffff10;
- font-size:1.4rem;
+ font-size:1.6rem;
  transition:transform .6s;
 }
 
@@ -110,15 +111,15 @@ h1{
  display:grid;
  grid-template-columns:1fr 1.4fr;
  column-gap:clamp(20px,5vw,65px);
- row-gap:8px;
+ row-gap:10px;
  align-items:start;
  grid-template-areas:"fc top" "fc low";
 }
 
 .fc{
  grid-area:fc;
- padding:8px;
- border-radius:14px;
+ padding:12px;
+ border-radius:16px;
  background:linear-gradient(180deg,#12304f,#0e2540);
  border:1px solid var(--line);
  box-shadow:0 6px 18px #0006;
@@ -130,15 +131,15 @@ h1{
 
 .live{
  display:inline-flex;
- gap:7px;
+ gap:8px;
  align-items:center;
- font-size:.8rem;
+ font-size:.9rem;
  font-weight:700;
 }
 
 .dot{
- width:9px;
- height:9px;
+ width:10px;
+ height:10px;
  border-radius:50%;
  background:#22e05a;
  box-shadow:0 0 10px #22e05a;
@@ -151,47 +152,47 @@ h1{
 }
 
 .alert{
- margin:5px 0 0;
- padding:7px 9px;
- border-inline-start:3px solid #ff6b5e;
+ margin:8px 0 0;
+ padding:10px 12px;
+ border-inline-start:4px solid #ff6b5e;
  background:#96140fbb;
- border-radius:8px;
+ border-radius:10px;
  font-weight:700;
- font-size:.78rem;
- line-height:1.5;
+ font-size:.9rem;
+ line-height:1.6;
 }
 
 .cur-main{
  display:flex;
  justify-content:space-between;
  align-items:center;
- gap:10px;
- margin:8px 0;
+ gap:12px;
+ margin:12px 0;
 }
 
 .city{
- font-size:clamp(1rem,3vw,1.4rem);
+ font-size:clamp(1.15rem,3vw,1.6rem);
  font-weight:900;
  margin:0;
- line-height:1.4;
+ line-height:1.5;
 }
 
 .date{
  font-weight:700;
  color:#eaf3ff;
- font-size:.75rem;
+ font-size:.85rem;
 }
 
 .big{
  display:flex;
  align-items:center;
- gap:8px;
+ gap:10px;
 }
 
 .hero{
  display:grid;
  place-items:center;
- font-size:clamp(1.3rem,4vw,1.8rem);
+ font-size:clamp(1.6rem,4vw,2.2rem);
  filter:drop-shadow(0 0 20px #ffffff66);
  animation:float 5s ease-in-out infinite;
 }
@@ -203,7 +204,7 @@ h1{
 }
 
 .temp{
- font-size:clamp(1.5rem,4.5vw,2.3rem);
+ font-size:clamp(1.8rem,4.5vw,2.7rem);
  font-weight:900;
  line-height:1;
  direction:ltr;
@@ -211,7 +212,7 @@ h1{
 }
 
 .desc{
- font-size:clamp(.82rem,2.3vw,1rem);
+ font-size:clamp(.95rem,2.5vw,1.15rem);
  font-weight:900;
  color:var(--gold2);
  text-align:end;
@@ -222,7 +223,7 @@ h1{
  align-items:center;
  justify-content:space-between;
  gap:8px;
- min-height:27px;
+ min-height:30px;
 }
 
 .descrow .desc{flex-shrink:0}
@@ -230,94 +231,94 @@ h1{
 .tag{
  flex:1;
  min-width:0;
- font-size:.7rem;
+ font-size:.8rem;
  font-weight:700;
  color:#eaf3ff;
- line-height:1.35;
+ line-height:1.4;
  text-align:start;
 }
 
 .feels{
  text-align:end;
  font-weight:800;
- margin-top:3px;
- font-size:.75rem;
+ margin-top:5px;
+ font-size:.85rem;
 }
 
 .stats{
  display:grid;
  grid-template-columns:repeat(4,1fr);
- margin-top:8px;
+ margin-top:10px;
  border-top:1px solid var(--line);
- padding-top:6px;
+ padding-top:8px;
 }
 
 .stat{
  text-align:center;
- padding:4px 2px;
+ padding:6px 3px;
  border-inline-start:1px solid var(--line);
  min-width:0;
 }
 
 .stat:first-child{border-inline-start:0}
 
-.stat .i{font-size:1rem;line-height:1.3}
-.stat .t{font-size:.7rem;font-weight:800}
+.stat .i{font-size:1.3rem;line-height:1.5}
+.stat .t{font-size:.8rem;font-weight:800}
 .stat .v{
- font-size:.75rem;
+ font-size:.85rem;
  font-weight:900;
  overflow-wrap:anywhere;
 }
 
 .fc h2{
- margin:0 0 6px;
- padding-bottom:5px;
+ margin:0 0 9px;
+ padding-bottom:8px;
  border-bottom:1px solid var(--line);
- font-size:.9rem;
+ font-size:1rem;
  font-weight:900;
 }
 
 #fcList{
  display:flex;
  flex-direction:column;
- gap:4px;
+ gap:6px;
 }
 
 .row{
  display:flex;
  align-items:center;
- gap:6px;
- padding:5px 8px;
- min-height:36px;
- border-radius:9px;
+ gap:8px;
+ padding:8px 10px;
+ min-height:48px;
+ border-radius:11px;
  border:1px solid #ffffff30;
  box-shadow:0 2px 6px #0004;
  text-shadow:0 1px 3px #000c;
 }
 
 .row .ic{
- font-size:1rem;
- width:24px;
+ font-size:1.3rem;
+ width:28px;
  text-align:center;
 }
 
-.row .d{flex:1;min-width:0;line-height:1.2}
+.row .d{flex:1;min-width:0;line-height:1.4}
 
 .row .d b{
  display:block;
  font-weight:900;
- font-size:.78rem;
+ font-size:.9rem;
 }
 
 .row .d span{
- font-size:.68rem;
+ font-size:.78rem;
  font-weight:700;
 }
 
 .row .tp{
  direction:ltr;
  font-weight:900;
- font-size:.82rem;
+ font-size:.95rem;
  white-space:nowrap;
 }
 
@@ -335,38 +336,38 @@ h1{
 .r-snow{background:linear-gradient(120deg,#5f7d9c,#a9c1d8)}
 
 .note{
- font-size:.7rem;
+ font-size:.78rem;
  color:#eaf3ff;
  font-weight:700;
- margin-top:5px;
+ margin-top:7px;
 }
 
 .banner{
  text-align:center;
- padding:8px 0 0;
+ padding:10px 0 0;
  border-top:1px solid var(--line);
 }
 
 .banner .pill{
  font-weight:800;
- font-size:.85rem;
- margin-bottom:3px;
+ font-size:.95rem;
+ margin-bottom:4px;
 }
 
 .banner .by{
  font-family:"Aref Ruqaa",Tahoma,Arial,sans-serif;
  font-weight:700;
  color:var(--gold2);
- font-size:1.05rem;
- line-height:1.5;
+ font-size:1.15rem;
+ line-height:1.6;
  text-shadow:0 0 4px #000e,0 2px 12px #000b;
 }
 
 .digital-clock{
  flex-shrink:0;
- min-width:92px;
- padding:5px 7px;
- border-radius:11px;
+ min-width:105px;
+ padding:7px 9px;
+ border-radius:12px;
  background:linear-gradient(#0b121b,#05090f);
  border:2px solid var(--gold);
  box-shadow:0 0 12px #f5b02e4d,inset 0 0 8px #000c;
@@ -385,65 +386,44 @@ h1{
  font-weight:900;
 }
 
-#dcHM{font-size:1.3rem;line-height:1.1}
+#dcHM{font-size:1.45rem;line-height:1.1}
 
 .dc-s{
- font-size:.8rem;
+ font-size:.85rem;
  color:#ff6b5e;
  min-width:1.2em;
 }
 
 .dc-ap{
- font-size:.66rem;
+ font-size:.75rem;
  color:#eaf3ff;
- margin-top:2px;
+ margin-top:3px;
 }
 
-/* تصميم الهاتف */
 @media(max-width:850px){
-
  .grid{
   grid-template-columns:1fr;
   grid-template-areas:"top" "low" "fc";
-  row-gap:12px;
+  row-gap:13px;
   column-gap:0;
  }
-
- .cur-low{
-  margin-top:0!important;
- }
-
+ .cur-low{margin-top:0!important}
  .fc{width:100%}
 }
 
 @media(max-width:600px){
-
- body{padding:6px 10px 10px}
-
- header{
-  flex-wrap:nowrap;
-  gap:8px;
- }
-
- .title{gap:6px}
- .ctrl{gap:5px;flex-shrink:0}
-
- .digital-clock{
-  min-width:78px;
-  padding:4px 6px;
- }
-
- #dcHM{font-size:1.1rem}
- .dc-s{font-size:.7rem}
- .dc-ap{font-size:.6rem;margin-top:1px}
-
- h1{font-size:.8rem}
-
- .cur-main{margin:8px 0}
-
- .stats{margin-top:7px}
-
- .banner .by{font-size:1rem}
+ body{padding:7px 10px 12px}
+ header{flex-wrap:nowrap;gap:8px}
+ .title{gap:7px}
+ .ctrl{gap:6px;flex-shrink:0}
+ .digital-clock{min-width:88px;padding:6px 7px}
+ #dcHM{font-size:1.25rem}
+ .dc-s{font-size:.75rem}
+ .dc-ap{font-size:.68rem}
+ h1{font-size:.9rem}
+ .cur-main{margin:10px 0}
+ .stats{margin-top:8px}
+ .banner .by{font-size:1.05rem}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -491,6 +471,7 @@ h1{
 
   <div class="note">🕒 تتحدث البيانات تلقائياً كل 10 دقائق</div>
   <div class="note" id="src"></div>
+  <div class="note" id="updated"></div>
  </aside>
 
  <section class="current">
@@ -502,7 +483,7 @@ h1{
     <span id="liveTxt">جارٍ التحميل…</span>
    </span>
 
-   <div class="alert" id="alert" role="alert" hidden></div>
+   <div class="alert" id="alert" role="status" hidden></div>
 
    <div class="cur-main">
 
@@ -522,7 +503,7 @@ h1{
   <div class="cur-low">
 
    <div class="descrow">
-    <div class="tag" id="tag" hidden>🏖️ جو مال ونسة على الشاطي</div>
+    <div class="tag" id="tag" hidden></div>
     <div class="desc" id="desc">جارٍ جلب حالة الطقس</div>
    </div>
 
@@ -531,15 +512,9 @@ h1{
    <div class="stats">
 
     <div class="stat">
-     <div class="i">☀️</div>
-     <div class="t">مؤشر UV</div>
-     <div class="v" id="uv">--</div>
-    </div>
-
-    <div class="stat">
-     <div class="i">🧭</div>
-     <div class="t">الضغط</div>
-     <div class="v" id="pr">--</div>
+     <div class="i">🌬️</div>
+     <div class="t">الرياح</div>
+     <div class="v" id="wi">--</div>
     </div>
 
     <div class="stat">
@@ -549,9 +524,15 @@ h1{
     </div>
 
     <div class="stat">
-     <div class="i">🌬️</div>
-     <div class="t">الرياح</div>
-     <div class="v" id="wi">--</div>
+     <div class="i">🧭</div>
+     <div class="t">الضغط</div>
+     <div class="v" id="pr">--</div>
+    </div>
+
+    <div class="stat">
+     <div class="i">☀️</div>
+     <div class="t">مؤشر UV</div>
+     <div class="v" id="uv">--</div>
     </div>
 
    </div>
@@ -590,7 +571,7 @@ const DAYS=[
 const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const URL_API=
-`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,cloud_cover,pressure_msl,wind_speed_10m,uv_index&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=6&timezone=${TZ}`;
+`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,weather_code,cloud_cover,pressure_msl,wind_speed_10m,uv_index&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=6&timezone=${TZ}`;
 
 let S=null;
 let mode="sunny";
@@ -601,6 +582,7 @@ let raf=0;
 let onScreen=true;
 let retryT=0;
 let lastMin="";
+let lastUpdate=null;
 
 const cl01=v=>Math.max(0,Math.min(1,v));
 
@@ -629,6 +611,12 @@ const dateFmt=new Intl.DateTimeFormat("ar-IQ",{
  day:"numeric",
  month:"long",
  year:"numeric"
+});
+
+const updateFmt=new Intl.DateTimeFormat("ar-IQ",{
+ timeZone:TZ,
+ hour:"2-digit",
+ minute:"2-digit"
 });
 
 function updateClock(){
@@ -723,7 +711,7 @@ function sunTimes(ms){
 
 
 /* =========================
-   حالة الطقس
+   تحويل رموز الطقس
 ========================= */
 
 function wmoMap(code,isDay){
@@ -759,7 +747,7 @@ function wmoMap(code,isDay){
   case 55:
   case 56:
   case 57:
-   return["🌧️","رذاذ خفيف","rain"];
+   return["🌧️","رذاذ","rain"];
 
   case 61:
   case 63:
@@ -787,7 +775,7 @@ function wmoMap(code,isDay){
    return["⛈️","عواصف رعدية","rain"];
 
   default:
-   return["🌤️","حالة جوية مستقرة","sunny"];
+   return["🌤️","حالة جوية غير محددة","sunny"];
  }
 }
 
@@ -799,80 +787,130 @@ const uvTxt=u=>
 
 
 /* =========================
-   جلب البيانات مع إصلاح
-   مشكلة البروكسي والاتصال
+   تحديد الحالة الحالية
+========================= */
+
+function getCurrentCondition(cur){
+
+ const code=Number(cur.weather_code);
+ const isDay=Number(cur.is_day)===1;
+
+ const raw=wmoMap(code,isDay);
+
+ const rainCodes=[
+  51,53,55,56,57,
+  61,63,65,66,67,
+  80,81,82,
+  95,96,99
+ ];
+
+ const thunderCodes=[95,96,99];
+
+ const rainAmount=Number(cur.rain)||0;
+ const showersAmount=Number(cur.showers)||0;
+ const precipitation=Number(cur.precipitation)||0;
+
+ const clouds=Number(cur.cloud_cover)||0;
+
+ // لا نعتمد على رمز المطر وحده.
+ // نحتاج إلى قراءة هطول حالية معتبرة
+ // ورمز يشير إلى حالة مطرية.
+
+ const rainCode=rainCodes.includes(code);
+
+ const actualRain=
+  Math.max(rainAmount,showersAmount,precipitation);
+
+ const raining=
+  rainCode && actualRain>=0.2;
+
+ const thunder=
+  thunderCodes.includes(code) && raining;
+
+ let info=raw;
+
+ // إذا كان الرمز يشير إلى المطر
+ // لكن لا توجد كمية هطول معتبرة،
+ // نعرض حالة الغيوم بدلاً من المطر.
+
+ if(rainCode && !raining){
+
+  if(clouds>=85){
+   info=["☁️","غائم","cloudy"];
+  }
+  else if(clouds>=40){
+   info=["⛅","غائم جزئياً","partly"];
+  }
+  else{
+   info=[
+    isDay?"☀️":"🌙",
+    isDay?"سماء صافية":"صافي ليلاً",
+    "sunny"
+   ];
+  }
+ }
+
+ return{
+  info,
+  raining,
+  thunder,
+  amount:actualRain,
+  code
+ };
+}
+
+
+/* =========================
+   جلب البيانات
 ========================= */
 
 async function getWeatherData(){
 
- const urls=[
-  URL_API,
-  "https://corsproxy.io/?"+encodeURIComponent(URL_API),
-  "https://api.allorigins.win/raw?url="+encodeURIComponent(URL_API)
- ];
+ const controller=new AbortController();
 
- let lastError=null;
+ const timeout=setTimeout(()=>{
+  controller.abort();
+ },15000);
 
- for(const url of urls){
+ try{
 
-  let controller=null;
-  let timeout=null;
-
-  try{
-
-   controller=new AbortController();
-
-   timeout=setTimeout(()=>{
-    controller.abort();
-   },12000);
-
-   const response=await fetch(url,{
-    method:"GET",
-    cache:"no-store",
-    signal:controller.signal,
-    headers:{
-     "Accept":"application/json"
-    }
-   });
-
-   if(!response.ok){
-    throw new Error("HTTP "+response.status);
+  const response=await fetch(URL_API,{
+   method:"GET",
+   cache:"no-store",
+   signal:controller.signal,
+   headers:{
+    "Accept":"application/json"
    }
+  });
 
-   const data=await response.json();
-
-   if(
-    !data ||
-    !data.current ||
-    !data.daily ||
-    !Array.isArray(data.daily.time) ||
-    !Array.isArray(data.daily.weather_code)
-   ){
-    throw new Error("بيانات الطقس غير مكتملة");
-   }
-
-   if(
-    data.current.temperature_2m==null ||
-    data.current.weather_code==null
-   ){
-    throw new Error("بيانات الحالة الحالية ناقصة");
-   }
-
-   return data;
-
-  }catch(error){
-
-   lastError=error;
-
-   console.warn("فشل مصدر الطقس:",error);
-
-  }finally{
-
-   if(timeout)clearTimeout(timeout);
+  if(!response.ok){
+   throw new Error("HTTP "+response.status);
   }
- }
 
- throw lastError||new Error("تعذر الاتصال بمصادر الطقس");
+  const data=await response.json();
+
+  if(
+   !data ||
+   !data.current ||
+   !data.daily ||
+   !Array.isArray(data.daily.time) ||
+   !Array.isArray(data.daily.weather_code)
+  ){
+   throw new Error("بيانات الطقس غير مكتملة");
+  }
+
+  if(
+   data.current.temperature_2m==null ||
+   data.current.weather_code==null
+  ){
+   throw new Error("بيانات الحالة الحالية ناقصة");
+  }
+
+  return data;
+
+ }finally{
+  clearTimeout(timeout);
+ }
 }
 
 
@@ -895,34 +933,11 @@ async function load(){
   const cur=data.current;
   const daily=data.daily;
 
-  const isDay=Number(cur.is_day)===1;
-
-  const code=Number(cur.weather_code);
-
-  const wInfo=wmoMap(code,isDay);
-
-  const rainCodes=[
-   51,53,55,56,57,
-   61,63,65,66,67,
-   80,81,82,
-   95,96,99
-  ];
-
-  const thunder=[95,96,99].includes(code);
-
-  const rain=
-   Number(cur.precipitation||0)>0.1 ||
-   rainCodes.includes(code);
-
-  thunderSoon=thunder;
+  const condition=getCurrentCondition(cur);
 
   const dailyArr=[];
 
-  for(
-   let i=1;
-   i<Math.min(daily.time.length,6);
-   i++
-  ){
+  for(let i=1;i<Math.min(daily.time.length,6);i++){
 
    const dCode=Number(daily.weather_code[i]);
 
@@ -939,11 +954,15 @@ async function load(){
     continue;
    }
 
+   const probability=
+    Number(daily.precipitation_probability_max?.[i]);
+
    dailyArr.push({
     hi:Math.round(hi),
     lo:Math.round(lo),
     info,
-    dn:dateObj.getUTCDay()
+    dn:dateObj.getUTCDay(),
+    probability:Number.isFinite(probability)?probability:null
    });
   }
 
@@ -961,44 +980,45 @@ async function load(){
 
    uv:Math.max(0,Number(cur.uv_index)||0),
 
-   eff:Math.max(
-    0,
-    Number(cur.cloud_cover??(rain?85:0))
-   ),
+   eff:Math.max(0,Number(cur.cloud_cover)||0),
 
-   precip:Number(cur.precipitation)||0,
+   precip:condition.amount,
 
-   rain,
+   rain:condition.raining,
 
-   snow:[71,73,75,77,85,86].includes(code),
+   thunder:condition.thunder,
 
-   thunder,
-
-   wInfo,
+   wInfo:condition.info,
 
    daily:dailyArr,
 
-   alert:thunder
-    ?"⚡ تنبيه: حالة عواصف رعدية حالياً"
-    :rain
-    ?"🌧️ تنبيه: توجد أمطار حالياً"
+   alert:condition.thunder
+    ?"⚡ تنبيه: هطول مع عواصف رعدية حسب البيانات الحالية"
+    :condition.raining
+    ?"🌧️ تنبيه: رصد هطول مطري حسب بيانات الطقس الحالية"
     :"",
 
    src:"Open-Meteo",
 
-   stale:false
+   stale:false,
+
+   updatedAt:new Date(),
+
+   code:condition.code
   };
+
+  lastUpdate=new Date();
 
   clearTimeout(retryT);
   retryT=0;
 
-  console.log("تم تحديث الطقس بنجاح",S);
+  console.log("بيانات الطقس:",S);
 
  }catch(error){
 
   console.error("Weather Error:",error);
 
-  if(S && S.t!==null){
+  if(S){
 
    S.stale=true;
 
@@ -1016,16 +1036,16 @@ async function load(){
     eff:0,
     precip:0,
     rain:false,
-    snow:false,
     thunder:false,
-    wInfo:["🌤️","جارٍ جلب الطقس","sunny"],
+    wInfo:["🌤️","تعذر جلب الطقس","sunny"],
     daily:[],
     alert:"",
     src:"",
-    stale:true
+    stale:true,
+    updatedAt:null
    };
 
-   retryT=setTimeout(load,15000);
+   retryT=setTimeout(load,20000);
   }
 
  }finally{
@@ -1037,7 +1057,7 @@ async function load(){
 
 
 /* =========================
-   تحديد شكل الخلفية
+   تحديد خلفية الطقس
 ========================= */
 
 function liveFx(){
@@ -1067,7 +1087,6 @@ function render(){
  if(!S||S.t===null){
 
   $("temp").textContent="--°C";
-
   $("feels").textContent="";
 
   $("wi").textContent="--";
@@ -1075,17 +1094,19 @@ function render(){
   $("pr").textContent="--";
   $("uv").textContent="--";
 
-  $("fcList").textContent="لا توجد توقعات متاحة حالياً.";
+  $("fcList").textContent="لا توجد بيانات متاحة حالياً.";
 
   $("liveTxt").textContent="تعذر الاتصال · جارٍ إعادة المحاولة";
 
   $("liveDot").style.background="#f5b02e";
 
-  $("desc").textContent="جارٍ جلب الطقس المباشر";
+  $("desc").textContent="بانتظار بيانات الطقس";
 
-  $("hero").textContent="";
+  $("hero").textContent="🌤️";
 
   $("src").textContent="";
+
+  $("updated").textContent="";
 
   al.hidden=true;
 
@@ -1111,12 +1132,17 @@ function render(){
 
     const w=x.info;
 
+    const chance=x.probability!==null
+     ?`<span>احتمال المطر: ${x.probability}%</span>`
+     :"";
+
     return `
      <div class="row r-${w[2]}">
       <div class="ic">${w[0]}</div>
       <div class="d">
        <b>${DAYS[x.dn]}</b>
        <span>${w[1]}</span>
+       ${chance}
       </div>
       <div class="tp">
        <span class="hi">${x.hi}°</span>
@@ -1137,13 +1163,18 @@ function render(){
   $("liveTxt").textContent=
    S.stale
     ?"تعذر التحديث · آخر بيانات محفوظة"
-    :"الطقس محدث مباشرة";
+    :"الطقس محدث · بيانات المصدر";
 
   $("liveDot").style.background=
    S.stale?"#f5b02e":"#22e05a";
 
   $("src").textContent=
    "📡 المصدر: "+S.src+" · إحداثيات مركز قضاء الشرقاط";
+
+  $("updated").textContent=
+   S.updatedAt
+    ?"🕒 آخر تحديث: "+updateFmt.format(S.updatedAt)
+    :"";
 
   al.textContent=S.alert||"";
 
@@ -1153,10 +1184,16 @@ function render(){
 
   $("hero").textContent=S.wInfo[0];
 
-  const night=sky().a<0;
+  $("tag").hidden=true;
 
-  $("tag").hidden=
-   !(S.wInfo[2]==="sunny"&&!night);
+  if(!S.rain && !S.stale){
+
+   $("tag").textContent=
+    "💧 كمية الهطول الحالية: "+S.precip.toFixed(1)+" ملم";
+
+   // إظهار المعلومة فقط عندما تكون هناك قراءة هطول.
+   $("tag").hidden=S.precip<=0;
+  }
  }
 
  setFx(liveFx());
