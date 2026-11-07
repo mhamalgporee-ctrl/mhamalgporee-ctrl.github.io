@@ -22,16 +22,15 @@
  --ink:#172b42;
  --mut:#53677c;
  --blue:#1687ce;
- --shadow:0 5px 18px rgba(28,83,130,.12);
- --radius:22px;
+ --shadow:0 3px 12px rgba(28,83,130,.12);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
 
+html,body{height:auto}
 body{
  margin:0;
- padding:12px 11px 28px;
- min-height:100vh;
+ padding:8px 8px 14px;
  color:var(--ink);
  background:linear-gradient(180deg,var(--bg1),var(--bg2)) fixed;
  font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
@@ -39,198 +38,168 @@ body{
 button{font:inherit;color:inherit;cursor:pointer;border:0}
 button:focus-visible,a:focus-visible,summary:focus-visible{
  outline:3px solid #087dbb;
- outline-offset:3px;
+ outline-offset:2px;
 }
-.wrap{max-width:650px;width:100%;margin:auto;display:grid;gap:13px}
+.wrap{max-width:650px;width:100%;margin:auto;display:grid;gap:8px}
 
-.hd{
- display:flex;justify-content:space-between;
- align-items:center;padding:5px 3px;gap:8px
-}
-.hd h1{
- margin:0;font-size:1.45rem;font-weight:950;color:#176b9e
-}
-.sub{font-size:.8rem;color:var(--mut);font-weight:700;margin-top:4px}
-.hr{display:flex;align-items:center;gap:8px}
+.hd{display:flex;justify-content:space-between;align-items:center;padding:2px;gap:6px}
+.hd h1{margin:0;font-size:1.15rem;font-weight:900;color:#176b9e}
+.sub{font-size:.7rem;color:var(--mut);font-weight:700;margin-top:2px}
+.hr{display:flex;align-items:center;gap:6px}
 
 #clk{
  background:var(--card);border:1px solid var(--border);
- border-radius:15px;padding:11px 12px;font-weight:850;
+ border-radius:12px;padding:7px 9px;font-weight:850;font-size:.8rem;
  direction:ltr;box-shadow:var(--shadow);white-space:nowrap
 }
 #ref{
- width:54px;height:54px;min-width:54px;border-radius:17px;
+ width:36px;height:36px;min-width:36px;border-radius:12px;
  background:var(--card);border:1px solid var(--border);
- font-size:29px;display:grid;place-items:center;
+ font-size:20px;display:grid;place-items:center;
  box-shadow:var(--shadow)
 }
 #ref:disabled{opacity:.5;cursor:wait}
 
 .hero{
  background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(239,249,255,.85));
- border:1px solid white;border-radius:27px;
- padding:19px 17px;box-shadow:var(--shadow)
+ border:1px solid white;border-radius:20px;
+ padding:11px 12px;box-shadow:var(--shadow)
 }
-.lbl{
- font-weight:850;display:flex;align-items:center;
- gap:8px;font-size:.95rem;color:var(--mut)
-}
-.live{font-size:.75rem;margin-right:auto}
+.lbl{font-weight:850;display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--mut)}
+.live{font-size:.68rem;margin-right:auto}
 .live:before{
- content:"";display:inline-block;width:8px;height:8px;
- border-radius:50%;background:#16a34a;margin-left:5px
+ content:"";display:inline-block;width:7px;height:7px;
+ border-radius:50%;background:#16a34a;margin-left:4px
 }
 .live.off:before{background:#d97706}
 
-.nm{
- display:flex;align-items:center;justify-content:space-between;
- gap:10px;margin-top:14px
-}
-.tmp{display:flex;align-items:center;gap:5px}
-.tmp b{
- font-size:4.1rem;font-weight:850;line-height:1;
- direction:ltr;letter-spacing:-3px
-}
-.cd{font-weight:850;font-size:1.08rem;text-align:right}
-.cd small{
- display:block;color:var(--mut);font-size:.86rem;
- font-weight:650;margin-top:8px
-}
+.nm{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px}
+.tmp{display:flex;align-items:center;gap:4px}
+.tmp svg{width:38px;height:auto}
+.tmp b{font-size:2.8rem;font-weight:850;line-height:1;direction:ltr;letter-spacing:-2px}
+.cd{font-weight:850;font-size:.88rem;text-align:right}
+.cd small{display:block;color:var(--mut);font-size:.72rem;font-weight:650;margin-top:3px}
 .heroInfo{
- display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
- margin-top:20px;padding-top:14px;border-top:1px solid #dbeaf4
+ display:grid;grid-template-columns:repeat(3,1fr);gap:4px;
+ margin-top:8px;padding-top:7px;border-top:1px solid #dbeaf4
 }
-.heroInfo div{
- text-align:center;font-size:.78rem;color:var(--mut);font-weight:750
-}
-.heroInfo b{
- display:block;font-size:.95rem;color:var(--ink);margin-top:5px
-}
+.heroInfo div{text-align:center;font-size:.66rem;color:var(--mut);font-weight:750}
+.heroInfo b{display:block;font-size:.8rem;color:var(--ink);margin-top:2px}
 
 .box{
- padding:13px 14px;border-radius:17px;
- border-right:5px solid var(--blue);
+ padding:7px 10px;border-radius:13px;
+ border-right:4px solid var(--blue);
  background:rgba(255,255,255,.95);
  border-top:1px solid var(--border);
  border-left:1px solid var(--border);
  border-bottom:1px solid var(--border);
- font-size:.91rem;line-height:1.7;font-weight:800;
+ font-size:.74rem;line-height:1.5;font-weight:800;
  box-shadow:var(--shadow)
 }
-.box.warn{
- border-right-color:#d97706;background:#fffaf0
-}
+.box.warn{border-right-color:#d97706;background:#fffaf0}
 
 .sectionTitle{
- font-weight:950;font-size:1.02rem;margin:5px 3px 0;
- display:flex;align-items:center;gap:7px
+ font-weight:900;font-size:.86rem;margin:2px 3px 0;
+ display:flex;align-items:center;gap:6px
 }
 
-.days{
- display:flex;gap:5px;overflow-x:auto;
- scrollbar-width:none;padding:4px 2px 6px
-}
+.days{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:3px 2px 5px}
 .days::-webkit-scrollbar,.hs::-webkit-scrollbar{display:none}
 
 .d{
- flex:0 0 80px;border:1px solid var(--border);
- border-radius:15px;background:var(--card);
- padding:6px 2px;display:grid;justify-items:center;
- gap:3px;font-size:.73rem;box-shadow:var(--shadow);
+ flex:0 0 64px;border:1px solid var(--border);
+ border-radius:12px;background:var(--card);
+ padding:5px 2px;display:grid;justify-items:center;
+ gap:2px;font-size:.62rem;box-shadow:var(--shadow);
  min-height:0
 }
 .d.on{border:2px solid #1687ce;background:#fff}
-.d b{font-size:.78rem}
-.d em{font-style:normal;direction:ltr;font-weight:850;font-size:.72rem}
+.d svg{width:20px;height:auto}
+.d b{font-size:.68rem}
+.d em{font-style:normal;direction:ltr;font-weight:850;font-size:.64rem}
 .d s{text-decoration:none;color:var(--mut)}
-.d small{color:#0877b5;font-weight:850;text-align:center;font-size:.65rem}
+.d small{color:#0877b5;font-weight:850;text-align:center;font-size:.55rem}
 
 .hs{
- display:flex;gap:4px;overflow-x:auto;padding:8px 6px;
+ display:flex;gap:3px;overflow-x:auto;padding:6px 4px;
  scrollbar-width:none;background:var(--card);
- border:1px solid var(--border);border-radius:17px;
+ border:1px solid var(--border);border-radius:14px;
  box-shadow:var(--shadow)
 }
 .h{
- flex:0 0 46px;display:grid;justify-items:center;
- gap:3px;font-size:.7rem;padding:5px 1px;border-radius:11px;
+ flex:0 0 40px;display:grid;justify-items:center;
+ gap:2px;font-size:.62rem;padding:4px 1px;border-radius:10px;
  min-height:0
 }
-.h b{font-size:.82rem;direction:ltr}
-.h small{color:#0877b5;font-weight:850;min-height:14px;font-size:.65rem}
-.h span{color:var(--mut);font-weight:750;font-size:.68rem}
+.h svg{width:20px;height:auto}
+.h b{font-size:.72rem;direction:ltr}
+.h small{color:#0877b5;font-weight:850;min-height:12px;font-size:.58rem}
+.h span{color:var(--mut);font-weight:750;font-size:.6rem}
 .h.now-hour{background:#d9f0ff;outline:1px solid #1687ce}
 
 .conf,.trend{
- font-size:.85rem;color:var(--mut);padding:12px 13px;
+ font-size:.72rem;color:var(--mut);padding:7px 10px;
  font-weight:750;background:var(--card);
- border:1px solid var(--border);border-radius:17px;
- box-shadow:var(--shadow);line-height:1.6
+ border:1px solid var(--border);border-radius:13px;
+ box-shadow:var(--shadow);line-height:1.5
 }
 
 .rows{
  overflow:hidden;background:var(--card);
- border:1px solid var(--border);border-radius:19px;
+ border:1px solid var(--border);border-radius:15px;
  box-shadow:var(--shadow)
 }
 .row{border-bottom:1px solid #dce9f2}
 .row:last-child{border:0}
 .row summary{
- list-style:none;display:flex;align-items:center;gap:10px;
- padding:14px 13px;cursor:pointer;font-size:.9rem;
- font-weight:800;min-height:64px
+ list-style:none;display:flex;align-items:center;gap:8px;
+ padding:7px 10px;cursor:pointer;font-size:.78rem;
+ font-weight:800;min-height:44px
 }
 .row summary::-webkit-details-marker{display:none}
 .ri{
- width:42px;height:42px;border-radius:13px;
- background:#e4f3fc;display:grid;place-items:center;font-size:1.15rem
+ width:30px;height:30px;border-radius:10px;
+ background:#e4f3fc;display:grid;place-items:center;font-size:.9rem
 }
 .rl{flex:1}
-.rl i{font-style:normal;color:var(--mut);margin:0 5px}
+.rl i{font-style:normal;color:var(--mut);margin:0 4px}
 .ch{color:var(--mut)}
-.rd{
- padding:0 65px 14px 13px;font-size:.84rem;
- color:var(--mut);line-height:1.7
-}
+.rd{padding:0 48px 9px 10px;font-size:.74rem;color:var(--mut);line-height:1.5}
 
 .mapCard{
- overflow:hidden;padding-top:11px;background:var(--card);
- border:1px solid var(--border);border-radius:20px;
+ overflow:hidden;padding-top:8px;background:var(--card);
+ border:1px solid var(--border);border-radius:16px;
  box-shadow:var(--shadow)
 }
-.mapTabs{display:flex;gap:8px;padding:0 10px 10px}
+.mapTabs{display:flex;gap:6px;padding:0 8px 8px}
 .mapTabs button{
- flex:1;padding:14px 6px;min-height:50px;
- border-radius:13px;border:1px solid #cce3f2;
- background:#e8f5fd;font-size:.85rem;font-weight:850
+ flex:1;padding:8px 4px;min-height:38px;
+ border-radius:11px;border:1px solid #cce3f2;
+ background:#e8f5fd;font-size:.76rem;font-weight:850
 }
 .mapTabs button.on{background:#087dbb;color:white}
-.scene{height:260px;position:relative;background:#0f172a}
+.scene{height:200px;position:relative;background:#0f172a}
 .scene iframe{width:100%;height:100%;border:0}
 .sceneLabel{
- position:absolute;bottom:8px;right:8px;color:white;
- font-size:.75rem;background:#000b;padding:5px 10px;
- border-radius:8px;pointer-events:none
+ position:absolute;bottom:6px;right:6px;color:white;
+ font-size:.68rem;background:#000b;padding:4px 8px;
+ border-radius:7px;pointer-events:none
 }
 
 .foot{
  text-align:center;border-top:1px solid rgba(255,255,255,.7);
- padding-top:14px;display:grid;gap:8px;margin-top:7px
+ padding-top:9px;display:grid;gap:5px;margin-top:4px
 }
-.foot .p{font-weight:850;font-size:.9rem}
-.foot .by{
- font-family:"Aref Ruqaa",Tahoma,serif;
- color:#805b16;font-size:1.25rem;font-weight:700
-}
-.foot small{font-size:.75rem;color:#425a70}
+.foot .p{font-weight:850;font-size:.8rem}
+.foot .by{font-family:"Aref Ruqaa",Tahoma,serif;color:#805b16;font-size:1.05rem;font-weight:700}
+.foot small{font-size:.68rem;color:#425a70}
 
 @media(max-width:380px){
- body{padding:9px 7px 20px}
- .hd h1{font-size:1.2rem}
- .tmp b{font-size:3.5rem}
- .d{flex-basis:76px}
- .hero{padding:15px 12px}
- #clk{padding:10px 8px;font-size:.85rem}
+ body{padding:6px 6px 12px}
+ .hd h1{font-size:1.05rem}
+ .tmp b{font-size:2.5rem}
+ .d{flex-basis:60px}
+ #clk{padding:6px 7px;font-size:.74rem}
 }
 </style>
 </head>
@@ -346,44 +315,44 @@ function safeArray(value){
  return Array.isArray(value) ? value : [];
 }
 
+/* إرسال ارتفاع الصفحة للموقع المضمِّن حتى لا تُقصّ من الأسفل */
+function sendHeight(){
+ try{
+  if(window.parent && window.parent !== window){
+   const h = Math.ceil(document.documentElement.scrollHeight);
+   window.parent.postMessage({type:"sharqat-weather-height",height:h},"*");
+  }
+ }catch(e){}
+}
+if("ResizeObserver" in window){
+ new ResizeObserver(sendHeight).observe(document.body);
+}
+window.addEventListener("load",sendHeight);
+window.addEventListener("resize",sendHeight);
+
 /* تنسيق التاريخ والوقت */
 const fTime = new Intl.DateTimeFormat("ar-IQ-u-nu-latn",{
- timeZone:TZ,
- hour:"numeric",
- minute:"2-digit",
- hour12:true
+ timeZone:TZ,hour:"numeric",minute:"2-digit",hour12:true
 });
 
 const fHour = new Intl.DateTimeFormat("ar-IQ-u-nu-latn",{
- timeZone:TZ,
- hour:"numeric",
- hour12:true
+ timeZone:TZ,hour:"numeric",hour12:true
 });
 
 const fDate = new Intl.DateTimeFormat("ar-IQ",{
- timeZone:TZ,
- weekday:"long",
- day:"numeric",
- month:"long",
- year:"numeric"
+ timeZone:TZ,weekday:"long",day:"numeric",month:"long",year:"numeric"
 });
 
 const fClock = new Intl.DateTimeFormat("en-GB",{
- timeZone:TZ,
- hour:"2-digit",
- minute:"2-digit",
- hourCycle:"h23"
+ timeZone:TZ,hour:"2-digit",minute:"2-digit",hourCycle:"h23"
 });
 
 const fWeek = new Intl.DateTimeFormat("ar-IQ",{
- timeZone:TZ,
- weekday:"long"
+ timeZone:TZ,weekday:"long"
 });
 
 const fHour24 = new Intl.DateTimeFormat("en-GB",{
- timeZone:TZ,
- hour:"2-digit",
- hourCycle:"h23"
+ timeZone:TZ,hour:"2-digit",hourCycle:"h23"
 });
 
 let S = null;
@@ -408,10 +377,7 @@ function dayKey(seconds){
  const parts = {};
 
  new Intl.DateTimeFormat("en-CA",{
-  timeZone:TZ,
-  year:"numeric",
-  month:"2-digit",
-  day:"2-digit"
+  timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"
  }).formatToParts(new Date(seconds * 1000))
  .forEach(item => parts[item.type] = item.value);
 
@@ -437,20 +403,17 @@ function wx(code){
  if(code === 2) return ["part","غائم جزئياً"];
  if(code === 3) return ["cloud","غائم"];
 
- if(code === 45 || code === 48)
-  return ["fog","ضباب"];
+ if(code === 45 || code === 48) return ["fog","ضباب"];
 
  if(code === 51) return ["rain","رذاذ خفيف"];
  if(code === 53) return ["rain","رذاذ متوسط"];
  if(code === 55) return ["rain","رذاذ كثيف"];
- if(code === 56 || code === 57)
-  return ["rain","رذاذ متجمد"];
+ if(code === 56 || code === 57) return ["rain","رذاذ متجمد"];
 
  if(code === 61) return ["rain","مطر خفيف"];
  if(code === 63) return ["rain","مطر متوسط"];
  if(code === 65) return ["rain","مطر غزير"];
- if(code === 66 || code === 67)
-  return ["rain","مطر متجمد"];
+ if(code === 66 || code === 67) return ["rain","مطر متجمد"];
 
  if(code === 71) return ["snow","ثلوج خفيفة"];
  if(code === 73) return ["snow","ثلوج متوسطة"];
@@ -461,8 +424,7 @@ function wx(code){
  if(code === 81) return ["rain","زخات مطر متوسطة"];
  if(code === 82) return ["rain","زخات مطر شديدة"];
 
- if(code === 85 || code === 86)
-  return ["snow","زخات ثلجية"];
+ if(code === 85 || code === 86) return ["snow","زخات ثلجية"];
 
  if(code === 95) return ["storm","عواصف رعدية"];
  if(code === 96 || code === 99)
@@ -530,7 +492,7 @@ function ico(kind,night,size=24){
  return `<svg viewBox="0 0 56 60" width="${size}" height="${size*60/56}" aria-hidden="true">${result}</svg>`;
 }
 
-/* روابط مصادر الطقس - مع اعتماد نموذج ECMWF الأوروبي المعتمد عالمياً لضمان التطابق مع دقة توقعات غوغل */
+/* روابط مصادر الطقس - نموذج ECMWF الأوروبي */
 const base =
  `https://api.open-meteo.com/v1/forecast`+
  `?latitude=${LAT}`+
@@ -726,10 +688,7 @@ function build(data,dust,timestamp){
 /* حفظ البيانات */
 function cacheSave(data,dust,timestamp){
  try{
-  localStorage.setItem(
-   CACHE,
-   JSON.stringify({data,dust,ts:timestamp})
-  );
+  localStorage.setItem(CACHE,JSON.stringify({data,dust,ts:timestamp}));
  }catch(error){
   console.warn("تعذر حفظ البيانات المؤقتة",error);
  }
@@ -738,9 +697,7 @@ function cacheSave(data,dust,timestamp){
 /* استعادة البيانات المحفوظة */
 function cacheLoad(){
  try{
-  const cached = JSON.parse(
-   localStorage.getItem(CACHE) || "null"
-  );
+  const cached = JSON.parse(localStorage.getItem(CACHE) || "null");
 
   if(!cached?.data || !cached.ts) return false;
 
@@ -749,8 +706,7 @@ function cacheLoad(){
   $("live").textContent = "بيانات محفوظة";
   $("live").classList.add("off");
 
-  $("updated").textContent =
-   "آخر تحديث محفوظ: " + tLabel(cached.ts);
+  $("updated").textContent = "آخر تحديث محفوظ: " + tLabel(cached.ts);
 
   render();
 
@@ -786,10 +742,7 @@ async function load(force=false){
 
   const data = results[0].value;
 
-  const dust =
-   results[1].status === "fulfilled"
-    ? results[1].value
-    : null;
+  const dust = results[1].status === "fulfilled" ? results[1].value : null;
 
   const timestamp = Math.floor(Date.now()/1000);
 
@@ -799,44 +752,35 @@ async function load(force=false){
 
   lastOk = Date.now();
 
-  $("live").textContent =
-   dust ? "مباشر" : "مباشر · دون بيانات الغبار";
+  $("live").textContent = dust ? "مباشر" : "مباشر · دون بيانات الغبار";
 
   $("live").classList.remove("off");
 
-  $("updated").textContent =
-   "آخر تحديث: " + tLabel(timestamp);
+  $("updated").textContent = "آخر تحديث: " + tLabel(timestamp);
 
   render();
 
  }catch(error){
   console.error("خطأ تحديث الطقس:",error);
 
-  $("live").textContent =
-   S ? "تعذر التحديث · بيانات محفوظة" : "تعذر الاتصال";
+  $("live").textContent = S ? "تعذر التحديث · بيانات محفوظة" : "تعذر الاتصال";
 
   $("live").classList.add("off");
 
   if(!S){
    $("desc").textContent = "تعذر جلب بيانات الطقس";
    $("temp").textContent = "--°";
-   $("rainNow").textContent =
-    "تحقق من اتصال الإنترنت ثم اضغط زر التحديث.";
-
-   $("confidence").textContent =
-    "تعذر تحميل التوقعات حالياً.";
-
+   $("rainNow").textContent = "تحقق من اتصال الإنترنت ثم اضغط زر التحديث.";
+   $("confidence").textContent = "تعذر تحميل التوقعات حالياً.";
   }else{
-   $("rainNow").textContent =
-    "تعذر تحديث البيانات حالياً. المعروض هو آخر تحديث محفوظ.";
-
-   $("updated").textContent =
-    "تعذر الاتصال · آخر بيانات محفوظة: " + tLabel(S.now);
+   $("rainNow").textContent = "تعذر تحديث البيانات حالياً. المعروض هو آخر تحديث محفوظ.";
+   $("updated").textContent = "تعذر الاتصال · آخر بيانات محفوظة: " + tLabel(S.now);
   }
 
  }finally{
   loading = false;
   $("ref").disabled = false;
+  sendHeight();
  }
 }
 
@@ -861,9 +805,7 @@ function currentStatus(){
   return ["rain","هطول مطري الآن"];
  }
 
- if(
-  [51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code)
- ){
+ if([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code)){
   return wx(code);
  }
 
@@ -904,10 +846,8 @@ function renderRain(){
    " · احتمال مطر لاحقاً " +
    Math.round(peak.prob) +
    "% عند " + tLabel(peak.time);
-
  }else{
-  message +=
-   " · لا توجد إشارة قوية للمطر خلال الساعات القادمة";
+  message += " · لا توجد إشارة قوية للمطر خلال الساعات القادمة";
  }
 
  $("rainNow").textContent = "🌤️ " + message;
@@ -950,17 +890,12 @@ function render(){
  const c = S.current;
  const status = currentStatus();
 
- $("ico").innerHTML = ico(
-  status[0],
-  c.isDay === 0,
-  48
- );
+ $("ico").innerHTML = ico(status[0],c.isDay === 0,48);
 
  $("temp").textContent = rnd(c.temp,"°");
  $("desc").textContent = status[1];
 
- $("feels").textContent =
-  "الحرارة المحسوسة: " + rnd(c.feels,"°");
+ $("feels").textContent = "الحرارة المحسوسة: " + rnd(c.feels,"°");
 
  $("humidityNow").textContent = rnd(c.humidity,"%");
  $("windNow").textContent = rnd(c.wind," كم/س");
@@ -977,8 +912,7 @@ function render(){
   finite(days[0].hi) &&
   days.slice(1,4).every(item=>finite(item.hi))
  ){
-  const difference =
-   (days[1].hi+days[2].hi+days[3].hi)/3-days[0].hi;
+  const difference = (days[1].hi+days[2].hi+days[3].hi)/3-days[0].hi;
 
   $("tra").textContent =
    difference > 1.5 ? "↗" :
@@ -997,6 +931,8 @@ function render(){
  }else{
   $("trend").hidden = true;
  }
+
+ sendHeight();
 }
 
 /* عرض بطاقات الأيام */
@@ -1034,15 +970,11 @@ function renderSelected(){
  const hours = hoursFor(day);
 
  $("hs").innerHTML = hours.map(item=>{
-  const hour = Number(
-   fHour24.format(new Date(item.time*1000))
-  );
+  const hour = Number(fHour24.format(new Date(item.time*1000)));
 
   const night = hour < 6 || hour >= 18;
 
-  const isNow =
-   SEL === 0 &&
-   Math.abs(item.time-S.now) < 1800;
+  const isNow = SEL === 0 && Math.abs(item.time-S.now) < 1800;
 
   return `
    <div class="h${isNow?" now-hour":""}">
@@ -1079,26 +1011,17 @@ function renderSelected(){
 
  const gust = Math.max(
   0,
-  ...imminent.map(item =>
-   finite(item.gust) ? item.gust : 0
-  )
+  ...imminent.map(item => finite(item.gust) ? item.gust : 0)
  );
 
  let alert = "";
 
  if(thunder){
-  alert =
-   "⛈️ احتمال عواصف رعدية عند " +
-   tLabel(thunder.time) +
-   " حسب التوقعات.";
+  alert = "⛈️ احتمال عواصف رعدية عند " + tLabel(thunder.time) + " حسب التوقعات.";
  }
 
  if(gust >= 50){
-  alert +=
-   (alert ? " " : "") +
-   "💨 هبات رياح قد تصل إلى " +
-   Math.round(gust) +
-   " كم/س.";
+  alert += (alert ? " " : "") + "💨 هبات رياح قد تصل إلى " + Math.round(gust) + " كم/س.";
  }
 
  $("alert").hidden = !alert;
@@ -1109,48 +1032,29 @@ function renderSelected(){
 
  /* حساب متوسط القيم الساعية */
  const average = key =>{
-  const values = hours
-   .map(item=>item[key])
-   .filter(finite);
+  const values = hours.map(item=>item[key]).filter(finite);
 
   if(!values.length) return NaN;
 
   return values.reduce((a,b)=>a+b,0)/values.length;
  };
 
- const humidity =
-  SEL===0 ? S.current.humidity : average("humidity");
+ const humidity = SEL===0 ? S.current.humidity : average("humidity");
+ const pressure = SEL===0 ? S.current.pressure : average("pressure");
+ const wind = SEL===0 ? S.current.wind : day.wind;
 
- const pressure =
-  SEL===0 ? S.current.pressure : average("pressure");
+ const rainText = finite(day.rain) ? day.rain.toFixed(1)+" ملم" : "غير متوفر";
 
- const wind =
-  SEL===0 ? S.current.wind : day.wind;
-
- const rainText =
-  finite(day.rain)
-   ? day.rain.toFixed(1)+" ملم"
-   : "غير متوفر";
-
- const feel =
-  SEL===0
-   ? S.current.feels
-   : day.appHi;
+ const feel = SEL===0 ? S.current.feels : day.appHi;
 
  $("rows").innerHTML =
 
   row(
    "🌧️",
    "الأمطار",
-   finite(day.prob)
-    ? Math.round(day.prob)+"%"
-    : "غير متوفر",
+   finite(day.prob) ? Math.round(day.prob)+"%" : "غير متوفر",
    "احتمال المطر الأقصى: "+
-   (
-    finite(day.prob)
-     ? Math.round(day.prob)+"%"
-     : "غير متوفر"
-   )+
+   (finite(day.prob) ? Math.round(day.prob)+"%" : "غير متوفر")+
    " · كمية الهطول اليومية المتوقعة: "+rainText
   )+
 
@@ -1158,16 +1062,10 @@ function renderSelected(){
    "💨",
    "الرياح",
    rnd(wind," كم/س"),
-   "الهبات: "+rnd(day.gust," كم/س")+
-   " · الاتجاه: "+dir(day.direction)
+   "الهبات: "+rnd(day.gust," كم/س")+" · الاتجاه: "+dir(day.direction)
   )+
 
-  row(
-   "💧",
-   "الرطوبة",
-   rnd(humidity,"%"),
-   "الرطوبة النسبية المتوقعة."
-  )+
+  row("💧","الرطوبة",rnd(humidity,"%"),"الرطوبة النسبية المتوقعة.")+
 
   row(
    "🌡️",
@@ -1198,6 +1096,7 @@ function renderSelected(){
   );
 
  renderDust();
+ sendHeight();
 }
 
 /* بيانات الغبار وجودة الهواء */
@@ -1216,24 +1115,18 @@ function renderDust(){
  let message = "🌫️ بيانات جودة الهواء: ";
 
  if(finite(dust)){
-  message +=
-   "الغبار "+Math.round(dust)+" ميكروغرام/م³";
+  message += "الغبار "+Math.round(dust)+" ميكروغرام/م³";
  }
 
  if(finite(pm10)){
   if(finite(dust)) message += " · ";
 
-  message +=
-   "الجسيمات PM10: "+
-   Math.round(pm10)+
-   " ميكروغرام/م³";
+  message += "الجسيمات PM10: "+Math.round(pm10)+" ميكروغرام/م³";
  }
 
  element.hidden = false;
 
- element.textContent =
-  message+
-  " · بيانات نموذجية وليست قراءة جهاز قياس محلي.";
+ element.textContent = message+" · بيانات نموذجية وليست قراءة جهاز قياس محلي.";
 }
 
 /* اختيار اليوم */
@@ -1244,11 +1137,7 @@ $("days").addEventListener("click",event=>{
 
  const index = Number(button.dataset.i);
 
- if(
-  !Number.isInteger(index) ||
-  index < 0 ||
-  index >= S.days.length
- ) return;
+ if(!Number.isInteger(index) || index < 0 || index >= S.days.length) return;
 
  SEL = index;
 
@@ -1269,7 +1158,7 @@ function mapURL(type){
   "https://embed.windy.com/embed2.html"+
   `?lat=${LAT}&lon=${LON}`+
   `&detailLat=${LAT}&detailLon=${LON}`+
-  "&width=650&height=260&zoom=7&level=surface"+
+  "&width=650&height=200&zoom=7&level=surface"+
   `&overlay=${satellite?"satellite":"clouds"}`+
   `&product=${satellite?"satellite":"ecmwf"}`+
   "&menu=&message=true&marker=true&calendar=24"+
@@ -1285,8 +1174,7 @@ $("mapTabs").addEventListener("click",event=>{
 
  const type = button.dataset.map;
 
- document.querySelectorAll("#mapTabs button")
- .forEach(item=>{
+ document.querySelectorAll("#mapTabs button").forEach(item=>{
   item.classList.toggle("on",item===button);
  });
 
