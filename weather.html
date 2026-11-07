@@ -130,7 +130,6 @@ const LAT=35.5036,LON=43.2325,TZ="Asia/Baghdad",CITY="الشرقاط";
 const DAYS=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* تم استخدام رابط بروكسي آمن ومستقر لتفادي قيود الحظر في متصفحات الهواتف وتطبيقات التواصل */
 const URL_API=`https://api.open-meteo.com/v1/forecast?lat=${LAT}&lon=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,cloud_cover,pressure_msl,wind_speed_10m,uv_index&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=${TZ}`;
 
 let S=null,mode="sunny",curKey="",thunderSoon=false,loading=false,raf=0,onScreen=true,retryT=0,lastMin="";
@@ -199,14 +198,23 @@ async function load(){
  if(loading)return;
  loading=true;
  try{
-  // استخدام وسيط احتياطي (JSONP/CORS Proxy) في حال فشل الاتصال المباشر
   let res=null;
-  try{
-   res=await fetch(URL_API,{cache:"no-store"});
-  }catch(e){
-   const proxyUrl=`https://api.allorigins.win/raw?url=`+encodeURIComponent(URL_API);
-   res=await fetch(proxyUrl,{cache:"no-store"});
+  const urls=[
+   URL_API,
+   `https://corsproxy.io/?`+encodeURIComponent(URL_API),
+   `https://api.allorigins.win/raw?url=`+encodeURIComponent(URL_API)
+  ];
+
+  for(const url of urls){
+   try{
+    const r=await fetch(url,{cache:"no-store"});
+    if(r&&r.ok){
+     res=r;
+     break;
+    }
+   }catch(e){}
   }
+
   if(!res||!res.ok)throw Error("HTTP Error");
   const data=await res.json();
   
