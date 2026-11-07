@@ -79,7 +79,7 @@ h1{margin:0;font-size:clamp(.8rem,2.4vw,1.05rem);font-weight:900;color:#ffe08a;l
 .dc-s{font-size:.8rem;color:#ff6b5e;min-width:1.2em}
 .dc-ap{font-size:.66rem;color:#eaf3ff;margin-top:1px}
 @media(max-width:850px){.grid{grid-template-columns:1fr;grid-template-areas:"top" "low" "fc";row-gap:6px}.cur-low{margin-top:clamp(90px,26vh,240px)}}
-@media(max-width:600px){body{padding:6px 10px 8px}header{flex-wrap:nowrap;gap:8px}.title{gap:6px}.ctrl{gap:4px;flex-shrink:0}.digital-clock{min-width:74px;padding:3px 6px}#dcHM{font-size:1.05rem}.dc-s{font-size:.7rem}.dc-ap{font-size:.6rem;margin-top:0}h1{font-size:.8rem}}
+@media(max-width:600px){body{padding:6px 10px 8px}header{flex-wrap:nowrap;gap:8px}.title{gap:6px}.ctrl{gap:4px;flex-shrink:0}.digital-clock{min-width:74px;padding:3px 6px}#dcHM{font-size:1.05rem}.dc-s{font-size:.7rem}.dc-ap{font-size:.6rem,margin-top:0}h1{font-size:.8rem}}
 @media(prefers-reduced-motion:reduce){.dot,.hero{animation:none}.refresh{transition:none}}
 </style>
 </head>
@@ -126,27 +126,11 @@ h1{margin:0;font-size:clamp(.8rem,2.4vw,1.05rem);font-weight:900;color:#ffe08a;l
 "use strict";
 
 const $=id=>document.getElementById(id);
-/* مركز مدينة الشرقاط (مركز القضاء): 35°30′13″N 43°13′57″E */
 const LAT=35.5036,LON=43.2325,TZ="Asia/Baghdad",CITY="الشرقاط";
-const OFF=3*3600; /* العراق UTC+3 طوال العام */
 const DAYS=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- عتبات المطر (عدّلها إذا تريد حساسية أعلى أو أقل) ---------- */
-const RAIN_NOW=.1;        /* ملم/ساعة: الحد الأدنى لاعتبار الجو ممطراً الآن */
-const ALERT_SUM=2;        /* ملم: مجموع أمطار الـ 12 ساعة القادمة لإظهار تنبيه */
-const ALERT_HOUR=1;       /* ملم: أو هطول ساعة واحدة بهذه الكمية */
-const THUNDER_MIN=.3;     /* ملم/ساعة: الحد الأدنى لتأكيد العاصفة الرعدية */
-
-/* رموز حالة الطقس في wttr.in (WorldWeatherOnline) */
-const WET_CODES=new Set([266,281,284,293,296,299,302,305,308,311,314,317,320,356,359,362,365,386,389]);
-const MAYBE_WET=new Set([176,263,353,200]); /* "محتمل/متفرق": تُعتمد فقط إذا سُجّل هطول فعلي */
-const THUNDER_CODES=new Set([386,389,392,395]);
-const SNOW_CODES=new Set([179,227,230,323,326,329,332,335,338,350,368,371,374,377]);
-
-/* المصادر: MET Norway (نموذج ECMWF) كمصدر رئيسي + wttr.in كمصدر ثانٍ للمطابقة */
-const URL_MET=`https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=${LAT}&lon=${LON}`;
-const URL_WTTR=`https://wttr.in/${LAT},${LON}?format=j1`;
+const URL_API=`https://api.open-meteo.com/v1/forecast?lat=${LAT}&lon=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,cloud_cover,pressure_msl,wind_speed_10m,uv_index&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=${TZ}`;
 
 let S=null,mode="sunny",curKey="",thunderSoon=false,loading=false,raf=0,onScreen=true,retryT=0,lastMin="";
 
@@ -176,10 +160,9 @@ function updateClock(){
 setInterval(updateClock,1000);
 updateClock();
 
-/* ---------- الشمس: حساب الشروق والغروب محلياً لمركز الشرقاط (بدون أي خدمة خارجية) ---------- */
 function sunTimes(ms){
  const rad=Math.PI/180;
- const loc=new Date(ms+OFF*1000);
+ const loc=new Date(ms+3*3600*1000);
  const y=loc.getUTCFullYear(),m=loc.getUTCMonth(),dd=loc.getUTCDate();
  const midnight=Date.UTC(y,m,dd);
  const N=Math.floor((midnight-Date.UTC(y,0,1))/864e5)+1;
@@ -193,228 +176,84 @@ function sunTimes(ms){
  return{sr:midnight+(noon-4*ha)*60000,ss:midnight+(noon+4*ha)*60000};
 }
 
-/* ---------- تصنيف الحالة الجوية ---------- */
-const THUNDER_RE=/thunder/,SNOW_RE=/snow/,RAIN_RE=/rain|sleet|drizzle/,FOG_RE=/fog/;
-
-function kindOf(sym){
- sym=String(sym||"");
- if(THUNDER_RE.test(sym))return"thunder";
- if(SNOW_RE.test(sym))return"snow";
- if(RAIN_RE.test(sym))return"rain";
- if(FOG_RE.test(sym))return"fog";
- return"none";
-}
-const symOf=e=>e.data.next_1_hours?.summary?.symbol_code??e.data.next_6_hours?.summary?.symbol_code??e.data.next_12_hours?.summary?.symbol_code??"";
-const precipOf=e=>num(e.data.next_1_hours?.details?.precipitation_amount??e.data.next_6_hours?.details?.precipitation_amount)||0;
-
-/* الغطاء السحابي الفعلي: الغيوم المنخفضة والمتوسطة هي التي تحجب الشمس،
-   أما الغيوم العالية الرقيقة (سيروس) فتُحتسب بربعها فقط */
-function effOf(d){
- const lo=num(d.cloud_area_fraction_low),mi=num(d.cloud_area_fraction_medium),hi=num(d.cloud_area_fraction_high);
- if([lo,mi,hi].every(Number.isFinite))return Math.min(100,Math.max(lo,mi)+.25*hi);
- const t=num(d.cloud_area_fraction);
- return Number.isFinite(t)?t:0;
-}
-
-function cloudWx(e,daily){
- if(e<=20)return["☀️",daily?"صحو":"سماء صافية وصحو","sunny"];
- if(e<=40)return["🌤️","صحو مع غيوم خفيفة","partly"];
- if(e<=65)return["⛅","غائم جزئياً","partly"];
- if(e<=85)return["🌥️","غائم غالباً","cloudy"];
- return["☁️","غائم","cloudy"];
-}
-
-function isClear(){
- return S.kind==="none"&&!S.rain&&!S.thunder&&!S.snow&&S.eff<=20;
-}
-
-/* الحالة الحالية: المطر يُعتمد من عدة إشارات (رمز MET + قراءة wttr.in الفعلية) */
-function currentWx(){
- if(S.thunder)return["⛈️","عواصف رعدية","rain"];
- if(S.snow)return["❄️","ثلوج","snow"];
- if(S.rain)return["🌧️",S.precip>=2.5?"أمطار غزيرة":S.precip>=.8?"أمطار":"مطر خفيف","rain"];
- if(S.kind==="fog")return["🌫️","ضباب","cloudy"];
- return cloudWx(S.eff,false);
+/* تحويل رموز WMO العالمية إلى حالات الطقس المفهومة */
+function wmoMap(code, isDay){
+ switch(code){
+  case 0: return [isDay?"☀️":"🌙",isDay?"سماء صافية":"صافي ليلاً","sunny"];
+  case 1: return [isDay?"🌤️":"🌙","صحو مع غيوم خفيفة","partly"];
+  case 2: return ["⛅","غائم جزئياً","partly"];
+  case 3: return ["☁️","غائم","cloudy"];
+  case 45: case 48: return ["🌫️","ضباب","cloudy"];
+  case 51: case 53: case 55: case 56: case 57: return ["🌧️","رذاذ خفيف","rain"];
+  case 61: case 63: return ["🌧️","أمطار","rain"];
+  case 65: case 66: case 67: case 80: case 81: case 82: return ["🌧️","أمطار غزيرة","rain"];
+  case 71: case 73: case 75: case 77: case 85: case 86: return ["❄️","ثلوج","snow"];
+  case 95: case 96: case 99: return ["⛈️","عواصف رعدية","rain"];
+  default: return ["🌤️","صحو","sunny"];
+ }
 }
 
 const uvTxt=u=>u<3?"منخفض":u<6?"معتدل":u<8?"مرتفع":u<11?"مرتفع جداً":"شديد";
 
-/* ---------- معالجة بيانات MET Norway ---------- */
-const dayKey=ms=>new Date(ms+OFF*1000).toISOString().slice(0,10);
-
-function buildDaily(ts,now){
- const days={};
- for(const e of ts){
-  const t=Date.parse(e.time);
-  if(!Number.isFinite(t))continue;
-  const key=dayKey(t);
-  const o=days[key]||(days[key]={n:0,hi:-Infinity,lo:Infinity,pr:0,wind:0,cl:[],thunder:false,snow:false});
-  const d=e.data.instant.details;
-  o.n++;
-  const tt=num(d.air_temperature);
-  if(Number.isFinite(tt)){o.hi=Math.max(o.hi,tt);o.lo=Math.min(o.lo,tt);}
-  const n6=e.data.next_6_hours?.details;
-  if(n6&&!e.data.next_1_hours){
-   const mx=num(n6.air_temperature_max),mn=num(n6.air_temperature_min);
-   if(Number.isFinite(mx))o.hi=Math.max(o.hi,mx);
-   if(Number.isFinite(mn))o.lo=Math.min(o.lo,mn);
-  }
-  const ws=num(d.wind_speed)*3.6;
-  if(Number.isFinite(ws))o.wind=Math.max(o.wind,ws);
-  const h=new Date(t+OFF*1000).getUTCHours();
-  if(h>=7&&h<=17)o.cl.push(effOf(d));
-  const p=precipOf(e);
-  o.pr+=p;
-  const k=kindOf(symOf(e));
-  if(k==="thunder"&&p>=THUNDER_MIN)o.thunder=true;
-  if(k==="snow"&&p>=.1)o.snow=true;
- }
- const today=dayKey(now);
- return Object.keys(days).sort().filter(k=>k>today&&days[k].n>=3&&Number.isFinite(days[k].hi)).slice(0,5).map(k=>{
-  const o=days[k];
-  let info;
-  if(o.thunder)info=["⛈️","عواصف رعدية","rain"];
-  else if(o.snow)info=["❄️","ثلوج","snow"];
-  else if(o.pr>=3)info=["🌧️","أمطار","rain"];
-  else if(o.pr>=1)info=["🌦️","زخات مطر","rain"];
-  else if(o.wind>=45)info=["🌬️","نشاط رياح","wind"];
-  else info=cloudWx(o.cl.length?o.cl.reduce((a,b)=>a+b,0)/o.cl.length:0,true);
-  return{hi:Math.round(o.hi),lo:Math.round(o.lo),info,dn:new Date(k+"T00:00:00Z").getUTCDay()};
- });
-}
-
-/* التنبيه: "حالياً" إذا كان المطر نازلاً فعلاً، و"متوقعة" إذا كان قادماً فقط.
-   الصياغة: أمطار حالياً مع توقعات عواصف رعدية */
-function buildAlert(ts,ci,now,rainNow,thunderNow){
- let thunder=thunderNow,gust=0,rainSum=0,rainMax=0;
- for(let i=ci;i<ts.length;i++){
-  const e=ts[i],t=Date.parse(e.time);
-  if(t>now+12*3600e3)break;
-  const d=e.data.instant.details;
-  const k=kindOf(symOf(e));
-  const p=precipOf(e);
-  if(k==="thunder"&&p>=THUNDER_MIN)thunder=true;
-  rainSum+=p;
-  rainMax=Math.max(rainMax,p);
-  const g=num(d.wind_speed_of_gust),w=num(d.wind_speed);
-  const gk=(Number.isFinite(g)?g:(Number.isFinite(w)?w*1.4:0))*3.6;
-  gust=Math.max(gust,gk);
- }
- thunderSoon=thunder;
- const wet=rainSum>=ALERT_SUM||rainMax>=ALERT_HOUR;
- const rainCur=rainNow||thunderNow; /* المطر النازل الآن */
- const parts=[];
- if(rainCur){
-  let s=wet?"🌧️ أمطار حالياً ومتوقعة":"🌧️ أمطار حالياً";
-  if(thunder)s+=" مع توقعات ⚡ عواصف رعدية";
-  parts.push(s);
- }else{
-  if(wet)parts.push("🌧️ أمطار متوقعة");
-  if(thunder)parts.push("⚡ توقعات عواصف رعدية");
- }
- if(gust>=65)parts.push(`💨 رياح عاصفة، هبات حتى ${Math.round(gust)} كم/س`);
- else if(gust>=45)parts.push(`💨 رياح قوية، هبات حتى ${Math.round(gust)} كم/س`);
- return parts.length?"تنبيه جوي: "+parts.join(" · "):"";
-}
-
-function getJSON(url){
- const ctl=new AbortController();
- const t=setTimeout(()=>ctl.abort(),15000);
- return fetch(url,{signal:ctl.signal,cache:"no-store"})
-  .then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
-  .finally(()=>clearTimeout(t));
-}
-
-function scheduleRetry(ms){
- clearTimeout(retryT);
- retryT=setTimeout(load,ms);
-}
-
-/* متوسط مصدرين إن تقاربت القراءتان، وإلا نعتمد المصدر الرئيسي */
-const avg2=(a,b,tol)=>Number.isFinite(b)&&Math.abs(a-b)<=tol?(a+b)/2:a;
-
 async function load(){
  if(loading)return;
  loading=true;
-
  try{
-  const [rm,rw]=await Promise.allSettled([getJSON(URL_MET),getJSON(URL_WTTR)]);
-  if(rm.status!=="fulfilled")throw Error("تعذر جلب بيانات MET Norway");
+  const res=await fetch(URL_API,{cache:"no-store"});
+  if(!res.ok)throw Error("HTTP "+res.status);
+  const data=await res.json();
+  
+  const cur=data.current;
+  const daily=data.daily;
+  const isDay=cur.is_day===1;
+  const wInfo=wmoMap(cur.weather_code,isDay);
+  
+  const rain=cur.precipitation>0.1||[51,53,55,61,63,65,80,81,82,95,96,99].includes(cur.weather_code);
+  const thunder=[95,96,99].includes(cur.weather_code);
+  thunderSoon=thunder;
 
-  const ts=rm.value?.properties?.timeseries;
-  if(!Array.isArray(ts)||ts.length<20)throw Error("بيانات الطقس غير مكتملة");
-
-  const now=Date.now();
-  let ci=0,best=Infinity;
-  ts.forEach((e,i)=>{const dt=Math.abs(Date.parse(e.time)-now);if(dt<best){best=dt;ci=i;}});
-  const cur=ts[ci],d=cur.data.instant.details;
-
-  /* المصدر الثاني (اختياري) */
-  let wc=null;
-  if(rw.status==="fulfilled")wc=rw.value?.current_condition?.[0]||null;
-  const wT=wc?num(wc.temp_C):NaN,wH=wc?num(wc.humidity):NaN,wCl=wc?num(wc.cloudcover):NaN,wUv=wc?num(wc.uvIndex):NaN;
-  const wCode=wc?num(wc.weatherCode):NaN,wP=wc?num(wc.precipMM):NaN;
-
-  const metT=num(d.air_temperature),metH=num(d.relative_humidity);
-  if(!Number.isFinite(metT))throw Error("بيانات الحرارة غير متوفرة");
-  const t=avg2(metT,wT,4);
-  const h=Number.isFinite(metH)?avg2(metH,wH,20):(Number.isFinite(wH)?wH:50);
-  const ws=num(d.wind_speed)||0;
-
-  let eff=effOf(d);
-  if(Number.isFinite(wCl))eff=(eff+wCl)/2;
-
-  /* ---- كشف المطر الفعلي من عدة إشارات ---- */
-  const sym=symOf(cur);
-  const kind=kindOf(sym);
-  const precip=Math.max(precipOf(cur),Number.isFinite(wP)?wP:0);
-  const snow=SNOW_CODES.has(wCode)||(kind==="snow"&&precip>=.1);
-  const thunder=THUNDER_CODES.has(wCode)||(kind==="thunder"&&precip>=.1);
-  const rain=!snow&&!thunder&&(
-   kind==="rain"||
-   precip>=RAIN_NOW||
-   WET_CODES.has(wCode)||
-   (MAYBE_WET.has(wCode)&&precip>0)
-  );
-
-  /* الحرارة المحسوسة (معادلة Steadman) */
-  const e=(h/100)*6.105*Math.exp(17.27*t/(237.7+t));
-  const feels=t+.33*e-.7*ws-4;
-
-  /* مؤشر UV: سماء صافية مخفَّض حسب الغيوم، ويساوي 0 ليلاً */
-  const uvClear=num(d.ultraviolet_index_clear_sky);
-  let uv=Number.isFinite(uvClear)?uvClear*(1-.75*Math.pow(eff/100,3.4)):(Number.isFinite(wUv)?wUv:0);
-  if(rain||thunder)uv*=.3;
-  const st=sunTimes(now);
-  if(now<st.sr||now>st.ss)uv=0;
+  const dailyArr=[];
+  if(daily&&daily.time){
+   for(let i=1;i<daily.time.length;i++){
+    const dCode=daily.weather_code[i];
+    const info=wmoMap(dCode,true);
+    const dateObj=new Date(daily.time[i]+"T00:00:00Z");
+    dailyArr.push({
+     hi:Math.round(daily.temperature_2m_max[i]),
+     lo:Math.round(daily.temperature_2m_min[i]),
+     info,
+     dn:dateObj.getUTCDay()
+    });
+   }
+  }
 
   S={
-   t:Math.round(t),
-   f:Math.round(feels),
-   w:Math.round(ws*3.6),
-   h:Math.round(h),
-   p:Math.round(num(d.air_pressure_at_sea_level)||0),
-   uv:Math.max(0,uv),
-   eff:(rain||thunder)?Math.max(eff,85):eff,
-   precip,
-   kind,
-   rain,snow,thunder,
-   daily:buildDaily(ts,now),
-   alert:buildAlert(ts,ci,now,rain,thunder),
-   src:"MET Norway"+(wc?" + wttr.in":""),
-   off:0,
+   t:Math.round(cur.temperature_2m),
+   f:Math.round(cur.apparent_temperature),
+   w:Math.round(cur.wind_speed_10m),
+   h:Math.round(cur.relative_humidity_2m),
+   p:Math.round(cur.pressure_msl||1013),
+   uv:Math.max(0,cur.uv_index||0),
+   eff:cur.cloud_cover||(rain?85:0),
+   precip:cur.precipitation||0,
+   rain,
+   snow:[71,73,75,77,85,86].includes(cur.weather_code),
+   thunder,
+   wInfo,
+   daily:dailyArr,
+   alert:thunder?"⚡ تنبيه: توقعات عواصف رعدية قريبة":rain?"🌧️ تنبيه: فرصة أمطار حالياً":"",
+   src:"Open-Meteo (ECMWF)",
    stale:false
   };
   clearTimeout(retryT);
-
  }catch(err){
-  console.error("Weather:",err);
-  if(S&&!S.off){
+  console.error("Weather Error:",err);
+  if(S){
    S.stale=true;
-   scheduleRetry(60000);
+   retryT=setTimeout(load,30000);
   }else{
-   S={off:1,t:0,f:0,w:0,h:0,p:0,uv:0,eff:0,precip:0,kind:"none",rain:false,snow:false,thunder:false,daily:[],alert:"",src:"",stale:false};
-   scheduleRetry(30000);
+   S={t:0,f:0,w:0,h:0,p:0,uv:0,eff:0,precip:0,rain:false,snow:false,thunder:false,wInfo:["🌤️","صحو","sunny"],daily:[],alert:"",src:"",stale:true};
+   retryT=setTimeout(load,15000);
   }
  }finally{
   loading=false;
@@ -423,8 +262,9 @@ async function load(){
 }
 
 function liveFx(){
- if(S.w>=40&&S.h<30&&!S.rain&&!S.thunder&&!S.snow)return"dust";
- return currentWx()[2];
+ if(S.rain||S.thunder)return"rain";
+ if(S.w>=40&&S.h<30)return"dust";
+ return S.wInfo[2];
 }
 
 function render(){
@@ -432,16 +272,15 @@ function render(){
  $("date").textContent=dateFmt.format(new Date());
  const al=$("alert");
 
- if(S.off){
+ if(!S||S.stale && !S.t){
   $("temp").textContent="--°C";
   $("feels").textContent="";
   $("wi").textContent=$("hu").textContent=$("pr").textContent=$("uv").textContent="--";
   $("fcList").textContent="لا توجد توقعات متاحة حالياً.";
-  $("liveTxt").textContent="تعذر الاتصال، سيعاد المحاولة تلقائياً";
-  $("liveDot").style.background="#999";
-  $("desc").textContent="الطقس غير متاح الآن";
+  $("liveTxt").textContent="جاري إعادة المحاولة...";
+  $("liveDot").style.background="#f5b02e";
+  $("desc").textContent="جاري جلب الطقس المباشر";
   $("hero").textContent="";
-  $("src").textContent="";
   al.hidden=true;
  }else{
   $("temp").textContent=S.t+"°C";
@@ -458,10 +297,14 @@ function render(){
 
   $("liveTxt").textContent=S.stale?"تعذر التحديث · آخر بيانات محفوظة":"تحديث مباشر الآن";
   $("liveDot").style.background=S.stale?"#f5b02e":"#22e05a";
-  $("liveDot").style.boxShadow=S.stale?"none":"0 0 10px #22e05a";
-  $("src").textContent="📡 المصدر: "+S.src+" · إحداثيات مركز القضاء";
+  $("src").textContent="📡 المصدر: "+S.src+" · إحداثيات مركز قضاء الشرقاط";
   al.textContent=S.alert||"";
   al.hidden=!S.alert;
+
+  $("desc").textContent=S.wInfo[1];
+  $("hero").textContent=S.wInfo[0];
+  const night=sky().a<0;
+  $("tag").hidden=!(S.wInfo[2]==="sunny"&&!night);
  }
 
  setFx(liveFx());
@@ -506,7 +349,6 @@ function pal(a){
 function cover(){
  if(mode==="dust")return .5;
  if(mode==="rain")return Math.max(.9,S.eff/100);
- if(isClear())return 0; /* سماء صافية = بلا غيوم */
  return Math.min(1,S.eff/100);
 }
 
@@ -542,24 +384,6 @@ function initScene(){
 
 function setFx(fx){
  mode=fx;
- const night=sky().a<0;
-
- if(!S.off){
-  const w=currentWx();
-  let icon=w[0],desc=w[1];
-
-  if(fx==="dust"){icon="🌪️";desc="رياح قوية مع جفاف (احتمال غبار)";}
-  else if(fx==="sunny"){icon="";desc=night?"سماء صافية ليلاً":w[1];}
-
-  $("desc").textContent=desc;
-  /* العبارة تظهر فقط عند الصحو والشمس نهاراً، وتختفي مع الغيوم أو الليل أو أي حالة أخرى */
-  $("tag").hidden=!(fx==="sunny"&&!night);
-  $("hero").textContent=icon;
- }else{
-  $("hero").textContent="";
-  $("tag").hidden=true;
- }
-
  const key=fx+Math.round(cover()*5);
  if(key!==curKey||!CL.length&&cover()>0){
   curKey=key;
@@ -644,22 +468,6 @@ function draw(t){
   });
  });
 
- if(mode==="dust"){
-  cx.fillStyle="#c88c462e";
-  cx.fillRect(0,0,W,H);
-  P.forEach(p=>{
-   cx.fillStyle=`rgba(210,150,80,${.15+p.s*.3})`;
-   cx.beginPath();
-   cx.ellipse(p.x,p.y,10+p.r*26,1.5+p.r*2.5,0,0,Math.PI*2);
-   cx.fill();
-   if(!reduce){
-    p.x-=3+p.s*7;
-    p.y+=Math.sin(t/700+p.r*9)*.6;
-    if(p.x<-40){p.x=W+40;p.y=Math.random()*H;}
-   }
-  });
- }
-
  if(mode==="rain"){
   cx.strokeStyle="#bedcff80";
   cx.lineWidth=1.2;
@@ -730,7 +538,7 @@ function postHeight(){
  }
 }
 if("ResizeObserver"in window)new ResizeObserver(postHeight).observe(document.querySelector(".wrap"));
-window.addEventListener("load",postHeight);
+window.ensureLoaded=window.addEventListener("load",postHeight);
 
 $("ref").addEventListener("click",()=>{
  const r=$("ref");
