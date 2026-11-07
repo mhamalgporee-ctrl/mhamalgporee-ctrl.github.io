@@ -194,6 +194,28 @@ button:focus-visible,a:focus-visible,summary:focus-visible{
 .foot .by{font-family:"Aref Ruqaa",Tahoma,serif;color:#805b16;font-size:1.05rem;font-weight:700}
 .foot small{font-size:.68rem;color:#425a70}
 
+/* ===== مربعات على قد المحتوى ===== */
+.days,.hs{align-items:flex-start}
+.d{align-content:start;grid-auto-rows:min-content;line-height:1.2;padding:4px 2px;gap:1px;flex:0 0 60px;border-radius:11px}
+.d svg{width:18px;height:auto;display:block}
+.d b{font-size:.64rem}
+.d span{font-size:.58rem;text-align:center}
+.d em{font-size:.6rem}
+.d small{font-size:.52rem;white-space:nowrap}
+.hs{padding:4px 3px}
+.h{align-content:start;grid-auto-rows:min-content;line-height:1.15;flex:0 0 36px;padding:2px 0;gap:1px}
+.h svg{width:18px;height:auto;display:block}
+.h b{font-size:.68rem}
+.h small{min-height:10px;font-size:.54rem}
+.h span{font-size:.56rem;white-space:nowrap}
+.box,.conf,.trend{padding:5px 9px;line-height:1.4;font-size:.7rem}
+.hero{padding:9px 11px}
+.row summary{min-height:0;padding:5px 9px}
+.ri{width:26px;height:26px;font-size:.8rem}
+.rd{padding:0 40px 6px 9px;line-height:1.4}
+.mapTabs button{min-height:0;padding:6px 4px}
+.scene{height:170px}
+
 @media(max-width:380px){
  body{padding:6px 6px 12px}
  .hd h1{font-size:1.05rem}
@@ -954,7 +976,7 @@ function renderDays(){
 
    <small>
     ${finite(day.prob)
-     ? Math.round(day.prob)+"% احتمال مطر"
+     ? "مطر "+Math.round(day.prob)+"%"
      : "غير متوفر"}
    </small>
 
