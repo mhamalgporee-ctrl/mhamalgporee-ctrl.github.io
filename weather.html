@@ -283,7 +283,8 @@ function buildDaily(ts,now){
  });
 }
 
-/* التنبيه: "حالياً" إذا كان المطر نازلاً فعلاً، و"متوقعة" إذا كان قادماً فقط */
+/* التنبيه: "حالياً" إذا كان المطر نازلاً فعلاً، و"متوقعة" إذا كان قادماً فقط.
+   الصياغة: أمطار حالياً مع توقعات عواصف رعدية */
 function buildAlert(ts,ci,now,rainNow,thunderNow){
  let thunder=thunderNow,gust=0,rainSum=0,rainMax=0;
  for(let i=ci;i<ts.length;i++){
@@ -301,10 +302,16 @@ function buildAlert(ts,ci,now,rainNow,thunderNow){
  }
  thunderSoon=thunder;
  const wet=rainSum>=ALERT_SUM||rainMax>=ALERT_HOUR;
+ const rainCur=rainNow||thunderNow; /* المطر النازل الآن */
  const parts=[];
- if(thunder)parts.push(thunderNow?"⚡ عواصف رعدية حالياً":"⚡ عواصف رعدية وبرق");
- if(rainNow)parts.push(wet?"🌧️ أمطار حالياً ومتوقعة خلال الساعات القادمة":"🌧️ أمطار حالياً");
- else if(wet)parts.push("🌧️ أمطار متوقعة");
+ if(rainCur){
+  let s=wet?"🌧️ أمطار حالياً ومتوقعة":"🌧️ أمطار حالياً";
+  if(thunder)s+=" مع توقعات ⚡ عواصف رعدية";
+  parts.push(s);
+ }else{
+  if(wet)parts.push("🌧️ أمطار متوقعة");
+  if(thunder)parts.push("⚡ توقعات عواصف رعدية");
+ }
  if(gust>=65)parts.push(`💨 رياح عاصفة، هبات حتى ${Math.round(gust)} كم/س`);
  else if(gust>=45)parts.push(`💨 رياح قوية، هبات حتى ${Math.round(gust)} كم/س`);
  return parts.length?"تنبيه جوي: "+parts.join(" · "):"";
