@@ -41,7 +41,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{
  outline:3px solid #087dbb;
  outline-offset:3px;
 }
-.wrap{max-width:650px;margin:auto;display:grid;gap:13px}
+.wrap{max-width:650px;width:100%;margin:auto;display:grid;gap:13px}
 
 .hd{
  display:flex;justify-content:space-between;
@@ -107,17 +107,6 @@ button:focus-visible,a:focus-visible,summary:focus-visible{
  display:block;font-size:.95rem;color:var(--ink);margin-top:5px
 }
 
-.thumbCard{
- display:flex;align-items:center;gap:12px;padding:9px 12px;
- background:var(--card);border:1px solid var(--border);
- border-radius:18px;box-shadow:var(--shadow)
-}
-.thumbCard img{
- width:112px;height:72px;object-fit:cover;
- border-radius:13px;border:1px solid var(--border)
-}
-.thumbCap{flex:1;font-weight:900;font-size:1rem}
-
 .box{
  padding:13px 14px;border-radius:17px;
  border-right:5px solid var(--blue);
@@ -138,35 +127,35 @@ button:focus-visible,a:focus-visible,summary:focus-visible{
 }
 
 .days{
- display:flex;gap:9px;overflow-x:auto;
+ display:flex;gap:7px;overflow-x:auto;
  scrollbar-width:none;padding:5px 2px 9px
 }
 .days::-webkit-scrollbar,.hs::-webkit-scrollbar{display:none}
 
 .d{
- flex:0 0 112px;border:1px solid var(--border);
+ flex:0 0 96px;border:1px solid var(--border);
  border-radius:19px;background:var(--card);
- padding:12px 6px;display:grid;justify-items:center;
- gap:7px;font-size:.82rem;box-shadow:var(--shadow);
- min-height:153px
+ padding:10px 4px;display:grid;justify-items:center;
+ gap:6px;font-size:.8rem;box-shadow:var(--shadow);
+ min-height:145px
 }
 .d.on{border:2px solid #1687ce;background:#fff}
-.d b{font-size:.9rem}
+.d b{font-size:.85rem}
 .d em{font-style:normal;direction:ltr;font-weight:850}
 .d s{text-decoration:none;color:var(--mut)}
-.d small{color:#0877b5;font-weight:850;text-align:center}
+.d small{color:#0877b5;font-weight:850;text-align:center;font-size:.75rem}
 
 .hs{
- display:flex;gap:6px;overflow-x:auto;padding:11px 8px;
+ display:flex;gap:5px;overflow-x:auto;padding:11px 8px;
  scrollbar-width:none;background:var(--card);
  border:1px solid var(--border);border-radius:19px;
  box-shadow:var(--shadow)
 }
 .h{
- flex:0 0 65px;display:grid;justify-items:center;
- gap:6px;font-size:.78rem;padding:8px 3px;border-radius:13px
+ flex:0 0 58px;display:grid;justify-items:center;
+ gap:5px;font-size:.75rem;padding:7px 2px;border-radius:13px
 }
-.h b{font-size:1rem;direction:ltr}
+.h b{font-size:.95rem;direction:ltr}
 .h small{color:#0877b5;font-weight:850;min-height:16px}
 .h span{color:var(--mut);font-weight:750}
 .h.now-hour{background:#d9f0ff;outline:1px solid #1687ce}
@@ -238,7 +227,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{
  body{padding:9px 7px 20px}
  .hd h1{font-size:1.2rem}
  .tmp b{font-size:3.5rem}
- .d{flex-basis:105px}
+ .d{flex-basis:90px}
  .hero{padding:15px 12px}
  #clk{padding:10px 8px;font-size:.85rem}
 }
@@ -282,11 +271,6 @@ button:focus-visible,a:focus-visible,summary:focus-visible{
   <div>☁️ الغيوم<b id="cloudNow">--%</b></div>
  </div>
 </section>
-
-<div class="thumbCard">
- <img src="qalaa-sharqat.jpg" alt="قلعة الشرقاط والحضر" loading="lazy">
- <span class="thumbCap">🏛️ قلعة الشرقاط والحضر</span>
-</div>
 
 <div class="box" id="rainNow">جارٍ تحليل حالة المطر...</div>
 <div class="box warn" id="alert" hidden></div>
