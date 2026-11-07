@@ -708,7 +708,34 @@ document.addEventListener("keydown", e => {
 });
 
 /* ملفات GitHub مع تخزين مؤقت لتفادي حد الطلبات */
+/* بديل عند حجب GitHub API: قائمة الملفات من jsDelivr (بدون حد 60 طلبًا) والصور من موقعك مباشرة */
+async function fetchFromJsDelivr(folder) {
+  const url = `https://data.jsdelivr.com/v1/packages/gh/${CONFIG.githubUser}/${CONFIG.githubRepo}@main?structure=flat`;
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`تعذّر تحميل الملفات (HTTP ${r.status}).`);
+  const d = await r.json();
+  const prefix = "/" + folder + "/";
+  return (d.files || [])
+    .filter(f => f.name && f.name.startsWith(prefix) && !f.name.slice(prefix.length).includes("/"))
+    .map(f => {
+      const n = f.name.slice(prefix.length);
+      return { name: n, download_url: folder + "/" + encodeURIComponent(n) };
+    });
+}
+
 async function fetchGitHubFiles(folder) {
+  try {
+    return await fetchViaApi(folder);
+  } catch (e) {
+    try {
+      const files = await fetchFromJsDelivr(folder);
+      if (files.length) return files;
+    } catch {}
+    throw e;
+  }
+}
+
+async function fetchViaApi(folder) {
   const key = "gh:" + folder;
   try {
     const c = JSON.parse(sessionStorage.getItem(key));
