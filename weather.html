@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -8,10 +7,6 @@
 <meta name="description" content="طقس الشرقاط المباشر والتوقعات الجوية">
 <title>طقس الشرقاط المباشر</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
-
 <style>
 :root{
  --gold:#f5b02e;
@@ -20,23 +15,21 @@
  --line:rgba(255,255,255,.18);
 }
 
-*,*::before,*::after{box-sizing:border-box}
+*{box-sizing:border-box}
 
-html{
- background:#0d2137;
+html,body{
+ margin:0;
  min-height:100%;
+ background:#0d2137;
 }
 
 body{
- margin:0;
- padding:8px 10px 12px;
- font-family:Tahoma,Arial,"Noto Sans Arabic",sans-serif;
+ padding:8px 10px 14px;
+ font-family:Tahoma,Arial,sans-serif;
  color:#fff;
- background:transparent;
- line-height:1.5;
+ line-height:1.55;
 }
 
-[hidden]{display:none!important}
 button{font:inherit;color:inherit;cursor:pointer}
 
 #fx{
@@ -49,92 +42,116 @@ button{font:inherit;color:inherit;cursor:pointer}
 }
 
 .wrap{
+ position:relative;
+ z-index:1;
  max-width:1100px;
  margin:auto;
  display:flex;
  flex-direction:column;
- gap:10px;
- position:relative;
- z-index:1;
- text-shadow:0 0 3px #000b,0 1px 10px #000b;
+ gap:12px;
+ text-shadow:0 1px 5px #000b;
 }
 
 header{
  display:flex;
  align-items:center;
  justify-content:space-between;
- gap:12px;
- flex-wrap:wrap;
- padding-bottom:8px;
+ gap:10px;
+ padding:4px 0 10px;
  border-bottom:1px solid var(--line);
 }
 
 .title{
  display:flex;
  align-items:center;
- gap:12px;
+ gap:9px;
  min-width:0;
 }
 
-.title .ico{
- font-size:1.6rem;
- filter:drop-shadow(0 0 12px #ffc83c99);
-}
+.title .ico{font-size:1.7rem}
 
 h1{
  margin:0;
- font-size:clamp(.95rem,2.8vw,1.25rem);
- font-weight:900;
  color:#ffe08a;
- line-height:1.5;
+ font-size:clamp(.95rem,3.5vw,1.3rem);
+ font-weight:900;
 }
 
 .ctrl{
  display:flex;
- gap:10px;
  align-items:center;
+ gap:8px;
+ flex-shrink:0;
 }
+
+.digital-clock{
+ min-width:104px;
+ padding:7px 9px;
+ border:2px solid var(--gold);
+ border-radius:12px;
+ background:linear-gradient(#101923,#05090f);
+ box-shadow:0 0 12px #f5b02e55;
+ text-align:center;
+ font-variant-numeric:tabular-nums;
+ direction:ltr;
+}
+
+.dc-main{
+ display:flex;
+ align-items:baseline;
+ justify-content:center;
+ gap:5px;
+ color:var(--gold2);
+ font-weight:900;
+}
+
+#dcHM{font-size:1.35rem;line-height:1.2}
+.dc-s{font-size:.8rem;color:#ff786b}
+.dc-ap{font-size:.72rem;color:#eaf3ff}
 
 .refresh{
- width:44px;
- height:44px;
- border:1px solid #ffffff25;
+ width:43px;
+ height:43px;
+ border:1px solid #ffffff35;
  border-radius:50%;
- background:#ffffff10;
- font-size:1.6rem;
- transition:transform .6s;
+ background:#ffffff12;
+ font-size:1.7rem;
 }
 
-.refresh.spin{transform:rotate(360deg)}
+.refresh.spin{animation:spin .6s ease}
+
+@keyframes spin{
+ to{transform:rotate(360deg)}
+}
 
 .grid{
  display:grid;
- grid-template-columns:1fr 1.4fr;
- column-gap:clamp(20px,5vw,65px);
- row-gap:10px;
+ grid-template-columns:1fr 1.35fr;
+ grid-template-areas:"forecast current";
+ gap:14px;
  align-items:start;
- grid-template-areas:"fc top" "fc low";
 }
 
-.fc{
- grid-area:fc;
- padding:12px;
- border-radius:16px;
- background:linear-gradient(180deg,#12304f,#0e2540);
+.current{
+ grid-area:current;
+ min-width:0;
+}
+
+.forecast{
+ grid-area:forecast;
+ padding:13px;
  border:1px solid var(--line);
+ border-radius:16px;
+ background:linear-gradient(180deg,#12304fee,#0e2540ee);
  box-shadow:0 6px 18px #0006;
 }
 
-.current{display:contents}
-.cur-top{grid-area:top}
-.cur-low{grid-area:low;margin-top:0!important}
-
 .live{
  display:inline-flex;
- gap:8px;
  align-items:center;
+ gap:8px;
  font-size:.9rem;
- font-weight:700;
+ font-weight:800;
 }
 
 .dot{
@@ -152,283 +169,269 @@ h1{
 }
 
 .alert{
- margin:8px 0 0;
+ margin:10px 0;
  padding:10px 12px;
- border-inline-start:4px solid #ff6b5e;
- background:#96140fbb;
+ border-right:4px solid #ff766b;
  border-radius:10px;
- font-weight:700;
+ background:#941b19e8;
+ font-weight:800;
  font-size:.9rem;
- line-height:1.6;
 }
+
+[hidden]{display:none!important}
 
 .cur-main{
  display:flex;
- justify-content:space-between;
  align-items:center;
- gap:12px;
- margin:12px 0;
+ justify-content:space-between;
+ gap:10px;
+ margin:14px 0;
 }
 
 .city{
- font-size:clamp(1.15rem,3vw,1.6rem);
- font-weight:900;
  margin:0;
- line-height:1.5;
+ font-size:clamp(1.2rem,4vw,1.7rem);
+ font-weight:900;
 }
 
 .date{
+ font-size:.84rem;
  font-weight:700;
  color:#eaf3ff;
- font-size:.85rem;
 }
 
 .big{
  display:flex;
  align-items:center;
- gap:10px;
+ gap:9px;
 }
 
 .hero{
- display:grid;
- place-items:center;
- font-size:clamp(1.6rem,4vw,2.2rem);
- filter:drop-shadow(0 0 20px #ffffff66);
+ font-size:clamp(1.8rem,5vw,2.5rem);
+ filter:drop-shadow(0 0 15px #ffffff66);
  animation:float 5s ease-in-out infinite;
 }
 
-.hero:empty{display:none}
-
 @keyframes float{
- 50%{transform:translateY(-6px)}
+ 50%{transform:translateY(-5px)}
 }
 
 .temp{
- font-size:clamp(1.8rem,4.5vw,2.7rem);
+ font-size:clamp(1.9rem,6vw,2.8rem);
  font-weight:900;
- line-height:1;
  direction:ltr;
  white-space:nowrap;
-}
-
-.desc{
- font-size:clamp(.95rem,2.5vw,1.15rem);
- font-weight:900;
- color:var(--gold2);
- text-align:end;
+ line-height:1;
 }
 
 .descrow{
  display:flex;
- align-items:center;
  justify-content:space-between;
+ align-items:center;
  gap:8px;
- min-height:30px;
+ min-height:32px;
 }
 
-.descrow .desc{flex-shrink:0}
+.desc{
+ font-size:clamp(1rem,3vw,1.2rem);
+ font-weight:900;
+ color:var(--gold2);
+}
 
 .tag{
- flex:1;
- min-width:0;
- font-size:.8rem;
- font-weight:700;
+ font-size:.78rem;
  color:#eaf3ff;
- line-height:1.4;
- text-align:start;
+ font-weight:700;
 }
 
 .feels{
  text-align:end;
- font-weight:800;
  margin-top:5px;
- font-size:.85rem;
+ font-size:.88rem;
+ font-weight:800;
 }
 
 .stats{
  display:grid;
- grid-template-columns:repeat(4,1fr);
- margin-top:10px;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ margin-top:12px;
+ padding-top:9px;
  border-top:1px solid var(--line);
- padding-top:8px;
 }
 
 .stat{
  text-align:center;
- padding:6px 3px;
- border-inline-start:1px solid var(--line);
+ padding:5px 3px;
+ border-left:1px solid var(--line);
  min-width:0;
 }
 
-.stat:first-child{border-inline-start:0}
+.stat:last-child{border-left:0}
 
-.stat .i{font-size:1.3rem;line-height:1.5}
-.stat .t{font-size:.8rem;font-weight:800}
+.stat .i{font-size:1.35rem}
+.stat .t{font-size:.78rem;font-weight:800}
 .stat .v{
- font-size:.85rem;
+ font-size:.82rem;
  font-weight:900;
  overflow-wrap:anywhere;
 }
 
-.fc h2{
- margin:0 0 9px;
+.forecast h2{
+ margin:0 0 10px;
  padding-bottom:8px;
  border-bottom:1px solid var(--line);
  font-size:1rem;
- font-weight:900;
 }
 
 #fcList{
  display:flex;
  flex-direction:column;
- gap:6px;
+ gap:7px;
 }
 
 .row{
  display:flex;
  align-items:center;
  gap:8px;
- padding:8px 10px;
- min-height:48px;
+ min-height:54px;
+ padding:8px 9px;
+ border:1px solid #ffffff35;
  border-radius:11px;
- border:1px solid #ffffff30;
  box-shadow:0 2px 6px #0004;
- text-shadow:0 1px 3px #000c;
 }
 
 .row .ic{
- font-size:1.3rem;
- width:28px;
+ width:29px;
  text-align:center;
+ font-size:1.35rem;
+ flex-shrink:0;
 }
 
-.row .d{flex:1;min-width:0;line-height:1.4}
+.row .d{
+ flex:1;
+ min-width:0;
+ line-height:1.45;
+}
 
 .row .d b{
  display:block;
- font-weight:900;
  font-size:.9rem;
 }
 
 .row .d span{
- font-size:.78rem;
+ display:block;
+ font-size:.76rem;
  font-weight:700;
 }
 
 .row .tp{
  direction:ltr;
- font-weight:900;
- font-size:.95rem;
  white-space:nowrap;
+ font-weight:900;
+ font-size:.92rem;
 }
 
 .hi{color:#ffe28a}
 .lo{color:#d3ebff}
 
-.r-sunny{background:linear-gradient(120deg,#1c6fc0,#3b9be6 55%,#7cc5f5)}
-.r-partly{background:linear-gradient(120deg,#2f78bd,#6aa9dc)}
-.r-cloudy{background:linear-gradient(120deg,#52677f,#7d92a8)}
-.r-rain{
- background:repeating-linear-gradient(105deg,#bedcff55 0 1px,transparent 1px 11px),linear-gradient(120deg,#26384f,#3c556f);
+.r-sunny{
+ background:linear-gradient(120deg,#1c6fc0,#3b9be6 55%,#7cc5f5);
 }
-.r-wind{background:linear-gradient(120deg,#1f7f86,#4fb3b6)}
-.r-dust{background:linear-gradient(120deg,#8a5a2b,#c9955a)}
-.r-snow{background:linear-gradient(120deg,#5f7d9c,#a9c1d8)}
+
+.r-partly{
+ background:linear-gradient(120deg,#2f78bd,#6aa9dc);
+}
+
+.r-cloudy{
+ background:linear-gradient(120deg,#52677f,#7d92a8);
+}
+
+.r-rain{
+ background:linear-gradient(120deg,#26384f,#3c556f);
+}
+
+.r-wind{
+ background:linear-gradient(120deg,#1f7f86,#4fb3b6);
+}
+
+.r-dust{
+ background:linear-gradient(120deg,#8a5a2b,#c9955a);
+}
+
+.r-snow{
+ background:linear-gradient(120deg,#5f7d9c,#a9c1d8);
+}
 
 .note{
- font-size:.78rem;
+ font-size:.77rem;
  color:#eaf3ff;
  font-weight:700;
- margin-top:7px;
+ margin-top:8px;
 }
 
 .banner{
  text-align:center;
- padding:10px 0 0;
+ padding-top:10px;
  border-top:1px solid var(--line);
 }
 
 .banner .pill{
  font-weight:800;
  font-size:.95rem;
- margin-bottom:4px;
 }
 
 .banner .by{
- font-family:"Aref Ruqaa",Tahoma,Arial,sans-serif;
- font-weight:700;
- color:var(--gold2);
- font-size:1.15rem;
- line-height:1.6;
- text-shadow:0 0 4px #000e,0 2px 12px #000b;
-}
-
-.digital-clock{
- flex-shrink:0;
- min-width:105px;
- padding:7px 9px;
- border-radius:12px;
- background:linear-gradient(#0b121b,#05090f);
- border:2px solid var(--gold);
- box-shadow:0 0 12px #f5b02e4d,inset 0 0 8px #000c;
- text-align:center;
- text-shadow:0 0 10px #ffd16699;
- font-variant-numeric:tabular-nums;
- line-height:1.2;
-}
-
-.dc-main{
- display:flex;
- align-items:baseline;
- justify-content:center;
- gap:5px;
- color:var(--gold2);
  font-weight:900;
+ color:var(--gold2);
+ font-size:1rem;
+ line-height:1.7;
 }
 
-#dcHM{font-size:1.45rem;line-height:1.1}
+@media(max-width:700px){
 
-.dc-s{
- font-size:.85rem;
- color:#ff6b5e;
- min-width:1.2em;
-}
-
-.dc-ap{
- font-size:.75rem;
- color:#eaf3ff;
- margin-top:3px;
-}
-
-@media(max-width:850px){
  .grid{
   grid-template-columns:1fr;
-  grid-template-areas:"top" "low" "fc";
-  row-gap:13px;
-  column-gap:0;
+  grid-template-areas:"current" "forecast";
+  gap:13px;
  }
- .cur-low{margin-top:0!important}
- .fc{width:100%}
+
+ .forecast{width:100%}
 }
 
-@media(max-width:600px){
- body{padding:7px 10px 12px}
- header{flex-wrap:nowrap;gap:8px}
- .title{gap:7px}
- .ctrl{gap:6px;flex-shrink:0}
- .digital-clock{min-width:88px;padding:6px 7px}
- #dcHM{font-size:1.25rem}
- .dc-s{font-size:.75rem}
- .dc-ap{font-size:.68rem}
- h1{font-size:.9rem}
- .cur-main{margin:10px 0}
- .stats{margin-top:8px}
- .banner .by{font-size:1.05rem}
+@media(max-width:420px){
+
+ body{padding:7px 9px 12px}
+
+ .title{gap:5px}
+
+ .title .ico{font-size:1.4rem}
+
+ h1{font-size:.88rem}
+
+ .ctrl{gap:5px}
+
+ .digital-clock{
+  min-width:88px;
+  padding:6px;
+ }
+
+ .refresh{
+  width:39px;
+  height:39px;
+ }
+
+ .temp{font-size:1.9rem}
+
+ .stats .v{font-size:.75rem}
+
+ .row .tp{font-size:.85rem}
 }
 
 @media(prefers-reduced-motion:reduce){
+
  .dot,.hero{animation:none}
- .refresh{transition:none}
+
+ .refresh.spin{animation:none}
 }
 </style>
 </head>
@@ -440,105 +443,107 @@ h1{
 <div class="wrap">
 
 <header>
+
  <div class="title">
   <div class="ico">🌤️</div>
-  <div><h1>طقس الشرقاط المباشر</h1></div>
+  <h1>طقس الشرقاط المباشر</h1>
  </div>
 
  <div class="ctrl">
 
-  <div class="digital-clock" id="digitalClock" title="الوقت الحالي بتوقيت بغداد" dir="ltr">
+  <div class="digital-clock" title="الوقت الحالي بتوقيت بغداد">
+
    <div class="dc-main">
     <span id="dcHM">--:--</span>
     <span class="dc-s" id="dcS">--</span>
    </div>
-   <div class="dc-ap" id="dcAP"></div>
+
+   <div class="dc-ap" id="dcAP">بتوقيت بغداد</div>
+
   </div>
 
-  <button class="refresh" id="ref" type="button" title="تحديث البيانات" aria-label="تحديث البيانات">↻</button>
+  <button class="refresh" id="ref" type="button"
+   aria-label="تحديث البيانات" title="تحديث البيانات">↻</button>
 
  </div>
+
 </header>
 
 <div class="grid">
 
- <aside class="fc">
-  <h2>📅 توقعات الـ 5 أيام القادمة</h2>
+<section class="current" aria-live="polite">
 
-  <div id="fcList">
-   <div class="note">جارٍ تحميل التوقعات...</div>
+ <span class="live">
+  <span class="dot" id="liveDot"></span>
+  <span id="liveTxt">جارٍ تحميل بيانات الطقس...</span>
+ </span>
+
+ <div class="alert" id="alert" role="status" hidden></div>
+
+ <div class="cur-main">
+
+  <div>
+   <h2 class="city">الشرقاط</h2>
+   <div class="date" id="date"></div>
   </div>
 
-  <div class="note">🕒 تتحدث البيانات تلقائياً كل 10 دقائق</div>
-  <div class="note" id="src"></div>
-  <div class="note" id="updated"></div>
- </aside>
-
- <section class="current">
-
-  <div class="cur-top" aria-live="polite">
-
-   <span class="live">
-    <span class="dot" id="liveDot"></span>
-    <span id="liveTxt">جارٍ التحميل…</span>
-   </span>
-
-   <div class="alert" id="alert" role="status" hidden></div>
-
-   <div class="cur-main">
-
-    <div>
-     <h2 class="city" id="cityName">الشرقاط</h2>
-     <div class="date" id="date"></div>
-    </div>
-
-    <div class="big">
-     <div class="hero" id="hero">🌤️</div>
-     <div class="temp" id="temp">--°C</div>
-    </div>
-
-   </div>
+  <div class="big">
+   <div class="hero" id="hero">🌤️</div>
+   <div class="temp" id="temp">--°C</div>
   </div>
 
-  <div class="cur-low">
+ </div>
 
-   <div class="descrow">
-    <div class="tag" id="tag" hidden></div>
-    <div class="desc" id="desc">جارٍ جلب حالة الطقس</div>
-   </div>
+ <div class="descrow">
+  <div class="tag" id="tag" hidden></div>
+  <div class="desc" id="desc">جارٍ جلب حالة الطقس</div>
+ </div>
 
-   <div class="feels" id="feels"></div>
+ <div class="feels" id="feels"></div>
 
-   <div class="stats">
+ <div class="stats">
 
-    <div class="stat">
-     <div class="i">🌬️</div>
-     <div class="t">الرياح</div>
-     <div class="v" id="wi">--</div>
-    </div>
-
-    <div class="stat">
-     <div class="i">💧</div>
-     <div class="t">الرطوبة</div>
-     <div class="v" id="hu">--</div>
-    </div>
-
-    <div class="stat">
-     <div class="i">🧭</div>
-     <div class="t">الضغط</div>
-     <div class="v" id="pr">--</div>
-    </div>
-
-    <div class="stat">
-     <div class="i">☀️</div>
-     <div class="t">مؤشر UV</div>
-     <div class="v" id="uv">--</div>
-    </div>
-
-   </div>
+  <div class="stat">
+   <div class="i">🌬️</div>
+   <div class="t">الرياح</div>
+   <div class="v" id="wi">--</div>
   </div>
 
- </section>
+  <div class="stat">
+   <div class="i">💧</div>
+   <div class="t">الرطوبة</div>
+   <div class="v" id="hu">--</div>
+  </div>
+
+  <div class="stat">
+   <div class="i">🧭</div>
+   <div class="t">الضغط</div>
+   <div class="v" id="pr">--</div>
+  </div>
+
+  <div class="stat">
+   <div class="i">☀️</div>
+   <div class="t">مؤشر UV</div>
+   <div class="v" id="uv">--</div>
+  </div>
+
+ </div>
+
+</section>
+
+<aside class="forecast">
+
+ <h2>📅 توقعات الأيام الخمسة القادمة</h2>
+
+ <div id="fcList">
+  <div class="note">جارٍ تحميل التوقعات...</div>
+ </div>
+
+ <div class="note">🕒 تتحدث البيانات تلقائياً كل 10 دقائق</div>
+ <div class="note" id="src"></div>
+ <div class="note" id="updated"></div>
+
+</aside>
 
 </div>
 
@@ -552,10 +557,6 @@ h1{
 <script>
 "use strict";
 
-/* =========================
-   الإعدادات الأساسية
-========================= */
-
 const $=id=>document.getElementById(id);
 
 const LAT=35.5036;
@@ -568,34 +569,21 @@ const DAYS=[
  "الأربعاء","الخميس","الجمعة","السبت"
 ];
 
-const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reduce=window.matchMedia(
+ "(prefers-reduced-motion: reduce)"
+).matches;
 
-const URL_API=
+const API=
 `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,weather_code,cloud_cover,pressure_msl,wind_speed_10m,uv_index&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=6&timezone=${TZ}`;
 
 let S=null;
 let mode="sunny";
 let curKey="";
-let thunderSoon=false;
 let loading=false;
 let raf=0;
-let onScreen=true;
-let retryT=0;
-let lastMin="";
-let lastUpdate=null;
-
-const cl01=v=>Math.max(0,Math.min(1,v));
-
-const mix=(a,b,t)=>
- a.map((v,i)=>v+(b[i]-v)*t);
-
-const rgb=(c,a=1)=>
- `rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a})`;
-
-
-/* =========================
-   الساعة والتاريخ
-========================= */
+let visible=true;
+let retryTimer=0;
+let flash=0;
 
 const clockFmt=new Intl.DateTimeFormat("en-GB",{
  timeZone:TZ,
@@ -637,286 +625,160 @@ function updateClock(){
  $("dcAP").textContent=
   h<12?"صباحاً":"مساءً";
 
- if(p.minute!==lastMin){
-
-  lastMin=p.minute;
-
-  $("date").textContent=dateFmt.format(new Date());
-
-  if(S)setFx(liveFx());
- }
+ $("date").textContent=dateFmt.format(new Date());
 }
 
-setInterval(updateClock,1000);
 updateClock();
+setInterval(updateClock,1000);
 
 
-/* =========================
-   حساب الشروق والغروب
-========================= */
+/* حالات الطقس */
 
-function sunTimes(ms){
+function weather(code,isDay=true){
 
- const rad=Math.PI/180;
+ code=Number(code);
 
- const loc=new Date(ms+3*3600*1000);
+ if(code===0)
+  return[isDay?"☀️":"🌙",isDay?"سماء صافية":"صافي ليلاً","sunny"];
 
- const y=loc.getUTCFullYear();
- const m=loc.getUTCMonth();
- const dd=loc.getUTCDate();
+ if(code===1)
+  return[isDay?"🌤️":"🌙","صحو مع غيوم خفيفة","partly"];
 
- const midnight=Date.UTC(y,m,dd);
+ if(code===2)
+  return["⛅","غائم جزئياً","partly"];
 
- const N=Math.floor(
-  (midnight-Date.UTC(y,0,1))/864e5
- )+1;
+ if(code===3)
+  return["☁️","غائم","cloudy"];
 
- const g=2*Math.PI/365*(N-1);
+ if([45,48].includes(code))
+  return["🌫️","ضباب","cloudy"];
 
- const eqt=229.18*(
-  0.000075+
-  0.001868*Math.cos(g)-
-  0.032077*Math.sin(g)-
-  0.014615*Math.cos(2*g)-
-  0.040849*Math.sin(2*g)
- );
+ if([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code))
+  return["🌧️","أمطار أو زخات مطرية","rain"];
 
- const decl=
-  0.006918-
-  0.399912*Math.cos(g)+
-  0.070257*Math.sin(g)-
-  0.006758*Math.cos(2*g)+
-  0.000907*Math.sin(2*g)-
-  0.002697*Math.cos(3*g)+
-  0.00148*Math.sin(3*g);
+ if([71,73,75,77,85,86].includes(code))
+  return["❄️","ثلوج","snow"];
 
- const lat=LAT*rad;
+ if([95,96,99].includes(code))
+  return["⛈️","عواصف رعدية","rain"];
 
- const c=
-  Math.cos(90.833*rad)/
-  (Math.cos(lat)*Math.cos(decl))-
-  Math.tan(lat)*Math.tan(decl);
+ return["🌤️","حالة جوية غير محددة","sunny"];
+}
 
- const ha=Math.acos(
-  Math.max(-1,Math.min(1,c))
- )/rad;
+function uvText(v){
 
- const noon=720-4*LON-eqt;
+ return v<3?"منخفض":
+ v<6?"معتدل":
+ v<8?"مرتفع":
+ v<11?"مرتفع جداً":"شديد";
+}
 
- return{
-  sr:midnight+(noon-4*ha)*60000,
-  ss:midnight+(noon+4*ha)*60000
- };
+function finite(v,fallback=0){
+
+ const n=Number(v);
+
+ return Number.isFinite(n)?n:fallback;
 }
 
 
-/* =========================
-   تحويل رموز الطقس
-========================= */
+/* تحديد حالة المطر */
 
-function wmoMap(code,isDay){
+function getCondition(c){
 
- switch(Number(code)){
-
-  case 0:
-   return[
-    isDay?"☀️":"🌙",
-    isDay?"سماء صافية":"صافي ليلاً",
-    "sunny"
-   ];
-
-  case 1:
-   return[
-    isDay?"🌤️":"🌙",
-    "صحو مع غيوم خفيفة",
-    "partly"
-   ];
-
-  case 2:
-   return["⛅","غائم جزئياً","partly"];
-
-  case 3:
-   return["☁️","غائم","cloudy"];
-
-  case 45:
-  case 48:
-   return["🌫️","ضباب","cloudy"];
-
-  case 51:
-  case 53:
-  case 55:
-  case 56:
-  case 57:
-   return["🌧️","رذاذ","rain"];
-
-  case 61:
-  case 63:
-  case 65:
-  case 66:
-  case 67:
-   return["🌧️","أمطار","rain"];
-
-  case 71:
-  case 73:
-  case 75:
-  case 77:
-  case 85:
-  case 86:
-   return["❄️","ثلوج","snow"];
-
-  case 80:
-  case 81:
-  case 82:
-   return["🌧️","زخات مطرية","rain"];
-
-  case 95:
-  case 96:
-  case 99:
-   return["⛈️","عواصف رعدية","rain"];
-
-  default:
-   return["🌤️","حالة جوية غير محددة","sunny"];
- }
-}
-
-const uvTxt=u=>
- u<3?"منخفض":
- u<6?"معتدل":
- u<8?"مرتفع":
- u<11?"مرتفع جداً":"شديد";
-
-
-/* =========================
-   تحديد الحالة الحالية
-========================= */
-
-function getCurrentCondition(cur){
-
- const code=Number(cur.weather_code);
- const isDay=Number(cur.is_day)===1;
-
- const raw=wmoMap(code,isDay);
+ const code=finite(c.weather_code);
+ const day=finite(c.is_day)===1;
+ const raw=weather(code,day);
 
  const rainCodes=[
   51,53,55,56,57,
   61,63,65,66,67,
-  80,81,82,
-  95,96,99
+  80,81,82,95,96,99
  ];
 
  const thunderCodes=[95,96,99];
 
- const rainAmount=Number(cur.rain)||0;
- const showersAmount=Number(cur.showers)||0;
- const precipitation=Number(cur.precipitation)||0;
-
- const clouds=Number(cur.cloud_cover)||0;
-
- // لا نعتمد على رمز المطر وحده.
- // نحتاج إلى قراءة هطول حالية معتبرة
- // ورمز يشير إلى حالة مطرية.
-
- const rainCode=rainCodes.includes(code);
-
- const actualRain=
-  Math.max(rainAmount,showersAmount,precipitation);
+ const amount=Math.max(
+  finite(c.precipitation),
+  finite(c.rain),
+  finite(c.showers)
+ );
 
  const raining=
-  rainCode && actualRain>=0.2;
-
- const thunder=
-  thunderCodes.includes(code) && raining;
+  rainCodes.includes(code)&&amount>=0.1;
 
  let info=raw;
 
- // إذا كان الرمز يشير إلى المطر
- // لكن لا توجد كمية هطول معتبرة،
- // نعرض حالة الغيوم بدلاً من المطر.
+ if(rainCodes.includes(code)&&!raining){
 
- if(rainCode && !raining){
+  const clouds=finite(c.cloud_cover);
 
-  if(clouds>=85){
-   info=["☁️","غائم","cloudy"];
-  }
-  else if(clouds>=40){
-   info=["⛅","غائم جزئياً","partly"];
-  }
-  else{
-   info=[
-    isDay?"☀️":"🌙",
-    isDay?"سماء صافية":"صافي ليلاً",
-    "sunny"
-   ];
-  }
+  info=clouds>=85
+   ?["☁️","غائم","cloudy"]
+   :clouds>=40
+   ?["⛅","غائم جزئياً","partly"]
+   :[day?"☀️":"🌙",day?"سماء صافية":"صافي ليلاً","sunny"];
  }
 
  return{
   info,
   raining,
-  thunder,
-  amount:actualRain,
+  thunder:thunderCodes.includes(code)&&raining,
+  amount,
   code
  };
 }
 
 
-/* =========================
-   جلب البيانات
-========================= */
+/* جلب بيانات الطقس */
 
-async function getWeatherData(){
+async function getWeather(){
 
  const controller=new AbortController();
 
- const timeout=setTimeout(()=>{
+ const timer=setTimeout(()=>{
   controller.abort();
  },15000);
 
  try{
 
-  const response=await fetch(URL_API,{
-   method:"GET",
+  const response=await fetch(API,{
    cache:"no-store",
    signal:controller.signal,
-   headers:{
-    "Accept":"application/json"
-   }
+   headers:{Accept:"application/json"}
   });
 
-  if(!response.ok){
+  if(!response.ok)
    throw new Error("HTTP "+response.status);
-  }
 
   const data=await response.json();
 
+  const c=data?.current;
+  const d=data?.daily;
+
   if(
-   !data ||
-   !data.current ||
-   !data.daily ||
-   !Array.isArray(data.daily.time) ||
-   !Array.isArray(data.daily.weather_code)
+   !c||!d||
+   !Array.isArray(d.time)||
+   !Array.isArray(d.weather_code)||
+   !Array.isArray(d.temperature_2m_max)||
+   !Array.isArray(d.temperature_2m_min)
   ){
    throw new Error("بيانات الطقس غير مكتملة");
   }
 
-  if(
-   data.current.temperature_2m==null ||
-   data.current.weather_code==null
-  ){
+  if(c.temperature_2m==null||c.weather_code==null){
    throw new Error("بيانات الحالة الحالية ناقصة");
   }
 
   return data;
 
  }finally{
-  clearTimeout(timeout);
+
+  clearTimeout(timer);
  }
 }
 
 
-/* =========================
-   تحميل الطقس
-========================= */
+/* تحميل الطقس */
 
 async function load(){
 
@@ -924,179 +786,151 @@ async function load(){
 
  loading=true;
 
- $("liveTxt").textContent="جارٍ تحديث بيانات الطقس...";
+ $("liveTxt").textContent=
+  "جارٍ تحديث بيانات الطقس...";
 
  try{
 
-  const data=await getWeatherData();
+  const data=await getWeather();
 
-  const cur=data.current;
-  const daily=data.daily;
+  const c=data.current;
+  const d=data.daily;
 
-  const condition=getCurrentCondition(cur);
+  const condition=getCondition(c);
 
-  const dailyArr=[];
+  const forecast=[];
 
-  for(let i=1;i<Math.min(daily.time.length,6);i++){
+  for(let i=1;i<Math.min(d.time.length,6);i++){
 
-   const dCode=Number(daily.weather_code[i]);
+   const hi=Number(d.temperature_2m_max[i]);
+   const lo=Number(d.temperature_2m_min[i]);
 
-   const info=wmoMap(dCode,true);
+   if(!Number.isFinite(hi)||!Number.isFinite(lo))
+    continue;
 
-   const dateObj=new Date(
-    daily.time[i]+"T00:00:00Z"
+   const dayDate=new Date(d.time[i]+"T12:00:00Z");
+
+   const chance=Number(
+    d.precipitation_probability_max?.[i]
    );
 
-   const hi=Number(daily.temperature_2m_max[i]);
-   const lo=Number(daily.temperature_2m_min[i]);
+   forecast.push({
 
-   if(!Number.isFinite(hi)||!Number.isFinite(lo)){
-    continue;
-   }
-
-   const probability=
-    Number(daily.precipitation_probability_max?.[i]);
-
-   dailyArr.push({
     hi:Math.round(hi),
     lo:Math.round(lo),
-    info,
-    dn:dateObj.getUTCDay(),
-    probability:Number.isFinite(probability)?probability:null
+
+    info:weather(d.weather_code[i],true),
+
+    day:dayDate.getUTCDay(),
+
+    chance:Number.isFinite(chance)?chance:null
    });
   }
 
   S={
 
-   t:Math.round(Number(cur.temperature_2m)),
+   t:Math.round(finite(c.temperature_2m)),
 
-   f:Math.round(Number(cur.apparent_temperature)),
+   feels:Math.round(
+    finite(c.apparent_temperature,finite(c.temperature_2m))
+   ),
 
-   w:Math.round(Number(cur.wind_speed_10m)||0),
+   wind:Math.round(finite(c.wind_speed_10m)),
 
-   h:Math.round(Number(cur.relative_humidity_2m)||0),
+   humidity:Math.round(finite(c.relative_humidity_2m)),
 
-   p:Math.round(Number(cur.pressure_msl)||1013),
+   pressure:Math.round(finite(c.pressure_msl,1013)),
 
-   uv:Math.max(0,Number(cur.uv_index)||0),
+   uv:Math.max(0,finite(c.uv_index)),
 
-   eff:Math.max(0,Number(cur.cloud_cover)||0),
+   cloud:Math.max(0,finite(c.cloud_cover)),
 
-   precip:condition.amount,
+   rainAmount:condition.amount,
 
-   rain:condition.raining,
+   raining:condition.raining,
 
    thunder:condition.thunder,
 
-   wInfo:condition.info,
+   info:condition.info,
 
-   daily:dailyArr,
-
-   alert:condition.thunder
-    ?"⚡ تنبيه: هطول مع عواصف رعدية حسب البيانات الحالية"
-    :condition.raining
-    ?"🌧️ تنبيه: رصد هطول مطري حسب بيانات الطقس الحالية"
-    :"",
-
-   src:"Open-Meteo",
+   forecast,
 
    stale:false,
 
-   updatedAt:new Date(),
+   updated:new Date(),
 
    code:condition.code
   };
 
-  lastUpdate=new Date();
+  clearTimeout(retryTimer);
+  retryTimer=0;
 
-  clearTimeout(retryT);
-  retryT=0;
+ }catch(err){
 
-  console.log("بيانات الطقس:",S);
-
- }catch(error){
-
-  console.error("Weather Error:",error);
+  console.error("Weather error:",err);
 
   if(S){
 
    S.stale=true;
 
-   retryT=setTimeout(load,30000);
+   clearTimeout(retryTimer);
+
+   retryTimer=setTimeout(load,30000);
 
   }else{
 
    S={
-    t:null,
-    f:null,
-    w:null,
-    h:null,
-    p:null,
-    uv:null,
-    eff:0,
-    precip:0,
-    rain:false,
-    thunder:false,
-    wInfo:["🌤️","تعذر جلب الطقس","sunny"],
-    daily:[],
-    alert:"",
-    src:"",
-    stale:true,
-    updatedAt:null
+    error:true,
+    forecast:[],
+    stale:true
    };
 
-   retryT=setTimeout(load,20000);
+   clearTimeout(retryTimer);
+
+   retryTimer=setTimeout(load,20000);
   }
 
  }finally{
 
   loading=false;
+
   render();
  }
 }
 
 
-/* =========================
-   تحديد خلفية الطقس
-========================= */
+/* تحديد الخلفية */
 
-function liveFx(){
+function currentMode(){
 
- if(!S)return"sunny";
+ if(!S||S.error)return"sunny";
 
- if(S.rain||S.thunder)return"rain";
+ if(S.raining||S.thunder)return"rain";
 
- if(S.w>=40&&S.h<30)return"dust";
+ if(S.wind>=40&&S.humidity<30)return"dust";
 
- return S.wInfo[2];
+ return S.info[2];
 }
 
 
-/* =========================
-   عرض البيانات
-========================= */
+/* عرض البيانات */
 
 function render(){
 
- $("cityName").textContent=CITY;
-
- $("date").textContent=dateFmt.format(new Date());
-
- const al=$("alert");
-
- if(!S||S.t===null){
+ if(!S||S.error){
 
   $("temp").textContent="--°C";
   $("feels").textContent="";
 
-  $("wi").textContent="--";
-  $("hu").textContent="--";
-  $("pr").textContent="--";
-  $("uv").textContent="--";
+  ["wi","hu","pr","uv"].forEach(id=>{
+   $(id).textContent="--";
+  });
 
-  $("fcList").textContent="لا توجد بيانات متاحة حالياً.";
+  $("fcList").textContent=
+   "لا توجد بيانات متاحة حالياً.";
 
-  $("liveTxt").textContent="تعذر الاتصال · جارٍ إعادة المحاولة";
+  $("liveTxt").textContent=
+   "تعذر الاتصال · جارٍ إعادة المحاولة";
 
   $("liveDot").style.background="#f5b02e";
 
@@ -1104,61 +938,46 @@ function render(){
 
   $("hero").textContent="🌤️";
 
-  $("src").textContent="";
+  $("alert").hidden=true;
 
+  $("src").textContent="";
   $("updated").textContent="";
 
-  al.hidden=true;
+  $("tag").hidden=true;
 
  }else{
 
   $("temp").textContent=S.t+"°C";
 
   $("feels").textContent=
-   "الحرارة المحسوسة: "+S.f+"°C";
+   "الحرارة المحسوسة: "+S.feels+"°C";
 
-  $("wi").textContent=S.w+" كم/س";
+  $("wi").textContent=S.wind+" كم/س";
 
-  $("hu").textContent=S.h+"%";
+  $("hu").textContent=S.humidity+"%";
 
-  $("pr").textContent=S.p+" hPa";
+  $("pr").textContent=S.pressure+" hPa";
 
   $("uv").textContent=
-   Math.round(S.uv)+" ("+uvTxt(S.uv)+")";
+   Math.round(S.uv)+" ("+uvText(S.uv)+")";
 
-  if(S.daily.length){
-
-   $("fcList").innerHTML=S.daily.map(x=>{
-
-    const w=x.info;
-
-    const chance=x.probability!==null
-     ?`<span>احتمال المطر: ${x.probability}%</span>`
-     :"";
-
-    return `
-     <div class="row r-${w[2]}">
-      <div class="ic">${w[0]}</div>
-      <div class="d">
-       <b>${DAYS[x.dn]}</b>
-       <span>${w[1]}</span>
-       ${chance}
-      </div>
-      <div class="tp">
-       <span class="hi">${x.hi}°</span>
-       /
-       <span class="lo">${x.lo}°</span>
-      </div>
+  $("fcList").innerHTML=S.forecast.length
+   ?S.forecast.map(x=>`
+    <div class="row r-${x.info[2]}">
+     <div class="ic">${x.info[0]}</div>
+     <div class="d">
+      <b>${DAYS[x.day]}</b>
+      <span>${x.info[1]}</span>
+      ${x.chance===null?"":`<span>احتمال المطر: ${x.chance}%</span>`}
      </div>
-    `;
-
-   }).join("");
-
-  }else{
-
-   $("fcList").textContent=
-    "لا توجد توقعات متاحة حالياً.";
-  }
+     <div class="tp">
+      <span class="hi">${x.hi}°</span>
+      /
+      <span class="lo">${x.lo}°</span>
+     </div>
+    </div>
+   `).join("")
+   :"لا توجد توقعات متاحة حالياً.";
 
   $("liveTxt").textContent=
    S.stale
@@ -1169,383 +988,195 @@ function render(){
    S.stale?"#f5b02e":"#22e05a";
 
   $("src").textContent=
-   "📡 المصدر: "+S.src+" · إحداثيات مركز قضاء الشرقاط";
+   "📡 المصدر: Open-Meteo · إحداثيات مركز قضاء الشرقاط";
 
   $("updated").textContent=
-   S.updatedAt
-    ?"🕒 آخر تحديث: "+updateFmt.format(S.updatedAt)
+   "🕒 آخر تحديث: "+updateFmt.format(S.updated);
+
+  $("desc").textContent=S.info[1];
+
+  $("hero").textContent=S.info[0];
+
+  $("alert").textContent=
+   S.thunder
+    ?"⚡ تنبيه: بيانات الطقس تشير إلى عواصف رعدية حالياً"
+    :S.raining
+    ?"🌧️ تنبيه: رصد هطول مطري حسب بيانات الطقس الحالية"
     :"";
 
-  al.textContent=S.alert||"";
+  $("alert").hidden=!S.raining&&!S.thunder;
 
-  al.hidden=!S.alert;
+  $("tag").textContent=
+   "💧 كمية الهطول الحالية: "+S.rainAmount.toFixed(1)+" ملم";
 
-  $("desc").textContent=S.wInfo[1];
-
-  $("hero").textContent=S.wInfo[0];
-
-  $("tag").hidden=true;
-
-  if(!S.rain && !S.stale){
-
-   $("tag").textContent=
-    "💧 كمية الهطول الحالية: "+S.precip.toFixed(1)+" ملم";
-
-   // إظهار المعلومة فقط عندما تكون هناك قراءة هطول.
-   $("tag").hidden=S.precip<=0;
-  }
+  $("tag").hidden=S.rainAmount<=0;
  }
 
- setFx(liveFx());
-
- if(reduce)draw(performance.now());
+ setMode(currentMode());
 }
 
 
-/* =========================
-   حساب الليل والنهار
-========================= */
+/* الخلفية المتحركة */
 
-function sky(){
+const canvas=$("fx");
+const ctx=canvas.getContext("2d");
 
- const now=Date.now();
+let W=innerWidth;
+let H=innerHeight;
 
- const t0=sunTimes(now);
+let particles=[];
+let clouds=[];
+let stars=[];
 
- if(now>=t0.sr&&now<=t0.ss){
+function resize(){
 
-  const f=(now-t0.sr)/(t0.ss-t0.sr);
+ const dpr=Math.min(devicePixelRatio||1,2);
 
-  return{
-   a:Math.sin(Math.PI*f),
-   day:true,
-   pos:f
-  };
- }
+ W=innerWidth;
+ H=innerHeight;
 
- let from,to;
+ canvas.width=Math.max(1,Math.round(W*dpr));
+ canvas.height=Math.max(1,Math.round(H*dpr));
 
- if(now>t0.ss){
+ canvas.style.width=W+"px";
+ canvas.style.height=H+"px";
 
-  from=t0.ss;
-  to=sunTimes(now+864e5).sr;
+ ctx.setTransform(dpr,0,0,dpr,0,0);
+}
 
- }else{
+function setMode(next){
 
-  from=sunTimes(now-864e5).ss;
-  to=t0.sr;
- }
+ mode=next;
 
- const pos=cl01((now-from)/(to-from));
+ const key=mode+"-"+Math.round((S?.cloud||0)/20);
 
- return{
-  a:-Math.sin(Math.PI*pos),
-  day:false,
-  pos
- };
+ if(key===curKey&&clouds.length)return;
+
+ curKey=key;
+
+ particles=Array.from({
+  length:mode==="rain"?130:mode==="dust"?90:0
+ },()=>({
+  x:Math.random()*W,
+  y:Math.random()*H,
+  s:.5+Math.random()
+ }));
+
+ clouds=Array.from({
+  length:Math.max(1,Math.round((S?.cloud||25)/15))
+ },()=>({
+  x:Math.random()*(W+300)-150,
+  y:H*(.12+Math.random()*.48),
+  r:35+Math.random()*45,
+  v:.12+Math.random()*.25
+ }));
+
+ stars=Array.from({length:70},()=>({
+  x:Math.random()*W,
+  y:Math.random()*H*.7,
+  r:.5+Math.random()
+ }));
 }
 
 
-/* =========================
-   محرك الخلفية المتحركة
-========================= */
-
-const cv=$("fx");
-const cx=cv.getContext("2d");
-
-let W=1,H=1;
-let P=[],CL=[],ST=[];
-let flash=0;
-
-const KS=[
- [-1,[5,10,26],[12,22,52]],
- [-.25,[10,18,45],[30,40,85]],
- [0,[60,60,120],[240,130,80]],
- [.15,[60,110,180],[250,190,120]],
- [.5,[30,100,180],[130,195,240]],
- [1,[20,100,190],[150,215,255]]
-];
-
-function pal(a){
-
- a=Math.max(-1,Math.min(1,a));
-
- let i=0;
-
- while(i<KS.length-2&&a>KS[i+1][0])i++;
-
- const k=KS[i];
- const n=KS[i+1];
-
- const t=(a-k[0])/(n[0]-k[0]);
-
- return[
-  mix(k[1],n[1],t),
-  mix(k[2],n[2],t)
- ];
-}
-
-function cover(){
-
- if(mode==="dust")return .5;
-
- if(mode==="rain")return Math.max(.9,(S?.eff??85)/100);
-
- return Math.min(1,(S?.eff??0)/100);
-}
-
-function size(){
-
- const dpr=Math.min(window.devicePixelRatio||1,2);
-
- W=window.innerWidth;
- H=window.innerHeight;
-
- cv.width=Math.max(1,Math.round(W*dpr));
- cv.height=Math.max(1,Math.round(H*dpr));
-
- cv.style.width=W+"px";
- cv.style.height=H+"px";
-
- cx.setTransform(dpr,0,0,dpr,0,0);
-}
-
-function initScene(){
-
- size();
-
- P=[];
-
- const count={
-  rain:180,
-  dust:110
- }[mode]||0;
-
- for(let i=0;i<count;i++){
-
-  P.push({
-   x:Math.random()*W,
-   y:Math.random()*H,
-   s:Math.random(),
-   r:Math.random()
-  });
- }
-
- ST=[];
-
- for(let i=0;i<100;i++){
-
-  ST.push({
-   x:Math.random()*W,
-   y:Math.random()*H*.7,
-   s:Math.random(),
-   r:Math.random()*20
-  });
- }
-
- CL=[];
-
- for(let i=0;i<Math.round(cover()*10);i++){
-
-  const sc=.6+Math.random()*1.1;
-
-  const pf=[];
-
-  for(let j=0;j<9;j++){
-
-   const u=j/8-.5;
-
-   pf.push({
-
-    dx:u*190*sc+(Math.random()-.5)*26,
-
-    dy:(Math.random()-.5)*16*sc-
-       (1-Math.abs(u)*2)*20*sc,
-
-    r:(32+Math.random()*28)*sc*
-      (1-Math.abs(u)*.5)
-   });
-  }
-
-  CL.push({
-
-   x:Math.random()*(W+500)-250,
-
-   y:H*(.05+Math.random()*.5),
-
-   v:.12+Math.random()*.3,
-
-   pf
-  });
- }
-}
-
-function setFx(fx){
-
- mode=fx;
-
- const key=fx+Math.round(cover()*5);
-
- if(key!==curKey||(!CL.length&&cover()>0)){
-
-  curKey=key;
-
-  initScene();
- }
-}
-
-
-/* =========================
-   رسم الخلفية
-========================= */
-
-function draw(t){
-
- if(!S)return;
-
- const {a,day,pos}=sky();
-
- const cov=cover();
-
- let [top,bot]=pal(a);
-
- const gray=
-  mode==="rain"?.7:
-  (mode==="cloudy"||mode==="snow")?.45:0;
-
- const lum=(top[0]+top[1]+top[2])/3;
-
- if(gray){
-
-  top=mix(top,[lum*.8,lum*.85,lum*.95],gray);
-
-  bot=mix(bot,[lum*1.15,lum*1.2,lum*1.25],gray);
- }
-
- if(mode==="dust"){
-
-  top=mix(top,[150,100,50],.55);
-
-  bot=mix(bot,[220,160,90],.65);
- }
-
- const gr=cx.createLinearGradient(0,0,0,H);
-
- gr.addColorStop(0,rgb(top));
- gr.addColorStop(1,rgb(bot));
-
- cx.fillStyle=gr;
- cx.fillRect(0,0,W,H);
-
- const sa=cl01(-a*3)*(1-cov*.75);
-
- if(sa>0){
-
-  ST.forEach(s=>{
-
-   cx.fillStyle=
-    `rgba(255,255,255,${sa*(.3+.7*Math.abs(Math.sin(t/900+s.r)))})`;
-
-   cx.beginPath();
-
-   cx.arc(s.x,s.y,.5+s.s*1.2,0,Math.PI*2);
-
-   cx.fill();
-  });
- }
-
- const hy=H*.7;
-
- const px=W*(.12+.76*pos);
-
- const py=hy-Math.sin(Math.PI*pos)*H*.48;
-
- const vis=1-cov*.6;
-
- if(day){
-
-  const warm=cl01(1-a*3);
-
-  const c=mix([255,245,205],[255,140,60],warm);
-
-  const g=cx.createRadialGradient(px,py,0,px,py,H*.55);
-
-  g.addColorStop(0,rgb(c,.55*vis));
-  g.addColorStop(.25,rgb(c,.2*vis));
-  g.addColorStop(1,rgb(c,0));
-
-  cx.fillStyle=g;
-  cx.fillRect(0,0,W,H);
-
- }else{
-
-  const g=cx.createRadialGradient(px,py,0,px,py,H*.3);
-
-  g.addColorStop(0,`rgba(190,205,255,${.3*vis})`);
-  g.addColorStop(1,"rgba(190,205,255,0)");
-
-  cx.fillStyle=g;
-  cx.fillRect(0,0,W,H);
- }
-
- let cc=mix(
-  [70,80,120],
-  [255,255,255],
-  cl01((a+.3)/.8)
+/* رسم الخلفية */
+
+function draw(){
+
+ const hour=Number(
+  new Intl.DateTimeFormat("en-GB",{
+   timeZone:TZ,
+   hour:"2-digit",
+   hourCycle:"h23"
+  }).format(new Date())
  );
 
- const tw=cl01(1-Math.abs(a-.05)/.25);
+ const night=hour<6||hour>=18;
 
- cc=mix(cc,[255,185,150],tw*.6);
+ const top=night
+  ?[5,12,30]
+  :mode==="rain"
+  ?[34,49,72]
+  :mode==="dust"
+  ?[105,72,42]
+  :[30,100,170];
 
- if(gray)cc=mix(cc,[110,120,138],gray);
+ const bottom=night
+  ?[20,32,65]
+  :mode==="rain"
+  ?[80,100,125]
+  :mode==="dust"
+  ?[185,135,80]
+  :[115,185,225];
 
- if(mode==="dust")cc=mix(cc,[215,165,100],.6);
+ const g=ctx.createLinearGradient(0,0,0,H);
 
- CL.forEach(c=>{
+ g.addColorStop(0,`rgb(${top.join(",")})`);
+ g.addColorStop(1,`rgb(${bottom.join(",")})`);
+
+ ctx.fillStyle=g;
+ ctx.fillRect(0,0,W,H);
+
+ if(night&&mode!=="rain"){
+
+  stars.forEach(s=>{
+
+   ctx.fillStyle="rgba(255,255,255,.65)";
+
+   ctx.beginPath();
+   ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+   ctx.fill();
+  });
+ }
+
+ clouds.forEach(c=>{
+
+  ctx.fillStyle=mode==="rain"
+   ?"rgba(205,218,235,.25)"
+   :"rgba(255,255,255,.20)";
+
+  ctx.shadowBlur=24;
+
+  ctx.shadowColor=mode==="rain"
+   ?"#cbd9ed"
+   :"#fff";
+
+  ctx.beginPath();
+
+  ctx.arc(c.x,c.y,c.r,0,Math.PI*2);
+
+  ctx.arc(c.x+c.r*.8,c.y-12,c.r*.8,0,Math.PI*2);
+
+  ctx.arc(c.x+c.r*1.5,c.y+4,c.r*.7,0,Math.PI*2);
+
+  ctx.fill();
+
+  ctx.shadowBlur=0;
 
   if(!reduce){
 
    c.x+=c.v;
 
-   if(c.x>W+260)c.x=-260;
+   if(c.x>W+180)c.x=-180;
   }
-
-  c.pf.forEach(q=>{
-
-   const x=c.x+q.dx;
-   const y=c.y+q.dy;
-
-   const g=cx.createRadialGradient(x,y,0,x,y,q.r);
-
-   g.addColorStop(0,rgb(cc,.5+.35*cov));
-   g.addColorStop(.55,rgb(cc,.3+.2*cov));
-   g.addColorStop(1,rgb(cc,0));
-
-   cx.fillStyle=g;
-
-   cx.beginPath();
-   cx.arc(x,y,q.r,0,Math.PI*2);
-   cx.fill();
-  });
  });
 
  if(mode==="rain"){
 
-  cx.strokeStyle="#bedcff80";
-  cx.lineWidth=1.2;
-  cx.beginPath();
+  ctx.strokeStyle="rgba(190,220,255,.55)";
+  ctx.lineWidth=1.2;
+  ctx.beginPath();
 
-  P.forEach(p=>{
+  particles.forEach(p=>{
 
-   cx.moveTo(p.x,p.y);
+   ctx.moveTo(p.x,p.y);
 
-   cx.lineTo(p.x-3,p.y+14+p.s*10);
+   ctx.lineTo(p.x-3,p.y+15+p.s*9);
 
    if(!reduce){
 
-    p.y+=9+p.s*9;
-    p.x-=1.2;
+    p.y+=8+p.s*8;
+    p.x-=1;
 
     if(p.y>H){
 
@@ -1555,58 +1186,63 @@ function draw(t){
    }
   });
 
-  cx.stroke();
+  ctx.stroke();
 
-  if(!reduce&&thunderSoon&&Math.random()<.002){
-   flash=1;
-  }
+ }else if(mode==="dust"){
 
-  if(flash>0){
+  ctx.fillStyle="rgba(230,190,130,.18)";
 
-   cx.fillStyle=`rgba(255,255,255,${flash*.35})`;
+  particles.forEach(p=>{
 
-   cx.fillRect(0,0,W,H);
+   ctx.beginPath();
 
-   flash-=.06;
-  }
+   ctx.arc(p.x,p.y,1+p.s*2,0,Math.PI*2);
+
+   ctx.fill();
+
+   if(!reduce){
+
+    p.x+=.5+p.s;
+    p.y+=.15;
+
+    if(p.x>W)p.x=0;
+    if(p.y>H)p.y=0;
+   }
+  });
  }
 }
 
 
-/* =========================
-   تشغيل الرسوم المتحركة
-========================= */
+/* تشغيل الحركة */
 
-function loop(t){
+function loop(){
 
- if(S)draw(t);
+ if(!document.hidden&&visible)draw();
 
  raf=requestAnimationFrame(loop);
 }
 
-function startLoop(){
+function start(){
 
- if(!raf&&!reduce&&onScreen&&!document.hidden){
-
+ if(!raf&&!reduce)
   raf=requestAnimationFrame(loop);
- }
 }
 
-function stopLoop(){
+function stop(){
 
- cancelAnimationFrame(raf);
+ if(raf)cancelAnimationFrame(raf);
 
  raf=0;
 }
 
 if("IntersectionObserver"in window){
 
- new IntersectionObserver(es=>{
+ new IntersectionObserver(entries=>{
 
-  onScreen=es[0].isIntersecting;
+  visible=entries[0].isIntersecting;
 
-  if(onScreen)startLoop();
-  else stopLoop();
+  if(visible)start();
+  else stop();
 
  }).observe(document.querySelector(".wrap"));
 }
@@ -1615,112 +1251,61 @@ document.addEventListener("visibilitychange",()=>{
 
  if(document.hidden){
 
-  stopLoop();
+  stop();
 
  }else{
 
-  startLoop();
+  start();
   load();
  }
 });
 
 
-/* =========================
-   تغيير حجم الشاشة
-========================= */
+/* تغيير حجم الشاشة */
 
-let rsT=0;
-let lastW=innerWidth;
+let resizeTimer;
 
 window.addEventListener("resize",()=>{
 
- clearTimeout(rsT);
+ clearTimeout(resizeTimer);
 
- rsT=setTimeout(()=>{
+ resizeTimer=setTimeout(()=>{
 
-  if(innerWidth!==lastW){
+  resize();
 
-   lastW=innerWidth;
+  curKey="";
 
-   if(S)initScene();
-   else size();
+  if(S)setMode(currentMode());
 
-  }else{
+  if(reduce)draw();
 
-   size();
-  }
-
-  if(S&&reduce)draw(performance.now());
-
- },150);
+ },180);
 });
 
 
-/* =========================
-   ضبط ارتفاع الإطار
-========================= */
-
-let lastH=0;
-
-function postHeight(){
-
- if(parent===window)return;
-
- const w=document.querySelector(".wrap");
-
- const cs=getComputedStyle(document.body);
-
- const h=Math.ceil(
-  w.getBoundingClientRect().height+
-  parseFloat(cs.paddingTop)+
-  parseFloat(cs.paddingBottom)
- );
-
- if(Math.abs(h-lastH)>2){
-
-  lastH=h;
-
-  parent.postMessage({wxHeight:h},"*");
- }
-}
-
-if("ResizeObserver"in window){
-
- new ResizeObserver(postHeight).observe(
-  document.querySelector(".wrap")
- );
-}
-
-window.addEventListener("load",postHeight);
-
-
-/* =========================
-   زر التحديث اليدوي
-========================= */
+/* زر تحديث الطقس */
 
 $("ref").addEventListener("click",()=>{
 
- const r=$("ref");
+ const b=$("ref");
 
- r.classList.add("spin");
+ b.classList.remove("spin");
 
- setTimeout(()=>{
-  r.classList.remove("spin");
- },600);
+ void b.offsetWidth;
+
+ b.classList.add("spin");
 
  load();
 });
 
 
-/* =========================
-   بدء التشغيل
-========================= */
+/* بدء التشغيل */
 
-size();
+resize();
 
 load();
 
-startLoop();
+start();
 
 setInterval(load,10*60*1000);
 
