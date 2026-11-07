@@ -127,37 +127,38 @@ button:focus-visible,a:focus-visible,summary:focus-visible{
 }
 
 .days{
- display:flex;gap:7px;overflow-x:auto;
- scrollbar-width:none;padding:5px 2px 9px
+ display:flex;gap:5px;overflow-x:auto;
+ scrollbar-width:none;padding:4px 2px 6px
 }
 .days::-webkit-scrollbar,.hs::-webkit-scrollbar{display:none}
 
 .d{
- flex:0 0 96px;border:1px solid var(--border);
- border-radius:19px;background:var(--card);
- padding:10px 4px;display:grid;justify-items:center;
- gap:6px;font-size:.8rem;box-shadow:var(--shadow);
- min-height:145px
+ flex:0 0 80px;border:1px solid var(--border);
+ border-radius:15px;background:var(--card);
+ padding:6px 2px;display:grid;justify-items:center;
+ gap:3px;font-size:.73rem;box-shadow:var(--shadow);
+ min-height:0
 }
 .d.on{border:2px solid #1687ce;background:#fff}
-.d b{font-size:.85rem}
-.d em{font-style:normal;direction:ltr;font-weight:850}
+.d b{font-size:.78rem}
+.d em{font-style:normal;direction:ltr;font-weight:850;font-size:.72rem}
 .d s{text-decoration:none;color:var(--mut)}
-.d small{color:#0877b5;font-weight:850;text-align:center;font-size:.75rem}
+.d small{color:#0877b5;font-weight:850;text-align:center;font-size:.65rem}
 
 .hs{
- display:flex;gap:5px;overflow-x:auto;padding:11px 8px;
+ display:flex;gap:4px;overflow-x:auto;padding:8px 6px;
  scrollbar-width:none;background:var(--card);
- border:1px solid var(--border);border-radius:19px;
+ border:1px solid var(--border);border-radius:17px;
  box-shadow:var(--shadow)
 }
 .h{
- flex:0 0 58px;display:grid;justify-items:center;
- gap:5px;font-size:.75rem;padding:7px 2px;border-radius:13px
+ flex:0 0 46px;display:grid;justify-items:center;
+ gap:3px;font-size:.7rem;padding:5px 1px;border-radius:11px;
+ min-height:0
 }
-.h b{font-size:.95rem;direction:ltr}
-.h small{color:#0877b5;font-weight:850;min-height:16px}
-.h span{color:var(--mut);font-weight:750}
+.h b{font-size:.82rem;direction:ltr}
+.h small{color:#0877b5;font-weight:850;min-height:14px;font-size:.65rem}
+.h span{color:var(--mut);font-weight:750;font-size:.68rem}
 .h.now-hour{background:#d9f0ff;outline:1px solid #1687ce}
 
 .conf,.trend{
@@ -227,7 +228,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{
  body{padding:9px 7px 20px}
  .hd h1{font-size:1.2rem}
  .tmp b{font-size:3.5rem}
- .d{flex-basis:90px}
+ .d{flex-basis:76px}
  .hero{padding:15px 12px}
  #clk{padding:10px 8px;font-size:.85rem}
 }
@@ -471,7 +472,7 @@ function wx(code){
 }
 
 /* أيقونات الطقس */
-function ico(kind,night,size=28){
+function ico(kind,night,size=24){
  const sun =
  '<circle cx="28" cy="25" r="10" fill="#facc15"/>'+
  '<g stroke="#facc15" stroke-width="3" stroke-linecap="round">'+
@@ -1006,7 +1007,7 @@ function renderDays(){
 
    <b>${index===0?"اليوم":fWeek.format(new Date(day.time*1000))}</b>
 
-   ${ico(day.k,false,29)}
+   ${ico(day.k,false,22)}
 
    <span>${day.txt}</span>
 
@@ -1018,7 +1019,7 @@ function renderDays(){
    <small>
     ${finite(day.prob)
      ? Math.round(day.prob)+"% احتمال مطر"
-     : "احتمال المطر غير متوفر"}
+     : "غير متوفر"}
    </small>
 
   </button>
@@ -1047,7 +1048,7 @@ function renderSelected(){
    <div class="h${isNow?" now-hour":""}">
     <b>${rnd(item.temp,"°")}</b>
 
-    ${ico(item.kind,night,28)}
+    ${ico(item.kind,night,22)}
 
     <small>
      ${finite(item.prob)&&item.prob>=20
