@@ -88,7 +88,6 @@ button{cursor:pointer}
 .c-ayah{margin:0;font-size:clamp(1.5rem,6.2vw,2.2rem);line-height:1.55;transform:translateZ(50px)}
 .c-ayah span{display:block}
 .c-tasbih{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 6px;margin:4px 0 0;transform:translateZ(28px)}
-/* ذهب حقيقي: تدرّج معدني داخل الحروف + حافة رفيعة تعطي عمقًا بدون تثخين */
 .c-bismillah,.c-ayah,.c-tasbih span,.c-salawat{
   background:linear-gradient(180deg,#fff1a8 0%,#f7cf4d 30%,#d49a14 62%,#f3c845 100%);
   -webkit-background-clip:text;background-clip:text;
@@ -377,6 +376,17 @@ gtag('config','G-3VZQSDZNC7');
           <h3>سيرة بعض علماء الدين في الشرقاط</h3>
           <p>سِيَر عطرة وأعلام، وتوثيق لتاريخ علماء الشرقاط الأجلّاء رحمهم الله، وسنوافيكم بإذن الله بقصص وسِيَر أخرى.</p>
           <a class="btn card-link" href="scholars.html">اضغط هنا <span aria-hidden="true">←</span></a>
+        </article>
+
+        <!-- بلازما قناة المجد للقرآن الكريم (بث مباشر مع تتبع النص) فوق صور الروايات والمكتبة -->
+        <article class="content-card card-wide" data-search="قناة المجد للقرآن الكريم بث مباشر تلاوة المصحف تتبع النص quran almajd">
+          <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h12M6 10h12"/></svg></span></div>
+          <h3>قناة المجد للقرآن الكريم (بث مباشر مع تتبع النص)</h3>
+          <p>استمع إلى آيات الذكر الحكيم مع كتابة الآيات ومتابعة التلاوة على مدار الساعة.</p>
+          <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; border:1px solid var(--gold); background:#000; margin-bottom:14px;">
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PL4uaEYaxb--SV7wOe6kka9Q" title="قناة المجد للقرآن الكريم" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <span style="color:var(--gold-l); font-size:0.85rem; font-weight:700;">البث يعمل 24 ساعة بمتابعة النص</span>
         </article>
 
         <article class="content-card card-wide" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book">
@@ -708,7 +718,6 @@ document.addEventListener("keydown", e => {
 });
 
 /* ملفات GitHub مع تخزين مؤقت لتفادي حد الطلبات */
-/* بديل عند حجب GitHub API: قائمة الملفات من jsDelivr (بدون حد 60 طلبًا) والصور من موقعك مباشرة */
 async function fetchFromJsDelivr(folder) {
   const url = `https://data.jsdelivr.com/v1/packages/gh/${CONFIG.githubUser}/${CONFIG.githubRepo}@main?structure=flat`;
   const r = await fetch(url);
