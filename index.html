@@ -69,9 +69,7 @@ button{cursor:pointer}
 .hero-byline{margin:0 0 10px;font-size:.95rem}
 .hero-quote{margin:0 0 18px;padding-right:12px;border-right:3px solid var(--gold);font-size:.95rem}
 .hero-copy{animation:heroIn .8s ease both}
-.hero-visual{position:relative;min-width:0;padding:24px 16px 12px;border:2px solid var(--gold);border-radius:24px;color:var(--soft);
-  background:rgba(0,0,0,.1);
-  box-shadow:0 0 0 6px rgba(184,150,79,.16),0 16px 36px rgba(0,0,0,.38);animation:heroIn .8s .15s ease both}
+.hero-visual{position:relative;min-width:0;padding:24px 16px 12px;border:2px solid var(--gold);border-radius:24px;color:var(--soft);background:rgba(0,0,0,.1);box-shadow:0 0 0 6px rgba(184,150,79,.16),0 16px 36px rgba(0,0,0,.38);animation:heroIn .8s .15s ease both}
 .hero-visual::before{content:"";position:absolute;inset:9px;border:1px solid rgba(184,150,79,.6);border-radius:17px;pointer-events:none}
 .hero-visual::after{content:"❖";position:absolute;top:-13px;left:50%;transform:translateX(-50%);padding:0 10px;border-radius:12px;background:var(--page);color:var(--gold);font-size:1.05rem;line-height:1.5}
 .hero-caption{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;margin:8px 10px 0;padding-top:8px;border-top:1px solid rgba(184,150,79,.55);color:var(--gold-l);font-size:.78rem;font-weight:700}
@@ -88,16 +86,21 @@ button{cursor:pointer}
 .c-ayah{margin:0;font-size:clamp(1.5rem,6.2vw,2.2rem);line-height:1.55;transform:translateZ(50px)}
 .c-ayah span{display:block}
 .c-tasbih{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 6px;margin:4px 0 0;transform:translateZ(28px)}
-/* ذهب حقيقي: تدرّج معدني داخل الحروف + حافة رفيعة تعطي عمقًا بدون تثخين */
-.c-bismillah,.c-ayah,.c-tasbih span,.c-salawat{
-  background:linear-gradient(180deg,#fff1a8 0%,#f7cf4d 30%,#d49a14 62%,#f3c845 100%);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;color:transparent;
-  filter:drop-shadow(1px 1px 0 #5c3d08) drop-shadow(0 3px 3px rgba(0,0,0,.55));
-}
+.c-bismillah,.c-ayah,.c-tasbih span,.c-salawat{background:linear-gradient(180deg,#fff1a8 0%,#f7cf4d 30%,#d49a14 62%,#f3c845 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(1px 1px 0 #5c3d08) drop-shadow(0 3px 3px rgba(0,0,0,.55))}
 .c-tasbih span{font-size:clamp(.9rem,3.6vw,1.1rem);line-height:1.6}
 .c-tasbih span+span::before{content:"❖";display:inline-block;margin-inline-end:6px;font-size:.6em;vertical-align:middle}
 .c-salawat{margin:2px 0 0;font-size:clamp(.88rem,3.4vw,1.05rem);line-height:1.6;transform:translateZ(18px)}
+
+/* المكتبة الثلاثية الأبعاد (3D Floating Books Library) */
+.library-3d-stage{perspective:1200px;padding:20px 0;width:100%}
+.floating-books-shelf{display:flex;gap:20px;overflow-x:auto;padding:15px 5px 25px;scroll-snap-type:x mandatory;transform-style:preserve-3d;scrollbar-color:var(--gold) var(--brown)}
+.floating-books-shelf::-webkit-scrollbar{height:6px}
+.floating-books-shelf::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+.3d-book-item{flex:0 0 110px;height:160px;scroll-snap-align:center;position:relative;transform-style:preserve-3d;cursor:pointer;animation:floatBook 4s ease-in-out infinite alternate;transition:transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;border-radius:4px 8px 8px 4px;box-shadow:0 12px 30px rgba(0,0,0,0.45), 0 0 15px rgba(184,150,79,0.25)}
+.3d-book-item:nth-child(even){animation-delay:2s;animation-duration:5s}
+.3d-book-item:hover{transform:translateY(-10px) rotateY(12deg) rotateX(4deg) scale(1.08);box-shadow:0 20px 40px rgba(0,0,0,0.65), 0 0 25px var(--gold)}
+.3d-book-item img{width:100%;height:100%;object-fit:cover;border-radius:4px 8px 8px 4px;border:1.5px solid var(--gold)}
+@keyframes floatBook{0%{transform:translateY(0) rotateY(0deg)}100%{transform:translateY(-8px) rotateY(-6deg) rotateX(2deg)}}
 
 /* الأزرار */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:6px 22px;border:1px solid var(--gold);border-radius:4px;background:transparent;color:var(--gold-l);font-size:.9rem;font-weight:700;line-height:1.5;transition:background .2s,color .2s,border-color .2s}
@@ -147,11 +150,6 @@ button{cursor:pointer}
 .icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .content-card h3,.media-card h3{margin:0 0 6px;color:#fff;font-size:1.1rem;line-height:1.5}
 .content-card p,.media-card p{margin:0 0 14px;color:#e8dcc8;font-size:.88rem;line-height:1.8}
-.covers-strip{display:flex;gap:10px;margin:0 0 6px;padding-bottom:6px;overflow-x:auto;scroll-snap-type:x proximity}
-.covers-strip a{flex:0 0 auto;scroll-snap-align:start}
-.covers-strip img{width:78px;height:112px;object-fit:cover;border:1px solid var(--line);border-radius:3px 7px 7px 3px;box-shadow:0 3px 8px rgba(0,0,0,.3);transition:transform .2s}
-.covers-strip a:hover img{transform:translateY(-3px)}
-.content-card .swipe-hint{margin:0 0 8px;color:var(--gold-l);font-size:.8rem;font-weight:700}
 .no-results{display:none;padding:25px;color:var(--gold-l);text-align:center}
 
 /* إرسال كتاب */
@@ -235,12 +233,11 @@ button{cursor:pointer}
   .content-card p{font-size:.82rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
   .card-wide p{display:block}
   .icon{width:40px;height:40px}
-  .covers-strip img{width:105px;height:150px}
   .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .marquee span,.hero-copy,.hero-visual{animation:none}
+  .marquee span,.hero-copy,.hero-visual,.3d-book-item{animation:none}
   .calli{transition:none}
 }
 </style>
@@ -379,13 +376,16 @@ gtag('config','G-3VZQSDZNC7');
           <a class="btn card-link" href="scholars.html">اضغط هنا <span aria-hidden="true">←</span></a>
         </article>
 
+        <!-- مكتبة الكتب المتحركة ثلاثية الأبعاد -->
         <article class="content-card card-wide" data-search="الكتب المؤلفات كتاب الرجل المرأة عشرة العمر بلاد الرافدين ديوان شعر قصائد book">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></svg></span></div>
-          <h3>المكتبة والمؤلفات</h3>
-          <div class="covers-strip" id="coversStrip" hidden></div>
+          <h3>المكتبة والمؤلفات (مكتبة الكتب المتحركة 3D)</h3>
+          <p>تصفّح الكتب والدواوين والروايات بأغلفة تطفو بحركة هادئة وإضاءة ذهبية ثقافية. اضغط على أي كتاب لعرض تفاصيله.</p>
+          <div class="library-3d-stage">
+            <div class="floating-books-shelf" id="coversStrip" hidden></div>
+          </div>
           <p class="swipe-hint" id="swipeHint" hidden>← اسحب لمزيد من الكتب</p>
-          <p>تصفّح الكتب والدواوين والروايات.</p>
-          <a class="btn card-link" href="book.html">اضغط هنا <span aria-hidden="true">←</span></a>
+          <a class="btn card-link" href="book.html">تصفح صفحة المؤلفات الكاملة <span aria-hidden="true">←</span></a>
         </article>
 
         <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
@@ -483,6 +483,22 @@ gtag('config','G-3VZQSDZNC7');
 
 <button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- نافذة تفاصيل الكتاب التفاعلية -->
+<div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle" hidden>
+  <div class="modal-panel" style="max-width:500px;text-align:center;">
+    <div class="modal-head">
+      <h2 id="bookModalTitle">معلومات الكتاب</h2>
+      <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
+    </div>
+    <div class="modal-body">
+      <img id="modalBookCover" src="" alt="" style="width:130px;height:185px;object-fit:cover;border-radius:4px 8px 8px 4px;border:2px solid var(--gold);margin:0 auto 15px;box-shadow:0 8px 20px rgba(0,0,0,0.4);">
+      <h3 id="modalBookName" style="color:#fff;margin-bottom:8px;font-size:1.25rem;"></h3>
+      <p style="color:var(--soft);font-size:.92rem;margin-bottom:20px;">كتاب ضمن إصدارات ومؤلفات مكتبة الشرقاط الثقافي الأول.</p>
+      <a class="btn btn-main" id="modalBookBtn" href="book.html">تصفح الكتاب كاملاً <span aria-hidden="true">←</span></a>
+    </div>
+  </div>
+</div>
 
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
   <div class="modal-panel">
@@ -586,7 +602,7 @@ menuToggle.addEventListener("click", () => {
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 addEventListener("resize", () => { if (innerWidth > 780) closeMenu(); });
 
-/* ملف اليوم: إبطال الكاش مرة واحدة يوميًا */
+/* ملف اليوم */
 (function () {
   const v = "?d=" + new Date().toISOString().slice(0, 10);
   const link = $("#dailyLink");
@@ -615,6 +631,7 @@ function normalizeText(v) {
     .toLowerCase()
     .trim();
 }
+
 const searchInput = $("#siteSearch");
 const contentCards = $$(".content-card");
 const cardIndex = contentCards.map(c => normalizeText(c.textContent + " " + c.dataset.search));
@@ -707,8 +724,7 @@ document.addEventListener("keydown", e => {
   }
 });
 
-/* ملفات GitHub مع تخزين مؤقت لتفادي حد الطلبات */
-/* بديل عند حجب GitHub API: قائمة الملفات من jsDelivr (بدون حد 60 طلبًا) والصور من موقعك مباشرة */
+/* GitHub الملفات */
 async function fetchFromJsDelivr(folder) {
   const url = `https://data.jsdelivr.com/v1/packages/gh/${CONFIG.githubUser}/${CONFIG.githubRepo}@main?structure=flat`;
   const r = await fetch(url);
@@ -812,7 +828,7 @@ async function loadGallery(force = false) {
 }
 $("#retryGallery").addEventListener("click", () => loadGallery(true));
 
-/* أغلفة الكتب */
+/* مكتبة الكتب الثلاثية الأبعاد (3D Floating Books) */
 async function loadCovers() {
   const strip = $("#coversStrip");
   try {
@@ -821,18 +837,29 @@ async function loadCovers() {
 
     covers.forEach(cover => {
       const name = cleanName(cover.name);
-      const a = document.createElement("a");
-      a.href = "book.html";
-      a.title = name;
-      a.setAttribute("aria-label", name);
+      
+      // عنصر الكتاب ثلاثي الأبعاد
+      const div = document.createElement("div");
+      div.className = "3d-book-item";
+      div.title = name;
+      div.setAttribute("aria-label", name);
 
       const img = document.createElement("img");
       img.src = cover.download_url;
       img.alt = name;
       img.loading = "lazy";
       img.decoding = "async";
-      a.append(img);
-      strip.append(a);
+      div.append(img);
+
+      // تفاعل الضغط: فتح نافذة معلومات الكتاب
+      div.addEventListener("click", () => {
+        $("#modalBookCover").src = cover.download_url;
+        $("#modalBookCover").alt = name;
+        setText("#modalBookName", name);
+        openModal("bookModal");
+      });
+
+      strip.append(div);
     });
 
     strip.hidden = false;
@@ -841,6 +868,7 @@ async function loadCovers() {
     console.error("تعذّر تحميل أغلفة الكتب:", e);
   }
 }
+
 loadCovers();
 
 /* واتساب */
@@ -870,5 +898,6 @@ backToTop.addEventListener("click", () => scrollTo({ top: 0, behavior: reduceMot
 
 setText("#year", new Date().getFullYear());
 </script>
+
 </body>
 </html>
