@@ -88,7 +88,6 @@ button{cursor:pointer}
 .c-ayah{margin:0;font-size:clamp(1.5rem,6.2vw,2.2rem);line-height:1.55;transform:translateZ(50px)}
 .c-ayah span{display:block}
 .c-tasbih{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 6px;margin:4px 0 0;transform:translateZ(28px)}
-/* ذهب حقيقي: تدرّج معدني داخل الحروف + حافة رفيعة تعطي عمقًا بدون تثخين */
 .c-bismillah,.c-ayah,.c-tasbih span,.c-salawat{
   background:linear-gradient(180deg,#fff1a8 0%,#f7cf4d 30%,#d49a14 62%,#f3c845 100%);
   -webkit-background-clip:text;background-clip:text;
@@ -289,31 +288,6 @@ gtag('config','G-3VZQSDZNC7');
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="navLinks">☰</button>
     <nav class="nav-links" id="navLinks" aria-label="القائمة الرئيسية">
       <a href="#home">الرئيسية</a>
-<section class="welcome-banner">
-  <img src="images/welcome.gif"
-       alt="موقع الشرقاط الثقافي الأول">
-</section>
-
-<style>
-.welcome-banner {
-  width: 100%;
-  max-width: 1100px;
-  margin: 35px auto;
-  padding: 15px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.welcome-banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 18px;
-  border: 2px solid #c5a45b;
-  box-shadow: 0 0 20px rgba(197,164,91,.25);
-}
-</style>
-
       <a href="#library">الأقسام الثقافية</a>
       <a class="accent" href="scholars.html">علماء الشرقاط</a>
       <a href="tv.html">التلفزيون</a>
@@ -385,6 +359,11 @@ gtag('config','G-3VZQSDZNC7');
           <span aria-hidden="true">⌕</span>
           <input id="siteSearch" type="search" placeholder="ابحث في أقسام الموقع..." autocomplete="off" aria-label="ابحث في محتويات الموقع">
         </label>
+      </div>
+
+      <!-- الصورة المتحركة welcome.gif تحت عنوان قسم أبواب المعرفة -->
+      <div style="text-align: center; margin-bottom: 24px;">
+        <img src="welcome.gif" alt="موقع الشرقاط الثقافي الأول - أهلاً بك زائرنا الكريم" style="max-width: 100%; height: auto; border-radius: 16px; border: 2px solid var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.3); margin-inline: auto;">
       </div>
 
       <p class="search-status" id="searchStatus" aria-live="polite"></p>
@@ -516,7 +495,7 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة">×</button>
     </div>
     <div class="modal-body">
-      <iframe class="video-frame" id="youtubeFrame" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube.com/embed?listType=playlist&amp;list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe class="video-frame" id="youtubeFrame" title="فيديوهات قناة الشرقاط الثقافي" data-src="https://www.youtube.com/embed?listType=playlist&list=UUaCmR_yzL9lKNm7B22ZV-3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <p>إن لم تظهر الفيديوهات، افتح القناة مباشرة على YouTube.</p>
       <a class="btn btn-dark" href="https://www.youtube.com/channel/UCaCmR_yzL9lKNm7B22ZV-3A" target="_blank" rel="noopener noreferrer">فتح القناة على YouTube ↗</a>
     </div>
@@ -733,7 +712,6 @@ document.addEventListener("keydown", e => {
 });
 
 /* ملفات GitHub مع تخزين مؤقت لتفادي حد الطلبات */
-/* بديل عند حجب GitHub API: قائمة الملفات من jsDelivr (بدون حد 60 طلبًا) والصور من موقعك مباشرة */
 async function fetchFromJsDelivr(folder) {
   const url = `https://data.jsdelivr.com/v1/packages/gh/${CONFIG.githubUser}/${CONFIG.githubRepo}@main?structure=flat`;
   const r = await fetch(url);
@@ -871,7 +849,7 @@ loadCovers();
 /* واتساب */
 if (CONFIG.whatsapp) {
   const waf = $("#waFooter");
-  waf.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("السلام عليكم، أود إرسال ملاحظة عبر موقع الشرقاط الثقافي الأول.")}`;
+  waf.href = `https://wa.me/${CONFIG.whatsapp}?text=` + encodeURIComponent("السلام عليكم، أود إرسال ملاحظة عبر موقع الشرقاط الثقافي الأول.");
   waf.hidden = false;
 }
 
