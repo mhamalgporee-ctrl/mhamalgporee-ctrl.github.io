@@ -42,6 +42,23 @@ button{cursor:pointer}
 .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
 .section{padding-block:48px}
 
+/* --- إضافة: تأثير الجزيئات الذهبية --- */
+#goldParticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* يسمح بالنقر على العناصر تحته */
+  z-index: 0;
+}
+/* ضمان ظهور المحتوى فوق الجزيئات */
+.site-header, main, .site-footer, .modal, .back-to-top, .toast {
+  position: relative;
+  z-index: 1;
+}
+/* -------------------------------------- */
+
 /* الترويسة */
 .site-header{position:sticky;z-index:100;top:0;background:var(--bar);border-bottom:3px solid var(--gold)}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:70px}
@@ -254,6 +271,9 @@ gtag('config','G-3VZQSDZNC7');
 </head>
 
 <body>
+<!-- قماش الجزيئات الذهبية -->
+<canvas id="goldParticles"></canvas>
+
 <a class="skip-link" href="#main">انتقل إلى المحتوى الرئيسي</a>
 
 <svg class="sr-only" aria-hidden="true" focusable="false">
@@ -353,7 +373,7 @@ gtag('config','G-3VZQSDZNC7');
       <div class="section-heading">
         <div>
           <h2 id="libraryTitle">أبواب إلى المعرفة</h2>
-          <p class="poetry-sub">​شَابَتْ لَنَا لَحَظَاتُ العُمْرِ مِنْ دُرُوسٍ<br>وَالعَقْلُ يَكْبُرُ بَيْنَ الصَّفْوِ وَالحَزَنِ</p>
+          <p class="poetry-sub">شَابَتْ لَنَا لَحَظَاتُ العُمْرِ مِنْ دُرُوسٍ<br>وَالعَقْلُ يَكْبُرُ بَيْنَ الصَّفْوِ وَالحَزَنِ</p>
         </div>
         <label class="search-box">
           <span aria-hidden="true">⌕</span>
@@ -361,7 +381,6 @@ gtag('config','G-3VZQSDZNC7');
         </label>
       </div>
 
-      <!-- الصورة المتحركة welcome.gif تحت عنوان قسم أبواب المعرفة -->
       <div style="text-align: center; margin-bottom: 24px;">
         <img src="welcome.gif" alt="موقع الشرقاط الثقافي الأول - أهلاً بك زائرنا الكريم" style="max-width: 100%; height: auto; border-radius: 16px; border: 2px solid var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.3); margin-inline: auto;">
       </div>
@@ -548,6 +567,68 @@ gtag('config','G-3VZQSDZNC7');
 
 <script>
 "use strict";
+
+/* ==========================================
+   إضافة: نظام الجزيئات الذهبية المتحركة
+   ========================================== */
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.getElementById('goldParticles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const isMobile = window.innerWidth < 768;
+  const count = isMobile ? 25 : 45; // عدد أقل للموبايل لضمان الأداء
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  class Particle {
+    constructor() { this.reset(true); }
+    reset(initial = false) {
+      this.x = Math.random() * canvas.width;
+      this.y = initial ? Math.random() * canvas.height : canvas.height + 10;
+      this.size = Math.random() * 2 + 0.5;
+      this.speedY = Math.random() * 0.4 + 0.1;
+      this.speedX = (Math.random() - 0.5) * 0.3;
+      this.opacity = Math.random() * 0.5 + 0.1;
+      this.fade = Math.random() * 0.003 + 0.001;
+      this.isGold = Math.random() > 0.4;
+    }
+    update() {
+      this.y -= this.speedY;
+      this.x += Math.sin(this.y * 0.01) * 0.2 + this.speedX;
+      this.opacity -= this.fade;
+      if (this.opacity <= 0 || this.y < -10) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.isGold
+        ? `rgba(212, 175, 55, ${this.opacity})`
+        : `rgba(255, 223, 120, ${this.opacity})`;
+      ctx.shadowBlur = 6;
+      ctx.shadowColor = 'rgba(212, 175, 55, 0.6)';
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+  }
+
+  for (let i = 0; i < count; i++) particles.push(new Particle());
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+/* ========================================== */
+
 
 const CONFIG = {
   githubUser: "mhamalgporee-ctrl",
