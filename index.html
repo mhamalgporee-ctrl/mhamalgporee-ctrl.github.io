@@ -708,12 +708,12 @@ function initSmartWelcome() {
 
   if (visitorName) {
     // زائر معروف — نرحب به باسمه ونعرض خيار تغيير الاسم
-    welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${visitorName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
+    welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${visitorName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول `;
     setNameBtn.textContent = '✏️ تغيير الاسم';
   } else {
     // زائر جديد — نرحب به ونطلب منه كتابة اسمه
-    welcomeText.innerHTML = `أهلاً وسهلاً بك زائرنا الكريم، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
-    setNameBtn.textContent = '✍️ من فضلك، اكتب اسمك';
+    welcomeText.innerHTML = `أهلاً وسهلاً بك زائرنا الكريم، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول `;
+    setNameBtn.textContent = ' من فضلك، اكتب اسمك';
   }
   
   welcomeDiv.hidden = false;
@@ -729,9 +729,9 @@ function initSmartWelcome() {
     if (newName && newName.trim() !== '') {
       const cleanName = newName.trim();
       localStorage.setItem('visitorName', cleanName);
-      welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${cleanName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
+      welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${cleanName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول `;
       setNameBtn.textContent = '✏️ تغيير الاسم';
-      showToast(`تم حفظ اسمك يا ${cleanName}، أهلاً بك دائماً! 🌹`);
+      showToast(`تم حفظ اسمك يا ${cleanName}، أهلاً بك دائماً! `);
     }
   });
 }
