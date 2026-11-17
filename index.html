@@ -42,7 +42,7 @@ button{cursor:pointer}
 .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
 .section{padding-block:48px}
 
-/* --- إضافة: تأثير الجزيئات الذهبية المتقدمة --- */
+/* --- تأثير الجزيئات الذهبية المتقدمة --- */
 #goldParticles {
   position: fixed;
   top: 0;
@@ -56,7 +56,50 @@ button{cursor:pointer}
   position: relative;
   z-index: 1;
 }
-/* -------------------------------------- */
+
+/* --- رسالة الترحيب الذكية --- */
+.smart-welcome {
+  text-align: center;
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, rgba(184, 150, 79, 0.12), rgba(217, 196, 143, 0.08));
+  border: 1px solid rgba(184, 150, 79, 0.35);
+  border-radius: 14px;
+  font-size: 1.05rem;
+  color: var(--soft);
+  animation: fadeInDown 1s ease both;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+}
+.smart-welcome strong {
+  color: var(--gold);
+  font-family: 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 1.2rem;
+}
+.set-name-btn {
+  background: rgba(184, 150, 79, 0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold-l);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 5px 14px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+.set-name-btn:hover {
+  background: var(--gold);
+  color: var(--brown);
+  transform: translateY(-1px);
+}
+@keyframes fadeInDown { 
+  from { opacity: 0; transform: translateY(-15px); } 
+  to { opacity: 1; transform: none; } 
+}
 
 /* الترويسة */
 .site-header{position:sticky;z-index:100;top:0;background:var(--bar);border-bottom:3px solid var(--gold)}
@@ -77,39 +120,6 @@ button{cursor:pointer}
 /* الواجهة الرئيسية */
 .hero{padding-block:28px 14px}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;padding:30px;border:1px solid rgba(217,196,143,.35);border-radius:28px;background:rgba(0,0,0,.12)}
-
-/* --- إضافة: رسالة الترحيب الذكية --- */
-.smart-welcome {
-  text-align: center;
-  margin-bottom: 16px;
-  padding: 12px 16px;
-  background: rgba(184, 150, 79, 0.08);
-  border: 1px solid rgba(184, 150, 79, 0.3);
-  border-radius: 12px;
-  font-size: 1rem;
-  color: var(--soft);
-  animation: fadeIn 1s ease both;
-}
-.smart-welcome strong {
-  color: var(--gold);
-  font-family: 'Aref Ruqaa', 'Amiri', serif;
-  font-size: 1.15rem;
-}
-.set-name-btn {
-  background: none;
-  border: none;
-  color: var(--gold-l);
-  font-size: 0.8rem;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  cursor: pointer;
-  margin-right: 8px;
-  padding: 4px;
-}
-.set-name-btn:hover { color: var(--gold); }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
-/* -------------------------------------- */
-
 .hero-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--gold-l);font-size:.8rem;font-weight:700}
 .hero-kicker span{width:8px;height:8px;border-radius:50%;background:var(--gold)}
 .hero h1{margin:0 0 10px;color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.25;font-weight:700}
@@ -274,6 +284,8 @@ button{cursor:pointer}
   .hero-caption{font-size:.74rem}
   .section-heading{align-items:flex-start;flex-direction:column}
   .footer-inner{align-items:flex-start;flex-direction:column}
+  .smart-welcome { font-size: 0.95rem; padding: 12px 14px; }
+  .smart-welcome strong { font-size: 1.05rem; }
 }
 @media (max-width:480px){
   body{font-size:15px}
@@ -353,12 +365,12 @@ gtag('config','G-3VZQSDZNC7');
     <div class="container hero-grid">
       <div class="hero-copy">
         
-        <!-- === بداية إضافة الترحيب الذكي === -->
+        <!-- === رسالة الترحيب الذكية === -->
         <div id="smartWelcome" class="smart-welcome" hidden>
           <span id="welcomeText"></span>
-          <button id="setNameBtn" class="set-name-btn" title="تحديث الاسم">(تحديث الاسم)</button>
+          <button id="setNameBtn" class="set-name-btn" type="button"></button>
         </div>
-        <!-- === نهاية إضافة الترحيب الذكي === -->
+        <!-- ============================ -->
 
         <div class="hero-kicker"><span></span> من الشرقاط، حيث تحيا الذاكرة</div>
         <h1 id="heroTitle">الشرقاط <span class="hero-accent">الثقافي الأول</span></h1>
@@ -546,7 +558,6 @@ gtag('config','G-3VZQSDZNC7');
 <button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<!-- (تم اختصار النوافذ المنبثقة Modal هنا لتوفير المساحة، فهي نفس الكود السابق تماماً ولا تحتاج تغيير) -->
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
@@ -676,7 +687,7 @@ gtag('config','G-3VZQSDZNC7');
 })();
 
 /* ==========================================
-   2. نظام الترحيب الذكي بالاسم
+   2. نظام الترحيب الذكي بالاسم (محدّث)
    ========================================== */
 function initSmartWelcome() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -688,7 +699,6 @@ function initSmartWelcome() {
   if (urlName && urlName.trim() !== '') {
     visitorName = urlName.trim();
     localStorage.setItem('visitorName', visitorName);
-    // تنظيف الرابط من اسم المتغير ليبقى جميلاً
     window.history.replaceState({}, document.title, window.location.pathname);
   }
 
@@ -697,20 +707,31 @@ function initSmartWelcome() {
   const setNameBtn = document.getElementById('setNameBtn');
 
   if (visitorName) {
+    // زائر معروف — نرحب به باسمه ونعرض خيار تغيير الاسم
     welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${visitorName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
+    setNameBtn.textContent = '✏️ تغيير الاسم';
   } else {
+    // زائر جديد — نرحب به ونطلب منه كتابة اسمه
     welcomeText.innerHTML = `أهلاً وسهلاً بك زائرنا الكريم، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
+    setNameBtn.textContent = '✍️ من فضلك، اكتب اسمك';
   }
   
   welcomeDiv.hidden = false;
 
   setNameBtn.addEventListener('click', () => {
-    const newName = prompt('تشرفنا بمعرفتك! ما هو اسمك الكريم؟', visitorName || '');
+    const currentName = localStorage.getItem('visitorName') || '';
+    const promptMessage = currentName 
+      ? 'ما الاسم الجديد الذي تود أن نناديك به؟' 
+      : 'تشرفنا بمعرفتك! ما هو اسمك الكريم؟';
+    
+    const newName = prompt(promptMessage, currentName);
+    
     if (newName && newName.trim() !== '') {
       const cleanName = newName.trim();
       localStorage.setItem('visitorName', cleanName);
       welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${cleanName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
-      showToast(`تم حفظ اسمك يا ${cleanName}، أهلاً بك دائماً!`);
+      setNameBtn.textContent = '✏️ تغيير الاسم';
+      showToast(`تم حفظ اسمك يا ${cleanName}، أهلاً بك دائماً! 🌹`);
     }
   });
 }
