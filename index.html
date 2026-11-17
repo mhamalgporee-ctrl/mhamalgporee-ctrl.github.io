@@ -20,7 +20,7 @@
 <link rel="icon" href="acon.jpg" type="image/jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <title>الشرقاط الثقافي الأول</title>
 
 <style>
@@ -41,6 +41,13 @@ button{cursor:pointer}
 .skip-link:focus{transform:none}
 .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
 .section{padding-block:48px}
+
+/* الترحيب الذكي */
+.smart-welcome{text-align:center;margin-bottom:16px;padding:14px 18px;background:linear-gradient(135deg,rgba(184,150,79,0.12),rgba(217,196,143,0.08));border:1px solid rgba(184,150,79,0.35);border-radius:14px;font-size:1.05rem;color:var(--soft);animation:fadeInDown 1s ease both;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px}
+.smart-welcome strong{color:var(--gold);font-family:'Aref Ruqaa','Amiri',serif;font-size:1.2rem}
+.set-name-btn{background:rgba(184,150,79,0.15);border:1px solid var(--gold);color:var(--gold-l);font-size:0.85rem;font-weight:700;cursor:pointer;padding:5px 14px;border-radius:999px;transition:all 0.25s ease;font-family:inherit}
+.set-name-btn:hover{background:var(--gold);color:var(--brown);transform:translateY(-1px)}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:none}}
 
 /* الترويسة */
 .site-header{position:sticky;z-index:100;top:0;background:var(--bar);border-bottom:3px solid var(--gold)}
@@ -69,16 +76,14 @@ button{cursor:pointer}
 .hero-byline{margin:0 0 10px;font-size:.95rem}
 .hero-quote{margin:0 0 18px;padding-right:12px;border-right:3px solid var(--gold);font-size:.95rem}
 .hero-copy{animation:heroIn .8s ease both}
-.hero-visual{position:relative;min-width:0;padding:24px 16px 12px;border:2px solid var(--gold);border-radius:24px;color:var(--soft);
-  background:rgba(0,0,0,.1);
-  box-shadow:0 0 0 6px rgba(184,150,79,.16),0 16px 36px rgba(0,0,0,.38);animation:heroIn .8s .15s ease both}
+.hero-visual{position:relative;min-width:0;padding:24px 16px 12px;border:2px solid var(--gold);border-radius:24px;color:var(--soft);background:rgba(0,0,0,.1);box-shadow:0 0 0 6px rgba(184,150,79,.16),0 16px 36px rgba(0,0,0,.38);animation:heroIn .8s .15s ease both}
 .hero-visual::before{content:"";position:absolute;inset:9px;border:1px solid rgba(184,150,79,.6);border-radius:17px;pointer-events:none}
 .hero-visual::after{content:"❖";position:absolute;top:-13px;left:50%;transform:translateX(-50%);padding:0 10px;border-radius:12px;background:var(--page);color:var(--gold);font-size:1.05rem;line-height:1.5}
 .hero-caption{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;margin:8px 10px 0;padding-top:8px;border-top:1px solid rgba(184,150,79,.55);color:var(--gold-l);font-size:.78rem;font-weight:700}
 .hero-caption strong{color:var(--gold)}
 @keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-/* الكتابة الذهبية ثلاثية الأبعاد */
+/* الكتابة الذهبية */
 .calli-stage{position:relative;z-index:1;perspective:900px;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
 .calli-float{transform-style:preserve-3d}
 .calli{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;text-align:center;padding:2px 4px 4px;font-family:'Aref Ruqaa','Amiri',"Noto Naskh Arabic",Tahoma,serif;font-weight:700}
@@ -88,12 +93,7 @@ button{cursor:pointer}
 .c-ayah{margin:0;font-size:clamp(1.5rem,6.2vw,2.2rem);line-height:1.55;transform:translateZ(50px)}
 .c-ayah span{display:block}
 .c-tasbih{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 6px;margin:4px 0 0;transform:translateZ(28px)}
-.c-bismillah,.c-ayah,.c-tasbih span,.c-salawat{
-  background:linear-gradient(180deg,#fff1a8 0%,#f7cf4d 30%,#d49a14 62%,#f3c845 100%);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;color:transparent;
-  filter:drop-shadow(1px 1px 0 #5c3d08) drop-shadow(0 3px 3px rgba(0,0,0,.55));
-}
+.c-bismillah,.c-ayah,.c-tasbih span,.c-salawat{background:linear-gradient(180deg,#fff1a8 0%,#f7cf4d 30%,#d49a14 62%,#f3c845 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(1px 1px 0 #5c3d08) drop-shadow(0 3px 3px rgba(0,0,0,.55))}
 .c-tasbih span{font-size:clamp(.9rem,3.6vw,1.1rem);line-height:1.6}
 .c-tasbih span+span::before{content:"❖";display:inline-block;margin-inline-end:6px;font-size:.6em;vertical-align:middle}
 .c-salawat{margin:2px 0 0;font-size:clamp(.88rem,3.4vw,1.05rem);line-height:1.6;transform:translateZ(18px)}
@@ -126,6 +126,24 @@ button{cursor:pointer}
 .marquee span{display:inline-block;direction:rtl;animation:marquee 28s linear infinite;color:var(--soft);text-shadow:1px 1px 0 #8a6a2c,2px 3px 4px rgba(0,0,0,.45)}
 .marquee:hover span{animation-play-state:paused}
 @keyframes marquee{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
+
+/* === قسم القرآن الكريم (مشغل صوتي فقط) === */
+.quran-section{padding:32px 0}
+.quran-card{max-width:700px;margin:0 auto;padding:28px 24px;border:1px solid rgba(184,150,79,0.4);border-radius:22px;background:rgba(0,0,0,0.15);text-align:center}
+.quran-card h2{margin:0 0 6px;color:#fff;font-size:1.6rem;font-family:'Aref Ruqaa','Amiri',serif}
+.quran-card h2::after{content:"";display:block;width:60px;height:3px;margin:10px auto 0;background:var(--gold);border-radius:2px}
+.quran-subtitle{color:var(--gold-l);font-size:0.9rem;margin:0 0 20px}
+.quran-row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:16px}
+.quran-select{width:100%;padding:10px 14px;border:1px solid var(--gold);border-radius:8px;background:rgba(0,0,0,0.35);color:var(--soft);font-size:0.95rem;font-family:inherit;cursor:pointer;transition:all 0.2s}
+.quran-select:hover{background:rgba(0,0,0,0.5)}
+.quran-select:focus{outline:none;border-color:var(--gold-l);box-shadow:0 0 0 2px rgba(184,150,79,0.25)}
+.quran-select option{background:var(--brown);color:var(--soft)}
+.quran-audio-wrap{margin-top:8px;padding:14px;border:1px solid rgba(184,150,79,0.3);border-radius:12px;background:rgba(0,0,0,0.2);display:none}
+.quran-audio-wrap.active{display:block}
+.quran-audio-wrap audio{width:100%;height:42px;border-radius:8px}
+.quran-audio-wrap audio::-webkit-media-controls-panel{background:var(--brown)}
+.quran-now-playing{color:var(--gold);font-size:0.88rem;margin-bottom:10px;font-weight:700;min-height:20px}
+/* ========================================== */
 
 /* الأقسام */
 .section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}
@@ -195,53 +213,19 @@ button{cursor:pointer}
 .toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid var(--gold);border-radius:999px;background:var(--brown);color:#fff;font-size:.88rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
 
-@media (max-width:1050px){
-  .nav-links{gap:12px}
-  .nav-links a{font-size:.8rem}
-  .content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
+@media (max-width:1050px){.nav-links{gap:12px}.nav-links a{font-size:.8rem}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:780px){
-  .container{width:min(100% - 28px,var(--container))}
-  .section{padding-block:32px}
-  .nav-wrap{min-height:64px}
-  .menu-toggle{display:grid;place-items:center}
+  .container{width:min(100% - 28px,var(--container))}.section{padding-block:32px}.nav-wrap{min-height:64px}.menu-toggle{display:grid;place-items:center}
   .nav-links{position:absolute;top:100%;right:0;left:0;display:none;flex-direction:column;align-items:stretch;gap:2px;padding:10px 15px 16px;background:var(--bar);border-bottom:3px solid var(--gold)}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:10px 12px;font-size:.92rem}
-  .hero{padding-block:14px 6px}
-  .hero-grid{grid-template-columns:1fr;gap:14px;padding:18px 14px;border-radius:22px}
-  .hero-kicker{font-size:.76rem;margin-bottom:2px}
-  .hero h1{font-size:clamp(1.7rem,8vw,2.2rem);line-height:1.3;margin:0 0 6px}
-  .hero-accent{display:inline}
-  .hero h1::after{margin-top:6px;width:70px}
-  .hero-byline{font-size:.85rem;line-height:1.7}
-  .hero-quote{font-size:.88rem;line-height:1.7;margin-bottom:12px}
-  .hero-visual{padding:18px 10px 8px}
-  .orn{width:min(140px,48%)}
-  .c-bismillah{font-size:.85rem;line-height:1.4}
-  .c-ayah{font-size:clamp(1.3rem,5.6vw,1.7rem);line-height:1.45}
-  .c-tasbih span{font-size:.88rem}
-  .c-salawat{font-size:.82rem}
-  .hero-caption{font-size:.74rem}
-  .section-heading{align-items:flex-start;flex-direction:column}
-  .footer-inner{align-items:flex-start;flex-direction:column}
+  .nav-links.open{display:flex}.nav-links a{padding:10px 12px;font-size:.92rem}.hero{padding-block:14px 6px}.hero-grid{grid-template-columns:1fr;gap:14px;padding:18px 14px;border-radius:22px}
+  .hero-kicker{font-size:.76rem;margin-bottom:2px}.hero h1{font-size:clamp(1.7rem,8vw,2.2rem);line-height:1.3;margin:0 0 6px}.hero-accent{display:inline}.hero h1::after{margin-top:6px;width:70px}
+  .hero-byline{font-size:.85rem;line-height:1.7}.hero-quote{font-size:.88rem;line-height:1.7;margin-bottom:12px}.hero-visual{padding:18px 10px 8px}.orn{width:min(140px,48%)}
+  .c-bismillah{font-size:.85rem;line-height:1.4}.c-ayah{font-size:clamp(1.3rem,5.6vw,1.7rem);line-height:1.45}.c-tasbih span{font-size:.88rem}.c-salawat{font-size:.82rem}.hero-caption{font-size:.74rem}
+  .section-heading{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}.smart-welcome{font-size:0.95rem;padding:12px 14px}.smart-welcome strong{font-size:1.05rem}
+  .quran-card{padding:20px 16px}
 }
-@media (max-width:480px){
-  body{font-size:15px}
-  .container{width:calc(100% - 24px)}
-  .content-card{padding:14px}
-  .content-card h3{font-size:.98rem}
-  .content-card p{font-size:.82rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-  .card-wide p{display:block}
-  .icon{width:40px;height:40px}
-  .covers-strip img{width:105px;height:150px}
-  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .marquee span,.hero-copy,.hero-visual{animation:none}
-  .calli{transition:none}
-}
+@media (max-width:480px){body{font-size:15px}.container{width:calc(100% - 24px)}.content-card{padding:14px}.content-card h3{font-size:.98rem}.content-card p{font-size:.82rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:40px;height:40px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual{animation:none}.calli{transition:none}}
 </style>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
@@ -301,13 +285,16 @@ gtag('config','G-3VZQSDZNC7');
   <section class="hero" id="home" aria-labelledby="heroTitle">
     <div class="container hero-grid">
       <div class="hero-copy">
+        <div id="smartWelcome" class="smart-welcome" hidden>
+          <span id="welcomeText"></span>
+          <button id="setNameBtn" class="set-name-btn" type="button"></button>
+        </div>
         <div class="hero-kicker"><span></span> من الشرقاط، حيث تحيا الذاكرة</div>
         <h1 id="heroTitle">الشرقاط <span class="hero-accent">الثقافي الأول</span></h1>
         <p class="hero-byline">صور ومقالات وبثّ مباشر وقنوات رياضية في مكان واحد</p>
         <p class="hero-quote">أهلًا بك في الشرقاط الثقافي الأول ❖</p>
         <button class="btn btn-main" type="button" data-open="aboutModal">من نحن</button>
       </div>
-
       <div class="hero-visual">
         <div class="calli-stage" id="calliStage">
           <div class="calli-float" id="calliFloat">
@@ -316,10 +303,7 @@ gtag('config','G-3VZQSDZNC7');
               <p class="c-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
               <p class="c-ayah"><span>أَلَا بِذِكْرِ اللَّهِ</span><span>تَطْمَئِنُّ الْقُلُوبُ</span></p>
               <div class="c-tasbih">
-                <span>سُبْحَانَ اللَّهِ</span>
-                <span>الْحَمْدُ لِلَّهِ</span>
-                <span>لَا إِلَٰهَ إِلَّا اللَّهُ</span>
-                <span>اللَّهُ أَكْبَرُ</span>
+                <span>سُبْحَانَ اللَّهِ</span><span>الْحَمْدُ لِلَّهِ</span><span>لَا إِلَٰهَ إِلَّا اللَّهُ</span><span>اللَّهُ أَكْبَرُ</span>
               </div>
               <p class="c-salawat">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
               <svg class="orn orn-bottom" viewBox="0 0 200 26" aria-hidden="true"><use href="#orn"/></svg>
@@ -348,12 +332,34 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </div>
 
+  <!-- === قسم القرآن الكريم (مشغل صوتي فقط) === -->
+  <section class="quran-section" id="quran" aria-labelledby="quranTitle">
+    <div class="container">
+      <div class="quran-card">
+        <h2 id="quranTitle">📖 القرآن الكريم</h2>
+        <p class="quran-subtitle">استمع لكلام الله تعالى بصوت الشيخ عبد الباسط عبد الصمد</p>
+
+        <div class="quran-row">
+          <select id="surahSelect" class="quran-select" aria-label="اختر السورة">
+            <option value="">📗 اختر السورة...</option>
+          </select>
+        </div>
+
+        <div class="quran-audio-wrap" id="quranAudioWrap">
+          <div class="quran-now-playing" id="quranNowPlaying"></div>
+          <audio id="quranAudio" controls preload="none"></audio>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================= -->
+
   <section class="section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
       <div class="section-heading">
         <div>
           <h2 id="libraryTitle">أبواب إلى المعرفة</h2>
-          <p class="poetry-sub">​شَابَتْ لَنَا لَحَظَاتُ العُمْرِ مِنْ دُرُوسٍ<br>وَالعَقْلُ يَكْبُرُ بَيْنَ الصَّفْوِ وَالحَزَنِ</p>
+          <p class="poetry-sub">شَابَتْ لَنَا لَحَظَاتُ العُمْرِ مِنْ دُرُوسٍ<br>وَالعَقْلُ يَكْبُرُ بَيْنَ الصَّفْوِ وَالحَزَنِ</p>
         </div>
         <label class="search-box">
           <span aria-hidden="true">⌕</span>
@@ -361,7 +367,6 @@ gtag('config','G-3VZQSDZNC7');
         </label>
       </div>
 
-      <!-- الصورة المتحركة welcome.gif تحت عنوان قسم أبواب المعرفة -->
       <div style="text-align: center; margin-bottom: 24px;">
         <img src="welcome.gif" alt="موقع الشرقاط الثقافي الأول - أهلاً بك زائرنا الكريم" style="max-width: 100%; height: auto; border-radius: 16px; border: 2px solid var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.3); margin-inline: auto;">
       </div>
@@ -549,39 +554,133 @@ gtag('config','G-3VZQSDZNC7');
 <script>
 "use strict";
 
-const CONFIG = {
-  githubUser: "mhamalgporee-ctrl",
-  githubRepo: "mhamalgporee-ctrl.github.io",
-  photosFolder: "photos",
-  coversFolder: "covers",
-  whatsapp: "9647835025407",
-  cacheMinutes: 60
-};
+/* ==========================================
+   1. نظام الترحيب الذكي بالاسم
+   ========================================== */
+function initSmartWelcome() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlName = urlParams.get('name');
+  let visitorName = localStorage.getItem('visitorName');
+  if (urlName && urlName.trim() !== '') {
+    visitorName = urlName.trim();
+    localStorage.setItem('visitorName', visitorName);
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+  const welcomeDiv = document.getElementById('smartWelcome');
+  const welcomeText = document.getElementById('welcomeText');
+  const setNameBtn = document.getElementById('setNameBtn');
 
+  if (visitorName) {
+    welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${visitorName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
+    setNameBtn.textContent = '✏️ تغيير الاسم';
+  } else {
+    welcomeText.innerHTML = `أهلاً وسهلاً بك زائرنا الكريم، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
+    setNameBtn.textContent = '✍️ من فضلك، اكتب اسمك';
+  }
+  welcomeDiv.hidden = false;
+
+  setNameBtn.addEventListener('click', () => {
+    const currentName = localStorage.getItem('visitorName') || '';
+    const promptMessage = currentName ? 'ما الاسم الجديد الذي تود أن نناديك به؟' : 'تشرفنا بمعرفتك! ما هو اسمك الكريم؟';
+    const newName = prompt(promptMessage, currentName);
+    if (newName && newName.trim() !== '') {
+      const cleanName = newName.trim();
+      localStorage.setItem('visitorName', cleanName);
+      welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${cleanName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
+      setNameBtn.textContent = '✏️ تغيير الاسم';
+      showToast(`تم حفظ اسمك يا ${cleanName}، أهلاً بك دائماً! 🌹`);
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', initSmartWelcome);
+
+/* ==========================================
+   2. نظام القرآن الكريم (عبد الباسط فقط)
+   ========================================== */
+const surahSelect = document.getElementById('surahSelect');
+const quranAudio = document.getElementById('quranAudio');
+const quranAudioWrap = document.getElementById('quranAudioWrap');
+const quranNowPlaying = document.getElementById('quranNowPlaying');
+
+// خادم Quranicaudio الموثوق للشيخ عبد الباسط عبد الصمد
+const reciterSlug = "abdul_basit_murattal";
+
+const surahs = [
+  {n:1,name:"الفاتحة"},{n:2,name:"البقرة"},{n:3,name:"آل عمران"},{n:4,name:"النساء"},
+  {n:5,name:"المائدة"},{n:6,name:"الأنعام"},{n:7,name:"الأعراف"},{n:8,name:"الأنفال"},
+  {n:9,name:"التوبة"},{n:10,name:"يونس"},{n:11,name:"هود"},{n:12,name:"يوسف"},
+  {n:13,name:"الرعد"},{n:14,name:"إبراهيم"},{n:15,name:"الحجر"},{n:16,name:"النحل"},
+  {n:17,name:"الإسراء"},{n:18,name:"الكهف"},{n:19,name:"مريم"},{n:20,name:"طه"},
+  {n:21,name:"الأنبياء"},{n:22,name:"الحج"},{n:23,name:"المؤمنون"},{n:24,name:"النور"},
+  {n:25,name:"الفرقان"},{n:26,name:"الشعراء"},{n:27,name:"النمل"},{n:28,name:"القصص"},
+  {n:29,name:"العنكبوت"},{n:30,name:"الروم"},{n:31,name:"لقمان"},{n:32,name:"السجدة"},
+  {n:33,name:"الأحزاب"},{n:34,name:"سبأ"},{n:35,name:"فاطر"},{n:36,name:"يس"},
+  {n:37,name:"الصافات"},{n:38,name:"ص"},{n:39,name:"الزمر"},{n:40,name:"غافر"},
+  {n:41,name:"فصلت"},{n:42,name:"الشورى"},{n:43,name:"الزخرف"},{n:44,name:"الدخان"},
+  {n:45,name:"الجاثية"},{n:46,name:"الأحقاف"},{n:47,name:"محمد"},{n:48,name:"الفتح"},
+  {n:49,name:"الحجرات"},{n:50,name:"ق"},{n:51,name:"الذاريات"},{n:52,name:"الطور"},
+  {n:53,name:"النجم"},{n:54,name:"القمر"},{n:55,name:"الرحمن"},{n:56,name:"الواقعة"},
+  {n:57,name:"الحديد"},{n:58,name:"المجادلة"},{n:59,name:"الحشر"},{n:60,name:"الممتحنة"},
+  {n:61,name:"الصف"},{n:62,name:"الجمعة"},{n:63,name:"المنافقون"},{n:64,name:"التغابن"},
+  {n:65,name:"الطلاق"},{n:66,name:"التحريم"},{n:67,name:"الملك"},{n:68,name:"القلم"},
+  {n:69,name:"الحاقة"},{n:70,name:"المعارج"},{n:71,name:"نوح"},{n:72,name:"الجن"},
+  {n:73,name:"المزمل"},{n:74,name:"المدثر"},{n:75,name:"القيامة"},{n:76,name:"الإنسان"},
+  {n:77,name:"المرسلات"},{n:78,name:"النبأ"},{n:79,name:"النازعات"},{n:80,name:"عبس"},
+  {n:81,name:"التكوير"},{n:82,name:"الانفطار"},{n:83,name:"المطففين"},{n:84,name:"الانشقاق"},
+  {n:85,name:"البروج"},{n:86,name:"الطارق"},{n:87,name:"الأعلى"},{n:88,name:"الغاشية"},
+  {n:89,name:"الفجر"},{n:90,name:"البلد"},{n:91,name:"الشمس"},{n:92,name:"الليل"},
+  {n:93,name:"الضحى"},{n:94,name:"الشرح"},{n:95,name:"التين"},{n:96,name:"العلق"},
+  {n:97,name:"القدر"},{n:98,name:"البينة"},{n:99,name:"الزلزلة"},{n:100,name:"العاديات"},
+  {n:101,name:"القارعة"},{n:102,name:"التكاثر"},{n:103,name:"العصر"},{n:104,name:"الهمزة"},
+  {n:105,name:"الفيل"},{n:106,name:"قريش"},{n:107,name:"الماعون"},{n:108,name:"الكوثر"},
+  {n:109,name:"الكافرون"},{n:110,name:"النصر"},{n:111,name:"المسد"},{n:112,name:"الإخلاص"},
+  {n:113,name:"الفلق"},{n:114,name:"الناس"}
+];
+
+surahs.forEach(s => {
+  const opt = document.createElement('option');
+  opt.value = s.n;
+  opt.textContent = `${s.n}. ${s.name}`;
+  surahSelect.appendChild(opt);
+});
+
+function playSurah() {
+  const surahNum = surahSelect.value;
+  const surahName = surahs.find(s => s.n == surahNum)?.name || '';
+
+  if (!surahNum) {
+    quranAudioWrap.classList.remove('active');
+    return;
+  }
+
+  const paddedNum = String(surahNum).padStart(3, '0');
+  const audioUrl = `https://download.quranicaudio.com/quran/${reciterSlug}/${paddedNum}.mp3`;
+
+  quranAudio.src = audioUrl;
+  quranNowPlaying.textContent = `🎧 ${surahName} — بصوت الشيخ عبد الباسط عبد الصمد`;
+  quranAudioWrap.classList.add('active');
+  
+  quranAudio.play().catch(e => {
+    console.log("Auto-play prevented, waiting for user interaction", e);
+  });
+}
+
+surahSelect.addEventListener('change', playSurah);
+/* ========================================== */
+
+const CONFIG = { githubUser: "mhamalgporee-ctrl", githubRepo: "mhamalgporee-ctrl.github.io", photosFolder: "photos", coversFolder: "covers", whatsapp: "9647835025407", cacheMinutes: 60 };
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const setText = (sel, text) => { const e = $(sel); if (e) e.textContent = text; };
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-/* إشعار */
 let toastTimer;
 function showToast(msg) {
-  const t = $("#toast");
-  if (!t) return;
-  t.textContent = msg;
-  t.classList.add("visible");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
+  const t = $("#toast"); if (!t) return;
+  t.textContent = msg; t.classList.add("visible");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
 }
-
-/* القائمة */
-const menuToggle = $("#menuToggle");
-const navLinks = $("#navLinks");
-function closeMenu() {
-  navLinks.classList.remove("open");
-  menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "فتح قائمة التنقل");
-}
+const menuToggle = $("#menuToggle"); const navLinks = $("#navLinks");
+function closeMenu() { navLinks.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); menuToggle.setAttribute("aria-label", "فتح قائمة التنقل"); }
 menuToggle.addEventListener("click", () => {
   const open = navLinks.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", String(open));
@@ -590,117 +689,66 @@ menuToggle.addEventListener("click", () => {
 $$("#navLinks a").forEach(l => l.addEventListener("click", closeMenu));
 addEventListener("resize", () => { if (innerWidth > 780) closeMenu(); });
 
-/* ملف اليوم: إبطال الكاش مرة واحدة يوميًا */
 (function () {
   const v = "?d=" + new Date().toISOString().slice(0, 10);
-  const link = $("#dailyLink");
-  link.href = "daily.pdf" + v;
-  if (innerWidth > 800) {
-    const f = $("#dailyFrame");
-    f.src = "daily.pdf" + v;
-    f.style.display = "block";
-  }
-  fetch("daily.pdf" + v, { method: "HEAD" })
-    .then(r => {
-      const d = r.headers.get("last-modified");
-      if (d) setText("#dailyDate", "آخر تحديث: " + new Date(d).toLocaleDateString("ar-IQ", { day: "numeric", month: "long", year: "numeric" }));
-    })
-    .catch(() => {});
+  const link = $("#dailyLink"); link.href = "daily.pdf" + v;
+  if (innerWidth > 800) { const f = $("#dailyFrame"); f.src = "daily.pdf" + v; f.style.display = "block"; }
+  fetch("daily.pdf" + v, { method: "HEAD" }).then(r => {
+    const d = r.headers.get("last-modified");
+    if (d) setText("#dailyDate", "آخر تحديث: " + new Date(d).toLocaleDateString("ar-IQ", { day: "numeric", month: "long", year: "numeric" }));
+  }).catch(() => {});
 })();
 
-/* البحث */
 function normalizeText(v) {
-  return String(v || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed]/g, "")
-    .replace(/[أإآٱ]/g, "ا")
-    .replace(/ى/g, "ي")
-    .replace(/ة/g, "ه")
-    .toLowerCase()
-    .trim();
+  return String(v || "").normalize("NFD").replace(/[\u0300-\u036f\u064b-\u065f\u0670\u06d6-\u06ed]/g, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").toLowerCase().trim();
 }
 const searchInput = $("#siteSearch");
 const contentCards = $$(".content-card");
 const cardIndex = contentCards.map(c => normalizeText(c.textContent + " " + c.dataset.search));
-
 function runSearch() {
-  const q = normalizeText(searchInput.value);
-  let visible = 0;
+  const q = normalizeText(searchInput.value); let visible = 0;
   contentCards.forEach((c, i) => {
-    const match = !q || cardIndex[i].includes(q);
-    c.hidden = !match;
-    if (match) visible++;
+    const match = !q || cardIndex[i].includes(q); c.hidden = !match; if (match) visible++;
   });
   $("#noResults").style.display = visible ? "none" : "block";
   setText("#searchStatus", q ? `النتائج: ${visible} من ${contentCards.length}` : "");
 }
 searchInput.addEventListener("input", runSearch);
 
-/* النوافذ */
-let openModals = [];
-let previousFocus = null;
-
+let openModals = []; let previousFocus = null;
 function openModal(id) {
-  const m = document.getElementById(id);
-  if (!m || !m.hidden) return;
+  const m = document.getElementById(id); if (!m || !m.hidden) return;
   if (!openModals.length) previousFocus = document.activeElement;
-
-  m.hidden = false;
-  openModals.push(m);
+  m.hidden = false; openModals.push(m);
   history.pushState({ modal: id, depth: openModals.length }, "", "#" + id);
   document.body.classList.add("modal-open");
-
-  if (id === "videoModal") {
-    const f = $("#youtubeFrame");
-    if (!f.getAttribute("src")) f.src = f.dataset.src;
-  }
-  if (id === "galleryModal") {
-    m.querySelector(".modal-panel").scrollTop = 0;
-    loadGallery();
-  }
+  if (id === "videoModal") { const f = $("#youtubeFrame"); if (!f.getAttribute("src")) f.src = f.dataset.src; }
+  if (id === "galleryModal") { m.querySelector(".modal-panel").scrollTop = 0; loadGallery(); }
   $("[data-close]", m)?.focus();
 }
-
 function hideModal(m) {
   if (!m || m.hidden) return;
   if (m.id === "videoModal") $("#youtubeFrame").removeAttribute("src");
   if (m.id === "lightboxModal") $("#lightboxImage").removeAttribute("src");
-  m.hidden = true;
-  openModals = openModals.filter(x => x !== m);
-  if (!openModals.length) {
-    document.body.classList.remove("modal-open");
-    previousFocus?.focus?.();
-  }
+  m.hidden = true; openModals = openModals.filter(x => x !== m);
+  if (!openModals.length) { document.body.classList.remove("modal-open"); previousFocus?.focus?.(); }
 }
-
 function closeModal(m) {
-  const top = openModals[openModals.length - 1];
-  const depth = history.state && history.state.depth;
-  if (top === m && depth === openModals.length) history.back();
-  else hideModal(m);
+  const top = openModals[openModals.length - 1]; const depth = history.state && history.state.depth;
+  if (top === m && depth === openModals.length) history.back(); else hideModal(m);
 }
-
 addEventListener("popstate", () => {
   const depth = (history.state && history.state.depth) || 0;
   while (openModals.length > depth) hideModal(openModals[openModals.length - 1]);
 });
-
 if (/Modal$/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
-
-$$("[data-open]").forEach(t => t.addEventListener("click", e => {
-  e.preventDefault();
-  openModal(t.dataset.open);
-  closeMenu();
-}));
-
+$$("[data-open]").forEach(t => t.addEventListener("click", e => { e.preventDefault(); openModal(t.dataset.open); closeMenu(); }));
 $$(".modal").forEach(m => {
   $$("[data-close]", m).forEach(b => b.addEventListener("click", () => closeModal(m)));
   m.addEventListener("click", e => { if (e.target === m) closeModal(m); });
 });
-
 document.addEventListener("keydown", e => {
-  const top = openModals[openModals.length - 1];
-  if (!top) return;
+  const top = openModals[openModals.length - 1]; if (!top) return;
   if (e.key === "Escape") return closeModal(top);
   if (e.key === "Tab") {
     const items = $$("button,a[href],input,iframe", top).filter(el => !el.disabled && el.offsetParent !== null);
@@ -711,166 +759,93 @@ document.addEventListener("keydown", e => {
   }
 });
 
-/* ملفات GitHub مع تخزين مؤقت لتفادي حد الطلبات */
 async function fetchFromJsDelivr(folder) {
   const url = `https://data.jsdelivr.com/v1/packages/gh/${CONFIG.githubUser}/${CONFIG.githubRepo}@main?structure=flat`;
-  const r = await fetch(url);
-  if (!r.ok) throw new Error(`تعذّر تحميل الملفات (HTTP ${r.status}).`);
-  const d = await r.json();
-  const prefix = "/" + folder + "/";
-  return (d.files || [])
-    .filter(f => f.name && f.name.startsWith(prefix) && !f.name.slice(prefix.length).includes("/"))
-    .map(f => {
-      const n = f.name.slice(prefix.length);
-      return { name: n, download_url: folder + "/" + encodeURIComponent(n) };
-    });
+  const r = await fetch(url); if (!r.ok) throw new Error(`تعذّر تحميل الملفات (HTTP ${r.status}).`);
+  const d = await r.json(); const prefix = "/" + folder + "/";
+  return (d.files || []).filter(f => f.name && f.name.startsWith(prefix) && !f.name.slice(prefix.length).includes("/")).map(f => {
+    const n = f.name.slice(prefix.length); return { name: n, download_url: folder + "/" + encodeURIComponent(n) };
+  });
 }
-
 async function fetchGitHubFiles(folder) {
-  try {
-    return await fetchViaApi(folder);
-  } catch (e) {
-    try {
-      const files = await fetchFromJsDelivr(folder);
-      if (files.length) return files;
-    } catch {}
+  try { return await fetchViaApi(folder); } catch (e) {
+    try { const files = await fetchFromJsDelivr(folder); if (files.length) return files; } catch {}
     throw e;
   }
 }
-
 async function fetchViaApi(folder) {
   const key = "gh:" + folder;
-  try {
-    const c = JSON.parse(sessionStorage.getItem(key));
-    if (c && Date.now() - c.t < CONFIG.cacheMinutes * 60000) return c.d;
-  } catch {}
-
+  try { const c = JSON.parse(sessionStorage.getItem(key)); if (c && Date.now() - c.t < CONFIG.cacheMinutes * 60000) return c.d; } catch {}
   const url = `https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${encodeURIComponent(folder)}`;
   const r = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
-
   if (!r.ok) {
     if (r.status === 403 || r.status === 429) throw new Error("وصلنا إلى الحد المؤقت للطلبات من GitHub. حاول بعد قليل.");
     if (r.status === 404) throw new Error(`لم يتم العثور على مجلد "${folder}" في المستودع.`);
     throw new Error(`تعذّر تحميل الملفات (HTTP ${r.status}).`);
   }
-
-  const d = await r.json();
-  if (!Array.isArray(d)) throw new Error("استجابة الملفات غير متوقعة.");
-
-  const files = d
-    .filter(i => i && i.type === "file" && i.download_url)
-    .map(i => ({ name: i.name, download_url: i.download_url }));
-
+  const d = await r.json(); if (!Array.isArray(d)) throw new Error("استجابة الملفات غير متوقعة.");
+  const files = d.filter(i => i && i.type === "file" && i.download_url).map(i => ({ name: i.name, download_url: i.download_url }));
   try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: files })); } catch {}
   return files;
 }
-
 const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric: true, sensitivity: "base" });
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
 const isImage = f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name);
 
-/* المعرض */
 let galleryLoaded = false;
 async function loadGallery(force = false) {
   if (galleryLoaded && !force) return;
-  const grid = $("#galleryGrid");
-  setText("#galleryStatus", "جارٍ تحميل الصور…");
-  grid.replaceChildren();
-
+  const grid = $("#galleryGrid"); setText("#galleryStatus", "جارٍ تحميل الصور…"); grid.replaceChildren();
   try {
     const photos = (await fetchGitHubFiles(CONFIG.photosFolder)).filter(isImage).sort(naturalArabicSort);
     if (!photos.length) return setText("#galleryStatus", "لا توجد صور مدعومة داخل مجلد photos.");
-
     setText("#galleryStatus", `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها.`);
-
     const frag = document.createDocumentFragment();
     photos.forEach(photo => {
       const name = cleanName(photo.name);
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "gallery-item";
-      b.setAttribute("aria-label", `تكبير الصورة ${name}`);
-
-      const img = document.createElement("img");
-      img.src = photo.download_url;
-      img.alt = name;
-      img.loading = "lazy";
-      img.decoding = "async";
+      const b = document.createElement("button"); b.type = "button"; b.className = "gallery-item"; b.setAttribute("aria-label", `تكبير الصورة ${name}`);
+      const img = document.createElement("img"); img.src = photo.download_url; img.alt = name; img.loading = "lazy"; img.decoding = "async";
       b.append(img);
-
       b.addEventListener("click", () => {
-        const lb = $("#lightboxImage");
-        lb.src = img.src;
-        lb.alt = name;
-        setText("#lightboxTitle", name || "عرض الصورة");
-        openModal("lightboxModal");
+        const lb = $("#lightboxImage"); lb.src = img.src; lb.alt = name; setText("#lightboxTitle", name || "عرض الصورة"); openModal("lightboxModal");
       });
       frag.append(b);
     });
-    grid.append(frag);
-    galleryLoaded = true;
-  } catch (e) {
-    setText("#galleryStatus", e.message || "تعذّر تحميل معرض الصور.");
-  }
+    grid.append(frag); galleryLoaded = true;
+  } catch (e) { setText("#galleryStatus", e.message || "تعذّر تحميل معرض الصور."); }
 }
 $("#retryGallery").addEventListener("click", () => loadGallery(true));
 
-/* أغلفة الكتب */
 async function loadCovers() {
   const strip = $("#coversStrip");
   try {
     const covers = (await fetchGitHubFiles(CONFIG.coversFolder)).filter(isImage).sort(naturalArabicSort);
     if (!covers.length) return;
-
     covers.forEach(cover => {
       const name = cleanName(cover.name);
-      const a = document.createElement("a");
-      a.href = "book.html";
-      a.title = name;
-      a.setAttribute("aria-label", name);
-
-      const img = document.createElement("img");
-      img.src = cover.download_url;
-      img.alt = name;
-      img.loading = "lazy";
-      img.decoding = "async";
-      a.append(img);
-      strip.append(a);
+      const a = document.createElement("a"); a.href = "book.html"; a.title = name; a.setAttribute("aria-label", name);
+      const img = document.createElement("img"); img.src = cover.download_url; img.alt = name; img.loading = "lazy"; img.decoding = "async";
+      a.append(img); strip.append(a);
     });
-
-    strip.hidden = false;
-    if (covers.length > 1) $("#swipeHint").hidden = false;
-  } catch (e) {
-    console.error("تعذّر تحميل أغلفة الكتب:", e);
-  }
+    strip.hidden = false; if (covers.length > 1) $("#swipeHint").hidden = false;
+  } catch (e) { console.error("تعذّر تحميل أغلفة الكتب:", e); }
 }
 loadCovers();
 
-/* واتساب */
 if (CONFIG.whatsapp) {
   const waf = $("#waFooter");
   waf.href = `https://wa.me/${CONFIG.whatsapp}?text=` + encodeURIComponent("السلام عليكم، أود إرسال ملاحظة عبر موقع الشرقاط الثقافي الأول.");
   waf.hidden = false;
 }
 
-/* التعهّد */
-const pledgeBook = $("#pledgeBook");
-const bookBtn = $("#bookLink");
+const pledgeBook = $("#pledgeBook"); const bookBtn = $("#bookLink");
 const syncPledge = () => bookBtn.setAttribute("aria-disabled", String(!pledgeBook.checked));
-pledgeBook.addEventListener("change", syncPledge);
-syncPledge();
-bookBtn.addEventListener("click", e => {
-  if (!pledgeBook.checked) {
-    e.preventDefault();
-    showToast("يرجى تحديد خانة التعهّد أولًا.");
-  }
-});
+pledgeBook.addEventListener("change", syncPledge); syncPledge();
+bookBtn.addEventListener("click", e => { if (!pledgeBook.checked) { e.preventDefault(); showToast("يرجى تحديد خانة التعهّد أولًا."); } });
 
-/* أعلى الصفحة */
 const backToTop = $("#backToTop");
 addEventListener("scroll", () => backToTop.classList.toggle("visible", scrollY > 450), { passive: true });
 backToTop.addEventListener("click", () => scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
-
 setText("#year", new Date().getFullYear());
 </script>
 </body>
