@@ -42,65 +42,6 @@ button{cursor:pointer}
 .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
 .section{padding-block:48px}
 
-/* --- تأثير الجزيئات الذهبية المتقدمة --- */
-#goldParticles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-.site-header, main, .site-footer, .modal, .back-to-top, .toast {
-  position: relative;
-  z-index: 1;
-}
-
-/* --- رسالة الترحيب الذكية --- */
-.smart-welcome {
-  text-align: center;
-  margin-bottom: 16px;
-  padding: 14px 18px;
-  background: linear-gradient(135deg, rgba(184, 150, 79, 0.12), rgba(217, 196, 143, 0.08));
-  border: 1px solid rgba(184, 150, 79, 0.35);
-  border-radius: 14px;
-  font-size: 1.05rem;
-  color: var(--soft);
-  animation: fadeInDown 1s ease both;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 8px 12px;
-}
-.smart-welcome strong {
-  color: var(--gold);
-  font-family: 'Aref Ruqaa', 'Amiri', serif;
-  font-size: 1.2rem;
-}
-.set-name-btn {
-  background: rgba(184, 150, 79, 0.15);
-  border: 1px solid var(--gold);
-  color: var(--gold-l);
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 5px 14px;
-  border-radius: 999px;
-  transition: all 0.25s ease;
-  font-family: inherit;
-}
-.set-name-btn:hover {
-  background: var(--gold);
-  color: var(--brown);
-  transform: translateY(-1px);
-}
-@keyframes fadeInDown { 
-  from { opacity: 0; transform: translateY(-15px); } 
-  to { opacity: 1; transform: none; } 
-}
-
 /* الترويسة */
 .site-header{position:sticky;z-index:100;top:0;background:var(--bar);border-bottom:3px solid var(--gold)}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:70px}
@@ -284,8 +225,6 @@ button{cursor:pointer}
   .hero-caption{font-size:.74rem}
   .section-heading{align-items:flex-start;flex-direction:column}
   .footer-inner{align-items:flex-start;flex-direction:column}
-  .smart-welcome { font-size: 0.95rem; padding: 12px 14px; }
-  .smart-welcome strong { font-size: 1.05rem; }
 }
 @media (max-width:480px){
   body{font-size:15px}
@@ -315,8 +254,6 @@ gtag('config','G-3VZQSDZNC7');
 </head>
 
 <body>
-<canvas id="goldParticles"></canvas>
-
 <a class="skip-link" href="#main">انتقل إلى المحتوى الرئيسي</a>
 
 <svg class="sr-only" aria-hidden="true" focusable="false">
@@ -364,14 +301,6 @@ gtag('config','G-3VZQSDZNC7');
   <section class="hero" id="home" aria-labelledby="heroTitle">
     <div class="container hero-grid">
       <div class="hero-copy">
-        
-        <!-- === رسالة الترحيب الذكية === -->
-        <div id="smartWelcome" class="smart-welcome" hidden>
-          <span id="welcomeText"></span>
-          <button id="setNameBtn" class="set-name-btn" type="button"></button>
-        </div>
-        <!-- ============================ -->
-
         <div class="hero-kicker"><span></span> من الشرقاط، حيث تحيا الذاكرة</div>
         <h1 id="heroTitle">الشرقاط <span class="hero-accent">الثقافي الأول</span></h1>
         <p class="hero-byline">صور ومقالات وبثّ مباشر وقنوات رياضية في مكان واحد</p>
@@ -424,7 +353,7 @@ gtag('config','G-3VZQSDZNC7');
       <div class="section-heading">
         <div>
           <h2 id="libraryTitle">أبواب إلى المعرفة</h2>
-          <p class="poetry-sub">شَابَتْ لَنَا لَحَظَاتُ العُمْرِ مِنْ دُرُوسٍ<br>وَالعَقْلُ يَكْبُرُ بَيْنَ الصَّفْوِ وَالحَزَنِ</p>
+          <p class="poetry-sub">​شَابَتْ لَنَا لَحَظَاتُ العُمْرِ مِنْ دُرُوسٍ<br>وَالعَقْلُ يَكْبُرُ بَيْنَ الصَّفْوِ وَالحَزَنِ</p>
         </div>
         <label class="search-box">
           <span aria-hidden="true">⌕</span>
@@ -432,6 +361,7 @@ gtag('config','G-3VZQSDZNC7');
         </label>
       </div>
 
+      <!-- الصورة المتحركة welcome.gif تحت عنوان قسم أبواب المعرفة -->
       <div style="text-align: center; margin-bottom: 24px;">
         <img src="welcome.gif" alt="موقع الشرقاط الثقافي الأول - أهلاً بك زائرنا الكريم" style="max-width: 100%; height: auto; border-radius: 16px; border: 2px solid var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.3); margin-inline: auto;">
       </div>
@@ -618,128 +548,6 @@ gtag('config','G-3VZQSDZNC7');
 
 <script>
 "use strict";
-
-/* ==========================================
-   1. نظام الجزيئات الذهبية المتقدمة
-   ========================================== */
-(function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const canvas = document.getElementById('goldParticles');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  const isMobile = window.innerWidth < 768;
-  const count = isMobile ? 35 : 65; 
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  const colors = ['212, 175, 55', '255, 215, 0', '255, 223, 120', '255, 240, 180'];
-
-  class Particle {
-    constructor() { this.reset(true); }
-    reset(initial = false) {
-      this.x = Math.random() * canvas.width;
-      this.y = initial ? Math.random() * canvas.height : canvas.height + 10;
-      this.size = Math.random() * 3 + 1;
-      this.speedY = Math.random() * 0.6 + 0.2;
-      this.speedX = (Math.random() - 0.5) * 0.4;
-      this.baseOpacity = Math.random() * 0.6 + 0.3;
-      this.opacity = this.baseOpacity;
-      this.twinkleSpeed = Math.random() * 0.02 + 0.005;
-      this.twinkleDir = 1;
-      this.color = colors[Math.floor(Math.random() * colors.length)];
-      this.angle = Math.random() * Math.PI * 2;
-    }
-    update() {
-      this.y -= this.speedY;
-      this.angle += 0.01;
-      this.x += Math.sin(this.angle) * 0.3 + this.speedX;
-      this.opacity += this.twinkleSpeed * this.twinkleDir;
-      if (this.opacity >= this.baseOpacity || this.opacity <= 0.1) this.twinkleDir *= -1;
-      if (this.y < -10 || this.opacity <= 0) this.reset();
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
-      ctx.shadowBlur = this.size * 4;
-      ctx.shadowColor = `rgba(${this.color}, 0.8)`;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    }
-  }
-
-  for (let i = 0; i < count; i++) particles.push(new Particle());
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.globalCompositeOperation = 'lighter'; 
-    particles.forEach(p => { p.update(); p.draw(); });
-    ctx.globalCompositeOperation = 'source-over';
-    requestAnimationFrame(animate);
-  }
-  animate();
-})();
-
-/* ==========================================
-   2. نظام الترحيب الذكي بالاسم (محدّث)
-   ========================================== */
-function initSmartWelcome() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const urlName = urlParams.get('name');
-  
-  let visitorName = localStorage.getItem('visitorName');
-  
-  // إذا كان هناك اسم في الرابط، نحفظه ونستخدمه
-  if (urlName && urlName.trim() !== '') {
-    visitorName = urlName.trim();
-    localStorage.setItem('visitorName', visitorName);
-    window.history.replaceState({}, document.title, window.location.pathname);
-  }
-
-  const welcomeDiv = document.getElementById('smartWelcome');
-  const welcomeText = document.getElementById('welcomeText');
-  const setNameBtn = document.getElementById('setNameBtn');
-
-  if (visitorName) {
-    // زائر معروف — نرحب به باسمه ونعرض خيار تغيير الاسم
-    welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${visitorName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول `;
-    setNameBtn.textContent = '✏️ تغيير الاسم';
-  } else {
-    // زائر جديد — نرحب به ونطلب منه كتابة اسمه
-    welcomeText.innerHTML = `أهلاً وسهلاً بك زائرنا الكريم، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول `;
-    setNameBtn.textContent = ' من فضلك، اكتب اسمك';
-  }
-  
-  welcomeDiv.hidden = false;
-
-  setNameBtn.addEventListener('click', () => {
-    const currentName = localStorage.getItem('visitorName') || '';
-    const promptMessage = currentName 
-      ? 'ما الاسم الجديد الذي تود أن نناديك به؟' 
-      : 'تشرفنا بمعرفتك! ما هو اسمك الكريم؟';
-    
-    const newName = prompt(promptMessage, currentName);
-    
-    if (newName && newName.trim() !== '') {
-      const cleanName = newName.trim();
-      localStorage.setItem('visitorName', cleanName);
-      welcomeText.innerHTML = `أهلاً وسهلاً بك يا <strong>${cleanName}</strong>، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول `;
-      setNameBtn.textContent = '✏️ تغيير الاسم';
-      showToast(`تم حفظ اسمك يا ${cleanName}، أهلاً بك دائماً! `);
-    }
-  });
-}
-
-// تشغيل الترحيب عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', initSmartWelcome);
-/* ========================================== */
-
 
 const CONFIG = {
   githubUser: "mhamalgporee-ctrl",
