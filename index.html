@@ -555,7 +555,7 @@ gtag('config','G-3VZQSDZNC7');
 "use strict";
 
 /* ==========================================
-   1. نظام الترحيب الذكي بالاسم
+   1. نظام الترحيب الذكي بالاسم (محدث بدون عبارة "اكتب اسمك")
    ========================================== */
 function initSmartWelcome() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -575,13 +575,13 @@ function initSmartWelcome() {
     setNameBtn.textContent = '✏️ تغيير الاسم';
   } else {
     welcomeText.innerHTML = `أهلاً وسهلاً بك زائرنا الكريم، تشرفنا بزيارتك لموقع الشرقاط الثقافي الأول ✨`;
-    setNameBtn.textContent = '✍️ من فضلك، اكتب اسمك';
+    setNameBtn.textContent = '✏️ تخصيص الاسم';
   }
   welcomeDiv.hidden = false;
 
   setNameBtn.addEventListener('click', () => {
     const currentName = localStorage.getItem('visitorName') || '';
-    const promptMessage = currentName ? 'ما الاسم الجديد الذي تود أن نناديك به؟' : 'تشرفنا بمعرفتك! ما هو اسمك الكريم؟';
+    const promptMessage = currentName ? 'ما الاسم الجديد الذي تود أن نناديك به؟' : 'ما هو اسمك الكريم لتخصيص الترحيب؟';
     const newName = prompt(promptMessage, currentName);
     if (newName && newName.trim() !== '') {
       const cleanName = newName.trim();
@@ -602,7 +602,6 @@ const quranAudio = document.getElementById('quranAudio');
 const quranAudioWrap = document.getElementById('quranAudioWrap');
 const quranNowPlaying = document.getElementById('quranNowPlaying');
 
-// خادم Quranicaudio الموثوق للشيخ عبد الباسط عبد الصمد
 const reciterSlug = "abdul_basit_murattal";
 
 const surahs = [
