@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#43382e">
+<title>صحيح البخاري - الشرقاط الثقافي الأول</title>
+<link rel="icon" href="acon.jpg" type="image/jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--brown:#3a3128;--mid:#6b5a47;--soft:#f5ece1;--ivory:#fcf8f2;--gold:#b8964f;--gold-l:#d9c48f;--line:#e6d6bd;--page:#4f4437;--bar:#43382e;--container:1200px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--soft);font:16px/1.9 Tahoma,Arial,"Noto Sans Arabic",sans-serif}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
+.site-header{position:sticky;z-index:100;top:0;background:var(--bar);border-bottom:3px solid var(--gold)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:70px}
+.brand{display:inline-flex;align-items:center;gap:12px}
+.brand-mark{width:46px;height:46px;border:2px solid var(--gold);border-radius:50%;overflow:hidden}
+.brand-mark img{width:100%;height:100%;object-fit:cover}
+.brand-title{color:#fff;font-weight:700;font-size:1.02rem}
+.brand-subtitle{color:var(--gold-l);font-size:.72rem}
+.nav-links{display:flex;gap:22px}
+.nav-links a{color:var(--soft);font-size:.86rem;font-weight:700}
+.nav-links a:hover{color:var(--gold-l)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 22px;border:1px solid var(--gold);border-radius:4px;background:var(--gold);color:#2b1c0c;font-weight:700;transition:.2s}
+.btn:hover{background:var(--gold-l)}
+.book-container{text-align:center;padding:40px 20px}
+.book-title{font-family:'Aref Ruqaa',serif;font-size:clamp(2rem,5vw,3rem);color:var(--gold);margin:0 0 10px}
+.book-subtitle{color:var(--gold-l);font-size:1.1rem;margin-bottom:30px}
+.iframe-wrapper{border:3px solid var(--gold);border-radius:16px;overflow:hidden;background:#fff;height:75vh;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.4)}
+.iframe-wrapper iframe{width:100%;height:100%;border:none}
+.fallback{position:absolute;bottom:0;left:0;right:0;background:var(--brown);padding:12px;text-align:center}
+.fallback a{color:var(--gold-l);font-weight:700;font-size:0.9rem}
+.site-footer{padding:20px 0;background:var(--bar);border-top:3px solid var(--gold);text-align:center;color:var(--gold-l);font-size:0.85rem;margin-top:40px}
+@media(max-width:780px){.iframe-wrapper{height:65vh}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="acon.jpg" alt=""></span>
+      <span>
+        <span class="brand-title">الشرقاط الثقافي الأول</span>
+        <span class="brand-subtitle">ذاكرة المكان · حكاية الإنسان</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#library">المكتبة</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container book-container">
+    <h1 class="book-title">صحيح الإمام البخاري</h1>
+    <p class="book-subtitle">أصح الكتب بعد كتاب الله تعالى · نسخة محققة وموثقة</p>
+    
+    <div class="iframe-wrapper">
+      <!-- مصدر موثوق: الدرر السنية / بوابة الحديث -->
+      <iframe src="https://dorar.net/hadith/1" title="صحيح البخاري" loading="lazy"></iframe>
+      <div class="fallback">
+        <span>إذا لم يظهر المحتوى، </span>
+        <a href="https://dorar.net/hadith/1" target="_blank" rel="noopener">اضغط هنا لفتح الكتاب في نافذة جديدة ↗</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    جميع الحقوق محفوظة © الشرقاط الثقافي الأول
+  </div>
+</footer>
+
+</body>
+</html>
