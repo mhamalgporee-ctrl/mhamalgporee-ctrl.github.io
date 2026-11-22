@@ -100,6 +100,14 @@ button{cursor:pointer}
 .c-tasbih span+span::before{content:"❖";display:inline-block;margin-inline-end:6px;font-size:.6em;vertical-align:middle}
 .c-salawat{margin:2px 0 0;font-size:clamp(.88rem,3.4vw,1.05rem);line-height:1.6;transform:translateZ(18px)}
 
+/* الفواصل الزخرفية بين الأقسام */
+.divider{display:flex;align-items:center;gap:14px;width:min(var(--container),calc(100% - 48px));margin:14px auto;color:var(--gold);position:relative;z-index:1}
+.divider::before,.divider::after{content:"";flex:1;height:1px}
+.divider::before{background:linear-gradient(to left,var(--gold-l),rgba(184,150,79,.55) 55%,transparent)}
+.divider::after{background:linear-gradient(to right,var(--gold-l),rgba(184,150,79,.55) 55%,transparent)}
+.divider svg{flex:0 0 auto;width:150px;height:auto;filter:drop-shadow(1px 1px 0 #8a6a2c) drop-shadow(0 2px 3px rgba(40,25,5,.35))}
+.divider i{flex:0 0 auto;font-style:normal;font-size:.8rem;line-height:1;color:var(--gold)}
+
 /* الأزرار */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:6px 22px;border:1px solid var(--gold);border-radius:4px;background:transparent;color:var(--gold-l);font-size:.9rem;font-weight:700;line-height:1.5;transition:background .2s,color .2s,border-color .2s}
 .btn:hover{background:var(--gold);color:#2b1c0c}
@@ -225,8 +233,9 @@ button{cursor:pointer}
   .c-bismillah{font-size:.85rem;line-height:1.4}.c-ayah{font-size:clamp(1.3rem,5.6vw,1.7rem);line-height:1.45}.c-tasbih span{font-size:.88rem}.c-salawat{font-size:.82rem}.hero-caption{font-size:.74rem}
   .section-heading{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}.smart-welcome{font-size:0.95rem;padding:12px 14px}
   .quran-card{padding:20px 16px}
+  .divider{width:min(100% - 28px,var(--container));gap:10px;margin:8px auto}.divider svg{width:105px}
 }
-@media (max-width:480px){body{font-size:15px}.container{width:calc(100% - 24px)}.content-card{padding:14px}.content-card h3{font-size:.98rem}.content-card p{font-size:.82rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:40px;height:40px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){body{font-size:15px}.container{width:calc(100% - 24px)}.divider{width:calc(100% - 24px)}.content-card{padding:14px}.content-card h3{font-size:.98rem}.content-card p{font-size:.82rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:40px;height:40px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.float-me{animation:none}.calli{transition:none}}
 </style>
 
@@ -320,6 +329,9 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </section>
 
+  <!-- فاصل زخرفي 1 -->
+  <div class="divider" aria-hidden="true"><i>❖</i><svg viewBox="0 0 200 26"><use href="#orn"/></svg><i>❖</i></div>
+
   <section class="section" id="daily" aria-labelledby="dailyTitle" style="padding-bottom:10px">
     <div class="container">
       <div class="daily-card">
@@ -358,6 +370,9 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </section>
   <!-- ========================= -->
+
+  <!-- فاصل زخرفي 2 -->
+  <div class="divider" aria-hidden="true"><i>❖</i><svg viewBox="0 0 200 26"><use href="#orn"/></svg><i>❖</i></div>
 
   <section class="section" id="library" aria-labelledby="libraryTitle">
     <div class="container">
@@ -462,6 +477,9 @@ gtag('config','G-3VZQSDZNC7');
       <div class="no-results" id="noResults" role="status">لم نعثر على نتائج مطابقة. جرّب كلمات أخرى.</div>
     </div>
   </section>
+
+  <!-- فاصل زخرفي 3 -->
+  <div class="divider" aria-hidden="true"><i>❖</i><svg viewBox="0 0 200 26"><use href="#orn"/></svg><i>❖</i></div>
 
   <section class="section">
     <div class="container">
