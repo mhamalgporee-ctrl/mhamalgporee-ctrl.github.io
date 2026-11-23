@@ -210,6 +210,11 @@ button{cursor:pointer}
 /* صورة الشرقاط فوق إرسال كتابك */
 .footer-feature-img{width:100%;max-width:900px;margin:0 auto 24px;border-radius:18px;border:2px solid var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.38)}
 
+/* الصورة الختامية البارزة تحت إرسال كتابك */
+.closing-feature-wrap{position:relative;max-width:940px;margin:0 auto;padding:10px;border-radius:22px;background:linear-gradient(145deg,rgba(217,196,143,.22),rgba(0,0,0,.25));border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(184,150,79,.14),0 20px 42px rgba(0,0,0,.48);transform:translateY(0);transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease}
+.closing-feature-wrap:hover,.closing-feature-wrap:active{transform:translateY(-6px) scale(1.01);box-shadow:0 0 0 7px rgba(217,196,143,.24),0 26px 50px rgba(0,0,0,.56)}
+.closing-feature-img{width:100%;height:auto;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.42)}
+
 /* إرسال كتاب */
 .media-card{display:flex;flex-direction:column;align-items:flex-start;padding:28px;border:1px solid rgba(217,196,143,.4);border-radius:22px;background:rgba(0,0,0,.15)}
 .media-card h3{margin:10px 0 6px;font-size:1.4rem}
@@ -269,7 +274,7 @@ button{cursor:pointer}
   .divider{width:min(100% - 28px,var(--container));gap:10px;margin:8px auto}.divider svg{width:105px}
 }
 @media (max-width:480px){body{font-size:15px}.container{width:calc(100% - 24px)}.divider{width:calc(100% - 24px)}.content-card{padding:18px 14px 30px}.content-card h3{font-size:.98rem}.content-card p{font-size:.82rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:50px;height:50px}.icon svg{width:24px;height:24px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.popout-mid-wrap{animation:none;transition:none}.calli{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.popout-mid-wrap,.closing-feature-wrap{animation:none;transition:none}.calli{transition:none}}
 </style>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
@@ -540,6 +545,18 @@ gtag('config','G-3VZQSDZNC7');
         </label>
         <a class="btn btn-main" id="bookLink" href="sendbook.html">أرسل كتابك عبر البريد <span aria-hidden="true">←</span></a>
       </article>
+    </div>
+  </section>
+
+  <!-- فاصل زخرفي 5 -->
+  <div class="divider" aria-hidden="true"><i>❖</i><svg viewBox="0 0 200 26"><use href="#orn"/></svg><i>❖</i></div>
+
+  <!-- لوحة بعاجة البارزة قبل نهاية الصفحة -->
+  <section class="section" id="baajaSection" aria-label="لوحة بعاجة — ذاكرة المكان والزمان" style="padding-top:16px;padding-bottom:28px">
+    <div class="container">
+      <div class="closing-feature-wrap">
+        <img class="closing-feature-img" src="baaja.png" alt="تغيّرت تلك الديار وشاب من قهر الزمان بهاؤها وجمالها" loading="lazy">
+      </div>
     </div>
   </section>
 </main>
