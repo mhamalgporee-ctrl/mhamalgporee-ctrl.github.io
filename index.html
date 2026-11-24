@@ -62,16 +62,6 @@ button{cursor:pointer}
 .section{padding-block:56px}
 .ico{width:1.15em;height:1.15em;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.18em}
 
-/* تحليق النوارس بانسيابية كالصقر والحر */
-.falcon-sky{position:fixed;inset:0;z-index:25;pointer-events:none;overflow:hidden}
-.falcon-bird{position:absolute;top:0;left:0;will-change:transform;transform-origin:center center;filter:drop-shadow(0 12px 18px rgba(0,0,0,.36))}
-.falcon-bird--alpha{width:clamp(84px,9.2vw,132px)}
-.falcon-bird--beta{width:clamp(60px,6.8vw,98px)}
-.falcon-bird--gamma{width:clamp(46px,5.2vw,74px)}
-.falcon-wing{display:block;width:100%;height:auto;opacity:0;position:relative;transition:opacity .28s ease-in-out;will-change:opacity}
-.falcon-wing.is-wing-active{opacity:1}
-.falcon-wing:not(.is-wing-active){position:absolute;top:0;left:0}
-
 /* صندوق الترحيب */
 .smart-welcome{text-align:center;margin-bottom:18px;padding:14px 18px;background:linear-gradient(135deg,rgba(184,150,79,0.12),rgba(217,196,143,0.08));border:1px solid rgba(184,150,79,0.35);border-radius:14px;font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--gold-l);animation:fadeInDown 1s ease both}
 @keyframes fadeInDown{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:none}}
@@ -313,7 +303,7 @@ button{cursor:pointer}
   .divider{width:min(100% - 28px,var(--container));gap:10px;margin:10px auto}.divider svg{width:105px}
 }
 @media (max-width:480px){.section{padding-block:52px}.content-grid{row-gap:34px}.divider{margin:24px auto}.quran-section{padding:40px 0}.card-books .covers-strip img{width:105px;height:150px}body{font-size:15px}.container{width:calc(100% - 24px)}.divider{width:calc(100% - 24px)}.content-card{padding:24px 14px 40px}.content-card h3{font-size:1.15rem}.content-card p{font-size:.84rem;line-height:1.7;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:50px;height:50px}.icon svg{width:24px;height:24px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.smart-welcome,.poem-frame,.falcon-bird,.falcon-wing{animation:none!important;transition:none!important}.calli{transition:none}.hero-photo img{transform:scale(1.02)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.smart-welcome,.poem-frame{animation:none;transition:none}.calli{transition:none}.hero-photo img{transform:scale(1.02)}}
 </style>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
@@ -327,24 +317,6 @@ gtag('config','G-3VZQSDZNC7');
 
 <body>
 <a class="skip-link" href="#main">انتقل إلى المحتوى الرئيسي</a>
-
-<div class="falcon-sky" aria-hidden="true">
-  <div class="falcon-bird falcon-bird--alpha" data-falcon data-seed="0.15" data-speed="0.052" data-base-y="0.18">
-    <img class="falcon-wing is-wing-active" src="gull1.png" alt="" decoding="async">
-    <img class="falcon-wing" src="gull2.png" alt="" decoding="async">
-    <img class="falcon-wing" src="gull3.png" alt="" decoding="async">
-  </div>
-  <div class="falcon-bird falcon-bird--beta" data-falcon data-seed="2.35" data-speed="0.041" data-base-y="0.28">
-    <img class="falcon-wing is-wing-active" src="gull2.png" alt="" decoding="async">
-    <img class="falcon-wing" src="gull3.png" alt="" decoding="async">
-    <img class="falcon-wing" src="gull1.png" alt="" decoding="async">
-  </div>
-  <div class="falcon-bird falcon-bird--gamma" data-falcon data-seed="4.45" data-speed="0.032" data-base-y="0.37">
-    <img class="falcon-wing is-wing-active" src="gull3.png" alt="" decoding="async">
-    <img class="falcon-wing" src="gull1.png" alt="" decoding="async">
-    <img class="falcon-wing" src="gull2.png" alt="" decoding="async">
-  </div>
-</div>
 
 <svg class="sr-only" aria-hidden="true" focusable="false">
   <symbol id="orn" viewBox="0 0 200 26">
@@ -778,78 +750,6 @@ addEventListener("resize", () => { if (innerWidth > 780) closeMenu(); });
   }, { passive: true });
 })();
 
-/* تحليق انسيابي مستمر بأسلوب الصقر والحر */
-(function () {
-  const birds = $$("[data-falcon]");
-  if (!birds.length || reduceMotion) return;
-
-  const state = birds.map(el => {
-    const wings = $$(".falcon-wing", el);
-    return {
-      el,
-      wings,
-      activeIdx: Math.max(0, wings.findIndex(w => w.classList.contains("is-wing-active"))),
-      seed: Number(el.dataset.seed) || 0,
-      speed: Number(el.dataset.speed) || 0.045,
-      baseY: Number(el.dataset.baseY) || 0.22,
-      phase: (Number(el.dataset.seed) || 0) * 1.4,
-      wingTimer: 0
-    };
-  });
-
-  let lastTime = performance.now();
-  let rafId = 0;
-
-  function setWing(bird, nextIdx) {
-    if (nextIdx === bird.activeIdx || bird.wings.length < 2) return;
-    bird.wings[bird.activeIdx].classList.remove("is-wing-active");
-    bird.activeIdx = nextIdx;
-    bird.wings[bird.activeIdx].classList.add("is-wing-active");
-  }
-
-  function step(now) {
-    const dt = Math.min((now - lastTime) / 1000, 0.05);
-    lastTime = now;
-
-    if (!document.hidden && !document.body.classList.contains("modal-open")) {
-      const vw = innerWidth || 1200;
-      const vh = innerHeight || 800;
-
-      for (let i = 0; i < state.length; i++) {
-        const b = state[i];
-        b.phase += b.speed * dt;
-        b.wingTimer += dt;
-
-        // مسار تحليق واسع بانحناءات هادئة تشبه تحليق الصقر في الهواء
-        const cycle = (b.phase % 1 + 1) % 1;
-        const x = (-0.14 + cycle * 1.28) * vw;
-        const glideWave = Math.sin(b.phase * Math.PI * 2 + b.seed) * 0.048;
-        const thermals = Math.sin(b.phase * Math.PI * 4 + b.seed * 0.7) * 0.018;
-        const y = (b.baseY + glideWave + thermals) * vh;
-
-        // ميلان الطائر حسب صعوده وهبوطه
-        const slope = Math.cos(b.phase * Math.PI * 2 + b.seed) * 7.5 + Math.cos(b.phase * Math.PI * 4 + b.seed * 0.7) * 3.5;
-        const scale = 0.96 + Math.sin(b.phase * Math.PI * 2 + b.seed) * 0.05;
-
-        // تبديل متناغم بين التحليق الفردي وضربات الأجنحة الخفيفة
-        if (b.wings.length >= 2 && b.wingTimer >= 0.42) {
-          b.wingTimer = 0;
-          const flapWave = Math.sin(b.phase * Math.PI * 6 + b.seed);
-          const targetIdx = flapWave > 0.35 ? 1 : flapWave < -0.35 ? 2 : 0;
-          setWing(b, targetIdx % b.wings.length);
-        }
-
-        b.el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${slope.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
-      }
-    }
-
-    rafId = requestAnimationFrame(step);
-  }
-
-  rafId = requestAnimationFrame(step);
-  addEventListener("pagehide", () => cancelAnimationFrame(rafId), { once: true });
-})();
-
 (function () {
   const v = "?d=" + new Date().toISOString().slice(0, 10);
   const link = $("#dailyLink"); link.href = "daily.pdf" + v;
@@ -1018,3 +918,4 @@ if ("serviceWorker" in navigator) {
 </script>
 </body>
 </html>
+
