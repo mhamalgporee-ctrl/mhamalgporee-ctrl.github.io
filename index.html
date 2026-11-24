@@ -62,6 +62,51 @@ button{cursor:pointer}
 .section{padding-block:56px}
 .ico{width:1.15em;height:1.15em;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.18em}
 
+/* النوارس الحية في الموقع */
+.gulls-sky{position:fixed;inset:0;z-index:20;pointer-events:none;overflow:hidden}
+.gull-flock{position:absolute;top:0;left:0;will-change:transform;filter:drop-shadow(0 8px 14px rgba(0,0,0,.38))}
+.gull-pose{display:block;width:100%;height:auto;opacity:0;position:relative;will-change:transform}
+.gull-pose.is-active{opacity:1}
+.gull-pose:not(.is-active){position:absolute;top:0;left:0}
+.gull-flock--lead{width:clamp(74px,8.5vw,122px);animation:gullFlightLead 24s linear infinite}
+.gull-flock--lead .gull-pose{animation:gullBobLead 2.6s ease-in-out infinite}
+.gull-flock--mid{width:clamp(54px,6.2vw,88px);animation:gullFlightMid 30s linear -9s infinite}
+.gull-flock--mid .gull-pose{animation:gullBobMid 2.2s ease-in-out -.7s infinite}
+.gull-flock--far{width:clamp(42px,4.8vw,68px);animation:gullFlightFar 36s linear -18s infinite}
+.gull-flock--far .gull-pose{animation:gullBobFar 2.9s ease-in-out -1.4s infinite}
+
+@keyframes gullFlightLead{
+  0%{transform:translate3d(-16vw,14vh,0) scale(.95)}
+  25%{transform:translate3d(24vw,9vh,0) scale(1.02)}
+  50%{transform:translate3d(62vw,16vh,0) scale(.98)}
+  75%{transform:translate3d(94vw,11vh,0) scale(.94)}
+  100%{transform:translate3d(118vw,15vh,0) scale(.95)}
+}
+@keyframes gullFlightMid{
+  0%{transform:translate3d(-18vw,23vh,0) scale(.86)}
+  30%{transform:translate3d(28vw,18vh,0) scale(.92)}
+  65%{transform:translate3d(70vw,25vh,0) scale(.88)}
+  100%{transform:translate3d(118vw,20vh,0) scale(.86)}
+}
+@keyframes gullFlightFar{
+  0%{transform:translate3d(-20vw,31vh,0) scale(.76)}
+  40%{transform:translate3d(38vw,26vh,0) scale(.82)}
+  80%{transform:translate3d(84vw,33vh,0) scale(.78)}
+  100%{transform:translate3d(118vw,28vh,0) scale(.76)}
+}
+@keyframes gullBobLead{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-11px) rotate(4deg)}
+}
+@keyframes gullBobMid{
+  0%,100%{transform:translateY(0) rotate(2deg)}
+  50%{transform:translateY(-9px) rotate(-3deg)}
+}
+@keyframes gullBobFar{
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  50%{transform:translateY(-7px) rotate(3deg)}
+}
+
 /* صندوق الترحيب */
 .smart-welcome{text-align:center;margin-bottom:18px;padding:14px 18px;background:linear-gradient(135deg,rgba(184,150,79,0.12),rgba(217,196,143,0.08));border:1px solid rgba(184,150,79,0.35);border-radius:14px;font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--gold-l);animation:fadeInDown 1s ease both}
 @keyframes fadeInDown{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:none}}
@@ -303,7 +348,7 @@ button{cursor:pointer}
   .divider{width:min(100% - 28px,var(--container));gap:10px;margin:10px auto}.divider svg{width:105px}
 }
 @media (max-width:480px){.section{padding-block:52px}.content-grid{row-gap:34px}.divider{margin:24px auto}.quran-section{padding:40px 0}.card-books .covers-strip img{width:105px;height:150px}body{font-size:15px}.container{width:calc(100% - 24px)}.divider{width:calc(100% - 24px)}.content-card{padding:24px 14px 40px}.content-card h3{font-size:1.15rem}.content-card p{font-size:.84rem;line-height:1.7;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:50px;height:50px}.icon svg{width:24px;height:24px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.smart-welcome,.poem-frame{animation:none;transition:none}.calli{transition:none}.hero-photo img{transform:scale(1.02)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.smart-welcome,.poem-frame,.gull-flock,.gull-pose{animation:none!important;transition:none}.calli{transition:none}.hero-photo img{transform:scale(1.02)}}
 </style>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
@@ -317,6 +362,24 @@ gtag('config','G-3VZQSDZNC7');
 
 <body>
 <a class="skip-link" href="#main">انتقل إلى المحتوى الرئيسي</a>
+
+<div class="gulls-sky" aria-hidden="true">
+  <div class="gull-flock gull-flock--lead" data-gull-flock data-frame-ms="220">
+    <img class="gull-pose is-active" src="gull1.png" alt="" decoding="async">
+    <img class="gull-pose" src="gull2.png" alt="" decoding="async">
+    <img class="gull-pose" src="gull3.png" alt="" decoding="async">
+  </div>
+  <div class="gull-flock gull-flock--mid" data-gull-flock data-frame-ms="190">
+    <img class="gull-pose is-active" src="gull2.png" alt="" decoding="async">
+    <img class="gull-pose" src="gull3.png" alt="" decoding="async">
+    <img class="gull-pose" src="gull1.png" alt="" decoding="async">
+  </div>
+  <div class="gull-flock gull-flock--far" data-gull-flock data-frame-ms="250">
+    <img class="gull-pose is-active" src="gull3.png" alt="" decoding="async">
+    <img class="gull-pose" src="gull1.png" alt="" decoding="async">
+    <img class="gull-pose" src="gull2.png" alt="" decoding="async">
+  </div>
+</div>
 
 <svg class="sr-only" aria-hidden="true" focusable="false">
   <symbol id="orn" viewBox="0 0 200 26">
@@ -748,6 +811,28 @@ addEventListener("resize", () => { if (innerWidth > 780) closeMenu(); });
     if (ticking || scrollY > 900) return; ticking = true;
     requestAnimationFrame(() => { hp.style.setProperty("--py", Math.min(scrollY * 0.05, 30) + "px"); ticking = false; });
   }, { passive: true });
+})();
+
+/* تحريك النوارس الحية وتبديل صور الأجنحة */
+(function () {
+  const flocks = $$("[data-gull-flock]");
+  if (!flocks.length || reduceMotion) return;
+  const timers = [];
+  flocks.forEach((flock, idx) => {
+    const poses = $$(".gull-pose", flock);
+    if (poses.length < 2) return;
+    let current = poses.findIndex(p => p.classList.contains("is-active"));
+    if (current < 0) current = 0;
+    const ms = Number(flock.dataset.frameMs) || 210;
+    const id = setInterval(() => {
+      if (document.hidden || document.body.classList.contains("modal-open")) return;
+      poses[current].classList.remove("is-active");
+      current = (current + 1) % poses.length;
+      poses[current].classList.add("is-active");
+    }, ms + idx * 25);
+    timers.push(id);
+  });
+  addEventListener("pagehide", () => timers.forEach(clearInterval), { once: true });
 })();
 
 (function () {
