@@ -168,6 +168,9 @@ button{cursor:pointer}
 .quran-card h2::after{display:none}
 .quran-rule{width:60px;height:3px;margin:6px auto 12px;background:var(--gold);border-radius:2px}
 .quran-subtitle{color:var(--gold-l);font-size:0.92rem;margin:0 0 20px}
+.quran-gif-box{margin:0 auto 18px;max-width:260px}
+.quran-gif-box img{width:100%;height:auto;border-radius:16px;border:2px solid var(--gold);box-shadow:0 0 0 4px rgba(184,150,79,.16),0 10px 24px rgba(0,0,0,.4)}
+.quran-gif-label{margin-top:8px;color:var(--gold-l);font-size:0.88rem;font-weight:700;letter-spacing:.4px}
 .quran-row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:16px}
 .quran-select{width:100%;padding:11px 14px;border:1px solid var(--gold);border-radius:8px;background:rgba(0,0,0,0.35);color:var(--soft);font-size:0.95rem;cursor:pointer;transition:all 0.2s}
 .quran-select:hover{background:rgba(0,0,0,0.5)}
@@ -423,6 +426,10 @@ gtag('config','G-3VZQSDZNC7');
         <h2 id="quranTitle"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h6a4 4 0 0 1 4 4v11a3 3 0 0 0-3-3H2z"/><path d="M22 5h-6a4 4 0 0 0-4 4v11a3 3 0 0 1 3-3h7z"/></svg>القرآن الكريم</h2>
         <div class="quran-rule" aria-hidden="true"></div>
         <p class="quran-subtitle">استمع لكلام الله تعالى بصوت الشيخ عبد الباسط عبد الصمد</p>
+        <div class="quran-gif-box">
+          <img src="1000058016.gif" alt="Website - القرآن الكريم" loading="lazy" decoding="async">
+          <div class="quran-gif-label">Website</div>
+        </div>
         <div class="quran-row">
           <select id="surahSelect" class="quran-select" aria-label="اختر السورة">
             <option value="">اختر السورة...</option>
@@ -918,4 +925,3 @@ if ("serviceWorker" in navigator) {
 </script>
 </body>
 </html>
-
