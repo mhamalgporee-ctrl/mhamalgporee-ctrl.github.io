@@ -269,6 +269,7 @@ button{cursor:pointer}
 
 .lightbox-panel{width:min(1100px,100%);overflow:hidden}
 .lightbox-image{display:block;width:100%;max-height:78dvh;object-fit:contain;background:#1a1510}
+.lightbox-bar{display:flex;align-items:center;justify-content:flex-end;gap:12px;padding:12px 22px;background:var(--ivory);border-top:1px solid var(--line)}
 .about-layout{display:grid;grid-template-columns:105px 1fr;align-items:start;gap:20px}
 .about-avatar{width:105px;height:105px;border:3px solid var(--gold);border-radius:50%;object-fit:cover}
 .about-layout h3{margin:0 0 6px;font-family:var(--font-head);font-size:1.3rem}
@@ -677,8 +678,9 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div class="modal-body">
-      <p>اضغط على أي صورة لتكبيرها.</p>
-      <div class="modal-status" id="religiousStatus" role="status">جارٍ عرض الصور…</div>
+      <p>اضغط على أي صورة لتكبيرها ومشاركتها.</p>
+      <button class="btn btn-dark" id="shareAllReligiousBtn" type="button">مشاركة الصور الدينية</button>
+      <div class="modal-status mt" id="religiousStatus" role="status">جارٍ عرض الصور…</div>
       <div class="gallery-grid mt" id="religiousGrid"></div>
       <button class="btn btn-light mt" id="retryReligious" type="button">إعادة المحاولة ↻</button>
     </div>
@@ -707,6 +709,9 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق الصورة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <img class="lightbox-image" id="lightboxImage" alt="">
+    <div class="lightbox-bar" id="lightboxShareBar" hidden>
+      <button class="btn btn-dark" id="shareReligiousPhotoBtn" type="button">مشاركة الصورة الدينية</button>
+    </div>
   </div>
 </div>
 
@@ -777,6 +782,70 @@ function showToast(msg) {
   t.textContent = msg; t.classList.add("visible");
   clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("visible"), 3600);
 }
+
+/* مشاركة الصور الدينية داخل نفس النافذة دون خروج من الموقع */
+let currentReligiousPhoto = null;
+let religiousPhotosList = [];
+
+async function buildImageFiles(photos) {
+  const files = [];
+  for (const p of photos.slice(0, 8)) {
+    try {
+      const res = await fetch(p.download_url);
+      if (!res.ok) continue;
+      const blob = await res.blob();
+      const type = blob.type || "image/jpeg";
+      const file = new File([blob], p.name || "religious.jpg", { type });
+      files.push(file);
+    } catch {}
+  }
+  return files;
+}
+
+async function shareReligiousImages({ photos, single = false }) {
+  if (!photos || !photos.length) {
+    showToast("لا توجد صور دينية جاهزة للمشاركة.");
+    return;
+  }
+  const urls = photos.map(p => new URL(p.download_url, location.href).href);
+  const title = single ? (cleanName(photos[0].name) || "صورة دينية") : "صور دينية — الشرقاط الثقافي الأول";
+  const shareText = single ? title : urls.join("\n");
+
+  try {
+    if (navigator.share) {
+      const files = await buildImageFiles(photos);
+      if (files.length && navigator.canShare && navigator.canShare({ files })) {
+        await navigator.share({ title, text: single ? title : "", files });
+        showToast("تمت مشاركة الصور الدينية.");
+        return;
+      }
+      await navigator.share({ title, text: shareText, url: urls[0] });
+      showToast("تمت مشاركة الصور الدينية.");
+      return;
+    }
+  } catch (err) {
+    if (err && err.name === "AbortError") return;
+  }
+
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(shareText);
+      showToast("تم نسخ روابط الصور الدينية إلى الحافظة.");
+      return;
+    }
+  } catch {}
+  showToast(urls[0]);
+}
+
+$("#shareAllReligiousBtn")?.addEventListener("click", () => {
+  shareReligiousImages({ photos: religiousPhotosList, single: false });
+});
+
+$("#shareReligiousPhotoBtn")?.addEventListener("click", () => {
+  if (!currentReligiousPhoto) return;
+  shareReligiousImages({ photos: [currentReligiousPhoto], single: true });
+});
+
 const menuToggle = $("#menuToggle"); const navLinks = $("#navLinks");
 function closeMenu() { navLinks.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); menuToggle.setAttribute("aria-label", "فتح قائمة التنقل"); }
 menuToggle.addEventListener("click", () => {
@@ -838,7 +907,11 @@ function openModal(id) {
 function hideModal(m) {
   if (!m || m.hidden) return;
   if (m.id === "videoModal") $("#youtubeFrame").removeAttribute("src");
-  if (m.id === "lightboxModal") $("#lightboxImage").removeAttribute("src");
+  if (m.id === "lightboxModal") {
+    $("#lightboxImage").removeAttribute("src");
+    $("#lightboxShareBar").hidden = true;
+    currentReligiousPhoto = null;
+  }
   m.hidden = true; openModals = openModals.filter(x => x !== m);
   if (!openModals.length) { document.body.classList.remove("modal-open"); previousFocus?.focus?.(); }
 }
@@ -869,7 +942,7 @@ document.addEventListener("keydown", e => {
 });
 
 async function fetchFromJsDelivr(folder) {
-  const url = `https://data.jsdelivr.com/v1/packages/gh/${CONFIG.githubUser}/${CONFIG.githubRepo}@main?structure=flat`;
+  const url = `https://data.jsdelivr.net/v1/packages/gh/${CONFIG.githubUser}/${CONFIG.githubRepo}@main?structure=flat`;
   const r = await fetch(url); if (!r.ok) throw new Error(`تعذّر تحميل الملفات (HTTP ${r.status}).`);
   const d = await r.json(); const prefix = "/" + folder + "/";
   return (d.files || []).filter(f => f.name && f.name.startsWith(prefix) && !f.name.slice(prefix.length).includes("/")).map(f => {
@@ -908,8 +981,9 @@ async function loadReligious(force = false) {
   const grid = $("#religiousGrid"); setText("#religiousStatus", "جارٍ عرض الصور…"); grid.replaceChildren();
   try {
     const photos = (await fetchGitHubFiles(CONFIG.religiousFolder)).filter(isImage).sort(naturalArabicSort);
+    religiousPhotosList = photos;
     if (!photos.length) return setText("#religiousStatus", "لا توجد صور داخل مجلد religious بعد.");
-    setText("#religiousStatus", `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها.`);
+    setText("#religiousStatus", `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها ومشاركتها.`);
     const frag = document.createDocumentFragment();
     photos.forEach(photo => {
       const name = cleanName(photo.name);
@@ -919,6 +993,8 @@ async function loadReligious(force = false) {
       b.addEventListener("click", () => {
         const lb = $("#lightboxImage"); lb.src = img.src; lb.alt = name;
         setText("#lightboxTitle", name || "عرض الصورة");
+        currentReligiousPhoto = photo;
+        $("#lightboxShareBar").hidden = false;
         openModal("lightboxModal");
       });
       frag.append(b);
@@ -946,6 +1022,8 @@ async function loadGallery(force = false) {
       b.addEventListener("click", () => {
         const lb = $("#lightboxImage"); lb.src = img.src; lb.alt = name;
         setText("#lightboxTitle", name || "عرض الصورة");
+        $("#lightboxShareBar").hidden = true;
+        currentReligiousPhoto = null;
         openModal("lightboxModal");
       });
       frag.append(b);
