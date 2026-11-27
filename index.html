@@ -273,7 +273,7 @@ button{cursor:pointer}
 .about-layout{display:grid;grid-template-columns:105px 1fr;align-items:start;gap:20px}
 .about-avatar{width:105px;height:105px;border:3px solid var(--gold);border-radius:50%;object-fit:cover}
 .about-layout h3{margin:0 0 6px;font-family:var(--font-head);font-size:1.3rem}
-.toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid var(--gold);border-radius:999px;background:var(--brown);color:#fff;font-size:.9rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s}
+.toast{position:fixed;z-index:5000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid var(--gold);border-radius:999px;background:var(--brown);color:#fff;font-size:.9rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
 
 /* المؤلفات أول قسم + مسافات أوسع */
@@ -791,9 +791,10 @@ async function buildImageFiles(photos) {
   const files = [];
   for (const p of photos.slice(0, 8)) {
     try {
-      const res = await fetch(p.download_url);
+      const res = await fetch(p.download_url, { cache: "no-store" });
       if (!res.ok) continue;
       const blob = await res.blob();
+      if (!blob || !blob.size) continue;
       const type = blob.type || "image/jpeg";
       const file = new File([blob], p.name || "religious.jpg", { type });
       files.push(file);
@@ -802,39 +803,85 @@ async function buildImageFiles(photos) {
   return files;
 }
 
+async function copyShareText(text, fallbackUrl) {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+      showToast("تم نسخ الرابط إلى الحافظة؛ يمكنك لصقه في واتساب أو فيسبوك.");
+      return true;
+    }
+  } catch {}
+
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    if (ok) {
+      showToast("تم نسخ الرابط إلى الحافظة؛ يمكنك لصقه ومشاركته.");
+      return true;
+    }
+  } catch {}
+
+  showToast("رابط الصورة: " + fallbackUrl);
+  return false;
+}
+
 async function shareReligiousImages({ photos, single = false }) {
   if (!photos || !photos.length) {
     showToast("لا توجد صور دينية جاهزة للمشاركة.");
     return;
   }
-  const urls = photos.map(p => new URL(p.download_url, location.href).href);
-  const title = single ? (cleanName(photos[0].name) || "صورة دينية") : "صور دينية — الشرقاط الثقافي الأول";
-  const shareText = single ? title : urls.join("\n");
 
-  try {
-    if (navigator.share) {
+  const urls = photos.map(p => new URL(p.download_url, location.href).href);
+  const title = single
+    ? (cleanName(photos[0].name) || "صورة دينية")
+    : "صور دينية — الشرقاط الثقافي الأول";
+  const shareText = single
+    ? `${title}\n${urls[0]}`
+    : `${title}\n${urls.join("\n")}`;
+
+  if (navigator.share) {
+    try {
       const files = await buildImageFiles(photos);
-      if (files.length && navigator.canShare && navigator.canShare({ files })) {
-        await navigator.share({ title, text: single ? title : "", files });
-        showToast("تمت مشاركة الصور الدينية.");
+      if (files.length && typeof navigator.canShare === "function" && navigator.canShare({ files })) {
+        await navigator.share({
+          title,
+          text: single ? title : "",
+          files
+        });
+        showToast("تم فتح نافذة المشاركة.");
         return;
       }
-      await navigator.share({ title, text: shareText, url: urls[0] });
-      showToast("تمت مشاركة الصور الدينية.");
-      return;
+    } catch (err) {
+      if (err && err.name === "AbortError") {
+        showToast("تم إلغاء المشاركة.");
+        return;
+      }
     }
-  } catch (err) {
-    if (err && err.name === "AbortError") return;
+
+    try {
+      await navigator.share({
+        title,
+        text: title,
+        url: urls[0]
+      });
+      showToast("تم إرسال رابط المشاركة.");
+      return;
+    } catch (err) {
+      if (err && err.name === "AbortError") {
+        showToast("تم إلغاء المشاركة.");
+        return;
+      }
+    }
   }
 
-  try {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      await navigator.clipboard.writeText(shareText);
-      showToast("تم نسخ روابط الصور الدينية إلى الحافظة.");
-      return;
-    }
-  } catch {}
-  showToast(urls[0]);
+  await copyShareText(shareText, urls[0]);
 }
 
 $("#shareAllReligiousBtn")?.addEventListener("click", () => {
