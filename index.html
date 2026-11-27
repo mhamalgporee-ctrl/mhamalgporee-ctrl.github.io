@@ -688,7 +688,7 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div class="modal-body">
-      <p>تصفّح الصور الدينية والأذكار، واضغط على زر <strong>تحميل</strong> لحفظها مجاناً على جهازك، أو اضغط على الصورة لتكبيرها.</p>
+      <p>تصفّح الصور الدينية والأذكار، واضغط على زر <strong>تحميل</strong> لحفظها مجاناً على جهازك، أو اضغط على الصورة لتكبيرها. *(داخل متصفح فيسبوك يمكنك أيضاً الضغط مطولاً على الصورة واختيار حفظ الصورة)*</p>
       <div class="modal-status" id="religiousStatus" role="status">جارٍ تحميل الحافظة…</div>
       <div class="gallery-grid mt" id="religiousGrid"></div>
       <button class="btn btn-light mt" id="retryReligious" type="button">إعادة المحاولة ↻</button>
@@ -790,7 +790,7 @@ let toastTimer;
 function showToast(msg) {
   const t = $("#toast"); if (!t) return;
   t.textContent = msg; t.classList.add("visible");
-  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("visible"), 3200);
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("visible"), 3600);
 }
 const menuToggle = $("#menuToggle"); const navLinks = $("#navLinks");
 function closeMenu() { navLinks.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); menuToggle.setAttribute("aria-label", "فتح قائمة التنقل"); }
@@ -838,23 +838,52 @@ function runSearch() {
 }
 searchInput.addEventListener("input", runSearch);
 
-/* دالة تحميل الصورة مباشرة إلى جهاز الزائر */
+/* دالة تحميل الصورة المتوافقة مع متصفح فيسبوك والمتصفحات الخارجية */
 async function downloadImage(url, filename) {
+  const cleanFileName = filename || "shirqat-image.jpg";
+  const isFacebookBrowser = /FBAN|FBAV|FB_IAB/i.test(navigator.userAgent);
+  const absoluteUrl = new URL(url, location.href).href;
+
+  if (isFacebookBrowser) {
+    const directLink = document.createElement("a");
+    directLink.href = absoluteUrl;
+    directLink.download = cleanFileName;
+    directLink.target = "_blank";
+    directLink.rel = "noopener noreferrer";
+    document.body.appendChild(directLink);
+    directLink.click();
+    directLink.remove();
+    showToast("متصفح فيسبوك قد يمنع التحميل المباشر: اضغط مطولاً على الصورة واختر حفظ الصورة");
+    return;
+  }
+
   showToast("جارٍ بدء التحميل المجاني...");
   try {
-    const res = await fetch(url);
+    const res = await fetch(absoluteUrl, { mode: "cors" });
+    if (!res.ok) throw new Error("fetch failed");
     const blob = await res.blob();
     const blobUrl = URL.createObjectURL(blob);
+
     const a = document.createElement("a");
     a.href = blobUrl;
-    a.download = filename || "shirqat-image.jpg";
+    a.download = cleanFileName;
+    a.style.display = "none";
     document.body.appendChild(a);
     a.click();
     a.remove();
-    setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
-    showToast("تم حفظ الصورة بنجاح ✓");
+
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 3000);
+    showToast("تم إرسال أمر التحميل — تحقق من التنزيلات");
   } catch (e) {
-    window.open(url, "_blank", "noopener");
+    const directLink = document.createElement("a");
+    directLink.href = absoluteUrl;
+    directLink.download = cleanFileName;
+    directLink.target = "_blank";
+    directLink.rel = "noopener noreferrer";
+    document.body.appendChild(directLink);
+    directLink.click();
+    directLink.remove();
+    showToast("إذا لم يبدأ التحميل، اضغط مطولاً على الصورة واختر حفظ الصورة");
   }
 }
 
