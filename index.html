@@ -267,19 +267,8 @@ button{cursor:pointer}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
 .gallery-item:hover img{transform:scale(1.06)}
 
-/* تنسيق حافظة الصور الدينية */
-.religious-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-.religious-thumb{aspect-ratio:1;padding:0;border:0;background:none;overflow:hidden;width:100%}
-.religious-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
-.religious-thumb:hover img{transform:scale(1.05)}
-.religious-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;background:#faf4ea;border-top:1px solid var(--line)}
-.religious-name{font-size:.8rem;font-weight:700;color:var(--brown);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.btn-download{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;background:var(--gold);color:#2b1c0c;font-size:.76rem;font-weight:700;border:0;flex-shrink:0;transition:background .2s}
-.btn-download:hover{background:var(--gold-l)}
-.lightbox-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 22px;background:var(--ivory);border-top:1px solid var(--line)}
-
 .lightbox-panel{width:min(1100px,100%);overflow:hidden}
-.lightbox-image{display:block;width:100%;max-height:68dvh;object-fit:contain;background:#1a1510}
+.lightbox-image{display:block;width:100%;max-height:78dvh;object-fit:contain;background:#1a1510}
 .about-layout{display:grid;grid-template-columns:105px 1fr;align-items:start;gap:20px}
 .about-avatar{width:105px;height:105px;border:3px solid var(--gold);border-radius:50%;object-fit:cover}
 .about-layout h3{margin:0 0 6px;font-family:var(--font-head);font-size:1.3rem}
@@ -371,7 +360,7 @@ gtag('config','G-3VZQSDZNC7');
     <nav class="nav-links" id="navLinks" aria-label="القائمة الرئيسية">
       <a href="#home">الرئيسية</a>
       <a href="#library">الأقسام الثقافية</a>
-      <a class="accent" href="#" data-open="religiousModal">صور دينية مجانية</a>
+      <a class="accent" href="#" data-open="religiousModal">صور دينية</a>
       <a class="accent" href="scholars.html">علماء الشرقاط</a>
       <a href="tv.html">التلفزيون</a>
       <a href="book.html">المؤلفات</a>
@@ -502,12 +491,12 @@ gtag('config','G-3VZQSDZNC7');
           <a class="btn card-link" href="book.html">تصفّح المؤلفات <span aria-hidden="true">←</span></a>
         </article>
 
-        <!-- قسم حافظة الصور الدينية المجانية -->
-        <article class="content-card" data-search="حافظة صور دينية اسلامية خلفيات اذكار ادعية مجاني تحميل religious">
+        <!-- قسم الصور الدينية -->
+        <article class="content-card" data-search="صور دينية اسلامية خلفيات اذكار ادعية religious">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></span></div>
-          <h3>حافظة الصور الدينية المجانية</h3>
-          <p>مكتبة متجددة من الصور والبطاقات الدينية والأذكار المصممة، متاحة للمشاهدة والتحميل المجاني المباشر.</p>
-          <button class="btn card-link" type="button" data-open="religiousModal">افتح الحافظة وحمّل مجاناً <span aria-hidden="true">←</span></button>
+          <h3>صور دينية</h3>
+          <p>مجموعة من الصور والبطاقات الدينية والأذكار للمشاهدة والتصفّح.</p>
+          <button class="btn card-link" type="button" data-open="religiousModal">افتح الصور الدينية <span aria-hidden="true">←</span></button>
         </article>
 
         <article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat">
@@ -573,10 +562,10 @@ gtag('config','G-3VZQSDZNC7');
           <button class="btn card-link" type="button" data-open="videoModal">شاهد الفيديوهات <span aria-hidden="true">←</span></button>
         </article>
 
-        <article class="content-card" data-search="التطبيقات برامج الكمبيوتر الذكاء الاصطناعي تحميل apps">
+        <article class="content-card" data-search="التطبيقات برامج الكمبيوتر الذكاء الاصطناعي apps">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span></div>
           <h3>قسم التطبيقات</h3>
-          <p>حمّل أحدث التطبيقات المجانية وبرامج الكمبيوتر وأدوات الذكاء الاصطناعي بروابط تحميل رسمية ومباشرة وآمنة.</p>
+          <p>تصفّح التطبيقات وبرامج الكمبيوتر وأدوات الذكاء الاصطناعي.</p>
           <a class="btn card-link" href="apps.html">تصفّح التطبيقات <span aria-hidden="true">←</span></a>
         </article>
       </div>
@@ -654,7 +643,7 @@ gtag('config','G-3VZQSDZNC7');
     </div>
     <nav class="footer-links" aria-label="روابط إضافية">
       <a href="#home">الرئيسية</a>
-      <a href="#" data-open="religiousModal">صور دينية مجانية</a>
+      <a href="#" data-open="religiousModal">صور دينية</a>
       <a href="scholars.html">علماء الشرقاط</a>
       <a href="book.html">المؤلفات</a>
       <a href="https://baramjak2.wordpress.com" target="_blank" rel="noopener noreferrer">المدونة ↗</a>
@@ -680,16 +669,16 @@ gtag('config','G-3VZQSDZNC7');
   </div>
 </div>
 
-<!-- نافذة حافظة الصور الدينية المجانية -->
+<!-- نافذة الصور الدينية -->
 <div class="modal modal-full" id="religiousModal" role="dialog" aria-modal="true" aria-labelledby="religiousModalTitle" hidden>
   <div class="modal-panel">
     <div class="modal-head">
-      <h2 id="religiousModalTitle">حافظة الصور الدينية المجانية</h2>
+      <h2 id="religiousModalTitle">صور دينية</h2>
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div class="modal-body">
-      <p>تصفّح الصور الدينية والأذكار، واضغط على زر <strong>تحميل</strong> لحفظها مجاناً على جهازك، أو اضغط على الصورة لتكبيرها. *(داخل متصفح فيسبوك يمكنك أيضاً الضغط مطولاً على الصورة واختيار حفظ الصورة)*</p>
-      <div class="modal-status" id="religiousStatus" role="status">جارٍ تحميل الحافظة…</div>
+      <p>اضغط على أي صورة لتكبيرها.</p>
+      <div class="modal-status" id="religiousStatus" role="status">جارٍ عرض الصور…</div>
       <div class="gallery-grid mt" id="religiousGrid"></div>
       <button class="btn btn-light mt" id="retryReligious" type="button">إعادة المحاولة ↻</button>
     </div>
@@ -704,7 +693,7 @@ gtag('config','G-3VZQSDZNC7');
     </div>
     <div class="modal-body">
       <p>اضغط على أي صورة لتكبيرها.</p>
-      <div class="modal-status" id="galleryStatus" role="status">جارٍ تحميل الصور…</div>
+      <div class="modal-status" id="galleryStatus" role="status">جارٍ عرض الصور…</div>
       <div class="gallery-grid mt" id="galleryGrid"></div>
       <button class="btn btn-light mt" id="retryGallery" type="button">إعادة المحاولة ↻</button>
     </div>
@@ -718,10 +707,6 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق الصورة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <img class="lightbox-image" id="lightboxImage" alt="">
-    <div class="lightbox-footer">
-      <span style="font-size:.85rem;color:var(--mid)">متاحة للحفظ والمشاركة مجاناً</span>
-      <button class="btn btn-main" id="lightboxDownloadBtn" type="button">تحميل الصورة مجاناً ⬇</button>
-    </div>
   </div>
 </div>
 
@@ -776,7 +761,7 @@ const CONFIG = {
   githubUser: "mhamalgporee-ctrl",
   githubRepo: "mhamalgporee-ctrl.github.io",
   photosFolder: "photos",
-  religiousFolder: "religious", /* مجلد الصور الدينية في GitHub */
+  religiousFolder: "religious",
   coversFolder: "covers",
   whatsapp: "9647835025407",
   cacheMinutes: 60,
@@ -837,61 +822,6 @@ function runSearch() {
   setText("#searchStatus", q ? `النتائج: ${visible} من ${contentCards.length}` : "");
 }
 searchInput.addEventListener("input", runSearch);
-
-/* دالة تحميل الصورة المتوافقة مع متصفح فيسبوك والمتصفحات الخارجية */
-async function downloadImage(url, filename) {
-  const cleanFileName = filename || "shirqat-image.jpg";
-  const isFacebookBrowser = /FBAN|FBAV|FB_IAB/i.test(navigator.userAgent);
-  const absoluteUrl = new URL(url, location.href).href;
-
-  if (isFacebookBrowser) {
-    const directLink = document.createElement("a");
-    directLink.href = absoluteUrl;
-    directLink.download = cleanFileName;
-    directLink.target = "_blank";
-    directLink.rel = "noopener noreferrer";
-    document.body.appendChild(directLink);
-    directLink.click();
-    directLink.remove();
-    showToast("متصفح فيسبوك قد يمنع التحميل المباشر: اضغط مطولاً على الصورة واختر حفظ الصورة");
-    return;
-  }
-
-  showToast("جارٍ بدء التحميل المجاني...");
-  try {
-    const res = await fetch(absoluteUrl, { mode: "cors" });
-    if (!res.ok) throw new Error("fetch failed");
-    const blob = await res.blob();
-    const blobUrl = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = blobUrl;
-    a.download = cleanFileName;
-    a.style.display = "none";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-
-    setTimeout(() => URL.revokeObjectURL(blobUrl), 3000);
-    showToast("تم إرسال أمر التحميل — تحقق من التنزيلات");
-  } catch (e) {
-    const directLink = document.createElement("a");
-    directLink.href = absoluteUrl;
-    directLink.download = cleanFileName;
-    directLink.target = "_blank";
-    directLink.rel = "noopener noreferrer";
-    document.body.appendChild(directLink);
-    directLink.click();
-    directLink.remove();
-    showToast("إذا لم يبدأ التحميل، اضغط مطولاً على الصورة واختر حفظ الصورة");
-  }
-}
-
-let currentLightboxUrl = "";
-let currentLightboxFile = "";
-$("#lightboxDownloadBtn").addEventListener("click", () => {
-  if (currentLightboxUrl) downloadImage(currentLightboxUrl, currentLightboxFile);
-});
 
 let openModals = []; let previousFocus = null;
 function openModal(id) {
@@ -971,44 +901,30 @@ const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
 const isImage = f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name);
 
-/* تحميل حافظة الصور الدينية المجانية */
+/* تحميل الصور الدينية كصور عادية */
 let religiousLoaded = false;
 async function loadReligious(force = false) {
   if (religiousLoaded && !force) return;
-  const grid = $("#religiousGrid"); setText("#religiousStatus", "جارٍ تحميل الصور الدينية…"); grid.replaceChildren();
+  const grid = $("#religiousGrid"); setText("#religiousStatus", "جارٍ عرض الصور…"); grid.replaceChildren();
   try {
     const photos = (await fetchGitHubFiles(CONFIG.religiousFolder)).filter(isImage).sort(naturalArabicSort);
     if (!photos.length) return setText("#religiousStatus", "لا توجد صور داخل مجلد religious بعد.");
-    setText("#religiousStatus", `عدد الصور الدينية المتاحة مجاناً: ${photos.length}`);
+    setText("#religiousStatus", `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها.`);
     const frag = document.createDocumentFragment();
     photos.forEach(photo => {
       const name = cleanName(photo.name);
-      const card = document.createElement("div"); card.className = "religious-card";
-      
-      const thumbBtn = document.createElement("button"); thumbBtn.type = "button"; thumbBtn.className = "religious-thumb";
-      thumbBtn.setAttribute("aria-label", `معاينة ${name}`);
+      const b = document.createElement("button"); b.type = "button"; b.className = "gallery-item"; b.setAttribute("aria-label", `تكبير الصورة ${name}`);
       const img = document.createElement("img"); img.src = photo.download_url; img.alt = name; img.loading = "lazy"; img.decoding = "async";
-      thumbBtn.append(img);
-      thumbBtn.addEventListener("click", () => {
+      b.append(img);
+      b.addEventListener("click", () => {
         const lb = $("#lightboxImage"); lb.src = img.src; lb.alt = name;
-        currentLightboxUrl = photo.download_url;
-        currentLightboxFile = photo.name;
-        setText("#lightboxTitle", name || "صورة دينية");
+        setText("#lightboxTitle", name || "عرض الصورة");
         openModal("lightboxModal");
       });
-
-      const actions = document.createElement("div"); actions.className = "religious-actions";
-      const label = document.createElement("span"); label.className = "religious-name"; label.textContent = name;
-      const dlBtn = document.createElement("button"); dlBtn.type = "button"; dlBtn.className = "btn-download";
-      dlBtn.innerHTML = "تحميل ⬇";
-      dlBtn.addEventListener("click", () => downloadImage(photo.download_url, photo.name));
-
-      actions.append(label, dlBtn);
-      card.append(thumbBtn, actions);
-      frag.append(card);
+      frag.append(b);
     });
     grid.append(frag); religiousLoaded = true;
-  } catch (e) { setText("#religiousStatus", e.message || "تعذّر تحميل حافظة الصور الدينية."); }
+  } catch (e) { setText("#religiousStatus", e.message || "تعذّر عرض الصور الدينية."); }
 }
 $("#retryReligious").addEventListener("click", () => loadReligious(true));
 
@@ -1016,7 +932,7 @@ $("#retryReligious").addEventListener("click", () => loadReligious(true));
 let galleryLoaded = false;
 async function loadGallery(force = false) {
   if (galleryLoaded && !force) return;
-  const grid = $("#galleryGrid"); setText("#galleryStatus", "جارٍ تحميل الصور…"); grid.replaceChildren();
+  const grid = $("#galleryGrid"); setText("#galleryStatus", "جارٍ عرض الصور…"); grid.replaceChildren();
   try {
     const photos = (await fetchGitHubFiles(CONFIG.photosFolder)).filter(isImage).sort(naturalArabicSort);
     if (!photos.length) return setText("#galleryStatus", "لا توجد صور مدعومة داخل مجلد photos.");
@@ -1029,15 +945,13 @@ async function loadGallery(force = false) {
       b.append(img);
       b.addEventListener("click", () => {
         const lb = $("#lightboxImage"); lb.src = img.src; lb.alt = name;
-        currentLightboxUrl = photo.download_url;
-        currentLightboxFile = photo.name;
         setText("#lightboxTitle", name || "عرض الصورة");
         openModal("lightboxModal");
       });
       frag.append(b);
     });
     grid.append(frag); galleryLoaded = true;
-  } catch (e) { setText("#galleryStatus", e.message || "تعذّر تحميل معرض الصور."); }
+  } catch (e) { setText("#galleryStatus", e.message || "تعذّر عرض الصور."); }
 }
 $("#retryGallery").addEventListener("click", () => loadGallery(true));
 
