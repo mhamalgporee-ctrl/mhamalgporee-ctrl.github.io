@@ -280,6 +280,7 @@ button{cursor:pointer}
 .share-bar .btn{min-height:42px;padding:4px 14px;font-size:.85rem;color:var(--brown);border-color:var(--gold)}
 .share-bar .btn:hover{color:#2b1c0c}
 .share-bar .btn-main{color:#2b1c0c}
+.fb-note{margin:12px 0;padding:12px 14px;border:1px solid var(--gold);border-radius:12px;background:rgba(184,150,79,.14);font-size:.9rem;line-height:1.9}
 .share-hint{margin:0;padding:0 12px 12px;text-align:center;font-size:.82rem;line-height:1.7;color:var(--mid);background:var(--ivory)}
 
 /* المؤلفات أول قسم + مسافات أوسع */
@@ -685,6 +686,9 @@ gtag('config','G-3VZQSDZNC7');
     </div>
     <div class="modal-body">
       <p>اضغط على أي صورة لتكبيرها، ثم حمّلها أو شاركها مجانًا. جعلها الله صدقة جارية 🤍</p>
+      <div class="fb-note" id="fbNote" hidden>
+        <strong>تنبيه لزوّار فيسبوك:</strong> متصفح فيسبوك الداخلي لا يسمح بتحميل الصور من المواقع. لتحميل الصورة اضغط على النقاط <strong>⋯</strong> (أو <strong>⋮</strong>) في أعلى الشاشة واختر <strong>«فتح في المتصفح»</strong> (Chrome أو Safari)، ثم حمّل الصورة بالزر المخصص. ويمكنك مشاركتها عبر واتساب أو ماسنجر مباشرة.
+      </div>
       <div class="modal-status" id="religiousStatus" role="status">جارٍ عرض الصور…</div>
       <div class="gallery-grid mt" id="religiousGrid"></div>
       <button class="btn btn-light mt" id="retryReligious" type="button">إعادة المحاولة ↻</button>
@@ -717,9 +721,14 @@ gtag('config','G-3VZQSDZNC7');
     <div class="share-bar" id="shareBar" hidden>
       <button class="btn btn-main" id="dlBtn" type="button">⬇ تحميل</button>
       <button class="btn" id="shBtn" type="button">↗ مشاركة</button>
-      <button class="btn" id="cpBtn" type="button">نسخ رابط الصورة</button>
+      <button class="btn" id="waBtn" type="button" hidden>واتساب</button>
+      <button class="btn" id="msBtn" type="button" hidden>ماسنجر</button>
+      <button class="btn" id="cpBtn" type="button">نسخ الرابط</button>
     </div>
-    <p class="share-hint" id="shareHint" hidden>إن لم يبدأ التحميل: اضغط مطوّلًا على الصورة واختر «حفظ الصورة».</p>
+    <div class="share-hint" id="shareHint" hidden>
+      <p style="margin:0 0 8px">متصفح فيسبوك الداخلي يمنع تحميل الصور. اضغط الزر التالي لفتح الموقع في المتصفح ثم حمّل الصورة بسهولة:</p>
+      <button class="btn btn-main" id="extBtn" type="button">فتح في المتصفح وتحميل الصورة</button>
+    </div>
   </div>
 </div>
 
@@ -914,25 +923,45 @@ const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
 const isImage = f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name);
 
-/* تحميل ومشاركة الصور الدينية — بدون مغادرة الموقع */
+/* تحميل ومشاركة الصور الدينية */
 let curShare = null, pendingImg = null;
-const inFB = /FBAN|FBAV|FB_IAB|Instagram/i.test(navigator.userAgent);
+const inFB = /FBAN|FBAV|FB_IAB|Instagram|Messenger/i.test(navigator.userAgent);
+$("#fbNote").hidden = !inFB;
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const isAndroid = /Android/i.test(navigator.userAgent);
 const SITE = location.origin + location.pathname;
 function setShare(url, name, file) {
   curShare = url ? { url: new URL(url, location.href).href, name, link: SITE + "?r=" + encodeURIComponent(file || "") } : null;
   $("#shareBar").hidden = !curShare;
   $("#shareHint").hidden = !curShare || !inFB;
+  $("#shBtn").hidden = !navigator.share;
+  $("#waBtn").hidden = !isMobile; $("#msBtn").hidden = !isMobile;
 }
 async function getBlob() { const r = await fetch(curShare.url); if (!r.ok) throw new Error("fetch"); return r.blob(); }
 const extOf = b => (b.type.split("/")[1] || "jpg").replace("jpeg", "jpg").replace("svg+xml", "svg");
+
+/* فتح نفس الصفحة في متصفح الهاتف الخارجي (لأن متصفح فيسبوك يمنع التحميل) */
+function openExternal() {
+  if (!curShare) return;
+  if (isAndroid) {
+    const u = new URL(curShare.link);
+    location.href = "intent://" + u.host + u.pathname + u.search + "#Intent;scheme=https;S.browser_fallback_url=" + encodeURIComponent(curShare.link) + ";end";
+  } else {
+    copyLink();
+    showToast("افتح قائمة ⋯ في الأعلى واختر «فتح في Safari»");
+  }
+}
+$("#extBtn").addEventListener("click", openExternal);
+
 $("#dlBtn").addEventListener("click", async () => {
   if (!curShare) return;
+  if (inFB) return openExternal();
   try {
     const b = await getBlob(); const a = document.createElement("a");
     a.href = URL.createObjectURL(b); a.download = (curShare.name || "image") + "." + extOf(b);
     document.body.append(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-    showToast(inFB ? "إن لم يبدأ التحميل: اضغط مطوّلًا على الصورة واختر حفظ" : "جارٍ التحميل…");
+    showToast("جارٍ التحميل…");
   } catch { showToast("اضغط مطوّلًا على الصورة واختر «حفظ الصورة»"); }
 });
 $("#shBtn").addEventListener("click", async () => {
@@ -943,12 +972,23 @@ $("#shBtn").addEventListener("click", async () => {
     const file = new File([b], "image." + extOf(b), { type: b.type });
     if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text }); return; }
   } catch (e) { if (e && e.name === "AbortError") return; }
-  if (navigator.share) { try { await navigator.share({ title: curShare.name, text: curShare.name, url: curShare.link }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
-  copyLink();
+  try { await navigator.share({ title: curShare.name, text: curShare.name, url: curShare.link }); }
+  catch (e) { if (!e || e.name !== "AbortError") copyLink(); }
+});
+$("#waBtn").addEventListener("click", () => {
+  if (curShare) location.href = "whatsapp://send?text=" + encodeURIComponent(curShare.name + "\n" + curShare.link);
+});
+$("#msBtn").addEventListener("click", () => {
+  if (curShare) location.href = "fb-messenger://share/?link=" + encodeURIComponent(curShare.link);
 });
 async function copyLink() {
-  try { await navigator.clipboard.writeText(curShare.link); showToast("تم نسخ الرابط — الصقه في فيسبوك أو واتساب"); }
-  catch { showToast("تعذّر النسخ"); }
+  const t = curShare.link;
+  try { await navigator.clipboard.writeText(t); showToast("تم نسخ الرابط"); return; } catch {}
+  try {
+    const ta = document.createElement("textarea"); ta.value = t; ta.style.cssText = "position:fixed;opacity:0";
+    document.body.append(ta); ta.select(); const ok = document.execCommand("copy"); ta.remove();
+    showToast(ok ? "تم نسخ الرابط" : t);
+  } catch { showToast(t); }
 }
 $("#cpBtn").addEventListener("click", () => curShare && copyLink());
 
