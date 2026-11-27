@@ -268,12 +268,19 @@ button{cursor:pointer}
 .gallery-item:hover img{transform:scale(1.06)}
 
 .lightbox-panel{width:min(1100px,100%);overflow:hidden}
-.lightbox-image{display:block;width:100%;max-height:78dvh;object-fit:contain;background:#1a1510}
+.lightbox-image{display:block;width:100%;max-height:62dvh;object-fit:contain;background:#1a1510}
 .about-layout{display:grid;grid-template-columns:105px 1fr;align-items:start;gap:20px}
 .about-avatar{width:105px;height:105px;border:3px solid var(--gold);border-radius:50%;object-fit:cover}
 .about-layout h3{margin:0 0 6px;font-family:var(--font-head);font-size:1.3rem}
 .toast{position:fixed;z-index:2000;right:50%;bottom:22px;max-width:calc(100% - 32px);padding:11px 18px;border:1px solid var(--gold);border-radius:999px;background:var(--brown);color:#fff;font-size:.9rem;text-align:center;transform:translate(50%,20px);opacity:0;visibility:hidden;transition:.25s}
 .toast.visible{transform:translate(50%,0);opacity:1;visibility:visible}
+
+/* أزرار التحميل والمشاركة */
+.share-bar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px;background:var(--ivory);border-top:1px solid var(--line)}
+.share-bar .btn{min-height:42px;padding:4px 14px;font-size:.85rem;color:var(--brown);border-color:var(--gold)}
+.share-bar .btn:hover{color:#2b1c0c}
+.share-bar .btn-main{color:#2b1c0c}
+.share-hint{margin:0;padding:0 12px 12px;text-align:center;font-size:.82rem;line-height:1.7;color:var(--mid);background:var(--ivory)}
 
 /* المؤلفات أول قسم + مسافات أوسع */
 .content-grid{row-gap:44px;padding-bottom:30px}
@@ -309,7 +316,7 @@ button{cursor:pointer}
   .quran-card{padding:22px 16px}
   .divider{width:min(100% - 28px,var(--container));gap:10px;margin:10px auto}.divider svg{width:105px}
 }
-@media (max-width:480px){.section{padding-block:52px}.content-grid{row-gap:34px}.divider{margin:24px auto}.quran-section{padding:40px 0}.card-books .covers-strip img{width:105px;height:150px}body{font-size:15px}.container{width:calc(100% - 24px)}.divider{width:calc(100% - 24px)}.content-card{padding:24px 14px 40px}.content-card h3{font-size:1.15rem}.content-card p{font-size:.84rem;line-height:1.7;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:50px;height:50px}.icon svg{width:24px;height:24px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.section{padding-block:52px}.content-grid{row-gap:34px}.divider{margin:24px auto}.quran-section{padding:40px 0}.card-books .covers-strip img{width:105px;height:150px}body{font-size:15px}.container{width:calc(100% - 24px)}.divider{width:calc(100% - 24px)}.content-card{padding:24px 14px 40px}.content-card h3{font-size:1.15rem}.content-card p{font-size:.84rem;line-height:1.7;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:50px;height:50px}.icon svg{width:24px;height:24px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.share-bar .btn{flex:1 1 40%;padding:4px 8px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.smart-welcome,.poem-frame{animation:none;transition:none}.calli{transition:none}.hero-photo img{transform:scale(1.02)}}
 </style>
 
@@ -495,7 +502,7 @@ gtag('config','G-3VZQSDZNC7');
         <article class="content-card" data-search="صور دينية اسلامية خلفيات اذكار ادعية religious">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></span></div>
           <h3>صور دينية</h3>
-          <p>مجموعة من الصور والبطاقات الدينية والأذكار للمشاهدة والتصفّح.</p>
+          <p>مجموعة من الصور والبطاقات الدينية والأذكار — حمّلها أو شاركها مجانًا مع أحبابك.</p>
           <button class="btn card-link" type="button" data-open="religiousModal">افتح الصور الدينية <span aria-hidden="true">←</span></button>
         </article>
 
@@ -677,7 +684,7 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق النافذة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div class="modal-body">
-      <p>اضغط على أي صورة لتكبيرها.</p>
+      <p>اضغط على أي صورة لتكبيرها، ثم حمّلها أو شاركها مجانًا. جعلها الله صدقة جارية 🤍</p>
       <div class="modal-status" id="religiousStatus" role="status">جارٍ عرض الصور…</div>
       <div class="gallery-grid mt" id="religiousGrid"></div>
       <button class="btn btn-light mt" id="retryReligious" type="button">إعادة المحاولة ↻</button>
@@ -707,6 +714,14 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق الصورة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <img class="lightbox-image" id="lightboxImage" alt="">
+    <div class="share-bar" id="shareBar" hidden>
+      <button class="btn btn-main" id="dlBtn" type="button">⬇ تحميل</button>
+      <button class="btn" id="shBtn" type="button">↗ مشاركة</button>
+      <button class="btn" id="fbBtn" type="button">فيسبوك</button>
+      <button class="btn" id="waBtn" type="button">واتساب</button>
+      <button class="btn" id="cpBtn" type="button">نسخ الرابط</button>
+    </div>
+    <p class="share-hint" id="shareHint" hidden>إن لم يبدأ التحميل: اضغط مطوّلًا على الصورة واختر «حفظ الصورة».</p>
   </div>
 </div>
 
@@ -901,6 +916,44 @@ const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
 const isImage = f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name);
 
+/* تحميل ومشاركة الصور الدينية (مجانًا) */
+let curShare = null;
+const inFB = /FBAN|FBAV|FB_IAB|Instagram/i.test(navigator.userAgent);
+function setShare(url, name) {
+  curShare = url ? { url: new URL(url, location.href).href, name } : null;
+  $("#shareBar").hidden = !curShare;
+  $("#shareHint").hidden = !curShare || !inFB;
+}
+async function getBlob() { const r = await fetch(curShare.url); if (!r.ok) throw new Error("fetch"); return r.blob(); }
+$("#dlBtn").addEventListener("click", async () => {
+  if (!curShare) return;
+  try {
+    const b = await getBlob(); const a = document.createElement("a");
+    a.href = URL.createObjectURL(b);
+    a.download = (curShare.name || "image") + "." + (b.type.split("/")[1] || "jpg").replace("jpeg", "jpg");
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    showToast("جارٍ التحميل…");
+  } catch { window.open(curShare.url, "_blank"); showToast("اضغط مطوّلًا على الصورة واختر حفظ"); }
+});
+$("#shBtn").addEventListener("click", async () => {
+  if (!curShare) return;
+  const text = curShare.name + " — الشرقاط الثقافي الأول";
+  try {
+    const b = await getBlob();
+    const file = new File([b], "image." + (b.type.split("/")[1] || "jpg"), { type: b.type });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text }); return; }
+  } catch (e) { if (e && e.name === "AbortError") return; }
+  if (navigator.share) { try { await navigator.share({ title: text, url: curShare.url }); } catch {} }
+  else showToast("استخدم أزرار فيسبوك أو واتساب");
+});
+$("#fbBtn").addEventListener("click", () => curShare && window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(curShare.url), "_blank", "noopener"));
+$("#waBtn").addEventListener("click", () => curShare && window.open("https://wa.me/?text=" + encodeURIComponent(curShare.name + " " + curShare.url), "_blank", "noopener"));
+$("#cpBtn").addEventListener("click", async () => {
+  if (!curShare) return;
+  try { await navigator.clipboard.writeText(curShare.url); showToast("تم نسخ الرابط"); } catch { showToast("تعذّر النسخ"); }
+});
+
 /* تحميل الصور الدينية كصور عادية */
 let religiousLoaded = false;
 async function loadReligious(force = false) {
@@ -909,7 +962,7 @@ async function loadReligious(force = false) {
   try {
     const photos = (await fetchGitHubFiles(CONFIG.religiousFolder)).filter(isImage).sort(naturalArabicSort);
     if (!photos.length) return setText("#religiousStatus", "لا توجد صور داخل مجلد religious بعد.");
-    setText("#religiousStatus", `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها.`);
+    setText("#religiousStatus", `عدد الصور: ${photos.length}. اضغط على أي صورة لتكبيرها وتحميلها.`);
     const frag = document.createDocumentFragment();
     photos.forEach(photo => {
       const name = cleanName(photo.name);
@@ -919,6 +972,7 @@ async function loadReligious(force = false) {
       b.addEventListener("click", () => {
         const lb = $("#lightboxImage"); lb.src = img.src; lb.alt = name;
         setText("#lightboxTitle", name || "عرض الصورة");
+        setShare(img.src, name);
         openModal("lightboxModal");
       });
       frag.append(b);
@@ -946,6 +1000,7 @@ async function loadGallery(force = false) {
       b.addEventListener("click", () => {
         const lb = $("#lightboxImage"); lb.src = img.src; lb.alt = name;
         setText("#lightboxTitle", name || "عرض الصورة");
+        setShare(null);
         openModal("lightboxModal");
       });
       frag.append(b);
