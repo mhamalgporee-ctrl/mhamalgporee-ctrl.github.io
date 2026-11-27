@@ -717,9 +717,7 @@ gtag('config','G-3VZQSDZNC7');
     <div class="share-bar" id="shareBar" hidden>
       <button class="btn btn-main" id="dlBtn" type="button">⬇ تحميل</button>
       <button class="btn" id="shBtn" type="button">↗ مشاركة</button>
-      <button class="btn" id="fbBtn" type="button">فيسبوك</button>
-      <button class="btn" id="waBtn" type="button">واتساب</button>
-      <button class="btn" id="cpBtn" type="button">نسخ الرابط</button>
+      <button class="btn" id="cpBtn" type="button">نسخ رابط الصورة</button>
     </div>
     <p class="share-hint" id="shareHint" hidden>إن لم يبدأ التحميل: اضغط مطوّلًا على الصورة واختر «حفظ الصورة».</p>
   </div>
@@ -916,43 +914,43 @@ const naturalArabicSort = (a, b) => a.name.localeCompare(b.name, "ar", { numeric
 const cleanName = n => n.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
 const isImage = f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name);
 
-/* تحميل ومشاركة الصور الدينية (مجانًا) */
-let curShare = null;
+/* تحميل ومشاركة الصور الدينية — بدون مغادرة الموقع */
+let curShare = null, pendingImg = null;
 const inFB = /FBAN|FBAV|FB_IAB|Instagram/i.test(navigator.userAgent);
-function setShare(url, name) {
-  curShare = url ? { url: new URL(url, location.href).href, name } : null;
+const SITE = location.origin + location.pathname;
+function setShare(url, name, file) {
+  curShare = url ? { url: new URL(url, location.href).href, name, link: SITE + "?r=" + encodeURIComponent(file || "") } : null;
   $("#shareBar").hidden = !curShare;
   $("#shareHint").hidden = !curShare || !inFB;
 }
 async function getBlob() { const r = await fetch(curShare.url); if (!r.ok) throw new Error("fetch"); return r.blob(); }
+const extOf = b => (b.type.split("/")[1] || "jpg").replace("jpeg", "jpg").replace("svg+xml", "svg");
 $("#dlBtn").addEventListener("click", async () => {
   if (!curShare) return;
   try {
     const b = await getBlob(); const a = document.createElement("a");
-    a.href = URL.createObjectURL(b);
-    a.download = (curShare.name || "image") + "." + (b.type.split("/")[1] || "jpg").replace("jpeg", "jpg");
+    a.href = URL.createObjectURL(b); a.download = (curShare.name || "image") + "." + extOf(b);
     document.body.append(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-    showToast("جارٍ التحميل…");
-  } catch { window.open(curShare.url, "_blank"); showToast("اضغط مطوّلًا على الصورة واختر حفظ"); }
+    showToast(inFB ? "إن لم يبدأ التحميل: اضغط مطوّلًا على الصورة واختر حفظ" : "جارٍ التحميل…");
+  } catch { showToast("اضغط مطوّلًا على الصورة واختر «حفظ الصورة»"); }
 });
 $("#shBtn").addEventListener("click", async () => {
   if (!curShare) return;
-  const text = curShare.name + " — الشرقاط الثقافي الأول";
+  const text = curShare.name + " — الشرقاط الثقافي الأول\n" + curShare.link;
   try {
     const b = await getBlob();
-    const file = new File([b], "image." + (b.type.split("/")[1] || "jpg"), { type: b.type });
+    const file = new File([b], "image." + extOf(b), { type: b.type });
     if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text }); return; }
   } catch (e) { if (e && e.name === "AbortError") return; }
-  if (navigator.share) { try { await navigator.share({ title: text, url: curShare.url }); } catch {} }
-  else showToast("استخدم أزرار فيسبوك أو واتساب");
+  if (navigator.share) { try { await navigator.share({ title: curShare.name, text: curShare.name, url: curShare.link }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
+  copyLink();
 });
-$("#fbBtn").addEventListener("click", () => curShare && window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(curShare.url), "_blank", "noopener"));
-$("#waBtn").addEventListener("click", () => curShare && window.open("https://wa.me/?text=" + encodeURIComponent(curShare.name + " " + curShare.url), "_blank", "noopener"));
-$("#cpBtn").addEventListener("click", async () => {
-  if (!curShare) return;
-  try { await navigator.clipboard.writeText(curShare.url); showToast("تم نسخ الرابط"); } catch { showToast("تعذّر النسخ"); }
-});
+async function copyLink() {
+  try { await navigator.clipboard.writeText(curShare.link); showToast("تم نسخ الرابط — الصقه في فيسبوك أو واتساب"); }
+  catch { showToast("تعذّر النسخ"); }
+}
+$("#cpBtn").addEventListener("click", () => curShare && copyLink());
 
 /* تحميل الصور الدينية كصور عادية */
 let religiousLoaded = false;
@@ -966,18 +964,19 @@ async function loadReligious(force = false) {
     const frag = document.createDocumentFragment();
     photos.forEach(photo => {
       const name = cleanName(photo.name);
-      const b = document.createElement("button"); b.type = "button"; b.className = "gallery-item"; b.setAttribute("aria-label", `تكبير الصورة ${name}`);
+      const b = document.createElement("button"); b.type = "button"; b.className = "gallery-item"; b.dataset.file = photo.name; b.setAttribute("aria-label", `تكبير الصورة ${name}`);
       const img = document.createElement("img"); img.src = photo.download_url; img.alt = name; img.loading = "lazy"; img.decoding = "async";
       b.append(img);
       b.addEventListener("click", () => {
         const lb = $("#lightboxImage"); lb.src = img.src; lb.alt = name;
         setText("#lightboxTitle", name || "عرض الصورة");
-        setShare(img.src, name);
+        setShare(img.src, name, photo.name);
         openModal("lightboxModal");
       });
       frag.append(b);
     });
     grid.append(frag); religiousLoaded = true;
+    if (pendingImg) { const t = $$("#religiousGrid .gallery-item").find(x => x.dataset.file === pendingImg); pendingImg = null; t && t.click(); }
   } catch (e) { setText("#religiousStatus", e.message || "تعذّر عرض الصور الدينية."); }
 }
 $("#retryReligious").addEventListener("click", () => loadReligious(true));
@@ -1043,6 +1042,15 @@ const backToTop = $("#backToTop");
 addEventListener("scroll", () => backToTop.classList.toggle("visible", scrollY > 450), { passive: true });
 backToTop.addEventListener("click", () => scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
 setText("#year", new Date().getFullYear());
+
+/* فتح الصورة المُشارَكة داخل الموقع عند الدخول من رابط مشاركة */
+(function () {
+  const r = new URLSearchParams(location.search).get("r");
+  if (!r) return;
+  pendingImg = r;
+  history.replaceState(null, "", location.pathname);
+  openModal("religiousModal");
+})();
 
 /* تثبيت الموقع كتطبيق */
 if ("serviceWorker" in navigator) {
