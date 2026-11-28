@@ -292,6 +292,11 @@ button{cursor:pointer}
 .site-badge:hover{transform:translateY(-6px) scale(1.01)}
 .site-badge img{width:100%;height:auto;border-radius:14px}
 
+/* شعار الموقع بدون إطار (يذوب في الخلفية) */
+.site-logo{max-width:460px;margin:0 auto;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.site-logo:hover{transform:translateY(-6px) scale(1.01)}
+.site-logo img{width:100%;height:auto;-webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 55%,transparent 100%)}
+
 @media (max-width:1050px){.nav-links{gap:12px}.nav-links a{font-size:.82rem}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:780px){
   .container{width:min(100% - 28px,var(--container))}.section{padding-block:36px}.nav-wrap{min-height:66px}.menu-toggle{display:grid;place-items:center}
@@ -425,10 +430,10 @@ gtag('config','G-3VZQSDZNC7');
     </div>
   </section>
 
-  <!-- صورة الموقع تحت قسم القرآن -->
+  <!-- صورة الموقع تحت قسم القرآن (بدون إطار) -->
   <section class="site-badge-section" aria-label="شعار الموقع">
     <div class="container">
-      <figure class="site-badge">
+      <figure class="site-logo">
         <img src="Website.gif" alt="لا إله إلا الله محمد رسول الله — موقع الشرقاط الثقافي الأول" width="1236" height="1545" loading="lazy" decoding="async">
       </figure>
     </div>
