@@ -88,35 +88,18 @@ button{cursor:pointer}
 .hero-photo{position:relative;margin:0 0 22px;overflow:hidden;border:2px solid var(--gold);border-radius:26px;background:#1b1611;box-shadow:0 0 0 6px rgba(184,150,79,.14),0 18px 40px rgba(0,0,0,.45)}
 .hero-photo img{width:100%;height:auto;transform:scale(1.08) translateY(var(--py,0px));transform-origin:center;will-change:transform}
 .hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 60px rgba(0,0,0,.35)}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;padding:34px;border:1px solid rgba(217,196,143,.35);border-radius:28px;background:rgba(0,0,0,.12)}
+.hero-grid{display:grid;grid-template-columns:1fr;align-items:center;gap:28px;padding:34px;border:1px solid rgba(217,196,143,.35);border-radius:28px;background:rgba(0,0,0,.12)}
 .hero-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--gold-l);font-size:.85rem;font-weight:500}
 .hero-kicker span{width:8px;height:8px;border-radius:50%;background:var(--gold)}
 .hero h1{margin:0 0 12px;color:#fff;font-family:var(--font-head);font-size:clamp(2.4rem,5.4vw,4rem);line-height:1.25;font-weight:700}
 .hero h1::after{content:"";display:block;width:90px;height:2px;margin-top:10px;background:linear-gradient(to left,var(--gold),transparent)}
 .hero-accent{display:block;background:linear-gradient(180deg,#f6e8b9,#d9c48f 50%,#b8964f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .hero-byline{margin:0 0 20px;max-width:34em;font-size:1rem}
+.btn-about{min-height:36px;padding:2px 16px;gap:6px;border-radius:999px;font-size:.82rem;font-weight:500;color:var(--gold-l);background:rgba(184,150,79,.12);border:1px solid rgba(184,150,79,.6)}
+.btn-about .ico{width:1.1em;height:1.1em}
+.btn-about:hover{background:var(--gold);color:#2b1c0c}
 .hero-copy{animation:heroIn .8s ease both}
-.hero-visual{position:relative;min-width:0;padding:24px 16px 12px;border:2px solid var(--gold);border-radius:24px;color:var(--soft);background:rgba(0,0,0,.1);box-shadow:0 0 0 6px rgba(184,150,79,.16),0 16px 36px rgba(0,0,0,.38);animation:heroIn .8s .15s ease both}
-.hero-visual::before{content:"";position:absolute;inset:9px;border:1px solid rgba(184,150,79,.6);border-radius:17px;pointer-events:none}
-.hero-visual::after{content:"❖";position:absolute;top:-13px;left:50%;transform:translateX(-50%);padding:0 10px;border-radius:12px;background:var(--page);color:var(--gold);font-size:1.05rem;line-height:1.5}
-.hero-caption{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;margin:8px 10px 0;padding-top:8px;border-top:1px solid rgba(184,150,79,.55);color:var(--gold-l);font-size:.8rem;font-weight:700}
-.hero-caption strong{color:var(--gold)}
 @keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
-/* الكتابة الذهبية */
-.calli-stage{position:relative;z-index:1;perspective:900px;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
-.calli-float{transform-style:preserve-3d}
-.calli{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;text-align:center;padding:2px 4px 4px;font-family:'Aref Ruqaa','Amiri',"Noto Naskh Arabic",Tahoma,serif;font-weight:700}
-.orn{display:block;width:min(190px,60%);height:auto;margin:0 auto;color:var(--gold);transform:translateZ(24px);filter:drop-shadow(1px 1px 0 #8a6a2c) drop-shadow(2px 3px 3px rgba(40,25,5,.35))}
-.orn-bottom{margin-top:2px;transform:translateZ(24px) scaleY(-1)}
-.c-bismillah{margin:0;font-size:clamp(.9rem,3.2vw,1.1rem);line-height:1.6;transform:translateZ(14px)}
-.c-ayah{margin:0;font-size:clamp(1.5rem,6.2vw,2.2rem);line-height:1.55;transform:translateZ(50px)}
-.c-ayah span{display:block}
-.c-tasbih{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 6px;margin:4px 0 0;transform:translateZ(28px)}
-.c-bismillah,.c-ayah,.c-tasbih span,.c-salawat{background:linear-gradient(180deg,#fff1a8 0%,#f7cf4d 30%,#d49a14 62%,#f3c845 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(1px 1px 0 #5c3d08) drop-shadow(0 3px 3px rgba(0,0,0,.55))}
-.c-tasbih span{font-size:clamp(.9rem,3.6vw,1.1rem);line-height:1.6}
-.c-tasbih span+span::before{content:"❖";display:inline-block;margin-inline-end:6px;font-size:.6em;vertical-align:middle}
-.c-salawat{margin:2px 0 0;font-size:clamp(.88rem,3.4vw,1.05rem);line-height:1.6;transform:translateZ(18px)}
 
 /* الفواصل */
 .divider{display:flex;align-items:center;gap:14px;width:min(var(--container),calc(100% - 48px));margin:18px auto;color:var(--gold);position:relative;z-index:1}
@@ -315,9 +298,7 @@ button{cursor:pointer}
   .nav-links{position:absolute;top:100%;right:0;left:0;display:none;flex-direction:column;align-items:stretch;gap:2px;padding:10px 15px 16px;background:var(--bar);border-bottom:3px solid var(--gold)}
   .nav-links.open{display:flex}.nav-links a{padding:10px 12px;font-size:.95rem}.hero{padding-block:14px 6px}.hero-photo{border-radius:18px;margin-bottom:14px}.hero-grid{grid-template-columns:1fr;gap:16px;padding:20px 14px;border-radius:22px}
   .hero-kicker{font-size:.8rem;margin-bottom:2px}.hero h1{font-size:clamp(1.9rem,8.4vw,2.4rem);line-height:1.3;margin:0 0 6px}.hero-accent{display:inline}.hero h1::after{margin-top:6px;width:70px}
-  .hero-byline{font-size:.92rem;line-height:1.8;margin-bottom:14px}.hero-visual{padding:18px 10px 8px}.orn{width:min(140px,48%)}
-  .c-bismillah{font-size:.85rem;line-height:1.4}.c-ayah{font-size:clamp(1.3rem,5.6vw,1.7rem);line-height:1.45}.c-tasbih span{font-size:.88rem}.c-salawat{font-size:.82rem}.hero-caption{font-size:.76rem}
-  .section-heading{align-items:stretch;flex-direction:column;gap:16px}.section-heading>div{width:100%;min-width:0}.footer-inner{align-items:flex-start;flex-direction:column}.smart-welcome{font-size:1.1rem;padding:12px 14px}
+  .hero-byline{font-size:.92rem;line-height:1.8;margin-bottom:14px}
   .poem-card{display:block;width:100%;min-width:100%;max-width:none;margin-top:10px;padding:18px 8px 12px}
   .poem-card-title{font-size:1.6rem}
   .poem-card-orn{margin:0 0 6px}
@@ -327,7 +308,7 @@ button{cursor:pointer}
   .divider{width:min(100% - 28px,var(--container));gap:10px;margin:10px auto}.divider svg{width:105px}
 }
 @media (max-width:480px){.section{padding-block:52px}.content-grid{row-gap:34px}.divider{margin:24px auto}.quran-section{padding:40px 0}.card-books .covers-strip img{width:105px;height:150px}body{font-size:15px}.container{width:calc(100% - 24px)}.divider{width:calc(100% - 24px)}.content-card{padding:24px 14px 40px}.content-card h3{font-size:1.15rem}.content-card p{font-size:.84rem;line-height:1.7;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.card-wide p{display:block}.icon{width:50px;height:50px}.icon svg{width:24px;height:24px}.covers-strip img{width:105px;height:150px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.share-bar .btn{flex:1 1 40%;padding:4px 8px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.hero-visual,.smart-welcome,.poem-frame{animation:none;transition:none}.calli{transition:none}.hero-photo img{transform:scale(1.02)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee span,.hero-copy,.smart-welcome,.poem-frame{animation:none;transition:none}.hero-photo img{transform:scale(1.02)}}
 </style>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQSDZNC7"></script>
@@ -399,25 +380,9 @@ gtag('config','G-3VZQSDZNC7');
           <div class="hero-kicker"><span></span> من الشرقاط، حيث تحيا الذاكرة</div>
           <h1 id="heroTitle">الشرقاط <span class="hero-accent">الثقافي الأول</span></h1>
           <p class="hero-byline">صور ومقالات وبثّ مباشر وقنوات رياضية في مكان واحد</p>
-          <button class="btn btn-main" type="button" data-open="aboutModal">تعرّف على الموقع وصاحبه</button>
+          <button class="btn btn-about" type="button" data-open="aboutModal" aria-label="من نحن: تعرّف على الموقع وصاحبه"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>من نحن؟ اضغط هنا</button>
         </div>
-        <div class="hero-visual">
-          <div class="calli-stage" id="calliStage">
-            <div class="calli-float" id="calliFloat">
-              <div class="calli" id="calli">
-                <svg class="orn orn-top" viewBox="0 0 200 26" aria-hidden="true"><use href="#orn"/></svg>
-                <p class="c-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-                <p class="c-ayah"><span>أَلَا بِذِكْرِ اللَّهِ</span><span>تَطْمَئِنُّ الْقُلُوبُ</span></p>
-                <div class="c-tasbih">
-                  <span>سُبْحَانَ اللَّهِ</span><span>الْحَمْدُ لِلَّهِ</span><span>لَا إِلَٰهَ إِلَّا اللَّهُ</span><span>اللَّهُ أَكْبَرُ</span>
-                </div>
-                <p class="c-salawat">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
-                <svg class="orn orn-bottom" viewBox="0 0 200 26" aria-hidden="true"><use href="#orn"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="hero-caption"><span>الشرقاط · العراق</span><strong>تراثٌ لا يغيب</strong></div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -656,8 +621,8 @@ gtag('config','G-3VZQSDZNC7');
       </article>
 
       <div class="share-site" id="shareSite">
-        <h3>شارك الموقع مع .</h3>
-        <p>ساهم في نشر الموقع بمشاركته مع وأصدقائك.</p>
+        <h3>شارك الموقع مع أحبابك</h3>
+        <p>ساهم في نشر الموقع بمشاركته مع أهلك وأصدقائك.</p>
         <div class="share-site-btns">
           <button class="btn btn-main" id="siteShareBtn" type="button">↗ شارك الموقع</button>
           <button class="btn" id="siteWa" type="button" hidden>واتساب</button>
