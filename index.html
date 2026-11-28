@@ -281,6 +281,15 @@ button{cursor:pointer}
 .share-bar .btn:hover{color:#2b1c0c}
 .share-bar .btn-main{color:#2b1c0c}
 .fb-note{margin:12px 0;padding:12px 14px;border:1px solid var(--gold);border-radius:12px;background:rgba(184,150,79,.14);font-size:.9rem;line-height:1.9}
+.lightbox-panel{position:relative}
+.img-menu{position:absolute;z-index:5;left:50%;top:38%;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:8px;min-width:200px;padding:12px;background:var(--brown);border:1px solid var(--gold);border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,.6)}
+.img-menu .btn{min-height:44px;width:100%}
+.img-menu .btn:not(.btn-main){color:var(--gold-l)}
+.pic-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:34px;padding-bottom:30px}
+.share-site{margin-top:34px;padding:30px 22px;border:1px solid rgba(217,196,143,.4);border-radius:22px;background:rgba(0,0,0,.15);text-align:center}
+.share-site h3{margin:0 0 6px;color:#fff;font-family:var(--font-head);font-size:1.6rem}
+.share-site p{margin:0 0 16px;color:#e8dcc8;font-size:.95rem}
+.share-site-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .share-hint{margin:0;padding:0 12px 12px;text-align:center;font-size:.82rem;line-height:1.7;color:var(--mid);background:var(--ivory)}
 
 /* المؤلفات أول قسم + مسافات أوسع */
@@ -499,13 +508,7 @@ gtag('config','G-3VZQSDZNC7');
           <a class="btn card-link" href="book.html">تصفّح المؤلفات <span aria-hidden="true">←</span></a>
         </article>
 
-        <!-- قسم الصور الدينية -->
-        <article class="content-card" data-search="صور دينية اسلامية خلفيات اذكار ادعية religious">
-          <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></span></div>
-          <h3>صور دينية</h3>
-          <p>مجموعة من الصور والبطاقات الدينية والأذكار — حمّلها أو شاركها مجانًا مع أحبابك.</p>
-          <button class="btn card-link" type="button" data-open="religiousModal">افتح الصور الدينية <span aria-hidden="true">←</span></button>
-        </article>
+        
 
         <article class="content-card" data-search="الشرقاط المدينة العراق تاريخ تراث shirqat">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span></div>
@@ -521,12 +524,7 @@ gtag('config','G-3VZQSDZNC7');
           <a class="btn card-link" href="scholars.html">تصفّح سِيَر العلماء <span aria-hidden="true">←</span></a>
         </article>
 
-        <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
-          <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></span></div>
-          <h3>معرض الصور</h3>
-          <p>صور ولقطات وتاريخ مصوَّر من مدينة الشرقاط.</p>
-          <button class="btn card-link" type="button" data-open="galleryModal">افتح المعرض <span aria-hidden="true">←</span></button>
-        </article>
+        
 
         <article class="content-card" data-search="مقالات وبرامج مدونة ووردبريس wordpress تدوينات">
           <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span></div>
@@ -629,6 +627,23 @@ gtag('config','G-3VZQSDZNC7');
         </figure>
       </div>
 
+      <div class="content-grid pic-grid" id="picGrid">
+        <!-- قسم الصور الدينية -->
+        <article class="content-card" data-search="صور دينية اسلامية خلفيات اذكار ادعية religious">
+          <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></span></div>
+          <h3>صور دينية</h3>
+          <p>مجموعة من الصور والبطاقات الدينية والأذكار — حمّلها أو شاركها مجانًا مع أحبابك.</p>
+          <button class="btn card-link" type="button" data-open="religiousModal">افتح الصور الدينية <span aria-hidden="true">←</span></button>
+        </article>
+
+        <article class="content-card" data-search="معرض الصور صور فوتوغرافية gallery photos ذاكرة">
+          <div class="card-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></span></div>
+          <h3>معرض الصور</h3>
+          <p>صور ولقطات وتاريخ مصوَّر من مدينة الشرقاط.</p>
+          <button class="btn card-link" type="button" data-open="galleryModal">افتح المعرض <span aria-hidden="true">←</span></button>
+        </article>
+      </div>
+
       <article class="media-card">
         <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
         <h3>أرسل كتابك أو روايتك</h3>
@@ -639,6 +654,17 @@ gtag('config','G-3VZQSDZNC7');
         </label>
         <a class="btn btn-main" id="bookLink" href="sendbook.html">أرسل كتابك عبر البريد <span aria-hidden="true">←</span></a>
       </article>
+
+      <div class="share-site" id="shareSite">
+        <h3>شارك الموقع مع أحبابك</h3>
+        <p>ساهم في نشر الموقع بمشاركته مع أهلك وأصدقائك.</p>
+        <div class="share-site-btns">
+          <button class="btn btn-main" id="siteShareBtn" type="button">↗ شارك الموقع</button>
+          <button class="btn" id="siteWa" type="button" hidden>واتساب</button>
+          <button class="btn" id="siteMs" type="button" hidden>ماسنجر</button>
+          <button class="btn" id="siteCp" type="button">نسخ الرابط</button>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -718,6 +744,11 @@ gtag('config','G-3VZQSDZNC7');
       <button class="modal-close" type="button" data-close aria-label="إغلاق الصورة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <img class="lightbox-image" id="lightboxImage" alt="">
+    <div class="img-menu" id="imgMenu" role="menu" hidden>
+      <button class="btn btn-main" id="imgSave" type="button" role="menuitem">💾 حفظ الصورة</button>
+      <button class="btn" id="imgShare" type="button" role="menuitem">↗ مشاركة</button>
+      <button class="btn" id="imgOpen" type="button" role="menuitem">فتح في المتصفح</button>
+    </div>
     <div class="share-bar" id="shareBar" hidden>
       <button class="btn btn-main" id="dlBtn" type="button">⬇ تحميل</button>
       <button class="btn" id="shBtn" type="button">↗ مشاركة</button>
@@ -726,7 +757,7 @@ gtag('config','G-3VZQSDZNC7');
       <button class="btn" id="cpBtn" type="button">نسخ الرابط</button>
     </div>
     <div class="share-hint" id="shareHint" hidden>
-      <p style="margin:0 0 8px">متصفح فيسبوك الداخلي يمنع تحميل الصور. اضغط الزر التالي لفتح الموقع في المتصفح ثم حمّل الصورة بسهولة:</p>
+      <p style="margin:0 0 8px">متصفح فيسبوك الداخلي يمنع تحميل الصور. اضغط مطوّلًا على الصورة لتظهر قائمة الحفظ، أو اضغط الزر التالي لفتح الموقع في المتصفح ثم حمّل الصورة بسهولة:</p>
       <button class="btn btn-main" id="extBtn" type="button">فتح في المتصفح وتحميل الصورة</button>
     </div>
   </div>
@@ -932,6 +963,7 @@ const isAndroid = /Android/i.test(navigator.userAgent);
 const SITE = location.origin + location.pathname;
 function setShare(url, name, file) {
   curShare = url ? { url: new URL(url, location.href).href, name, link: SITE + "?r=" + encodeURIComponent(file || "") } : null;
+  $("#imgMenu").hidden = true;
   $("#shareBar").hidden = !curShare;
   $("#shareHint").hidden = !curShare || !inFB;
   $("#shBtn").hidden = !navigator.share;
@@ -991,6 +1023,21 @@ async function copyLink() {
   } catch { showToast(t); }
 }
 $("#cpBtn").addEventListener("click", () => curShare && copyLink());
+
+/* قائمة ضغط مطوّل على الصورة المكبّرة (داخل متصفح فيسبوك فقط) */
+(function () {
+  if (!inFB) return;
+  const img = $("#lightboxImage"), menu = $("#imgMenu"); let t;
+  const hide = () => { menu.hidden = true; };
+  const show = () => { if (curShare) menu.hidden = false; };
+  img.addEventListener("touchstart", () => { clearTimeout(t); t = setTimeout(show, 450); }, { passive: true });
+  ["touchend", "touchmove", "touchcancel"].forEach(ev => img.addEventListener(ev, () => clearTimeout(t), { passive: true }));
+  img.addEventListener("contextmenu", e => { e.preventDefault(); show(); });
+  $("#imgSave").addEventListener("click", () => { hide(); $("#dlBtn").click(); });
+  $("#imgShare").addEventListener("click", () => { hide(); (navigator.share ? $("#shBtn") : $("#cpBtn")).click(); });
+  $("#imgOpen").addEventListener("click", () => { hide(); openExternal(); });
+  $("#lightboxModal").addEventListener("click", e => { if (!menu.hidden && !menu.contains(e.target)) hide(); });
+})();
 
 /* تحميل الصور الدينية كصور عادية */
 let religiousLoaded = false;
@@ -1082,6 +1129,30 @@ const backToTop = $("#backToTop");
 addEventListener("scroll", () => backToTop.classList.toggle("visible", scrollY > 450), { passive: true });
 backToTop.addEventListener("click", () => scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
 setText("#year", new Date().getFullYear());
+
+/* مشاركة الموقع نفسه */
+(function () {
+  const text = "الشرقاط الثقافي الأول — الثقافة والتراث والذاكرة من الشرقاط إلى العالم";
+  const url = SITE;
+  const sh = $("#siteShareBtn");
+  sh.hidden = !navigator.share;
+  sh.addEventListener("click", async () => {
+    try { await navigator.share({ title: "الشرقاط الثقافي الأول", text, url }); }
+    catch (e) { if (!e || e.name !== "AbortError") copy(); }
+  });
+  $("#siteWa").hidden = !isMobile; $("#siteMs").hidden = !isMobile;
+  $("#siteWa").addEventListener("click", () => { location.href = "whatsapp://send?text=" + encodeURIComponent(text + "\n" + url); });
+  $("#siteMs").addEventListener("click", () => { location.href = "fb-messenger://share/?link=" + encodeURIComponent(url); });
+  async function copy() {
+    try { await navigator.clipboard.writeText(url); showToast("تم نسخ رابط الموقع"); return; } catch {}
+    try {
+      const ta = document.createElement("textarea"); ta.value = url; ta.style.cssText = "position:fixed;opacity:0";
+      document.body.append(ta); ta.select(); const ok = document.execCommand("copy"); ta.remove();
+      showToast(ok ? "تم نسخ رابط الموقع" : url);
+    } catch { showToast(url); }
+  }
+  $("#siteCp").addEventListener("click", copy);
+})();
 
 /* فتح الصورة المُشارَكة داخل الموقع عند الدخول من رابط مشاركة */
 (function () {
